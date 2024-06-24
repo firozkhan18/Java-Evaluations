@@ -224,11 +224,10 @@ ArrayList	LinkedList
 | ArrayList&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | LinkedList |
 | ----------------------- | ------------------ |
 |ArrayList is an index based data structure where each element is associated with an index.	|Elements in the LinkedList are called as nodes, where each node consists of three things – Reference to previous element, Actual value of the element and Reference to next element.	|	
-|"Insertions and Removals in the middle of the ArrayList are very slow. 
-Because after each insertion and removal, elements need to be shifted."|	"Insertions and Removals from any position in the LinkedList are faster than the ArrayList. Because there is no need to shift the elements after every insertion and removal. Only references of previous and next elements are to be changed."|	
+|"Insertions and Removals in the middle of the ArrayList are very slow. Because after each insertion and removal, elements need to be shifted."|	
+"Insertions and Removals from any position in the LinkedList are faster than the ArrayList. Because there is no need to shift the elements after every insertion and removal. Only references of previous and next elements are to be changed."|	
 |Insertion and removal operations in ArrayList are of order O(n).	|Insertion and removal in LinkedList are of order O(1).		|
-|"Retrieval of elements in the ArrayList is faster than the LinkedList . Because all elements in ArrayList are index based."	|"Retrieval of elements in LinkedList is very slow compared to ArrayList. 
-Because to retrieve an element, you have to traverse from beginning or end (Whichever is closer to that element) to reach that element."|		
+|"Retrieval of elements in the ArrayList is faster than the LinkedList . Because all elements in ArrayList are index based."	|"Retrieval of elements in LinkedList is very slow compared to ArrayList. Because to retrieve an element, you have to traverse from beginning or end (Whichever is closer to that element) to reach that element."|		
 |Retrieval operation in ArrayList is of order of O(1).	|Retrieval operation in LinkedList is of order of O(n).	|	
 |ArrayList is of type Random Access. i.e elements can be accessed randomly.	|"LinkedList is not of type Random Access. i.e elements can not be accessed randomly. 
 you have to traverse from beginning or end to reach a particular element."|		
