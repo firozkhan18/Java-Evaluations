@@ -3,12 +3,13 @@
 > A curated list of **FREE** design & UI resources for developers including stock photos, templates, frameworks, UI Kits, online tools and much much more.
 
 - [Wait & Sleep](#wait-and-sleep)
+- [Product & Image Mockups](#product-and-image-mockups)
+- [UI Graphics](#ui-graphics)
 - [Fonts](#fonts)
 - [Icons](#icons)
 - [Stock Photos](#stock-photos)
 - [Stock Videos](#stock-videos)
 - [Vectors & Clipart](#vectors-and-clipart)
-- [Product & Image Mockups](#product-and-image-mockups)
 - [HTML & CSS Templates](#html-css-templates)
 - [CSS Frameworks](#css-frameworks)
 - [UI Components & Kits](#ui-components-and-kits)
@@ -65,7 +66,7 @@ Websites that offer free fonts as well as font based tools
 
 
 
-## Wait & Sleep			
+## Wait & Sleep		
 					
 wait() Vs sleep() 
 
