@@ -77,7 +77,7 @@ Shallow Copy	Deep Copy
 |It can be used on both primitive types as well as on derived types.	|It can be used only on derived types.	|	
 |It is best suitable for primitive types.	|It is best suitable for derived types.		|
 |You can’t override the “==” operator. It behaves same for all objects.	|You can override the equals method according to your business requirements.|		
-See More : “==” Vs equals()			
+- See More : “==” Vs equals()			
 			
 6) Error Vs Exception In Java			
 			
@@ -89,111 +89,109 @@ Errors	Exceptions
 |Errors happen at run time. They will not be known to compiler.	|Checked exceptions are known to compiler where as unchecked exceptions are not known to compiler because they occur at run time.		|
 |It is impossible to recover from errors.	|You can recover from exceptions by handling them through try-catch blocks.|		
 |Errors are mostly caused by the environment in which application is running.|	Exceptions are mainly caused by the application itself.|		
-|Examples : - java.lang.StackOverflowError, java.lang.OutOfMemoryError | Examples : - Checked Exceptions : SQLException, IOException	- Unchecked Exceptions : ArrayIndexOutOfBoundException, ClassCastException, NullPointerException			|
+|Examples : - java.lang.StackOverflowError, java.lang.OutOfMemoryError | Examples :  **Checked Exceptions** : SQLException, IOException	 **Unchecked Exceptions** : ArrayIndexOutOfBoundException, ClassCastException, NullPointerException			|
 
-See More : Error Vs Exception			
+- See More : Error Vs Exception			
 			
 7) Class Variables Vs Instance Variables In Java			
 			
 Class Variables	Instance Variables	
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| Class Variables&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Instance Variables |
 | ----------------------- | ------------------ |
-Class variables are declared with keyword static.	Instance variables are declared without static keyword.		
-"Class variables are common to all instances of a class. 
-These variables are shared between the objects of a class."	Instance variables are not shared between the objects of a class. Each instance will have their own copy of instance variables.		
-"As class variables are common to all objects of a class, 
-changes made to these variables through one object will reflect in another."	As each object will have its own copy of instance variables, changes made to these variables through one object will not reflect in another object.		
-Class variables can be accessed using either class name or object reference.	Instance variables can be accessed only through object reference.		
-See More : Class Variables Vs Instance Variables			
+|Class variables are declared with keyword static.	|Instance variables are declared without static keyword.		
+|"Class variables are common to all instances of a class. These variables are shared between the objects of a class."	|Instance variables are not shared between the objects of a class. Each instance will have their own copy of instance variables.		|
+|"As class variables are common to all objects of a class, changes made to these variables through one object will reflect in another."	|As each object will have its own copy of instance variables, changes made to these variables through one object will not reflect in another object.|		
+|Class variables can be accessed using either class name or object reference.	|Instance variables can be accessed only through object reference.		
+- See More : Class Variables Vs Instance Variables	|		
 			
 8) Fail Fast Vs Fail Safe Iterators In Java			
 			
 Fail-Fast Iterators	Fail-Safe Iterators
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| Fail-Fast Iterators&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Fail-Safe Iterators |
 | ----------------------- | ------------------ |
-Fail-Fast iterators doesn’t allow modifications of a collection while iterating over it.	Fail-Safe iterators allow modifications of a collection while iterating over it.		
-These iterators throw ConcurrentModificationException if a collection is modified while iterating over it.	These iterators don’t throw any exceptions if a collection is modified while iterating over it.		
-They use original collection to traverse over the elements of the collection.	They use copy of the original collection to traverse over the elements of the collection.		
-These iterators don’t require extra memory.	These iterators require extra memory to clone the collection.		
-Ex : Iterators returned by ArrayList, Vector, HashMap.	Ex : Iterator returned by ConcurrentHashMap.		
-See More : Fail-Fast Vs Fail-Safe			
+|Fail-Fast iterators doesn’t allow modifications of a collection while iterating over it.	|Fail-Safe iterators allow modifications of a collection while iterating over it.		|
+|These iterators throw ConcurrentModificationException if a collection is modified while iterating over it.	|These iterators don’t throw any exceptions if a collection is modified while iterating over it.	|	
+|They use original collection to traverse over the elements of the collection.	|They use copy of the original collection to traverse over the elements of the collection.		|
+|These iterators don’t require extra memory.	|These iterators require extra memory to clone the collection.	|	
+|Ex : Iterators returned by ArrayList, Vector, HashMap.	|Ex : Iterator returned by ConcurrentHashMap.		|
+- See More : Fail-Fast Vs Fail-Safe			
 			
 9) final Vs finally Vs finalize() In Java			
 			
 final	finally	finalize()	
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
-| ----------------------- | ------------------ |
-final is a keyword in Java which is used to make a variable or a method or a class as unchangeable.	finally is a block in Java which is used for exception handling along with try and catch blocks.	"finalize() method is a protected method of java.lang.Object class 
-which is used to perform some clean up operations on an object before it is removed from the memory."	
-The value of a variable which is declared as final can’t be changed once it is initialized.	finally block is always executed whether an exception is occurred or not and occurred exception is handled or not.	This method is called by garbage collector thread before an object is removed from the memory.	
-A method declared as final can’t be overridden or modified in the sub class and a class declared as final can’t be extended.	Most of time, this block is used to close the resources like database connection, I/O resources etc soon after their use.	This method is inherited to every class you create in Java.	
-See More : final Vs finally Vs finalize			
+| final&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | finally | finalize() |
+| ----------------------- | ------------------ |------------------ |
+|final is a keyword in Java which is used to make a variable or a method or a class as unchangeable.	|finally is a block in Java which is used for exception handling along with try and catch blocks.	|"finalize() method is a protected method of java.lang.Object class 
+which is used to perform some clean up operations on an object before it is removed from the memory."	|
+|The value of a variable which is declared as final can’t be changed once it is initialized.	|finally block is always executed whether an exception is occurred or not and occurred exception is handled or not.	|This method is called by garbage collector thread before an object is removed from the memory.	|
+|A method declared as final can’t be overridden or modified in the sub class and a class declared as final can’t be extended.	|Most of time, this block is used to close the resources like database connection, I/O resources etc soon after their use.|	This method is inherited to every class you create in Java.|	
+- See More : final Vs finally Vs finalize			
 			
 10) ClassNotFoundException Vs NoClassDefFoundError In Java			
 			
 ClassNotFoundException	NoClassDefFoundError	
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ClassNotFoundException&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |NoClassDefFoundError |
 | ----------------------- | ------------------ |
-It is an exception. It is of type java.lang.Exception.	It is an error. It is of type java.lang.Error.		
-It occurs when an application tries to load a class at run time which is not updated in the classpath.	It occurs when Java runtime system doesn’t find a class definition, which is present at compile time, but missing at run time.		
-"It is thrown by the application itself. 
-It is thrown by the methods like Class.forName(), loadClass() and findSystemClass()."	It is thrown by the Java Runtime System.		
-It occurs when classpath is not updated with required JAR files.	It occurs when required class definition is missing at run time.		
-See More : ClassNotFoundException Vs NoClassDefFoundError			
+|It is an exception. It is of type java.lang.Exception.|	It is an error. It is of type java.lang.Error.|		
+|It occurs when an application tries to load a class at run time which is not updated in the classpath.	|It occurs when Java runtime system doesn’t find a class definition, which is present at compile time, but missing at run time.		
+"It is thrown by the application itself. |
+|It is thrown by the methods like Class.forName(), loadClass() and findSystemClass()."	|It is thrown by the Java Runtime System.|		
+|It occurs when classpath is not updated with required JAR files.	|It occurs when required class definition is missing at run time.|		
+- See More : ClassNotFoundException Vs NoClassDefFoundError			
 			
 11) start() Vs run() Methods In Java			
 			
 start()	run()		
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| start()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | run() |
 | ----------------------- | ------------------ |
-New thread is created.	No new thread is created.		
-Newly created thread executes task kept in run() method.	Calling thread itself executes task kept in run() method.		
-It is a member of java.lang.Thread class.	It is a member of java.lang.Runnable interface.		
-You can’t call start() method more than once.	You can call run() method multiple times.		
-Use of multi-threaded programming concept.	No use of multi-threaded programming concept.		
-See More : start() Vs run()			
+|New thread is created.	|No new thread is created.|		
+|Newly created thread executes task kept in run() method.	|Calling thread itself executes task kept in run() method.|		
+|It is a member of java.lang.Thread class.	|It is a member of java.lang.Runnable interface.|		
+|You can’t call start() method more than once.|	You can call run() method multiple times.|		
+|Use of multi-threaded programming concept.	|No use of multi-threaded programming concept.	|	
+- See More : start() Vs run()			
 			
 12) throw Vs throws Vs Throwable In Java			
 			
 throw	throws	Throwable	
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
-| ----------------------- | ------------------ |
-throw is a keyword in Java which is used to throw an exception manually.	throws is also a keyword in java which is used in the method signature to indicate that this method may throw mentioned exceptions.	"Throwable is a super class for all types of errors and exceptions in Java. 
-This class is a member of java.lang package."	
-"Using throw keyword, you can throw an exception from any method or block. 
-But, that exception must be of type java.lang.Throwable class or it’s sub classes."	The caller to such methods must handle the mentioned exceptions either using try-catch blocks or using throws keyword.	Only instances of this class or it’s sub classes are thrown by the java virtual machine or by the throw statement.	
-See More : throw Vs throws Vs Throwable			
+| throw&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | throws |Throwable |
+| ----------------------- | ------------------ |------------------ |
+|throw is a keyword in Java which is used to throw an exception manually.	|throws is also a keyword in java which is used in the method signature to indicate that this method may throw mentioned exceptions.	|"Throwable is a super class for all types of errors and exceptions in Java. 
+This class is a member of java.lang package."	|
+|"Using throw keyword, you can throw an exception from any method or block. 
+But, that exception must be of type java.lang.Throwable class or it’s sub classes."	|The caller to such methods must handle the mentioned exceptions either using try-catch blocks or using throws keyword.	|Only instances of this class or it’s sub classes are thrown by the java virtual machine or by the throw statement.	|
+- See More : throw Vs throws Vs Throwable			
 			
 13) User Threads Vs Daemon Threads In Java			
 			
 User Threads	Daemon Threads	
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| User Threads&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Daemon Threads |
 | ----------------------- | ------------------ |
-"JVM waits for user threads to finish their work. 
-It will not exit until all user threads finish their work."	JVM will not wait for daemon threads to finish their work. It will exit as soon as all user threads finish their work.		
-User threads are foreground threads.	Daemon threads are background threads.		
-User threads are high priority threads.	Daemon threads are low priority threads.		
-User threads are created by the application.	Daemon threads, in most of time, are created by the JVM.		
-User threads are mainly designed to do some specific task.	Daemon threads are designed to support the user threads.		
-"JVM will not force the user threads to terminate. 
-It will wait for user threads to terminate themselves."	JVM will force the daemon threads to terminate if all user threads have finished their work.		
-See More : User Threads Vs Daemon Threads			
+|"JVM waits for user threads to finish their work. 
+It will not exit until all user threads finish their work."	|JVM will not wait for daemon threads to finish their work. It will exit as soon as all user threads finish their work.		|
+|User threads are foreground threads.	|Daemon threads are background threads.	|	
+|User threads are high priority threads.	|Daemon threads are low priority threads.|		
+|User threads are created by the application.	|Daemon threads, in most of time, are created by the JVM.|		
+|User threads are mainly designed to do some specific task.	|Daemon threads are designed to support the user threads.|		
+|"JVM will not force the user threads to terminate. 
+It will wait for user threads to terminate themselves."	|JVM will force the daemon threads to terminate if all user threads have finished their work.|		
+- See More : User Threads Vs Daemon Threads			
 			
 14) notify() Vs notifyAll() In Java			
 			
 notify()	notifyAll()		
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| notify()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | notifyAll() |
 | ----------------------- | ------------------ |
-"When a thread calls notify() method on a particular object, 
-only one thread will be notified which is waiting for the lock or monitor of that object."	When a thread calls notifyAll() method on a particular object, all threads which are waiting for the lock of that object are notified.		
-The thread chosen to notify is random i.e randomly one thread will be selected for notification.	All notified threads will get the lock of the object on a priority basis.		
-"Notified thread doesn’t get the lock of the object immediately. 
+|"When a thread calls notify() method on a particular object, 
+only one thread will be notified which is waiting for the lock or monitor of that object."	|When a thread calls notifyAll() method on a particular object, all threads which are waiting for the lock of that object are notified.	|	
+|The thread chosen to notify is random i.e randomly one thread will be selected for notification.	|All notified threads will get the lock of the object on a priority basis.		
+|"Notified thread doesn’t get the lock of the object immediately. 
 It gets once the calling thread releases the lock of that object. 
 Until that it will be in BLOCKED state. 
-It will move from BLOCKED state to RUNNING state once it gets the lock."	"All notified threads will move from WAITING state to BLOCKED state. 
+It will move from BLOCKED state to RUNNING state once it gets the lock."	|"All notified threads will move from WAITING state to BLOCKED state. 
 The thread which gets the lock of the object moves to RUNNING state. 
-The remaining threads will remain in BLOCKED state until they get the object lock."		
-See More : notify() Vs notifyAll()			
+The remaining threads will remain in BLOCKED state until they get the object lock."		|
+- See More : notify() Vs notifyAll()			
 			
 15) BLOCKED Vs WAITING States In Java			
 			
