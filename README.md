@@ -69,7 +69,9 @@ Shallow Copy	Deep Copy
 			
 5) “==” Vs equals() In Java			
 			
-“==” Operator	equals() Method		
+“==” Operator	equals() Method	
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 It is a binary operator in Java.	It is a public method of java.lang.Object class.		
 It compares the two objects based on their location in the memory.	"The default version of equals method also does the comparison of two objects based on their location in the memory. 
 But, you can override the equals method so that it performs the comparison of two objects on some condition."		
@@ -81,6 +83,8 @@ See More : “==” Vs equals()
 6) Error Vs Exception In Java			
 			
 Errors	Exceptions		
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 Errors in Java are of type java.lang.Error.	Exceptions in Java are of type java.lang.Exception.		
 All errors in Java are unchecked type.	Exceptions include both checked as well as unchecked type.		
 Errors happen at run time. They will not be known to compiler.	Checked exceptions are known to compiler where as unchecked exceptions are not known to compiler because they occur at run time.		
@@ -93,7 +97,9 @@ See More : Error Vs Exception
 			
 7) Class Variables Vs Instance Variables In Java			
 			
-Class Variables	Instance Variables		
+Class Variables	Instance Variables	
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 Class variables are declared with keyword static.	Instance variables are declared without static keyword.		
 "Class variables are common to all instances of a class. 
 These variables are shared between the objects of a class."	Instance variables are not shared between the objects of a class. Each instance will have their own copy of instance variables.		
@@ -104,7 +110,9 @@ See More : Class Variables Vs Instance Variables
 			
 8) Fail Fast Vs Fail Safe Iterators In Java			
 			
-Fail-Fast Iterators	Fail-Safe Iterators		
+Fail-Fast Iterators	Fail-Safe Iterators
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 Fail-Fast iterators doesn’t allow modifications of a collection while iterating over it.	Fail-Safe iterators allow modifications of a collection while iterating over it.		
 These iterators throw ConcurrentModificationException if a collection is modified while iterating over it.	These iterators don’t throw any exceptions if a collection is modified while iterating over it.		
 They use original collection to traverse over the elements of the collection.	They use copy of the original collection to traverse over the elements of the collection.		
@@ -115,6 +123,8 @@ See More : Fail-Fast Vs Fail-Safe
 9) final Vs finally Vs finalize() In Java			
 			
 final	finally	finalize()	
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 final is a keyword in Java which is used to make a variable or a method or a class as unchangeable.	finally is a block in Java which is used for exception handling along with try and catch blocks.	"finalize() method is a protected method of java.lang.Object class 
 which is used to perform some clean up operations on an object before it is removed from the memory."	
 The value of a variable which is declared as final can’t be changed once it is initialized.	finally block is always executed whether an exception is occurred or not and occurred exception is handled or not.	This method is called by garbage collector thread before an object is removed from the memory.	
@@ -123,7 +133,9 @@ See More : final Vs finally Vs finalize
 			
 10) ClassNotFoundException Vs NoClassDefFoundError In Java			
 			
-ClassNotFoundException	NoClassDefFoundError		
+ClassNotFoundException	NoClassDefFoundError	
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 It is an exception. It is of type java.lang.Exception.	It is an error. It is of type java.lang.Error.		
 It occurs when an application tries to load a class at run time which is not updated in the classpath.	It occurs when Java runtime system doesn’t find a class definition, which is present at compile time, but missing at run time.		
 "It is thrown by the application itself. 
@@ -134,6 +146,8 @@ See More : ClassNotFoundException Vs NoClassDefFoundError
 11) start() Vs run() Methods In Java			
 			
 start()	run()		
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 New thread is created.	No new thread is created.		
 Newly created thread executes task kept in run() method.	Calling thread itself executes task kept in run() method.		
 It is a member of java.lang.Thread class.	It is a member of java.lang.Runnable interface.		
@@ -144,6 +158,8 @@ See More : start() Vs run()
 12) throw Vs throws Vs Throwable In Java			
 			
 throw	throws	Throwable	
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 throw is a keyword in Java which is used to throw an exception manually.	throws is also a keyword in java which is used in the method signature to indicate that this method may throw mentioned exceptions.	"Throwable is a super class for all types of errors and exceptions in Java. 
 This class is a member of java.lang package."	
 "Using throw keyword, you can throw an exception from any method or block. 
@@ -152,7 +168,9 @@ See More : throw Vs throws Vs Throwable
 			
 13) User Threads Vs Daemon Threads In Java			
 			
-User Threads	Daemon Threads		
+User Threads	Daemon Threads	
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 "JVM waits for user threads to finish their work. 
 It will not exit until all user threads finish their work."	JVM will not wait for daemon threads to finish their work. It will exit as soon as all user threads finish their work.		
 User threads are foreground threads.	Daemon threads are background threads.		
@@ -166,6 +184,8 @@ See More : User Threads Vs Daemon Threads
 14) notify() Vs notifyAll() In Java			
 			
 notify()	notifyAll()		
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 "When a thread calls notify() method on a particular object, 
 only one thread will be notified which is waiting for the lock or monitor of that object."	When a thread calls notifyAll() method on a particular object, all threads which are waiting for the lock of that object are notified.		
 The thread chosen to notify is random i.e randomly one thread will be selected for notification.	All notified threads will get the lock of the object on a priority basis.		
@@ -180,6 +200,8 @@ See More : notify() Vs notifyAll()
 15) BLOCKED Vs WAITING States In Java			
 			
 WAITING	BLOCKED		
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 "The thread will be in this state when it calls wait() or join() method. 
 The thread will remain in WAITING state until any other thread calls notify() or notifyAll()."	The thread will be in this state when it is notified by other thread but has not got the object lock yet.		
 The WAITING thread is waiting for notification from other threads.	The BLOCKED thread is waiting for other thread to release the lock.		
@@ -188,7 +210,9 @@ See More : BLOCKED Vs WAITING
 			
 16) Extends Thread Vs Implements Runnable In Java			
 			
-Implements Runnable	Extends Thread		
+Implements Runnable	Extends Thread
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 You can extend any other class.	You can’t extend any other class.		
 No overhead of additional methods .	Overhead of additional methods from Thread class.		
 Separates the task from the runner.	Doesn’t separate the task from the runner.		
@@ -202,6 +226,8 @@ See More : Extends Thread Vs Implements Runnable
 17) Collection Vs Collections In Java			
 			
 Collection	Collections		
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 "Collection is a root level interface of the Java Collection Framework. 
 Most of the classes in Java Collection Framework inherit from this interface."	"Collections is an utility class in java.util package. 
 It consists of only static methods which are used to operate on objects of type Collection."		
@@ -211,6 +237,8 @@ See More : Collection Vs Collections
 18) ArrayList Vs LinkedList In Java			
 			
 ArrayList	LinkedList		
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 ArrayList is an index based data structure where each element is associated with an index.	Elements in the LinkedList are called as nodes, where each node consists of three things – Reference to previous element, Actual value of the element and Reference to next element.		
 "Insertions and Removals in the middle of the ArrayList are very slow. 
 Because after each insertion and removal, elements need to be shifted."	"Insertions and Removals from any position in the LinkedList are faster than the ArrayList. 
@@ -232,6 +260,8 @@ See More : ArrayList Vs LinkedList
 19) HashMap vs HashSet In Java			
 			
 HashSet	HashMap		
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 HashSet implements Set interface.	HashMap implements Map interface.		
 HashSet stores the data as objects.	HashMap stores the data as key-value pairs.		
 HashSet internally uses HashMap.	HashMap internally uses an array of Entry<K, V> objects.		
@@ -243,7 +273,9 @@ See More : HashMap Vs HashSet
 			
 20) HashMap Vs HashTable In Java			
 			
-HashMap	HashTable		
+HashMap	HashTable	
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 HashMap is not synchronized and therefore it is not thread safe.	HashTable is internally synchronized and therefore it is thread safe.		
 HashMap allows maximum one null key and any number of null values.	HashTable doesn’t allow null keys and null values.		
 Iterators returned by the HashMap are fail-fast in nature.	Enumeration returned by the HashTable are fail-safe in nature.		
@@ -258,7 +290,9 @@ See More : HashMap Vs HashTable
 			
 21) Iterator Vs ListIterator In Java			
 			
-Iterator	ListIterator		
+Iterator	ListIterator
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 Using Iterator, you can traverse List, Set and Queue type of objects.	But using ListIterator, you can traverse only List objects.		
 Using Iterator, we can traverse the elements only in forward direction.	But, using ListIterator you can traverse the elements in both the directions – forward and backward.		
 Using Iterator you can only remove the elements from the collection.	But using ListIterator, you can perform modifications (insert, replace, remove) on the list.		
@@ -269,6 +303,8 @@ See More : Iterator Vs ListIterator
 22) ArrayList Vs Vector In Java			
 			
 ArrayList	Vector		
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 ArrayList is not thread safe.	Vector is thread safe.		
 As ArrayList is not synchronized, it gives better performance than Vector.	As Vector is synchronized, it is slightly slower than ArrayList.		
 ArrayList is not a legacy code.	Vector class is considered as legacy, due for deprecation.		
@@ -277,6 +313,8 @@ See More : ArrayList Vs Vector
 23) HashSet Vs TreeSet Vs LinkedHashSet In Java			
 			
 HashSet	LinkedHashSet	TreeSet	
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 HashSet uses HashMap internally to store it’s elements.	LinkedHashSet uses  LinkedHashMap internally to store it’s elements.	TreeSet uses TreeMap internally to store it’s elements.	
 HashSet doesn’t maintain any order of elements.	LinkedHashSet maintains insertion order of elements. i.e elements are placed as they are inserted.	"TreeSet orders the elements according to supplied Comparator. 
 If no comparator is supplied, elements will be placed in their natural ascending order."	
@@ -296,6 +334,8 @@ See More : HashSet Vs LinkedHashSet Vs TreeSet
 24) Collections Vs Streams In Java			
 			
 Collections	Streams		
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 Collections are mainly used to store and group the data.	Streams are mainly used to perform operations on data.		
 You can add or remove elements from collections.	You can’t add or remove elements from streams.		
 Collections have to be iterated externally.	Streams are internally iterated.		
@@ -307,6 +347,8 @@ See More : Collections Vs Streams
 25) Java 8 Map() Vs flatMap()			
 			
 Map()	flatMap()		
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 It processes stream of values.	It processes stream of stream of values.		
 It does only mapping.	It performs mapping as well as flattening.		
 It’s mapper function produces single value for each input value.	It’s mapper function produces multiple values for each input value.		
@@ -317,7 +359,9 @@ See More : map() Vs flatMap()
 			
 26) Java 8 Stream Intermediate Vs Terminal Operations			
 			
-Intermediate Operations	Terminal Operations		
+Intermediate Operations	Terminal Operations
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 They return stream.	They return non-stream values.		
 They can be chained together to form a pipeline of operations.	They can’t be chained together.		
 Pipeline of operations may contain any number of intermediate operations.	Pipeline of operations can have maximum one terminal operation, that too at the end.		
@@ -330,6 +374,8 @@ See More : Intermediate Vs Terminal Operations
 27) Iterator Vs Spliterator In Java 8			
 			
 Iterator	Spliterator		
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 It performs only iteration.	It performs splitting as well as iteration.		
 Iterates elements one by one.	Iterates elements one by one or in bulk.		
 Most suitable for serial processing.	Most suitable for parallel processing.		
@@ -343,6 +389,8 @@ See More : Iterator Vs Spliterator
 28) Static Binding Vs Dynamic Binding In Java			
 			
 Static Binding	Dynamic Binding		
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 It is a binding that happens at compile time.	It is a binding that happens at run time.		
 Actual object is not used for binding.	Actual object is used for binding.		
 It is also called early binding because binding happens during compilation.	It is also called late binding because binding happens at run time.		
@@ -352,7 +400,9 @@ See More : Static Vs Dynamic Binding
 			
 29) Method Overloading Vs Method Overriding In Java			
 			
-Method Overloading	Method Overriding		
+Method Overloading	Method Overriding
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 "When a class has more than one method with same name but with different arguments, 
 then we call it as method overloading."	When a super class method is modified in the sub class, then we call this as method overriding.		
 "Overloaded methods must have different method signatures.  
@@ -373,7 +423,9 @@ See More : Overloading Vs Overriding
 			
 30) executeQuery() Vs executeUpdate() Vs execute() In JDBC			
 			
-executeQuery()	executeUpdate()	execute()	
+executeQuery()	executeUpdate()	execute()
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
 This method is used to execute the SQL statements which retrieve some data from the database.	This method is used to execute the SQL statements which update or modify the database.	This method can be used for any kind of SQL statements.	
 This method returns a ResultSet object which contains the results returned by the query.	"This method returns an int value which represents the number of rows affected by the query. 
 This value will be the 0 for the statements which return nothing."	"This method returns a boolean value. 
@@ -385,67 +437,79 @@ See More : executeQuery() Vs executeUpdate() Vs execute()
 			
 31) Statement Vs PreparedStatement Vs CallableStatement In Java			
 			
-Statement	PreparedStatement	CallableStatement	
-It is used to execute normal SQL queries.	It is used to execute parameterized or dynamic SQL queries.	It is used to call the stored procedures.	
-It is preferred when a particular SQL query is to be executed only once.	It is preferred when a particular query is to be executed multiple times.	It is preferred when the stored procedures are to be executed.	
-You cannot pass the parameters to SQL query using this interface.	You can pass the parameters to SQL query at run time using this interface.	You can pass 3 types of parameters using this interface. They are – IN, OUT and IN OUT.	
-This interface is mainly used for DDL statements like CREATE, ALTER, DROP etc.	It is used for any kind of SQL queries which are to be executed multiple times.	It is used to execute stored procedures and functions.	
-The performance of this interface is very low.	The performance of this interface is better than the Statement interface (when used for multiple execution of same query).	The performance of this interface is high.	
+Statement	PreparedStatement	CallableStatement
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
+|It is used to execute normal SQL queries.	|It is used to execute parameterized or dynamic SQL queries.	|It is used to call the stored procedures.|	
+|It is preferred when a particular SQL query is to be executed only once.	|It is preferred when a particular query is to be executed multiple times.	|It is preferred when the stored procedures are to be executed.	|
+|You cannot pass the parameters to SQL query using this interface.	|You can pass the parameters to SQL query at run time using this interface.	|You can pass 3 types of parameters using this interface. They are – IN, OUT and IN OUT.	|
+|This interface is mainly used for DDL statements like CREATE, ALTER, DROP etc.	|It is used for any kind of SQL queries which are to be executed multiple times.|	It is used to execute stored procedures and functions.	|
+|The performance of this interface is very low.	|The performance of this interface is better than the Statement interface (when used for multiple execution of same query).	|The performance of this interface is high.|	
 See More : Statement Vs PreparedStatement Vs CallableStatement			
 			
 32) Process Vs Thread In Java			
 			
 Process	Thread		
-Processes are heavy weight operations.	Threads are light weight operations.		
-Every process has its own memory space.	Threads use the memory of the process they belong to.		
-Inter process communication is slow as processes have different memory address.	Inter thread communication is fast as threads of the same process share the same memory address of the process they belong to.		
-Context switching between the process is more expensive.	Context switching between threads of the same process is less expensive.		
-Processes don’t share the memory with other processes.	Threads share the memory with other threads of the same process.		
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
+|Processes are heavy weight operations.	|Threads are light weight operations.	|	
+|Every process has its own memory space.	|Threads use the memory of the process they belong to.	|	
+|Inter process communication is slow as processes have different memory address.	|Inter thread communication is fast as threads of the same process share the same memory address of the process they belong to.	|	
+|Context switching between the process is more expensive.|	Context switching between threads of the same process is less expensive.|		
+|Processes don’t share the memory with other processes.	|Threads share the memory with other threads of the same process.	|	
 See More : Program Vs Process Vs Threads			
 			
 33) Checked And Unchecked Exceptions			
 			
-Checked Exceptions	Unchecked Exceptions		
-They are known at compile time.	They are known at run time.		
-They are checked at compile time.	They are not checked at compile time. Because they occur only at run time.		
-These are compile time exceptions.	These are run time exceptions.		
-If  these exceptions are not handled properly in the application, they give compile time error.	"If these exceptions are not handled properly, they don’t give compile time error. 
-But application will be terminated prematurely at run time."		
-All sub classes of java.lang.Exception Class except sub classes of RunTimeException are checked exceptions.	All sub classes of RunTimeException and sub classes of java.lang.Error are unchecked exceptions.		
+Checked Exceptions	Unchecked Exceptions
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
+|They are known at compile time.	|They are known at run time.	|	
+|They are checked at compile time.	|They are not checked at compile time. Because they occur only at run time.|		
+|These are compile time exceptions.	|These are run time exceptions.		|
+|If  these exceptions are not handled properly in the application, they give compile time error.	|"If these exceptions are not handled properly, they don’t give compile time error. 
+But application will be terminated prematurely at run time."	|	
+|All sub classes of java.lang.Exception Class except sub classes of RunTimeException are checked exceptions.	|All sub classes of RunTimeException and sub classes of java.lang.Error are unchecked exceptions.		|
 See More : Checked Vs Unchecked Exceptions			
 			
 34) HashMap Vs ConcurrentHashMap In Java			
 			
 HashMap	ConcurrentHashMap		
-HashMap is not synchronized internally and hence it is not thread safe.	ConcurrentHashMap is internally synchronized and hence it is thread safe.		
-HashMap is the part of Java collection framework since JDK 1.2.	ConcurrentHashMap is introduced in JDK 1.5 as an alternative to HashTable.		
-HashMap allows maximum one null key and any number of null values.	ConcurrentHashMap doesn’t allow even a single null key and null value.		
-Iterators returned by HashMap are fail-fast in nature.	Iterators returned by ConcurrentHashMap are fail-safe in nature.		
-HashMap is faster.	ConcurrentHashMap is slower.		
-Most suitable for single threaded applications.	Most suitable for multi threaded applications.		
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
+|HashMap is not synchronized internally and hence it is not thread safe.	ConcurrentHashMap is internally synchronized and hence it is thread safe.		
+|HashMap is the part of Java collection framework since JDK 1.2.	ConcurrentHashMap is introduced in JDK 1.5 as an alternative to HashTable.		
+|HashMap allows maximum one null key and any number of null values.	ConcurrentHashMap doesn’t allow even a single null key and null value.		
+|Iterators returned by HashMap are fail-fast in nature.	Iterators returned by ConcurrentHashMap are fail-safe in nature.		
+|HashMap is faster.	ConcurrentHashMap is slower.		
+|Most suitable for single threaded applications.	Most suitable for multi threaded applications.		
 See More : HashMap Vs ConcurrentHashMap			
 			
 35) Synchronized HashMap Vs HashTable Vs ConcurrentHashMap In Java			
 			
-	Synchronized HashMap	HashTable	ConcurrentHashMap
-Locking Level	Object Level	Object Level	Segment Level
-Synchronized operations	All operations are synchronized.	All operations are synchronized.	Only update operations are synchronized.
-How many threads can enter into a map at a time?	Only one thread	Only one thread	By default, 16 threads can perform update operations and any number of threads can perform read operations at a time.
-Null Keys And Null Values	Allows one null key and any number of null values.	Doesn’t allow null keys and null values.	Doesn’t allow null keys and null values.
-Nature Of Iterators	Fail-Fast	Fail-Safe	Fail-Safe
-Introduced In?	JDK 1.2	JDK 1.1	JDK 1.5
-When To Use?	Use only when high level of data consistency is required in multi threaded environment.	Don’t Use. Not recommended as it is a legacy class.	Use in all multi threaded environment except where high level of data consistency is required.
-See More : Synchronized HashMap Vs HashTable Vs ConcurrentHashMap			
+Synchronized HashMap	HashTable	ConcurrentHashMap
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
+|Locking Level	Object Level	Object Level	Segment Level
+|Synchronized operations	All operations are synchronized.	All operations are synchronized.	Only update operations are synchronized.
+|How many threads can enter into a map at a time?	Only one thread	Only one thread	By default, 16 threads can perform update operations and any number of threads can perform read operations at a time.
+|Null Keys And Null Values	Allows one null key and any number of null values.	Doesn’t allow null keys and null values.	Doesn’t allow null keys and null values.
+|Nature Of Iterators	Fail-Fast	Fail-Safe	Fail-Safe
+|Introduced In?	JDK 1.2	JDK 1.1	JDK 1.5
+|When To Use?	Use only when high level of data consistency is required in multi threaded environment.	Don’t Use. Not recommended as it is a legacy class.	Use in all multi threaded environment except |where high level of data consistency is required.
+|See More : Synchronized HashMap Vs HashTable Vs ConcurrentHashMap			
 			
-36) Servlet Vs GenericServlet Vs HttpServlet In Java			
+37) Servlet Vs GenericServlet Vs HttpServlet In Java			
 			
 Servlet	GenericServlet	HttpServlet
-What it is?	Interface	Abstract Class	Abstract Class
-Package	javax.servlet	javax.servlet	javax.servlet.http
-Hierarchy	Top level interface	Implements Servlet interface	Extends GenericServlet
-Methods	init(), service(), destroy(), getServletConfig(), getServletInfo()	"init(), service(), destroy(), getServletConfig(), getServletInfo(), 
-log(), getInitParameter(), getInitParameterNames(), 
-getServletContext(), getServletName()"	doGet(), doPost(), doPut(), doDelete(), doHead(), doOptions(), doTrace(), getLastModified(), service()
-Abstract Methods	All methods are abstract.	Only service() method is abstract.	No abstract methods.
-When to use?	Use it when you want to develop your own Servlet container.	Use to write protocol independent servlets.	Use to write HTTP-specific servlets.
+| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ----------------------- | ------------------ |
+|What it is?	Interface	Abstract Class	Abstract Class
+|Package	javax.servlet	javax.servlet	javax.servlet.http
+|Hierarchy	Top level interface	Implements Servlet interface	Extends GenericServlet
+|Methods	init(), service(), destroy(), getServletConfig(), getServletInfo()	"init(), service(), destroy(), getServletConfig(), getServletInfo(), 
+|log(), getInitParameter(), getInitParameterNames(), 
+|getServletContext(), getServletName()"	doGet(), doPost(), doPut(), doDelete(), doHead(), doOptions(), doTrace(), getLastModified(), service()
+|Abstract Methods	All methods are abstract.	Only service() method is abstract.	No abstract methods.
+|When to use?	Use it when you want to develop your own Servlet container.	Use to write protocol independent servlets.	Use to write HTTP-specific servlets.
 See More : Servlet Vs GenericServlet Vs HttpServlet			
