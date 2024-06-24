@@ -6,11 +6,19 @@
 - [Array Vs ArrayList](#array-vs-arraylist)
 - [StackOverflowError Vs OutOfMemoryError](#stackOverflowerror-vs-OutOfmemoryerror)
 - [Shallow Copy Vs Deep Copy](#shallow-copy-vs-deep-copy)
-
 - [“==” Vs equals()](#equal-vs-equals)
 - [Error Vs Exception](#error-vs-exception)
 - [Class Variables Vs Instance Variables](#class-variables-vs-instance-variables)
-- [Shallow Copy Vs Deep Copy](#shallow-copy-vs-deep-copy)
+- [Fail Fast Vs Fail Safe Iterators](#fail-fast-vs-fail-safe-iterators)
+- [final Vs finally Vs finalize()](#final-vs-finally-vs-finalize)
+- [ClassNotFoundException Vs NoClassDefFoundError](#classnotfoundexception-vs-nocalldeffounderror)
+- [start() Vs run() Methods](#start-vs-run-methods)
+- [throw Vs throws Vs Throwable](#throw-vs-throws-throwable)
+- [User Threads Vs Daemon Threads](#user-thread-vs-daemon-thread)
+- [notify() Vs notifyAll()](#notify-vs-notifyall)
+- [BLOCKED Vs WAITING States](#blocked-vs-waiting-states)
+- [Extends Thread Vs Implements Runnable](#extends-thread-vs-implements-runnable)
+
 
 ## Wait() Vs Sleep()	
 					
@@ -109,7 +117,7 @@ Class Variables	Instance Variables
 |Class variables can be accessed using either class name or object reference.	|Instance variables can be accessed only through object reference.		
 - See More : Class Variables Vs Instance Variables	|		
 			
-## Fail Fast Vs Fail Safe Iterators In Java			
+## Fail Fast Vs Fail Safe Iterators			
 			
 Fail-Fast Iterators	Fail-Safe Iterators
 | Fail-Fast Iterators&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Fail-Safe Iterators |
@@ -121,8 +129,8 @@ Fail-Fast Iterators	Fail-Safe Iterators
 |Ex : Iterators returned by ArrayList, Vector, HashMap.	|Ex : Iterator returned by ConcurrentHashMap.		|
 - See More : Fail-Fast Vs Fail-Safe			
 			
-## final Vs finally Vs finalize() In Java			
-			
+## final Vs finally Vs finalize()			
+	Fail Fast Vs Fail Safe Iterators /final Vs finally Vs finalize()		
 final	finally	finalize()	
 | final&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | finally | finalize() |
 | ----------------------- | ------------------ |------------------ |
@@ -131,8 +139,8 @@ final	finally	finalize()
 |A method declared as final can’t be overridden or modified in the sub class and a class declared as final can’t be extended.	|Most of time, this block is used to close the resources like database connection, I/O resources etc soon after their use.|	This method is inherited to every class you create in Java.|	
 - See More : final Vs finally Vs finalize			
 			
-## ClassNotFoundException Vs NoClassDefFoundError In Java			
-			
+## ClassNotFoundException Vs NoClassDefFoundError			
+		
 ClassNotFoundException	NoClassDefFoundError	
 | ClassNotFoundException&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |NoClassDefFoundError |
 | ----------------------- | ------------------ |
@@ -143,8 +151,8 @@ ClassNotFoundException	NoClassDefFoundError
 |It occurs when classpath is not updated with required JAR files.	|It occurs when required class definition is missing at run time.|		
 - See More : ClassNotFoundException Vs NoClassDefFoundError			
 			
-## start() Vs run() Methods In Java			
-			
+## start() Vs run() Methods		
+		
 start()	run()		
 | start()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | run() |
 | ----------------------- | ------------------ |
@@ -155,7 +163,7 @@ start()	run()
 |Use of multi-threaded programming concept.	|No use of multi-threaded programming concept.	|	
 - See More : start() Vs run()			
 			
-## throw Vs throws Vs Throwable In Java			
+## throw Vs throws Vs Throwable		
 			
 throw	throws	Throwable	
 | throw&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | throws |Throwable |
@@ -164,7 +172,7 @@ throw	throws	Throwable
 |"Using throw keyword, you can throw an exception from any method or block. But, that exception must be of type java.lang.Throwable class or it’s sub classes."	|The caller to such methods must handle the mentioned exceptions either using try-catch blocks or using throws keyword.	|Only instances of this class or it’s sub classes are thrown by the java virtual machine or by the throw statement.	|
 - See More : throw Vs throws Vs Throwable			
 			
-## User Threads Vs Daemon Threads In Java			
+## User Threads Vs Daemon Threads			
 			
 User Threads	Daemon Threads	
 | User Threads&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Daemon Threads |
@@ -178,7 +186,7 @@ It will not exit until all user threads finish their work."	|JVM will not wait f
 |"JVM will not force the user threads to terminate. It will wait for user threads to terminate themselves."	|JVM will force the daemon threads to terminate if all user threads have finished their work.|		
 - See More : User Threads Vs Daemon Threads			
 			
-## notify() Vs notifyAll() In Java			
+## notify() Vs notifyAll()		
 			
 notify()	notifyAll()		
 | notify()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | notifyAll() |
@@ -188,7 +196,7 @@ notify()	notifyAll()
 |"Notified thread doesn’t get the lock of the object immediately. It gets once the calling thread releases the lock of that object. Until that it will be in BLOCKED state. It will move from BLOCKED state to RUNNING state once it gets the lock."	|"All notified threads will move from WAITING state to BLOCKED state. The thread which gets the lock of the object moves to RUNNING state. The remaining threads will remain in BLOCKED state until they get the object lock."		|
 - See More : notify() Vs notifyAll()			
 			
-## BLOCKED Vs WAITING States In Java			
+## BLOCKED Vs WAITING States		
 			
 WAITING	BLOCKED		
 | WAITING&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | BLOCKED |
@@ -198,7 +206,7 @@ WAITING	BLOCKED
 |The WAITING thread can be interrupted.	|The BLOCKED thread can’t be interrupted.|		
 - See More : BLOCKED Vs WAITING			
 			
-## Extends Thread Vs Implements Runnable In Java			
+## Extends Thread Vs Implements Runnable			
 			
 Implements Runnable	Extends Thread
 | Implements Runnable&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Extends Thread |
