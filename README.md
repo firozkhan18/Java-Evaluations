@@ -239,53 +239,51 @@ ArrayList	LinkedList
 HashSet	HashMap		
 | HashSet&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | HashMap |
 | ----------------------- | ------------------ |
-HashSet implements Set interface.	HashMap implements Map interface.		
-HashSet stores the data as objects.	HashMap stores the data as key-value pairs.		
-HashSet internally uses HashMap.	HashMap internally uses an array of Entry<K, V> objects.		
-HashSet doesn’t allow duplicate elements.	HashMap doesn’t allow duplicate keys, but allows duplicate values.		
-HashSet allows only one null element.	HashMap allows one null key and multiple null values.		
-Insertion operation requires only one object.	Insertion operation requires two objects, key and value.		
-HashSet is slightly slower than HashMap.	HashMap is slightly faster than HashSet.		
-See More : HashMap Vs HashSet			
+|HashSet implements Set interface.	|HashMap implements Map interface.|		
+|HashSet stores the data as objects.	|HashMap stores the data as key-value pairs.	|	
+|HashSet internally uses HashMap.	|HashMap internally uses an array of Entry<K, V> objects.|		
+|HashSet doesn’t allow duplicate elements.	|HashMap doesn’t allow duplicate keys, but allows duplicate values.|		
+|HashSet allows only one null element.	|HashMap allows one null key and multiple null values.		|
+|Insertion operation requires only one object.	|Insertion operation requires two objects, key and value.|		
+|HashSet is slightly slower than HashMap.	|HashMap is slightly faster than HashSet.	|	
+- See More : HashMap Vs HashSet			
 			
 ## HashMap Vs HashTable In Java			
 			
 HashMap	HashTable	
 | HashMap&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | HashTable |
 | ----------------------- | ------------------ |
-HashMap is not synchronized and therefore it is not thread safe.	HashTable is internally synchronized and therefore it is thread safe.		
-HashMap allows maximum one null key and any number of null values.	HashTable doesn’t allow null keys and null values.		
-Iterators returned by the HashMap are fail-fast in nature.	Enumeration returned by the HashTable are fail-safe in nature.		
-HashMap extends AbstractMap class.	HashTable extends Dictionary class.		
-HashMap returns only iterators to traverse.	HashTable returns both Iterator as well as Enumeration for traversal.		
-HashMap is fast.	HashTable is slow.		
-HashMap is not a legacy class.	HashTable is a legacy class.		
-"HashMap is preferred in single threaded applications. 
-If you want to use HashMap in multi threaded application, 
-wrap it using Collections.synchronizedMap() method."	Although HashTable is there to use in multi threaded applications, now a days it is not at all preferred. Because, ConcurrentHashMap is better option than HashTable.		
-See More : HashMap Vs HashTable			
+|HashMap is not synchronized and therefore it is not thread safe.	|HashTable is internally synchronized and therefore it is thread safe.	v	
+|HashMap allows maximum one null key and any number of null values.	|HashTable doesn’t allow null keys and null values.|		
+|Iterators returned by the HashMap are fail-fast in nature.	|Enumeration returned by the HashTable are fail-safe in nature.|		
+|HashMap extends AbstractMap class.	|HashTable extends Dictionary class.		|
+|HashMap returns only iterators to traverse.	|HashTable returns both Iterator as well as Enumeration for traversal.	|	
+|HashMap is fast.	|HashTable is slow.|		
+|HashMap is not a legacy class.	|HashTable is a legacy class.	|	
+|"HashMap is preferred in single threaded applications. If you want to use HashMap in multi threaded application, wrap it using Collections.synchronizedMap() method."	|Although HashTable is there to use in multi threaded applications, now a days it is not at all preferred. Because, ConcurrentHashMap is better option than HashTable.|		
+- See More : HashMap Vs HashTable			
 			
 ## Iterator Vs ListIterator In Java			
 			
 Iterator	ListIterator
 | Iterator&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | ListIterator |
 | ----------------------- | ------------------ |
-Using Iterator, you can traverse List, Set and Queue type of objects.	But using ListIterator, you can traverse only List objects.		
-Using Iterator, we can traverse the elements only in forward direction.	But, using ListIterator you can traverse the elements in both the directions – forward and backward.		
-Using Iterator you can only remove the elements from the collection.	But using ListIterator, you can perform modifications (insert, replace, remove) on the list.		
-You can’t iterate a list from the specified index using Iterator.	But using ListIterator, you can iterate a list from the specified index.		
-Methods : hasNext(), next() and remove()	Methods : hasNext(), hasPrevious(), next(), previous(), nextIndex(), previousIndex(), remove(), set(), add()		
-See More : Iterator Vs ListIterator			
+|Using Iterator, you can traverse List, Set and Queue type of objects.	|But using ListIterator, you can traverse only List objects.|		
+|Using Iterator, we can traverse the elements only in forward direction.	|But, using ListIterator you can traverse the elements in both the directions – forward and backward.		|
+|Using Iterator you can only remove the elements from the collection.	|But using ListIterator, you can perform modifications (insert, replace, remove) on the list.		|
+|You can’t iterate a list from the specified index using Iterator.	|But using ListIterator, you can iterate a list from the specified index.|		
+|Methods : hasNext(), next() and remove()	|Methods : hasNext(), hasPrevious(), next(), previous(), nextIndex(), previousIndex(), remove(), set(), add()	|	
+- See More : Iterator Vs ListIterator			
 			
 ## ArrayList Vs Vector In Java			
 			
 ArrayList	Vector		
 | ArrayList&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Vector |
 | ----------------------- | ------------------ |
-ArrayList is not thread safe.	Vector is thread safe.		
-As ArrayList is not synchronized, it gives better performance than Vector.	As Vector is synchronized, it is slightly slower than ArrayList.		
-ArrayList is not a legacy code.	Vector class is considered as legacy, due for deprecation.		
-See More : ArrayList Vs Vector			
+|ArrayList is not thread safe.	|Vector is thread safe.	|	
+|As ArrayList is not synchronized, it gives better performance than Vector.	|As Vector is synchronized, it is slightly slower than ArrayList.|		
+|ArrayList is not a legacy code.	|Vector class is considered as legacy, due for deprecation.		v
+- See More : ArrayList Vs Vector			
 			
 ## HashSet Vs TreeSet Vs LinkedHashSet In Java			
 			
@@ -313,67 +311,67 @@ See More : HashSet Vs LinkedHashSet Vs TreeSet
 Collections	Streams		
 | Collections&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |Streams |
 | ----------------------- | ------------------ |
-Collections are mainly used to store and group the data.	Streams are mainly used to perform operations on data.		
-You can add or remove elements from collections.	You can’t add or remove elements from streams.		
-Collections have to be iterated externally.	Streams are internally iterated.		
-Collections can be traversed multiple times.	Streams are traversable only once.		
-Collections are eagerly constructed.	Streams are lazily constructed.		
-Ex : List, Set, Map…	Ex : filtering, mapping, matching…		
-See More : Collections Vs Streams			
+|Collections are mainly used to store and group the data.	|Streams are mainly used to perform operations on data.	|	
+|You can add or remove elements from collections.	|You can’t add or remove elements from streams.	|	
+|Collections have to be iterated externally.	|Streams are internally iterated.		|
+|Collections can be traversed multiple times.	|Streams are traversable only once.	|	
+|Collections are eagerly constructed.	|Streams are lazily constructed.	|	
+|Ex : List, Set, Map…	|Ex : filtering, mapping, matching…		|
+- See More : Collections Vs Streams			
 			
 ## Java 8 Map() Vs flatMap()			
 			
 Map()	flatMap()		
 | Map()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | flatMap() |
 | ----------------------- | ------------------ |
-It processes stream of values.	It processes stream of stream of values.		
-It does only mapping.	It performs mapping as well as flattening.		
-It’s mapper function produces single value for each input value.	It’s mapper function produces multiple values for each input value.		
-It is a One-To-One mapping.	It is a One-To-Many mapping.		
-Data Transformation : From Stream<T> to Stream<R>	Data Transformation : From Stream<Stream<T> to Stream<R>		
-Use this method when the mapper function is producing a single value for each input value.	Use this method when the mapper function is producing multiple values for each input value.		
-See More : map() Vs flatMap()			
+|It processes stream of values.	It processes stream of stream of values.|		
+|It does only mapping.	It performs mapping as well as flattening.	|	
+|It’s mapper function produces single value for each input value.	|It’s mapper function produces multiple values for each input value.	|	
+|It is a One-To-One mapping.	|It is a One-To-Many mapping.		
+|Data Transformation : From Stream<T> to Stream<R>	|Data Transformation : From Stream<Stream<T> to Stream<R>	|	
+|Use this method when the mapper function is producing a single value for each input value.	|Use this method when the mapper function is producing multiple values for each input value.		|
+- See More : map() Vs flatMap()			
 			
 ## Java 8 Stream Intermediate Vs Terminal Operations			
 			
 Intermediate Operations	Terminal Operations
 | Intermediate Operations&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Terminal Operations |
 | ----------------------- | ------------------ |
-They return stream.	They return non-stream values.		
-They can be chained together to form a pipeline of operations.	They can’t be chained together.		
-Pipeline of operations may contain any number of intermediate operations.	Pipeline of operations can have maximum one terminal operation, that too at the end.		
-Intermediate operations are lazily loaded.	Terminal operations are eagerly loaded.		
-They don’t produce end result.	They produce end result.		
-Examples :	Examples :		
-filter(), map(), distinct(), sorted(), limit(), skip()	forEach(), toArray(), reduce(), collect(), min(), max(), count(), anyMatch(), allMatch(), noneMatch(), findFirst(), findAny()		
-See More : Intermediate Vs Terminal Operations			
+|They return stream.	|They return non-stream values.	|	
+|They can be chained together to form a pipeline of operations.	|They can’t be chained together.|		
+|Pipeline of operations may contain any number of intermediate operations.	|Pipeline of operations can have maximum one terminal operation, that too at the end.		|
+|Intermediate operations are lazily loaded.	|Terminal operations are eagerly loaded.		
+|They don’t produce end result.	|They produce end result.		
+|Examples :	|Examples :		
+filter(), map(), distinct(), sorted(), limit(), skip()	forEach(), toArray(), reduce(), collect(), min(), max(), count(), anyMatch(), allMatch(), noneMatch(), findFirst(), findAny()		|
+- See More : Intermediate Vs Terminal Operations			
 			
 ## Iterator Vs Spliterator In Java 8			
 			
 Iterator	Spliterator		
 | Iterator&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Spliterator |
 | ----------------------- | ------------------ |
-It performs only iteration.	It performs splitting as well as iteration.		
-Iterates elements one by one.	Iterates elements one by one or in bulk.		
-Most suitable for serial processing.	Most suitable for parallel processing.		
-Iterates only collection types.	Iterates collections, arrays and streams.		
-Size is unknown.	You can get exact size or estimate of the size.		
-Introduced in JDK 1.2.	Introduced in JDK 1.8.		
-You can’t extract properties of the iterating elements.	You can extract some properties of the iterating elements.		
-External iteration.	Internal iteration.		
-See More : Iterator Vs Spliterator			
+|It performs only iteration.	|It performs splitting as well as iteration.|		
+|Iterates elements one by one.	|Iterates elements one by one or in bulk.	|	
+|Most suitable for serial processing.	|Most suitable for parallel processing.	|	
+|Iterates only collection types.	|Iterates collections, arrays and streams.	|	
+|Size is unknown.	|You can get exact size or estimate of the size.	|	
+|Introduced in JDK 1.2.	|Introduced in JDK 1.8.	|	
+|You can’t extract properties of the iterating elements.|	You can extract some properties of the iterating elements.	|	
+|External iteration.	|Internal iteration.|		
+- See More : Iterator Vs Spliterator			
 			
 ## Static Binding Vs Dynamic Binding In Java			
 			
 Static Binding	Dynamic Binding		
 | Static Binding&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Dynamic Binding |
 | ----------------------- | ------------------ |
-It is a binding that happens at compile time.	It is a binding that happens at run time.		
-Actual object is not used for binding.	Actual object is used for binding.		
-It is also called early binding because binding happens during compilation.	It is also called late binding because binding happens at run time.		
-Method overloading is the best example of static binding.	Method overriding is the best example of dynamic binding.		
-Private, static and final methods show static binding. Because, they can not be overridden.	Other than private, static and final methods show dynamic binding. Because, they can be overridden.		
-See More : Static Vs Dynamic Binding			
+|It is a binding that happens at compile time.	|It is a binding that happens at run time.|		
+|Actual object is not used for binding.	|Actual object is used for binding.	|	
+|It is also called early binding because binding happens during compilation.	|It is also called late binding because binding happens at run time.	|	
+|Method overloading is the best example of static binding.	|Method overriding is the best example of dynamic binding.|		
+|Private, static and final methods show static binding. Because, they can not be overridden.	|Other than private, static and final methods show dynamic binding. Because, they can be overridden.		|
+- See More : Static Vs Dynamic Binding			
 			
 ## Method Overloading Vs Method Overriding In Java			
 			
@@ -479,14 +477,13 @@ Synchronized HashMap	HashTable	ConcurrentHashMap
 ## Servlet Vs GenericServlet Vs HttpServlet In Java			
 			
 Servlet	GenericServlet	HttpServlet
-| Servlet&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | GenericServlet |HttpServlet|
-| ----------------------- | ------------------ | ------------------ |
-|What it is?	Interface	Abstract Class	Abstract Class
-|Package	javax.servlet	javax.servlet	javax.servlet.http
-|Hierarchy	Top level interface	Implements Servlet interface	Extends GenericServlet
-|Methods	init(), service(), destroy(), getServletConfig(), getServletInfo()	"init(), service(), destroy(), getServletConfig(), getServletInfo(), 
-|log(), getInitParameter(), getInitParameterNames(), 
-|getServletContext(), getServletName()"	doGet(), doPost(), doPut(), doDelete(), doHead(), doOptions(), doTrace(), getLastModified(), service()
-|Abstract Methods	All methods are abstract.	Only service() method is abstract.	No abstract methods.
-|When to use?	Use it when you want to develop your own Servlet container.	Use to write protocol independent servlets.	Use to write HTTP-specific servlets.
+| Action | Servlet&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | GenericServlet |HttpServlet|
+| ------------------| ----------------------- | ------------------ | ------------------ |
+|What it is?	|Interface	|Abstract Class	Abstract Class
+|Package	|javax.servlet	|javax.servlet	javax.servlet.http
+|Hierarchy	|Top level interface	|Implements Servlet interface	|Extends GenericServlet
+|Methods	|init(), service(), destroy(), getServletConfig(), getServletInfo()	|"init(), service(), destroy(), getServletConfig(), getServletInfo(), 
+|log(), getInitParameter(), getInitParameterNames(), getServletContext(), getServletName()"|	doGet(), doPost(), doPut(), doDelete(), doHead(), doOptions(), doTrace(), getLastModified(), service()|
+|Abstract Methods|	All methods are abstract.	|Only service() method is abstract.	|No abstract methods.
+|When to use?	|Use it when you want to develop your own Servlet container.	|Use to write protocol independent servlets.	|Use to write HTTP-specific servlets.|
 See More : Servlet Vs GenericServlet Vs HttpServlet			
