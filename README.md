@@ -7,9 +7,9 @@
 - [StackOverflowError Vs OutOfMemoryError](#stackOverflowerror-vs-OutOfmemoryerror)
 - [Shallow Copy Vs Deep Copy](#shallow-copy-vs-deep-copy)
 
-- [“==” Vs equals()](#==-vs-equal)
-- [Array Vs ArrayList](#array-vs-arraylist)
-- [StackOverflowError Vs OutOfMemoryError](#stackOverflowerror-vs-OutOfmemoryerror)
+- [“==” Vs equals()](#equal-vs-equals)
+- [Error Vs Exception](#error-vs-exception)
+- [Class Variables Vs Instance Variables](#class-variables-vs-instance-variables)
 - [Shallow Copy Vs Deep Copy](#shallow-copy-vs-deep-copy)
 
 ## Wait() Vs Sleep()	
@@ -84,7 +84,7 @@ Shallow Copy	Deep Copy
 |You can’t override the “==” operator. It behaves same for all objects.	|You can override the equals method according to your business requirements.|		
 - See More : “==” Vs equals()			
 			
-## Error Vs Exception In Java			
+## Error Vs Exception			
 			
 Errors	Exceptions		
 | Errors&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Exceptions |
@@ -98,7 +98,7 @@ Errors	Exceptions
 
 - See More : Error Vs Exception			
 			
-## Class Variables Vs Instance Variables In Java			
+## Class Variables Vs Instance Variables		
 			
 Class Variables	Instance Variables	
 | Class Variables&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Instance Variables |
