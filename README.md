@@ -89,9 +89,11 @@ Errors	Exceptions
 |Errors happen at run time. They will not be known to compiler.	|Checked exceptions are known to compiler where as unchecked exceptions are not known to compiler because they occur at run time.		|
 |It is impossible to recover from errors.	|You can recover from exceptions by handling them through try-catch blocks.|		
 |Errors are mostly caused by the environment in which application is running.|	Exceptions are mainly caused by the application itself.|		
-|Examples :	|Examples :		|
-|java.lang.StackOverflowError, java.lang.OutOfMemoryError	|Checked Exceptions : SQLException, IOException		
-	Unchecked Exceptions : ArrayIndexOutOfBoundException, ClassCastException, NullPointerException	|	
+|Examples :
+java.lang.StackOverflowError, java.lang.OutOfMemoryError|Examples : 
+Checked Exceptions : SQLException, IOException		
+Unchecked Exceptions : ArrayIndexOutOfBoundException, ClassCastException, NullPointerException			|
+
 See More : Error Vs Exception			
 			
 7) Class Variables Vs Instance Variables In Java			
