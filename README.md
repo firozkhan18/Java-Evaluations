@@ -38,6 +38,8 @@
 - [HashMap Vs ConcurrentHashMap](#hashmap-vs-concurrenthashmap)
 - [Servlet Vs GenericServlet Vs HttpServlet](#servlet-vs-genericservlet-vs-httpservlet)
 
+
+
 ## Wait() Vs Sleep()	
 					
 wait() Vs sleep() 
@@ -57,7 +59,7 @@ wait() Vs sleep()
 			
 ## Array Vs ArrayList
 
-Array	ArrayList
+Array Vs ArrayList
 
 | Array&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | ArrayList |
 | ----------------------- | ------------------ |		
@@ -75,7 +77,7 @@ Array	ArrayList
   
 ## StackOverflowError Vs OutOfMemoryError			
 			
-StackOverflowError	OutOfMemoryError	
+StackOverflowError Vs OutOfMemoryError	
 | StackOverflowError&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | OutOfMemoryError |
 | ----------------------- | ------------------ |
 |It is related to Stack memory.	|It is related to heap memory.	|	
@@ -88,7 +90,7 @@ StackOverflowError	OutOfMemoryError
 		
 ## Shallow Copy Vs Deep Copy		
 			
-Shallow Copy	Deep Copy
+Shallow Copy Vs Deep Copy
 | Shallow Copy&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Deep Copy |
 | ----------------------- | ------------------ |
 |Cloned Object and original object are not 100% disjoint.|	Cloned Object and original object are 100% disjoint.|		
@@ -100,7 +102,7 @@ Shallow Copy	Deep Copy
 			
 ## Equal Operator Vs equals()			
 			
-“==” Operator	equals() Method	
+“==” Operator Vs equals() Method	
 | “==” Operator&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |equals() Method |
 | ----------------------- | ------------------ |
 |It is a binary operator in Java.	|It is a public method of java.lang.Object class.	|	
@@ -112,7 +114,7 @@ Shallow Copy	Deep Copy
 			
 ## Error Vs Exception			
 			
-Errors	Exceptions		
+Errors Vs Exceptions		
 | Errors&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Exceptions |
 | ----------------------- | ------------------ |
 |Errors in Java are of type java.lang.Error.	|Exceptions in Java are of type java.lang.Exception.	|	
@@ -126,18 +128,18 @@ Errors	Exceptions
 			
 ## Class Variables Vs Instance Variables		
 			
-Class Variables	Instance Variables	
+Class Variables Vs Instance Variables	
 | Class Variables&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Instance Variables |
 | ----------------------- | ------------------ |
 |Class variables are declared with keyword static.	|Instance variables are declared without static keyword.		
 |"Class variables are common to all instances of a class. These variables are shared between the objects of a class."	|Instance variables are not shared between the objects of a class. Each instance will have their own copy of instance variables.		|
 |"As class variables are common to all objects of a class, changes made to these variables through one object will reflect in another."	|As each object will have its own copy of instance variables, changes made to these variables through one object will not reflect in another object.|		
-|Class variables can be accessed using either class name or object reference.	|Instance variables can be accessed only through object reference.		
-- See More : Class Variables Vs Instance Variables	|		
+|Class variables can be accessed using either class name or object reference.	|Instance variables can be accessed only through object reference.	|	
+- See More : Class Variables Vs Instance Variables			
 			
 ## Fail Fast Vs Fail Safe Iterators			
 			
-Fail-Fast Iterators	Fail-Safe Iterators
+Fail-Fast Iterators Vs Fail-Safe Iterators
 | Fail-Fast Iterators&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Fail-Safe Iterators |
 | ----------------------- | ------------------ |
 |Fail-Fast iterators doesn’t allow modifications of a collection while iterating over it.	|Fail-Safe iterators allow modifications of a collection while iterating over it.		|
@@ -149,7 +151,7 @@ Fail-Fast Iterators	Fail-Safe Iterators
 			
 ## final Vs finally Vs finalize()			
 	
-final	finally	finalize()	
+final Vs finally Vs finalize()	
 | final&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | finally | finalize() |
 | ----------------------- | ------------------ |------------------ |
 |final is a keyword in Java which is used to make a variable or a method or a class as unchangeable.	|finally is a block in Java which is used for exception handling along with try and catch blocks.	|"finalize() method is a protected method of java.lang.Object class which is used to perform some clean up operations on an object before it is removed from the memory."	|
@@ -159,7 +161,7 @@ final	finally	finalize()
 			
 ## ClassNotFoundException Vs NoClassDefFoundError			
 		
-ClassNotFoundException	NoClassDefFoundError	
+ClassNotFoundException Vs NoClassDefFoundError	
 | ClassNotFoundException&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |NoClassDefFoundError |
 | ----------------------- | ------------------ |
 |It is an exception. It is of type java.lang.Exception.|	It is an error. It is of type java.lang.Error.|		
@@ -171,7 +173,7 @@ ClassNotFoundException	NoClassDefFoundError
 			
 ## start() Vs run() Methods		
 		
-start()	run()		
+start() Vs run()		
 | start()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | run() |
 | ----------------------- | ------------------ |
 |New thread is created.	|No new thread is created.|		
@@ -183,7 +185,7 @@ start()	run()
 			
 ## throw Vs throws Vs Throwable		
 			
-throw	throws	Throwable	
+throw Vs throws Vs Throwable	
 | throw&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | throws |Throwable |
 | ----------------------- | ------------------ |------------------ |
 |throw is a keyword in Java which is used to throw an exception manually.	|throws is also a keyword in java which is used in the method signature to indicate that this method may throw mentioned exceptions.	|"Throwable is a super class for all types of errors and exceptions in Java. This class is a member of java.lang package."	|
@@ -192,7 +194,7 @@ throw	throws	Throwable
 			
 ## User Threads Vs Daemon Threads			
 			
-User Threads	Daemon Threads	
+User Threads Vs Daemon Threads	
 | User Threads&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Daemon Threads |
 | ----------------------- | ------------------ |
 |"JVM waits for user threads to finish their work. 
@@ -206,7 +208,7 @@ It will not exit until all user threads finish their work."	|JVM will not wait f
 			
 ## notify() Vs notifyAll()		
 			
-notify()	notifyAll()		
+notify() Vs notifyAll()		
 | notify()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | notifyAll() |
 | ----------------------- | ------------------ |
 |"When a thread calls notify() method on a particular object, only one thread will be notified which is waiting for the lock or monitor of that object."	|When a thread calls notifyAll() method on a particular object, all threads which are waiting for the lock of that object are notified.	|	
@@ -216,7 +218,7 @@ notify()	notifyAll()
 			
 ## BLOCKED Vs WAITING States		
 			
-WAITING	BLOCKED		
+WAITING Vs BLOCKED		
 | WAITING&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | BLOCKED |
 | ----------------------- | ------------------ |
 |"The thread will be in this state when it calls wait() or join() method. The thread will remain in WAITING state until any other thread calls notify() or notifyAll()."	|The thread will be in this state when it is notified by other thread but has not got the object lock yet.|		
@@ -226,7 +228,7 @@ WAITING	BLOCKED
 			
 ## Extends Thread Vs Implements Runnable			
 			
-Implements Runnable	Extends Thread
+Implements Runnable Vs Extends Thread
 | Implements Runnable&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Extends Thread |
 | ----------------------- | ------------------ |
 |You can extend any other class.	|You can’t extend any other class.		|
@@ -241,7 +243,7 @@ Implements Runnable	Extends Thread
 			
 ## Collection Vs Collections			
 			
-Collection	Collections		
+Collection Vs Collections		
 | Collection&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Collections |
 | ----------------------- | ------------------ |
 | "Collection is a root level interface of the Java Collection Framework. Most of the classes in Java Collection Framework inherit from this interface."	| "Collections is an utility class in java.util package. | 
@@ -250,7 +252,7 @@ Collection	Collections
 			
 ## ArrayList Vs LinkedList			
 			
-ArrayList	LinkedList		
+ArrayList Vs LinkedList		
 | ArrayList&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | LinkedList |
 | ----------------------- | ------------------ |
 |ArrayList is an index based data structure where each element is associated with an index.	|Elements in the LinkedList are called as nodes, where each node consists of three things – Reference to previous element, Actual value of the element and Reference to next element.	|	
@@ -266,7 +268,7 @@ ArrayList	LinkedList
 			
 ## HashMap vs HashSet			
 			
-HashSet	HashMap		
+HashSet Vs HashMap		
 | HashSet&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | HashMap |
 | ----------------------- | ------------------ |
 |HashSet implements Set interface.	|HashMap implements Map interface.|		
@@ -280,7 +282,7 @@ HashSet	HashMap
 			
 ## HashMap Vs HashTable		
 			
-HashMap	HashTable	
+HashMap Vs HashTable	
 | HashMap&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | HashTable |
 | ----------------------- | ------------------ |
 |HashMap is not synchronized and therefore it is not thread safe.	|HashTable is internally synchronized and therefore it is thread safe.	v	
@@ -295,7 +297,7 @@ HashMap	HashTable
 			
 ## Iterator Vs ListIterator		
 			
-Iterator	ListIterator
+Iterator Vs ListIterator
 | Iterator&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | ListIterator |
 | ----------------------- | ------------------ |
 |Using Iterator, you can traverse List, Set and Queue type of objects.	|But using ListIterator, you can traverse only List objects.|		
@@ -307,7 +309,7 @@ Iterator	ListIterator
 			
 ## ArrayList Vs Vector		
 			
-ArrayList	Vector		
+ArrayList Vs Vector		
 | ArrayList&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Vector |
 | ----------------------- | ------------------ |
 |ArrayList is not thread safe.	|Vector is thread safe.	|	
@@ -317,7 +319,7 @@ ArrayList	Vector
 			
 ## HashSet Vs TreeSet Vs LinkedHashSet		
 			
-HashSet	LinkedHashSet	TreeSet	
+HashSet Vs LinkedHashSet Vs TreeSet	
 | HashSet&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | LinkedHashSet |TreeSet|
 | ----------------------- | ------------------ | ------------------ |
 |HashSet uses HashMap internally to store it’s elements.	|LinkedHashSet uses  LinkedHashMap internally to store it’s elements.	|TreeSet uses TreeMap internally to store it’s elements.	|
@@ -331,7 +333,7 @@ HashSet	LinkedHashSet	TreeSet
 			
 ## Collections Vs Streams		
 			
-Collections	Streams		
+Collections Vs Streams		
 | Collections&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |Streams |
 | ----------------------- | ------------------ |
 |Collections are mainly used to store and group the data.	|Streams are mainly used to perform operations on data.	|	
@@ -344,7 +346,7 @@ Collections	Streams
 			
 ## Java 8 Map() Vs flatMap()			
 			
-Map()	flatMap()		
+Map() Vs flatMap()		
 | Map()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | flatMap() |
 | ----------------------- | ------------------ |
 |It processes stream of values.	|It processes stream of stream of values.|		
@@ -357,7 +359,7 @@ Map()	flatMap()
 			
 ## Java 8 Stream Intermediate Vs Terminal Operations			
 			
-Intermediate Operations	Terminal Operations
+Intermediate Operations Vs Terminal Operations
 | Intermediate Operations&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Terminal Operations |
 | ----------------------- | ------------------ |
 |They return stream.	|They return non-stream values.	|	
@@ -370,7 +372,7 @@ Intermediate Operations	Terminal Operations
 			
 ## Iterator Vs Spliterator In Java 8			
 			
-Iterator	Spliterator		
+Iterator Vs Spliterator		
 | Iterator&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Spliterator |
 | ----------------------- | ------------------ |
 |It performs only iteration.	|It performs splitting as well as iteration.|		
@@ -385,7 +387,7 @@ Iterator	Spliterator
 			
 ## Static Binding Vs Dynamic Binding			
 			
-Static Binding	Dynamic Binding		
+Static Binding Vs Dynamic Binding		
 | Static Binding&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Dynamic Binding |
 | ----------------------- | ------------------ |
 |It is a binding that happens at compile time.	|It is a binding that happens at run time.|		
@@ -397,7 +399,7 @@ Static Binding	Dynamic Binding
 			
 ## Method Overloading Vs Method Overriding			
 			
-Method Overloading	Method Overriding
+Method Overloading Vs Method Overriding
 | Method Overloading&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Method Overriding |
 | ----------------------- | ------------------ |
 |"When a class has more than one method with same name but with different arguments, then we call it as method overloading."	|When a super class method is modified in the sub class, then we call this as method overriding.|		
@@ -414,7 +416,7 @@ Method Overloading	Method Overriding
 			
 ## executeQuery() Vs executeUpdate() Vs execute() In JDBC			
 			
-executeQuery()	executeUpdate()	execute()
+executeQuery() Vs executeUpdate() Vs execute()
 | executeQuery()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | executeUpdate() |execute()|
 | ----------------------- | ------------------ | ------------------ |
 |This method is used to execute the SQL statements which retrieve some data from the database.	|This method is used to execute the SQL statements which update or modify the database.	|This method can be used for any kind of SQL statements.	|
@@ -425,7 +427,7 @@ See More : executeQuery() Vs executeUpdate() Vs execute()
 			
 ## Statement Vs PreparedStatement Vs CallableStatement			
 			
-Statement	PreparedStatement	CallableStatement
+Statement Vs PreparedStatement Vs CallableStatement
 | Statement&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |PreparedStatement |CallableStatement|
 | ----------------------- | ------------------ |------------------ |
 |It is used to execute normal SQL queries.	|It is used to execute parameterized or dynamic SQL queries.	|It is used to call the stored procedures.|	
@@ -437,7 +439,7 @@ Statement	PreparedStatement	CallableStatement
 			
 ## Process Vs Thread			
 			
-Process	Thread		
+Process Vs Thread		
 | Process&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Thread |
 | ----------------------- | ------------------ |
 |Processes are heavy weight operations.	|Threads are light weight operations.	|	
@@ -449,7 +451,7 @@ Process	Thread
 			
 ## Checked And Unchecked Exceptions			
 			
-Checked Exceptions	Unchecked Exceptions
+Checked Exceptions Vs Unchecked Exceptions
 | Checked Exceptions&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Unchecked Exceptions |
 | ----------------------- | ------------------ |
 |They are known at compile time.	|They are known at run time.	|	
@@ -461,7 +463,7 @@ Checked Exceptions	Unchecked Exceptions
 			
 ## HashMap Vs ConcurrentHashMap		
 			
-HashMap	ConcurrentHashMap		
+HashMap Vs ConcurrentHashMap		
 | HashMap&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |ConcurrentHashMap |
 | ----------------------- | ------------------ |
 |HashMap is not synchronized internally and hence it is not thread safe.	|ConcurrentHashMap is internally synchronized and hence it is thread safe.	|
@@ -474,7 +476,7 @@ HashMap	ConcurrentHashMap
 			
 ## Synchronized HashMap Vs HashTable Vs ConcurrentHashMap			
 			
-Synchronized HashMap	HashTable	ConcurrentHashMap
+Synchronized HashMap Vs HashTable Vs ConcurrentHashMap
 | | Synchronized HashMap&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | HashTable |ConcurrentHashMap|
 | ------------------| ----------------------- | ------------------ | ------------------ |
 |Locking Level|	Object Level|	Object Level|	Segment Level|
@@ -488,7 +490,7 @@ Synchronized HashMap	HashTable	ConcurrentHashMap
 			
 ## Servlet Vs GenericServlet Vs HttpServlet			
 			
-Servlet	GenericServlet	HttpServlet
+Servlet Vs GenericServlet Vs HttpServlet
 |  | Servlet&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | GenericServlet |HttpServlet|
 | ------------------| ----------------------- | ------------------ | ------------------ |
 |What it is?	|Interface	|Abstract Class|	Abstract Class|
