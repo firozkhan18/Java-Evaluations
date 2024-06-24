@@ -3,6 +3,7 @@
 > A curated list of **FREE** design & UI resources for developers including stock photos, templates, frameworks, UI Kits, online tools and much much more.
 
 - [Wait & Sleep](#wait-and-sleep)
+- [Wait Vs Sleep](#wait-vs-sleep)
 - [Product & Image Mockups](#product-and-image-mockups)
 - [UI Graphics](#ui-graphics)
 - [Fonts](#fonts)
@@ -91,6 +92,11 @@ Create mockups of devices and other products
 | [Screen Peak](https://screenpeek.io/)| Create a mockup from a URL |
 | [Mockup Wolrd](https://www.mockupworld.co/)| The biggest source of free photo-realistic Mockups online |
 | [Collab Shot](https://www.collabshot.com/)| Real-time screen grabs and image sharing |
+
+## Wait Vs Sleep	
+					
+wait() Vs sleep() 
+
 
 ## Wait & Sleep	
 					
