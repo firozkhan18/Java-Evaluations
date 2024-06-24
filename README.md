@@ -282,7 +282,7 @@ ArrayList	Vector
 | ----------------------- | ------------------ |
 |ArrayList is not thread safe.	|Vector is thread safe.	|	
 |As ArrayList is not synchronized, it gives better performance than Vector.	|As Vector is synchronized, it is slightly slower than ArrayList.|		
-|ArrayList is not a legacy code.	|Vector class is considered as legacy, due for deprecation.		v
+|ArrayList is not a legacy code.	|Vector class is considered as legacy, due for deprecation.		|
 - See More : ArrayList Vs Vector			
 			
 ## HashSet Vs TreeSet Vs LinkedHashSet In Java			
@@ -401,26 +401,26 @@ See More : Overloading Vs Overriding
 executeQuery()	executeUpdate()	execute()
 | executeQuery()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | executeUpdate() |execute()|
 | ----------------------- | ------------------ | ------------------ |
-This method is used to execute the SQL statements which retrieve some data from the database.	This method is used to execute the SQL statements which update or modify the database.	This method can be used for any kind of SQL statements.	
-This method returns a ResultSet object which contains the results returned by the query.	"This method returns an int value which represents the number of rows affected by the query. 
-This value will be the 0 for the statements which return nothing."	"This method returns a boolean value. 
-TRUE indicates that query returned a ResultSet object and FALSE indicates that query returned an int value or returned nothing."	
-This method is used to execute only select queries.	This method is used to execute only non-select queries.	This method can be used for both select and non-select queries.	
-Ex :  SELECT	Ex : DML -> INSERT, UPDATE and DELETE	This method can be used for any type of SQL statements.	
-	DDL -> CREATE, ALTER		
+|This method is used to execute the SQL statements which retrieve some data from the database.	|This method is used to execute the SQL statements which update or modify the database.	|This method can be used for any kind of SQL statements.	|
+|This method returns a ResultSet object which contains the results returned by the query.	|"This method returns an int value which represents the number of rows affected by the query. |
+|This value will be the 0 for the statements which return nothing."	|"This method returns a boolean value. 
+TRUE indicates that query returned a ResultSet object and FALSE indicates that query returned an int value or returned nothing."|	
+|This method is used to execute only select queries.	|This method is used to execute only non-select queries.	|This method can be used for both select and non-select queries.	|
+|Ex :  SELECT	|Ex : DML -> INSERT, UPDATE and DELETE	|This method can be used for any type of SQL statements.	
+	DDL -> CREATE, ALTER		|
 See More : executeQuery() Vs executeUpdate() Vs execute()			
 			
 ## Statement Vs PreparedStatement Vs CallableStatement In Java			
 			
 Statement	PreparedStatement	CallableStatement
-| Statement&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | PreparedStatement |CallableStatement|
+| Statement&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |PreparedStatement |CallableStatement|
 | ----------------------- | ------------------ |------------------ |
 |It is used to execute normal SQL queries.	|It is used to execute parameterized or dynamic SQL queries.	|It is used to call the stored procedures.|	
 |It is preferred when a particular SQL query is to be executed only once.	|It is preferred when a particular query is to be executed multiple times.	|It is preferred when the stored procedures are to be executed.	|
 |You cannot pass the parameters to SQL query using this interface.	|You can pass the parameters to SQL query at run time using this interface.	|You can pass 3 types of parameters using this interface. They are – IN, OUT and IN OUT.	|
 |This interface is mainly used for DDL statements like CREATE, ALTER, DROP etc.	|It is used for any kind of SQL queries which are to be executed multiple times.|	It is used to execute stored procedures and functions.	|
 |The performance of this interface is very low.	|The performance of this interface is better than the Statement interface (when used for multiple execution of same query).	|The performance of this interface is high.|	
-See More : Statement Vs PreparedStatement Vs CallableStatement			
+- See More : Statement Vs PreparedStatement Vs CallableStatement			
 			
 ## Process Vs Thread In Java			
 			
@@ -432,7 +432,7 @@ Process	Thread
 |Inter process communication is slow as processes have different memory address.	|Inter thread communication is fast as threads of the same process share the same memory address of the process they belong to.	|	
 |Context switching between the process is more expensive.|	Context switching between threads of the same process is less expensive.|		
 |Processes don’t share the memory with other processes.	|Threads share the memory with other threads of the same process.	|	
-See More : Program Vs Process Vs Threads			
+- See More : Program Vs Process Vs Threads			
 			
 ## Checked And Unchecked Exceptions			
 			
@@ -442,23 +442,22 @@ Checked Exceptions	Unchecked Exceptions
 |They are known at compile time.	|They are known at run time.	|	
 |They are checked at compile time.	|They are not checked at compile time. Because they occur only at run time.|		
 |These are compile time exceptions.	|These are run time exceptions.		|
-|If  these exceptions are not handled properly in the application, they give compile time error.	|"If these exceptions are not handled properly, they don’t give compile time error. 
-But application will be terminated prematurely at run time."	|	
+|If  these exceptions are not handled properly in the application, they give compile time error.	|"If these exceptions are not handled properly, they don’t give compile time error. But application will be terminated prematurely at run time."	|	
 |All sub classes of java.lang.Exception Class except sub classes of RunTimeException are checked exceptions.	|All sub classes of RunTimeException and sub classes of java.lang.Error are unchecked exceptions.		|
-See More : Checked Vs Unchecked Exceptions			
+- See More : Checked Vs Unchecked Exceptions			
 			
 ## HashMap Vs ConcurrentHashMap In Java			
 			
 HashMap	ConcurrentHashMap		
 | HashMap&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |ConcurrentHashMap |
 | ----------------------- | ------------------ |
-|HashMap is not synchronized internally and hence it is not thread safe.	ConcurrentHashMap is internally synchronized and hence it is thread safe.		
-|HashMap is the part of Java collection framework since JDK 1.2.	ConcurrentHashMap is introduced in JDK 1.5 as an alternative to HashTable.		
-|HashMap allows maximum one null key and any number of null values.	ConcurrentHashMap doesn’t allow even a single null key and null value.		
-|Iterators returned by HashMap are fail-fast in nature.	Iterators returned by ConcurrentHashMap are fail-safe in nature.		
-|HashMap is faster.	ConcurrentHashMap is slower.		
-|Most suitable for single threaded applications.	Most suitable for multi threaded applications.		
-See More : HashMap Vs ConcurrentHashMap			
+|HashMap is not synchronized internally and hence it is not thread safe.	|ConcurrentHashMap is internally synchronized and hence it is thread safe.	|
+|HashMap is the part of Java collection framework since JDK 1.2.	|ConcurrentHashMap is introduced in JDK 1.5 as an alternative to HashTable.	|	
+|HashMap allows maximum one null key and any number of null values.	|ConcurrentHashMap doesn’t allow even a single null key and null value.	|	
+|Iterators returned by HashMap are fail-fast in nature.	|Iterators returned by ConcurrentHashMap are fail-safe in nature.	|	
+|HashMap is faster.	|ConcurrentHashMap is slower.|		
+|Most suitable for single threaded applications.|	Most suitable for multi threaded applications.	|	
+- See More : HashMap Vs ConcurrentHashMap			
 			
 ## Synchronized HashMap Vs HashTable Vs ConcurrentHashMap In Java			
 			
