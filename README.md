@@ -221,30 +221,26 @@ Collection	Collections
 ## ArrayList Vs LinkedList In Java			
 			
 ArrayList	LinkedList		
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ArrayList&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | LinkedList |
 | ----------------------- | ------------------ |
-ArrayList is an index based data structure where each element is associated with an index.	Elements in the LinkedList are called as nodes, where each node consists of three things – Reference to previous element, Actual value of the element and Reference to next element.		
-"Insertions and Removals in the middle of the ArrayList are very slow. 
-Because after each insertion and removal, elements need to be shifted."	"Insertions and Removals from any position in the LinkedList are faster than the ArrayList. 
-Because there is no need to shift the elements after every insertion and removal. 
-Only references of previous and next elements are to be changed."		
-Insertion and removal operations in ArrayList are of order O(n).	Insertion and removal in LinkedList are of order O(1).		
-"Retrieval of elements in the ArrayList is faster than the LinkedList . 
-Because all elements in ArrayList are index based."	"Retrieval of elements in LinkedList is very slow compared to ArrayList. 
-Because to retrieve an element, you have to traverse from beginning or end (Whichever is closer to that element) to reach that element."		
-Retrieval operation in ArrayList is of order of O(1).	Retrieval operation in LinkedList is of order of O(n).		
-ArrayList is of type Random Access. i.e elements can be accessed randomly.	"LinkedList is not of type Random Access. i.e elements can not be accessed randomly. 
-you have to traverse from beginning or end to reach a particular element."		
-ArrayList can not be used as a Stack or Queue.	LinkedList, once defined, can be used as ArrayList, Stack, Queue, Singly Linked List and Doubly Linked List.		
-"ArrayList requires less memory compared to LinkedList. 
-Because ArrayList holds only actual data and it’s index."	LinkedList requires more memory compared to ArrayList. Because, each node in LinkedList holds data and reference to next and previous elements.		
-If your application does more retrieval than the insertions and deletions, then use ArrayList.	If your application does more insertions and deletions than the retrieval, then use LinkedList.		
-See More : ArrayList Vs LinkedList			
+|ArrayList is an index based data structure where each element is associated with an index.	|Elements in the LinkedList are called as nodes, where each node consists of three things – Reference to previous element, Actual value of the element and Reference to next element.	|	
+|"Insertions and Removals in the middle of the ArrayList are very slow. 
+Because after each insertion and removal, elements need to be shifted."|	"Insertions and Removals from any position in the LinkedList are faster than the ArrayList. Because there is no need to shift the elements after every insertion and removal. Only references of previous and next elements are to be changed."|	
+|Insertion and removal operations in ArrayList are of order O(n).	|Insertion and removal in LinkedList are of order O(1).		|
+|"Retrieval of elements in the ArrayList is faster than the LinkedList . Because all elements in ArrayList are index based."	|"Retrieval of elements in LinkedList is very slow compared to ArrayList. 
+Because to retrieve an element, you have to traverse from beginning or end (Whichever is closer to that element) to reach that element."|		
+|Retrieval operation in ArrayList is of order of O(1).	|Retrieval operation in LinkedList is of order of O(n).	|	
+|ArrayList is of type Random Access. i.e elements can be accessed randomly.	|"LinkedList is not of type Random Access. i.e elements can not be accessed randomly. 
+you have to traverse from beginning or end to reach a particular element."|		
+|ArrayList can not be used as a Stack or Queue.	|LinkedList, once defined, can be used as ArrayList, Stack, Queue, Singly Linked List and Doubly Linked List.|	
+|"ArrayList requires less memory compared to LinkedList. Because ArrayList holds only actual data and it’s index."	|LinkedList requires more memory compared to ArrayList. Because, each node in LinkedList holds data and reference to next and previous elements.	|	
+|If your application does more retrieval than the insertions and deletions, then use ArrayList.	|If your application does more insertions and deletions than the retrieval, then use LinkedList.		|
+- See More : ArrayList Vs LinkedList			
 			
 ## HashMap vs HashSet In Java			
 			
 HashSet	HashMap		
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| HashSet&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | HashMap |
 | ----------------------- | ------------------ |
 HashSet implements Set interface.	HashMap implements Map interface.		
 HashSet stores the data as objects.	HashMap stores the data as key-value pairs.		
@@ -258,7 +254,7 @@ See More : HashMap Vs HashSet
 ## HashMap Vs HashTable In Java			
 			
 HashMap	HashTable	
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| HashMap&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | HashTable |
 | ----------------------- | ------------------ |
 HashMap is not synchronized and therefore it is not thread safe.	HashTable is internally synchronized and therefore it is thread safe.		
 HashMap allows maximum one null key and any number of null values.	HashTable doesn’t allow null keys and null values.		
@@ -275,7 +271,7 @@ See More : HashMap Vs HashTable
 ## Iterator Vs ListIterator In Java			
 			
 Iterator	ListIterator
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| Iterator&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | ListIterator |
 | ----------------------- | ------------------ |
 Using Iterator, you can traverse List, Set and Queue type of objects.	But using ListIterator, you can traverse only List objects.		
 Using Iterator, we can traverse the elements only in forward direction.	But, using ListIterator you can traverse the elements in both the directions – forward and backward.		
@@ -287,7 +283,7 @@ See More : Iterator Vs ListIterator
 ## ArrayList Vs Vector In Java			
 			
 ArrayList	Vector		
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| ArrayList&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Vector |
 | ----------------------- | ------------------ |
 ArrayList is not thread safe.	Vector is thread safe.		
 As ArrayList is not synchronized, it gives better performance than Vector.	As Vector is synchronized, it is slightly slower than ArrayList.		
@@ -297,8 +293,8 @@ See More : ArrayList Vs Vector
 ## HashSet Vs TreeSet Vs LinkedHashSet In Java			
 			
 HashSet	LinkedHashSet	TreeSet	
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
-| ----------------------- | ------------------ |
+| HashSet()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | LinkedHashSet |TreeSet|
+| ----------------------- | ------------------ | ------------------ |
 HashSet uses HashMap internally to store it’s elements.	LinkedHashSet uses  LinkedHashMap internally to store it’s elements.	TreeSet uses TreeMap internally to store it’s elements.	
 HashSet doesn’t maintain any order of elements.	LinkedHashSet maintains insertion order of elements. i.e elements are placed as they are inserted.	"TreeSet orders the elements according to supplied Comparator. 
 If no comparator is supplied, elements will be placed in their natural ascending order."	
@@ -318,7 +314,7 @@ See More : HashSet Vs LinkedHashSet Vs TreeSet
 ## Collections Vs Streams In Java			
 			
 Collections	Streams		
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| Collections&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |Streams |
 | ----------------------- | ------------------ |
 Collections are mainly used to store and group the data.	Streams are mainly used to perform operations on data.		
 You can add or remove elements from collections.	You can’t add or remove elements from streams.		
@@ -331,7 +327,7 @@ See More : Collections Vs Streams
 ## Java 8 Map() Vs flatMap()			
 			
 Map()	flatMap()		
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| Map()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | flatMap() |
 | ----------------------- | ------------------ |
 It processes stream of values.	It processes stream of stream of values.		
 It does only mapping.	It performs mapping as well as flattening.		
@@ -344,7 +340,7 @@ See More : map() Vs flatMap()
 ## Java 8 Stream Intermediate Vs Terminal Operations			
 			
 Intermediate Operations	Terminal Operations
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| Intermediate Operations&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Terminal Operations |
 | ----------------------- | ------------------ |
 They return stream.	They return non-stream values.		
 They can be chained together to form a pipeline of operations.	They can’t be chained together.		
@@ -358,7 +354,7 @@ See More : Intermediate Vs Terminal Operations
 ## Iterator Vs Spliterator In Java 8			
 			
 Iterator	Spliterator		
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| Iterator&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Spliterator |
 | ----------------------- | ------------------ |
 It performs only iteration.	It performs splitting as well as iteration.		
 Iterates elements one by one.	Iterates elements one by one or in bulk.		
@@ -373,7 +369,7 @@ See More : Iterator Vs Spliterator
 ## Static Binding Vs Dynamic Binding In Java			
 			
 Static Binding	Dynamic Binding		
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| Static Binding&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Dynamic Binding |
 | ----------------------- | ------------------ |
 It is a binding that happens at compile time.	It is a binding that happens at run time.		
 Actual object is not used for binding.	Actual object is used for binding.		
@@ -385,7 +381,7 @@ See More : Static Vs Dynamic Binding
 ## Method Overloading Vs Method Overriding In Java			
 			
 Method Overloading	Method Overriding
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| Method Overloading&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Method Overriding |
 | ----------------------- | ------------------ |
 "When a class has more than one method with same name but with different arguments, 
 then we call it as method overloading."	When a super class method is modified in the sub class, then we call this as method overriding.		
@@ -408,8 +404,8 @@ See More : Overloading Vs Overriding
 ## executeQuery() Vs executeUpdate() Vs execute() In JDBC			
 			
 executeQuery()	executeUpdate()	execute()
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
-| ----------------------- | ------------------ |
+| executeQuery()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | executeUpdate() |execute()|
+| ----------------------- | ------------------ | ------------------ |
 This method is used to execute the SQL statements which retrieve some data from the database.	This method is used to execute the SQL statements which update or modify the database.	This method can be used for any kind of SQL statements.	
 This method returns a ResultSet object which contains the results returned by the query.	"This method returns an int value which represents the number of rows affected by the query. 
 This value will be the 0 for the statements which return nothing."	"This method returns a boolean value. 
@@ -422,8 +418,8 @@ See More : executeQuery() Vs executeUpdate() Vs execute()
 ## Statement Vs PreparedStatement Vs CallableStatement In Java			
 			
 Statement	PreparedStatement	CallableStatement
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
-| ----------------------- | ------------------ |
+| Statement&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | PreparedStatement |CallableStatement|
+| ----------------------- | ------------------ |------------------ |
 |It is used to execute normal SQL queries.	|It is used to execute parameterized or dynamic SQL queries.	|It is used to call the stored procedures.|	
 |It is preferred when a particular SQL query is to be executed only once.	|It is preferred when a particular query is to be executed multiple times.	|It is preferred when the stored procedures are to be executed.	|
 |You cannot pass the parameters to SQL query using this interface.	|You can pass the parameters to SQL query at run time using this interface.	|You can pass 3 types of parameters using this interface. They are – IN, OUT and IN OUT.	|
@@ -434,7 +430,7 @@ See More : Statement Vs PreparedStatement Vs CallableStatement
 ## Process Vs Thread In Java			
 			
 Process	Thread		
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| Process&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Thread |
 | ----------------------- | ------------------ |
 |Processes are heavy weight operations.	|Threads are light weight operations.	|	
 |Every process has its own memory space.	|Threads use the memory of the process they belong to.	|	
@@ -446,7 +442,7 @@ See More : Program Vs Process Vs Threads
 ## Checked And Unchecked Exceptions			
 			
 Checked Exceptions	Unchecked Exceptions
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| Checked Exceptions&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Unchecked Exceptions |
 | ----------------------- | ------------------ |
 |They are known at compile time.	|They are known at run time.	|	
 |They are checked at compile time.	|They are not checked at compile time. Because they occur only at run time.|		
@@ -459,7 +455,7 @@ See More : Checked Vs Unchecked Exceptions
 ## HashMap Vs ConcurrentHashMap In Java			
 			
 HashMap	ConcurrentHashMap		
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| HashMap&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |ConcurrentHashMap |
 | ----------------------- | ------------------ |
 |HashMap is not synchronized internally and hence it is not thread safe.	ConcurrentHashMap is internally synchronized and hence it is thread safe.		
 |HashMap is the part of Java collection framework since JDK 1.2.	ConcurrentHashMap is introduced in JDK 1.5 as an alternative to HashTable.		
@@ -472,8 +468,8 @@ See More : HashMap Vs ConcurrentHashMap
 ## Synchronized HashMap Vs HashTable Vs ConcurrentHashMap In Java			
 			
 Synchronized HashMap	HashTable	ConcurrentHashMap
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
-| ----------------------- | ------------------ |
+| Synchronized HashMap&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | HashTable |ConcurrentHashMap|
+| ----------------------- | ------------------ | ------------------ |
 |Locking Level	Object Level	Object Level	Segment Level
 |Synchronized operations	All operations are synchronized.	All operations are synchronized.	Only update operations are synchronized.
 |How many threads can enter into a map at a time?	Only one thread	Only one thread	By default, 16 threads can perform update operations and any number of threads can perform read operations at a time.
@@ -486,8 +482,8 @@ Synchronized HashMap	HashTable	ConcurrentHashMap
 ## Servlet Vs GenericServlet Vs HttpServlet In Java			
 			
 Servlet	GenericServlet	HttpServlet
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
-| ----------------------- | ------------------ |
+| Servlet&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | GenericServlet |HttpServlet|
+| ----------------------- | ------------------ | ------------------ |
 |What it is?	Interface	Abstract Class	Abstract Class
 |Package	javax.servlet	javax.servlet	javax.servlet.http
 |Hierarchy	Top level interface	Implements Servlet interface	Extends GenericServlet
