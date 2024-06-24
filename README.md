@@ -2,7 +2,7 @@
 
 > A curated list of **FREE** design & UI resources for developers including stock photos, templates, frameworks, UI Kits, online tools and much much more.
 
-- [wait() Vs sleep() In Java](#wait-sleep)
+- [wait() Vs sleep() In Java](#wait()-vs-sleep()-in-java)
 - [Fonts](#fonts)
 - [Icons](#icons)
 - [Stock Photos](#stock-photos)
