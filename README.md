@@ -18,10 +18,25 @@
 - [notify() Vs notifyAll()](#notify-vs-notifyall)
 - [BLOCKED Vs WAITING States](#blocked-vs-waiting-states)
 - [Extends Thread Vs Implements Runnable](#extends-thread-vs-implements-runnable)
-
+- [Collection Vs Collections](#collection-vs-collections)
+- [ArrayList Vs LinkedList](#arraylist-vs-linkedlist)
+- [HashMap Vs HashSet](#hashmap-vs-hashset)
+- [HashMap Vs HashTable](#hashmap-vs-hashtable)
+- [Iterator Vs ListIterator](#iterator-vs-listiterator)
+- [ArrayList Vs Vector](#arrayList-vs-vector)
+- [HashSet Vs TreeSet Vs LinkedHashSet](#hashset-vs-treeset-vs-linkedhashset)
+- [Collections Vs Streams](#collections-vs-streams)
 - [Java 8 Map() Vs flatMap()](#java-8-map-vs-flatmap)
 - [Java 8 Stream Intermediate Vs Terminal Operations](#java-8-stream-intermediate-vs-terminal-operations)
 - [Iterator Vs Spliterator In Java 8](#iterator-vs-spliterator-in-java-8)
+- [Static Binding Vs Dynamic Binding](#static-binding-vs-dynamic-binding)
+- [Method Overloading Vs Method Overriding](#method-overloading-vs-method-overriding)
+- [executeQuery() Vs executeUpdate() Vs execute() In JDBC](#executequery-vs-executeupdate-vs-execute-in-jdbc)
+- [Statement Vs PreparedStatement Vs CallableStatement](#statement-vs-preparedstatement-vs-callablestatement)
+- [Process Vs Thread](#process-vs-thread)
+- [Checked And Unchecked Exceptions](#checked-and-unchecked-exceptions)
+- [HashMap Vs ConcurrentHashMap](#hashmap-vs-concurrenthashmap)
+- [Servlet Vs GenericServlet Vs HttpServlet](#servlet-vs-genericservlet-vs-httpservlet)
 
 ## Wait() Vs Sleep()	
 					
@@ -133,7 +148,7 @@ Fail-Fast Iterators	Fail-Safe Iterators
 - See More : Fail-Fast Vs Fail-Safe			
 			
 ## final Vs finally Vs finalize()			
-	Fail Fast Vs Fail Safe Iterators /final Vs finally Vs finalize()		
+	
 final	finally	finalize()	
 | final&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | finally | finalize() |
 | ----------------------- | ------------------ |------------------ |
@@ -224,7 +239,7 @@ Implements Runnable	Extends Thread
 |Maintenance  of the code will be easy.	|Maintenance of the code will be time consuming.|		
 - See More : Extends Thread Vs Implements Runnable			
 			
-## Collection Vs Collections In Java			
+## Collection Vs Collections			
 			
 Collection	Collections		
 | Collection&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Collections |
@@ -233,7 +248,7 @@ Collection	Collections
 | It consists of only static methods which are used to operate on objects of type Collection."	List, Set and Queue are main sub interfaces of this interface.	| Collections.max(), Collections.min(), Collections.sort() are some methods of Collections class.		| 
 - See More : Collection Vs Collections			
 			
-## ArrayList Vs LinkedList In Java			
+## ArrayList Vs LinkedList			
 			
 ArrayList	LinkedList		
 | ArrayList&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | LinkedList |
@@ -249,7 +264,7 @@ ArrayList	LinkedList
 |If your application does more retrieval than the insertions and deletions, then use ArrayList.	|If your application does more insertions and deletions than the retrieval, then use LinkedList.		|
 - See More : ArrayList Vs LinkedList			
 			
-## HashMap vs HashSet In Java			
+## HashMap vs HashSet			
 			
 HashSet	HashMap		
 | HashSet&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | HashMap |
@@ -263,7 +278,7 @@ HashSet	HashMap
 |HashSet is slightly slower than HashMap.	|HashMap is slightly faster than HashSet.	|	
 - See More : HashMap Vs HashSet			
 			
-## HashMap Vs HashTable In Java			
+## HashMap Vs HashTable		
 			
 HashMap	HashTable	
 | HashMap&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | HashTable |
@@ -278,7 +293,7 @@ HashMap	HashTable
 |"HashMap is preferred in single threaded applications. If you want to use HashMap in multi threaded application, wrap it using Collections.synchronizedMap() method."	|Although HashTable is there to use in multi threaded applications, now a days it is not at all preferred. Because, ConcurrentHashMap is better option than HashTable.|		
 - See More : HashMap Vs HashTable			
 			
-## Iterator Vs ListIterator In Java			
+## Iterator Vs ListIterator		
 			
 Iterator	ListIterator
 | Iterator&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | ListIterator |
@@ -290,7 +305,7 @@ Iterator	ListIterator
 |Methods : hasNext(), next() and remove()	|Methods : hasNext(), hasPrevious(), next(), previous(), nextIndex(), previousIndex(), remove(), set(), add()	|	
 - See More : Iterator Vs ListIterator			
 			
-## ArrayList Vs Vector In Java			
+## ArrayList Vs Vector		
 			
 ArrayList	Vector		
 | ArrayList&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Vector |
@@ -300,7 +315,7 @@ ArrayList	Vector
 |ArrayList is not a legacy code.	|Vector class is considered as legacy, due for deprecation.		|
 - See More : ArrayList Vs Vector			
 			
-## HashSet Vs TreeSet Vs LinkedHashSet In Java			
+## HashSet Vs TreeSet Vs LinkedHashSet		
 			
 HashSet	LinkedHashSet	TreeSet	
 | HashSet&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | LinkedHashSet |TreeSet|
@@ -314,7 +329,7 @@ HashSet	LinkedHashSet	TreeSet
 |"HashSet requires less memory than LinkedHashSet and TreeSet as it uses only HashMap internally to store its elements."	|LinkedHashSet requires more memory than HashSet as it also maintains LinkedList along with HashMap to store its elements.	|TreeSet also requires more memory than HashSet as it also maintains Comparator to sort the elements along with the TreeMap.	Use HashSet if you don’t want to maintain any order of elements.	|Use LinkedHashSet if you want to maintain insertion order of elements.	Use TreeSet if you want to sort the elements according to some Comparator.	|
 - See More : HashSet Vs LinkedHashSet Vs TreeSet			
 			
-## Collections Vs Streams In Java			
+## Collections Vs Streams		
 			
 Collections	Streams		
 | Collections&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |Streams |
@@ -368,7 +383,7 @@ Iterator	Spliterator
 |External iteration.	|Internal iteration.|		
 - See More : Iterator Vs Spliterator			
 			
-## Static Binding Vs Dynamic Binding In Java			
+## Static Binding Vs Dynamic Binding			
 			
 Static Binding	Dynamic Binding		
 | Static Binding&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Dynamic Binding |
@@ -380,7 +395,7 @@ Static Binding	Dynamic Binding
 |Private, static and final methods show static binding. Because, they can not be overridden.	|Other than private, static and final methods show dynamic binding. Because, they can be overridden.		|
 - See More : Static Vs Dynamic Binding			
 			
-## Method Overloading Vs Method Overriding In Java			
+## Method Overloading Vs Method Overriding			
 			
 Method Overloading	Method Overriding
 | Method Overloading&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Method Overriding |
@@ -409,7 +424,7 @@ executeQuery()	executeUpdate()	execute()
 	DDL -> CREATE, ALTER		|
 See More : executeQuery() Vs executeUpdate() Vs execute()			
 			
-## Statement Vs PreparedStatement Vs CallableStatement In Java			
+## Statement Vs PreparedStatement Vs CallableStatement			
 			
 Statement	PreparedStatement	CallableStatement
 | Statement&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |PreparedStatement |CallableStatement|
@@ -421,7 +436,7 @@ Statement	PreparedStatement	CallableStatement
 |The performance of this interface is very low.	|The performance of this interface is better than the Statement interface (when used for multiple execution of same query).	|The performance of this interface is high.|	
 - See More : Statement Vs PreparedStatement Vs CallableStatement			
 			
-## Process Vs Thread In Java			
+## Process Vs Thread			
 			
 Process	Thread		
 | Process&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Thread |
@@ -445,7 +460,7 @@ Checked Exceptions	Unchecked Exceptions
 |All sub classes of java.lang.Exception Class except sub classes of RunTimeException are checked exceptions.	|All sub classes of RunTimeException and sub classes of java.lang.Error are unchecked exceptions.		|
 - See More : Checked Vs Unchecked Exceptions			
 			
-## HashMap Vs ConcurrentHashMap In Java			
+## HashMap Vs ConcurrentHashMap		
 			
 HashMap	ConcurrentHashMap		
 | HashMap&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |ConcurrentHashMap |
@@ -458,7 +473,7 @@ HashMap	ConcurrentHashMap
 |Most suitable for single threaded applications.|	Most suitable for multi threaded applications.	|	
 - See More : HashMap Vs ConcurrentHashMap			
 			
-## Synchronized HashMap Vs HashTable Vs ConcurrentHashMap In Java			
+## Synchronized HashMap Vs HashTable Vs ConcurrentHashMap			
 			
 Synchronized HashMap	HashTable	ConcurrentHashMap
 | | Synchronized HashMap&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | HashTable |ConcurrentHashMap|
@@ -472,7 +487,7 @@ Synchronized HashMap	HashTable	ConcurrentHashMap
 |When To Use?	|Use only when high level of data consistency is required in multi threaded environment.|	Don’t Use. Not recommended as it is a legacy class.	|Use in all multi threaded environment except where high level of data consistency is required.|
 - See More : Synchronized HashMap Vs HashTable Vs ConcurrentHashMap			
 			
-## Servlet Vs GenericServlet Vs HttpServlet In Java			
+## Servlet Vs GenericServlet Vs HttpServlet			
 			
 Servlet	GenericServlet	HttpServlet
 |  | Servlet&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | GenericServlet |HttpServlet|
