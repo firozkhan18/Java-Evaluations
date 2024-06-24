@@ -5,6 +5,7 @@
 - [Wait() Vs Sleep()](#wait-vs-sleep)
 - [Array Vs ArrayList](#array-vs-arraylist)
 - [StackOverflowError Vs OutOfMemoryError](#stackOverflowerror-vs-OutOfmemoryerror)
+- [Shallow Copy Vs Deep Copy](#shallow-copy-vs-deep-copy)	
 - [Product & Image Mockups](#product-and-image-mockups)
 - [UI Graphics](#ui-graphics)
 - [Fonts](#fonts)
@@ -141,7 +142,7 @@ StackOverflowError	OutOfMemoryError
 |How to avoid?	|How to avoid?	|	
 |Make sure that methods are finishing their execution and leaving the stack memory.	|Try to remove references to objects which you don’t need anymore.|		
 - See More : StackOverflowError Vs OutOfMemoryError			
-- [Shallow Copy Vs Deep Copy](#shallow-copy-vs-deep-copy)			
+		
 ## Shallow Copy Vs Deep Copy		
 			
 Shallow Copy	Deep Copy
