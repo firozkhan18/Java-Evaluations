@@ -170,8 +170,7 @@ It will not exit until all user threads finish their work."	|JVM will not wait f
 |User threads are high priority threads.	|Daemon threads are low priority threads.|		
 |User threads are created by the application.	|Daemon threads, in most of time, are created by the JVM.|		
 |User threads are mainly designed to do some specific task.	|Daemon threads are designed to support the user threads.|		
-|"JVM will not force the user threads to terminate. 
-It will wait for user threads to terminate themselves."	|JVM will force the daemon threads to terminate if all user threads have finished their work.|		
+|"JVM will not force the user threads to terminate. It will wait for user threads to terminate themselves."	|JVM will force the daemon threads to terminate if all user threads have finished their work.|		
 - See More : User Threads Vs Daemon Threads			
 			
 14) notify() Vs notifyAll() In Java			
@@ -179,53 +178,45 @@ It will wait for user threads to terminate themselves."	|JVM will force the daem
 notify()	notifyAll()		
 | notify()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | notifyAll() |
 | ----------------------- | ------------------ |
-|"When a thread calls notify() method on a particular object, 
-only one thread will be notified which is waiting for the lock or monitor of that object."	|When a thread calls notifyAll() method on a particular object, all threads which are waiting for the lock of that object are notified.	|	
+|"When a thread calls notify() method on a particular object, only one thread will be notified which is waiting for the lock or monitor of that object."	|When a thread calls notifyAll() method on a particular object, all threads which are waiting for the lock of that object are notified.	|	
 |The thread chosen to notify is random i.e randomly one thread will be selected for notification.	|All notified threads will get the lock of the object on a priority basis.		
-|"Notified thread doesn’t get the lock of the object immediately. 
-It gets once the calling thread releases the lock of that object. 
-Until that it will be in BLOCKED state. 
-It will move from BLOCKED state to RUNNING state once it gets the lock."	|"All notified threads will move from WAITING state to BLOCKED state. 
-The thread which gets the lock of the object moves to RUNNING state. 
-The remaining threads will remain in BLOCKED state until they get the object lock."		|
+|"Notified thread doesn’t get the lock of the object immediately. It gets once the calling thread releases the lock of that object. Until that it will be in BLOCKED state. It will move from BLOCKED state to RUNNING state once it gets the lock."	|"All notified threads will move from WAITING state to BLOCKED state. 
+The thread which gets the lock of the object moves to RUNNING state. The remaining threads will remain in BLOCKED state until they get the object lock."		|
 - See More : notify() Vs notifyAll()			
 			
 15) BLOCKED Vs WAITING States In Java			
 			
 WAITING	BLOCKED		
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| WAITING&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | BLOCKED |
 | ----------------------- | ------------------ |
-"The thread will be in this state when it calls wait() or join() method. 
-The thread will remain in WAITING state until any other thread calls notify() or notifyAll()."	The thread will be in this state when it is notified by other thread but has not got the object lock yet.		
-The WAITING thread is waiting for notification from other threads.	The BLOCKED thread is waiting for other thread to release the lock.		
-The WAITING thread can be interrupted.	The BLOCKED thread can’t be interrupted.		
-See More : BLOCKED Vs WAITING			
+|"The thread will be in this state when it calls wait() or join() method. The thread will remain in WAITING state until any other thread calls notify() or notifyAll()."	|The thread will be in this state when it is notified by other thread but has not got the object lock yet.|		
+|The WAITING thread is waiting for notification from other threads.	|The BLOCKED thread is waiting for other thread to release the lock.|		
+|The WAITING thread can be interrupted.	|The BLOCKED thread can’t be interrupted.|		
+- See More : BLOCKED Vs WAITING			
 			
 16) Extends Thread Vs Implements Runnable In Java			
 			
 Implements Runnable	Extends Thread
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| Implements Runnable&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Extends Thread |
 | ----------------------- | ------------------ |
-You can extend any other class.	You can’t extend any other class.		
-No overhead of additional methods .	Overhead of additional methods from Thread class.		
-Separates the task from the runner.	Doesn’t separate the task from the runner.		
-Best object oriented programming practice.	Not a good object oriented programming practice.		
-Loosely coupled.	Tightly coupled.		
-Improves the reusability of the code.	Doesn’t improve the reusability of the code.		
-More generalized task.	Thread specific task.		
-Maintenance  of the code will be easy.	Maintenance of the code will be time consuming.		
-See More : Extends Thread Vs Implements Runnable			
+|You can extend any other class.	|You can’t extend any other class.		|
+|No overhead of additional methods .	|Overhead of additional methods from Thread class.	|	
+|Separates the task from the runner.	|Doesn’t separate the task from the runner.		|
+|Best object oriented programming practice.	|Not a good object oriented programming practice.|		
+|Loosely coupled.	|Tightly coupled.		|
+|Improves the reusability of the code.	|Doesn’t improve the reusability of the code.|		
+|More generalized task.	|Thread specific task.		|
+|Maintenance  of the code will be easy.	|Maintenance of the code will be time consuming.|		
+- See More : Extends Thread Vs Implements Runnable			
 			
 17) Collection Vs Collections In Java			
 			
 Collection	Collections		
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| Collection&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Collections |
 | ----------------------- | ------------------ |
-"Collection is a root level interface of the Java Collection Framework. 
-Most of the classes in Java Collection Framework inherit from this interface."	"Collections is an utility class in java.util package. 
-It consists of only static methods which are used to operate on objects of type Collection."		
-List, Set and Queue are main sub interfaces of this interface.	Collections.max(), Collections.min(), Collections.sort() are some methods of Collections class.		
-See More : Collection Vs Collections			
+| "Collection is a root level interface of the Java Collection Framework. Most of the classes in Java Collection Framework inherit from this interface."	| "Collections is an utility class in java.util package. | 
+| It consists of only static methods which are used to operate on objects of type Collection."	List, Set and Queue are main sub interfaces of this interface.	| Collections.max(), Collections.min(), Collections.sort() are some methods of Collections class.		| 
+- See More : Collection Vs Collections			
 			
 18) ArrayList Vs LinkedList In Java			
 			
