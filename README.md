@@ -7,6 +7,11 @@
 - [StackOverflowError Vs OutOfMemoryError](#stackOverflowerror-vs-OutOfmemoryerror)
 - [Shallow Copy Vs Deep Copy](#shallow-copy-vs-deep-copy)
 
+- [“==” Vs equals()](#==-vs-equal)
+- [Array Vs ArrayList](#array-vs-arraylist)
+- [StackOverflowError Vs OutOfMemoryError](#stackOverflowerror-vs-OutOfmemoryerror)
+- [Shallow Copy Vs Deep Copy](#shallow-copy-vs-deep-copy)
+
 ## Wait() Vs Sleep()	
 					
 wait() Vs sleep() 
@@ -67,7 +72,7 @@ Shallow Copy	Deep Copy
 |Shallow copy is fast and also less expensive.	|Deep copy is slow and very expensive.		|
 - See More : Shallow Copy Vs Deep Copy			
 			
-## “==” Vs equals() In Java			
+## “==” Vs equals()			
 			
 “==” Operator	equals() Method	
 | “==” Operator&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |equals() Method |
