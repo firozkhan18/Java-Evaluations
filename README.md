@@ -65,6 +65,32 @@ Websites that offer free fonts as well as font based tools
 | [Golden Ratio](https://grtcalculator.com/)| Golden Ratio Typography Calculator |
 
 
+## Vectors & Clip Art
+
+Free vectors, clipart, illustrations, patterns and more
+| Website&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Description |
+| ----------------------- | ------------------ |
+| [Vecteezy](https://www.vecteezy.com/)| Find and download free vector art |
+| [Freepik](https://www.freepik.com)| Free vectors, stock photos, PSD and icons |
+| [Free Vectors](https://www.freevectors.net/)| Community of vector lovers who share free vector graphics |
+| [PNGTree](https://pngtree.com/free-vectors)| png, backgrounds, templates, text effects |
+| [Vector4Free](https://www.vector4free.com/)| Free vector graphics |
+| [Retro Vectors](http://retrovectors.com/)| Vintage vectors and graphics |
+| [Freeble](http://freebbble.com/)| Vectors, patterns, mockups and more |
+| [Lukaszadam](https://lukaszadam.com/)| Free Vector atrworks |
+| [Illlustrations](https://illlustrations.co/)| Beautiful 100 Illustrations - png, svg |
+
+## Product and Image Mockups
+
+Create mockups of devices and other products
+| Website&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Description |
+| ----------------------- | ------------------ |
+| [Smart Mockups](https://smartmockups.com/)| Create stunning product mockups (free & premium) |
+| [Shot Snap](https://shotsnapp.com/)| Create beautiful device mockup images for your app or website design |
+| [Screely](https://www.screely.com/)| Instantly turn your screenshot into a mockup |
+| [Screen Peak](https://screenpeek.io/)| Create a mockup from a URL |
+| [Mockup Wolrd](https://www.mockupworld.co/)| The biggest source of free photo-realistic Mockups online |
+| [Collab Shot](https://www.collabshot.com/)| Real-time screen grabs and image sharing |
 
 ## Wait & Sleep	
 					
