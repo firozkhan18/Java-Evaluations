@@ -466,12 +466,12 @@ Synchronized HashMap	HashTable	ConcurrentHashMap
 | | Synchronized HashMap&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | HashTable |ConcurrentHashMap|
 | ------------------| ----------------------- | ------------------ | ------------------ |
 |Locking Level|	Object Level|	Object Level|	Segment Level|
-|Synchronized operations	|All operations are synchronized.	|All operations are synchronized.	Only update operations are synchronized.|
+|Synchronized operations	|All operations are synchronized.	|All operations are synchronized.	|Only update operations are synchronized.|
 |How many threads can enter into a map at a time?	|Only one thread	|Only one thread	|By default, 16 threads can perform update operations and any number of threads can perform read operations at a time.|
 |Null Keys And Null Values	|Allows one null key and any number of null values.	|Doesn’t allow null keys and null values.	|Doesn’t allow null keys and null values.|
 |Nature Of Iterators|	Fail-Fast|	Fail-Safe	|Fail-Safe|
 |Introduced In?	|JDK 1.2|	JDK 1.1	|JDK 1.5|
-|When To Use?	|Use only when high level of data consistency is required in multi threaded environment.|	Don’t Use. Not recommended as it is a legacy class.	|Use in all multi threaded environment except |where high level of data consistency is required.|
+|When To Use?	|Use only when high level of data consistency is required in multi threaded environment.|	Don’t Use. Not recommended as it is a legacy class.	|Use in all multi threaded environment except where high level of data consistency is required.|
 - See More : Synchronized HashMap Vs HashTable Vs ConcurrentHashMap			
 			
 ## Servlet Vs GenericServlet Vs HttpServlet In Java			
