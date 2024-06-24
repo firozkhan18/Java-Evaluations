@@ -288,23 +288,23 @@ ArrayList	Vector
 ## HashSet Vs TreeSet Vs LinkedHashSet In Java			
 			
 HashSet	LinkedHashSet	TreeSet	
-| HashSet()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | LinkedHashSet |TreeSet|
+| HashSet&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | LinkedHashSet |TreeSet|
 | ----------------------- | ------------------ | ------------------ |
-HashSet uses HashMap internally to store it’s elements.	LinkedHashSet uses  LinkedHashMap internally to store it’s elements.	TreeSet uses TreeMap internally to store it’s elements.	
-HashSet doesn’t maintain any order of elements.	LinkedHashSet maintains insertion order of elements. i.e elements are placed as they are inserted.	"TreeSet orders the elements according to supplied Comparator. 
-If no comparator is supplied, elements will be placed in their natural ascending order."	
-HashSet gives better performance than the LinkedHashSet and TreeSet.	"The performance of LinkedHashSet is between HashSet and TreeSet. 
+|HashSet uses HashMap internally to store it’s elements.	|LinkedHashSet uses  LinkedHashMap internally to store it’s elements.	|TreeSet uses TreeMap internally to store it’s elements.	|
+|HashSet doesn’t maintain any order of elements.	|LinkedHashSet maintains insertion order of elements. i.e elements are placed as they are inserted.	|"TreeSet orders the elements according to supplied Comparator. 
+If no comparator is supplied, elements will be placed in their natural ascending order."|	
+|HashSet gives better performance than the LinkedHashSet and TreeSet.	|"The performance of LinkedHashSet is between HashSet and TreeSet.| 
 It’s performance is almost similar to HashSet. 
-But slightly in the slower side as it also maintains LinkedList internally to maintain the insertion order of elements."	TreeSet gives less performance than the HashSet and LinkedHashSet as it has to sort the elements after each insertion and removal operations.	
-HashSet gives performance of order O(1) for insertion, removal and retrieval operations.	LinkedHashSet also gives performance of order O(1) for insertion, removal and retrieval operations.	TreeSet gives performance of order O(log(n)) for insertion, removal and retrieval operations.	
-"HashSet uses equals() and hashCode() methods to compare 
-the elements and thus removing the possible duplicate elements."	LinkedHashSet also uses equals() and hashCode() methods to compare the elements.	"TreeSet uses compare() or compareTo() methods to compare the elements and thus removing the possible duplicate elements. 
-It doesn’t use equals() and hashCode() methods for comparision of elements."	
-HashSet allows maximum one null element.	LinkedHashSet also allows maximum one null element.	TreeSet doesn’t allow even a single null element. If you try to insert null element into TreeSet, it throws NullPointerException.	
-"HashSet requires less memory than LinkedHashSet and TreeSet 
-as it uses only HashMap internally to store its elements."	LinkedHashSet requires more memory than HashSet as it also maintains LinkedList along with HashMap to store its elements.	TreeSet also requires more memory than HashSet as it also maintains Comparator to sort the elements along with the TreeMap.	
-Use HashSet if you don’t want to maintain any order of elements.	Use LinkedHashSet if you want to maintain insertion order of elements.	Use TreeSet if you want to sort the elements according to some Comparator.	
-See More : HashSet Vs LinkedHashSet Vs TreeSet			
+But slightly in the slower side as it also maintains LinkedList internally to maintain the insertion order of elements."|	TreeSet gives less performance than the HashSet and LinkedHashSet as it has to sort the elements after each insertion and removal operations.	|
+|HashSet gives performance of order O(1) for insertion, removal and retrieval operations.	|LinkedHashSet also gives performance of order O(1) for insertion, removal and retrieval operations.	|TreeSet gives performance of order O(log(n)) for insertion, removal and retrieval operations.|	
+|"HashSet uses equals() and hashCode() methods to compare 
+the elements and thus removing the possible duplicate elements."	|LinkedHashSet also uses equals() and hashCode() methods to compare the elements.|	"TreeSet uses compare() or compareTo() methods to compare the elements and thus removing the possible duplicate elements. 
+It doesn’t use equals() and hashCode() methods for comparision of elements."	|
+|HashSet allows maximum one null element.	|LinkedHashSet also allows maximum one null element.	|TreeSet doesn’t allow even a single null element. If you try to insert null element into TreeSet, it throws NullPointerException.	|
+|"HashSet requires less memory than LinkedHashSet and TreeSet 
+as it uses only HashMap internally to store its elements."	|LinkedHashSet requires more memory than HashSet as it also maintains LinkedList along with HashMap to store its elements.	|TreeSet also requires more memory than HashSet as it also maintains Comparator to sort the elements along with the TreeMap.	
+Use HashSet if you don’t want to maintain any order of elements.	|Use LinkedHashSet if you want to maintain insertion order of elements.	Use TreeSet if you want to sort the elements according to some Comparator.	|
+- See More : HashSet Vs LinkedHashSet Vs TreeSet			
 			
 ## Collections Vs Streams In Java			
 			
@@ -342,8 +342,7 @@ Intermediate Operations	Terminal Operations
 |Pipeline of operations may contain any number of intermediate operations.	|Pipeline of operations can have maximum one terminal operation, that too at the end.		|
 |Intermediate operations are lazily loaded.	|Terminal operations are eagerly loaded.		
 |They don’t produce end result.	|They produce end result.		
-|Examples :	|Examples :		
-filter(), map(), distinct(), sorted(), limit(), skip()	forEach(), toArray(), reduce(), collect(), min(), max(), count(), anyMatch(), allMatch(), noneMatch(), findFirst(), findAny()		|
+|Examples : filter(), map(), distinct(), sorted(), limit(), skip()	|Examples : forEach(), toArray(), reduce(), collect(), min(), max(), count(), anyMatch(), allMatch(), noneMatch(), findFirst(), findAny()		|
 - See More : Intermediate Vs Terminal Operations			
 			
 ## Iterator Vs Spliterator In Java 8			
@@ -378,23 +377,23 @@ Static Binding	Dynamic Binding
 Method Overloading	Method Overriding
 | Method Overloading&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Method Overriding |
 | ----------------------- | ------------------ |
-"When a class has more than one method with same name but with different arguments, 
-then we call it as method overloading."	When a super class method is modified in the sub class, then we call this as method overriding.		
-"Overloaded methods must have different method signatures.  
+|"When a class has more than one method with same name but with different arguments, 
+then we call it as method overloading."	|When a super class method is modified in the sub class, then we call this as method overriding.|		
+|"Overloaded methods must have different method signatures.  
 That means they should differ at least in any one of these three things – 
 Number of arguments, Types of arguments and order of arguments. 
-But, they must have same name."	Overridden methods must have same method signature. I.e. you must not change the method name, types of arguments, number of arguments and order of arguments while overriding a super class method.		
-Overloaded methods can have same or different return types.	"The return type of the overridden method must be compatible with that of super class method. 
-That means if super class method has primitive type as its return type, then it must be overridden with same return type. 
-If super class method has derived type as its return type then it must be overridden with same type or its sub class type."		
-Overloaded methods can have same visibility or different visibility.	While overriding a super class method either you can keep the same visibility or you can increase the visibility. But you can’t reduce it.		
-Overloaded methods can be static or not static. It does not affect the method overloading.	You can’t override a static method.		
-Binding between method call and method definition happens at compile time (Static Binding).	Binding between method call and method definition happens at run time (Dynamic Binding).		
-It shows static polymorphism.	It shows dynamic polymorphism.		
-Private methods can be overloaded.	Private methods can’t be overridden.		
-Final methods can be overloaded.	Final methods can’t be overridden.		
-For method overloading, only one class is required. I.e. Method overloading happens within a class.	For method overriding, two classes are required – super class and sub class. That means method overriding happens between two classes.		
-See More : Overloading Vs Overriding			
+But, they must have same name."	|Overridden methods must have same method signature. I.e. you must not change the method name, types of arguments, number of arguments and order of arguments while overriding a super class method.	|	
+|Overloaded methods can have same or different return types.	|"The return type of the overridden method must be compatible with that of super class method. 
+That means if super class method has primitive type as its return type, then it must be overridden with same return type.| 
+|If super class method has derived type as its return type then it must be overridden with same type or its sub class type."	|	
+Overloaded methods can have same visibility or different visibility.	|While overriding a super class method either you can keep the same visibility or you can increase the visibility. But you can’t reduce it.|		
+|Overloaded methods can be static or not static. It does not affect the method overloading.	|You can’t override a static method.	|	
+|Binding between method call and method definition happens at compile time (Static Binding).	|Binding between method call and method definition happens at run time (Dynamic Binding).		|
+|It shows static polymorphism.	|It shows dynamic polymorphism.	|	
+|Private methods can be overloaded.	|Private methods can’t be overridden.	|	
+|Final methods can be overloaded.	|Final methods can’t be overridden.	|	
+|For method overloading, only one class is required. I.e. Method overloading happens within a class.	|For method overriding, two classes are required – super class and sub class. That means method overriding happens between two classes.	|	
+- See More : Overloading Vs Overriding			
 			
 ## executeQuery() Vs executeUpdate() Vs execute() In JDBC			
 			
