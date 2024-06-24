@@ -180,8 +180,7 @@ notify()	notifyAll()
 | ----------------------- | ------------------ |
 |"When a thread calls notify() method on a particular object, only one thread will be notified which is waiting for the lock or monitor of that object."	|When a thread calls notifyAll() method on a particular object, all threads which are waiting for the lock of that object are notified.	|	
 |The thread chosen to notify is random i.e randomly one thread will be selected for notification.	|All notified threads will get the lock of the object on a priority basis.		|
-|"Notified thread doesn’t get the lock of the object immediately. It gets once the calling thread releases the lock of that object. Until that it will be in BLOCKED state. It will move from BLOCKED state to RUNNING state once it gets the lock."	|"All notified threads will move from WAITING state to BLOCKED state. 
-The thread which gets the lock of the object moves to RUNNING state. The remaining threads will remain in BLOCKED state until they get the object lock."		|
+|"Notified thread doesn’t get the lock of the object immediately. It gets once the calling thread releases the lock of that object. Until that it will be in BLOCKED state. It will move from BLOCKED state to RUNNING state once it gets the lock."	|"All notified threads will move from WAITING state to BLOCKED state. The thread which gets the lock of the object moves to RUNNING state. The remaining threads will remain in BLOCKED state until they get the object lock."		|
 - See More : notify() Vs notifyAll()			
 			
 ## BLOCKED Vs WAITING States In Java			
@@ -370,16 +369,10 @@ Static Binding	Dynamic Binding
 Method Overloading	Method Overriding
 | Method Overloading&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Method Overriding |
 | ----------------------- | ------------------ |
-|"When a class has more than one method with same name but with different arguments, 
-then we call it as method overloading."	|When a super class method is modified in the sub class, then we call this as method overriding.|		
-|"Overloaded methods must have different method signatures.  
-That means they should differ at least in any one of these three things – 
-Number of arguments, Types of arguments and order of arguments. 
-But, they must have same name."	|Overridden methods must have same method signature. I.e. you must not change the method name, types of arguments, number of arguments and order of arguments while overriding a super class method.	|	
-|Overloaded methods can have same or different return types.	|"The return type of the overridden method must be compatible with that of super class method. 
-That means if super class method has primitive type as its return type, then it must be overridden with same return type.| 
-|If super class method has derived type as its return type then it must be overridden with same type or its sub class type."	|	
-Overloaded methods can have same visibility or different visibility.	|While overriding a super class method either you can keep the same visibility or you can increase the visibility. But you can’t reduce it.|		
+|"When a class has more than one method with same name but with different arguments, then we call it as method overloading."	|When a super class method is modified in the sub class, then we call this as method overriding.|		
+|"Overloaded methods must have different method signatures.  That means they should differ at least in any one of these three things – Number of arguments, Types of arguments and order of arguments. But, they must have same name."	|Overridden methods must have same method signature. I.e. you must not change the method name, types of arguments, number of arguments and order of arguments while overriding a super class method.	|	
+|Overloaded methods can have same or different return types.	|"The return type of the overridden method must be compatible with that of super class method. That means if super class method has primitive type as its return type, then it must be overridden with same return type.If super class method has derived type as its return type then it must be overridden with same type or its sub class type."	|	
+|Overloaded methods can have same visibility or different visibility.	|While overriding a super class method either you can keep the same visibility or you can increase the visibility. But you can’t reduce it.|		
 |Overloaded methods can be static or not static. It does not affect the method overloading.	|You can’t override a static method.	|	
 |Binding between method call and method definition happens at compile time (Static Binding).	|Binding between method call and method definition happens at run time (Dynamic Binding).		|
 |It shows static polymorphism.	|It shows dynamic polymorphism.	|	
