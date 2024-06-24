@@ -121,8 +121,7 @@ Fail-Fast Iterators	Fail-Safe Iterators
 final	finally	finalize()	
 | final&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | finally | finalize() |
 | ----------------------- | ------------------ |------------------ |
-|final is a keyword in Java which is used to make a variable or a method or a class as unchangeable.	|finally is a block in Java which is used for exception handling along with try and catch blocks.	|"finalize() method is a protected method of java.lang.Object class 
-which is used to perform some clean up operations on an object before it is removed from the memory."	|
+|final is a keyword in Java which is used to make a variable or a method or a class as unchangeable.	|finally is a block in Java which is used for exception handling along with try and catch blocks.	|"finalize() method is a protected method of java.lang.Object class which is used to perform some clean up operations on an object before it is removed from the memory."	|
 |The value of a variable which is declared as final can’t be changed once it is initialized.	|finally block is always executed whether an exception is occurred or not and occurred exception is handled or not.	|This method is called by garbage collector thread before an object is removed from the memory.	|
 |A method declared as final can’t be overridden or modified in the sub class and a class declared as final can’t be extended.	|Most of time, this block is used to close the resources like database connection, I/O resources etc soon after their use.|	This method is inherited to every class you create in Java.|	
 - See More : final Vs finally Vs finalize			
