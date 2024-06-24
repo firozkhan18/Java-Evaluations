@@ -483,7 +483,7 @@ Servlet	GenericServlet	HttpServlet
 |Package	|javax.servlet	|javax.servlet	|javax.servlet.http|
 |Hierarchy	|Top level interface	|Implements Servlet interface	|Extends GenericServlet|
 |Methods	|init(), service(), destroy(), getServletConfig(), getServletInfo()	|"init(), service(), destroy(), getServletConfig(), getServletInfo(), 
-|log(), getInitParameter(), getInitParameterNames(), getServletContext(), getServletName()"|	doGet(), doPost(), doPut(), doDelete(), doHead(), doOptions(), doTrace(), getLastModified(), service()|
+log(), getInitParameter(), getInitParameterNames(), getServletContext(), getServletName()"|	doGet(), doPost(), doPut(), doDelete(), doHead(), doOptions(), doTrace(), getLastModified(), service()|
 |Abstract Methods|	All methods are abstract.	|Only service() method is abstract.	|No abstract methods.|
 |When to use?	|Use it when you want to develop your own Servlet container.	|Use to write protocol independent servlets.	|Use to write HTTP-specific servlets.|
-See More : Servlet Vs GenericServlet Vs HttpServlet			
+- See More : Servlet Vs GenericServlet Vs HttpServlet			
