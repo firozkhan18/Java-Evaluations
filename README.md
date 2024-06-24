@@ -109,20 +109,22 @@ wait() Vs sleep()
 |  To call wait() method, thread must have object lock.	|  To call sleep() method, thread need not to have object lock.		| 
 - See More : wait() Vs sleep()			
 			
-2) Array Vs ArrayList In Java			
-			
-Array	ArrayList		
-"Arrays are static in nature. Arrays are fixed length data structures. 
-You can’t change their size once they are created."	ArrayList is dynamic in nature. Its size is automatically increased if you add elements beyond its capacity.		
-Arrays can hold both primitives as well as objects.	ArrayList can hold only objects.		
-Arrays can be iterated only through for loop or for-each loop.	ArrayList provides iterators to iterate through their elements.		
-The size of an array is checked using length attribute.	The size of an ArrayList can be checked using size() method.		
-Array gives constant time performance for both add and get operations.	ArrayList also gives constant time performance for both add and get operations provided adding an element doesn’t trigger resize.		
-Arrays don’t support generics.	ArrayList supports generics.		
-Arrays are not type safe.	ArrayList are type safe.		
-Arrays can be multi-dimensional.	ArrayList can’t be multi-dimensional.		
-Elements are added using assignment operator.	Elements are added using add() method.		
-See More : Array Vs ArrayList			
+## Array Vs ArrayList
+
+Array	ArrayList
+
+| Array&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | ArrayList |
+| ----------------------- | ------------------ |		
+| "Arrays are static in nature. Arrays are fixed length data structures. You can’t change their size once they are created."	| ArrayList is dynamic in nature. Its size is automatically increased if you add elements beyond its capacity.| 		
+| Arrays can hold both primitives as well as objects.	| ArrayList can hold only objects.| 		
+| Arrays can be iterated only through for loop or for-each loop.| 	ArrayList provides iterators to iterate through their elements.	| 	
+| The size of an array is checked using length attribute.| 	The size of an ArrayList can be checked using size() method.	| 	
+| Array gives constant time performance for both add and get operations.| 	ArrayList also gives constant time performance for both add and get operations provided adding an element doesn’t trigger resize.		| 
+| Arrays don’t support generics.	| ArrayList supports generics.		| 
+| Arrays are not type safe.	| ArrayList are type safe.| 		
+| Arrays can be multi-dimensional.	| ArrayList can’t be multi-dimensional.		| 
+| Elements are added using assignment operator.| 	Elements are added using add() method.| 		
+- See More : Array Vs ArrayList			
 			
 3) StackOverflowError Vs OutOfMemoryError In Java			
 			
