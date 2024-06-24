@@ -19,6 +19,9 @@
 - [BLOCKED Vs WAITING States](#blocked-vs-waiting-states)
 - [Extends Thread Vs Implements Runnable](#extends-thread-vs-implements-runnable)
 
+- [Java 8 Map() Vs flatMap()](#java-8-map-vs-flatmap)
+- [Java 8 Stream Intermediate Vs Terminal Operations](#java-8-stream-intermediate-vs-terminal-operations)
+- [Iterator Vs Spliterator In Java 8](#iterator-vs-spliterator-in-java-8)
 
 ## Wait() Vs Sleep()	
 					
