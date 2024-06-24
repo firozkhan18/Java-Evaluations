@@ -98,7 +98,7 @@ Shallow Copy	Deep Copy
 |Shallow copy is fast and also less expensive.	|Deep copy is slow and very expensive.		|
 - See More : Shallow Copy Vs Deep Copy			
 			
-## "==" Vs equals()			
+## Equal Operator "==" Vs equals()			
 			
 “==” Operator	equals() Method	
 | “==” Operator&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |equals() Method |
