@@ -6,7 +6,7 @@
 - [Array Vs ArrayList](#array-vs-arraylist)
 - [StackOverflowError Vs OutOfMemoryError](#stackOverflowerror-vs-OutOfmemoryerror)
 - [Shallow Copy Vs Deep Copy](#shallow-copy-vs-deep-copy)
-- ["==" Vs equals()](#equal-vs-equals)
+- ["==" Vs equals()](#equal-operator-vs-equals)
 - [Error Vs Exception](#error-vs-exception)
 - [Class Variables Vs Instance Variables](#class-variables-vs-instance-variables)
 - [Fail Fast Vs Fail Safe Iterators](#fail-fast-vs-fail-safe-iterators)
