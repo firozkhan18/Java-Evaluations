@@ -93,7 +93,7 @@ Create mockups of devices and other products
 | [Mockup Wolrd](https://www.mockupworld.co/)| The biggest source of free photo-realistic Mockups online |
 | [Collab Shot](https://www.collabshot.com/)| Real-time screen grabs and image sharing |
 
-## Wait Vs Sleep	
+## Wait() Vs Sleep()	
 					
 wait() Vs sleep() 
 
