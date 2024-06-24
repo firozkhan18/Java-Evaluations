@@ -477,7 +477,7 @@ Synchronized HashMap	HashTable	ConcurrentHashMap
 ## Servlet Vs GenericServlet Vs HttpServlet In Java			
 			
 Servlet	GenericServlet	HttpServlet
-| Action | Servlet&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | GenericServlet |HttpServlet|
+|  | Servlet&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | GenericServlet |HttpServlet|
 | ------------------| ----------------------- | ------------------ | ------------------ |
 |What it is?	|Interface	|Abstract Class|	Abstract Class|
 |Package	|javax.servlet	|javax.servlet	|javax.servlet.http|
