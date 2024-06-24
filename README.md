@@ -6,7 +6,7 @@
 - [Array Vs ArrayList](#array-vs-arraylist)
 - [StackOverflowError Vs OutOfMemoryError](#stackOverflowerror-vs-OutOfmemoryerror)
 - [Shallow Copy Vs Deep Copy](#shallow-copy-vs-deep-copy)
-- ["==" Vs equals()](#equal-operator-vs-equals)
+- ["==" Vs equals()](#equal-vs-equals)
 - [Error Vs Exception](#error-vs-exception)
 - [Class Variables Vs Instance Variables](#class-variables-vs-instance-variables)
 - [Fail Fast Vs Fail Safe Iterators](#fail-fast-vs-fail-safe-iterators)
@@ -98,7 +98,7 @@ Shallow Copy	Deep Copy
 |Shallow copy is fast and also less expensive.	|Deep copy is slow and very expensive.		|
 - See More : Shallow Copy Vs Deep Copy			
 			
-## Equal Operator Vs equals()			
+## "==" Vs equals()			
 			
 “==” Operator	equals() Method	
 | “==” Operator&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |equals() Method |
