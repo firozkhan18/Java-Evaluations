@@ -179,7 +179,7 @@ notify()	notifyAll()
 | notify()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | notifyAll() |
 | ----------------------- | ------------------ |
 |"When a thread calls notify() method on a particular object, only one thread will be notified which is waiting for the lock or monitor of that object."	|When a thread calls notifyAll() method on a particular object, all threads which are waiting for the lock of that object are notified.	|	
-|The thread chosen to notify is random i.e randomly one thread will be selected for notification.	|All notified threads will get the lock of the object on a priority basis.		
+|The thread chosen to notify is random i.e randomly one thread will be selected for notification.	|All notified threads will get the lock of the object on a priority basis.		|
 |"Notified thread doesn’t get the lock of the object immediately. It gets once the calling thread releases the lock of that object. Until that it will be in BLOCKED state. It will move from BLOCKED state to RUNNING state once it gets the lock."	|"All notified threads will move from WAITING state to BLOCKED state. 
 The thread which gets the lock of the object moves to RUNNING state. The remaining threads will remain in BLOCKED state until they get the object lock."		|
 - See More : notify() Vs notifyAll()			
@@ -317,10 +317,10 @@ Collections	Streams
 Map()	flatMap()		
 | Map()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | flatMap() |
 | ----------------------- | ------------------ |
-|It processes stream of values.	It processes stream of stream of values.|		
-|It does only mapping.	It performs mapping as well as flattening.	|	
+|It processes stream of values.	|It processes stream of stream of values.|		
+|It does only mapping.	|It performs mapping as well as flattening.	|	
 |It’s mapper function produces single value for each input value.	|It’s mapper function produces multiple values for each input value.	|	
-|It is a One-To-One mapping.	|It is a One-To-Many mapping.		
+|It is a One-To-One mapping.	|It is a One-To-Many mapping.	|	
 |Data Transformation : From Stream<T> to Stream<R>	|Data Transformation : From Stream<Stream<T> to Stream<R>	|	
 |Use this method when the mapper function is producing a single value for each input value.	|Use this method when the mapper function is producing multiple values for each input value.		|
 - See More : map() Vs flatMap()			
