@@ -70,14 +70,14 @@ Shallow Copy	Deep Copy
 5) “==” Vs equals() In Java			
 			
 “==” Operator	equals() Method	
-| wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
+| “==” Operator&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |equals() Method |
 | ----------------------- | ------------------ |
-It is a binary operator in Java.	It is a public method of java.lang.Object class.		
-It compares the two objects based on their location in the memory.	"The default version of equals method also does the comparison of two objects based on their location in the memory. 
-But, you can override the equals method so that it performs the comparison of two objects on some condition."		
-It can be used on both primitive types as well as on derived types.	It can be used only on derived types.		
-It is best suitable for primitive types.	It is best suitable for derived types.		
-You can’t override the “==” operator. It behaves same for all objects.	You can override the equals method according to your business requirements.		
+|It is a binary operator in Java.	|It is a public method of java.lang.Object class.	|	
+|It compares the two objects based on their location in the memory.	|"The default version of equals method also does the comparison of two objects based on their location in the memory. 
+But, you can override the equals method so that it performs the comparison of two objects on some condition."	|	
+|It can be used on both primitive types as well as on derived types.	|It can be used only on derived types.	|	
+|It is best suitable for primitive types.	|It is best suitable for derived types.		|
+|You can’t override the “==” operator. It behaves same for all objects.	|You can override the equals method according to your business requirements.|		
 See More : “==” Vs equals()			
 			
 6) Error Vs Exception In Java			
