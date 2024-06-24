@@ -1,6 +1,6 @@
 # Diffrences In Java - Comparisions
 
-> A curated list of **FREE** design & UI resources for developers including stock photos, templates, frameworks, UI Kits, online tools and much much more.
+> **Table Of Contents**
 
 - [Wait() Vs Sleep()](#wait-vs-sleep)
 - [Array Vs ArrayList](#array-vs-arraylist)
