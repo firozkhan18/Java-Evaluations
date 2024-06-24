@@ -387,9 +387,7 @@ executeQuery()	executeUpdate()	execute()
 | executeQuery()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | executeUpdate() |execute()|
 | ----------------------- | ------------------ | ------------------ |
 |This method is used to execute the SQL statements which retrieve some data from the database.	|This method is used to execute the SQL statements which update or modify the database.	|This method can be used for any kind of SQL statements.	|
-|This method returns a ResultSet object which contains the results returned by the query.	|"This method returns an int value which represents the number of rows affected by the query. |
-|This value will be the 0 for the statements which return nothing."	|"This method returns a boolean value. 
-TRUE indicates that query returned a ResultSet object and FALSE indicates that query returned an int value or returned nothing."|	
+|This method returns a ResultSet object which contains the results returned by the query.	|"This method returns an int value which represents the number of rows affected by the query. This value will be the 0 for the statements which return nothing."	|"This method returns a boolean value. TRUE indicates that query returned a ResultSet object and FALSE indicates that query returned an int value or returned nothing."|	
 |This method is used to execute only select queries.	|This method is used to execute only non-select queries.	|This method can be used for both select and non-select queries.	|
 |Ex :  SELECT	|Ex : DML -> INSERT, UPDATE and DELETE	|This method can be used for any type of SQL statements.	
 	DDL -> CREATE, ALTER		|
