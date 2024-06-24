@@ -2,7 +2,6 @@
 
 > A curated list of **FREE** design & UI resources for developers including stock photos, templates, frameworks, UI Kits, online tools and much much more.
 
-- [Wait & Sleep](#wait-and-sleep)
 - [Wait() Vs Sleep()](#wait-vs-sleep)
 - [Product & Image Mockups](#product-and-image-mockups)
 - [UI Graphics](#ui-graphics)
@@ -97,10 +96,6 @@ Create mockups of devices and other products
 					
 wait() Vs sleep() 
 
-
-## Wait & Sleep	
-					
-wait() Vs sleep() 
 
 | wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
 | ----------------------- | ------------------ |
