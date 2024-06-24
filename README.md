@@ -73,7 +73,6 @@ Websites that offer free fonts as well as font based tools
 | wait()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | sleep() |
 | ----------------------- | ------------------ |
 | The thread which calls wait() method releases the lock it holds.                                                            | The thread which calls sleep() method doesn’t release the lock it holds.                               |
-			
 | The thread regains the lock after other threads call either notify() or notifyAll() methods on the same lock.	| No question of regaining the lock as thread doesn’t release the lock.		| 
 | wait() method must be called within the synchronized block.	| sleep() method can be called within or outside the synchronized block.		| 
 | wait() method is a member of java.lang.Object class.	| sleep() method is a member of java.lang.Thread class.		| 
