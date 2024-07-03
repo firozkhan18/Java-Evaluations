@@ -3,29 +3,26 @@
 - [002 - Types of Java Applications](../lessons/070)
 - [003 - Java Platforms / Editions](../lessons/071)
 - [004 - Features of Java](../lessons/072)
-- [005 - Simple](../lessons/073)
-- [006 - Object-oriented](../lessons/074)
-- [007 - Platform Independent](../lessons/075)
-- [008 - Secured](../lessons/076)
-- [009 - Robust](../lessons/077)
-- [010 - Architecture-neutral](../lessons/078)
-- [011 - Portable](../lessons/079)
-- [012 - High-performance](../lessons/080)
-- [013 - Distributed](../lessons/081)
-- [014 - Multi-threaded](../lessons/082)
-- [015 - Dynamic](../lessons/083)
-- [016 - Bytecode](../lessons/084)
-- [017 - Interpretation JIT (Just in Time)](../lessons/085)
+	- [005 - Simple](../lessons/073)
+	- [006 - Object-oriented](../lessons/074)
+	- [007 - Platform Independent](../lessons/075)
+	- [008 - Secured](../lessons/076)
+	- [009 - Robust](../lessons/077)
+	- [010 - Architecture-neutral](../lessons/078)
+	- [011 - Portable](../lessons/079)
+	- [012 - High-performance](../lessons/080)
+	- [013 - Distributed](../lessons/081)
+	- [014 - Multi-threaded](../lessons/082)
+	- [015 - Dynamic](../lessons/083)
+	- [016 - Bytecode](../lessons/084)
+	- [017 - Interpretation JIT (Just in Time)](../lessons/085)
 - [018 - Two Paradigm](../lessons/086)
 - [019 - Advantage of OOPs over Procedure-oriented programming language](../lessons/087)
 - [020 - What is the difference between an object-oriented programming language and object-based programming language?](../lessons/088)
-
-
 - [021 - OOPs (Object-Oriented Programming System)](../lessons/069)
 - [022 - Class](../lessons/070)
 - [023 - Instance variable in Java](../lessons/071)
 - [024 - Object](../lessons/072)
-- [025 - Simple](../lessons/073)
 - [026 - new keyword in Java](../lessons/074)
 - [027 - 3 Ways to initializing object](../lessons/075)
 - [028 - What are the different ways to create an object in Java?](../lessons/076)
@@ -41,7 +38,6 @@
 - [038 - Why multiple inheritance is not supported in java?](../lessons/086)
 - [039 - Abstraction in Java](../lessons/087)
 - [040 - Ways to achieve Abstraction](../lessons/088)
-
 - [041 - Aggregation in Java](../lessons/069)
 - [042 - Why use Aggregation?](../lessons/070)
 - [043 - When use Aggregation?](../lessons/071)
@@ -62,146 +58,46 @@
 - [058 - Does constructor return any value?](../lessons/086)
 - [059 - Can constructor perform other tasks instead of initialization?](../lessons/087)
 - [060 - Is there Constructor class in Java?](../lessons/088)
-
-
 - [001 - What is the purpose of Constructor class?](../lessons/069)
 - [002 - this keyword in java](../lessons/070)
 - [003 - Garbage Collection](../lessons/071)
 - [004 - Finalize() method](../lessons/072)
-- [005 - Simple](../lessons/073)
-- [006 - Object-oriented](../lessons/074)
-- [007 - Platform Independent](../lessons/075)
-- [008 - Secured](../lessons/076)
-- [009 - Robust](../lessons/077)
-- [010 - Architecture-neutral](../lessons/078)
-- [011 - Portable](../lessons/079)
-- [012 - High-performance](../lessons/080)
-- [013 - Distributed](../lessons/081)
-- [014 - Multi-threaded](../lessons/082)
-- [015 - Dynamic](../lessons/083)
-- [016 - Bytecode](../lessons/084)
-- [017 - Interpretation JIT (Just in Time)](../lessons/085)
-- [018 - Two Paradigm](../lessons/086)
-- [019 - Advantage of OOPs over Procedure-oriented programming language](../lessons/087)
-- [020 - What is the difference between an object-oriented programming language and object-based programming language?](../lessons/088)
+- [005 - Memory Management](../lessons/073)
+- [006 - Method Overloading in Java](../lessons/074)
+- [007 - Can we overload java main() method?](../lessons/075)
+- [008 - Why Method Overloading is not possible by changing the return type of method only?](../lessons/076)
+- [009 - Method Overloading and Type Promotion](../lessons/077)
+- [010 - Recursion in Java](../lessons/078)
+- [011 - Method Overriding in Java](../lessons/079)
+- [012 - Can we override static method?](../lessons/080)
+- [013 - Why can we not override static method?](../lessons/081)
+- [014 - Can we override java main method?](../lessons/082)
+- [015 - Difference between method Overloading and Method Overriding in java](../lessons/083)
+- [016 - Usage of Java Method Overriding](../lessons/084)
+- [017 - Dynamic Method Dispatch](../lessons/085)
+- [018 - Static Binding and Dynamic Binding](../lessons/086)
+- [019 - Java static keyword](../lessons/087)
+- [020 - Why is the Java main method static?](../lessons/088)
+- [025 - Final Keyword in Java](../lessons/073)
+- [025 - Is final method inherited?](../lessons/073)
+- [025 - What is blank or uninitialized final variable?](../lessons/073)
+- [025 - What is final parameter?](../lessons/073)
+- [025 - Can we declare a constructor final?](../lessons/073)
+- [025 - Super Keyword in Java](../lessons/073)
+- [025 - Method Overriding](../lessons/073)
+- [025 - Abstract class in Java](../lessons/073)
+- [025 - Abstract Method in Java](../lessons/073)
+- [025 - Interface in Java](../lessons/073)
+- [025 - Why use Java interface?](../lessons/073)
+- [025 - Java 8 Interface Improvement](../lessons/073)
+- [025 - Internal addition by the compiler](../lessons/073)
+- [025 - Multiple inheritance is not supported through class in java, but it is possible by an interface, why?](../lessons/073)
+- [025 - Java 8 Default Method in Interface](../lessons/073)
+- [025 - Java 8 Static Method in Interface](../lessons/073)
+- [025 - What is marker or tagged interface?](../lessons/073)
+- [025 - Can we define a class inside the interface?](../lessons/073)
+- [025 - Difference between abstract class and interface](../lessons/073)
 
-	71
-	71
-Usage of java this keyword	72
-1) this: to refer current class instance variable	73
-2) this: to invoke current class method	75
-3) this() : to invoke current class constructor	76
-Real usage of this() constructor call	77
-4) this: to pass as an argument in the method	79
-Application of this that can be passed as an argument:	80
-5) this: to pass as argument in the constructor call	80
-6) this keyword can be used to return current class instance	80
-Syntax of this that can be returned as a statement	80
-Example of this keyword that you return as a statement from the method	81
-Proving this keyword	81
-	82
-	82
-Memory Management	82
-Method Overloading in Java	83
-Advantage of method overloading	84
-Different ways to overload the method	84
-1) Method Overloading: changing no. of arguments	84
-2) Method Overloading: changing data type of arguments	85
-Q) Why Method Overloading is not possible by changing the return type of method only?	85
-Can we overload java main() method?	86
-Method Overloading and Type Promotion	86
-Example of Method Overloading with TypePromotion	87
-Example of Method Overloading with Type Promotion if matching found	87
-Example of Method Overloading with Type Promotion in case of ambiguity	88
-Recursion	89
-Method Overriding in Java	89
-Usage of Java Method Overriding	91
-Understanding the problem without method overriding	92
-Example of method overriding	93
-A real example of Java Method Overriding	93
-Can we override static method?	95
-Why can we not override static method?	95
-Can we override java main method?	95
-Difference between method Overloading and Method Overriding in java	95
-More topics on Method Overriding (Not For Beginners)	95
-Dynamic Method Dispatch	96
-Static Binding and Dynamic Binding	97
-Understanding Type	98
-static binding	98
-Example of static binding	98
-Dynamic binding	99
-Example of dynamic binding	99
-Java static keyword	100
-1) Java static variable	102
-Advantages of static variable	102
-Example of static variable	103
-Program of the counter without static variable	104
-Program of counter by static variable	105
-2) Java static method	105
-Example of static method	106
-Another example of a static method that performs a normal calculation	106
-Restrictions for the static method	107
-Q) Why is the Java main method static?	107
-3) Java static block	108
-Example of static block	108
-Q) Can we execute a program without main() method?	108
-Final	108
-Final Keyword In Java	109
-1) Java final variable	110
-Example of final variable	110
-2) Java final method	111
-Example of final method	111
-3) Java final class	111
-Example of final class	111
-Q) Is final method inherited?	112
-Q) What is blank or uninitialized final variable?	112
-Example of blank final variable	112
-Que) Can we initialize blank final variable?	112
-static blank final variable	113
-Example of static blank final variable	113
-Q) What is final parameter?	113
-Q) Can we declare a constructor final?	114
-super	117
-Super Keyword in Java	117
-Usage of Java super Keyword	118
-1) super is used to refer immediate parent class instance variable.	119
-2) super can be used to invoke parent class method	120
-3) super is used to invoke parent class constructor.	120
-super example: real use	122
-Method Overriding	123
-Abstract class in Java	123
-Abstract class in Java	124
-Abstract Method in Java	125
-Example of Abstract class that has an abstract method	125
-Understanding the real scenario of Abstract class	125
-Another example of Abstract class in java	126
-Abstract class having constructor, data member and methods	127
-Another real scenario of abstract class	128
-Interface in Java	129
-Why use Java interface?	130
-How to declare an interface?	130
-Syntax:	131
-Java 8 Interface Improvement	131
-Internal addition by the compiler	131
-Java Interface Example	132
-Java Interface Example: Drawable	132
-Java Interface Example: Bank	133
-Multiple inheritance in Java by interface	134
-Q) Multiple inheritance is not supported through class in java, but it is possible by an interface, why?	135
-Interface inheritance	135
-Java 8 Default Method in Interface	136
-Java 8 Static Method in Interface	137
-Q) What is marker or tagged interface?	137
-Java Nested Interface	138
-Points to remember for nested interfaces	138
-Syntax of nested interface which is declared within the interface	138
-Syntax of nested interface which is declared within the class	138
-Example of nested interface which is declared within the interface	138
-Internal code generated by the java compiler for nested interface Message	139
-Example of nested interface which is declared within the class	139
-Can we define a class inside the interface?	140
-Difference between abstract class and interface	140
-Example of abstract class and interface in Java	141
 Java instanceof	142
 Simple example of java instanceof	143
 Another example of java instanceof operator	143
