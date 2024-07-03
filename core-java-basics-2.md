@@ -98,50 +98,19 @@
 - [025 - Can we define a class inside the interface?](../lessons/073)
 - [025 - Difference between abstract class and interface](../lessons/073)
 
-Java instanceof	142
-Simple example of java instanceof	143
-Another example of java instanceof operator	143
-instanceof in java with a variable that have null value	143
-Downcasting with java instanceof operator	144
-Possibility of downcasting with instanceof	144
-Downcasting without the use of java instanceof	145
-Understanding Real use of instanceof in java	145
-Covariant Return Type	146
-Simple example of Covariant Return Type	147
-How is Covariant return types implemented?	147
-Instance initializer block	147
-Why use instance initializer block?	148
-Example of instance initializer block	148
-What is invoked first, instance initializer block or constructor?	149
-Rules for instance initializer block :	150
-Program of instance initializer block that is invoked after super()	150
-Another example of instance block	151
-Java Package	152
-Advantage of Java Package	152
-Simple example of java package	153
-How to compile java package	153
-How to run java package program	153
-How to access package from another package?	154
-Example of package that import the packagename.*	154
-Example of package by import package.classname	155
-Example of package by import fully qualified name	155
-Subpackage in java	156
-Example of Subpackage	157
-How to send the class file to another directory or drive?	157
-To Compile:	158
-To Run:	158
-Another way to run this program by -classpath switch of java:	158
-Ways to load the class files or jar files	158
-How to put two public classes in a package?	159
-What is static import feature of Java5?	159
+- [005 - Java instanceof](../lessons/073)
+- [006 - Downcasting](../lessons/074)
+- [007 - Covariant Return Type](../lessons/075)
+- [008 - How is Covariant return types implemented?](../lessons/076)
+- [009 - Why use instance initializer block?](../lessons/077)
+- [010 - What is invoked first, instance initializer block or constructor?](../lessons/078)
+- [011 - Java Package](../lessons/079)
+- [012 - Subpackage in java](../lessons/080)
+- [013 - How to send the class file to another directory or drive?](../lessons/081)
+- [014 - How to put two public classes in a package?](../lessons/082)
+- [015 - What is static import feature of Java5?](../lessons/083)
 
-
-
-
-
-
-
-What is Java
+#### What is Java
 Java is an internet based object oriented programing language. Oriented programing language is a programing methodology that helps to organized complex program through the use of Inheritance, encapsulation and polymorphism. 
 Java derives much of its character from C and C++. This is by intent, the java designer knows that using the familiar syntax of C++ would make their language appealing to the legions of experienced C/C++ programmer.
 In addition to the surface similarities java shares some of the other attributes that helped make C and C++ successful.
@@ -157,7 +126,7 @@ Java is an object-oriented, class-based, concurrent, secured and general-purpose
 Java is a programming language and a platform. Java is a high level, robust, object-oriented and secure programming language.
 Java was developed by Sun Microsystems (which is now the subsidiary of Oracle) in the year 1995. James Gosling is known as the father of Java. Before Java, its name was Oak. Since Oak was already a registered company, so James Gosling and his team changed the Oak name to Java.
 Platform: Any hardware or software environment in which a program runs, is known as a platform. Since Java has a runtime environment (JRE) and API, it is called a platform.
-Types of Java Applications
+#### Types of Java Applications
 There are mainly 4 types of applications that can be created using Java programming:
 1) Standalone Application
 Standalone applications are also known as desktop applications or window-based applications. These are traditional software that we need to install on every machine. Examples of standalone application are Media player, antivirus, etc. AWT and Swing are used in Java for creating standalone applications.
@@ -167,7 +136,7 @@ An application that runs on the server side and creates a dynamic page is called
 An application that is distributed in nature, such as banking applications, etc. is called enterprise application. It has advantages of the high-level security, load balancing, and clustering. In Java, EJB is used for creating enterprise applications.
 4) Mobile Application
 An application which is created for mobile devices is called a mobile application. Currently, Android and Java ME are used for creating mobile applications.
-Java Platforms / Editions
+#### Java Platforms / Editions
 There are 4 platforms or editions of Java:
 1) Java SE (Java Standard Edition)
 It is a Java programming platform. It includes Java programming APIs such as java.lang, java.io, java.net, java.util, java.sql, java.math etc. It includes core topics like OOPs, String, Regex, Exception, Inner classes, Multithreading, I/O Stream, Networking, AWT, Swing, Reflection, Collection, etc.
@@ -177,7 +146,7 @@ It is an enterprise platform which is mainly used to develop web and enterprise 
 It is a micro platform which is mainly used to develop mobile applications.
 4) JavaFX
 It is used to develop rich internet applications. It uses a light-weight user interface API.
-Features of Java
+#### Features of Java
 The primary objective of Java programming language creation was to make it portable, simple and secure programming language. Apart from this, there are also some excellent features which play an important role in the popularity of this language. The features of Java are also known as java buzzwords.
 A list of most important features of Java language is given below.
 1.	Simple
@@ -192,13 +161,13 @@ A list of most important features of Java language is given below.
 10.	Multithreaded
 11.	Distributed
 12.	Dynamic
-Simple
+- Simple
 Java is very easy to learn, and its syntax is simple, clean and easy to understand. According to Sun, Java language is a simple programming language because:
 o	Java syntax is based on C++ (so easier for programmers to learn it after C++).
 o	Java has removed many complicated and rarely-used features, for example, explicit pointers, operator overloading, etc.
 o	There is no need to remove unreferenced objects because there is an Automatic Garbage Collection in Java.
 ________________________________________
-Object-oriented
+- Object-oriented
 Java is an object-oriented programming language. Everything in Java is an object. Object-oriented means we organize our software as a combination of different types of objects that incorporates both data and behavior.
 Object-oriented programming (OOPs) is a methodology that simplifies software development and maintenance by providing some rules.
 Basic concepts of OOPs are:
@@ -208,7 +177,7 @@ Basic concepts of OOPs are:
 4.	Polymorphism
 5.	Abstraction
 6.	Encapsulation
-Platform Independent
+- Platform Independent
  
 Java is platform independent because it is different from other languages like C, C++, etc. which are compiled into platform specific machines while Java is a write once, run anywhere language. A platform is the hardware or software environment in which a program runs.
 There are two types of platforms software-based and hardware-based. Java provides a software-based platform.
@@ -217,7 +186,7 @@ The Java platform differs from most other platforms in the sense that it is a so
 2.	API(Application Programming Interface)
 Java code can be run on multiple platforms, for example, Windows, Linux, Sun Solaris, Mac/OS, etc. Java code is compiled by the compiler and converted into bytecode. This bytecode is a platform-independent code because it can be run on multiple platforms, i.e., Write Once and Run Anywhere (WORA).
 ________________________________________
-Secured
+- Secured
 
 The fact that a java program is interpreted also helps to make it secure. Because execution of every java program is under the control of JVM. The JVM can contain the programs and prevent it from generating side effect outside of the system. As you will see, safety is also enhanced by certain restrictions that exist in java language.
 When program is interpreted it generally runs substantially slower than it would run if compiled to executable code. The use of bytecode enables the java runtime system to execute program much faster than you might expect. 
@@ -232,42 +201,42 @@ o	Bytecode Verifier: It checks the code fragments for illegal code that can viol
 o	Security Manager: It determines what resources a class can access such as reading and writing to the local disk.
 Java language provides these securities by default. Some security can also be provided by an application developer explicitly through SSL, JAAS, Cryptography, etc.
 ________________________________________
-Robust
+- Robust
 Robust simply means strong. Java is robust because:
 o	It uses strong memory management.
 o	There is a lack of pointers that avoids security problems.
 o	There is automatic garbage collection in java which runs on the Java Virtual Machine to get rid of objects which are not being used by a Java application anymore.
 o	There are exception handling and the type checking mechanism in Java. All these points make Java robust.
 ________________________________________
-Architecture-neutral
+- Architecture-neutral
 Java is architecture neutral because there are no implementation dependent features, for example, the size of primitive types is fixed.
 In C programming, int data type occupies 2 bytes of memory for 32-bit architecture and 4 bytes of memory for 64-bit architecture. However, it occupies 4 bytes of memory for both 32 and 64-bit architectures in Java.
 ________________________________________
-Portable
+- Portable
 Remember, although the details of the java program were compiled to native code then different version of the same program would have to exist for each type of CPU connected to the internet. This is of course, not a feasible solution thus the interpretation of bytecode is the easiest way to create truly portable program.
 Java is portable because it facilitates you to carry the Java bytecode to any platform. It doesn't require any implementation.
 ________________________________________
-High-performance
+- High-performance
 Java is faster than other traditional interpreted programming languages because Java bytecode is "close" to native code. It is still a little bit slower than a compiled language (e.g., C++). Java is an interpreted language that is why it is slower than compiled languages, e.g., C, C++, etc.
 ________________________________________
-Distributed
+- Distributed
 Java is distributed because it facilitates users to create distributed applications in Java. RMI and EJB are used for creating distributed applications. This feature of Java makes us able to access files by calling the methods from any machine on the internet.
 ________________________________________
-Multi-threaded
+- Multi-threaded
 A thread is like a separate program, executing concurrently. We can write Java programs that deal with many tasks at once by defining multiple threads. The main advantage of multi-threading is that it doesn't occupy memory for each thread. It shares a common memory area. Threads are important for multi-media, Web applications, etc.
-Dynamic
+- Dynamic
 Java is a dynamic language. It supports dynamic loading of classes. It means classes are loaded on demand. It also supports functions from its native languages, i.e., C and C++.
 Java supports dynamic compilation and automatic memory management (garbage collection).
-Bytecode
+- Bytecode
 The key allows java to solve both the security and portability problem just describe is that the output of java compiler is not executable code. Rather, it is bytecode.
 Bytecode is highly optimized set of instructions designed to be executed by the java runtime system, which is called the java virtual machine (JVM) that is, in its standard form, the JVM is an interpreter for bytecode.
 As you know, C++ is compiled to be executable code in fact most modern language are designed to be compiled not interpreted mostly because of performance concerns. However the fact that java program is executed by the JVM helps solve the major problem associated with downloading programs over the internet. 
 Translating a java program into bytecode helps makes it much easier to run a program in a wide variety of environments. The reason is straight forward: - Only the JVM need to be implemented for each platform.
 Once the runtime package exist for a given systems only java program can run on it.
-Interpretation JIT (Just in Time)
+- Interpretation JIT (Just in Time)
 
 When the JIT is part of the JVM it compiles bytecode into executable code in real time on a piece by piece demand basis. It is important to understand that it is not possible to compile an entire java program into executable code all at once, because java performs various runtime checks that can be done only at runtime instead the JIT compiles code as it needed during execution.
-Two Paradigm
+#### Two Paradigm
 1.	Process Oriented Model
 2.	Object Oriented Programming Model
 All computer programs consists of two elements: code and data. Program can be conceptually organized around its code or around its data. 
@@ -277,7 +246,7 @@ The process oriented model can be thought of as code acting on data. Procedural 
 To manage increasing complexity the second approach called object oriented programing was conceived.
 Object oriented programing organizes a program around its data (that is objects) and a set of well-defined interfaces to that data. An object oriented program can be characterized as data controlling access to code.
 
-Advantage of OOPs over Procedure-oriented programming language
+- Advantage of OOPs over Procedure-oriented programming language
 1) OOPs makes development and maintenance easier, whereas, in a procedure-oriented programming language, it is not easy to manage if code grows as project size increases.
 2) OOPs provides data hiding, whereas, in a procedure-oriented programming language, global data can be accessed from anywhere.
  
@@ -287,9 +256,9 @@ Figure: Data Representation in Procedure-Oriented Programming
 Figure: Data Representation in Object-Oriented Programming
 3) OOPs provides the ability to simulate real-world event much more effectively. We can provide the solution of real word problem if we are using the Object-Oriented Programming language.
 ________________________________________
-What is the difference between an object-oriented programming language and object-based programming language?
+#### What is the difference between an object-oriented programming language and object-based programming language?
 Object-based programming language follows all the features of OOPs except Inheritance. JavaScript and VBScript are examples of object-based programming languages.
-OOPs (Object-Oriented Programming System)
+#### OOPs (Object-Oriented Programming System)
 Object means a real-world entity such as a pen, chair, table, computer, watch, etc. Object-Oriented Programming is a methodology or paradigm to design a program using classes and objects. It simplifies software development and maintenance by providing some concepts:
 o	Object
 o	Class
@@ -303,7 +272,7 @@ o	Cohesion
 o	Association
 o	Aggregation
 o	Composition
-Class
+#### Class
 Class is user defined templates. It defines a new datatypes.
 We just mentioned that object contains data and code to manipulate that data. The entire set of data and code of an object can be made a user defined datatypes with the help of a class. Once class has been defined we can create any number of object is associated with the data of type class with which they are created.
 A class is thus a collection of object of dissimilar types. The data or variables defined within the class are called instance variables. The code contained within method. Collectively the method and variables defined within a class are called member of the class.
@@ -325,13 +294,13 @@ Syntax to declare a class:
 4.	}  
 
 ________________________________________
-Instance variable in Java
+#### Instance variable in Java
 A variable which is created inside the class but outside the method is known as an instance variable. Instance variable doesn't get memory at compile time. It gets memory at runtime when an object or instance is created. That is why it is known as an instance variable.
 ________________________________________
-Object
+#### Object
 The data or variables defined within a class are called instance variable. The code is contained within methods collectively, the methods and variables defined within a class are called member of the class.
 An Object can be defined as an instance of a class. An object contains an address and takes up some space in memory. Objects can communicate without knowing the details of each other's data or code. The only necessary thing is the type of message accepted and the type of response returned by the objects.
-Declaring Objects
+- Declaring Objects
 As just explained, when you create a class, you are creating a new data type. You can use this type to declare objects of that type. However, obtaining objects of a class is a two-step process. 
 
 First, you must declare a variable of the class type. This variable does not define an object. Instead, it is simply a variable that can refer to an object. 
@@ -343,21 +312,21 @@ The distinction between a class and an object. A class creates a new data type t
 Example: A dog is an object because it has states like color, name, breed, etc. as well as behaviors like wagging the tail, barking, eating, etc.
 An entity that has state and behavior is known as an object e.g., chair, bike, marker, pen, table, keyboard, car, etc. It can be physical or logical (tangible and intangible). The example of an intangible object is the banking system.
    
-An object has three characteristics:
+- An object has three characteristics:
 o	State: represents the data (value) of an object.
 o	Behavior: represents the behavior (functionality) of an object such as deposit, withdraw, etc.
 o	Identity: An object identity is typically implemented via a unique ID. The value of the ID is not visible to the external user. However, it is used internally by the JVM to identify each object uniquely.
  
 For Example, Pen is an object. Its name is Reynolds; color is white, known as its state. It is used to write, so writing is its behavior.
 An object is an instance of a class. A class is a template or blueprint from which objects are created. So, an object is the instance (result) of a class.
-Object Definitions:
+- Object Definitions:
 o	An object is a real-world entity.
 o	An object is a runtime entity.
 o	The object is an entity which has state and behavior.
 o	The object is an instance of a class.
 
 ________________________________________
-new keyword in Java
+#### new keyword in Java
 The new keyword is used to allocate memory at runtime. All objects get memory in Heap memory area.
 ________________________________________
 Object and Class Example: main within the class
@@ -406,7 +375,7 @@ Test it Now
 Output:
 0 
 null
-3 Ways to initializing object
+#### 3 Ways to initializing object
 There are 3 ways to initialize object in Java.
 1.	By reference variable
 2.	By method
@@ -544,7 +513,7 @@ Test it Now
 Output:
 55 
 45     
-What are the different ways to create an object in Java?
+#### What are the different ways to create an object in Java?
 There are many ways to create an object in java. They are:
 o	By new keyword
 o	By newInstance() method
@@ -553,7 +522,7 @@ o	By deserialization
 o	By factory method etc.
 We will learn these ways to create object later.
  
-Anonymous Objects
+#### Anonymous Objects
 Anonymous simply means nameless. An object which has no reference is known as an anonymous object. It can be used at the time of object creation only.
 If you have to use an object only once, an anonymous object is a good approach. For example:
 1.	new Calculation();//anonymous object  
@@ -664,11 +633,11 @@ Balance is: 41000.0
 Balance is: 26000.0
 
 ________________________________________
-The Three OOP’s principles:
+#### The Three OOP’s principles:
 1.	Encapsulation
 2.	Inheritance
 3.	Polymorphism
-Encapsulation in Java
+#### Encapsulation in Java
 Encapsulation is mechanism that binds together code and data it manipulate and keep both safe from outside interference and misuse. One way to think about encapsulation is a protective wrapper that prevents code and data from being arbitrary accessed by the other code defined outside the wrapper. Access to the code and data inside the wrapper is tightly control through a well-defined interface.
 An object has properties and behavior that are encapsulated inside the object. The service is offers to its client comprises its contract, only the contract defined by the object is available to the clients. The implementation of its properties and behaviors is not concern of the clients. Encapsulation helps make clear the distinction between an objects contract and implementation. This has major consequences for program development. This implementation of an object can change without implications for the client. Encapsulation also reduces complexity as the internals of an object are hidden from the clients who cannot influence (i.e. effect or impact) its implementation.
 A java class is the example of encapsulation. Java bean is the fully encapsulated class because all the data members are private here.
@@ -798,7 +767,7 @@ File: TestAccount.java
 Test it Now
 Output:
 7560504000 Sonoo Jaiswal sonoojaiswal@javatpoint.com 500000.0
-Polymorphism in Java
+#### Polymorphism in Java
 Polymorphism is another important concept. Polymorphism, a Greek terms means the ability to take more than one form. An operation may exhibits different behavior in different instance. The behavior depends upon the type of the objects used in the operation. Concept of polymorphism is often expressed by the phrase “one interface multiple methods”.
 Polymorphism allows a reference to denote object of different types at different times during execution. A super type reference exhibits polymorphic behavior since it can denote object of its subtype.
 Example of polymorphism is:
@@ -811,14 +780,14 @@ Polymorphism in Java is a concept by which we can perform a single action in dif
 There are two types of polymorphism in Java: compile-time polymorphism and runtime polymorphism. We can perform polymorphism in java by method overloading and method overriding.
 If you overload a static method in Java, it is the example of compile time polymorphism. Here, we will focus on runtime polymorphism in java.
 ________________________________________
-Runtime Polymorphism in Java
+#### Runtime Polymorphism in Java
 Runtime polymorphism or Dynamic Method Dispatch is a process in which a call to an overridden method is resolved at runtime rather than compile-time.
 Method overriding forms the basis for one of Java’s most powerful concepts: dynamic method dispatch. Dynamic method dispatch is the mechanism by which a call to an overridden method is resolved at run time, rather than compile time.
 Dynamic method dispatch is important because this is how Java implements run-time polymorphism.
 
 A superclass reference variable can refer to a subclass object. Java uses this fact to resolve calls to overridden methods at run time. 
 
-Here is how. 
+- Here is how. 
 
 When an overridden method is called through a superclass reference, Java determines which version of that method to execute based upon the type of the object being referred to at the time the call occurs. Thus, this determination is made at run time. When different types of objects are referred to, different versions of an overridden method will be called.
 
@@ -866,7 +835,7 @@ This program creates one superclass called A and two subclasses of it, called B 
 
 Subclasses B and C override callme( ) declared in A. Inside the main( ) method, objects of type A, B, and C are declared. Also, a reference of type A, called r, is declared. The program then in turn assigns a reference to each type of object to r and uses that reference to invoke callme( ). As the output shows, the version of callme( ) executed is determined by the type of object being referred to at the time of the call. Had it been determined by the type of the reference variable, r, you would see three calls to A’s callme( ) method. 
 
-Why Overridden Methods?
+#### Why Overridden Methods?
 
 The superclass provides all elements that a subclass can use directly. It also defines those methods that the derived class must implement on its own. This allows the subclass the flexibility to define its own methods, yet still enforces a consistent interface.
 
@@ -890,7 +859,7 @@ B IS-A I
 B IS-A Object
 Since Object is the root class of all classes in Java, so we can write B IS-A Object.
 ________________________________________
-Example of Java Runtime Polymorphism
+#### Example of Java Runtime Polymorphism
 In this example, we are creating two classes Bike and Splendor. Splendor class extends Bike class and overrides its run() method. We are calling the run method by the reference variable of Parent class. Since it refers to the subclass object and subclass method overrides the Parent class method, the subclass method is invoked at runtime.
 Since method invocation is determined by the JVM not compiler, it is known as runtime polymorphism.
 1.	class Bike{  
@@ -996,7 +965,7 @@ Output:
 eating bread...
 eating rat...
 eating meat...
-Java Runtime Polymorphism with Data Member
+#### Java Runtime Polymorphism with Data Member
 A method is overridden, not the data members, so runtime polymorphism can't be achieved by data members.
 In the example given below, both the classes have a data member speedlimit. We are accessing the data member by the reference variable of Parent class which refers to the subclass object. Since we are accessing the data member which is not overridden, hence it will access the data member of the Parent class always.
 Rule: Runtime polymorphism can't be achieved by data members.
@@ -1013,7 +982,7 @@ Rule: Runtime polymorphism can't be achieved by data members.
 Test it Now
 Output:
 90
-Java Runtime Polymorphism with Multilevel Inheritance
+#### Java Runtime Polymorphism with Multilevel Inheritance
 Let's see the simple example of Runtime Polymorphism with multilevel inheritance.
 1.	class Animal{  
 2.	void eat(){System.out.println("eating");}  
@@ -1056,7 +1025,7 @@ Output:
 Dog is eating
 Since, BabyDog is not overriding the eat() method, so eat() method of Dog class is invoked.
 
-Inheritance in java
+#### Inheritance in java
 Inheritance is the process by which one object acquires the properties of another objects. This is important because it supports the concept of hierarchical classification.
 In OOP’s the concept of inheritance provides the idea of reusability. This means that we can add additional features to an existing class without modifying it. This is possible by deriving a new class from an existing one.
 The new class will have the combined features of both the class.
@@ -1070,7 +1039,7 @@ Inheritance is one of the corner stones of object-oriented programming because i
 Inheritance in Java is a mechanism in which one object acquires all the properties and behaviors of a parent object. It is an important part of OOPs (Object Oriented programming system).
 The idea behind inheritance in Java is that you can create new classes that are built upon existing classes. When you inherit from an existing class, you can reuse methods and fields of the parent class. Moreover, you can add new methods and fields in your current class also.
 Inheritance represents the IS-A relationship which is also known as a parent-child relationship.
-Why use inheritance in java
+#### Why use inheritance in java
 o	For Method Overriding (so runtime polymorphism can be achieved).
 o	For Code Reusability.
 Terms used in Inheritance
@@ -1105,7 +1074,7 @@ Test it Now
  Bonus of programmer is:10000
 In the above example, Programmer object can access the field of own class as well as of Employee class i.e. code reusability.
 ________________________________________
-Types of inheritance in java
+#### Types of inheritance in java
 On the basis of class, there can be three types of inheritance in java: single, multilevel and hierarchical.
 In java programming, multiple and hybrid inheritance is supported through interface only. We will learn about interfaces later.
  
@@ -1113,7 +1082,7 @@ Note: Multiple inheritance is not supported in Java through class.
 When one class inherits multiple classes, it is known as multiple inheritance. For Example:
  
 ________________________________________
-Single Inheritance Example
+- Single Inheritance Example
 When a class inherits another class, it is known as a single inheritance. In the example given below, Dog class inherits the Animal class, so there is the single inheritance.
 File: TestInheritance.java
 1.	class Animal{  
@@ -1131,7 +1100,7 @@ File: TestInheritance.java
 Output:
 barking...
 eating...
-Multilevel Inheritance Example
+- Multilevel Inheritance Example
 When there is a chain of inheritance, it is known as multilevel inheritance. As you can see in the example given below, BabyDog class inherits the Dog class which again inherits the Animal class, so there is a multilevel inheritance.
 File: TestInheritance2.java
 1.	class Animal{  
@@ -1154,7 +1123,7 @@ Output:
 weeping...
 barking...
 eating...
-Hierarchical Inheritance Example
+- Hierarchical Inheritance Example
 When two or more classes inherits a single class, it is known as hierarchical inheritance. In the example given below, Dog and Cat classes inherits the Animal class, so there is hierarchical inheritance.
 File: TestInheritance3.java
 1.	class Animal{  
@@ -1177,7 +1146,7 @@ Output:
 meowing...
 eating...
 ________________________________________
-Q) Why multiple inheritance is not supported in java?
+#### Q) Why multiple inheritance is not supported in java?
 To reduce the complexity and simplify the language, multiple inheritance is not supported in java.
 Consider a scenario where A, B, and C are three classes. The C class inherits A and B classes. If A and B classes have the same method and you call it from child class object, there will be ambiguity to call the method of A or B class.
 Since compile-time errors are better than runtime errors, Java renders compile-time error if you inherit 2 classes. So whether you have same method or different, there will be compile time error.
@@ -1198,7 +1167,7 @@ Test it Now
  Compile Time Error
 
 
-Abstraction in Java
+#### Abstraction in Java
 Abstraction refers to the act of representing essential features without including the background details or explanation. An essential feature of object oriented programing is abstraction.
 A powerful way to manage abstraction is through the use of hierarchical classification. This allows you to layer the semantic of complex system breaking them into more manageable piece. The data from a traditional process oriented program can be transformed by abstraction into its component objects.
 A sequence of process steps can become a collection of messages between these objects thus each of these objects describes own unique behavior. You can treat these objects as concrete entities that responds to messages telling them to do something. This is the essence of object oriented programing.
@@ -1211,11 +1180,11 @@ Another way, it shows only essential things to the user and hides the internal d
 Hiding internal details and showing functionality is known as abstraction. For example phone call, we don't know the internal processing.
 In Java, we use abstract class and interface to achieve abstraction.
 Abstraction lets you focus on what the object does instead of how it does it.
-Ways to achieve Abstraction
+#### Ways to achieve Abstraction
 There are two ways to achieve abstraction in java
 1.	Abstract class (0 to 100%)
 2.	Interface (100%)
-Aggregation in Java
+#### Aggregation in Java
 Aggregation is a way to achieve Association. Aggregation represents the relationship where one object contains other objects as a part of its state. It represents the weak relationship between objects. It is also termed as a has-a relationship in Java. Like, inheritance represents the is-a relationship. It is another way to reuse objects.
 If a class have an entity reference, it is known as Aggregation. Aggregation represents HAS-A relationship.
 Consider a situation, Employee object contains many informations such as id, name, emailId etc. It contains one more object named address, which contains its own informations such as city, state, country, zipcode etc. as given below.
@@ -1226,7 +1195,7 @@ Consider a situation, Employee object contains many informations such as id, nam
 5.	...  
 6.	}  
 In such case, Employee has an entity reference address, so relationship is Employee HAS-A address.
-Why use Aggregation?
+#### Why use Aggregation?
 o	For Code Reusability.
 ________________________________________
 Simple Example of Aggregation
@@ -1259,7 +1228,7 @@ In this example, we have created the reference of Operation class in the Circle 
 Test it Now
 Output:78.5
       
-When use Aggregation?
+#### When use Aggregation?
 o	Code reuse is also best achieved by aggregation when there is no is-a relationship.
 o	Inheritance should be used only if the relationship is-a is maintained throughout the lifetime of the objects involved; otherwise, aggregation is the best choice.
 ________________________________________
@@ -1312,11 +1281,11 @@ Output:111 varun
        gno UP india      
 
 
-Coupling
+#### Coupling
 Coupling refers to the knowledge or information or dependency of another class. It arises when classes are aware of each other. If a class has the details information of another class, there is strong coupling. In Java, we use private, protected, and public modifiers to display the visibility level of a class, method, and field. You can use interfaces for the weaker coupling because there is no concrete implementation.
-Cohesion
+#### Cohesion
 Cohesion refers to the level of a component which performs a single well-defined task. A single well-defined task is done by a highly cohesive method. The weakly cohesive method will split the task into separate parts. The java.io package is a highly cohesive package because it has I/O related classes and interface. However, the java.util package is a weakly cohesive package because it has unrelated classes and interfaces.
-Association
+#### Association
 Association represents the relationship between the objects. Here, one object can be associated with one object or many objects. There can be four types of association between the objects:
 o	One to One
 o	One to Many
@@ -1324,9 +1293,9 @@ o	Many to One, and
 o	Many to Many
 Let's understand the relationship with real-time examples. For example, One country can have one prime minister (one to one), and a prime minister can have many ministers (one to many). Also, many MP's can have one prime minister (many to one), and many ministers can have many departments (many to many).
 Association can be undirectional or bidirectional.
-Composition
+#### Composition
 The composition is also a way to achieve Association. The composition represents the relationship where one object contains other objects as a part of its state. There is a strong relationship between the containing object and the dependent object. It is the state where containing objects do not have an independent existence. If you delete the parent object, all the child objects will be deleted automatically.
-Access Modifiers in Java
+#### Access Modifiers in Java
 Access Control
 Encapsulation links data with the code that manipulates it. However, encapsulation provides another important attribute: access control. Through encapsulation, you can control what parts of a program can access the members of a class. By controlling access, you can prevent misuse. For example, allowing access to data only through a well-defined set of methods, you can prevent the misuse of that data.
 
@@ -1352,13 +1321,6 @@ Private	Y	N	N	N
 Default	Y	Y	N	N
 Protected	Y	Y	Y	N
 Public	Y	Y	Y	Y
-
-
-
-
-
-
-
 ________________________________________
 1) Private
 The private access modifier is accessible only within the class.
@@ -1469,12 +1431,12 @@ If you are overriding any method, overridden method (i.e. declared in subclass) 
 11.	}  
 The default modifier is more restrictive than protected. That is why, there is a compile-time error.
 
-Methods in Java
+#### Methods in Java
 A function (i.e. Method) is self-contained block of statements that performs a coherent task of some kind.
 Function (i.e. Method) is a subprogram sometimes which returns a value. If the method does not return a value, its return type must be void. The name of the method is specified by name. This can be any legal identifier other than those already used by other items within the current scope. 
 
 The parameter-list is a sequence of type and identifier pairs separated by commas. Parameters are essentially variables that receive the value of the arguments passed to the method when it is called. If the method has no parameters, then the parameter list will be empty.
-Returning a Value
+- Returning a Value
 There are two important things to understand about returning values:
 • The type of data returned by a method must be compatible with the return type specified by the method. 
 For example, if the return type of some method is boolean, you could not return an integer.
@@ -1491,14 +1453,14 @@ public int method() {
 int a=10;
 return a;
 }
-Difference between parameters and argument:
+#### Difference between parameters and argument:
 A parameter is a variable defined by a method that receives a value when the method is called. For example in a square (i), i is a parameter.
 An argument is a value that is passed to method when the method is invoked. For example in a square (100), 100 is an argument.
 In Java, a method is like a function which is used to expose the behavior of an object.
 Advantage of Method
 o	Code Reusability
 o	Code Optimization
-Using Command-Line Arguments
+#### Using Command-Line Arguments
 Sometimes you will want to pass information into a program when you run it. This is accomplished by passing command-line arguments to main( ). A command-line argument is the information that directly follows the program’s name on the command line when it is executed. To access the command-line arguments inside a Java program is quite easy—We can store as strings in a String array passed to the args parameter of main( ). The first command-line argument is stored at args[0], the second at args[1], and so on. For example, the following program displays all of the command-line arguments that it is called with:
 
 // Display all command-line arguments.
@@ -1521,7 +1483,7 @@ args[4]: 100
 args[5]: -1
 
 REMEMBER All command-line arguments are passed as strings. You must convert numeric values to their internal forms manually,
-Instance Variable Hiding
+#### Instance Variable Hiding
 It is illegal in Java to declare two local variables with the same name inside the same or enclosing scopes. Interestingly, you can have local variables, including formal parameters to methods, which overlap with the names of the class’ instance variables. However, when a local variable has the same name as an instance variable, the local variable hides the instance variable.
 
 This lets you refer directly to the object, you can use it to resolve any name space collisions that might occur between instance variables and local variables. For example, here is another version of Box( ), which uses width, height, and depth for parameter names and then uses this to access the instance variables by the same name:
@@ -1533,7 +1495,7 @@ this.height = height;
 this.depth = depth;
 }
 
-The Scope and Lifetime of Variables
+#### The Scope and Lifetime of Variables
 Java allows variables to be declared within any block. A block is begun with an opening curly brace and ended by a closing curly brace. A block defines a scope. Thus, each time you start a new block, you are creating a new scope. A scope determines what objects are visible to other parts of your program. It also determines the lifetime of those objects.
 
 Many other computer languages define two general categories of scopes: global and local. However, these traditional scopes do not fit well with Java’s strict, object-oriented model. While it is possible to create what amounts to being a global scope, it is by far the exception not the rule. In Java, the two major scopes are those defined by a class and those defined by a method.
@@ -1546,14 +1508,14 @@ As a general rule, variables declared inside a scope are not visible (that is, a
 
 Scopes can be nested. For example, each time you create a block of code, you are creating a new, nested scope. When this occurs, the outer scope encloses the inner scope. This means that objects declared in the outer scope will be visible to code within the inner scope. However, the reverse is not true. Objects declared within the inner scope will not be visible outside it.
 
-Constructors in Java
+#### Constructors in Java
 Java allows objects to initialize themselves when they are created. This automatic initialization is performed through the use of a constructor.
 
 A constructor initializes an object immediately upon creation. It has the same name as the class in which it resides and is syntactically similar to a method. Once defined, the constructor is automatically called immediately after the object is created, before the new operator completes.
 
 Constructors look a little strange because they have no return type, not even void. This is because the implicit return type of a class’ constructor is the class type itself. It is the constructor’s job to initialize the internal state of an object so that the code creating an instance will have a fully initialized, usable object immediately.
 
-Following types of constructors:
+- Following types of constructors:
 •	Parameterized Constructor
 •	Default Constructor
 In Java, a constructor is a block of codes similar to the method. It is called when an instance of the class is created. At the time of calling constructor, memory for the object is allocated in the memory.
@@ -1562,7 +1524,7 @@ Every time an object is created using the new() keyword, at least one constructo
 It calls a default constructor if there is no constructor available in the class. In such case, Java compiler provides a default constructor by default.
 There are two types of constructors in Java: no-arg constructor, and parameterized constructor.
 Note: It is called constructor because it constructs the values at the time of object creation. It is not necessary to write a constructor for a class. It is because java compiler creates a default constructor if your class doesn't have any.
-Rules for creating Java constructor
+- Rules for creating Java constructor
 There are two rules defined for the constructor.
 1.	Constructor name must be the same as its class name
 2.	A Constructor must have no explicit return type
@@ -1574,7 +1536,7 @@ There are two types of constructors in Java:
 2.	Parameterized constructor
  
 ________________________________________
-Java Default Constructor
+- Java Default Constructor
 A constructor is called "Default Constructor" when it doesn't have any parameter.
 Syntax of default constructor:
 1.	<class_name>(){}  
@@ -1596,7 +1558,7 @@ Output:
 Bike is created
 Rule: If there is no constructor in a class, compiler automatically creates a default constructor.
  
-Q) What is the purpose of a default constructor?
+#### Q) What is the purpose of a default constructor?
 The default constructor is used to provide the default values to the object like 0, null, etc., depending on the type.
 Example of default constructor that displays the default values
 1.	//Let us see another example of default constructor  
@@ -1622,7 +1584,7 @@ Output:
 0 null
 Explanation:In the above class,you are not creating any constructor so compiler provides you a default constructor. Here 0 and null values are provided by default constructor.
 ________________________________________
-Java Parameterized Constructor
+- Java Parameterized Constructor
 A constructor which has a specific number of parameters is called a parameterized constructor.
 Why use the parameterized constructor?
 The parameterized constructor is used to provide different values to distinct objects. However, you can provide the same values also.
@@ -1654,7 +1616,7 @@ Output:
 111 Karan
 222 Aryan
 ________________________________________
-Constructor Overloading in Java
+#### Constructor Overloading in Java
 In Java, a constructor is just like a method but without return type. It can also be overloaded like Java methods.
 Constructor overloading in Java is a technique of having more than one constructor with different parameter lists. They are arranged in a way that each constructor performs a different task. They are differentiated by the compiler by the number of parameters in the list and their types.
 Example of Constructor Overloading
@@ -1688,7 +1650,7 @@ Output:
 111 Karan 0
 222 Aryan 25
 ________________________________________
-Difference between constructor and method in Java
+#### Difference between constructor and method in Java
 There are many differences between constructors and methods. They are given below.
 Java Constructor	Java Method
 A constructor is used to initialize the state of an object.	A method is used to expose the behavior of an object.
@@ -1698,7 +1660,7 @@ The Java compiler provides a default constructor if you don't have any construct
 The constructor name must be same as the class name.	The method name may or may not be same as the class name.
 
  
-Java Copy Constructor
+#### Java Copy Constructor
 There is no copy constructor in Java. However, we can copy the values from one object to another like copy constructor in C++.
 There are many ways to copy the values of one object into another in Java. They are:
 o	By constructor
@@ -1733,7 +1695,7 @@ Output:
 111 Karan
 111 Karan
 ________________________________________
-Copying values without constructor
+- Copying values without constructor
 We can copy the values of one object into another by assigning the objects values to another object. In this case, there is no need to create the constructor.
 1.	class Student7{  
 2.	    int id;  
@@ -1759,20 +1721,20 @@ Output:
 111 Karan
 111 Karan
 ________________________________________
-Q) Does constructor return any value?
+#### Q) Does constructor return any value?
 Yes, it is the current class instance (You cannot use return type yet it returns a value).
 ________________________________________
-Can constructor perform other tasks instead of initialization?
+#### Can constructor perform other tasks instead of initialization?
 Yes, like object creation, starting a thread, calling a method, etc. You can perform any operation in the constructor as you perform in the method.
 ________________________________________
-Is there Constructor class in Java?
+#### Is there Constructor class in Java?
 Yes.
 ________________________________________
-What is the purpose of Constructor class?
+#### What is the purpose of Constructor class?
 Java provides a Constructor class which can be used to get the internal information of a constructor in the class. It is found in the java.lang.reflect package.
 
 
-this keyword in java
+#### this keyword in java
 Current object can be referenced in the body of the instance method by keyword this.
 
 Sometimes a method will need to refer to the object that invoked it. To allow this java defines this keyword.
@@ -1783,7 +1745,7 @@ this can be used inside any method to refer to the current object. That is, this
 •	Super is used to invoking the parent class.
 There can be a lot of usage of java this keyword. In java, this is a reference variable that refers to the current object.
  
-Usage of java this keyword
+- Usage of java this keyword
 Here is given the 6 usage of java this keyword.
 1.	this can be used to refer current class instance variable.
 2.	this can be used to invoke current class method (implicitly)
@@ -1821,7 +1783,7 @@ Test it Now
 Output:
 0 null 0.0
 0 null 0.0
-In the above example, parameters (formal arguments) and instance variables are same. So, we are using this keyword to distinguish local variable and instance variable.
+In the above example, parameters (formal arguments) and instance variables are same. So, we are using this keyword to distinguish #### #### local variable and instance variable.
 Solution of the above problem by this keyword
 1.	class Student{  
 2.	int rollno;  
@@ -2066,12 +2028,12 @@ Output:
 A5@22b3ea59
 A5@22b3ea59
 
-Garbage Collection
+#### Garbage Collection
 Since objects are dynamically allocated by using the new operator, you might be wondering how such objects are destroyed and their memory released for later reallocation. In some languages, such as C++, dynamically allocated objects must be manually released by use of a delete operator. Java takes a different approach; it handles deallocation for you automatically. The technique that accomplishes this is called garbage collection. 
 
 It works like this: when no references to an object exist, that object is assumed to be no longer needed, and the memory occupied by the object can be reclaimed. There is no explicit need to destroy objects as in C++. Garbage collection only occurs sporadically (if at all) during the execution of your program. It will not occur simply because one or more objects exist that are no longer used.
 
-Finalize() method
+#### Finalize() method
 
 By using finalization, you can define specific actions that will occur when an object is just about to be reclaimed by the garbage collector.
 
@@ -2090,12 +2052,12 @@ Here, the keyword protected is a specifier that prevents access to finalize( ) b
 
 When all references to an object are dropped, the object no longer required and become eligible for garbage collection. Before an object is garbage collected the runtime system is calls its finalize() method to release system resources such as open file or open socket before the object is collected.
 
-Memory Management
+#### Memory Management
 Although Java provides automatic garbage collection, sometimes you will want to know how large the object heap is and how much of it is left. You can use this information, for example, to check your code for efficiency or to approximate how many more objects of a certain type can be instantiated. To obtain these values, use the totalMemory( ) and freeMemory( ) methods.
 
 Java’s garbage collector runs periodically to recycle unused objects. However, sometimes you will want to collect discarded objects prior to the collector’s next appointed rounds. You can run the garbage collector on demand by calling the gc( ) method. A good thing to try is to call gc( ) and then call freeMemory( ) to get a baseline memory usage. Next, execute your code and call freeMemory( ) again to see how much memory it is allocating.
 
-Method Overloading in Java
+#### Method Overloading in Java
 Method overloading is one of java’s most exciting and useful feature. 
 When two or more methods within the same class that share the same name, as long as their parameter declarations are different. When this is the case, the methods are said to be overloaded, and the process is referred to as method overloading. Method overloading is one of the ways that Java supports polymorphism.
 If a class has multiple methods having same name but different in parameters, it is known as Method Overloading.
@@ -2103,7 +2065,7 @@ If we have to perform only one operation, having same name of the methods increa
 Suppose you have to perform addition of the given numbers but there can be any number of arguments, if you write the method such as a(int, int) for two parameters, and b(int, int, int) for three parameters then it may be difficult for you as well as other programmers to understand the behavior of the method because its name differs.
 So, we perform method overloading to figure out the program quickly.
  
-Advantage of method overloading
+- Advantage of method overloading
 Method overloading increases the readability of the program.
 Different ways to overload the method
 There are two ways to overload the method in java
@@ -2145,7 +2107,7 @@ Output:
 22
 24.9
 ________________________________________
-Q) Why Method Overloading is not possible by changing the return type of method only?
+#### Q) Why Method Overloading is not possible by changing the return type of method only?
 In java, method overloading is not possible by changing the return type of the method only because of ambiguity. Let's see how ambiguity may occur:
 1.	class Adder{  
 2.	static int add(int a,int b){return a+b;}  
@@ -2170,7 +2132,7 @@ Yes, by method overloading. You can have any number of main methods in a class b
 Test it Now
 Output:
 main with String[]
-Method Overloading and Type Promotion
+#### Method Overloading and Type Promotion
 One type is promoted to another implicitly if no matching datatype is found. Let's understand the concept by the figure given below:
  
 As displayed in the above diagram, byte can be promoted to short, int, long, float or double. The short datatype can be promoted to int, long, float or double. The char datatype can be promoted to int,long,float or double and so on.
@@ -2231,7 +2193,7 @@ This approach copies the value of an argument into the formal parameter of the s
 The second way an argument can be passed is call-by-reference.
 
 In this approach, a reference to an argument (not the value of the argument) is passed to the parameter. Inside the subroutine, this reference is used to access the actual argument specified in the call. This means that changes made to the parameter will affect the argument used to call the subroutine.
-Recursion
+#### Recursion
 Java supports recursion. Recursion is the process of defining something in terms of itself. As it relates to Java programming, recursion is the attribute that allows a method to call itself.
 A method that calls itself is said to be recursive.
 
@@ -2263,7 +2225,7 @@ Factorial of 5 is 120
 
 
 
-Method Overriding in Java
+#### Method Overriding in Java
 When a method in a subclass has the same name and type signature as a method in its superclass, then the method in the subclass is said to override the method in the superclass. 
 When an overridden method is called from within a subclass, it will always refer to the version of that method defined by the subclass. The version of the method defined by the superclass will be hidden.
 Method overriding forms the basis for one of Java’s most powerful concepts: dynamic method dispatch. Dynamic method dispatch is the mechanism by which a call to an overridden method is resolved at run time, rather than compile time.
@@ -2319,7 +2281,7 @@ This program creates one superclass called A and two subclasses of it, called B 
 
 Subclasses B and C override callme( ) declared in A. Inside the main( ) method, objects of type A, B, and C are declared. Also, a reference of type A, called r, is declared. The program then in turn assigns a reference to each type of object to r and uses that reference to invoke callme( ). As the output shows, the version of callme( ) executed is determined by the type of object being referred to at the time of the call. Had it been determined by the type of the reference variable, r, you would see three calls to A’s callme( ) method. 
 
-Why Overridden Methods?
+#### Why Overridden Methods?
 
 The superclass provides all elements that a subclass can use directly. It also defines those methods that the derived class must implement on its own. This allows the subclass the flexibility to define its own methods, yet still enforces a consistent interface.
 
@@ -2416,16 +2378,16 @@ Output:
 SBI Rate of Interest: 8
 ICICI Rate of Interest: 7
 AXIS Rate of Interest: 9
-Can we override static method?
+#### Can we override static method?
 No, a static method cannot be overridden. It can be proved by runtime polymorphism, so we will learn it later.
 ________________________________________
-Why can we not override static method?
+#### Why can we not override static method?
 It is because the static method is bound with class whereas instance method is bound with an object. Static belongs to the class area, and an instance belongs to the heap area.
 ________________________________________
-Can we override java main method?
+#### Can we override java main method?
 No, because the main is a static method.
 ________________________________________
-Difference between method Overloading and Method Overriding in java
+#### Difference between method Overloading and Method Overriding in java
 Click me for the difference between method overloading and overriding
 ________________________________________
 More topics on Method Overriding (Not For Beginners)
@@ -2434,7 +2396,7 @@ Let's see the concept of method overriding with access modifier.
 Exception Handling with Method Overriding
 Let's see the concept of method overriding with exception handling.
 
-Dynamic Method Dispatch
+#### Dynamic Method Dispatch
 Method overriding forms the basis for one of Java’s most powerful concepts: dynamic method dispatch. Dynamic method dispatch is the mechanism by which a call to an overridden method is resolved at run time, rather than compile time.
 
 Dynamic method dispatch is important because this is how Java implements run-time polymorphism.
@@ -2489,14 +2451,14 @@ This program creates one superclass called A and two subclasses of it, called B 
 
 Subclasses B and C override callme( ) declared in A. Inside the main( ) method, objects of type A, B, and C are declared. Also, a reference of type A, called r, is declared. The program then in turn assigns a reference to each type of object to r and uses that reference to invoke callme( ). As the output shows, the version of callme( ) executed is determined by the type of object being referred to at the time of the call. Had it been determined by the type of the reference variable, r, you would see three calls to A’s callme( ) method. 
 
-Why Overridden Methods?
+#### Why Overridden Methods?
 
 The superclass provides all elements that a subclass can use directly. It also defines those methods that the derived class must implement on its own. This allows the subclass the flexibility to define its own methods, yet still enforces a consistent interface.
 
 Thus, by combining inheritance with overridden methods, a superclass can define the general form of the methods that will be used by all of its subclasses.
 
 
-Static Binding and Dynamic Binding
+#### Static Binding and Dynamic Binding
  
 Connecting a method call to the method body is known as binding.
 There are two types of binding
@@ -2526,7 +2488,7 @@ An object is an instance of particular java class,but it is also an instance of 
 7.	}  
 Here d1 is an instance of Dog class, but it is also an instance of Animal.
 ________________________________________
-static binding
+#### static binding
 When type of the object is determined at compiled time(by the compiler), it is known as static binding.
 If there is any private, final or static method in a class, there is static binding.
 Example of static binding
@@ -2539,7 +2501,7 @@ Example of static binding
 7.	 }  
 8.	}  
 ________________________________________
-Dynamic binding
+#### Dynamic binding
 When type of the object is determined at run-time, it is known as dynamic binding.
 Example of dynamic binding
 1.	class Animal{  
@@ -2560,7 +2522,7 @@ In the above example object type cannot be determined by the compiler,
 because the instance of Dog is also an instance of Animal.So compiler doesn't know its type, 
 only its base type.
 
-Type Conversion and Casting
+#### Type Conversion and Casting
 If you have previous programming experience, then you already know that it is fairly
 common to assign a value of one type to a variable of another type. 
 If the two types are compatible, then Java will perform the conversion automatically. 
@@ -2570,7 +2532,7 @@ For instance, there is no automatic conversion defined from double to byte.
 Fortunately, it is still possible to obtain a conversion between incompatible types. 
 To do so, you must use a cast, which performs an explicit conversion between incompatible types. 
 
-Java’s Automatic Conversions
+#### Java’s Automatic Conversions
 When one type of data is assigned to another type of variable, an automatic type 
 conversion will take place 
 if the following two conditions are met:
@@ -2800,7 +2762,7 @@ There are two main restrictions for the static method. They are:
 Test it Now
 Output:Compile Time Error
 ________________________________________
-Q) Why is the Java main method static?
+#### Q) Why is the Java main method static?
 Ans) It is because the object is not required to call a static method. If it were a non-static method, JVM creates an object first then call main() method that will lead the problem of extra memory allocation.
 ________________________________________
 3) Java static block
@@ -2817,7 +2779,7 @@ Test it Now
 Output:static block is invoked
        Hello main
 ________________________________________
-Q) Can we execute a program without main() method?
+#### Q) Can we execute a program without main() method?
 Ans) No, one of the ways was the static block, but it was possible till JDK 1.6. Since JDK 1.7, it is not possible to execute a Java class without the main method.
 1.	class A3{  
 2.	  static{  
@@ -2834,7 +2796,7 @@ Error: Main method not found in class A3, please define the main method as:
 or a JavaFX application class must extend javafx.application.Application
 
 
-Final Keyword In Java
+#### Final Keyword In Java
 1.	Final variable
 2.	Final method
 3.	Final class
@@ -2929,7 +2891,7 @@ Example of blank final variable
 4.	final String PAN_CARD_NUMBER;  
 5.	...  
 6.	}  
-Que) Can we initialize blank final variable?
+Q) Can we initialize blank final variable?
 Yes, but only in constructor. For example:
 1.	class Bike10{  
 2.	  final int speedlimit;//blank final variable  
@@ -2975,7 +2937,7 @@ ________________________________________
 Q) Can we declare a constructor final?
 No, because constructor is never inherited.
 
-The transient and volatile Modifiers
+#### The transient and volatile Modifiers
 Java defines two interesting type modifiers: transient and volatile. These modifiers are used to handle somewhat specialized situations.
 When an instance variable is declared as transient, then its value need not persist when an object is stored. For example:
 class T {
@@ -2986,7 +2948,7 @@ Here, if an object of type T is written to a persistent storage area, the conten
 
 The volatile modifier tells the compiler that the variable modified by volatile can be changed unexpectedly by other parts of your program. One of these situations involves multithreaded programs. In a multithreaded program, sometimes two or more threads share the same variable. For efficiency considerations, each thread can keep its own, private copy of such a shared variable. The real (or master) copy of the variable is updated at various times, such as when a synchronized method is entered. While this approach works fine, it may be inefficient at times. In some cases, all that really matters is that the master copy of a variable always reflects its current state. To ensure this, simply specify the variable as volatile, which tells the compiler that it must always use the master copy of a volatile variable (or, at least, always keep any private copies up-to-date with the master copy, and vice versa). Also, accesses to the master variable must be executed in the precise order in which they are executed on any private copy.
 
-Native Methods
+#### Native Methods
 Although it is rare, occasionally you may want to call a subroutine that is written in a language other than Java. Typically, such a subroutine exists as executable code for the CPU and environment in which you are working—that is, native code. For example, you may want to call a native code subroutine to achieve faster execution time. Or, you may want to use a specialized, third-party library, such as a statistical package. However, because Java programs are compiled to bytecode, which is then interpreted (or compiled on-the-fly) by the Java run-time system, it would seem impossible to call a native code subroutine from within your Java program. Fortunately, this conclusion is false. 
 
 Java provides the native keyword, which is used to declare native code methods. Once declared, these methods can be called from inside your Java program just as you call any other Java method.
@@ -2995,12 +2957,12 @@ To declare a native method, precede the method with the native modifier, but do 
 
 public native int meth() ;
 
-Problems with Native Methods
+- Problems with Native Methods
 Native methods seem to offer great promise, because they enable you to gain access to an existing base of library routines, and they offer the possibility of faster run-time execution. But native methods also introduce two significant problems:
 • Potential security risk Because a native method executes actual machine code, it can gain access to any part of the host system. That is, native code is not confined to the Java execution environment. This could allow a virus infection, for example. For this reason, applets cannot use native methods. Also, the loading of DLLs can be restricted, and their loading is subject to the approval of the security manager.
 • Loss of portability Because the native code is contained in a DLL, it must be present on the machine that is executing the Java program. Further, because each native method is CPU- and operating system–dependent, each DLL is inherently non portable. Thus, a Java application that uses native methods will be able to run only on a machine for which a compatible DLL has been installed.
 
-assert
+#### assert
 Another relatively new addition to Java is the keyword assert. It is used during program development to create an assertion, which is a condition that should be true during the execution of the program. For example, you might have a method that should always return a positive integer value. You might test this by asserting that the return value is greater than zero using an assert statement. At run time, if the condition actually is true, no other action takes place. However, if the condition is false, then an AssertionError is thrown. Assertions are often used during testing to verify that some expected condition is actually met. They are not usually used for released code.
 The assert keyword has two forms. The first is shown here:
 assert condition;
@@ -3009,7 +2971,7 @@ The second form of assert is shown here:
 assert condition : expr;
 In this version, expr is a value that is passed to the AssertionError constructor. This value is converted to its string format and displayed if an assertion fails. Typically, you will specify a string for expr, but any non-void expression is allowed as long as it defines a reasonable string conversion.
 
-Varargs: Variable-Length Arguments
+#### Varargs: Variable-Length Arguments
 
 Beginning with JDK 5, Java has included a feature that simplifies the creation of methods that need to take a variable number of arguments. This feature is called varargs and it is short for variable-length arguments. A method that takes a variable number of arguments is called a variable-arity method, or simply a varargs method.
 Situations that require that a variable number of arguments be passed to a method are not unusual. For example, a method that opens an Internet connection might take a user name, password, filename, protocol, and so on, but supply defaults if some of this information is not provided. In this situation, it would be convenient to pass only the arguments to which the defaults did not apply. Another example is the printf( ) method that is part of Java’s I/O library.It takes a variable number of arguments, which it formats and then outputs.
@@ -3074,7 +3036,7 @@ A method can have “normal” parameters along with a variable-length parameter
 int doIt(int a, int b, double c, int ... vals) {}
 
 
-Super Keyword in Java
+#### Super Keyword in Java
 There will be times when you will want to create a superclass that keeps the details of its implementation to itself (that is, that keeps its data members private).
 In this case, there would be no way for a subclass to directly access or initialize superclass variables on its own. Since encapsulation is a primary attribute of OOP, it is not surprising that Java provides a solution to this problem. 
 
@@ -3087,7 +3049,7 @@ The second is used to access a member of the superclass that has been hidden by 
 
 Each use is examined here.
 
-Using super to Call Superclass Constructors
+- Using super to Call Superclass Constructors
 
 A subclass can call a constructor defined by its superclass by use of the following form of super:
 super(arg-list);
@@ -3095,7 +3057,7 @@ Here, arg-list specifies any arguments needed by the constructor in the supercla
 
 The key concepts behind super( ). When a subclass calls super( ), it is calling the constructor of its immediate superclass. Thus, super( ) always refers to the superclass immediately above the calling class. This is true even in a multileveled hierarchy. Also, super( ) must always be the first statement executed inside a subclass constructor.
 
-A Second Use for super
+- A Second Use for super
 
 The second form of super acts somewhat like this, except that it always refers to the superclass of the subclass in which it is used. This usage has the following general form:
 super.member
@@ -3104,7 +3066,7 @@ This second form of super is most applicable to situations in which member names
 
 The super keyword in Java is a reference variable which is used to refer immediate parent class object.
 Whenever you create the instance of subclass, an instance of parent class is created implicitly which is referred by super reference variable.
-Usage of Java super Keyword
+- Usage of Java super Keyword
 1.	super can be used to refer immediate parent class instance variable.
 2.	super can be used to invoke immediate parent class method.
 3.	super() can be used to invoke immediate parent class constructor.
@@ -3222,12 +3184,12 @@ Output:
 1 ankit 45000
 
 
-Method Overriding
+#### Method Overriding
 When a method in a subclass has the same name and type signature as a method in its superclass, then the method in the subclass is said to override the method in the superclass. 
 
 When an overridden method is called from within a subclass, it will always refer to the version of that method defined by the subclass. The version of the method defined by the superclass will be hidden.
 
-Abstract class in Java
+#### Abstract class in Java
 
 An abstract class is a class designed with implementation gaps for subclasses to fill in and is deliberately incomplete.
 You can require that certain methods be overridden by subclasses by specifying the abstract type modifier. These methods are sometimes referred to as subclasser responsibility because they have no implementation specified in the superclass. Thus, a subclass must override them—it cannot simply use the version defined in the superclass. 
@@ -3243,7 +3205,7 @@ In an abstract class method have partially implementation.
 A class which is declared with the abstract keyword is known as an abstract class in Java. It can have abstract and non-abstract methods (method with the body).
 Before learning the Java abstract class, let's understand the abstraction in Java first.
 ________________________________________
-Abstract class in Java
+#### Abstract class in Java
 A class which is declared as abstract is known as an abstract class. It can have abstract and non-abstract methods. It needs to be extended and its method implemented. It cannot be instantiated.
 Points to Remember
 o	An abstract class must be declared with an abstract keyword.
@@ -3275,7 +3237,7 @@ In this example, Bike is an abstract class that contains only one abstract metho
 Test it Now
 running safely
 ________________________________________
-Understanding the real scenario of Abstract class
+- Understanding the real scenario of Abstract class
 In this example, Shape is the abstract class, and its implementation is provided by the Rectangle and Circle classes.
 Mostly, we don't know about the implementation class (which is hidden to the end user), and an object of the implementation class is provided by the factory method.
 A factory method is a method that returns the instance of the class. We will learn about the factory method later.
@@ -3393,7 +3355,7 @@ Output:I am a
        I am c
        I am d
 
-Interface in Java
+#### Interface in Java
 1.	Interface
 2.	Example of Interface
 3.	Multiple inheritance by Interface
@@ -3426,7 +3388,7 @@ o	It is used to achieve abstraction.
 o	By interface, we can support the functionality of multiple inheritance.
 o	It can be used to achieve loose coupling.
  
-How to declare an interface?
+#### How to declare an interface?
 An interface is declared by using the interface keyword. It provides total abstraction; means all the methods in an interface are declared with the empty body, and all the fields are public, static and final by default. A class that implements an interface must implement all the methods declared in the interface.
 Syntax:
 1.	interface <interface_name>{  
@@ -3435,14 +3397,14 @@ Syntax:
 4.	    // declare methods that abstract   
 5.	    // by default.  
 6.	}  
-Java 8 Interface Improvement
+#### Java 8 Interface Improvement
 Since Java 8, interface can have default and static methods which is discussed later.
 Internal addition by the compiler
 The Java compiler adds public and abstract keywords before the interface method. Moreover, it adds public, static and final keywords before data members.
 In other words, Interface fields are public, static and final by default, and the methods are public and abstract.
  
 ________________________________________
-The relationship between classes and interfaces
+#### The relationship between classes and interfaces
 As shown in the figure given below, a class extends another class, an interface extends another interface, but a class implements an interface.
  
 ________________________________________
@@ -3506,7 +3468,7 @@ Test it Now
 Output:
 ROI: 9.15
 ________________________________________
-Multiple inheritance in Java by interface
+#### Multiple inheritance in Java by interface
 If a class implements multiple interfaces, or an interface extends multiple interfaces, it is known as multiple inheritance.
  
 1.	interface Printable{  
@@ -3528,7 +3490,7 @@ If a class implements multiple interfaces, or an interface extends multiple inte
 Test it Now
 Output:Hello
        Welcome
-Q) Multiple inheritance is not supported through class in java, but it is possible by an interface, why?
+#### Q) Multiple inheritance is not supported through class in java, but it is possible by an interface, why?
 As we have explained in the inheritance chapter, multiple inheritance is not supported in the case of class because of ambiguity. However, it is supported in case of an interface because there is no ambiguity. It is because its implementation is provided by the implementation class. For example:
 1.	interface Printable{  
 2.	void print();  
@@ -3571,7 +3533,7 @@ Test it Now
 Output:
 Hello
 Welcome
-Java 8 Default Method in Interface
+#### Java 8 Default Method in Interface
 Since Java 8, we can have method body in interface. But we need to make it default method. Let's see an example:
 File: TestInterfaceDefault.java
 1.	interface Drawable{  
@@ -3591,7 +3553,7 @@ Test it Now
 Output:
 drawing rectangle
 default method
-Java 8 Static Method in Interface
+#### Java 8 Static Method in Interface
 Since Java 8, we can have static method in interface. Let's see an example:
 File: TestInterfaceStatic.java
 1.	interface Drawable{  
@@ -3612,13 +3574,13 @@ Test it Now
 Output:
 drawing rectangle
 27
-Q) What is marker or tagged interface?
+#### Q) What is marker or tagged interface?
 An interface which has no member is known as a marker or tagged interface, for example, Serializable, Cloneable, Remote, etc. They are used to provide some essential information to the JVM so that JVM may perform some useful operation.
 1.	//How Serializable interface is written?  
 2.	public interface Serializable{  
 3.	}  
 ________________________________________
-Nested Interface in Java
+#### Nested Interface in Java
 Note: An interface can have another interface which is known as a nested interface. We will learn it in detail in the nested classes chapter. For example:
 1.	interface printable{  
 2.	 void print();  
@@ -3626,7 +3588,7 @@ Note: An interface can have another interface which is known as a nested interfa
 4.	   void msg();  
 5.	 }  
 6.	}  
-Java Nested Interface
+#### Java Nested Interface
 An interface i.e. declared within another interface or class is known as nested interface. The nested interfaces are used to group related interfaces so that they can be easy to maintain. The nested interface must be referred by the outer interface or class. It can't be accessed directly.
 Points to remember for nested interfaces
 There are given some points that should be remembered by the java programmer.
@@ -3695,13 +3657,13 @@ Let's see how can we define an interface inside the class and how can we access 
 14.	}  
 Test it Now
 Output:hello nested interface
-Can we define a class inside the interface?
+#### Can we define a class inside the interface?
 Yes, If we define a class inside the interface, java compiler creates a static nested class. Let's see how can we define a class within the interface:
 1.	interface M{  
 2.	  class A{}  
 3.	}  
 
-Difference between abstract class and interface
+#### Difference between abstract class and interface
 Abstract class and interface both are used to achieve abstraction where we can declare the abstract methods. Abstract class and interface both can't be instantiated.
 But there are many differences between abstract class and interface that are given below.
 Abstract class	Interface
@@ -3764,10 +3726,7 @@ Output:
        I am d
 
 ________________________________________
-
-
-
-Java instanceof
+#### Java instanceof
 1.	java instanceof
 2.	Example of instanceof operator
 3.	Applying the instanceof operator with a variable the have null value
@@ -3810,7 +3769,7 @@ If we apply instanceof operator with a variable that have null value, it returns
 Test it Now
 Output:false
 ________________________________________
-Downcasting with java instanceof operator
+- Downcasting with java instanceof operator
 When Subclass type refers to the object of Parent class, it is known as downcasting. If we perform it directly, compiler gives Compilation error. If you perform it by typecasting, ClassCastException is thrown at runtime. But if we use instanceof operator, downcasting is possible.
 1.	Dog d=new Animal();//Compilation error  
 If we perform downcasting by typecasting, ClassCastException is thrown at runtime.
@@ -3837,7 +3796,7 @@ Let's see the example, where downcasting is possible by instanceof operator.
 Test it Now
 Output:ok downcasting performed
 ________________________________________
-Downcasting without the use of java instanceof
+- Downcasting without the use of java instanceof
 Downcasting can also be performed without the use of instanceof operator as displayed in the following example:
 1.	class Animal { }  
 2.	class Dog4 extends Animal {  
@@ -3856,7 +3815,7 @@ Let's take closer look at this, actual object that is referred by a, is an objec
 1.	Animal a=new Animal();  
 2.	Dog.method(a);  
 3.	//Now ClassCastException but not in case of instanceof operator  
-Understanding Real use of instanceof in java
+- Understanding Real use of instanceof in java
 Let's see the real use of instanceof keyword by the example given below.
 1.	interface Printable{}  
 2.	class A implements Printable{  
@@ -3890,9 +3849,7 @@ Let's see the real use of instanceof keyword by the example given below.
 Test it Now
 Output: b method
 
-
-
-Covariant Return Type
+#### Covariant Return Type
 The covariant return type specifies that the return type may vary in the same direction as the subclass.
 Before Java5, it was not possible to override any method by changing the return type. But now, since Java5, it is possible to override method by changing the return type if subclass overrides any method whose return type is Non-Primitive but it changes its return type to subclass type. Let's take a simple example:
 Note: If you are beginner to java, skip this topic and return to it after OOPs concepts.
@@ -3917,7 +3874,7 @@ How is Covariant return types implemented?
 Java doesn't allow the return type based overloading but JVM always allows return type based overloading. JVM uses full signature of a method for lookup/resolution. Full signature means it includes return type in addition to argument types. i.e., a class can have two or more methods differing only by return type. javac uses this fact to implement covariant return types.
 
 
-Instance initializer block
+#### Instance initializer block
 1.	Instance initializer block
 2.	Example of Instance initializer block
 3.	What is invoked firstly instance initializer block or constructor?
@@ -3930,7 +3887,7 @@ Que) What is the use of instance initializer block while we can directly assign 
 1.	class Bike{  
 2.	    int speed=100;  
 3.	}  
-Why use instance initializer block?
+#### Why use instance initializer block?
 Suppose I have to perform some operations while assigning value to instance data member 
 e.g. a for loop to fill a complex array or error handling etc.
 ________________________________________
@@ -3957,7 +3914,7 @@ There are three places in java where you can perform operations:
 2.	constructor
 3.	block
 ________________________________________
-What is invoked first, instance initializer block or constructor?
+#### What is invoked first, instance initializer block or constructor?
 1.	class Bike8{  
 2.	    int speed;  
 3.	      
@@ -3979,7 +3936,7 @@ Output:instance initializer block invoked
 In the above example, it seems that instance initializer block is firstly invoked but NO. Instance intializer block is invoked at the time of object creation. The java compiler copies the instance initializer block in the constructor after the first statement super(). So firstly, constructor is invoked. Let's understand it by the figure given below:
 Note: The java compiler copies the code of instance initializer block in every constructor.
  
-Rules for instance initializer block :
+- Rules for instance initializer block :
 There are mainly three rules for the instance initializer block. They are as follows:
 1.	The instance initializer block is created when instance of the class is created.
 2.	The instance initializer block is invoked after the parent class constructor is invoked (i.e. after super() constructor call).
@@ -4040,7 +3997,7 @@ Output:parent class constructor invoked
        instance initializer block is invoked
        child class constructor invoked 10
 
-Java Package
+#### Java Package
 1.	Java Package
 2.	Example of package
 3.	Accessing package
@@ -4058,7 +4015,7 @@ A java package is a group of similar types of classes, interfaces and sub-packag
 Package in java can be categorized in two form, built-in package and user-defined package.
 There are many built-in packages such as java, lang, awt, javax, swing, net, io, util, sql etc.
 Here, we will have the detailed learning of creating and using user-defined packages.
-Advantage of Java Package
+- Advantage of Java Package
 1) Java package is used to categorize the classes and interfaces so that they can be easily maintained.
 2) Java package provides access protection.
 3) Java package removes naming collision.
@@ -4089,7 +4046,7 @@ Output:Welcome to package
 The -d is a switch that tells the compiler where to put the class file i.e. it represents destination. 
 The . represents the current folder.
 ________________________________________
-How to access package from another package?
+#### How to access package from another package?
 There are three ways to access the package from outside the package.
 1.	import package.*;
 2.	import package.classname;
@@ -4160,7 +4117,7 @@ ________________________________________
 Note: Sequence of the program must be package then import then class.
  
 ________________________________________
-Subpackage in java
+#### Subpackage in java
 Package inside the package is called the subpackage. It should be created to categorize the package further.
 Let's take an example, Sun Microsystem has definded a package named java that contains many classes like System, String, Reader, Writer, Socket etc. These classes represent a particular group e.g. Reader and Writer classes are for Input/Output operation, Socket and ServerSocket classes are for networking etc and so on. So, Sun has subcategorized the java package into subpackages such as lang, net, io etc. and put the Input/Output related classes in io package, Server and ServerSocket classes in net packages and so on.
 The standard of defining package is domain.company.package e.g. com.javatpoint.bean or org.sssit.dao.
@@ -4214,7 +4171,7 @@ Rule: There can be only one public class in a java source file and it must be sa
 4.	class B{}  
 5.	public class C{}  
 ________________________________________
-How to put two public classes in a package?
+#### How to put two public classes in a package?
 If you want to put two public classes in a package, have two java source files containing one public class, but keep the package name same. For example:
 1.	//save as A.java  
 2.	  
@@ -4225,11 +4182,11 @@ If you want to put two public classes in a package, have two java source files c
 3.	package javatpoint;  
 4.	public class B{}  
 ________________________________________
-What is static import feature of Java5?
+#### What is static import feature of Java5?
 Click Static Import feature of Java5.
 
 
-Java Thread 
+#### Java Thread 
 Thread is an independent sequential path of execution within a program. It’s a smallest unit of dispatchble code. Java provides built-in support for multithreaded programming. A multithreaded program contains two or more parts that can run concurrently. Each part of such a program is called a thread, and each thread defines a separate path of execution. Thus, multithreading is a specialized form of multitasking.
 
 There are two distinct types of multitasking: process-based and thread-based. It is important to understand the difference between the two. For most readers, process-based multitasking is the more familiar form. 
@@ -4247,7 +4204,7 @@ Threads, on the other hand, are lightweight. They share the same address space a
 While Java programs make use of processbased multitasking environments, process-based multitasking is not under the control of Java. However, multithreaded multitasking is.
 
 
-The Java Thread Model
+#### The Java Thread Model
 The Java run-time system depends on threads for many things, and all the class libraries are designed with multithreading in mind. In fact, Java uses threads to enable the entire environment to be asynchronous. This helps reduce inefficiency by preventing the waste of CPU cycles. 
 
 The value of a multithreaded environment is best understood in contrast to its counterpart. Single-threaded systems use an approach called an event loop with polling. In this model, a single thread of control runs in an infinite loop, polling a single event queue to decide what to do next. Once this polling mechanism returns with, say, a signal that a network file is ready to be read, then the event loop dispatches control to the appropriate event handler. Until this event handler returns, nothing else can happen in the system. This wastes CPU time. It can also result in one part of a program dominating the system and preventing any other events from being processed. In general, in a singled-threaded environment, when a thread blocks (that is, suspends execution) because it is waiting for some resource, the entire program stops running.
@@ -4256,9 +4213,9 @@ The benefit of Java’s multithreading is that the main loop/polling mechanism i
 
 Threads exist in several states. A thread can be running. It can be ready to run as soon as it gets CPU time. A running thread can be suspended, which temporarily suspends its activity. A suspended thread can then be resumed, allowing it to pick up where it left off. A thread can be blocked when waiting for a resource. At any time, a thread can be terminated, which halts its execution immediately. Once terminated, a thread cannot be resumed.
 
-Thread Priorities
+#### Thread Priorities
 Java assigns to each thread a priority that determines how that thread should be treated with respect to the others. Thread priorities are integers that specify the relative priority of one thread to another. As an absolute value, a priority is meaningless; a higher-priority thread doesn’t run any faster than a lower-priority thread if it is the only thread running. Instead, a thread’s priority is used to decide when to switch from one running thread to the next. This is called a context switch. The rules that determine when a context switch takes place are simple:
-Java Thread Life Cycle and Thread States
+#### Java Thread Life Cycle and Thread States
 A java thread can be in any of following thread states during its life cycle i.e. New, Runnable, Blocked, Waiting, Timed Waiting or Terminated. These are also called life cycle events of a thread in java. Let’s understand each state in more detail.
 Java Thread Life Cycle States
  
@@ -4292,7 +4249,7 @@ Timed waiting threads and waiting threads cannot use a processor, even if one is
 A thread enters the TERMINATED state (sometimes called the dead state) when it successfully completes its task or otherwise terminated due to any error or even it was forcefully killed.
 
 Please remember that though JVM and OS thread scheduler do their best yet sometimes threads can cause starvation or deadlock. This occurs when a waiting thread (let’s call this thread1) cannot proceed because it’s waiting (either directly or indirectly) for another thread (let’s call this thread2) to proceed, while simultaneously thread2 cannot proceed because it’s waiting (either directly or indirectly) for thread1 to proceed.
-Difference between implements Runnable and extends Thread
+#### Difference between implements Runnable and extends Thread
 
 Difference between “implements Runnable” and “extends Thread” in java
 In java language, as we all know that there are two ways to create threads. One using Runnable interface and another by extending Thread class.
@@ -4425,7 +4382,7 @@ class Producer implements Runnable
 3) Once the wait() is over, producer add an element in taskQueue and called notifyAll() method. Because the last-time wait() method was called by consumer thread (that’s why producer is out of waiting state), consumer gets the notification.
 4) Consumer thread after getting notification, if ready to consume the element as per written logic.
 5) Note that both threads use sleep() methods as well for simulating time delays in creating and consuming elements.
-Designing Consumer Thread
+- Designing Consumer Thread
 Below is the code for consumer thread based on our requirements :
 class Consumer implements Runnable
 {
@@ -4508,7 +4465,7 @@ Produced: 7
 Consumed: 7
 Queue is empty Consumer is waiting , size: 0
 I will suggest you to change the time taken by producer and consumer threads to different times, and check the different outputs in different scenario.
-What happens when notify() is called and no thread is waiting?
+#### What happens when notify() is called and no thread is waiting?
 In general practice, this will not be the case in most scenarios if these methods are used correctly. Though if the notify() method is called when no other thread is waiting, notify() simply returns and the notification is lost.
 Since the wait-and-notify mechanism does not know the condition about which it is sending notification, it assumes that a notification goes unheard if no thread is waiting. A thread that later executes the wait() method has to wait for another notification to occur.
 Can there be a race condition during the period that the wait() method releases OR reacquires the lock?
@@ -4517,14 +4474,14 @@ Similarly, system ensures that lock should be held by object completely before m
 If a thread receives a notification, is it guaranteed that the condition is set correctly?
 Simply, no. Prior to calling the wait() method, a thread should always test the condition while holding the synchronization lock. Upon returning from the wait() method, the thread should always retest the condition to determine if it should wait again. This is because another thread can also test the condition and determine that a wait is not necessary — processing the valid data that was set by the notification thread.
 This is a common case when multiple threads are involved in the notifications. More particularly, the threads that are processing the data can be thought of as consumers; they consume the data produced by other threads. There is no guarantee that when a consumer receives a notification that it has not been processed by another consumer. As such, when a consumer wakes up, it cannot assume that the state it was waiting for is still valid. It may have been valid in the past, but the state may have been changed after the notify() method was called and before the consumer thread woke up. Waiting threads must provide the option to check the state and to return back to a waiting state in case the notification has already been handled. This is why we always put calls to the wait() method in a loop.
-What happens when more than one thread is waiting for notification? Which threads actually get the notification when the notify() method is called?
+#### What happens when more than one thread is waiting for notification? Which threads actually get the notification when the notify() method is called?
 It depends on many factors.Java specification doesn’t define which thread gets notified. In runtime, which thread actually receives the notification varies based on several factors, including the implementation of the Java virtual machine and scheduling and timing issues during the execution of the program. There is no way to determine, even on a single processor platform, which of multiple threads receives the notification.
 Just like the notify() method, the notifyAll() method does not allow us to decide which thread gets the notification: they all get notified. When all the threads receive the notification, it is possible to work out a mechanism for the threads to choose among themselves which thread should continue and which thread(s) should call the wait() method again.
-Does the notifyAll() method really wake up all the threads?
+#### Does the notifyAll() method really wake up all the threads?
 Yes and no. All of the waiting threads wake up, but they still have to reacquire the object lock. So the threads do not run in parallel: they must each wait for the object lock to be freed. Thus, only one thread can run at a time, and only after the thread that called the notifyAll() method releases its lock.
-Why would you want to wake up all of the threads if only one is going to execute at all?
+#### Why would you want to wake up all of the threads if only one is going to execute at all?
 There are a few reasons. For example, there might be more than one condition to wait for. Since we cannot control which thread gets the notification, it is entirely possible that a notification wakes up a thread that is waiting for an entirely different condition. By waking up all the threads, we can design the program so that the threads decide among themselves which thread should execute next. Another option could be when producers generate data that can satisfy more than one consumer. Since it may be difficult to determine how many consumers can be satisfied with the notification, an option is to notify them all, allowing the consumers to sort it out among themselves.
-Difference between sleep() and wait()?
+#### Difference between sleep() and wait()?
 sleep() is a method which is used to hold the process for few seconds or the time you wanted but in case of wait() method thread goes in waiting state and it won’t come back automatically until we call the notify() or notifyAll().
 The major difference is that wait() releases the lock or monitor while sleep() doesn’t releases any lock or monitor while waiting. Wait is used for inter-thread communication while sleep is used to introduce pause on execution, generally.
 Thread.sleep() sends the current thread into the “Not Runnable” state for some amount of time. The thread keeps the monitors it has acquired — i.e. if the thread is currently in a synchronized block or method no other thread can enter this block or method. If another thread calls t.interrupt() it will wake up the sleeping thread. Note that sleep is a static method, which means that it always affects the current thread (the one that is executing the sleep method). A common mistake is to call t.sleep() where t is a different thread; even then, it is the current thread that will sleep, not the t thread.
@@ -4553,7 +4510,7 @@ Usage:
 •	    sleep(): for time-synchronization and;
 •	    wait(): for multi-thread-synchronization.
 
-Writing a deadlock and resolving in java
+#### Writing a deadlock and resolving in java
 
 In this post, I will write a piece of code which will create a deadlock situation and then I will discuss that way to resolve this scenario.
 In my previous post, I written about Auto reload of configuration when any change happen, I discussed about refreshing your application configuration using a thread. As configurations are shared resources and when accessing via Threads, there is always chance of writing incorrect code and caught in deadlock situation.
@@ -4864,7 +4821,7 @@ Important Points:
 1) newFixedThreadPool() method creates an executor with a maximum number of threads at any time. If you send more tasks than the number of threads, the remaining tasks will be blocked until there is a free thread to process them This method receives the maximum number of threads as a parameter you want to have in your executor. In your case, you have created an executor with four threads.
 2) The Executors class also provides the newSingleThreadExecutor() method. This is an extreme case of a fixed-size thread executor. It creates an executor with only one thread, so it can only execute one task at a time.
 
-Object level Locking vs. Class level Locking in Java
+#### Object level Locking vs. Class level Locking in Java
 
 Synchronization refers to multi-threading. A synchronized block of code can only be executed by one thread at a time.
 Java supports multiple threads to be executed. This may cause two or more threads to access the same fields or objects. Synchronization is a process which keeps all concurrent threads in execution to be in synch. Synchronization avoids memory consistence errors caused due to inconsistent view of shared memory. When a method is declared as synchronized; the thread holds the monitor for that method’s object If another thread is executing the synchronized method, your thread is blocked until that thread releases the monitor.
@@ -4900,7 +4857,7 @@ public class DemoClass
         }
     }
 }
-Class level locking
+- Class level locking
 Class level locking prevents multiple threads to enter in synchronized block in any of all available instances on runtime. This means if in runtime there are 100 instances of  DemoClass, then only one thread will be able to execute demoMethod() in any one of instance at a time, and all other instances will be locked for other threads. This should always be done to make static data thread safe.
 public class DemoClass
 {
@@ -4931,7 +4888,7 @@ public class DemoClass
         }
     }
 }
-Some Important notes
+- Some Important notes
 1.	Synchronization in java guarantees that no two threads can execute a synchronized method which requires same lock simultaneously or concurrently.
 2.	Synchronized keyword can be used only with methods and code blocks. These methods or blocks can be static or non-static both.
 3.	When ever a thread enters into java synchronized method or block it acquires a lock and whenever it leaves java synchronized method or block it releases the lock. Lock is released even if thread leaves synchronized method after completion or due to any Error or Exception.
@@ -5679,7 +5636,7 @@ JDK 1.7 added support for ForkJoinPool which implemented work-stealing technique
 JDK 1.8 is largely known for Lambda changes, but it also had few concurrency changes as well. Two new interfaces and four new classes were added in java.util.concurrent package e.g. CompletableFuture and CompletionException.
 The Collections Framework has undergone a major revision in Java 8 to add aggregate operations based on the newly added streams facility and lambda expressions; resulting in large number of methods added in almost all Collection classes, and thus in concurrent collections as well.
 
-Java Concurrency – Thread Safety?
+#### Java Concurrency – Thread Safety?
 
 Defining thread safety is surprisingly tricky. A quick Google search turns up numerous “definitions” like these:
 1.	Thread-safe code is code that will work even if many Threads are executing it simultaneously.
@@ -5708,13 +5665,13 @@ The transient state for a particular computation exists solely in local variable
 That’s all for this small but important concept around What is Thread Safety?
 
 
-Java ThreadLocal Variables – When and How to Use?
+#### Java ThreadLocal Variables – When and How to Use?
 
 Today, one of the most critical aspects of a concurrent application is shared data. When you create thread that implements the Runnable interface and then start various Thread objects using the same Runnable object, all the threads share the same attributes that are defined inside the runnable object. This essentially means that if you change any attribute in a thread, all the threads will be affected by this change and will see the modified value by first thread. Sometimes it is desired behavior e.g. multiple threads increasing / decreasing the same counter variable; but sometimes you want to ensure that every thread MUST work on it’s own copy of thread instance and does not affect others data.
 When to use ThreadLocal?
 For example, consider you are working on a eCommerce application. You have a requirement to generate a unique transaction id for each and every customer request this controller process and you need to pass this transaction id to the business methods in manager/DAO classes for logging purpose. One solution could be passing this transaction id as a parameter to all the business methods. But this is not a good solution as the code is redundant and unnecessary.
 To solve that, here you can use ThreadLocal variable. You can generate a transaction id in controller OR any pre-processor interceptor; and set this transaction id in the ThreadLocal. After this, whatever the methods, that this controller calls, they all can access this transaction id from the threadlocal. Also note that application controller will be servicing more that one request at a time and since each request is processed in separate thread at framework level, the transaction id will be unique to each thread and will be accessible from all over the thread’s execution path. 
-Inside ThreadLocal Class?
+#### Inside ThreadLocal Class?
 The Java Concurrency API provides a clean mechanism for thread-local variables using ThreadLocal class with a very good performance.
 public class ThreadLocal<T> extends Object {...}
 This class provides thread-local variables. These variables differ from their normal counterparts in that each thread that accesses one (via its get or set method) has its own, independently initialized copy of the variable. ThreadLocalinstances are typically private static fields in classes that wish to associate state with a thread (e.g., a user ID or Transaction ID).
@@ -5723,7 +5680,7 @@ This class has following methods:
 2.	initialValue() : Returns the current thread’s “initial value” for this thread-local variable.
 3.	remove() : Removes the current thread’s value for this thread-local variable.
 4.	set(T value) : Sets the current thread’s copy of this thread-local variable to the specified value.
-How to use ThreadLocal?
+#### How to use ThreadLocal?
 Below example uses two thread local variables i.e. threadId and startDate. Both have been defined as “private static” fields as recommended. ‘threadId‘ will be used to identify the thread which is currently running and ‘startDate‘ will be used to get the time when thread started it’s execution. Above information will be printed in console to verify that each thread has maintained it’s own copy of variables.
 class DemoTask implements Runnable
 {
@@ -5798,7 +5755,7 @@ lock.lock();
  
 lock.unlock();
 First a Lock is created. Then it’s lock() method is called. Now the Lock instance is locked. Any other thread calling lock() will be blocked until the thread that locked the lock calls unlock(). Finally unlock() is called, and the Lockis now unlocked so other threads can lock it.
-Difference between Lock Interface and synchronized keyword
+#### Difference between Lock Interface and synchronized keyword
 The main differences between a Lock and a synchronized block are:
 1) Having a timeout trying to get access to a synchronized block is not possible. Using Lock.tryLock(long timeout, TimeUnit timeUnit), it is possible.
 2) The synchronized block must be fully contained within a single method. A Lock can have it’s calls to lock() and unlock() in separate methods.
@@ -5904,12 +5861,12 @@ Control concurrent access to multiple copies of a resource using Semaphore
 
 In previous tutorial, we learned about binary semaphore which can be used to control access to single copy of a resource using the counter value either 0 or 1. However, semaphores can also be used when you need to protect various copies of a resource that can be executed by more than one thread at the same time. In this example, we will learn how to use a semaphore to protect more than one copy of a resource.
 Let’s revisit semaphore concept before moving ahead.
-How Semaphores Work?
+#### How Semaphores Work?
 You can visualize a semaphore as counter which can be incremented or decremented. You initialize the semaphore with a number i.e. 5. Now this semaphore can be decremented maximum five times in a row until counter reaches to 0. Once counter is zero, you can increment it to maximum five times to make it 5. The counter value of semaphore MUST always be inside limit 0 >= n >= 5 (in our case).
 Obviously, semaphores are more than just being counters. They are able to make threads wait when counter value is zero i.e. they act as Locks with counter functionality.
 Talking in terms of multi-threading, when a thread wants to access one of shared resources (guarded by semaphore), first, it must acquire the semaphore. If the internal counter of the semaphore is greater than 0, the semaphore decrements the counter and allows access to the shared resource. Otherwise, if the counter of the semaphore is 0, the semaphore puts the thread to sleep until the counter is greater than 0. A value of 0 in the counter means all the shared resources are used by other threads, so the thread that wants to use one of them must wait until one is free.
 When a thread has finished the use of the shared resource, it must release the semaphore so that the other threads can access the shared resource. That operation increases the internal counter of the semaphore.
-How to use semaphore?
+#### How to use semaphore?
 To demonstrate the concept, we will be using semaphore for controlling 3 printers which can print multiples documents simultaneously.
 PrintingJob.java
 This class represents an independent printing job which could be submitted to printer queue. And from queue, it can be picked up by any printer and performed printing job. This class implements Runnable interface, so that printer can execute it when it’s turn come.
@@ -6079,7 +6036,7 @@ Thread 5: The document has been printed
 In above example, the Semaphore object is created using 3 as the parameter of the constructor. The first three threads that call the acquire() method will get the access to printers while the rest will be blocked. When a thread finishes the critical section and releases the semaphore, another thread will acquire it.
 In the printJob() method, the thread gets the index of the printer assigned to print this job.
 That’s all for this simple yet important concept. Drop me your questions and comments if any.
-Concurrency vs. Parallelism
+#### Concurrency vs. Parallelism
 
 Concurrency means multiple tasks which start, run, and complete in overlapping time periods, in no specific order. Parallelism is when multiple tasks OR several part of a unique task literally run at the same time, e.g. on a multi-core processor. Remember that Concurrency and parallelism are NOT the same thing.
 Let’s understand more in detail that what I mean when I say Concurrency vs. Parallelism.
@@ -6089,7 +6046,7 @@ Operating system based on priority of tasks, thus, assigns CPU and other computi
 Parallelism
 Parallelism does not require two tasks to exist. It literally physically run parts of tasks OR multiple tasks, at the same time using multi-core infrastructure of CPU, by assigning one core to each task or sub-task.
 Parallelism requires hardware with multiple processing units, essentially. In single core CPU, you may get concurrency but NOT parallelism.
-Differences between concurrency vs. parallelism
+#### Differences between concurrency vs. parallelism
 Now let’s list down remarkable differences between concurrency and parallelism.
 Concurrency is when two tasks can start, run, and complete in overlapping time periods. Parallelism is when tasks literally run at the same time, eg. on a multi-core processor.
 Concurrency is the composition of independently executing processes, while parallelism is the simultaneous execution of (possibly related) computations.
@@ -6105,22 +6062,22 @@ Locks
 A lock is kind of data which is logically part of an object’s header on the heap memory. Each object in a JVM has this lock (or mutex) that any program can use to coordinate multi-threaded access to the object. If any thread want to access instance variables of that object; then thread must “own” the object’s lock (set some flag in lock memory area). All other threads that attempt to access the object’s variables have to wait until the owning thread releases the object’s lock (unset the flag).
 Once a thread owns a lock, it can request the same lock again multiple times, but then has to release the lock the same number of times before it is made available to other threads. If a thread requests a lock three times, for example, that thread will continue to own the lock until it has “released” it three times.
 Please note that lock is acquired by a thread, when it explicitly ask for it. In Java, this is done with the synchronized keyword, or with wait and notify.
-Monitors
+#### Monitors
 Monitor is a synchronization construct that allows threads to have both mutual exclusion (using locks) and cooperation i.e. the ability to make threads wait for certain condition to be true (using wait-set).
 In other words, along with data that implements a lock, every Java object is logically associated with data that implements a wait-set. Whereas locks help threads to work independently on shared data without interfering with one another, wait-sets help threads to cooperate with one another to work together towards a common goal e.g. all waiting threads will be moved to this wait-set and all will be notified once lock is released. This wait-set helps in building monitors with additional help of lock (mutex).
-Mutual exclusion
+#### Mutual exclusion
 Putting in very simple words, a monitor is like a building that contains one special room (object instance) that can be occupied by only one thread at a time. The room usually contains some data which needs to be protected from concurrent access. From the time a thread enters this room to the time it leaves, it has exclusive access to any data in the room. Entering the monitor building is called “entering the monitor.” Entering the special room inside the building is called “acquiring the monitor.” Occupying the room is called “owning the monitor,” and leaving the room is called “releasing the monitor.” Leaving the entire building is called “exiting the monitor.”
 When a thread arrives to access protected data (enter the special room), it is first put in queue in building reception (entry-set). If no other thread is waiting (own the monitor), the thread acquires the lock and continues executing the protected code. When the thread finishes execution, it release the lock and exits the building (exiting the monitor).
 If when a thread arrives and another thread is already owning the monitor, it must wait in reception queue (entry-set). When the current owner exits the monitor, the newly arrived thread must compete with any other threads also waiting in the entry-set. Only one thread will win the competition and own the lock.
 There is no role of wait-set feature.
-Cooperation
+#### Cooperation
 In general, mutual exclusion is important only when multiple threads are sharing data or some other resource. If two threads are not working with any common data or resource, they usually can’t interfere with each other and needn’t execute in a mutually exclusive way. Whereas mutual exclusion helps keep threads from interfering with one another while sharing data, cooperation helps threads to work together towards some common goal.
 Cooperation is important when one thread needs some data to be in a particular state and another thread is responsible for getting the data into that state e.g. producer/consumer problem where read thread needs the buffer to be in a “not empty” state before it can read any data out of the buffer. If the read thread discovers that the buffer is empty, it must wait. The write thread is responsible for filling the buffer with data. Once the write thread has done some more writing, the read thread can do some more reading. It is also sometimes called a “Wait and Notify” OR “Signal and Continue” monitor because it retains ownership of the monitor and continues executing the monitor region (the continue) if needed. At some later time, the notifying thread releases the monitor and a waiting thread is resurrected to own the lock.
 This cooperation requires both i.e. entry-set and wait-set. Below given diagram will help you in understand this cooperation.
  
 Above figure shows the monitor as three rectangles. In the center, a large rectangle contains a single thread, the monitor’s owner. On the left, a small rectangle contains the entry set. On the right, another small rectangle contains the wait set.
 
-Java Concurrent Collections
+#### Java Concurrent Collections
 java.util.concurrent package is to enable developers write better concurrent Java applications. This concurrent package includes some additions to the Java Collections Framework. These are called as Java Concurrent Collections.
 I have been writing a tutorial series about those classes in the past few weeks. This article is a summary and index of those Java concurrent collection classes. Those collections classes can be classified as Queue based and Map based.
  
@@ -6139,7 +6096,7 @@ Java Concurrent Collection Classes
 •	ConcurrentHashMap – an implementation class of ConcurrentMap.
 •	ConcurrentNavigableMap – a Java concurrent collection interface that extends ConcurrentMap and adds operations of NavigableMap.
 •	ConcurrentSkipListMap – an implementation class of ConcurrentNavigableMap.
-Java BlockingQueue
+#### Java BlockingQueue
 BlockingQueue Collection is a type of Java Queue. BlockingQueue is part of Java concurrent util package. It is best used in multi threading and producer-consumer scenarios. While adding an element to a a BlockingQueue, if there is no space it can wait till it becomes available. Similarly while retrieving, it will wait till an element is available if it is empty.
  
 BlockingQueue Methods
@@ -6154,7 +6111,7 @@ There are four types of methods available for each operations like insert, remov
 4.	Timed – waits for the specified amount of time
 These methods are used in a multi-threaded scenario. BlockingQueue extends the Collection interface and so an implementation of a BlockingQueue will contain the standard collection methods as well. For example removing an element can be done using remove(index). BlockingQueue is always best used in a threaded scenario.
 All these methods are guaranteed to be thread-safe. Other standard methods that are part of the collection may or may not be thread-safe and the choice is left to the implementation.
-BlockingQueue Implementation in JDK
+#### BlockingQueue Implementation in JDK
 BlockingQueue is an interface. Either we should go for custom implementation or choose the existing implementations from the Java JDK. Following the different implementations available for the BlockingQueue in Java.
 •	ArrayBlockingQueue
 •	DelayQueue
@@ -6164,7 +6121,7 @@ BlockingQueue is an interface. Either we should go for custom implementation or 
 •	PriorityBlockingQueue
 •	SynchronousQueue
 Following posts will have examples on implementing BlockingQueue using the above JDK BlockingQueue implementations and a custom implementation for BlockingQueue as well.
-Java ArrayBlockingQueue
+- Java ArrayBlockingQueue
 This Java tutorial is to discuss about ArrayBlockingQueue which is an implementation for a Java BlockingQueue Collection. We will see a producer consumer based example using ArrayBlockingQueue to understand the BlockingQueue interface.
 ArrayBlockingQueue is based on a bounded Java array. Bounded means it will have a fixed size, once created it cannot be resized. This fixed size collection can be understood using this Java List size puzzle.
 ArrayBlockingQueue uses the “Blocking” type method from the four available types described in the Java BlockingQueue tutorial. Attempt to put into the empty ArrayBlockingQueue and take will be blocking the thread.
@@ -6241,14 +6198,8 @@ Lion
 Crocodile
 Jaguar
 
-Java DelayQueue
-•	 
- 
-•	 
- 
-•	 
- 
-•	 
+#### Java DelayQueue
+	 
 Java DelayQueue is a collection and an implementation of BlockingQueue. Unlike ArrayBlockingQueue, DelayQueue is an unbounded collection. The BlockingQueue methods are implemented in such a way that only delay expired elements can be taken out of the queue. If the delay has not expired for any elements in the queue then the pollmethod will return null.
 Element Expiry
 Expiry of an element is decided using the getDelay() method of the element. When it returns a value less than or equal to zero that element is considered to be expired.
@@ -6603,7 +6554,7 @@ Put: 84af8597-2796-4050-8c19-711d68f8ce6b
 Thread-2 take(): 84af8597-2796-4050-8c19-711d68f8ce6b
 Put: 3cb2bcae-8a71-4d75-96bb-72549ffd6283
 Thread-1 take(): 3cb2bcae-8a71-4d75-96bb-72549ffd6283
-Java SynchronousQueue
+#### Java SynchronousQueue
 This Java tutorial is to learn about the concurrent collection SynchronousQueue. It is an implementation of BlockingQueue. Among all Java concurrent collections, SynchronousQueue is different. Capacity of a synchrounous queue is always zero. It is because in SynchronousQueue an insert will wait for a remove operation by another thread and vice versa.
 put() call to a SynchronousQueue will not return until there is a corresponding take() call.
 •	peek is not possible with a SynchronousQueue
@@ -6708,7 +6659,7 @@ Put: 556c5584-7154-4117-a0f4-f52ec8dcfad8
 Thread-1 take(): 556c5584-7154-4117-a0f4-f52ec8dcfad8
 Put: 1da7f16c-c030-44ed-be02-8983b7387497
 Thread-2 take(): 1da7f16c-c030-44ed-be02-8983b7387497
-Java TransferQueue
+#### Java TransferQueue
 This Java tutorial is to learn about TransferQueue which is concurrent collection. TransferQueue is an interface and a type of BlockingQueue. TransferQueue extends from BlockingQueue interface to add behavior to it. In a TransferQueue producers may wait for consumers to receive elements. TransferQueue was added in Java SE 7.
 This is marginally similar to the SynchronousQueue. In a SynchronousQueue the producer will always wait for a consumer. Once there is a consumer ready, the producer will push the item into the SynchrounousQueue and the item will be immediately consumed. So at any instance the queue length will always be zero.
 In the case of TransferQueue, the producer with wait for the consumer to receive elements. The limit can be specified. Here the item can stay in the queue. This queue is useful in messaging applications. TransferQueue can be used as a pipeline to pass messages between channels.
@@ -6718,7 +6669,7 @@ Difference between BlockingQueue and TransferQueue
 •	TransferQueue extends the BlockingQueue.
 LinkedTransferQueue is an unbounded TranserQueue implementation available with the SDK.
 
-Java LinkedTransferQueue
+#### Java LinkedTransferQueue
 This Java tutorial is to learn about the LinkedTransferQueue. It is an implementation of TransferQueue and available in the Java SE API. This class is part of the Java collections framework. LinkedTransferQueue is an unbounded TransferQueue based on linked nodes. A producer will wait for the consumer to consume the elements in this queue.
 LinkedTransferQueue was introduced in Java SE7 along with the TransferQueue. This queue is one of the most capable implementation in the concurrent collections. TransferQueue entends the BlockingQueue thus the LinkedTransferQueue has additional methods of the TransferQueue also.
 
@@ -6819,7 +6770,7 @@ Put: a1080f5f-8f33-43fe-905e-6b6c4e7cba1f
 Thread-1 take(): a1080f5f-8f33-43fe-905e-6b6c4e7cba1f
 Put: cd2af5c3-725c-40b6-b04a-b715187c9c1c
 Thread-2 take(): cd2af5c3-725c-40b6-b04a-b715187c9c1c
-Java BlockingDeque
+#### Java BlockingDeque
 BlockingDeque is an interface that extends Deque and BlockingQueue. It combines both the operations of Deque and BlockingQueue.
 A Deque is a double ended queue. It is a linear collection of elements wherein elements can be inserted and removed from both the ends.
 BlockingQueue is a queue that supports blocking operations for that will wait for the queue to become non-empty when retrieving element from it and wait for space to become available when inserting elements.
@@ -6838,7 +6789,7 @@ Remove	removeLast()	pollLast()	takeLast()	pollLast(time, unit)
 Examine	getLast()	peekLast()	not applicable	not applicable
 BlockingDeque implementation in JDK
 BlockingDeque is an interface. Either we should write our own implementation or use an existing implementation from JDK. LinkedBlockingDeque is an implementation of BlockingDeque available in JDK. In the next Java tutorial we will see about LinkedBlockingDeque in detail.
-Java LinkedBlockingDeque
+#### Java LinkedBlockingDeque
 This Java tutorial is to learn about the concurrent collection LinkedBlockingDeque. It is an optionally bounded blocking double ended queue. LinkedBlockingDeque is an implementation of the interface Java BlockingDeque.
 LinkedBlockingDeque provides a constructor which can be used to specify the capacity and limit the number of elements that can be added to the queue.
 LinkedBlockingDeque Example
@@ -6941,11 +6892,11 @@ Put: 48692ecc-2cbe-4b6d-950c-01ee7f0d4d15
 Thread-2 take(): 48692ecc-2cbe-4b6d-950c-01ee7f0d4d15
 Put: da78bb0a-9b4b-4256-b2f8-db7c3c0476b1
 
-Java ConcurrentHashMap
+#### Java ConcurrentHashMap
 This Java tutorial is part of our Java concurrent collections tutorial series. In this tutorial we will see about Java ConcurrentHashMap.
 ConcurrentHashMap is a hash table which supports complete concurrency for retrievals and updates. ConcurrentHashMap follows the specifications of a Hashtable. ConcurrentHashMap does not lock the entire collection for synchronization. ConcurrentHashMap is a suited candidate collection when there are high number of updates and less number of read concurrently.
 ConcurrentHashMap implements ConcurrentMap which lays the blue print for the concurrent operations. This was introduced part of the JDK 1.5 in the Java collections framework.
-ConcurrentHashMap Initialization
+#### ConcurrentHashMap Initialization
 ConcurrentHashMap(int initialCapacity, float loadFactor, int concurrencyLevel)
 ConcurrentHashMap comes with multiple constructors and above being one among them. initialCapacity is to fix the internal size of the collection. Hash table density is decided based on the loadFactor. Now this is new, concurrencyLevel. By default ConcurrentHashMap allows 16 number of concurrent threads. We can change this number using the concurrencyLevl argument. Most of the times 16 should be sufficient and playing with these number may cause undesirable performance issues. Know before you set these arguments.
 Failsafe
@@ -6975,12 +6926,12 @@ public class ConcurrentHashMapExample {
         }
     }
 }
-Java ConcurrentSkipListMap
+#### Java ConcurrentSkipListMap
 This Java tutorial is to learn about the concurrent collection class ConcurrentSkipListMap. This is an implementation of ConcurrentNavigableMap interface.
 ConcurrentNavigableMap Interface
 This interface is a type of SortedMap that provides navigation methods that returns the closest match for given search targets. It has methods like lowerEntry, floorEntry, ceilingEntry, higherEntrywhich return Map.Entry instances based on the key passed respectively less than, less than or equal, greater than or equal and greater than. Similar set of methods available for returning keys too. These can be navigated by ascending or descending order too.
 Combined with all the above operations of a NavigableMap it also extends the ConcurrentMap interface. So this is a super-dooper Map we get.
-ConcurrentSkipListMap
+#### ConcurrentSkipListMap
 ConcurrentSkipListMap is an implementation of ConcurrentNavigableMap provided in the JDK since 1.6. The elements are sorted based on their natural sorting order of keys. The order can be customized using a Comparator provided during the time of initialization.
 Skip List
 A skip list is a type of data structure that allows fast search in an ordered sequence of elements. This is built using multiple sequence of layers. The lowest layer linking all the elements by a linked list and subsequent layers above skips some elements in between the links. Thus the highest layer contains the least number of elements in the linked sequence. The elements that are to be sipped in between are chosen probabilistically.
@@ -7043,9 +6994,9 @@ now lastEntry: 4=Elephant
 
 
 
-Association, Composition and Aggregation in Java
+#### Association, Composition and Aggregation in Java
  
-Association
+- Association
 Association is relation between two separate classes which establishes through their Objects. Association can be one-to-one, one-to-many, many-to-one, many-to-many.
 In Object-Oriented programming, an Object communicates to other Object to use functionality and services provided by that object. Composition and Aggregation are the two forms of association.
 
@@ -7111,7 +7062,7 @@ Neha is employee of Axis
 
 In above example two separate classes Bank and Employee are associated through their Objects. Bank can have many employees, So it is a one-to-many relationship.
  
-Aggregation
+- Aggregation
  
 Aggregation
 
@@ -7242,11 +7193,11 @@ Total students in institute: 4
 In this example, there is an Institute which has no. of departments like CSE, EE. Every department has no. of students. So, we make a Institute class which has a reference to Object or no. of Objects (i.e. List of Objects) of the Department class. That means Institute class is associated with Department class through its Object(s). And Department class has also a reference to Object or Objects (i.e. List of Objects) of Student class means it is associated with Student class through its Object(s).
 It represents a Has-A relationship.
  
-When do we use Aggregation ??
+#### When do we use Aggregation ??
 Code reuse is best achieved by aggregation.
 
 
-Composition
+- Composition
  
 Composition
 Composition is a restricted form of Aggregation in which two entities are highly dependent on each other.
@@ -7333,7 +7284,7 @@ Title : EffectiveJ Java and  Author : Joshua Bloch
 Title : Thinking in Java and  Author : Bruce Eckel
 Title : Java: The Complete Reference and  Author : Herbert Schildt
 In above example a library can have no. of books on same or different subjects. So, If Library gets destroyed then All books within that particular library will be destroyed. i.e. book can not exist without library. That’s why it is composition.
-Aggregation vs Composition
+#### Aggregation vs Composition
 1.	Dependency: Aggregation implies a relationship where the child can exist independently of the parent. For example, Bank and Employee, delete the Bank and the Employee still exist. whereas Composition implies a relationship where the child cannot exist independent of the parent. Example: Human and heart, heart don’t exist separate to a Human
 2.	Type of Relationship: Aggregation relation is “has-a” and composition is “part-of” relation.
 3.	Type of association: Composition is a strong Association whereas Aggregation is a weak Association.
@@ -7412,7 +7363,7 @@ Engine of car has been started
 Car is moving 
 In case of aggregation, the Car also performs its functions through an Engine. but the Engine is not always an internal part of the Car. An engine can be swapped out or even can be removed from the car. That’ why we make The Engine type field non-final.
 
-Access and Non Access Modifiers in Java
+#### Access and Non Access Modifiers in Java
 Java provides a rich set of modifiers. They are used to control access mechanism and also provide information about class functionalities to JVM. They are divided into two categories : –
 •	Access Modifiers : Java’s access modifiers are public, private, and protected. Java also defines a default access level (called package-private).
 How they work?
@@ -7593,27 +7544,27 @@ Important Points:
 •	Avoid public fields except for constants.
 
 
-Association vs. Aggregation vs. Composition
-Posted on 14/08/2014 by Daniel Baharestani
-Association
+#### Association vs. Aggregation vs. Composition
+
+- Association
 Association is the most general type of relationship and it  includes other types as well. If the relationship doesn’t fall into a more specific type, like Aggregation or Composition, it can simply be referred to as an Association.
 Example: When a Customer places an Order, the relationship is simply an Association.
  
  
-Aggregation
+- Aggregation
 Aggregation is a more specific type of association. In an aggregation the children can also be shared with another owner at the same time, and even if the owner no longer exists, the children can still continue their lifetime.
 Example: The relationship between a UserGroup and the Users, is an Aggregation. A User can still have meaning in the system even if it doesn’t belong to a UserGroup, so if you delete a UserGroup you won’t delete its Users. On the other hand, the Users can belong to several UserGroups at the same time.
  
  
-Composition
+- Composition
 Composition is a more strict type of Aggregation. In an aggregation, the children cannot be shared with a different owner and it doesn’t make sense for the children to exist without their owner. So, you usually want to delete the children if you delete their owner.
 Example: The relationship between an Order and the OrderDetails is a composition relationship. The OrderDetail items are valid only as long as there is an Order related to them. When you delete an Order you will delete it’s OrderDetails as well. An OrderDetail associated to a particular Order cannot belong to a different Order.
  
  
-String vs StringBuffer vs StringBuilder in Java
+#### String vs StringBuffer vs StringBuilder in Java
 
 
-What is Serialization and Deserialization in Java?
+#### What is Serialization and Deserialization in Java?
 The process of serialization in Java is a process in which the object’s state is converted into a byte stream while deserialization is just the reverse of serialization in which we use the byte stream to convert into the original state of a Java object.
 Do you know about What is Encapsulation in Java?
  
@@ -7623,7 +7574,7 @@ i. If serializable implement in a certain parent class then we don’t need to i
 ii. Nonstatic data members are stored via this method and not static and transient data members.
 iii. A constructor for an object is never called while deserialization.
 
-How Java objects are stored in memory?
+#### How Java objects are stored in memory?
 
 In Java, all objects are dynamically allocated on Heap. This is different from C++ where objects can be allocated memory either on Stack or on Heap. In C++, when we allocate the object using new(), the object is allocated on Heap, otherwise on Stack if not global or static.
 In Java, when we only declare a variable of a class type, only a reference is created (memory is not allocated for the object). To allocate memory to an object, we must use new(). So the object is always allocated memory on heap (See this for more details).
@@ -7708,7 +7659,7 @@ public class InnerclassWithReflectionTest {
    }
 }
 
-Shadowing of static functions in Java
+#### Shadowing of static functions in Java
 In Java, if the name of a derived class static function is the same as a base class static function then the base class static function shadows (or conceals) the derived class static function. For example, the following Java code prints “A.fun()”
 Note: Static method is a class property, so if a static method is called from a class name or object having a class container then the method of that class is called not the object’s method.
 filter_none
@@ -7752,7 +7703,7 @@ Output:
 A.fun()
 Note: If we make both A.fun() and B.fun() as non-static then the above program would print “B.fun()”. While both methods are static types, the variable type decides the method being invoked, not the assigned object type
 
-The Initializer Block in Java
+#### The Initializer Block in Java
 Initializer block contains the code that is always executed whenever an instance is created. It is used to declare/initialize the common part of various constructors of a class. For example,
 filter_none
 edit
@@ -7914,7 +7865,7 @@ Explanation:
 •	The main method in the GFG class then invokes MyTest.getSum, which in turn invokes initialize method. Because the initialized flag is false, the initializeIf method enters its loop, which adds another 4, 950 to the value of sum, increasing its value to 9, 900. The getSum method returns this value, and the program prints it
 
 
-Literals in Java – Integral, Floating-Point, Char, String, Boolean
+#### Literals in Java – Integral, Floating-Point, Char, String, Boolean
 BY DATAFLAIR TEAM · UPDATED · AUGUST 29, 2019
 Literals are number, text, or anything that represent a value. In other words, Literals in Java are the constant values assigned to the variable. It is also called a constant.
 For example,
@@ -8064,7 +8015,7 @@ There are two types of Association
 2.	Composition
 Which we will discuss in the tutorial with examples. So, let’s start the journey!
  
-Association in Java
+#### Association in Java
 The association relationship indicates that a class knows about another class. It can be described as a “has-a” relationship between classes. The relationship between the classes can be bi-directional.
 Before moving further, you should revise the concept of Inheritance in Java
 For example, if we talk about the association between a teacher and a student, multiple students can associate with a single teacher and a single student is also associated with multiple teachers but both can be created or deleted independently. So, when a teacher leaves the school, we don’t need to remove any students, and when a student leaves the school, we don’t need to remove any teachers.
@@ -8113,7 +8064,7 @@ Types of Association in Java
 There are two types of association in Java
  
  
-Aggregation in Java
+#### Aggregation in Java
 Now, Aggregation in Java is a special type of association. It has the following characteristics –
 •	It represents the Has-A relationship.
 •	Aggregation in Java follows a one-way or one-to-one relationship.
@@ -8170,7 +8121,7 @@ Output-
 So, in this case, there is an organization that has a number of offices. Each office has a number of Departments. In this way, we influence an Organization to the class which has a reference to Object or number of Objects (i.e. Rundown of Objects) of the Department class. That implies Organization class is related to Department class through its Object(s). What’s more, Department class has likewise a reference to Object or Objects (i.e. Rundown of Objects) of Employees class implies it is related to Employees class through its Object(s). It speaks to a Has-A relationship. Code rescue can be best achieved by Aggregation in Java.
 It’s time to explore the latest career opportunities in Java
  
-Composition in Java
+#### Composition in Java
 This is a restricted form of Java aggregation that is the quantities are highly dependent on each other. It represents a part-of relationship. One entity cannot exist without the other. Composition in Java represents a one-to-many relationship.
 Suppose if we take an example of the relationship between questions and answers. Single questions can have multiple answers, but multiple answers can not have multiple questions. If we delete questions, answers will automatically be deleted. In this the entities are dependent.
  
@@ -8228,7 +8179,7 @@ In conclusion, we can say
 
 
 
-Java 8 Interview Questions
+#### Java 8 Interview Questions
 1.	Why do we need change to Java again?
 2.	Java SE 8 New Features?
 3.	Advantages of Java SE 8 New Features?
@@ -8242,7 +8193,7 @@ Java 8 Interview Questions
 11.	What is Spliterator in Java SE 8?Differences between Iterator and Spliterator in Java SE 8?
 12.	What is Optional in Java 8? What is the use of Optional?Advantages of Java 8 Optional?
 13.	What is Type Inference? Is Type Inference available in older versions like Java 7 and Before 7 or it is available only in Java SE 8?
-Java 8 Interview Questions and Answers
+#### Java 8 Interview Questions and Answers
 In this section, we will pickup each question from previous section and answer it with in-detailed description. If you need any more information and examples, please go through previous Java SE 8 posts available in JournalDEV.
 Why do we need change to Java again?
 Oracle Corporation has introduced a lot of new concepts in Java SE 8 to introduce the following benefits:
@@ -8287,7 +8238,7 @@ We can get the following benefits from Java SE 8 New Features:
 •	Write Database Like Operations
 •	Better Performance Applications
 •	More Productive code
-What is Lambda Expression?
+#### What is Lambda Expression?
 Lambda Expression is an anonymous function which accepts a set of input parameters and returns results.
 Lambda Expression is a block of code without any name, with or without parameters and with or without results. This block of code is executed on demand.
 What are the three parts of a Lambda Expression? What is the type of Lambda Expression?
@@ -8303,7 +8254,7 @@ Example:- What is the type of the following Lambda Expression?
 
    () -> System.out.println("Hello World");
 This Lambda Expression does not have parameters and does return any results. So it’s type is “java.lang.Runnable” Functional Interface.
-What is a Functional Interface? What is SAM Interface?
+#### What is a Functional Interface? What is SAM Interface?
 A Functional Interface is an interface, which contains one and only one abstract method. Functional Interface is also know as SAM Interface because it contains only one abstract method.
 SAM Interface stands for Single Abstract Method Interface. Java SE 8 API has defined many Functional Interfaces.
 Is is possible to define our own Functional Interface? What is @FunctionalInterface? What are the rules to define a Functional Interface?
@@ -8326,7 +8277,7 @@ When our Java project wants to perform the following operations, it’s better t
 •	When want to use Internal Iteration
 •	When we want to perform Pipelining operations.
 •	When we want to achieve better performance.
-Explain Differences between Collection API and Stream API?
+#### Explain Differences between Collection API and Stream API?
 S.No.	Collection API	Stream API
 1.	It’s available since Java 1.2	It is introduced in Java SE8
 2.	It is used to store Data(A set of Objects).	It is used to compute data(Computation on a set of Objects).
@@ -8336,7 +8287,7 @@ S.No.	Collection API	Stream API
 6.	Collection Object is constructed Eagerly.	Stream Object is constructed Lazily.
 7.	We add elements to Collection object only after it is computed completely.	We can add elements to Stream Object without any prior computation. That means Stream objects are computed on-demand.
 8.	We can iterate and consume elements from a Collection Object at any number of times.	We can iterate and consume elements from a Stream Object only once.
-What is Spliterator in Java SE 8?Differences between Iterator and Spliterator in Java SE 8?
+#### What is Spliterator in Java SE 8?Differences between Iterator and Spliterator in Java SE 8?
 Spliterator stands for Splitable Iterator. It is newly introduced by Oracle Corporation as part Java SE 8.
 Like Iterator and ListIterator, It is also one of the Iterator interface.
 S.No.	Spliterator	Iterator
@@ -8348,14 +8299,14 @@ S.No.	Spliterator	Iterator
 6.	We can get Spliterator by calling spliterator() method on Stream Object.	We can get Iterator by calling iterator() method on Collection Object.
 7.	Important Method: tryAdvance()	Important Methods: next(), hasNext()
 What is Optional in Java 8? What is the use of Optional?Advantages of Java 8 Optional?
-Optional:
+#### Optional:
 Optional is a final Class introduced as part of Java SE 8. It is defined in java.util package.
 It is used to represent optional values that is either exist or not exist. It can contain either one value or zero value. If it contains a value, we can get it. Otherwise, we get nothing.
 It is a bounded collection that is it contains at most one element only. It is an alternative to “null” value.
 Main Advantage of Optional is:
 •	It is used to avoid null checks.
 •	It is used to avoid “NullPointerException”.
-What is Type Inference? Is Type Inference available in older versions like Java 7 and Before 7 or it is available only in Java SE 8?
+#### What is Type Inference? Is Type Inference available in older versions like Java 7 and Before 7 or it is available only in Java SE 8?
 Type Inference means determining the Type by compiler at compile-time.
 It is not new feature in Java SE 8. It is available in Java 7 and before Java 7 too.
 Before Java 7:-
@@ -8363,12 +8314,12 @@ Let us explore Java arrays. Define a String of Array with values as shown below:
 
 String str[] = { "Java 7", "Java 8", "Java 9" };
 Here we have assigned some String values at right side, but not defined it’s type. Java Compiler automatically infers it’s type and creates a String of Array.
-Java 7:-
+- Java 7:-
 Oracle Corporation has introduced “Diamond Operator” new feature in Java SE 7 to avoid unnecessary Type definition in Generics.
 
 Map<String,List<Customer>> customerInfoByCity = new HashMap<>();
 Here we have not defined Type information at right side, simply defined Java SE 7’s Diamond Operator “”.
-Java SE 8:-
+- Java SE 8:-
 Oracle Corporation has enhanced this Type Inference concept a lot in Java SE 8. We use this concept to define Lambda Expressions, Functions, Method References etc.
 
 ToIntBiFunction<Integer,Integer> add = (a,b) -> a + b;
@@ -8377,7 +8328,7 @@ That’s it about Java 8 Interview Questions.
 I have discussed some Java SE 8 Interview Questions in this post and will discuss some more Java SE 8 Interview Questions in my coming posts.
 
 
-Java SE 8 Interview Questions
+#### Java SE 8 Interview Questions
 1.	What is Internal Iteration in Java SE 8?
 2.	Differences between External Iteration and Internal Iteration?
 3.	What are the major drawbacks of External Iteration?
@@ -8513,11 +8464,11 @@ S.No.	Java’s OLD Java Date API	Java 8’s Date and Time API
 7.	Not Extendable.	Easy to Extend.
 8.	It defines months values from 0 to 11, that is January = 0.	It defines months values from 1 to 12, that is January = 1.
 9.	It’s an old API.	It’s a new API.
-What is Multiple Inheritance? How Java 8 supports Multiple Inheritance?
+#### What is Multiple Inheritance? How Java 8 supports Multiple Inheritance?
 Multiple Inheritance means a class can inherit or extend characteristics and features from more than one parent class.
 In Java 7 or Earlier, Multiple Inheritance is not possible because Java follows “A class should extend one and only one class or abstract class” Rule. However, it’s possible to provide Multiple Implementation Inheritance using Interface because Java follows “A class can extend any number of Interfaces” Rule.
 However, Java 8 supports “Implementing Methods in Interfaces” by introducing new features: Default methods in Interface. Because of this feature, Java 8 supports Multiple Inheritance with some limitations.
-What is Diamond Problem in Inheritance? How Java 8 Solves this problem?
+#### What is Diamond Problem in Inheritance? How Java 8 Solves this problem?
 A Diamond Problem is a Multiple Inheritance problem. In Java, It occurs when a Class extends more than one Interface which have same method implementation (Default method).
  
 This above diagram shows Diamond Problem. To avoid this problem, Java 7 and Earlier versions does not support methods implementation in interface and also doesn’t support Multiple Inheritance. Java 8 has introduced new feature: Default methods to support Multiple Inheritance with some limitations.
@@ -8544,7 +8495,7 @@ public class D implements B,C{
 This B.super.display(); will solve this Diamond Problem.
 That’s it all about Java 8 Interview Questions. We will discuss some more Java SE 8 Interview Questions in my coming posts.
 
-Java Multithreading Interview Questions and Answers
+#### Java Multithreading Interview Questions and Answers
 1.	What is the difference between Process and Thread?
 A process is a self contained execution environment and it can be seen as a program or application whereas Thread is a single task of execution within the process. Java runtime environment runs as a single process which contains different classes and programs as processes. Thread can be called lightweight process. Thread requires less resources to create and exists in the process, thread shares the process resources.
 2.	What are the benefits of multi-threaded programming?
@@ -11223,7 +11174,7 @@ private static int sumStream(List<Integer> list) {
 }
 Notice that above program utilizes java framework iteration strategy, filtering and mapping methods and would increase efficiency.
 First of all we will look into the core concepts of Java 8 Stream API and then we will go through some examples for understanding most commonly used methods.
-Collections and Java Stream
+#### Collections and Java Stream
 A collection is an in-memory data structure to hold values and before we start using collection, all the values should have been populated. Whereas a java Stream is a data structure that is computed on-demand.
 Java Stream doesn’t store data, it operates on the source data structure (collection and array) and produce pipelined data that we can use and perform specific operations. Such as we can create a stream from the list and filter it based on a condition.
 Java Stream operations use functional interfaces, that makes it a very good fit for functional programming using lambda expression. As you can see in the above example that using lambda expressions make our code readable and short.
@@ -11540,7 +11491,7 @@ void testARM_Before_Java9() throws IOException{
    System.out.println(reader2.readLine());
  }
 }
-Java 9 example
+#### Java 9 example
 
 void testARM_Java9() throws IOException{
  BufferedReader reader1 = new BufferedReader(new FileReader("journaldev.txt"));
@@ -11587,10 +11538,6 @@ This takeWhile() takes a predicate as an argument and returns a Stream of the su
 
 jshell> Stream.of(1,2,3,4,5,6,7,8,9,10).takeWhile(i -> i < 5 )
                  .forEach(System.out::println);
-1
-2
-3
-4
 To read more about takeWhile and dropWhile methods and other new methods, please go through my original tutorial at: Java SE 9: Stream API Improvements
 12.	Enhanced @Deprecated annotation
 In Java SE 8 and earlier versions, @Deprecated annotation is just a Marker interface without any methods. It is used to mark a Java API that is a class, field, method, interface, constructor, enum etc.
@@ -12442,13 +12389,8 @@ Here’s the list of Java 14 features:
 Java 14 Installation Setup on Mac OS
 •	To get started with Java 14, download the JDK from here.
 •	Copy and extract the tar file in the /Library/Java/JavaVirtualMachines as shown below:
-1
-2
-3
-4
-5
-6
-7	$ cd /Library/Java/JavaVirtualMachines
+
+$ cd /Library/Java/JavaVirtualMachines
  
 $ sudo cp ~/Downloads/openjdk-14_osx-x64_bin.tar.gz /Library/Java/JavaVirtualMachines
  
@@ -12459,9 +12401,8 @@ Once that’s done, open the bash_profile using any text editor. I’m using vim
 1	export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-14.jdk/Contents/Home
 Finally, you’re ready to compile and run programs using Java 14. We’ll be using JShell, an interactive REPL command-line tool for quickly testing the new Java 14 features.
 It’s important to note that many features released in Java 14 are in preview. This means that though they’re fully working right now, things may be modified in the future. Some could be made a standard or simply removed in the next release cycles. In order to test preview features, you need to explicitly set --enable-preview when running the JShell or Java Program as shown below:
-1
-2
-3	jshell --enable-preview
+
+jshell --enable-preview
  
 javac --release 14 --enable-preview Author.java
 In the next few sections, let’s discuss some of the language and JVM features.
@@ -12470,18 +12411,8 @@ Switch Expressions after staying a preview feature in the last two releases –J
 •	Java 12 introduced the lambda syntax for switch expressions thereby allowing multiple case labels for pattern matching as well as preventing fall-throughs which lead to verbose code. It also enforced exhaustive cases wherein a compilation error would be thrown if all the input cases aren’t covered.
 •	Java 13, the second preview introduced yield statements instead of break for returning values from an expression.
 Java 14 has finally made these features a standard now.
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12	String result = switch (day) {
+
+String result = switch (day) {
             case "M", "W", "F" -> "MWF";
             case "T", "TH", "S" -> "TTS";
             default -> {
@@ -12499,28 +12430,22 @@ Note: Yield isn’t a new keyword in Java. It’s just used in switch expression
 Ask any Java developer to show their codebase and you’ll a good use of instanceof conditions throughout the code. Specifically, an instanceof conditional check is generally followed by a typecasting.
 Java 14, gets rid of this verbosity by making conditional extraction a lot more concise.
 Before Java 14:
-1
-2
-3
-4	if (obj instanceof Journaldev) {
+
+if (obj instanceof Journaldev) {
   Journaldev jd = (Journaldev) obj;
   System.out.println(jd.getAuthor());
 }
 Java 14 Onwards:
-1
-2
-3	if (obj instanceof Journaldev jd) {
+
+if (obj instanceof Journaldev jd) {
   System.out.println(jd.getAuthor());
 }
 In the above code, the instance jd would be only assigned if obj is of type Journaldev. The scope of the variable is limited to the conditional block only.
 3. Helpful NullPointerExceptions
 Null Pointer Exceptions are a nightmare for any developer. Previously, until Java 13, it was tricky to debug the infamous NPEs. Developers had to fall onto other debugging tools or manually figure the variable/method that was null since the stack trace would only show the line number.
 Before Java 14:
-1
-2
-3
-4
-5	String name = jd.getBlog().getAuthor()
+
+String name = jd.getBlog().getAuthor()
  
 //Stacktrace
 Exception in thread "main" <a href="https://www.journaldev.com/14544/java-lang-nullpointerexception">java.lang.NullPointerException</a>
@@ -12543,23 +12468,8 @@ To look into the generated code, use javap Author after you’ve compiled the pr
  Javap Records Java 14
 The semantics of Records is similar to Data Classes in Kotlin
 Furthermore, we can add additional fields, methods, and constructor to the record in the following way:
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17	record Author (int id, String name, String topic) {
+
+record Author (int id, String name, String topic) {
     static int followers;
  
     public static String followerCount() {
@@ -12589,15 +12499,8 @@ It’s important to note that for fields defined which are objects, only the ref
  Java 14 Records Mutable Values For References
 4.2) Records Can Implement Interfaces
 The following code shows an example of implementing an interface with records:
-1
-2
-3
-4
-5
-6
-7
-8
-9	record Author(String name, String topic) implements Information {
+
+record Author(String name, String topic) implements Information {
   public String getFullName() {
     return "Author "+ name + " writes on " + topic;
   }
@@ -12610,17 +12513,8 @@ Here’s the output of the above code in action in a JShell:
  Java 14 Records With Interface
 4.3) Records support multiple constructors
 Records allow declaring multiple constructors with or without parameters as shown below:
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11	record Author(String name, String topic) {
+
+record Author(String name, String topic) {
   public Author() {
  
     this("NA", "NA");
@@ -12633,11 +12527,8 @@ Records allow declaring multiple constructors with or without parameters as show
 }
 4.4) Records Allow Modifying Accessor Methods
 Though records do generate public accessor methods for the fields defined in the state description, they also allow you to redefine the accessor methods in the body as shown below:
-1
-2
-3
-4
-5	record Author(String name, String topic) {
+
+record Author(String name, String topic) {
   public String name() {
         return "This article was written by " + this.name;
     }
@@ -12651,23 +12542,8 @@ Text Blocks were introduced as a preview feature in Java 13 with the goal to all
 In Java 14, Text Blocks are still in preview with some new additions. We can now use:
 •	Backslash for displaying nice-looking multiline string blocks.
 •	\s is used to consider trailing spaces which are by default ignored by the compiler. It preserves all the spaces present before it.
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17	String text = """
+
+String text = """
                 Did you know \
                 Java 14 \
                 has the most features among\
