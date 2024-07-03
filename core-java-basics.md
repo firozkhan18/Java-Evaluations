@@ -1,4 +1,4 @@
-![image](https://github.com/firozkhan18/Java-Evaluations/assets/173276873/b6c5a6af-7e97-48af-81ca-e86c6800c1d8)#### What is String literal pool?
+#### What is String literal pool?
 How to create a String
 There are two ways to create a String object in Java:
 •	Using the new operator. For example, 
