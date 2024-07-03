@@ -1,114 +1,92 @@
-Table of content
-What is Java	8
-Types of Java Applications	9
-Java Platforms / Editions	10
-Features of Java	10
-Simple	11
-Object-oriented	11
-Platform Independent	12
-Secured	12
-Robust	13
-Architecture-neutral	14
-Portable	14
-High-performance	14
-Distributed	14
-Multi-threaded	14
-Dynamic	14
-Bytecode	15
-Interpretation JIT (Just in Time)	15
-Two Paradigm	15
-Advantage of OOPs over Procedure-oriented programming language	16
-What is the difference between an object-oriented programming language and object-based programming language?	16
-OOPs (Object-Oriented Programming System)	16
-Class	17
-Syntax to declare a class:	18
-Instance variable in Java	18
-Object	18
-Declaring Objects	19
-new keyword in Java	20
-Object and Class Example: main within the class	21
-Object and Class Example: main outside the class	21
-3 Ways to initializing object	22
-1) Object and Class Example: Initialization through reference	22
-2) Object and Class Example: Initialization through method	23
-3) Object and Class Example: Initialization through a constructor	25
-Object and Class Example: Employee	25
-Object and Class Example: Rectangle	26
-What are the different ways to create an object in Java?	26
-Anonymous Objects	27
-Creating multiple objects by one type only	28
-Real World Example: Account	29
-Encapsulation in Java	30
-Advantage of Encapsulation in Java	31
-Simple Example of Encapsulation in Java	31
-Read-Only class	32
-Write-Only class	33
-Another Example of Encapsulation in Java	33
-Polymorphism in Java	35
-Runtime Polymorphism in Java	36
-Upcasting	37
-Example of Java Runtime Polymorphism	38
-Java Runtime Polymorphism Example: Bank	38
-Java Runtime Polymorphism Example: Shape	40
-Java Runtime Polymorphism Example: Animal	40
-Java Runtime Polymorphism with Data Member	41
-Java Runtime Polymorphism with Multilevel Inheritance	42
-Try for Output	43
-Inheritance in java	43
-Why use inheritance in java	44
-Terms used in Inheritance	45
-The syntax of Java Inheritance	45
-Java Inheritance Example	45
-Types of inheritance in java	46
-Single Inheritance Example	47
-Multilevel Inheritance Example	47
-Hierarchical Inheritance Example	48
-Q) Why multiple inheritance is not supported in java?	49
-Abstraction in Java	49
-Ways to achieve Abstraction	50
-Aggregation in Java	51
-Why use Aggregation?	51
-Simple Example of Aggregation	51
-When use Aggregation?	52
-Understanding meaningful example of Aggregation	52
-Coupling	54
-Cohesion	54
-Association	54
-Composition	55
-Access Modifiers in Java	55
-Access Control	55
-Understanding Java Access Modifiers	56
-1) Private	56
-Role of Private Constructor	57
-2) Default	57
-3) Protected	58
-4) Public	59
-Java Access Modifiers with Method Overriding	60
-Methods in Java	60
-Using Command-Line Arguments	61
-Instance Variable Hiding	61
-The Scope and Lifetime of Variables	62
-Constructors in Java	62
-Rules for creating Java constructor	63
-Types of Java constructors	64
-Java Default Constructor	64
-Syntax of default constructor:	64
-Example of default constructor	64
-Q) What is the purpose of a default constructor?	65
-Example of default constructor that displays the default values	65
-Java Parameterized Constructor	66
-Why use the parameterized constructor?	66
-Example of parameterized constructor	66
-Constructor Overloading in Java	67
-Example of Constructor Overloading	67
-Difference between constructor and method in Java	68
-Java Copy Constructor	69
-Copying values without constructor	70
-Q) Does constructor return any value?	71
-Can constructor perform other tasks instead of initialization?	71
-Is there Constructor class in Java?	71
-What is the purpose of Constructor class?	71
-this keyword in java	71
+# Table of content
+- [001 - What is Java](../lessons/069)
+- [002 - Types of Java Applications](../lessons/070)
+- [003 - Java Platforms / Editions](../lessons/071)
+- [004 - Features of Java](../lessons/072)
+- [005 - Simple](../lessons/073)
+- [006 - Object-oriented](../lessons/074)
+- [007 - Platform Independent](../lessons/075)
+- [008 - Secured](../lessons/076)
+- [009 - Robust](../lessons/077)
+- [010 - Architecture-neutral](../lessons/078)
+- [011 - Portable](../lessons/079)
+- [012 - High-performance](../lessons/080)
+- [013 - Distributed](../lessons/081)
+- [014 - Multi-threaded](../lessons/082)
+- [015 - Dynamic](../lessons/083)
+- [016 - Bytecode](../lessons/084)
+- [017 - Interpretation JIT (Just in Time)](../lessons/085)
+- [018 - Two Paradigm](../lessons/086)
+- [019 - Advantage of OOPs over Procedure-oriented programming language](../lessons/087)
+- [020 - What is the difference between an object-oriented programming language and object-based programming language?](../lessons/088)
+
+
+- [021 - OOPs (Object-Oriented Programming System)](../lessons/069)
+- [022 - Class](../lessons/070)
+- [023 - Instance variable in Java](../lessons/071)
+- [024 - Object](../lessons/072)
+- [025 - Simple](../lessons/073)
+- [026 - new keyword in Java](../lessons/074)
+- [027 - 3 Ways to initializing object](../lessons/075)
+- [028 - What are the different ways to create an object in Java?](../lessons/076)
+- [029 - Anonymous Objects](../lessons/077)
+- [030 - Creating multiple objects by one type only](../lessons/078)
+- [031 - Encapsulation in Java](../lessons/079)
+- [032 - Polymorphism in Java](../lessons/080)
+- [033 - Runtime Polymorphism in Java](../lessons/081)
+- [034 - Upcasting](../lessons/082)
+- [035 - Inheritance in java](../lessons/083)
+- [036 - Why use inheritance in java](../lessons/084)
+- [037 - Types of inheritance in java](../lessons/085)
+- [038 - Why multiple inheritance is not supported in java?](../lessons/086)
+- [039 - Abstraction in Java](../lessons/087)
+- [040 - Ways to achieve Abstraction](../lessons/088)
+
+- [041 - Aggregation in Java](../lessons/069)
+- [042 - Why use Aggregation?](../lessons/070)
+- [043 - When use Aggregation?](../lessons/071)
+- [044 - Coupling](../lessons/072)
+- [045 - Cohesion](../lessons/073)
+- [046 - Association](../lessons/074)
+- [047 - Composition](../lessons/075)
+- [048 - Access Modifiers in Java](../lessons/076)
+- [049 - Access Control](../lessons/077)
+- [050 - Methods in Java](../lessons/078)
+- [051 - Using Command-Line Arguments](../lessons/079)
+- [052 - Instance Variable Hiding](../lessons/080)
+- [053 - The Scope and Lifetime of Variables](../lessons/081)
+- [054 - Constructors in Java](../lessons/082)
+- [055 - What is the purpose of a default constructor?](../lessons/083)
+- [056 - Why use the parameterized constructor?](../lessons/084)
+- [057 - Difference between constructor and method in Java](../lessons/085)
+- [058 - Does constructor return any value?](../lessons/086)
+- [059 - Can constructor perform other tasks instead of initialization?](../lessons/087)
+- [060 - Is there Constructor class in Java?](../lessons/088)
+
+
+- [001 - What is the purpose of Constructor class?](../lessons/069)
+- [002 - this keyword in java](../lessons/070)
+- [003 - Garbage Collection](../lessons/071)
+- [004 - Finalize() method](../lessons/072)
+- [005 - Simple](../lessons/073)
+- [006 - Object-oriented](../lessons/074)
+- [007 - Platform Independent](../lessons/075)
+- [008 - Secured](../lessons/076)
+- [009 - Robust](../lessons/077)
+- [010 - Architecture-neutral](../lessons/078)
+- [011 - Portable](../lessons/079)
+- [012 - High-performance](../lessons/080)
+- [013 - Distributed](../lessons/081)
+- [014 - Multi-threaded](../lessons/082)
+- [015 - Dynamic](../lessons/083)
+- [016 - Bytecode](../lessons/084)
+- [017 - Interpretation JIT (Just in Time)](../lessons/085)
+- [018 - Two Paradigm](../lessons/086)
+- [019 - Advantage of OOPs over Procedure-oriented programming language](../lessons/087)
+- [020 - What is the difference between an object-oriented programming language and object-based programming language?](../lessons/088)
+
+	71
+	71
 Usage of java this keyword	72
 1) this: to refer current class instance variable	73
 2) this: to invoke current class method	75
@@ -121,8 +99,8 @@ Application of this that can be passed as an argument:	80
 Syntax of this that can be returned as a statement	80
 Example of this keyword that you return as a statement from the method	81
 Proving this keyword	81
-Garbage Collection	82
-Finalize() method	82
+	82
+	82
 Memory Management	82
 Method Overloading in Java	83
 Advantage of method overloading	84
@@ -260,6 +238,12 @@ Another way to run this program by -classpath switch of java:	158
 Ways to load the class files or jar files	158
 How to put two public classes in a package?	159
 What is static import feature of Java5?	159
+
+
+
+
+
+
 
 What is Java
 Java is an internet based object oriented programing language. Oriented programing language is a programing methodology that helps to organized complex program through the use of Inheritance, encapsulation and polymorphism. 
