@@ -175,13 +175,15 @@ String is widely used as parameter for many java classes, e.g. network connectio
 Here is a code example:
 view source
 print?
-1.boolean connect(string s){
-2.if (!isSecure(s)) {
-3.throw new SecurityException();
-4.}
-5.//here will cause problem, if s is changed before this by using other references.   
-6.causeProblem(s);
-7.}
+```java
+boolean connect(string s){
+if (!isSecure(s)) {
+throw new SecurityException();
+}
+//here will cause problem, if s is changed before this by using other references.   
+causeProblem(s);
+}
+```
 In summary, the reasons include design, efficiency, and security
 
 #### STRING LITERAL POOL
@@ -209,17 +211,19 @@ Java can make this optimization since strings are immutable and can be shared wi
 - Creating String using constructor
 1	String s = new String("iByteCode");
 In this case, because we used ‘new’ keyword a String object is created in the heap memory even if an equal string object already exists in the pool and ‘s’ will refer to the newly created one.
-
+```java
 String str1 = "iByteCode";
 String str2 = new String("iByteCode");
 System.out.println(str1 == str2);
+```
 false
 String objects created with the new operator do not refer to objects in the string pool but can be made to using String’s intern() method. The java.lang.String.intern() returns an interned String, that is, one that has an entry in the global String literal pool. If the String is not already in the global String literal pool, then it will be added. For example,
-
+```java
 String s1 = new String("iByteCode");
 String s2 = s1.intern();
 String s3 = "iByteCode";
 System.out.println(s2 == s3);
+```
 true
 In the above example, if the change the statement 2 as,
 1	String s2 = s1;
@@ -232,26 +236,26 @@ In java, string objects are immutable. Immutable simply means unmodifiable or un
 Once string object is created its data or state can't be changed but a new string object is created.
 Let's try to understand the immutability concept by the example given below:
 ```java
-1.	class Simple{  
-2.	 public static void main(String args[]){  
-3.	   String s="Sachin";  
-4.	   s.concat(" Tendulkar");//concat() method appends the string at the end  
-5.	   System.out.println(s);//will print Sachin because strings are immutable objects  
-6.	 }  
-7.	}  
+	class Simple{  
+	 public static void main(String args[]){  
+	   String s="Sachin";  
+	   s.concat(" Tendulkar");//concat() method appends the string at the end  
+	   System.out.println(s);//will print Sachin because strings are immutable objects  
+	 }  
+	}  
 ```
 Now it can be understood by the diagram given below. Here Sachin is not changed but a new object is created with sachintendulkar. That is why string is known as immutable.
  
 As you can see in the above figure that two objects are created but s reference variable still refers to "Sachin" not to "Sachin Tendulkar".
 But if we explicitely assign it to the reference variable, it will refer to "Sachin Tendulkar" object.For example:
 ```java
-1.	class Simple{  
-2.	 public static void main(String args[]){  
-3.	   String s="Sachin";  
-4.	   s=s.concat(" Tendulkar");  
-5.	   System.out.println(s);  
-6.	 }  
-7.	}  
+	class Simple{  
+	 public static void main(String args[]){  
+	   String s="Sachin";  
+	   s=s.concat(" Tendulkar");  
+	   System.out.println(s);  
+	 }  
+	}  
 ```
 In such case, s points to the "Sachin Tendulkar". Please notice that still sachin object is not modified.
 ________________________________________
@@ -262,110 +266,111 @@ Because java uses the concept of string literal.Suppose there are 5 reference va
 We can compare two given strings on the basis of content and reference.
 It is used in authentication (by equals() method),sorting (by compareTo() method), reference matching (by == operator) etc.
 There are three ways to compare String objects:
-1.	By equals() method
-2.	By = = operator
-3.	By compareTo() method
+	By equals() method
+	By = = operator
+	By compareTo() method
 1) By equals() method
 - equals() method compares the original content of the string.It compares values of string for equality.String class provides two methods:
 •	public boolean equals(Object another){} compares this string to the specified object.
 •	public boolean equalsIgnoreCase(String another){} compares this String to another String, ignoring case.
-1.	class Simple{  
-2.	 public static void main(String args[]){  
-3.	   
-4.	   String s1="Sachin";  
-5.	   String s2="Sachin";  
-6.	   String s3=new String("Sachin");  
-7.	   String s4="Saurav";  
-8.	  
-9.	   System.out.println(s1.equals(s2));//true  
-10.	   System.out.println(s1.equals(s3));//true  
-11.	   System.out.println(s1.equals(s4));//false  
-12.	 }  
-13.	}  
- 
-1.	//Example of equalsIgnoreCase(String) method  
-2.	class Simple{  
-3.	 public static void main(String args[]){  
-4.	   
-5.	   String s1="Sachin";  
-6.	   String s2="SACHIN";  
-7.	  
-8.	   System.out.println(s1.equals(s2));//false  
-9.	   System.out.println(s1.equalsIgnoreCase(s3));//true  
-10.	 }  
-11.	}  
- 
+```java
+ class Simple{  
+	 public static void main(String args[]){  
+	   
+	   String s1="Sachin";  
+	   String s2="Sachin";  
+	   String s3=new String("Sachin");  
+	   String s4="Saurav";  
+	  
+	   System.out.println(s1.equals(s2));//true  
+	   System.out.println(s1.equals(s3));//true  
+	   System.out.println(s1.equals(s4));//false  
+	 }  
+	}  
+ ```
+```java
+	//Example of equalsIgnoreCase(String) method  
+	class Simple{  
+	 public static void main(String args[]){  
+	   
+	   String s1="Sachin";  
+	   String s2="SACHIN";  
+	  
+	   System.out.println(s1.equals(s2));//false  
+	   System.out.println(s1.equalsIgnoreCase(s3));//true  
+	 }  
+	}  
+ ```
 ________________________________________
 - 2) By == operator
 The = = operator compares references not values.
-1.	//<b><i>Example of == operator</i></b>  
-2.	  
-3.	class Simple{  
-4.	 public static void main(String args[]){  
-5.	   
-6.	   String s1="Sachin";  
-7.	   String s2="Sachin";  
-8.	   String s3=new String("Sachin");  
-9.	  
-10.	   System.out.println(s1==s2);//true (because both refer to same instance)  
-11.	   System.out.println(s1==s3);//false(because s3 refers to instance created in nonpool)  
-12.	 }  
-13.	}  
- 
-________________________________________
+	//<b><i>Example of == operator</i></b>  
+```java	  
+	class Simple{  
+	 public static void main(String args[]){  
+	   
+	   String s1="Sachin";  
+	   String s2="Sachin";  
+	   String s3=new String("Sachin");  
+	  
+	   System.out.println(s1==s2);//true (because both refer to same instance)  
+	   System.out.println(s1==s3);//false(because s3 refers to instance created in nonpool)  
+	 }  
+	}  
+```
+_______________________________________
 - 3) By compareTo() method:
 compareTo() method compares values and returns an int which tells if the values compare less than, equal, or greater than.
 Suppose s1 and s2 are two string variables.If:
 •	s1 == s2 :0
 •	s1 > s2   :positive value
 •	s1 < s2   :negative value
-1.	//<b><i>Example of compareTo() method:</i></b>  
-2.	  
-3.	class Simple{  
-4.	 public static void main(String args[]){  
-5.	   
-6.	   String s1="Sachin";  
-7.	   String s2="Sachin";  
-8.	   String s3="Ratan";  
-9.	  
-10.	   System.out.println(s1.compareTo(s2));//0  
-11.	   System.out.println(s1.compareTo(s3));//1(because s1>s3)  
-12.	   System.out.println(s3.compareTo(s1));//-1(because s3 < s1 )  
-13.	 }  
-14.	}  
- 
+	//<b><i>Example of compareTo() method:</i></b>  
+```java	  
+	class Simple{  
+	 public static void main(String args[]){  
+	   
+	   String s1="Sachin";  
+	   String s2="Sachin";  
+	   String s3="Ratan";  
+	  
+	   System.out.println(s1.compareTo(s2));//0  
+	   System.out.println(s1.compareTo(s3));//1(because s1>s3)  
+	   System.out.println(s3.compareTo(s1));//-1(because s3 < s1 )  
+	 }  
+	}  
+```
 #### How to create Immutable class?
 There are many immutable classes like String, Boolean, Byte, Short, Integer, Long, Float, Double etc. In short, all the wrapper classes and String class is immutable. We can also create immutable class by creating final class that have final data members as the example given below:
 Example to create Immutable class
 In this example, we have created a final class named Employee. It have one final datamember, a parameterized constructor and getter method.
-1.	public final class Employee{  
-2.	final String pancardNumber;  
-3.	  
-4.	public Employee(String pancardNumber){  
-5.	this.pancardNumber=pancardNumber;  
-6.	}  
-7.	  
-8.	public String getPancardNumber(){  
-9.	return pancardNumber;  
-10.	}  
-11.	  
-12.	}  
+```java
+ public final class Employee{  
+	final String pancardNumber;  
+	  
+	public Employee(String pancardNumber){  
+	this.pancardNumber=pancardNumber;  
+	}  
+	  
+	public String getPancardNumber(){  
+	return pancardNumber;  
+	}    
+	}
+```
 ________________________________________
 The above class is immutable because:
 •	The instance variable of the class is final i.e. we cannot change the value of it after creating an object.
 •	The class is final so we cannot create the subclass.
 •	There is no setter methods i.e. we have no option to change the value of the instance variable.
 These points makes this class as immutable.
-Java Reflection API
+#### Java Reflection API
 Reflection is the process of examining or modifying the runtime behaviour of a class at runtime.
 The java.lang.Class class provides many methods that can be used to get metadata, examine and change the runtime behaviour of a class.
-Where is it used?
+#### Where is it used?
 The Reflection API is mainly used in:
 •	IDE (Integreted Development Environment) e.g. Eclipse, MyEclipse, NetBeans etc.
 •	Debugger
 •	Test Tools etc.
-
-
 
 Do You Know ?
 •	How many ways we can get the instance of Class class ?
@@ -373,12 +378,12 @@ Do You Know ?
 •	How to create the appletviewer tool ?
 •	How to access the private method from outside the class ?
 ________________________________________
-java.lang.Class class
+#### java.lang.Class class
 The java.lang.Class class performs mainly two tasks:
 •	provides methods to get the metadata of a class at runtime.
 •	provides methods to examine and change the runtime behaviour of a class.
 ________________________________________
-Commonly used methods of Class class:
+#### Commonly used methods of Class class:
 Method	Description
 1) public String getName()	returns the class name
 2) public static Class forName(String className)throws ClassNotFoundException	loads the class and returns the reference of Class class.
@@ -402,18 +407,21 @@ There are 3 ways to get the instance of Class class. They are as follows:
 •	returns the instance of Class class.
 •	It should be used if you know the fully qualified name of class.This cannot be used for primitive types.
 Let's see the simple example of forName() method.
-1.	class Simple{}  
-2.	  
-3.	class Test{  
-4.	 public static void main(String args[]){  
-5.	  Class c=Class.forName("Simple");  
-6.	  System.out.println(c.getName());  
-7.	 }  
-8.	}  
+```java
+class Simple{}  
+	  
+	class Test{  
+	 public static void main(String args[]){  
+	  Class c=Class.forName("Simple");  
+	  System.out.println(c.getName());  
+	 }  
+	}
+```
 Output:Simple
 ________________________________________
 - 2) getClass() method of Object class
 It returns the instance of Class class. It should be used if you know the type. Moreover, it can be used with primitives.
+```java
 1.	class Simple{}  
 2.	  
 3.	class Test{  
@@ -428,11 +436,13 @@ It returns the instance of Class class. It should be used if you know the type. 
 12.	   t.printName(s);  
 13.	 }  
 14.	}  
-15.	   
+15.
+```
 Output:Simple
 ________________________________________
 - 3) The .class syntax
 If a type is available but there is no instance then it is possible to obtain a Class by appending ".class" to the name of the type.It can be used for primitive data type also.
+```java
 1.	class Test{  
 2.	  public static void main(String args[]){  
 3.	   Class c = boolean.class;   
@@ -441,7 +451,8 @@ If a type is available but there is no instance then it is possible to obtain a 
 6.	   Class c2 = Test.class;   
 7.	   System.out.println(c2.getName());  
 8.	 }  
-9.	}  
+9.	}
+```
 Output:boolean
        Test
 ________________________________________
@@ -451,6 +462,7 @@ Following methods of Class class is used to determine the class object:
 2) public boolean isArray(): determines if this Class object represents an array class.
 3) public boolean isPrimitive(): determines if the specified Class object represents a primitive type.
 Let's see the simple example of reflection api to determine the object type.
+```java
 1.	class Simple{}  
 2.	interface My{}  
 3.	  
@@ -466,7 +478,8 @@ Let's see the simple example of reflection api to determine the object type.
 13.	  }catch(Exception e){System.out.println(e);}  
 14.	  
 15.	 }  
-16.	}  
+16.	}
+```
 Output:false
        true
 #### Comparable interface
@@ -485,6 +498,7 @@ Note: String class and Wrapper classes implements the Comparable interface.So if
 ________________________________________
 Example of Sorting the elements of List that contains user-defined class objects on age basis
 Student.java
+```java
 1.	class Student implements Comparable{  
 2.	int rollno;  
 3.	String name;  
@@ -505,8 +519,10 @@ Student.java
 18.	return -1;  
 19.	}  
 20.	  
-21.	}  
+21.	}
+```
 Simple.java
+```java
 1.	import java.util.*;  
 2.	import java.io.*;  
 3.	  
@@ -525,7 +541,8 @@ Simple.java
 16.	System.out.println(st.rollno+""+st.name+""+st.age);  
 17.	  }  
 18.	}  
-19.	}  
+19.	}
+```
 Output:105 Jai 21
        101 Vijay 23
        106 Ajay 27
@@ -548,6 +565,7 @@ In this example, we have created 4 java classes:
 •  Simple.java
 Student.java
 This class contains three fields rollno, name and age and a parameterized constructor.
+```java
 1.	class Student{  
 2.	int rollno;  
 3.	String name;  
@@ -557,9 +575,11 @@ This class contains three fields rollno, name and age and a parameterized constr
 7.	this.name=name;  
 8.	this.age=age;  
 9.	}  
-10.	}  
+10.	}
+```
 AgeComparator.java
 This class defines comparison logic based on the age. If age of first object is greater than the second, we are returning positive value, it can be any one such as 1, 2 , 10 etc. If age of first object is less than the second object, we are returning negative value, it can be any negative value and if age of both objects are equal, we are returning 0.
+```java
 1.	import java.util.*;  
 2.	class AgeComparator implements Comparator{  
 3.	public int Compare(Object o1,Object o2){  
@@ -573,9 +593,11 @@ This class defines comparison logic based on the age. If age of first object is 
 11.	else  
 12.	return -1;  
 13.	}  
-14.	}  
+14.	}
+```
 NameComparator.java
 This class provides comparison logic based on the name. In such case, we are using the compareTo() method of String class, which internally provides the comparison logic.
+```java
 1.	import java.util.*;  
 2.	class NameComparator implements Comparator{  
 3.	public int Compare(Object o1,Object o2){  
@@ -584,9 +606,11 @@ This class provides comparison logic based on the name. In such case, we are usi
 6.	  
 7.	return s1.name.compareTo(s2.name);  
 8.	}  
-9.	}  
+9.	}
+```
 Simple.java
 In this class, we are printing the objects values by sorting on the basis of name and age.
+```java
 1.	import java.util.*;  
 2.	import java.io.*;  
 3.	  
@@ -618,7 +642,8 @@ In this class, we are printing the objects values by sorting on the basis of nam
 29.	  
 30.	  
 31.	}  
-32.	}  
+32.	}
+```
 Output:Sorting by Name...
        106 Ajay 27
        105 Jai 21
@@ -647,6 +672,7 @@ It is mainly used to travel object's state on the network.
 ________________________________________
 #### About Serializable interface
 Serializable is a marker interface(have no body). It is just used to "mark" Java classes which support a certain capability. It must be implemented by the class whose object you want to persist. Let's see the example given below:
+```java
 1.	import java.io.Serializable;  
 2.	  
 3.	public class Student implements Serializable{  
@@ -656,7 +682,8 @@ Serializable is a marker interface(have no body). It is just used to "mark" Java
 7.	  this.id = id;  
 8.	  this.name = name;  
 9.	 }  
-10.	}  
+10.	}
+```
 ________________________________________
 ObjectOutputStream class:
 An ObjectOutputStream is used to write primitive data types and Java objects to an OutputStream.Only objects that support the java.io.Serializable interface can be written to streams.
@@ -668,7 +695,7 @@ An ObjectOutputStream is used to write primitive data types and Java objects to 
 ________________________________________
 - Example of Serialization
 In this example, we are going to serialize the object of Student class. The writeObject() method of ObjectOutputStream class provides the functionality to serialize the object. We are saving the state of the object in the file named f.txt.
- 
+```java
 1.	import java.io.*;  
 2.	class Persist{  
 3.	 public static void main(String args[])throws Exception{  
@@ -682,7 +709,8 @@ In this example, we are going to serialize the object of Student class. The writ
 11.	  
 12.	  System.out.println("success");  
 13.	 }  
-14.	}  
+14.	}
+```
 1.	<strong>Output:</strong>success  
 download this example of serialization
 ________________________________________
@@ -696,6 +724,7 @@ An ObjectInputStream deserializes objects and primitive data written using an Ob
 1) public final Object readObject() throws IOException, ClassNotFoundException{}reads an object from the input stream.
 ________________________________________
 - Example of Deserialization:
+```java
 1.	import java.io.*;  
 2.	class Depersist{  
 3.	 public static void main(String args[])throws Exception{  
@@ -706,12 +735,14 @@ ________________________________________
 8.	  
 9.	  in.close();  
 10.	 }  
-11.	}  
+11.	}
+```
 1.	<strong>Output:</strong>211 ravi  
 download this example of deserialization
 ________________________________________
 #### Serialization with Inheritance
 If a class implements Serilizable then all its subclasses will also be serilizable. Let's see the example given below:
+```java
 1.	import java.io.Serializable;  
 2.	  
 3.	class Person implements Serializable{  
@@ -730,7 +761,8 @@ If a class implements Serilizable then all its subclasses will also be serilizab
 6.	  this.course=course;  
 7.	  this.fee=fee;  
 8.	 }  
-9.	}  
+9.	}
+```
 Now you can serialize the Student class object that extends the Person class which is Serializable.Parent class properties are inherited to subclasses so if parent class is Serializable, subclass would also be.
 ________________________________________
 #### Externalizable interface:
@@ -741,6 +773,7 @@ The Externalizable interface provides two methods:
 ________________________________________
 #### Serialization with Static datamember
 Note: If there is any static data member in a class, it will not be serialized because static is related to class not to instance.
+```java
 1.	class Employee implements Serializable{  
 2.	 int id;  
 3.	 String name;  
@@ -749,13 +782,15 @@ Note: If there is any static data member in a class, it will not be serialized b
 6.	  this.id = id;  
 7.	  this.name = name;  
 8.	 }  
-9.	}  
+9.	}
+```
 ________________________________________
 Rule: In case of array or collection, all the objects of array or collection must be serializable,if any object is not serialiizable then serialization will be failed.
 #### The transient keyword
 The transient keyword is used in serialization. If you define any data member as transient, it will not be serialized. Let's take an example, I have declared a class as Student, it has three data members id, name and age. If you serialize the object, all the values will be serialized but I don't want to serialize one value, e.g. age then we can declare the age datamember as transient.
 - Example of transient keyword
 In this example, we have created the two classes Student and Persist. One data member of the Student class is declared as transient, it value will not be serialized. If you deserialize the object, it will return the default value for transient variable.
+```java
 1.	import java.io.Serializable;  
 2.	  
 3.	public class Student implements Serializable{  
@@ -781,7 +816,8 @@ In this example, we have created the two classes Student and Persist. One data m
 11.	  
 12.	  System.out.println("success");  
 13.	 }  
-14.	}  
+14.	}
+```
 1.	<strong>Output:</strong>succss  
 #### Synchronization
 Synchronization is the capabilility of control the access of multiple threads to any shared resource. Synchronization is better in case we want only one thread can access the shared resource at a time.
@@ -813,6 +849,7 @@ Synchronization is built around an internal entity known as the lock or monitor.
 From Java 5 the package java.util.concurrent.locks contains several lock implementations.
 #### Understanding the problem without Synchronization
 In this example, there is no synchronization, so output is inconsistent. Let's see the example:
+```java
 1.	Class Table{  
 2.	  
 3.	void printTable(int n){//method not synchronized  
@@ -854,12 +891,16 @@ In this example, there is no synchronization, so output is inconsistent. Let's s
 39.	t1.start();  
 40.	t2.start();  
 41.	}  
-42.	}  
+42.	}
+```
 ________________________________________
+
 #### Solution by synchronized method
+
 •	If you declare any method as synchronized, it is known as synchronized method.
 •	Synchronized method is used to lock an object for any shared resource.
 •	When a thread invokes a synchronized method, it automatically acquires the lock for that object and releases it when the method returns.
+```java
 1.	<b><i>//Program of synchronized method</i></b>  
 2.	  
 3.	Class Table{  
@@ -904,9 +945,13 @@ ________________________________________
 42.	t2.start();  
 43.	}  
 }
+```
 ________________________________________
+
 #### Same Example of synchronized method by using annonymous class
+
 In this program, we have created the two threads by annonymous class, so less coding is required.
+```java
 1.	<b><i>//Program of synchronized method by using annonymous class</i></b>  
 2.	  
 3.	Class Table{  
@@ -941,7 +986,9 @@ In this program, we have created the two threads by annonymous class, so less co
 32.	t2.start();  
 33.	}  
 }
+```
 #### Synchronized block
+
 Synchronized block can be used to perform synchronization on any specific resouce of the method.
 Suppose you have 50 lines of code in your method, but you want to synchronize only 5 lines, you can use synchronized block.
 If you put all the codes of the method in the synchronized block, it will work same as the synchronized method.
@@ -951,9 +998,12 @@ Points to remember for Synchronized block
 Syntax to use synchronized block
 1.	synchronized (object reference expression) {   
 2.	  //code block   
-3.	}  
+3.	}
+4.	
 #### Example of synchronized block
+
 Let's see the simple example of synchronized block.
+```java
 1.	<b><i>//Program of synchronized block</i></b>  
 2.	  
 3.	class Table{  
@@ -998,8 +1048,13 @@ Let's see the simple example of synchronized block.
 42.	t1.start();  
 43.	t2.start();  
 44.	}  
-45.	}  ________________________________________
+45.	}
+```
+________________________________________
+
 #### Same Example of synchronized block by using annonymous class:
+
+```java
 1.	<b><i>//Program of synchronized block by using annonymous class</i></b>  
 2.	  
 3.	class Table{  
@@ -1034,14 +1089,18 @@ Let's see the simple example of synchronized block.
 32.	t1.start();  
 33.	t2.start();  
 34.	}  
-35.	}  
+35.	}
+```
 #### Static synchronization
+
 If you make any static method as synchronized, the lock will be on the class not on object.
  
 #### Problem without static synchronization
+
 Suppose there are two objects of a shared class(e.g. Table) named object1 and object2.In case of synchonized method and synchronized block there cannot be inteference between t1 and t2 or t3 and t4 because t1 and t2 both refers to a common object that have a single lock.But there can be interference between t1 and t3 or t2 and t4 because t1 acquires another lock and t3 acquires another lock.I want no interference between t1 and t3 or t2 and t4.Static synchronization solves this problem.
 Example of static synchronization
 In this example we are applying synchronized keyword on the static method to perform statis synchrnization.
+```java
 1.	class Table{  
 2.	  
 3.	 synchronized static void printTable(int n){  
@@ -1093,10 +1152,13 @@ In this example we are applying synchronized keyword on the static method to per
 49.	t4.start();  
 50.	}  
 51.	}  
- 
+```
 ________________________________________
+
 #### Same example of static synchronization by annonymous class
+
 In this example, we are using annonymous class to create the threads.
+```java
 1.	class Table{  
 2.	  
 3.	 synchronized static  void printTable(int n){  
@@ -1142,19 +1204,24 @@ In this example, we are using annonymous class to create the threads.
 43.	      
 44.	}  
 45.	}  
- 
+```
 ________________________________________
+
 #### Synchronized block on a class lock:
+
 The block synchronizes on the lock of the object denoted by the reference .class name .class. A static synchronized method printTable(int n) in class Table is equivalent to the following declaration:
 1.	static void printTable(int n) {  
 2.	    synchronized (Table.class) {       // Synchronized block on class A  
 3.	        // ...  
 4.	    }  
-5.	}  
+5.	}
+6.	
 #### Deadlock:
+
 Deadlock can occur in a situation when a thread is waiting for an object lock, that is acquired by another thread and second thread is waiting for an object lock that is acquired by first thread. Since, both threads are waiting for each other to release the lock, the condition is called daedlock.
  
 Example of Deadlock in java:
+```java
 1.	public class DeadlockExample {  
 2.	  public static void main(String[] args) {  
 3.	    final String resource1 = "ratan jaiswal";  
@@ -1194,8 +1261,11 @@ Example of Deadlock in java:
 37.	    t2.start();  
 38.	  }  
 39.	}  
-40.	          
+40.
+```
+
 #### Inter-thread communication in Java
+
 Inter-thread communication or Co-operation is all about allowing synchronized threads to communicate with each other.
 Cooperation (Inter-thread communication) is a mechanism in which a thread is paused running in its critical section and another thread is allowed to enter (or lock) in the same critical section to be executed.It is implemented by following methods of Object class:
 •	wait()
@@ -1217,6 +1287,7 @@ ________________________________________
 Wakes up all threads that are waiting on this object's monitor. Syntax:
 public final void notifyAll()
 ________________________________________
+
 #### Understanding the process of inter-thread communication
  
 The point to point explanation of the above diagram is as follows:
@@ -1227,10 +1298,14 @@ The point to point explanation of the above diagram is as follows:
 5.	Now thread is available to acquire lock.
 6.	After completion of the task, thread releases the lock and exits the monitor state of the object.
 ________________________________________
+
 #### Why wait(), notify() and notifyAll() methods are defined in Object class not Thread class?
+
 It is because they are related to lock and object has a lock.
 ________________________________________
+
 #### Difference between wait and sleep?
+
 Let's see the important differences between wait and sleep methods.
 wait()	sleep()
 wait() method releases the lock	sleep() method doesn't release the lock.
@@ -1239,8 +1314,11 @@ is the non-static method	is the static method
 is the non-static method	is the static method
 should be notified by notify() or notifyAll() methods	after the specified amount of time, sleep is completed.
 ________________________________________
+
 #### Example of inter thread communication in java
+
 Let's see the simple example of inter thread communication.
+```java
 1.	class Customer{  
 2.	int amount=10000;  
 3.	  
@@ -1274,17 +1352,23 @@ Let's see the simple example of inter thread communication.
 31.	}.start();  
 32.	  
 33.	}}  
- 
+```
 #### Interrupting a Thread:
+
 If any thread is in sleeping or waiting state (i.e. sleep() or wait() is invoked), calling the interrupt() method on the thread, breaks out the sleeping or waiting state throwing InterruptedException. If the thread is not in the sleeping or waiting state, calling the interrupt() method performs normal behaviour and doesn't interrupt the thread but sets the interrupt flag to true. Let's first see the methods provided by the Thread class for thread interruption.
 ________________________________________
+
 #### The 3 methods provided by the Thread class for interrupting a thread
+
 •	public void interrupt()
 •	public static boolean interrupted()
 •	public boolean isInterrupted()
 ________________________________________
+
 #### Example of interrupting a thread that stops working
+
 In this example, after interrupting the thread, we are propagating it, so it will stop working. If we don't want to stop the thread, we can handle it where sleep() or wait() method is invoked. Let's first see the example where we are propagating the exception.
+```java
 1.	class A extends Thread{  
 2.	public void run(){  
 3.	try{  
@@ -1304,15 +1388,19 @@ In this example, after interrupting the thread, we are propagating it, so it wil
 17.	}catch(Exception e){System.out.println("Exception handled "+e);}  
 18.	  
 19.	}  
-20.	}  
+20.	}
+```
 download this example
 1.	<strong>Output:</strong>Exception in thread-0    
 2.	       java.lang.RuntimeException: Thread interrupted...  
 3.	       java.lang.InterruptedException: sleep interrupted  
 4.	       at A.run(A.java:7)  
 ________________________________________
+
 #### Example of interrupting a thread that doesn't stop working
+
 In this example, after interrupting the thread, we handle the exception, so it will break out the sleeping but will not stop working.
+```java
 1.	class A extends Thread{  
 2.	public void run(){  
 3.	try{  
@@ -1331,14 +1419,18 @@ In this example, after interrupting the thread, we handle the exception, so it w
 16.	t1.interrupt();  
 17.	  
 18.	}  
-19.	}  
+19.	}
+```
 download this example
 1.	<strong>Output:</strong>Exception handled    
 2.	       java.lang.InterruptedException: sleep interrupted  
 3.	       thread is running...  
 ________________________________________
+
 #### Example of interrupting thread that behaves normally
+
 If thread is not in sleeping or waiting state, calling the interrupt() method sets the interrupted flag to true that can be used to stop the thread by the java programmer later.
+```java
 1.	class A extends Thread{  
 2.	  
 3.	public void run(){  
@@ -1353,15 +1445,19 @@ If thread is not in sleeping or waiting state, calling the interrupt() method se
 12.	t1.interrupt();  
 13.	  
 14.	}  
-15.	}  
+15.	}
+```
 1.	<strong>Output:</strong>1  
 2.	       2  
 3.	       3  
 4.	       4   
 5.	       5  
 ________________________________________
+
 #### What about isInterrupted and interrupted method?
+
 The isInterrupted() method returns the interrupted flag either true or false. The static interrupted() method returns the interrupted flag afterthat it sets the flag to false if it is true.
+```java
 1.	class InterruptedDemo extends Thread{  
 2.	  
 3.	public void run(){  
@@ -1387,19 +1483,24 @@ The isInterrupted() method returns the interrupted flag either true or false. Th
 23.	t2.start();  
 24.	  
 25.	}  
-26.	}  
+26.	}
+```
 1.	<strong>Output:</strong>Code for interrupted thread  
 2.	       code for normal thread  
 3.	       code for normal thread  
 4.	       code for normal thread  
-5.	         
+
 #### Reentrant Monitor in Java
+
 According to Sun Microsystems, Java monitors are reentrant means java thread can reuse the same monitor for different synchronized methods if method is called from the method.
 ________________________________________
+
 #### Advantage of Reentrant Monitor
+
 It eliminates the possibility of single thread deadlocking
 ________________________________________
 Let's understand the java reentrant monitor by the example given below:
+```java
 1.	class Reentrant {  
 2.	    public synchronized void m() {  
 3.	    n();  
@@ -1408,9 +1509,11 @@ Let's understand the java reentrant monitor by the example given below:
 6.	    public synchronized void n() {  
 7.	    System.out.println("this is n() method");  
 8.	    }  
-9.	}  
+9.	}
+```
 In this class, m and n are the synchronized methods. The m() method internally calls the n() method.
 Now let's call the m() method on a thread. In the class given below, we are creating thread using annonymous class.
+```java
 1.	class ReentrantExample{  
 2.	public static void main(String args[]){  
 3.	final Reentrant re=new Reentrant();  
@@ -1422,16 +1525,22 @@ Now let's call the m() method on a thread. In the class given below, we are crea
 9.	};  
 10.	t1.start();  
 11.	}}  
- 
+```
 #### Thread Pooling in Java
+
 Thread pool represents a group of worker threads that are waiting for the job. Here, threads are executed whenever they get the job.
 In case of thread pool, a group of fixed size threads are created. A thread from the thread pool is pulled out and assigned a job by the service provider. After completion of the job, thread is contained in the thread pool again.
+
 #### Advantage of Thread Pool
+
 Better performance It saves time because there is no need to create new thread.
 Where is it used?
 It is used in Servlet and JSP where container creates a thread pool to process the request.
+
 #### Example of Java Thread Pool
+
 Let's see a simple example of java thread pool using executors and ThreadPoolExecutor.
+```java
 1.	import java.util.concurrent.ExecutorService;  
 2.	import java.util.concurrent.Executors;  
 3.	class WorkerThread implements Runnable {  
@@ -1464,7 +1573,8 @@ Let's see a simple example of java thread pool using executors and ThreadPoolExe
 30.	        System.out.println("Finished all threads");  
 31.	    }  
 32.	   
-33.	}  
+33.	}
+```
 download this example
 Output:
 1.	pool-1-thread-1 (Start) message = 0  
@@ -1487,9 +1597,12 @@ Output:
 18.	pool-1-thread-4 (End)  
 19.	pool-1-thread-3 (End)  
 20.	pool-1-thread-5 (End)  
-21.	Finished all threads  
+21.	Finished all threads
+
 #### Can we start a thread twice?
+
 No. After staring a thread, it can never be started again. If you does so, an IllegalThreadStateException is thrown. For Example:
+```java
 1.	class Multi extends Thread{  
 2.	 public void run(){  
 3.	   System.out.println("running...");  
@@ -1499,12 +1612,16 @@ No. After staring a thread, it can never be started again. If you does so, an Il
 7.	  t1.start();  
 8.	  t1.start();  
 9.	 }  
-10.	}  
+10.	}
+```
 1.	<strong>Output:</strong>running  
-2.	       Exception in thread "main" java.lang.IllegalThreadStateException  
+2.	       Exception in thread "main" java.lang.IllegalThreadStateException
+3.	    
 #### What if we call run() method directly instead start() method?
+
 •	Each thread starts in a separate call stack.
 •	Invoking the run() method from main thread, the run() method goes onto the current call stack rather than at the beginning of a new call stack.
+```java
 1.	class Multi extends Thread{  
 2.	 public void run(){  
 3.	   System.out.println("running...");  
@@ -1513,13 +1630,17 @@ No. After staring a thread, it can never be started again. If you does so, an Il
 6.	  Multi t1=new Multi();  
 7.	  t1.run();//fine, but does not start a separate call stack  
 8.	 }  
-9.	}  
-1.	<strong>Output:</strong>running... 
+9.	}
+```
+1.	<strong>Output:</strong>running...
+
 #### The join() method:
+
 The join() method waits for a thread to die. In other words, it causes the currently running threads to stop executing until the thread it joins with completes its task.
 Syntax:
 public void join()throws InterruptedException
 public void join(long miliseconds)throws InterruptedException
+```java
 1.	//<b><i>Example of join() method</i></b>  
 2.	  
 3.	class Multi extends Thread{  
@@ -1544,8 +1665,9 @@ public void join(long miliseconds)throws InterruptedException
 22.	 t3.start();  
 23.	 }  
 24.	}  
- 
+```
 As you can see in the above example,when t1 completes its task then t2 and t3 starts executing.
+```java
 1.	//<b><i>Example of join(long miliseconds) method</i></b>  
 2.	  
 3.	class Multi extends Thread{  
@@ -1570,13 +1692,16 @@ As you can see in the above example,when t1 completes its task then t2 and t3 st
 22.	 t3.start();  
 23.	 }  
 24.	}  
- 
+```
 In the above example,when t1 is completes its task for 1500 miliseconds(3 times) then t2 and t3 starts executing.
 ________________________________________
+
 #### getName(),setName(String) and getId() method:
+
 public String getName()
 public void setName(String name)
 public long getId()
+```java
 1.	class Multi6 extends Thread{  
 2.	  public void run(){  
 3.	   System.out.println("running...");  
@@ -1595,12 +1720,14 @@ public long getId()
 16.	  System.out.println("After changing name of t1:"+t1.getName());  
 17.	 }  
 18.	}  
- 
+```
 ________________________________________
+
 #### The currentThread() method:
 The currentThread() method returns a reference to the currently executing thread object.
 Syntax:
 public static Thread currentThread()
+```java
 1.	//<b><i>Example of currentThread() method</i></b>  
 2.	  
 3.	class Multi6 extends Thread{  
@@ -1616,15 +1743,18 @@ public static Thread currentThread()
 13.	  t2.start();  
 14.	 }  
 15.	}  
- 
+```
 #### Garbage Collection:
+
 In java, garbage means unreferenced objects.
 Garbage Collection is process of reclaiming the runtime unused memory automatically.
 Advantage of Garbage Collection:
 •	It makes java memory efficient because garbage collector removes the unreferenced objects from heap memory.
 •	It is automatically done by the garbage collector so we don't need to make extra efforts.
 ________________________________________
+
 #### How can an object be unreferenced?
+
 There are many ways:
 •	By nulling the reference
 •	By assigning a reference to another
@@ -1640,17 +1770,24 @@ There are many ways:
 3) By annonymous object:
 1.	new Employee();  
 ________________________________________
+
 #### finalize() method:
+
 The finalize() method is invoked each time before the object is garbage collected. This method can be used to perform cleanup processing. This method is defined in System class as:
 1.	protected void finalize(){}  
 Note: The Garbage collector of JVM collects only those objects that are created by new keyword. So if you have created any object without new, you can use finalize method to perform cleanup processing (destroying remaining objects).
 ________________________________________
+
 #### gc() method:
+
 The gc() method is used to invoke the garbage collector to perform cleanup processing. The gc() is found in System and Runtime classes.
 1.	public static void gc(){}  
 Note: Garbage collection is performed by a daemon thread called Garbage Collector(GC). This thread calls the finalize() method before object is garbage collected.
 ________________________________________
+
 #### Simple Example of garbage collection:
+
+```java
 1.	class Simple{  
 2.	  
 3.	 public void finalize(){System.out.println("object is garbage collected");}  
@@ -1663,9 +1800,11 @@ ________________________________________
 10.	  System.gc();  
 11.	 }  
 12.	}  
- 
+``` 
 Note: Neither finalization nor garbage collection is guaranteed.
+
 #### Aggregation in Java
+
 If a class have an entity reference, it is known as Aggregation. Aggregation represents HAS-A relationship.
 Consider a situation, Employee object contains many informations such as id, name, emailId etc. It contains one more object named address, which contains its own informations such as city, state, country, zipcode etc. as given below.
 1.	class Employee{  
@@ -1681,6 +1820,7 @@ ________________________________________
 #### Simple Example of Aggregation
  
 In this example, we have created the reference of Operation class in the Circle class.
+```java
 1.	class Operation{  
 2.	 int square(int n){  
 3.	  return n*n;  
@@ -1704,16 +1844,21 @@ In this example, we have created the reference of Operation class in the Circle 
 21.	   double result=c.area(5);  
 22.	   System.out.println(result);  
 23.	 }  
-24.	}  
+24.	}
+```
 Output:78.5
       
 #### When use Aggregation?
+
 •	Code reuse is also best achieved by aggregation when there is no is-a relationship.
 •	Inheritance should be used only if the relationship is-a is maintained throughout the lifetime of the objects involved; otherwise, aggregation is the best choice.
 ________________________________________
+
 #### Understanding meaningful example of Aggregation
+
 In this example, Employee has an object of Address, address object contains its own informations such as city, state, country etc. In such case relationship is Employee HAS-A address.
 Address.java
+```java
 1.	public class Address {  
 2.	String city,state,country;  
 3.	  
@@ -1723,8 +1868,10 @@ Address.java
 7.	    this.country = country;  
 8.	}  
 9.	  
-10.	}  
+10.	}
+```
 Emp.java
+```java
 1.	public class Emp {  
 2.	int id;  
 3.	String name;  
@@ -1752,19 +1899,24 @@ Emp.java
 25.	e2.display();  
 26.	      
 27.	}  
-28.	}  
+28.	}
+```
 Output:111 varun
        gzb UP india
        112 arun
        gno UP india      
+       
 #### Inheritance in Java
+
 1.	Inheritance
 2.	Types of Inheritance
 3.	Why multiple inheritance is not possible in java in case of class?
 Inheritance is a mechanism in which one object acquires all the properties and behaviours of parent object.
 The idea behind inheritance is that you can create new classes that are built upon existing classes. When you inherit from an existing class, you reuse (or inherit) methods and fields, and you add new methods and fields to adapt your new class to new situations.
 Inheritance represents the IS-A relationship.
+
 #### Why use Inheritance?
+
 •	For Method Overriding (So Runtime Polymorphism).
 •	For Code Reusability.
 Syntax of Inheritance
@@ -1777,6 +1929,7 @@ ________________________________________
 #### Understanding the simple example of inheritance
  
 As displayed in the above figure, Programmer is the subclass and Employee is the superclass. Relationship between two classes is Programmer IS-A Employee.It means that Programmer is a type of Employee.
+```java
 1.	class Employee{  
 2.	 float salary=40000;  
 3.	}  
@@ -1789,12 +1942,14 @@ As displayed in the above figure, Programmer is the subclass and Employee is the
 10.	   System.out.println("Programmer salary is:"+p.salary);  
 11.	   System.out.println("Bonus of Programmer is:"+p.bonus);  
 12.	}  
-13.	}  
+13.	}
+```
 Output:Programmer salary is:40000.0
        Bonus of programmer is:10000
       
 In the above example,Programmer object can access the field of own class as well as of Employee class i.e. code reusability.
 #### Types of Inheritance
+
 On the basis of class, there can be three types of inheritance: single, multilevel and hierarchical.
 Multiple and Hybrid is supported through interface only. We will learn about interfaces later.
  
@@ -1802,7 +1957,9 @@ Multiple inheritance is not supported in java in case of class.
 When a class extends multiple classes i.e. known as multiple inheritance. For Example:
  
 #### Que) Why multiple inheritance is not supported in java?
+
 •	To reduce the complexity and simplify the language, multiple inheritance is not supported in java. For example:
+```java
 1.	class A{  
 2.	void msg(){System.out.println("Hello");}  
 3.	}  
@@ -1817,8 +1974,10 @@ When a class extends multiple classes i.e. known as multiple inheritance. For Ex
 12.	   C obj=new C();  
 13.	   obj.msg();//Now which msg() method would be invoked?  
 14.	}  
-15.	}  
+15.	}
+``` 
 #### Object class in Java
+
 The Object class is the parent class of all the classes in java bydefault. In other words, it is the topmost class of java.
 The Object class is beneficial if you want to refer any object whose type you don't know. Notice that parent class reference variable can refer the child class object, know as upcasting.
 Let's take an example, there is getObject() method that returns an object but it can be of any type like Employee,Student etc, we can use Object class reference to refer that object. For example:
@@ -1826,6 +1985,7 @@ Let's take an example, there is getObject() method that returns an object but it
 The Object class provides some common behaviours to all the objects such as object can be compared, object can be cloned, object can be notified etc.
  
 #### Methods of Object class
+
 The Object class provides many methods. They are as follows:
 Method	Description
 public final Class getClass()	returns the Class class object of this object. The Class class can further be used to get the metadata of this class.
@@ -1841,16 +2001,20 @@ public final void wait()throws InterruptedException	causes the current thread to
 protected void finalize()throws Throwable	is invoked by the garbage collector before object is being garbage collected.
 
 #### Object Cloning in Java
+
  The object cloning is a way to create exact copy of an object. For this purpose, clone() method of Object class is used to clone an object.
 The java.lang.Cloneable interface must be implemented by the class whose object clone we want to create. If we don't implement Cloneable interface, clone() method generatesCloneNotSupportedException.
 The clone() method is defined in the Object class. Syntax of the clone() method is as follows:
 1.	protected Object clone() throws CloneNotSupportedException  
 Why use clone() method ?
 The clone() method saves the extra processing task for creating the exact copy of an object. If we perform it by using the new keyword, it will take a lot of processing to be performed that is why we use object cloning.
+
 #### Advantage of Object cloning
+
 Less processing task.
 Example of clone() method (Object cloning)
 Let's see the simple example of object cloning
+```java
 1.	class Student implements Cloneable{  
 2.	int rollno;  
 3.	String name;  
@@ -1876,13 +2040,16 @@ Let's see the simple example of object cloning
 23.	}catch(CloneNotSupportedException c){}  
 24.	  
 25.	}  
-26.	}  
+26.	}
+```
 Output:101 amit
        101 amit
 #### download the example of object cloning
+
 As you can see in the above example, both reference variables have the same value. Thus, the clone() copies the values of an object to another. So we don't need to write explicit code to copy the value of an object to another.
 If we create another object by new keyword and assign the values of another object to this one, it will require a lot of processing on this object. So to save the extra processing task we use clone() method.
 #### Exception Handling in Java
+
 1.	Exception Handling
 2.	Advantage of Exception Handling
 3.	Hierarchy of Exception classes
@@ -1894,14 +2061,15 @@ If we create another object by new keyword and assign the values of another obje
 The exception handling is one of the powerful mechanism provided in java. It provides the mechanism to handle the runtime errors so that normal flow of the application can be maintained.
 In this page, we will know about exception, its type and the difference between checked and unchecked exceptions.
 
-
-
 #### Exception
+
 •	Dictionary Meaning:Exception is an abnormal condition.
 •	In java, exception is an event that disrupts the normal flow of the program. It is an object which is thrown at runtime.
 #### Exception Handling
+
 Exception Handling is a mechanism to handle runtime errors.
 #### Advantage of Exception Handling
+
 The core advantage of exception handling is that normal flow of the application is maintained. Exception normally disrupts the normal flow of the application that is why we use exception handling. Let's take a scenario:
 1.	statement 1;  
 2.	statement 2;  
@@ -1915,8 +2083,8 @@ The core advantage of exception handling is that normal flow of the application 
 10.	statement 10;  
 Suppose there is 10 statements in your program and there occurs an exception at statement 5, rest of the code will not be executed i.e. statement 6 to 10 will not run. If we perform exception handling, rest of the exception will be executed. That is why we use exception handling.
 
-
 #### Do You Know ?
+
 •	What is the difference between checked and unchecked exceptions ?
 •	What happens behind the code int data=50/0; ?
 •	Why use multiple catch block ?
@@ -1928,12 +2096,14 @@ Hierarchy of Exception classes
  
 ________________________________________
 #### Types of Exception:
+
 There are mainly two types of exceptions: checked and unchecked where error is considered as unchecked exception. The sun microsystem says there are three types of exceptions:
 1.	Checked Exception
 2.	Unchecked Exception
 3.	Error
 ________________________________________
 #### What is the difference between checked and unchecked exceptions ?
+
 - 1)Checked Exception
 The classes that extend Throwable class except RuntimeException and Error are known as checked exceptions e.g.IOException, SQLException etc. Checked exceptions are checked at compile-time.
 - 2)Unchecked Exception
@@ -1942,6 +2112,7 @@ The classes that extend RuntimeException are known as unchecked exceptions e.g. 
 Error is irrecoverable e.g. OutOfMemoryError, VirtualMachineError, AssertionError etc.
 ________________________________________
 #### Common scenarios of Exception Handling where exceptions may occur
+
 There are given some scenarios where unchecked exceptions can occur. They are as follows:
 - 1) Scenario where ArithmeticException occurs
 If we divide any number by zero, there occurs an ArithmeticException.
@@ -1963,6 +2134,7 @@ If you are inserting any value in the wrong index, it would result ArrayIndexOut
 2.	a[10]=50; //ArrayIndexOutOfBoundsException
 
 #### Nested classes in Java
+
 1.	Nested classes
 2.	Advantage of Nested classes
 3.	Difference between nested class and inner class
@@ -1977,11 +2149,13 @@ Syntax of Nested class
 6.	 ...  
 7.	}  
 #### Advantage of nested classes
+
 There are basically three advantages of nested classes. They are
 •	Nested classes represent a special type of relationship that is it can access all the members (data members and methods) of outer class including private.
 •	Nested classes can lead to more readable and maintainable code because it logically group classes in one place only.
 •	Code Optimization as we need less code to write.
 #### Do You Know ?
+
 •	What is the internal code generated by the compiler for member inner class ?
 •	What are the two ways to create annonymous inner class ?
 •	Can we access the non-final local variable inside the local inner class ?
@@ -1992,6 +2166,7 @@ Que) What is the difference between nested class and inner class?
 Inner class is a part of nested class. Non-static nested classes are known as nested classes.
 ________________________________________
 #### Types of Nested class:
+
 There are two types of nested classes non-static and static nested classes.The non-static nested classes are also known as inner classes.
 1.	non-static nested class(inner class)
 o	a)Member inner class
@@ -1999,8 +2174,8 @@ o	b)Annomynous inner class
 o	c)Local inner class
 2.	static nested class
   
-
 #### What we will learn in Nested classes ?
+
 •	Nested class
 •	Member inner class
 •	Annonymous inner class
@@ -2014,6 +2189,7 @@ Invocation of Member Inner class
 2.	From outside the class
 Example of member inner class that is invoked inside a class
 In this example, we are invoking the method of member inner class from the display method of Outer class.
+```java
 1.	class Outer{  
 2.	 private int data=30;  
 3.	 class Inner{  
@@ -2029,10 +2205,12 @@ In this example, we are invoking the method of member inner class from the displ
 13.	  obj.display();  
 14.	 }  
 15.	}  
- 
+```
 ________________________________________
 #### Internal code generated by the compiler for member inner class:
+
 The java compiler creates a class file named Outer$Inner in this case. The Member inner class have the reference of Outer class that is why it can access all the data members of Outer class including private.
+```java
 1.	import java.io.PrintStream;  
 2.	  
 3.	class Outer$Inner  
@@ -2050,10 +2228,12 @@ The java compiler creates a class file named Outer$Inner in this case. The Membe
 15.	    }  
 16.	  
 17.	 }  
- 
+```
 ________________________________________
 #### Example of member inner class that is invoked outside a class
+
 In this example, we are invoking the msg() method of Inner class from outside the outer class i.e. Test class.
+```java
 1.	<b><i>//Program of member inner class that is invoked outside a class</i></b>  
 2.	  
 3.	class Outer{  
@@ -2070,13 +2250,15 @@ In this example, we are invoking the msg() method of Inner class from outside th
 14.	  in.msg();  
 15.	  }  
 16.	}  
- 
+```
 - 2)Annonymous inner class
 A class that have no name is known as annomymous inner class.
 #### Annonymous class can be created by:
+
 1.	Class (may be abstract class also).
 2.	Interface
 Program of annonymous inner class by abstract class
+```java
 1.	abstract class Person{  
 2.	  abstract void eat();  
 3.	}  
@@ -2090,19 +2272,23 @@ Program of annonymous inner class by abstract class
 11.	  p.eat();  
 12.	 }  
 13.	}  
- 
+```
 ________________________________________
 #### What happens behind this code?
+
+```java
 1.	  Person p=new Person(){  
 2.	  void eat(){System.out.println("nice fruits");}  
 3.	  };  
 4.	  
 5.	 }  
-6.	}  
+6.	}
+```
 1.	A class is created but its name is decided by the compiler which extends the Person class and provides the implementation of the eat() method.
 2.	An object of Annonymous class is created that is reffered by p reference variable of Person type. As you know well that Parent class reference variable can refer the object of Child class.
 
 The internal code generated by the compiler for annonymous inner class
+```java
 1.	import java.io.PrintStream;  
 2.	static class Emp$1 extends Person  
 3.	{  
@@ -2112,9 +2298,12 @@ The internal code generated by the compiler for annonymous inner class
 7.	    {  
 8.	        System.out.println("nice fruits");  
 9.	    }  
-10.	}  
+10.	}
+```
 ________________________________________
 #### Program of annonymous inner class by interface
+
+```java
 1.	interface Eatable{  
 2.	 void eat();  
 3.	}  
@@ -2128,8 +2317,9 @@ ________________________________________
 11.	 e.eat();  
 12.	 }  
 13.	}  
- 
+```
 #### What does the compiler for annonymous inner class created by interface
+
 It performs two main tasks behind this code:
 1.	  Eatable p=new Eatable(){  
 2.	  void eat(){System.out.println("nice fruits");}  
@@ -2140,16 +2330,19 @@ It performs two main tasks behind this code:
 1.	A class is created but its name is decided by the compiler which implements the Eatable interface and provides the implementation of the eat() method.
 2.	An object of Annonymous class is created that is reffered by p reference variable of Eatable type. As you know well that Parent class reference variable can refer the object of Child class.
 The internal code generated by the compiler for annonymous inner class created by interface
+```java
 1.	import java.io.PrintStream;  
 2.	static class Emp$1 implements Eatable  
 3.	{  
 4.	Emp$1(){}  
 5.	  
 6.	void eat(){System.out.println("nice fruits");}  
-7.	}  
+7.	}
+```
 - 3)Local inner class
 A class that is created inside a method is known as local inner class. If you want to invoke the methods of local inner class, you must instantiate this class inside the method.
 Program of local inner class
+```java
 1.	class Simple{  
 2.	 private int data=30;//instance variable  
 3.	 void display(){  
@@ -2164,10 +2357,12 @@ Program of local inner class
 12.	  obj.display();  
 13.	 }  
 14.	}  
- 
+```
 ________________________________________
 #### Internal code generated by the compiler for local inner class
+
 In such case, compiler creates a class named Simple$1Local that have the reference of the outer class.
+```java
 1.	import java.io.PrintStream;  
 2.	class Simple$1Local  
 3.	{  
@@ -2183,13 +2378,16 @@ In such case, compiler creates a class named Simple$1Local that have the referen
 13.	        System.out.println(Simple.access$000(Simple.this));  
 14.	    }  
 15.	   
-16.	}  
+16.	}
+```
 Rule: Local variable can't be private, public or protected.
 ________________________________________
 #### Rules for Local Inner class
+
 1) Local inner class cannot be invoked from outside the method.
 2) Local inner class cannot access non-final local variable.
 Program of accessing non-final local variable in local inner class
+```java
 1.	class Simple{  
 2.	 private int data=30;//instance variable  
 3.	 void display(){  
@@ -2205,8 +2403,10 @@ Program of accessing non-final local variable in local inner class
 13.	  obj.display();  
 14.	 }  
 15.	}  
- 
+```
 #### Program of accessing final local variable in local inner class
+
+```java
 1.	class Simple{  
 2.	 private int data=30;//instance variable  
 3.	 void display(){  
@@ -2221,12 +2421,14 @@ Program of accessing non-final local variable in local inner class
 12.	  Simple obj=new Simple();  
 13.	  obj.display();  
 14.	 }  
-15.	}  
+15.	}
+```
 - 4)static nested class
 A static class that is created inside a class is known as static nested class. It cannot access the non-static members.
 •	It can access static data members of outer class including private.
 •	static nested class cannot access non-static (instance) data member or method.
 Program of static nested class that have instance method
+```java
 1.	class Outer{  
 2.	  static int data=30;  
 3.	  
@@ -2239,10 +2441,12 @@ Program of static nested class that have instance method
 10.	  obj.msg();  
 11.	  }  
 12.	}  
- 
+```
 In this example, you need to create the instance of static nested class because it has instance method msg(). But you don't need to create the object of Outer class because nested class is static and static properties, methods or classes can be accessed without object.
 ________________________________________
 #### Internal code generated by the compiler for static nested class
+
+```java
 1.	import java.io.PrintStream;  
 2.	  
 3.	static class Outer$Inner  
@@ -2254,9 +2458,12 @@ ________________________________________
 9.	.append(Outer.data).toString());  
 10.	}  
 11.	      
-12.	}  
+12.	}
+```
 ________________________________________
 #### Program of static nested class that have static method
+
+```java
 1.	class Outer{  
 2.	  static int data=30;  
 3.	  
@@ -2268,32 +2475,39 @@ ________________________________________
 9.	  Outer.Inner.msg();//no need to create the instance of static nested class  
 10.	  }  
 11.	}  
- 
+```
 #### Nested Interface
+
 An interface which is declared within another interface or class is known as nested interface. The nested interfaces are used to group related interfaces so that they can be easy to maintain. The nested interface must be referred by the outer interface or class. It can't be accessed directly.
 Points to remember for nested interfaces
 There are given some points that should be remembered by the java programmer.
 •	Nested interface must be public if it is declared inside the interface but it can have any access modifier if declared within the class.
 •	Nested interfaces are declared static implicitely.
 Syntax of nested interface which is declared within the interface
+```java
 1.	interface interface_name{  
 2.	 ...  
 3.	 interface nested_interface_name{  
 4.	  ...  
 5.	 }  
 6.	}  
-7.	   
+7.
+```
 Syntax of nested interface which is declared within the class
+```java
 1.	class class_name{  
 2.	 ...  
 3.	 interface nested_interface_name{  
 4.	  ...  
 5.	 }  
 6.	}  
-7.	   
+7.
+```
 ________________________________________
 #### Example of nested interface which is declared within the interface
+
 In this example, we are going to learn how to declare the nested interface and how we can access it.
+```java
 1.	interface Showable{  
 2.	  void show();  
 3.	  interface Message{  
@@ -2308,12 +2522,14 @@ In this example, we are going to learn how to declare the nested interface and h
 12.	  Showable.Message message=new Test();//upcasting here  
 13.	  message.msg();  
 14.	 }  
-15.	}  
+15.	}
+```
 download the example of nested interface
  
 As you can see in the above example, we are acessing the Message interface by its outer interface Showable because it cannot be accessed directly. It is just like almirah inside the room, we cannot access the almirah directly because we must enter the room first. In collection frameword, sun microsystem has provided a nested interface Entry. Entry is the subinterface of Map i.e. accessed by Map.Entry.
 ________________________________________
 #### Internal code generated by the java compiler for nested interface Message
+
 The java compiler internally creates public and static interface as displayed below:.
 1.	public static interface Showable$Message  
 2.	{  
@@ -2321,7 +2537,9 @@ The java compiler internally creates public and static interface as displayed be
 4.	}  
 ________________________________________
 #### Example of nested interface which is declared within the class
+
 Let's see how can we define an interface inside the class and how can we access it.
+```java
 1.	class A{  
 2.	  interface Message{  
 3.	   void msg();  
@@ -2336,9 +2554,10 @@ Let's see how can we define an interface inside the class and how can we access 
 12.	  message.msg();  
 13.	 }  
 14.	}  
- 
+```
 ________________________________________
 #### Can we define a class inside the interface ?
+
 Yes, Ofcourse! If we define a class inside the interface, java compiler creates a static nested class. Let's see how can we define a class within the interface:
 1.	interface M{  
 2.	  class A{}  
@@ -2348,13 +2567,16 @@ You can call the private method from outside the class by changing the runtime b
 By the help of java.lang.Class class and java.lang.reflect.Method class, we can call private method from any other class.
 ________________________________________
 #### Required methods of Method class
+
 1) public void setAccessible(boolean status) throws SecurityException sets the accessibility of the method.
 2) public Object invoke(Object method, Object... args) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException is used to invoke the method.
 ________________________________________
 #### Required method of Class class
+
 1) public Method getDeclaredMethod(String name,Class[] parameterTypes)throws NoSuchMethodException,SecurityException: returns a Method object that reflects the specified declared method of the class or interface represented by this Class object.
 ________________________________________
 #### Example of calling private method from another class
+
 Let's see the simple example to call private method from another class.
 File: A.java
 1.	public class A {  
@@ -2394,12 +2616,15 @@ Output:64
 
 
 #### 1) Strings are not null terminated in Java.
+
 Unlike C and C++, String in Java doesn't terminate with null character. Instead String are Object in Java and backed by character array. You can get the character array used to represent String in Java by calling toCharArray() method of java.lang.String class of JDK.
 
 #### 2) Strings are immutable and final in Java
+
 Strings are immutable in Java it means once created you cannot modify content of String. If you modify it by using toLowerCase(), toUpperCase() or any other method,  It always result in new String. Since String is final there is no way anyone can extend String or override any of String functionality. Now if you are puzzled why String is immutable or final in Java. checkout the link.
 
 #### 3) Strings are maintained in String Pool
+
 As I Said earlier String is special class in Java and all String literal e.g. "abc"  (anything which is inside double quotes are String literal in Java) are maintained in a separate String pool, special memory location inside Java memory, more precisely inside PermGen Space. Any time you create a new String object using String literal, JVM first checks String pool and if an object with similar content available, than it returns that and doesn't create a new object. JVM doesn't perform String pool check if you create object using new operator.
 
 You may face subtle issues if you are not aware of this String behaviour , here is an example
@@ -2421,6 +2646,7 @@ System.out.println("both name and name_2 is pointing to same string object");
 if you compare name and name_1 using equality operator "==" it will return true because both are pointing to same object. While name==name_2 will return false because they are pointing to different string object. It's worth remembering that equality "==" operator compares object memory location and not characters of String. By default Java puts all string literal into string pool, but you can also put any string into pool by calling intern()method of java.lang.String class, like string created using new() operator.
 
 #### 4) Use Equals methods for comparing String in Java
+
 String class overrides equals method and provides a content equality, which is based on characters, case and order. So if you want to compare two String object, to check whether they are same or not, always use equals() method instead of equality operator. Like in earlier example if  we use equals method to compare objects, they will be equal to each other because they all contains same contents. Here is example of comparing String using equals method.
 String name = "Java"; //1st String object
 String name_1 = "Java"; //same object referenced by name variable
@@ -2438,6 +2664,7 @@ System.out.println("name_1 and name_2 are equal String by equals method");
 You can also check my earlier post difference between equals() method and == operator for more detail discussion on consequences of comparing two string using == operator in Java.
 
 #### 5) Use indexOf() and lastIndexOf() or matches(String regex) method to search inside String
+
 String class in Java provides convenient method to see if a character or sub-string or a pattern exists in current String object. You can use indexOf() which will return position of character or String, if that exist in current String object or -1 if character doesn't exists in String. lastIndexOf is similar but it searches from end. String.match(String regex) is even more powerful, which allows you to search for a regular expression patterninside String. here is examples of indexOf, lastIndexOf and matches method from java.lang.String class.
 
 String str = "Java is best programming language";
@@ -2463,6 +2690,7 @@ Remember matches() is tricky and some time non-intuitive. If you just put "Java"
 Apart from indexOf(), lastIndexOf() and matches(String regex) String also has methods like startsWith() and endsWidth(), which can be used to check an String if it starting or ending with certain character or String.
 
 #### 6) Use SubString to get part of String in Java
+
 Java String provides another useful method called substring(), which can be used to get parts of String. basically you specify start and end index and substring() method returns character from that range. Index starts from 0 and goes till String.length()-1. By the way String.length() returns you number of characters in String, including white spaces like tab, space. One point which is worth remembering here is that substring is also backed up by character array, which is used by original String. This can be dangerous if original string object is very large and substring is very small, because even a small fraction can hold reference of complete array and prevents it from being garbage collected even if there is no other reference for that particular String. Read How Substring works in Java for more details. Here is an example of using SubString in Java:
 
 String str = "Java is best programming language";
@@ -2474,7 +2702,6 @@ System.out.println("Substring: " + subString);
 
 #### 7) "+" is overloaded for String concatenation
 Java doesn't support Operator overloading but String is special and + operator can be used to concatenate two Strings. It can even used to convert int, char, long or double to convert into String by simply concatenating with empty string "". internally + is implemented using StringBuffer prior to Java 5 and StringBuilder from Java 5 onwards. This also brings point of using StringBuffer or StringBuilder for manipulating String. Since both represent mutable object they can be used to reduce string garbage created because of temporary String. Read more about StringBuffer vs StringBuilder here.
-
      
 #### 8) Use trim() to remove white spaces from String
 String in Java provides trim() method to remove white space from both end of String. If trim() removes white spaces it returns a new String otherwise it returns same String. Along with trim() String also provides replace() and replaceAll() method for replacing characters from String. replaceAll method even support regular expression. Read more about How to replace String in Java here.
@@ -2484,7 +2711,6 @@ String in Java is feature rich. it has methods like split(regex) which can take 
 
 #### 10) Don't store sensitive data in String
 String pose security threat if used for storing sensitive data like passwords, SSN or any other sensitive information. Since String is immutable in Java there is no way you can erase contents of String and since they are kept in String pool (in case of String literal) they stay longer on Java heap ,which exposes risk of being seen by anyone who has access to Java memory, like reading from memory dump. Instead char[] should be used to store password or sensitive information. See Why char[] is more secure than String for storing passwords in Java for more details.
-
 
 #### 11) Character Encoding and String
 Apart from all these 10 facts about String in Java, the most critical thing to know is what encoding your String is using. It does not make sense to have a String without knowing what encoding it uses. There is no way to interpret an String if you don't know the encoding it used. You can not assume that "plain" text is ASCII. If you have a String, in memory or stored in file, you must know what encoding it is in, or you cannot display it correctly. By default Java uses platform encoding i.e. character encoding of your server, and believe me this can cause huge trouble if you are handling Unicode data, especially if you are converting byte array to XML String. I have faced instances where our program fail to interpret Strings from European language e.g. German, French etc. because our server was not using Unicode encodings like UTF-8 or UTF-16. Thankfully, Java allows you to specify default character encoding for your application using system property file.encoding. See here to read more about character encoding in Java
@@ -2509,14 +2735,14 @@ Again Annotations are better choice @ThreadSafe looks lot better than implementi
 
 #### what is Marker interface in java with example
 
-          One of the useful technique in java is marker interface. What is Marker interface? Why and when it is required?. Can you create your  custom (own)  marker interface?  These are  some of the questions about marker interface  asked in core java interviews.  Before start with  marker interface , let us brief about interface.  As we know, an interface is a named set of  method definitions  (and/or constant data elements) for which an implementer must provide code.  Methods defined in an inlterface have no method body. The  implementer of the interface is responsible for providing the method body.
-                   Marker interface is  an interface that does not contain any method declarations and constants at all (i.e. interface with no members) but  to mark a class that implements the interface as legal to do special operation on that object OR to indicate a class  as having certain desirable properties.  As marker interface has no method declarations  , no need to write any extra methods in a class that implements the  empty interface. 
+One of the useful technique in java is marker interface. What is Marker interface? Why and when it is required?. Can you create your  custom (own)  marker interface?  These are  some of the questions about marker interface  asked in core java interviews.  Before start with  marker interface , let us brief about interface.  As we know, an interface is a named set of method definitions  (and/or constant data elements) for which an implementer must provide code.  Methods defined in an inlterface have no method body. The  implementer of the interface is responsible for providing the method body.Marker interface is  an interface that does not contain any method declarations and constants at all (i.e. interface with no members) but  to mark a class that implements the interface as legal to do special operation on that object OR to indicate a class  as having certain desirable properties.  As marker interface has no method declarations  , no need to write any extra methods in a class that implements the  empty interface. 
 
 #### marker  interface is defined as given below
 
 public interface  interfaceName {
 }
-                You can understand very well by going through some of the below examples of the application of marker interfaces from the Java programming language.
+
+You can understand very well by going through some of the below examples of the application of marker interfaces from the Java programming language.
 1. Serializable
 2. java.util.RandomAccess
 3. Cloneable
@@ -2532,11 +2758,8 @@ The answer is no. The concerned classes are need to be marked or indicated  as l
 
 - 1. Let us take the Serializable interface  
 
-    public interface Serializable {}
-         One of the example of the application of marker interfaces from the Java programming language  is  Serializable interface.  By implementing this interface, a class indicates that its non-transient data members can be written to an ObjectOutputStream .    The  method writeObject() of ObjectOutputStream class will do  many instanceof  checks  as given below  to determine writabilty, one of which checks  for the Serializable interface. If any of  these tests fails, the method throws a NotSerializableException. That means an attempt to call ObjectOutputStream.writeObject()  on an object that doesn’t implement Serializable will fail  at runtime,
-
-  
-
+public interface Serializable {}
+One of the example of the application of marker interfaces from the Java programming language  is  Serializable interface.  By implementing this interface, a class indicates that its non-transient data members can be written to an ObjectOutputStream .    The  method writeObject() of ObjectOutputStream class will do  many instanceof  checks  as given below  to determine writabilty, one of which checks  for the Serializable interface. If any of  these tests fails, the method throws a NotSerializableException. That means an attempt to call ObjectOutputStream.writeObject()  on an object that doesn’t implement Serializable will fail  at runtime,
 
         ............
 
@@ -2572,85 +2795,38 @@ public interface RandomAccess { }
 #### Create  marker interface for your application :
                      You can create your own marker interface which is suitable for your application.  Let us create our own very simple marker interface as given below
 
-
+```java
  interface Allowable{ }  //marker interface
-
-
-class CheckAndAllow
-
-{
-
- void allow(Object obj) throws NotAllowableException
-
-{
-
-     if(obj instanceof Allowable)
-
-          {
-
+class CheckAndAllow{
+ void allow(Object obj) throws NotAllowableException{
+     if(obj instanceof Allowable){
       System.out.println(obj.getClass() + "  that implements Allowable interface  is allowed to do the operation" );
-
            //do specific operation
-
            }
-
-      else
-
-         {
-
-              throw new NotAllowableException();
-
-          }
+      else {
+      throw new NotAllowableException();
+     }
+  }
 }
-
-}
-
-
-
  class  Test implements Allowable {
-
            int uid;
-
-          String name;  }
-
-
-  class NotAllowableException extends Exception {
-
+          String name;  
+}
+class NotAllowableException extends Exception {
      public NotAllowableException() {     }
-
      public NotAllowableException(String msg) { super(msg);  }
-
-      }
-
-
-
-
-
-public class MITest
-
-{
-
-    public static void main(String args[])
-
-      {
-
+}
+public class MITest{
+    public static void main(String args[]) {
          CheckAndAllow ca=new CheckAndAllow();
-
-        try
-
-          {
-
+        try{
  Test test=new Test();
-
          ca.allow(test);
-
          System.out.println("Success");
-
            }catch( NotAllowableException na){System.out.println(na);}
-
  }
-
 } 
+```
 In the above example code ,  allow method of CheckAndAllow class accepts only  the object of the class that implements the Allowable interface. If you send the object's class does not implement the Allowable interface, NotAllowableException  exception is thrown.
 
 #### Is Marker interface  obsolete? 
@@ -2685,24 +2861,21 @@ Let’s understand this by two examples – one in which we will discuss the pur
 #### What purpose does the Cloneable interface serve?
 When JVM sees a clone() method being invoked on an object, it first verifies if the underlying class has implemented the ‘Cloneable’ interface or not. If not, then it throws the exception CloneNotSupportedException. Assuming the underlying class has implemented the ‘Cloneable’ interface, JVM does some internal work (maybe by calling some method) to facilitate the cloning operation. Cloneable is a marker interface and having no behavior declared in it for the implementing class to define because the behavior is to be supported by JVM and not the implementing classes (maybe because it’s too tricky, generic, or low-level at the implementing class level). So, effectively marker interfaces kind of send out a signal to the corresponding external/internal entity (JVM in case of Cloneable) for them to arrange for the necessary functionality.
 How does JVM support the ‘cloning’ functionality – probably by using a native method call as cloning mechanism involves some low-level tasks which are probably not possible with using a direct Java method. So, a possible ‘Object.clone’ implementation would be something like this:-
+```java
 public Object clone() throws CloneNotSupportedException {
-
  if (this implements Cloneable)
-
  return nativeCloneImpl();
-
  else
-
  throw new CloneNotSupportedException();
-
 }
- 
+``` 
 Anyone wondered as to why and when do we get ‘CloneNotSupportedException’ exception at compile-time itself? Well… that’s no trick. If you see the signature of the ‘Object.clone()’ method carefully, you will see a throws clause associated with it. I’m sure how can you get rid of it: (i) by wrapping the clone-invocation code within appropriate try-catch (ii) throwing the CloneNotSupportedException from the calling method.
 What purpose does a user-defined marker interface serve? It can well serve the same purpose as by any standard marker interface, but in that case the container (the module controlling the execution of the app) has to take the onus of making sure that whenever a class implements that interface it does the required work to support the underlying behavior – the way JVM does for Cloneable or any other standard marker interface for that matter.
 
 #### Defining an user-defined marker interface in Java
 
 Let’s define a user-defined marker interface. Let’s say there is an app suporting a medical store inventory and suppose you need a reporting showing the sale, revenue, profit, etc. of three types of medicines – allopathic, homeopathic, and ayurvedic separately. Now all you need is to define three marker interfaces and make your products (medicines) implement the corresponding ones.
+```java
 public interface Allopathic{}
 public interface Homeopathic{}
 public interface Ayurvedic{}
@@ -2721,13 +2894,14 @@ else {
 //... handle stats for general items
 }
 }
+```
 As you can see the medicines themselves don’t need to implement any specific behavior based on whether they are allopathic, homeopathic, or ayurvedic. All they need is to have a way of reflecting which category they belong to, which will in turn help the reporting modules to prepare the stats accordingly.
 Now this can be done by having a flag as well… yeah, sure it can be. But, don’t you think tagging a class makes it more readable than having a flag indicating the same. You kind of make it an implementation-independent stuff for the consumers of your classes. If your class implements an interface, it becomes part of the class signature of the published API. Otherwise, you would probably handle the situation by having a public final field having the flag set up at the time of instantiation – final because you would not like others to change it. I guess going the marker interface way would probably make more sense in many such situations.
 Another advantage of going via marker interface way is that at any point of time you can easily cast the objects of the implementing classes. Again it’s not that if you go via public final approach, you can’t do that. You can very well do, but casting might look a cleaner approach in many situations.
 The bottom-line is there will hardly be any enforced need for a designer/developer to go via that way as there can be possible alternatives, but marker interfaces can surely be a preferred choice for some in some cases.
 
 #### How do I find duplicate values in a table in Oracle?
-
+```sql
 select column_name, count(column_name)
 from table
 group by column_name
@@ -2747,9 +2921,11 @@ WHERE EXISTS (
   WHERE COLUMN_NAME = A.COLUMN_NAME
   AND ROWID < A.ROWID
 )
+```
 Works fine (quick enough) when there is index on column_name. And it's better way to delete or update duplicate rows.
 
 You don't need to even have the count in the returned columns if you don't need to know the actual number of duplicates. e.g.
+```sql
 SELECT column_name
 FROM table
 GROUP BY column_name
@@ -2780,7 +2956,9 @@ where exists ( select *
                        ied.empid = oed.empid and 
                       ied.deptid = oed.deptid )  
         group by oed.empid having count(oed.empid) > 1 order by count(oed.empid);
+```
 and if such table has primary key then use primary key instead of rowid, e.g id is pk then
+```sql
 select oed.empid, count(oed.empid) 
 from emp_dept oed 
 where exists ( select * 
@@ -2789,15 +2967,13 @@ where exists ( select *
                        ied.empid = oed.empid and 
                       ied.deptid = oed.deptid )  
         group by oed.empid having count(oed.empid) > 1 order by count(oed.empid);
-
-
-
-
+```
 #### Find duplicate rows in Oracle table
 
 You are an Oracle DBA or developer and want to determine the location of duplicate rows in an Oracle table. You need it for example before attempting to place a unique index on the table. See below how can this be done.
 
 Oracle tables always have one guaranteed unique column, the rowid column. If you use a min/max function against your rowid and then select against the proposed primary key you can squeeze out the rowids of the duplicate rows pretty quick. For example:
+```sql
 SELECT * FROM customers o
 WHERE rowid > (SELECT min(rowid) FROM customers i
 WHERE o.city = i.city and o.rating = i.rating)
@@ -2815,7 +2991,7 @@ WHERE rowid = (SELECT max(rowid) FROM emp
 WHERE empno = a.empno 
 GROUP BY empno
 HAVING count(*) >1)
-
+```
 #### Delete and truncate command in SQL
 Truncate and delete in SQL are two commands which is used to remove or delete data from table. Though quite basic in nature both sql commands can create lot of trouble until you are familiar with details before using it. Difference between Truncate and delete are not just important to understand perspective but also a very popular SQL interview topic which in my opinion a definite worthy topic. What makes them tricky is amount of data. Since most of Electronic trading system stores large amount of transactional data and some even maintain historical data, good understanding of delete and truncate command is required to effectively work on those environment.I have still seen people firing delete command just to empty a table with millions of records which eventually lock the whole table for doing anything and take ages to complete or Simply blew log segment or hang the machine.
 
