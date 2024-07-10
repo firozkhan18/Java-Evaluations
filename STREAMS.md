@@ -87,10 +87,9 @@ The static factory methods of the Collectors class
 
 | Factory method    | Returned type 				     | Used to 					| 
 |-------------------|------------------------------------------------|------------------------------------------|
-| toList 	    | List<T> 					     | Gather all the stream’s items in a List. |
-|		    |						     | Example use: List<Dish> dishes = menuStream.collect(toList());|
-| toSet 	    | Set<T> 					     | Gather all the stream’s items in a Set, eliminating duplicates.|
-| 		    |						     | Example use: Set<Dish> dishes = menuStream.collect(toSet());	|
+| toList 	    | List<T> 					     | Gather all the stream’s items in a List. 
+Example use: List<Dish> dishes = menuStream.collect(toList());|
+| toSet 	    | Set<T> 					     | Gather all the stream’s items in a Set, eliminating duplicates. Example use: Set<Dish> dishes = menuStream.collect(toSet());	|
 | toCollection 		| Collection<T> 								 | Gather all the stream’s items in the collection created by the provided supplier. 					|
 |					|												 | Example use: Collection<Dish> dishes = menuStream.collect(toCollection(), ArrayList::new);			| 
 | counting 			| Long 											 | Count the number of items in the stream. 															|
@@ -99,7 +98,6 @@ The static factory methods of the Collectors class
 |					|												 | Example use: int totalCalories = menuStream.collect(summingInt(Dish::getCalories));					| 
 | averagingInt 		| Double 										 | Calculate the average value of an Integer property of the items in the stream.						|
 |					|												 | Example use: double avgCalories = menuStream.collect(averagingInt(Dish::getCalories)); 				| 
-|-------------------|------------------------------------------------|-----------------------------------------------------------------------------------------------------	|
 | summarizingInt 	| IntSummary-Statistics 						 | Collect statistics regarding an Integer property of the items in the stream,							|
 |  					| 												 | such as the maximum, minimum, total, and average. 													|
 |  					| 												 | Example use: IntSummaryStatistics menuStatistics = 													|	 |					|  												 |   			menuStream.collect(summarizingInt(Dish::getCalories));									| 
