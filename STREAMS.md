@@ -67,6 +67,7 @@ Below is the list of intermediate and terminal operations.
 |skip	|			Stateless|	Returns a stream consisting of the remaining elements of this stream after discarding the first n elements of the stream.|
 		
 |Operation	|		Type|		Description|
+|---------------|----------------------|----------------------|
 |forEach|			|	Terminal|	Performs an action for each element of this stream.|
 |count	|			|Terminal|	Returns the count of elements in this stream.|
 |reduce	|			|Terminal|	Performs a reduction on the elements of this stream using the provided identity value and accumulation function.|
