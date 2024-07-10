@@ -56,15 +56,15 @@ Below is the list of intermediate and terminal operations.
 
 	
 	
-|Operation			|Type		|Description|
-|---------------|----------------------|----------------------|
-|filter	|			Stateless|	Returns a new stream consisting of elements that match the given predicate.|
-|map	|				Stateless|	Returns a new stream consisting of the results of applying the given function to the elements of this stream.|
-|flatMap|				Stateless|	Returns a new stream consisting of the results of replacing each element of this stream with the contents of a mapped stream produced by applying the provided mapping function to each element.|
-|sorted	|			Stateful|	Returns a stream consisting of the elements of this stream sorted according to the provided Comparator.|
-|peek	|			Stateless|	Returns a stream consisting of the elements of this stream additionally performing the provided action on each element as elements are consumed from the resulting stream.|
-|limit	|			Stateless|	Returns a stream consisting of the elements of this stream truncated to be no longer than the specified maximum size.|
-|skip	|			Stateless|	Returns a stream consisting of the remaining elements of this stream after discarding the first n elements of the stream.|
+|Operation|Type	|Description|
+|---------------|----------------|---------------|
+|filter	|Stateless|Returns a new stream consisting of elements that match the given predicate.|
+|map|Stateless|Returns a new stream consisting of the results of applying the given function to the elements of this stream.|
+|flatMap|Stateless|Returns a new stream consisting of the results of replacing each element of this stream with the contents of a mapped stream produced by applying the provided mapping function to each element.|
+|sorted|Stateful|Returns a stream consisting of the elements of this stream sorted according to the provided Comparator.|
+|peek|Stateless|Returns a stream consisting of the elements of this stream additionally performing the provided action on each element as elements are consumed from the resulting stream.|
+|limit|Stateless|Returns a stream consisting of the elements of this stream truncated to be no longer than the specified maximum size.|
+|skip|Stateless|Returns a stream consisting of the remaining elements of this stream after discarding the first n elements of the stream.|
 		
 |Operation	|		Type|		Description|
 |---------------|----------------------|----------------------|
