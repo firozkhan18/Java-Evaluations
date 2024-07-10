@@ -18,45 +18,45 @@ forEach(), toArray(), reduce(), collect(), min(), max(), count(), anyMatch(), al
 
 Below is the list of intermediate and terminal operations.
 
-|---------------|----------------------|--------------------|--------------------------------|
-| Operation 	| Return Type 		   | Type Of Operation  |  What it does? 																					   | 
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
+|---------------|----------------------|--------------------|-------------------------------------------------------------------|
+| Operation 	| Return Type 	       | Type Of Operation  |  What it does? 			| 
+|---------------|----------------------|--------------------|-------------------------------------------------------------------|
 | map() 		| Stream<T> 		   | Intermediate 		| Returns a stream consisting of results after applying given function to elements of the stream. 	   |
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
-| filter() 		| Stream<T> 		   | Intermediate 		| Returns a stream of elements which satisfy the given predicate. 									   |
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
-| distinct()	| Stream<T> 		   | Intermediate 		| Returns a stream of unique elements.																   | 
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
-| sorted() 		| Stream<T> 		   | Intermediate 		| Returns a stream consisting of elements sorted according to natural order. 					       |
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
-| limit() 		| Stream<T> 		   | Intermediate 		| Returns a stream containing first n elements.														   | 
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
-| skip() 		| Stream<T> 		   | Intermediate 		| Returns a stream after skipping first n elements. 												   | 
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
-| forEach() 	| void				   | Terminal 			| Performs an action on all elements of a stream. 													   |
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
-| toArray() 	| object[] 			   | Terminal 			| Returns an array containing elements of a stream. 												   |
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
+|---------------|----------------------|--------------------|-------------------------------------------------------------------|
+| filter() 		| Stream<T> 		   | Intermediate 		| Returns a stream of elements which satisfy the given predicate.|
+|---------------|----------------------|--------------------|--------------------------------------------------------------------|
+| distinct()	| Stream<T> 		   | Intermediate 		| Returns a stream of unique elements.| 
+|---------------|----------------------|--------------------|--------------------------------------------------------------------|
+| sorted() 		| Stream<T> 		   | Intermediate 		| Returns a stream consisting of elements sorted according to natural order. |
+|---------------|----------------------|--------------------|-------------------------------------------------------------------|
+| limit() 		| Stream<T> 		   | Intermediate 		| Returns a stream containing first n elements.	| 
+|---------------|----------------------|--------------------|-------------------------------------------------------------------|
+| skip() 		| Stream<T> 		   | Intermediate 		| Returns a stream after skipping first n elements.| 
+|---------------|----------------------|--------------------|-------------------------------------------------------------------|
+| forEach() 	| void				   | Terminal 			| Performs an action on all elements of a stream.|
+|---------------|----------------------|--------------------|-------------------------------------------------------------------|
+| toArray() 	| object[] 			   | Terminal 			| Returns an array containing elements of a stream.|
+|---------------|----------------------|--------------------|-------------------------------------------------------------------|
 | reduce()		| type T 			   | Terminal 			| Performs reduction operation on elements of a stream using initial value and binary operation. 	   |
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
-| collect()		| Container of type R  | Terminal 	 		| Returns mutable result container such as List or Set.												   | 
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
-| min() 		| Optional<T>		   | Terminal 			| Returns minimum element in a stream wrapped in an Optional object. 								   |
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
-| max() 		| Optional<T>		   | Terminal 			| Returns maximum element in a stream wrapped in an Optional object. 								   | 
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
-| count() 		| Long 				   | Terminal			| Returns the number of elements in a stream. 														   | 
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
-| anyMatch() 	| Boolean 			   | Terminal 			| Returns true if any one element of a stream matches with given predicate. 						   |
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
-| allMatch()	| Boolean 			   | Terminal 			| Returns true if all the elements of a stream matches with given predicate.						   | 
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
-| noneMatch() 	| Boolean		       | Terminal 			| Returns true only if all the elements of a stream doesn't match with given predicate.				   | 
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
-| findFirst() 	| Optional<T> 		   | Terminal 			| Returns first element of a stream wrapped in an Optional object. 									   | 
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
-| findAny() 	| Optional<T> 		   | Terminal 			| Randomly returns any one element 																	   |
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
+|---------------|----------------------|--------------------|-------------------------------------------------------------------|
+| collect()		| Container of type R  | Terminal 	 		| Returns mutable result container such as List or Set.| 
+|---------------|----------------------|--------------------|-------------------------------------------------------------------|
+| min() 		| Optional<T>		   | Terminal 			| Returns minimum element in a stream wrapped in an Optional object. |
+|---------------|----------------------|--------------------|-------------------------------------------------------------------|
+| max() 		| Optional<T>		   | Terminal 			| Returns maximum element in a stream wrapped in an Optional object.| 
+|---------------|----------------------|--------------------|-------------------------------------------------------------------|
+| count() 		| Long 				   | Terminal			| Returns the number of elements in a stream. | 
+|---------------|----------------------|--------------------|-------------------------------------------------------------------|
+| anyMatch() 	| Boolean 			   | Terminal 			| Returns true if any one element of a stream matches with given predicate.|
+|---------------|----------------------|--------------------|-------------------------------------------------------------------|
+| allMatch()	| Boolean 			   | Terminal 			| Returns true if all the elements of a stream matches with given predicate.| 
+|---------------|----------------------|--------------------|-------------------------------------------------------------------|
+| noneMatch() 	| Boolean		       | Terminal 			| Returns true only if all the elements of a stream doesn't match with given predicate.| 
+|---------------|----------------------|--------------------|-------------------------------------------------------------------|
+| findFirst() 	| Optional<T> 		   | Terminal 			| Returns first element of a stream wrapped in an Optional object. | 
+|---------------|----------------------|--------------------|-------------------------------------------------------------------|
+| findAny() 	| Optional<T> 		   | Terminal 			| Randomly returns any one element|
+|---------------|----------------------|--------------------|-------------------------------------------------------------------|
 
 
 ###Java 8 Stream Intermediate Vs Terminal Operations
