@@ -52,35 +52,33 @@ Below is the list of intermediate and terminal operations.
 | Pipeline of operations may contain any number of intermediate operations.| Pipeline of operations can have maximum one terminal operation, that too at the end. |
 | Intermediate operations are lazily loaded. | Terminal operations are eagerly loaded.|
 | They don’t produce end result. | They produce end result.|
-| Examples :	filter(), map(), distinct(), sorted(), limit(), skip()	| Examples : forEach(), toArray(), reduce(), collect(), min(), max(), count(), anyMatch(),  |    
-|| allMatch(), noneMatch(), findFirst(), findAny()|
+| Examples :	filter(), map(), distinct(), sorted(), limit(), skip()	| Examples : forEach(), toArray(), reduce(), collect(), min(), max(), count(), anyMatch(), allMatch(), noneMatch(), findFirst(), findAny()|
 
 	
 	
-Operation			Type		Description
-filter				Stateless	Returns a new stream consisting of elements that match the given predicate.
-map					Stateless	Returns a new stream consisting of the results of applying the given function to the elements of this stream.
-flatMap				Stateless	Returns a new stream consisting of the results of replacing each element of this stream with the contents of a mapped stream 
-								produced by applying the provided mapping function to each element.
-sorted				Stateful	Returns a stream consisting of the elements of this stream sorted according to the provided Comparator.
-peek				Stateless	Returns a stream consisting of the elements of this stream additionally performing the provided action on each element 
-								as elements are consumed from the resulting stream.
-limit				Stateless	Returns a stream consisting of the elements of this stream truncated to be no longer than the specified maximum size.
-skip				Stateless	Returns a stream consisting of the remaining elements of this stream after discarding the first n elements of the stream.
+|Operation			|Type		|Description|
+|---------------|----------------------|----------------------|
+|filter	|			Stateless|	Returns a new stream consisting of elements that match the given predicate.|
+|map	|				Stateless|	Returns a new stream consisting of the results of applying the given function to the elements of this stream.|
+|flatMap|				Stateless|	Returns a new stream consisting of the results of replacing each element of this stream with the contents of a mapped stream produced by applying the provided mapping function to each element.|
+|sorted	|			Stateful|	Returns a stream consisting of the elements of this stream sorted according to the provided Comparator.|
+|peek	|			Stateless|	Returns a stream consisting of the elements of this stream additionally performing the provided action on each element as elements are consumed from the resulting stream.|
+|limit	|			Stateless|	Returns a stream consisting of the elements of this stream truncated to be no longer than the specified maximum size.|
+|skip	|			Stateless|	Returns a stream consisting of the remaining elements of this stream after discarding the first n elements of the stream.|
 		
-Operation			Type		Description
-forEach				Terminal	Performs an action for each element of this stream.
-count				Terminal	Returns the count of elements in this stream.
-reduce				Terminal	Performs a reduction on the elements of this stream using the provided identity value and accumulation function.
-collect				Terminal	Performs a mutable reduction operation on the elements of this stream using a Collector.
-anyMatch			Terminal	Returns whether any elements of this stream match the provided predicate.
-allMatch			Terminal	Returns whether all elements of this stream match the provided predicate.
-noneMatch			Terminal	Returns whether no elements of this stream match the provided predicate.
-findFirst			Terminal	Returns an Optional describing the first element of this stream or an empty Optional if the stream is empty.
-findAny				Terminal	Returns an Optional describing some element of the stream or an empty Optional if the stream is empty.
-min					Terminal	Returns the minimum element of this stream according to the provided Comparator.
-max					Terminal	Returns the maximum element of this stream according to the provided Comparator.
-toArray				Terminal	Returns an array containing the elements of this stream.
+|Operation	|		Type|		Description|
+|forEach|			|	Terminal|	Performs an action for each element of this stream.|
+|count	|			|Terminal|	Returns the count of elements in this stream.|
+|reduce	|			|Terminal|	Performs a reduction on the elements of this stream using the provided identity value and accumulation function.|
+|collect|				|Terminal|	Performs a mutable reduction operation on the elements of this stream using a Collector.|
+|anyMatch|			|Terminal|	Returns whether any elements of this stream match the provided predicate.|
+|allMatch|			|Terminal|	Returns whether all elements of this stream match the provided predicate.|
+|noneMatch|			|Terminal|	Returns whether no elements of this stream match the provided predicate.|
+|findFirst|			|Terminal|	Returns an Optional describing the first element of this stream or an empty Optional if the stream is empty.|
+|findAny|				|Terminal|	Returns an Optional describing some element of the stream or an empty Optional if the stream is empty.|
+|min	|				|Terminal|	Returns the minimum element of this stream according to the provided Comparator.|
+|max|					|Terminal|	Returns the maximum element of this stream according to the provided Comparator.|
+|toArray|				|Terminal|	Returns an array containing the elements of this stream.|
 
 
 The static factory methods of the Collectors class
