@@ -105,15 +105,15 @@ toArray				Terminal	Returns an array containing the elements of this stream.
 
 
 The static factory methods of the Collectors class
-|-------------------|------------------------------------------------|-----------------------------------------------------------------------------------------------------	|
-| Factory method 	| Returned type 								 | Used to 																								| 
-|-------------------|------------------------------------------------|-----------------------------------------------------------------------------------------------------	| 
-| toList 			| List<T> 										 | Gather all the stream’s items in a List. 															|
-|					|												 | Example use: List<Dish> dishes = menuStream.collect(toList());										|
-|-------------------|------------------------------------------------|-----------------------------------------------------------------------------------------------------	|
-| toSet 			| Set<T> 										 | Gather all the stream’s items in a Set, eliminating duplicates. 										|
-| 					|												 | Example use: Set<Dish> dishes = menuStream.collect(toSet());											|
-|-------------------|------------------------------------------------|-----------------------------------------------------------------------------------------------------	|
+|-------------------|------------------------------------------------|------------------------------------------|
+| Factory method    | Returned type 				     | Used to 					| 
+|-------------------|------------------------------------------------|------------------------------------------| 
+| toList 	    | List<T> 					     | Gather all the stream’s items in a List. |
+|		    |						     | Example use: List<Dish> dishes = menuStream.collect(toList());|
+|-------------------|------------------------------------------------|-------------------------------------------|
+| toSet 	    | Set<T> 					     | Gather all the stream’s items in a Set, eliminating duplicates.|
+| 					|				| Example use: Set<Dish> dishes = menuStream.collect(toSet());	|
+|-------------------|------------------------------------------------|------------------------------------------------------------------|
 | toCollection 		| Collection<T> 								 | Gather all the stream’s items in the collection created by the provided supplier. 					|
 |					|												 | Example use: Collection<Dish> dishes = menuStream.collect(toCollection(), ArrayList::new);			| 
 |-------------------|------------------------------------------------|-----------------------------------------------------------------------------------------------------	|
