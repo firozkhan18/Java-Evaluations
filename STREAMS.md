@@ -1,11 +1,11 @@
 
-#Java 8 Stream Intermediate And Terminal Operations
+# Java 8 Stream Intermediate And Terminal Operations
 
 Java 8 Stream has many operations which can be pipe lined together to get desired result. Some operations produce another stream as a result and some operations produce non-stream values as a result. The operations which return another stream as a result are called intermediate operations and the operations which return non-stream values like primitive or object or collection or return nothing are called terminal operations. In this post, we will see the differences between Java 8 Stream intermediate and terminal operations.
 
 Also Read : Solving Real Time Queries Using Java 8 Features – Employee Management System
 
-##Java 8 Stream Intermediate And Terminal Operations :
+## Java 8 Stream Intermediate And Terminal Operations :
 1) The main difference between intermediate and terminal operations is that intermediate operations return a stream as a result and terminal operations return non-stream values like primitive or object or collection or may not return anything.
 2) As intermediate operations return another stream as a result, they can be chained together to form a pipeline of operations. Terminal operations can not be chained together.
 3) Pipeline of operations may contain any number of intermediate operations, but there has to be only one terminal operation, that too at the end of pipeline.
@@ -16,7 +16,7 @@ map(), filter(), distinct(), sorted(), limit(), skip()
 7) Terminal Operations :
 forEach(), toArray(), reduce(), collect(), min(), max(), count(), anyMatch(), allMatch(), noneMatch(), findFirst(), findAny()
 
-Below is the list of intermediate and terminal operations.
+## Below is the list of intermediate and terminal operations.
 
 
 | Operation 	| Return Type 	       | Type Of Operation  |  What it does? 			| 
@@ -40,7 +40,6 @@ Below is the list of intermediate and terminal operations.
 | noneMatch() 	| Boolean		       | Terminal 			| Returns true only if all the elements of a stream doesn't match with given predicate.| 
 | findFirst() 	| Optional<T> 		   | Terminal 			| Returns first element of a stream wrapped in an Optional object. | 
 | findAny() 	| Optional<T> 		   | Terminal 			| Randomly returns any one element|
-
 
 
 ### Java 8 Stream Intermediate Vs Terminal Operations
@@ -82,7 +81,7 @@ Below is the list of intermediate and terminal operations.
 |toArray|Terminal|Returns an array containing the elements of this stream.|
 
 
-The static factory methods of the Collectors class
+## The static factory methods of the Collectors class
 
 | Factory method    | Returned type 				     | Used to 					| 
 |-------------------|------------------------------------------------|------------------------------------------|
