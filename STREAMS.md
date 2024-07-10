@@ -45,8 +45,8 @@ Below is the list of intermediate and terminal operations.
 
 ### Java 8 Stream Intermediate Vs Terminal Operations
 
-|----------------------------------|------------------------------------|
 | Intermediate Operations  | Terminal Operations |
+|---------------|----------------------|
 | They return stream.| They return non-stream values.|
 | They can be chained together to form a pipeline of operations. | They can’t be chained together. |
 | Pipeline of operations may contain any number of intermediate operations.| Pipeline of operations can have maximum one terminal operation, that too at the end. |
