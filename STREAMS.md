@@ -18,7 +18,7 @@ forEach(), toArray(), reduce(), collect(), min(), max(), count(), anyMatch(), al
 
 Below is the list of intermediate and terminal operations.
 
-|---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
+|---------------|----------------------|--------------------|--------------------------------|
 | Operation 	| Return Type 		   | Type Of Operation  |  What it does? 																					   | 
 |---------------|----------------------|--------------------|------------------------------------------------------------------------------------------------------|
 | map() 		| Stream<T> 		   | Intermediate 		| Returns a stream consisting of results after applying given function to elements of the stream. 	   |
