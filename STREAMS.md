@@ -27,7 +27,7 @@ Below is the list of intermediate and terminal operations.
 | sorted() 		| Stream<T> 		   | Intermediate 		| Returns a stream consisting of elements sorted according to natural order. |
 | limit() 		| Stream<T> 		   | Intermediate 		| Returns a stream containing first n elements.	| 
 | skip() 		| Stream<T> 		   | Intermediate 		| Returns a stream after skipping first n elements.| 
-|---------------|----------------------|--------------------|-------------------------------------------------------------------|
+|	|	|	|	|
 | forEach() 	| void				   | Terminal 			| Performs an action on all elements of a stream.|
 | toArray() 	| object[] 			   | Terminal 			| Returns an array containing elements of a stream.|
 | reduce()		| type T 			   | Terminal 			| Performs reduction operation on elements of a stream using initial value and binary operation. 	   |
