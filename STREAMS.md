@@ -68,18 +68,18 @@ Below is the list of intermediate and terminal operations.
 		
 |Operation	|		Type|		Description|
 |---------------|----------------------|----------------------|
-|forEach|			|	Terminal|	Performs an action for each element of this stream.|
-|count	|			|Terminal|	Returns the count of elements in this stream.|
-|reduce	|			|Terminal|	Performs a reduction on the elements of this stream using the provided identity value and accumulation function.|
-|collect|				|Terminal|	Performs a mutable reduction operation on the elements of this stream using a Collector.|
-|anyMatch|			|Terminal|	Returns whether any elements of this stream match the provided predicate.|
-|allMatch|			|Terminal|	Returns whether all elements of this stream match the provided predicate.|
-|noneMatch|			|Terminal|	Returns whether no elements of this stream match the provided predicate.|
-|findFirst|			|Terminal|	Returns an Optional describing the first element of this stream or an empty Optional if the stream is empty.|
-|findAny|				|Terminal|	Returns an Optional describing some element of the stream or an empty Optional if the stream is empty.|
-|min	|				|Terminal|	Returns the minimum element of this stream according to the provided Comparator.|
-|max|					|Terminal|	Returns the maximum element of this stream according to the provided Comparator.|
-|toArray|				|Terminal|	Returns an array containing the elements of this stream.|
+|forEach|Terminal|Performs an action for each element of this stream.|
+|count|Terminal|Returns the count of elements in this stream.|
+|reduce|Terminal|Performs a reduction on the elements of this stream using the provided identity value and accumulation function.|
+|collect|Terminal|Performs a mutable reduction operation on the elements of this stream using a Collector.|
+|anyMatch|Terminal|Returns whether any elements of this stream match the provided predicate.|
+|allMatch|Terminal|Returns whether all elements of this stream match the provided predicate.|
+|noneMatch|Terminal|Returns whether no elements of this stream match the provided predicate.|
+|findFirst|Terminal|Returns an Optional describing the first element of this stream or an empty Optional if the stream is empty.|
+|findAny|Terminal|Returns an Optional describing some element of the stream or an empty Optional if the stream is empty.|
+|min|Terminal|Returns the minimum element of this stream according to the provided Comparator.|
+|max|Terminal|Returns the maximum element of this stream according to the provided Comparator.|
+|toArray|Terminal|Returns an array containing the elements of this stream.|
 
 
 The static factory methods of the Collectors class
