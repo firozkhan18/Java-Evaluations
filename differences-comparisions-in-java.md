@@ -1,4 +1,4 @@
-# Differences In Java - Comparisions
+# Differences - Comparisions In Java 
 
 > **Table Of Contents**
 
