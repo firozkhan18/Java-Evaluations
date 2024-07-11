@@ -1,16 +1,18 @@
-Difference Between Collections And Streams In Java
+## Difference Between Collections And Streams In Java
 
 Collections and Streams, both are conceptually two different things which are used for two different purposes. 
 If the collections are used to store the data then the streams are used to perform operations on that data. 
 In this article, we will discuss the difference between collections and streams in Java.
 
-Collections And Streams In Java :
+### Collections And Streams In Java :
 
-1) Conceptual Difference
+### 1) Conceptual Difference
 
 Collections are used to store and group the data in a particular data structure like List, Set or Map. But, streams are used to perform complex data processing operations like filtering, matching, mapping etc on stored data such as arrays, collections or I/O resources. That means, collections are mainly about data and streams are mainly about operations on data.
+
+
+### //Usage of collections 
 ```java
-//Usage of collections         
 //Collections are mainly used to store the data         
 //Here, names are stored as List
          
@@ -21,8 +23,9 @@ names.add("Douglas");
 names.add("Sundaraman");         
 names.add("Charlie");         
 names.add("Yuki");
-         
-//Usage of streams         
+```         
+### //Usage of streams 
+```java
 //Streams are mainly used to perform operations on data         
 //like selecting only unique names
          
@@ -36,7 +39,7 @@ names.stream().distinct().forEach(System.out::println);
 //Yuki
 
 
-2) Data Modification
+### 2) Data Modification
 
 You can add to or remove elements from collections. But, you can’t add to or remove elements from streams. 
 Stream consumes a source, performs operations on it and returns a result. 
@@ -56,7 +59,7 @@ Stream<String> uniqueNames = names.stream().distinct();
 //You can't add or remove elements from stream         
 //There are no such methods in Stream
 ```
-3) External Iteration Vs Internal Iteration
+### 3) External Iteration Vs Internal Iteration
 
 The main specialty of Java 8 Streams is that you need not to worry about iteration while using streams. 
 Streams perform iteration internally behind the scene for you. 
@@ -97,7 +100,7 @@ names.stream().map(String::toUpperCase).forEach(System.out::println);
 //CHARLIE
 //YUKI
 
-4) Traversal
+### 4) Traversal
 
 Streams are traversable only once. If you traverse the stream once, it is said to be consumed. 
 To traverse it again, you have to get new stream from the source again. But, collections can be traversed multiple times.
@@ -112,7 +115,7 @@ numbersGreaterThan5.forEach(System.out::println);
 //Error : stream has already been operated upon or closed         
 numbersGreaterThan5.forEach(System.out::println);
 ```
-5) Eager Construction Vs Lazy Construction
+### 5) Eager Construction Vs Lazy Construction
 
 Collections are eagerly constructed i.e all the elements are computed at the beginning itself. 
 But, streams are lazily constructed i.e intermediate operations are not evaluated until terminal operation is invoked.
@@ -130,7 +133,7 @@ numbers.stream().filter(i -> i >= 5).limit(3).forEach(System.out::println);
 //5
 ```
 
-###Difference Between Collections Vs Streams In Java :
+### Difference Between Collections Vs Streams In Java :
 
 | Collections 																	| Streams																					|
 |-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
