@@ -1,9 +1,9 @@
-#Java 8 Method References
+# Java 8 Method References
 
 Java 8 method references are the shortened versions of lambda expressions calling a specific method. For example, lambda expression (Student s) -> s.getName() which is calling a method getName() of Student class can be shortened as Student::getName using Java 8 method references. Let’s see them in detail.
 
 
-##Java 8 Method References :
+## Java 8 Method References :
 
 1) Definition
 Java 8 method references can be defined as shortened versions of lambda expressions calling a specific method. Method references are the easiest way to refer a method than the lambdas calling a specific method. Method references will enhance the readability of your code.
@@ -44,9 +44,9 @@ Ex : Student::new
 
 4) Examples
 
-##Java 8 method references
+## Java 8 method references
 
-###lambdas and method reference equivalents
+### lambdas and method reference equivalents
 
 | Lambda Expression					     	| Equivalent Method References										|
 |-------------------------|----------------------------|
@@ -63,15 +63,15 @@ Ex : Student::new
 
 You can think of method references as syntactic sugar for lambdas that refer only to a single
 method because you write less to express the same thing.
-
+```java
 List<String> str = Arrays.asList("a","b","A","B");
 
 str.sort((s1, s2) -> s1.compareToIgnoreCase(s2));//Lambda Expression
 //OR
 str.sort(String::compareToIgnoreCase);//Method Reference
-	
+```	
 a) Method reference to static method
-
+```java
 import java.util.function.Function;
  
 public class Java8MethodReferences
@@ -89,8 +89,9 @@ public class Java8MethodReferences
         System.out.println(referenceFunction.apply("12"));
     }
 }
+```
 b) Method reference to instance method (ClassName::MethodName)
-
+```java
 import java.util.function.Function;
  
 public class Java8MethodReferences
@@ -108,8 +109,9 @@ public class Java8MethodReferences
         System.out.println(referenceFunction.apply("JAVA"));
     }
 }
+```
 c) Method reference to instance method (ReferenceVariable::MethodName)
-
+```java
 import java.util.function.Supplier;
  
 class Company
@@ -144,8 +146,9 @@ public class Java8MethodReferences
         System.out.println(referenceSupplier.get());
     }
 }
+```
 d) Constructor References
-
+```java
 import java.util.function.Supplier;
  
 class Company
@@ -168,10 +171,10 @@ public class Java8MethodReferences
         referenceSupplier.get();
     }
 }
+```
+# Recipe for constructing method references
 
-#Recipe for constructing method references
-
-###There are three main kinds of method references:
+### There are three main kinds of method references:
 
 1. A method reference to a static method (for example, the method parseInt of Integer, written Integer::parseInt)
 2. A method reference to an instance method of an arbitrary type (for example, the method length of a String, written String::length)
