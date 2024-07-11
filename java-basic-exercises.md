@@ -1,4 +1,3 @@
-https://www.w3resource.com/java-exercises/basic/index.php
 # Java Exercises Basic
 
 ### 1. Write a Java program to print 'Hello' on screen and your name on a separate line.
@@ -3501,6 +3500,21 @@ PythonTutorialPython
 
 
 ### 71. Write a Java program to create the concatenation of the two strings except removing the first character of each string. The length of the strings must be 1 and above.
+
+```java
+import java.lang.*;
+
+public class Exercise71 {
+    public static void main(String[] args) {
+        // Define two strings
+        String str1 = "Python";
+        String str2 = "Tutorial";
+
+        // Print the substrings of both strings, excluding the first character
+        System.out.println(str1.substring(1) + str2.substring(1));
+    }
+}
+```
 Test Data: Str1 = Python
 Str2 = Tutorial
 Sample Output:
@@ -3509,6 +3523,38 @@ ythonutorial
 
 
 ### 72. Write a Java program to create a string taking the first three characters from a given string. If the string length is less than 3 use "#" as substitute characters.
+
+Test Data: str1 = "Python"
+str2 = " "
+
+Sample Solution:
+
+Java Code:
+
+import java.lang.*;
+```java
+public class Exercise72 {
+    public static void main(String[] args) {
+        // Define an empty string
+        String str1 = "";
+
+        // Get the length of the string
+        int len = str1.length();
+
+        // Check the length of the string and take different actions based on its length
+        if (len >= 3) {
+            // If the string has three or more characters, print the first three characters
+            System.out.println(str1.substring(0, 3));
+        } else if (len == 1) {
+            // If the string has only one character, add "##" to it and print
+            System.out.println(str1.charAt(0) + "##");
+        } else {
+            // If the string is empty or has two characters, print "###"
+            System.out.println("###");
+        }
+    }
+}
+```
 Test Data: Str1 = " "
 Sample Output:
 
@@ -3516,6 +3562,32 @@ Sample Output:
 
 
 ### 73. Write a Java program to create a string taking the first and last characters from two given strings. If the length of each string is 0 use "#" for missing characters.
+```java
+import java.lang.*;
+
+public class Exercise73 {
+    public static void main(String[] args) {
+        // Define two input strings
+        String str1 = "Python";
+        String str2 = "";
+
+        // Get the length of the second string
+        int length2 = str2.length();
+
+        // Initialize a result string
+        String result = "";
+
+        // Check the length of the first string and append the first character (if available) or '#'
+        result += (str1.length() >= 1) ? str1.charAt(0) : '#';
+
+        // Check the length of the second string and append the last character (if available) or '#'
+        result += (length2 >= 1) ? str2.charAt(length2 - 1) : '#';
+
+        // Print the resulting string
+        System.out.println(result);
+    }
+}
+```
 Test Data: str1 = "Python"
 str2 = " "
 Sample Output:
@@ -3524,6 +3596,22 @@ P#
 
 
 ### 74. Write a Java program to test if 10 appears as the first or last element of an array of integers. The array length must be broader than or equal to 2.
+```java
+import java.lang.*;
+
+public class Exercise74 {
+    public static void main(String[] args) {
+        // Define an integer array
+        int[] num_array = {10, -20, 0, 30, 40, 60, 10};
+        
+        // Check if the first or last element of the array is equal to 10
+        boolean result = (num_array[0] == 10 || num_array[num_array.length - 1] == 10);
+
+        // Print the result
+        System.out.println(result);
+    }
+}
+```
 Sample Output:
 Test Data: array = 10, -20, 0, 30, 40, 60, 10
 
@@ -3531,6 +3619,22 @@ true
 
 
 ### 75. Write a Java program to test if the first and last elements of an array of integers are the same. The array length must be broader than or equal to 2.
+```java
+import java.lang.*;
+
+public class Exercise75 {
+    public static void main(String[] args) {
+        // Define an integer array
+        int[] num_array = {50, -20, 0, 30, 40, 60, 10};
+        
+        // Check if the array has at least 2 elements and if the first and last elements are equal
+        boolean result = (num_array.length >= 2 && num_array[0] == num_array[num_array.length - 1]);
+
+        // Print the result
+        System.out.println(result);
+    }
+}
+```
 Test Data: array = 50, -20, 0, 30, 40, 60, 10
 Sample Output:
 
@@ -3538,6 +3642,32 @@ false
 
 
 ### 76. Write a Java program to test if the first and last element of two integer arrays are the same. The array length must be greater than or equal to 2.
+```java
+public class Main {
+    public static void main(String[] args) {
+        // Define two integer arrays (num_array1 and num_array2)
+        
+        // Example 1: Arrays with different first and last elements
+        int[] num_array1 = {50, -20, 0, 30, 40, 60, 12};
+        int[] num_array2 = {45, 20, 10, 20, 30, 50, 11};
+        
+        // Example 2: Arrays with the same first and last elements
+        // int[] num_array1 = {50, -20, 0, 30, 40, 60, 50};
+        // int[] num_array2 = {45, 20, 10, 20, 30, 50, 45};
+        
+        // Example 3: Arrays with lengths less than 2
+        // int[] num_array1 = {50};
+        // int[] num_array2 = {45};
+        
+        if (num_array1.length >= 2 && num_array2.length >= 2) {
+            // Check if both arrays have lengths of at least 2 and if their first or last elements are equal
+            System.out.println(num_array1[0] == num_array2[0] || num_array1[num_array1.length - 1] == num_array2[num_array2.length - 1]);
+        } else {
+            System.out.println("Array lengths less than 2.");
+        }
+    }
+}
+```
 Test Data: array1 = 50, -20, 0, 30, 40, 60, 12
 array2 = 45, 20, 10, 20, 30, 50, 11
 Sample Output:
@@ -3546,6 +3676,30 @@ false
 
 
 ### 77. Write a Java program to create an array of length 2 from two integer arrays with three elements. The newly created array will contain the first and last elements from the two arrays.
+
+```java
+import java.util.Arrays;
+
+public class Exercise77 {
+    public static void main(String[] args) {
+        // Define two integer arrays (array1 and array2)
+        int[] array1 = {50, -20, 0};
+        int[] array2 = {5, -50, 10};
+        
+        // Print the elements of array1
+        System.out.println("Array1: " + Arrays.toString(array1));
+        
+        // Print the elements of array2
+        System.out.println("Array2: " + Arrays.toString(array2));
+        
+        // Create a new array, array_new, with elements from array1 and array2
+        int[] array_new = {array1[0], array2[2]};	
+        
+        // Print the elements of the new array, array_new
+        System.out.println("New Array: " + Arrays.toString(array_new));
+    }
+}
+```
 Test Data: array1 = 50, -20, 0
 array2 = 5, -50, 10
 Sample Output:
@@ -3556,6 +3710,27 @@ New Array: [50, 10]
 
 
 ### 78. Write a Java program to test that a given array of integers of length 2 contains a 4 or a 7.
+```java
+import java.util.Arrays;
+
+public class Exercise78 {
+    public static void main(String[] args) {
+        // Define an integer array, array_nums
+        int[] array_nums = {5, 7};
+        
+        // Print the elements of the original array
+        System.out.println("Original Array: " + Arrays.toString(array_nums)); 
+        
+        // Check if the first element of the array is 4 or 7 and print the result
+        if (array_nums[0] == 4 || array_nums[0] == 7) {
+            System.out.println("True");
+        } else {
+            // If the first element is not 4 or 7, check the second element and print the result
+            System.out.println(array_nums[1] == 4 || array_nums[1] == 7);
+        }
+    }
+}
+```
 Sample Output:
 
 Original Array: [5, 7]                                                 
@@ -3563,6 +3738,33 @@ true
 
 
 ### 79. Write a Java program to rotate an array (length 3) of integers in the left direction.
+
+Write a Java program to rotate an array (length 3) of integers in the left direction.
+Test Data: {20, 30, 40}
+Expected output: {30, 40, 20}
+
+Sample Solution:
+
+Java Code:
+```java
+import java.util.Arrays;
+
+public class Exercise79 {
+    public static void main(String[] args) {
+        // Define an integer array, array_nums
+        int[] array_nums = {20, 30, 40};
+        
+        // Print the elements of the original array
+        System.out.println("Original Array: " + Arrays.toString(array_nums)); 
+        
+        // Create a new array by rotating the elements of the original array
+        int[] new_array_nums = {array_nums[1], array_nums[2], array_nums[0]};
+        
+        // Print the elements of the rotated array
+        System.out.println("Rotated Array: " + Arrays.toString(new_array_nums)); 
+    }
+}
+```
 Sample Output:
 
 Original Array: [20, 30, 40]                                           
@@ -3570,6 +3772,29 @@ Rotated Array: [30, 40, 20]
 
 
 ### 80. Write a Java program to get the largest value between the first and last elements of an array (length 3) of integers.
+```java
+import java.util.Arrays;
+
+public class Exercise80 {
+    public static void main(String[] args) {
+        // Define an integer array, array_nums
+        int[] array_nums = {20, 30, 40};
+        
+        // Print the elements of the original array
+        System.out.println("Original Array: " + Arrays.toString(array_nums)); 
+        
+        // Initialize a variable, max_val, with the first element of the array
+        int max_val = array_nums[0];
+        
+        // Check if the last element of the array is greater than max_val and update max_val if necessary
+        if (array_nums[2] >= max_val)
+            max_val = array_nums[2];
+        
+        // Print the larger value between the first and last elements of the array
+        System.out.println("Larger value between first and last element: " + max_val); 
+    }
+}
+```
 Sample Output:
 
 Original Array: [20, 30, 40]                                           
@@ -3577,6 +3802,29 @@ Larger value between first and last element: 40
 
 
 ### 81. Write a Java program to swap the first and last elements of an array (length must be at least 1) and create another array.
+```java
+import java.util.Arrays;
+
+public class Exercise81 {
+    public static void main(String[] args) {
+        // Define an integer array, array_nums
+        int[] array_nums = {20, 30, 40};
+        
+        // Print the elements of the original array
+        System.out.println("Original Array: " + Arrays.toString(array_nums)); 
+        
+        // Store the value of the first element in the variable x
+        int x = array_nums[0];
+        
+        // Swap the first and last elements of the array
+        array_nums[0] = array_nums[array_nums.length - 1];
+        array_nums[array_nums.length - 1] = x;
+        
+        // Print the new array after swapping the first and last elements
+        System.out.println("New array after swapping the first and last elements: " + Arrays.toString(array_nums));  
+    }
+}
+```
 Sample Output:
 
 Original Array: [20, 30, 40]                                           
@@ -3584,6 +3832,33 @@ New array after swaping the first and last elements: [40, 30, 20]
 
 
 ### 82. Write a Java program to find the largest element between the first, last, and middle values in an array of integers (even length).
+```java
+import java.util.Arrays;
+
+public class Exercise82 {
+    public static void main(String[] args) {
+        // Define an integer array, array_nums
+        int[] array_nums = {20, 30, 40, 50, 67};
+        
+        // Print the elements of the original array
+        System.out.println("Original Array: " + Arrays.toString(array_nums)); 
+        
+        // Initialize a variable max_val with the value of the first element
+        int max_val = array_nums[0];
+        
+        // Check if the last element is greater than max_val
+        if (max_val <= array_nums[array_nums.length - 1])
+            max_val = array_nums[array_nums.length - 1];
+        
+        // Check if the middle element is greater than max_val
+        if (max_val <= array_nums[array_nums.length / 2])
+            max_val = array_nums[array_nums.length / 2];
+        
+        // Print the largest element among the first, last, and middle values
+        System.out.println("Largest element between first, last, and middle values: " + max_val);  
+    }
+}
+```
 Sample Output:
 
 Original Array: [20, 30, 40, 50, 67]                                   
@@ -3591,6 +3866,36 @@ Largest element between first, last, and middle values: 67
 
 
 ### 83. Write a Java program to multiply the corresponding elements of two integer arrays.
+```java
+import java.util.*;
+
+public class Exercise83 {
+    public static void main(String[] args) {	
+        // Initialize a string to store the result
+        String result = "";
+        
+        // Define two integer arrays
+        int[] left_array = {1, 3, -5, 4};
+        int[] right_array = {1, 4, -5, -2};
+        
+        // Print the elements of Array1
+        System.out.println("\nArray1: " + Arrays.toString(left_array));  
+        
+        // Print the elements of Array2
+        System.out.println("\nArray2: " + Arrays.toString(right_array)); 
+        
+        // Multiply corresponding elements from both arrays and build the result string
+        for (int i = 0; i < left_array.length; i++) {
+            int num1 = left_array[i];
+            int num2 = right_array[i];
+            result += Integer.toString(num1 * num2) + " "; 
+        }
+        
+        // Print the result string
+        System.out.println("\nResult: " + result);     
+    }
+}
+```
 Sample Output:
 
 Array1: [1, 3, -5, 4]                                                  
@@ -3601,6 +3906,41 @@ Result: 1 12 25 -8
 
 
 ### 84. Write a Java program to take the last three characters from a given string. It will add the three characters at both the front and back of the string. String length must be greater than three and more.
+
+Write a Java program to take the last three characters from a given string. It will add the three characters at both the front and back of the string. String length must be greater than three and more.
+Test data: " Python" will be "honPythonhon"
+
+Pictorial Presentation:
+
+Java Basic Exercises: Take the last three characters from a given string and add these characters at front and back of the string 
+Sample Solution:
+
+Java Code:
+```java
+import java.util.*;
+import java.io.*;
+
+public class Exercise84 {
+    public static void main(String[] args) {
+        // Initialize a string
+        String string1 = "Python";
+        
+        // Define a subpart length
+        int slength = 3;
+        
+        // Check if the subpart length is greater than the string length
+        if (slength > string1.length()) {
+            slength = string1.length(); // Limit it to the string length
+        }
+
+        // Get the subpart of the string from the last 3 characters
+        String subpart = string1.substring(string1.length() - 3);
+        
+        // Print the result, which is the subpart followed by the original string and the subpart again
+        System.out.println(subpart + string1 + subpart);
+    }
+}
+```
 Test data: "Python" will be "honPythonhon"
 Sample Output:
 
@@ -3608,6 +3948,32 @@ honPythonhon
 
 
 ### 85. Write a Java program to check if a string starts with a specified word.
+
+Sample Data: string1 = "Hello how are you?"
+
+Pictorial Presentation:
+
+Java Basic Exercises: Check if a string starts with a specified word 
+Sample Solution:
+
+Java Code:
+```java
+import java.util.*;
+import java.io.*;
+
+public class Exercise85 {
+    public static void main(String[] args) {
+        // Initialize a string
+        String string1 = "Hello how are you?";
+        
+        // Check if the string starts with "Hello"
+        boolean startsWithHello = string1.startsWith("Hello");
+        
+        // Print the result indicating whether the string starts with "Hello"
+        System.out.println(startsWithHello);
+    }
+}
+```
 Sample Data: string1 = "Hello how are you?"
 Sample Output:
 
@@ -3616,79 +3982,795 @@ true
 
 ### 86. Write a Java program starting with an integer n, divide it by 2 if it is even, or multiply it by 3 and add 1 if it is odd. Repeat the process until n = 1.
 
+```java
+Write a Java program starting with an integer n, divide it by 2 if it is even, or multiply it by 3 and add 1 if it is odd. Repeat the process until n = 1.
+
+Sample Solution:
+
+Java Code:
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // Prompt the user to input the value of n
+        System.out.println("Input the value of n: ");
+        
+        // Create a Scanner object to read user input
+        Scanner in = new Scanner(System.in);
+        
+        // Read an integer from the user
+        int n = in.nextInt();
+        
+        // Continue looping until n becomes 1
+        while (n != 1) {
+            // Check if n is even
+            if (n % 2 == 0) {
+                n = n / 2; // If even, divide n by 2
+            } else {
+                n = (3 * n + 1) / 2; // If odd, perform a calculation
+            }
+        }
+        
+        // Print the final value of n
+        System.out.println("\nValue of n = " + n);
+        
+        // Close the Scanner
+        in.close();
+    }
+}
+```
 
 ### 87. Write a Java program that then reads an integer and calculates the sum of its digits and writes the number of each digit of the sum in English.
+```java
+import java.io.*;
 
+public class Main {
+    public static void main(String[] args) {
+        // Create a BufferedReader to read input from the user
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        try {
+            int sum = 0;
+            // Read a line of text from the user
+            String str = br.readLine();
+            char[] numStr = str.toCharArray();
+
+            // Calculate the sum of the digits in the input number
+            for (int i = 0; i < numStr.length; i++) {
+                sum += numStr[i] - '0';
+            }
+
+            // Print the original number and call the print_number function
+            System.out.println("Original Number: " + str);
+            print_number(sum);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void print_number(int n) {
+        int x;
+        int y;
+        int z;
+        String[] number = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+
+        // Print the sum of the digits of the number
+        System.out.println("Sum of the digits of the said number: " + n);
+
+        if (n < 10) {
+            // If the number is less than 10, print the corresponding word
+            System.out.println(number[n]);
+        } else if (n < 100) {
+            // If the number is less than 100, split it into tens and ones
+            x = n / 10;
+            y = n - x * 10;
+            System.out.println("In English: " + number[x] + " " + number[y]);
+        } else {
+            // If the number is three digits, split it into hundreds, tens, and ones
+            x = n / 100;
+            y = (n - x * 100) / 10;
+            z = n - x * 100 - y * 10;
+            System.out.println("In English: " + number[x] + " " + number[y] + " " + number[z]);
+        }
+    }
+}
+```
 
 ### 88. Write a Java program to get the current system environment and system properties.
+```java
+import java.lang.*;
 
+public class Exercise88 {
+    public static void main(String[] args) {
+        // Print a message indicating the display of the current system environment
+        System.out.println("\nCurrent system environment:");
+
+        // Retrieve and print the system environment variables using System.getenv()
+        System.out.println(System.getenv());
+
+        // Print a message indicating the display of the current system properties
+        System.out.println("\n\nCurrent system properties:");
+
+        // Retrieve and print the system properties using System.getProperties()
+        System.out.println(System.getProperties());
+    }
+}
+```
 
 ### 89. Write a Java program to check whether a security manager has already been established for the current application or not.
 
+```java
+import java.lang.*;
 
+public class Exercise89 {
+    public static void main(String[] args) {
+        // Print a message indicating the display of the system security interface
+        System.out.println("System security interface:");
+
+        // Retrieve and print the system security manager using System.getSecurityManager()
+        System.out.println(System.getSecurityManager());
+    }
+}
+```
 
 ### 90. Write a Java program to get the value of environment variables PATH, TEMP, USERNAME.
 
+```java
+import java.lang.*;
 
+public class Exercise90 {
+    public static void main(String[] args) {
+        // Display the value of the specified environment variable "PATH"
+        System.out.println("\nEnvironment variable PATH: ");
+        System.out.println(System.getenv("PATH"));
+
+        // Display the value of the specified environment variable "TEMP"
+        System.out.println("\nEnvironment variable TEMP: ");
+        System.out.println(System.getenv("TEMP"));
+
+        // Display the value of the specified environment variable "USERNAME"
+        System.out.println("\nEnvironment variable USERNAME: ");
+        System.out.println(System.getenv("USERNAME"));
+    }
+}
+```
 ### 91. Write a Java program to measure how long code executes in nanoseconds.
+```java
+import java.lang.*;
 
+public class Exercise91 {
+    public static void main(String[] args) {    
+        long startTime = System.nanoTime(); 
+        
+        // Sample program: Display the first 10 natural numbers.
+        int i;
+        System.out.println("The first 10 natural numbers are:\n");
+        for (i = 1; i <= 10; i++) {      
+            System.out.println(i);
+        }
+        
+        // Calculate the elapsed time in nanoseconds.
+        long estimatedTime = System.nanoTime() - startTime;
+        System.out.println("Estimated time (in nanoseconds) to get the first 10 natural numbers: " + estimatedTime);
+    }
+}
+```
 
 ### 92. Write a Java program to count the number of even and odd elements in a given array of integers.
+```java
+import java.util.*;
 
+public class Exercise92 {
+    public static void main(String[] args) {
+        // Initialize an array of integers
+        int[] nums = {5, 7, 2, 4, 9};
+        
+        // Initialize counters for even and odd numbers
+        int ctr_even = 0, ctr_odd = 0;
+        
+        // Display the original array
+        System.out.println("Original Array: " + Arrays.toString(nums));
+
+        // Iterate through the array to count even and odd numbers
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] % 2 == 0) {
+                // Increment the counter for even numbers
+                ctr_even++;
+            } else {
+                // Increment the counter for odd numbers
+                ctr_odd++;
+            }
+        }
+        
+        // Print the counts of even and odd elements in the array
+        System.out.printf("\nNumber of even elements in the array: %d", ctr_even);
+        System.out.printf("\nNumber of odd elements in the array: %d", ctr_odd);
+        System.out.printf("\n");
+    }
+}
+```
 
 ### 93. Write a Java program to test if an array of integers contains an element 10 next to 10 or an element 20 next to 20, but not both.
+```java
+import java.util.*;
+public class Exercise93 {
+    public static void main(String[] args) {
+        // Define an array of integers
+        int[] nums = {10, 10, 2, 4, 20, 20};
+        
+        // Initialize counters for even and odd numbers
+        int ctr_even = 0, ctr_odd = 0;
+        
+        // Display the original array
+        System.out.println("Original Array: " + Arrays.toString(nums));
 
+        // Initialize boolean variables to check for specific patterns
+        boolean found1010 = false;
+        boolean found2020 = false;
+        
+        // Iterate through the array to find patterns (e.g., 1010 and 2020)
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == 10 && nums[i + 1] == 10) {
+                found1010 = true;
+            }
+
+            if (nums[i] == 20 && nums[i + 1] == 20) {
+                found2020 = true;
+            }
+        }
+
+        // Check if the patterns 1010 and 2020 were found and print the result
+        System.out.printf(String.valueOf(found1010 != found2020));
+        System.out.printf("\n");
+    }
+}
+```
 
 ### 94. Write a Java program to rearrange all the elements of a given array of integers so that all the odd numbers come before all the even numbers.
 
+```java
+import java.util.*;
 
+public class Exercise94 {
+    public static void main(String[] args) {
+        // Define an array of integers
+        int[] array_nums = {1, 7, 8, 5, 7, 13, 0, 2, 4, 9};
+        
+        // Initialize an index variable to track even numbers
+        int i = 0;
+
+        // Display the original array
+        System.out.println("Original Array: " + Arrays.toString(array_nums));
+
+        // Find the first odd number's index (i)
+        while (i < array_nums.length && array_nums[i] % 2 == 0)
+            i++;
+        
+        // Rearrange the array such that odd numbers come after even numbers
+        for (int j = i + 1; j < array_nums.length; j++) {
+            if (array_nums[j] % 2 != 0) {
+                // Swap even and odd numbers
+                int temp = array_nums[i];
+                array_nums[i] = array_nums[j];
+                array_nums[j] = temp;
+                i++;
+            }
+        }
+
+        // Display the modified array
+        System.out.println("New Array: " + Arrays.toString(array_nums));
+    }
+}
+```
 ### 95. Write a Java program to create an array (length # 0) of string values. The elements will contain "0", "1", "2" … through ... n-1.
 
+```java
+import java.util.*;
 
-96. Write a Java program to check if there is a 10 in an array of integers with a 20 somewhere later on.
+public class Exercise95 {
+    public static void main(String[] args) {
+        // Define the number of elements in the array
+        int n = 5;
+        
+        // Create an array of strings with n elements
+        String[] arr_string = new String[n];
 
+        // Initialize the array with string representations of numbers
+        for (int i = 0; i < n; i++) {
+            arr_string[i] = String.valueOf(i);
+        }
+
+        // Display the new array
+        System.out.println("New Array: " + Arrays.toString(arr_string));
+    }
+}
+```
+### 96. Write a Java program to check if there is a 10 in an array of integers with a 20 somewhere later on.
+
+```java
+import java.util.*;
+
+public class Exercise96 {
+    public static void main(String[] args) {
+        int[] array_nums = {10, 70, 80, 50, 20, 13, 50};
+        boolean testd = false; // Initialize a boolean variable for testing
+        int result = 0; // Initialize a result variable to track the outcome
+        int x = 10; // Define the first number to search for
+        int y = 20; // Define the second number to search for
+
+        // Iterate through the array
+        for (int i = 0; i < array_nums.length; i++) {
+            if (array_nums[i] == x)
+                testd = true; // Set the boolean flag when x is found in the array
+
+            // Check if both x and y are found in the array with specific conditions
+            if (testd && array_nums[i] == y) {
+                System.out.printf(String.valueOf(true)); // Print true when both x and y are found
+                result = 1; // Set the result to 1
+            }
+        }
+
+        // If result is still 0, it means y did not follow x in the array
+        if (result == 0) {
+            System.out.printf(String.valueOf(false)); // Print false
+        }
+        System.out.printf("\n"); // Add a newline character for formatting
+    }
+}
+```
 
 ### 97. Write a Java program to check if an array of integers contains a specified number next to each other or two same numbers separated by one element.
+```java
+import java.util.*;
 
+public class Exercise97 {
+    public static void main(String[] args) {
+        int[] array_nums = {10, 20, 10, 50, 20, 13, 50};
+        //int[] array_nums = {10, 10, 50, 50, 20, 13, 50};
+        boolean testd = false; // Initialize a boolean variable for testing
+        int result = 0; // Initialize a result variable to track the outcome
+        int x = 10; // Define the number to search for
+
+        // Iterate through the array, considering pairs of adjacent elements
+        for (int i = 0; i < array_nums.length - 1; i++) {
+            if (array_nums[i] == x && array_nums[i + 1] == x) {
+                System.out.printf(String.valueOf(true)); // Print true when consecutive x elements are found
+                result = 1; // Set the result to 1
+            }
+
+            // Check if the element x is followed by another x with one element in between
+            if (i <= array_nums.length - 3 && array_nums[i] == x && array_nums[i + 2] == x) {
+                System.out.printf(String.valueOf(true)); // Print true when x elements are found with one element in between
+                result = 1; // Set the result to 1
+            }
+        }
+
+        // If result is still 0, it means the specific pattern was not found
+        if (result == 0) {
+            System.out.printf(String.valueOf(false)); // Print false
+        }
+        System.out.printf("\n"); // Add a newline character for formatting
+    }
+}
+```
 
 ### 98. Write a Java program to check if the value 20 appears three times and no 20's are next to each other in the array of integers.
 
+```java
+import java.util.*;
+public class Exercise98 {
+    public static void main(String[] args) {
+        int[] array_nums = {10, 20, 10, 20, 40, 13, 20};
+        int count = 0; // Initialize a count variable to keep track of the number of occurrences of 20
+        int result = 0; // Initialize a result variable to track the outcome
 
+        // Check if the array has at least one element and if the first element is 20
+        if (array_nums.length >= 1 && array_nums[0] == 20) {
+            count++; // Increment the count if the first element is 20
+        }
+
+        // Iterate through the array, starting from the second element (index 1)
+        for (int i = 1; i < array_nums.length; i++) {
+            // Check if the previous element and the current element are both 20
+            if (array_nums[i - 1] == 20 && array_nums[i] == 20) {
+                System.out.printf(String.valueOf(false)); // Print false when consecutive 20 elements are found
+                result = 1; // Set the result to 1
+            }
+
+            // Check if the current element is 20 and increment the count
+            if (array_nums[i] == 20) {
+                count++;
+            }
+        }
+
+        // If result is still 0, it means the specific pattern was not found
+        if (result == 0) {
+            System.out.printf(String.valueOf(count == 3)); // Print true if count is equal to 3
+        }
+        System.out.printf("\n"); // Add a newline character for formatting
+    }
+}
+```
 ### 99. Write a Java program that checks if a specified number appears in every pair of adjacent integers of a given array of integers.
+```java
+import java.util.*;
 
+public class Exercise99 {
+    public static void main(String[] args) {
+        int[] array_nums = {10, 20, 10, 20, 40, 20, 50};
+        int result = 0; // Initialize a result variable
+
+        int x = 20; // The value to check for
+
+        // Iterate through the array, stopping at the second-to-last element
+        for (int i = 0; i < array_nums.length - 1; i++) {
+            // Check if the current element and the next element are not equal to the value 'x'
+            if (array_nums[i] != x && array_nums[i + 1] != x) {
+                result = 1; // If the condition is met, set the result to 1
+            }
+        }
+
+        // If result is still 0, it means no adjacent pairs without 'x' were found
+        if (result == 0) {
+            System.out.printf(String.valueOf(true)); // Print true
+        } else {
+            System.out.printf(String.valueOf(false)); // Print false
+        }
+    }
+}
+```
 
 ### 100. Write a Java program to count the elements that differ by 1 or less between two given arrays of integers with the same length.
 
+```java
+import java.util.*;
 
+public class Exercise100 {
+    public static void main(String[] args) {
+        int[] array_nums1 = {10, 11, 10, 20, 43, 20, 50};
+        int[] array_nums2 = {10, 13, 11, 20, 44, 30, 50};
+        System.out.println("Array1: "+Arrays.toString(array_nums1)); 
+        System.out.println("Array2: "+Arrays.toString(array_nums2)); 
+        
+        int ctr = 0; // Initialize a counter to keep track of the number of elements
+
+        // Iterate through the arrays to compare elements at the same index
+        for (int i = 0; i < array_nums1.length; i++) {
+            // Check if the absolute difference between elements is less than or equal to 1
+            // and the elements are not equal
+            if (Math.abs(array_nums1[i] - array_nums2[i]) <= 1 && array_nums1[i] != array_nums2[i]) {
+                ctr++; // If the condition is met, increment the counter
+            }
+        }
+        
+        System.out.printf("Number of elements: "+ctr); // Print the number of elements meeting the condition
+        System.out.printf("\n");	 
+    }
+}
+```
 
 ### 101. Write a Java program to determine whether the number 10 in a given array of integers exceeds 20.
 
+```java
+import java.util.*;
 
+public class Exercise101 {
+    public static void main(String[] args) {
+        int[] array_nums = {10, 11, 10, 30, 45, 20, 33, 53};
+        int result = 0;
+        System.out.println("Original Array: "+Arrays.toString(array_nums));
+
+        int ctr1 = 0; // Initialize a counter to count occurrences of value 10
+        int ctr2 = 0; // Initialize a counter to count occurrences of value 20
+
+        for(int i = 0; i < array_nums.length; i++) {
+            if(array_nums[i] == 10)
+                ctr1++; // Increment ctr1 when the element is equal to 10
+
+            if(array_nums[i] == 20)
+                ctr2++; // Increment ctr2 when the element is equal to 20
+        }
+
+        System.out.printf(String.valueOf(ctr1 > ctr2)); // Check if the count of 10 is greater than the count of 20
+        System.out.printf("\n");
+    }
+}
+```
 ### 102. Write a Java program to check if a specified array of integers contains 10 or 30.
 
+```java
+import java.util.*;
 
+public class Exercise102 {
+    public static void main(String[] args) {
+        int[] array_nums = {11, 11, 13, 31, 45, 20, 33, 53};
+        int result = 1; 
+        System.out.println("Original Array: "+Arrays.toString(array_nums));
+
+        // Iterate through the array
+        for(int i = 0; i < array_nums.length; i++) {
+            if(array_nums[i] == 10 || array_nums[i] == 30) {
+                // If the element is equal to 10 or 30, set the result to 0
+                result = 0;
+            }
+        }
+
+        if (result == 1)
+            System.out.printf(String.valueOf(false)); // If the result is 1, print false
+        else
+            System.out.printf(String.valueOf(true)); // If the result is not 1, print true
+    }
+}
+```
 ### 103. Write a Java program to create an array from a given array of integers. The newly created array will contain elements from the given array after the last element value is 10.
+```java
+import java.util.*;
 
+public class Exercise103 {
+    public static void main(String[] args) {
+        int[] array_nums = {11, 10, 13, 10, 45, 20, 33, 53};
+        int result = 0; 
+        System.out.println("Original Array: "+Arrays.toString(array_nums)); 
+
+        int l = array_nums.length - 1;
+        int[] new_array;
+
+        // Find the last occurrence of 10 in the array
+        while(array_nums[l] != 10)
+            l--;
+
+        // Create a new array with elements after the last 10
+        new_array = new int[array_nums.length - 1 - l];
+        for(int i = l + 1; i < array_nums.length; i++)
+            new_array[i - l - 1] = array_nums[i];
+
+        System.out.println("New Array: "+Arrays.toString(new_array)); 
+    }
+}
+```
 
 ### 104. Write a Java program to create an array from a given array of integers. The newly created array will contain the elements from the given array before the last element value of 10.
 
+```java
+import java.util.*;
+public class Exercise104 {
+    public static void main(String[] args) {
+        int[] array_nums = {11, 15, 13, 10, 45, 20, 33, 53};
+        int result = 0; 
+        System.out.println("Original Array: "+Arrays.toString(array_nums)); 
+        
+        int l = 0;
+        int[] new_array;
 
+        // Find the first occurrence of 10 in the array
+        while(array_nums[l] != 10)
+            l++;
+
+        // Create a new array with elements before the first occurrence of 10
+        new_array = new int[l];
+        for(int i = 0; i < l; i++)
+            new_array[i] = array_nums[i];
+
+        System.out.println("New Array: "+Arrays.toString(new_array)); 
+    }
+}
+```
 ### 105. Write a Java program to check if a group of numbers (l) at the start and end of a given array are the same.
+```java
+import java.util.*;
 
+public class Exercise105 {
+    public static void main(String[] args) {
+        int[] array_nums = {11, 15, 13, 10, 45, 20, 11, 15};
+        System.out.println("Original Array: " + Arrays.toString(array_nums));
+
+        int result = 0;
+        int l = 2;
+        int start = 0;
+        int end = array_nums.length - l;
+        
+        // Check if the elements at corresponding positions within the range [start, end] are equal.
+        for (; l > 0; l--) {
+            if (array_nums[start] != array_nums[end]) {
+                result = 1;
+            } else {
+                start++;
+                end++;
+            }
+        }
+
+        if (result == 1) {
+            System.out.printf(String.valueOf(false));
+        } else {
+            System.out.printf(String.valueOf(true));
+        }
+
+        System.out.printf("\n");
+    }
+}
+```
 
 ### 106. Write a Java program to create an array left shifted from a given array of integers.
 
+```java
+import java.util.*;
 
+public class Exercise106 {
+    public static void main(String[] args) {
+        int[] array_nums = {11, 15, 13, 10, 45, 20};
+        System.out.println("Original Array: "+Arrays.toString(array_nums)); 
+        
+        if (array_nums.length > 1) {
+            int first = array_nums[0];
+
+            // Shift elements to the left by one position
+            for (int i = 1; i < array_nums.length; i++)
+                array_nums[i - 1] = array_nums[i];
+
+            // Move the first element to the end of the array
+            array_nums[array_nums.length - 1] = first;
+
+            System.out.println("New Array: "+Arrays.toString(array_nums)); 
+        }
+    }
+}
+```
 ### 107. Write a Java program to check if an array of integers contains three increasing adjacent numbers.
+```java
+import java.util.*;
 
+public class Exercise107 {
+    public static void main(String[] args) {
+        // Initialize an integer array with some values
+        int[] array_nums = {11, 12, 13, 14, 45, 20};
+
+        // Print the original array
+        System.out.println("Original Array: " + Arrays.toString(array_nums));
+
+        // Initialize a result variable to 1
+        int result = 1;
+
+        // Iterate through the array to check for consecutive integers
+        for (int i = 0; i <= array_nums.length - 3; i++) {
+            // Check if the current number, the next, and the one after that are consecutive
+            if (array_nums[i] + 1 == array_nums[i + 1] && array_nums[i + 1] + 1 == array_nums[i + 2]) {
+                // If they are consecutive, set the result to 0
+                result = 0;
+            }
+        }
+
+        // Check the result and print either true or false
+        if (result == 1) {
+            System.out.printf(String.valueOf(false));
+        } else {
+            System.out.printf(String.valueOf(true));
+        }
+
+        // Print a newline character for formatting
+        System.out.printf("\n");
+    }
+}
+```
 
 ### 108. Write a Java program to add all the digits of a given positive integer until the result has a single digit.
 
+```java
+import java.util.Scanner;
 
+public class Example108 {
+    public static void main(String[] arg) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+
+        // Prompt the user to input a positive integer
+        System.out.print("Input a positive integer: ");
+        
+        // Read the user's input as an integer
+        int n = in.nextInt(); 
+
+        if (n > 0) {
+            // Check if n is a positive integer
+            System.out.print("The single digit number is: " + (n == 0 ? 0 : (n % 9 == 0 ? 9 : n % 9)));
+        }
+        
+        // Close the input scanner
+        in.close();
+        System.out.println("\n");  
+    }
+}
+```
 ### 109. Write a Java program to form a staircase shape of n coins where every k-th row must have exactly k coins.
+```java
+Example 1:
+n = 3
+The coins can form the following rows:
+$
+$ $
+We will return 2 rows.
+Example 2:
+n = 4
+The coins can form the following rows:
+$
+$ $
+$
+We will return 2 rows as the 3rd row is incomplete.
+Example 3:
+n = 5
+The coins can form the following rows:
+$
+$ $
+$ $
+We will return 2 rows as the 3rd row is incomplete.
 
+Sample Solution:
+
+Java Code:
+
+import java.util.Scanner;
+
+public class Example109 {
+    public static void main(String[] arg) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+
+        // Prompt the user to input a positive integer
+        System.out.print("Input a positive integer: ");
+        
+        // Read the user's input as an integer
+        int n = in.nextInt(); 
+
+        if (n > 0) {
+            // Check if n is a positive integer
+            double sqrtResult = Math.sqrt(8 * (long) n + 1);  // Calculate the square root
+            int numRows = (int) ((sqrtResult - 1) / 2);      // Calculate the number of rows
+            System.out.println("Number of rows: " + numRows);
+        }
+        
+        // Close the input scanner
+        in.close();
+    }	
+}
+```
 
 ### 110. Write a Java program to check whether the given integer is a power of 4 or not.
+
+Pictorial Presentation:
+
+Java Basic Exercises: Check whether a given integer is a power of 4 or not
+Sample Solution:
+
+Java Code:
+```java
+import java.util.Scanner;
+
+public class Example110 {
+    public static void main(String[] arg) {
+        int test = 0; // Initialize a variable 'test' to 0
+        Scanner in = new Scanner(System.in); // Create a Scanner object for user input
+
+        System.out.print("Input a positive integer: "); // Prompt the user to input a positive integer
+        
+        int n = in.nextInt(); // Read the user's input as an integer 
+
+        if (n < 1) {
+            System.out.print(Boolean.toString(false)); // If n is less than 1, print "false" and set 'test' to 1
+            test = 1;
+        }
+
+        if ((n & (n - 1)) != 0) {
+            System.out.print(Boolean.toString(false)); // If n is not a power of 2, print "false" and set 'test' to 1
+            test = 1;
+        }
+
+        if (test == 0) {
+            System.out.print(Boolean.toString((n & 0x55555555) != 0)); // If 'test' is 0, check if n has odd bits set and print the result
+        }
+
+        System.out.print("\n"); // Print a new line
+    }	
+}
+```
 Given num = 64, return true. Given num = 6, return false.
 
 
