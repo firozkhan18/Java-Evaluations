@@ -2752,6 +2752,31 @@ Divided by 3 & 5:
 
 
 ### 51. Write a Java program to convert a string to an integer.
+```java
+import java.util.*;
+
+public class Exercise51 {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+
+        // Prompt the user to input a number (as a string)
+        System.out.print("Input a number (string): ");
+
+        // Read the input string and store it in str1
+        String str1 = in.nextLine();
+
+        // Parse the string as an integer
+        int result = Integer.parseInt(str1);
+
+        // Display the integer value
+        System.out.printf("The integer value is: %d", result);
+
+        // Print a new line for better formatting
+        System.out.printf("\n");
+    }
+}
+```
 Sample Output:
 
 Input a number(string): 25                                             
@@ -2759,6 +2784,41 @@ The integer value is: 25
 
 
 ### 52. Write a Java program to calculate the sum of two integers and return true if the sum is equal to a third integer.
+
+```java
+import java.util.*;
+
+public class Exercise52 {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+        
+        // Prompt the user to input the first number
+        System.out.print("Input the first number: ");
+        int x = in.nextInt();
+
+        // Prompt the user to input the second number
+        System.out.print("Input the second number: ");
+        int y = in.nextInt();
+
+        // Prompt the user to input the third number
+        System.out.print("Input the third number: ");
+        int z = in.nextInt();
+
+        // Calculate the result using the sumoftwo function and display it
+        System.out.print("The result is: " + sumoftwo(x, y, z));
+
+        // Print a new line for better formatting
+        System.out.print("\n");
+    }
+    
+    // Function to check if the sum of two numbers equals the third number
+    public static boolean sumoftwo(int p, int q, int r) {
+        return ((p + q) == r || (q + r) == p || (r + p) == q);
+    }
+}
+```
+
 Sample Output:
 
 Input the first number : 5                                             
@@ -2768,6 +2828,45 @@ The result is: true
 
 
 ### 53. Write a Java program that accepts three integers from the user. It returns true if the second number is higher than the first number and the third number is larger than the second number. If "abc" is true, the second number does not need to be larger than the first number.
+```java
+import java.util.*;
+
+public class Exercise53 {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+        
+        // Prompt the user to input the first number
+        System.out.print("Input the first number: ");
+        int x = in.nextInt();
+
+        // Prompt the user to input the second number
+        System.out.print("Input the second number: ");
+        int y = in.nextInt();
+
+        // Prompt the user to input the third number
+        System.out.print("Input the third number: ");
+        int z = in.nextInt();
+
+        // Prompt the user to input a boolean value (true or false)
+        System.out.print("Input a boolean value (true/false): ");
+        boolean xyz = in.nextBoolean();
+
+        // Calculate the result using the test function and display it
+        System.out.print("The result is: " + test(x, y, z, xyz));
+
+        // Print a new line for better formatting
+        System.out.print("\n");
+    }
+    
+    // Function to test conditions based on boolean input
+    public static boolean test(int p, int q, int r, boolean xyz) {
+        if (xyz)
+            return (r > q);
+        return (q > p && r > q);
+    }
+}
+```
 Sample Output:
 
 Input the first number : 5                                             
@@ -2777,6 +2876,43 @@ The result is: true
 
 
 ### 54. Write a Java program that accepts three integers from the user and returns true if two or more of them (integers) have the same rightmost digit. The integers are non-negative.
+```java
+import java.util.*;
+
+public class Exercise54 {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+
+        // Prompt the user to input the first number
+        System.out.print("Input the first number: ");
+        int x = in.nextInt();
+
+        // Prompt the user to input the second number
+        System.out.print("Input the second number: ");
+        int y = in.nextInt();
+
+        // Prompt the user to input the third number
+        System.out.print("Input the third number: ");
+        int z = in.nextInt();
+
+        // Prompt the user to input a boolean value (true or false)
+        System.out.print("Input a boolean value (true/false): ");
+        boolean xyz = in.nextBoolean();
+
+        // Calculate the result using the test_last_digit function and display it
+        System.out.print("The result is: " + test_last_digit(x, y, z, xyz));
+
+        // Print a new line for better formatting
+        System.out.print("\n");
+    }
+
+    // Function to test if any two numbers have the same last digit based on the boolean input
+    public static boolean test_last_digit(int p, int q, int r, boolean xyz) {
+        return (p % 10 == q % 10) || (p % 10 == r % 10) || (q % 10 == r % 10);
+    }
+}
+```
 Sample Output:
 
 Input the first number : 5                                             
@@ -2786,6 +2922,32 @@ The result is: true
 
 
 ### 55. Write a Java program to convert seconds to hours, minutes and seconds.
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+
+        // Prompt the user to input the total seconds
+        System.out.print("Input seconds: ");
+        int seconds = in.nextInt();
+
+        // Calculate the hours, minutes, and seconds
+        int S = seconds % 60;  // Calculate the remaining seconds
+        int H = seconds / 60;  // Convert total seconds to minutes
+        int M = H % 60;         // Calculate the remaining minutes
+        H = H / 60;            // Convert total minutes to hours
+
+        // Display the time in the format HH:MM:SS
+        System.out.print(H + ":" + M + ":" + S);
+
+        // Print a new line for better formatting
+        System.out.print("\n");
+    }
+}
+```
 Sample Output:
 
 Input seconds: 86399                                                   
@@ -2793,6 +2955,40 @@ Input seconds: 86399
 
 
 ### 56. Write a Java program to find the number of values in a given range divisible by a given value.
+
+Sample Data:
+For example x = 5, y=20 and p =3, find the number of integers within the range x..y and that are divisible by p i.e. { i :x ≤ i ≤ y, i mod p = 0 }
+
+Sample Solution:
+
+Java Code:
+```java
+import java.util.*;
+
+public class Exercise56 {
+    public static void main(String[] args) {
+        // Initialize variables x, y, and p
+        int x = 5;
+        int y = 20;
+        int p = 3;
+
+        // Call the result method and print the result
+        System.out.println(result(x, y, p));
+    }
+
+    // Define a method to calculate the result based on x, y, and p
+    public static int result(int x, int y, int p) {
+        // Check if x is divisible by p
+        if (x % p == 0) {
+            // Calculate the result and return it
+            return (y / p - x / p + 1);
+        } else {
+            // Calculate the result and return it
+            return (y / p - x / p);
+        }
+    }
+}
+```
 For example x = 5, y=20 and p =3, find the number of integers within the range x..y and that are divisible by p i.e. { i :x ≤ i ≤ y, i mod p = 0 }
 Sample Output:
 
@@ -2800,6 +2996,39 @@ Sample Output:
 
 
 ### 57. Write a Java program to accept an integer and count the factors of the number.
+```java
+import java.util.*;
+
+public class Exercise57 {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+        System.out.print("Input an integer: ");
+        
+        // Read an integer from the user
+        int x = in.nextInt();
+        
+        // Call the result method and print the result
+        System.out.println(result(x));
+    }
+
+    // Define a method to calculate the number of divisors for a given integer
+    public static int result(int num) {
+        int ctr = 0;
+        
+        // Iterate from 1 to the square root of the input number
+        for (int i = 1; i <= (int) Math.sqrt(num); i++) {
+            // Check if 'i' is a divisor, and if it's not a perfect square
+            if (num % i == 0 && i * i != num) {
+                ctr += 2;  // Increase the count by 2
+            } else if (i * i == num) {
+                ctr++;  // If 'i' is a perfect square, increase the count by 1
+            }
+        }
+        return ctr;  // Return the total count of divisors
+    }
+}
+```
 Sample Output:
 
 Input an integer: 25                                                   
@@ -2807,6 +3036,37 @@ Input an integer: 25
 
 
 ### 58. Write a Java program to capitalize the first letter of each word in a sentence.
+```java
+import java.util.*;
+
+public class Exercise58 {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+        System.out.print("Input a Sentence: ");
+        
+        // Read a sentence from the user
+        String line = in.nextLine();
+        
+        // Initialize an empty string to store the result in uppercase
+        String upper_case_line = "";
+        
+        // Create a Scanner to process individual words in the sentence
+        Scanner lineScan = new Scanner(line);
+        
+        // Iterate through the words in the sentence
+        while (lineScan.hasNext()) {
+            String word = lineScan.next();
+            
+            // Capitalize the first letter of each word and append it to the result
+            upper_case_line += Character.toUpperCase(word.charAt(0)) + word.substring(1) + " ";
+        }
+        
+        // Remove trailing space and print the result in uppercase
+        System.out.println(upper_case_line.trim());
+    }
+}
+```
 Sample Output:
 
 Input a Sentence: the quick brown fox jumps over the lazy dog.         
@@ -2814,6 +3074,25 @@ The Quick Brown Fox Jumps Over The Lazy Dog.
 
 
 ### 59. Write a Java program to convert a string into lowercase.
+```java
+import java.util.*;
+public class Exercise59 {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+        System.out.print("Input a String: ");
+        
+        // Read a string from the user
+        String line = in.nextLine();
+        
+        // Convert the string to lowercase
+        line = line.toLowerCase();
+        
+        // Print the lowercase version of the input string
+        System.out.println(line);
+    }
+}
+```
 Sample Output:
 
 Input a String: THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.           
@@ -2821,6 +3100,26 @@ the quick brown fox jumps over the lazy dog.
 
 
 ### 60. Write a Java program to find the penultimate (next to the last) word in a sentence.
+```java
+import java.util.*;
+
+public class Exercise60 {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+        System.out.print("Input a Sentence: ");
+        
+        // Read a sentence from the user
+        String line = in.nextLine();
+        
+        // Split the sentence into words using one or more spaces as the delimiter
+        String[] words = line.split("[ ]+");
+        
+        // Print the penultimate word from the array
+        System.out.println("Penultimate word: " + words[words.length - 2]);
+    }
+}
+```
 Sample Output:
 
 Input a String: The quick brown fox jumps over the lazy dog.
@@ -2828,6 +3127,38 @@ Penultimate word: lazy
 
 
 ### 61. Write a Java program to reverse a word.
+
+```java
+import java.util.*;
+
+public class Exercise61 {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+        System.out.print("\nInput a word: ");
+        
+        // Read a word from the user
+        String word = in.nextLine();
+        
+        // Trim any leading or trailing whitespaces
+        word = word.trim();
+        
+        // Initialize an empty string for the reversed word
+        String result = ""; 
+        
+        // Convert the word to a character array
+        char[] ch = word.toCharArray();  
+        
+        // Reverse the word by iterating through the characters
+        for (int i = ch.length - 1; i >= 0; i--) {
+            result += ch[i];
+        }
+        
+        // Print the reversed word
+        System.out.println("Reverse word: " + result.trim()); 
+    }
+}
+```
 Sample Output:
 
 Input a word: dsaf
@@ -2835,6 +3166,32 @@ Reverse word: fasd
 
 
 ### 62. Write a Java program that accepts three integer values and returns true if one is 20 or more less than the others' subtractions.
+```java
+import java.util.*;
+
+public class Exercise62 {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+        
+        // Prompt the user to input the first number
+        System.out.print("Input the first number : ");
+        int x = in.nextInt();  // Read and store the first number
+        
+        // Prompt the user to input the second number
+        System.out.print("Input the second number: ");
+        int y = in.nextInt();  // Read and store the second number
+        
+        // Prompt the user to input the third number
+        System.out.print("Input the third number : ");
+        int z = in.nextInt();  // Read and store the third number
+        
+        // Calculate and print the result of the condition
+        // The condition checks if the absolute difference between the numbers is greater than or equal to 20
+        System.out.println((Math.abs(x - y) >= 20 || Math.abs(y - z) >= 20 || Math.abs(z - x) >= 20));
+    }
+}
+```
 Sample Output:
 
 Input the first number : 15                                            
@@ -2844,6 +3201,60 @@ false
 
 
 ### 63. Write a Java program that accepts two integer values from the user and returns the largest value. However if the two values are the same, return 0 and find the smallest value if the two values have the same remainder when divided by 6.
+
+Write a Java program that accepts two integer values from the user and returns the largest value. However if the two values are the same, return 0 and find the smallest value if the two values have the same remainder when divided by 6.
+Test Data:
+Input the first number : 12
+Input the second number: 13
+Result: 13
+Input the first number : 12
+Input the second number: 12
+Result: 0
+Input the first number : 6
+Input the second number: 18
+Result: 6
+
+Sample Solution:
+
+Java Code:
+```java
+import java.util.*;
+
+public class Exercise63 {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+
+        // Prompt the user to input the first number
+        System.out.print("Input the first number : ");
+        int a = in.nextInt();  // Read and store the first number
+        
+        // Prompt the user to input the second number
+        System.out.print("Input the second number: ");
+        int b = in.nextInt();  // Read and store the second number
+
+        // Call the result method with the two numbers and print the result
+        System.out.println("Result: " + result(a, b));
+    }
+
+    // Define a method to calculate the result based on two input numbers
+    public static int result(int x, int y) {
+        // Check if the two numbers are equal
+        if (x == y) {
+            return 0;
+        }
+        
+        // Check if the remainder when divided by 6 is the same for both numbers
+        if (x % 6 == y % 6) {
+            // If the remainder is the same, return the smaller number
+            return (x < y) ? x : y;
+        }
+        
+        // If the remainders are different, return the larger number
+        return (x > y) ? x : y;
+    }
+} 
+```
 Sample Output:
 
 Input the first number : 12                                            
@@ -2852,6 +3263,46 @@ Result: 13
 
 
 ### 64. Write a Java program that accepts two integer values between 25 and 75 and returns true if there is a common digit in both numbers.
+```java
+import java.util.*;
+
+public class Exercise64 {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+
+        // Prompt the user to input the first number
+        System.out.print("Input the first number : ");
+        int a = in.nextInt();  // Read and store the first number
+
+        // Prompt the user to input the second number
+        System.out.print("Input the second number: ");
+        int b = in.nextInt();  // Read and store the second number
+
+        // Call the common_digit method with the two numbers and print the result
+        System.out.println("Result: " + common_digit(a, b));
+    }
+
+    // Define a method to check if there's a common digit between two numbers
+    public static boolean common_digit(int p, int q) {
+        // Check if p is less than 25 or q is greater than 75
+        if (p < 25 || q > 75) {
+            return false;
+        }
+
+        // Extract the last digit of each number
+        int x = p % 10;
+        int y = q % 10;
+
+        // Remove the last digit from both numbers
+        p /= 10;
+        q /= 10;
+
+        // Check if there's a common digit by comparing the remaining digits
+        return (p == q || p == y || x == q || x == y);
+    }
+}
+```
 Sample Output:
 
 Input the first number : 35                                            
@@ -2860,6 +3311,45 @@ Result: true
 
 
 ### 65. Write a Java program to calculate the modules of two numbers without using any inbuilt modulus operator.
+
+Test data:
+Input the first number : 5
+Input the second number: 3
+2
+Input the first number : 19
+Input the second number: 7
+5
+
+Sample Solution:
+
+Java Code:
+```java
+import java.util.*;
+
+public class Exercise65 {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+
+        // Prompt the user to input the first number
+        System.out.print("Input the first number : ");
+        int a = in.nextInt();  // Read and store the first number
+
+        // Prompt the user to input the second number
+        System.out.print("Input the second number: ");
+        int b = in.nextInt();  // Read and store the second number
+
+        // Calculate the division result of a by b
+        int divided = a / b;
+
+        // Calculate the remainder of a divided by b
+        int result = a - (divided * b);
+
+        // Print the remainder
+        System.out.println(result);
+    }
+} 
+```
 Sample Output:
 
 Input the first number : 19                                            
@@ -2868,6 +3358,47 @@ Input the second number: 7
 
 
 ### 66. Write a Java program to compute the sum of the first 100 prime numbers.
+```java
+import java.util.*;
+
+public class Exercise66 {
+    public static void main(String[] args) {
+        // Initialize variables for sum, counter, and the number 'n'
+        int sum = 1;
+        int ctr = 0;
+        int n = 0;
+
+        // Iterate while the counter is less than 100
+        while (ctr < 100) {
+            n++;
+
+            // Check if the number is odd
+            if (n % 2 != 0) {
+                // If the number is prime, add it to the sum
+                if (is_Prime(n)) {
+                    sum += n;
+                }
+            }
+
+            // Increment the counter
+            ctr++;
+        }
+
+        // Print the sum of prime numbers up to 100
+        System.out.println("\nSum of the prime numbers till 100: " + sum);
+    }
+
+    // Check if a number is prime
+    public static boolean is_Prime(int n) {
+        for (int i = 3; i * i <= n; i += 2) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
 Sample Output:
 
 Sum of the first 100 prime numbers: 24133 
@@ -2875,24 +3406,93 @@ Sum of the first 100 prime numbers: 24133
 
 ### 67. Write a Java program to insert a word in the middle of another string.
 Insert "Tutorial" in the middle of "Python 3.0", so the result will be Python Tutorial 3.0.
+```java
+import java.lang.*;
+
+public class Exercise67 {
+    public static void main(String[] args) {
+        // Define the main string and the word to insert
+        String main_string = "Python 3.0";
+        String word = "Tutorial";
+
+        // Create a new string by concatenating substrings
+        String result = main_string.substring(0, 7) + word + main_string.substring(6);
+
+        // Print the resulting string
+        System.out.println(result);
+    }
+}
+```
 Sample Output:
 
 Python Tutorial 3.0
 
 
 ### 68. Write a Java program to create another string of 4 copies of the last 3 characters of the original string. The original string length must be 3 and above.
+```java
+import java.lang.*;
+
+public class Exercise68 {
+    public static void main(String[] args) {
+        // Define the main string
+        String main_string = "Python 3.0";
+
+        // Extract the last three characters from the main string
+        String last_three_chars = main_string.substring(main_string.length() - 3);
+
+        // Repeat the last three characters four times and print the result
+        System.out.println(last_three_chars + last_three_chars + last_three_chars + last_three_chars);
+    }
+}
+```
 Sample Output:
 
 3.03.03.03.0 
 
 
 ### 69. Write a Java program to extract the first half of a even string.
+```java
+import java.lang.*;
+
+public class Exercise69 {
+    public static void main(String[] args) {
+        // Define the main string
+        String main_string = "Python";
+
+        // Extract the substring from the beginning to the middle of the string
+        String substring = main_string.substring(0, main_string.length() / 2);
+
+        // Print the extracted substring
+        System.out.println(substring);
+    }
+}
+```
 Test Data: Python
 Sample Output:
 Pyt
 
 
 ### 70. Write a Java program to create a string in the form of short_string + long_string + short_string from two strings. The strings must not have the same length.
+```java
+import java.lang.*;
+
+public class Exercise70 {
+    public static void main(String[] args) {
+        // Define two strings
+        String str1 = "Python";
+        String str2 = "Tutorial";
+
+        // Check the lengths of the strings
+        if (str1.length() >= str2.length()) {
+            // Concatenate the strings in the order: str2 + str1 + str2
+            System.out.println(str2 + str1 + str2);
+        } else {
+            // Concatenate the strings in the order: str1 + str2 + str1
+            System.out.println(str1 + str2 + str1);
+        }
+    }
+}
+```
 Test Data: Str1 = Python
 Str2 = Tutorial
 Sample Output:
