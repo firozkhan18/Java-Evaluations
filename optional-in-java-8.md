@@ -1,5 +1,3 @@
-**README.md**
-
 # Optional in Java
 
 ## What is Optional?
