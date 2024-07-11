@@ -1,4 +1,5 @@
 https://www.w3resource.com/java-exercises/basic/index.php
+# Java Exercises Basic
 
 ### 1. Write a Java program to print 'Hello' on screen and your name on a separate line.
 
@@ -2511,6 +2512,7 @@ Input:
 Input a number:  1427
 6
 
+# Java Exercises Recursive
 
 https://www.w3resource.com/java-exercises/recursive/index.php
 ### 1. Write a Java recursive method to calculate the factorial of a given positive integer.
@@ -2571,6 +2573,7 @@ https://www.w3resource.com/java-exercises/recursive/index.php
 
 ### 15. Write a Java recursive method to check if a given array is sorted in ascending order.
 
+# Java Exercises Exception
 
 https://www.w3resource.com/java-exercises/exception/index.php
 Java Exceptions to handle errors:
@@ -2606,6 +2609,7 @@ This section covers how to catch and handle exceptions. It includes try, catch, 
 
 ### 7. Write a Java program to create a method that takes a string as input and throws an exception if the string does not contain vowels.
 
+# Java Exercises Array
 
 https://www.w3resource.com/java-exercises/array/index.php
 ### 1. Write a Java program to sort a numeric array and a string array.
@@ -3162,6 +3166,7 @@ Original array of elements:
 [p, r, s, t]
 Missing letter in the said array: q
 
+# Java Exercises Inheritance
 
 https://www.w3resource.com/java-exercises/index-inheritance.php
 Java Inheritance: In the Java language, classes can be derived from other classes, thereby inheriting fields and methods from those classes.
@@ -3204,6 +3209,8 @@ Classes can be derived from classes that are derived from classes that are deriv
 
 ### 10. Write a Java program that creates a class hierarchy for employees of a company. The base class should be Employee, with subclasses Manager, Developer, and  Programmer. Each subclass should have properties such as name, address, salary, and job title. Implement methods for calculating bonuses, generating performance reports, and managing projects.
 
+# Java Exercises Abstract
+
 https://www.w3resource.com/java-exercises/index-abstract.php
 All  programming languages provide abstractions. It can be argued that the complexity of the problems you’re able to solve is directly related to the kind and quality of abstraction. An essential element of object-oriented programming is an abstraction. For more information read this article.
 
@@ -3242,6 +3249,8 @@ All  programming languages provide abstractions. It can be argued that the compl
 
 ### 12. Write a Java program to create an abstract class GeometricShape with abstract methods area() and perimeter(). Create subclasses Triangle and Square that extend the GeometricShape class and implement the respective methods to calculate the area and perimeter of each shape.
 
+# Java Exercises Thread
+
 https://www.w3resource.com/java-exercises/thread/index.php
 In computer science, a thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler, which is typically a part of the  operating system. The implementation of threads and  processes differs between  operating systems.
 
@@ -3276,6 +3285,7 @@ Every thread has a priority. Threads with higher priority are executed in prefer
 
 ### 7. Write a Java program that creates a bank account with concurrent deposits and withdrawals using threads.
 
+# Java Exercises Multithreading
 
 https://www.w3resource.com/java-exercises/multithreading/index.php
 ### 1. Write a Java program to create and start multiple threads that increment a shared counter variable concurrently.
@@ -3336,6 +3346,7 @@ https://www.w3resource.com/java-exercises/multithreading/index.php
 
 ### 15. Write a Java program that utilizes the StampedLock class for optimizing concurrent read-write access to a shared resource.
 
+# Java Exercises Generic
 
 https://www.w3resource.com/java-exercises/generic/index.php
 Generic Methods:
@@ -3370,6 +3381,7 @@ The syntax for a generic method includes a list of type parameters, inside angle
 
 ### 7. Write a Java program to create a generic method that takes a map of any type and prints each key-value pair.
 
+# Java Exercises OOP
 
 https://www.w3resource.com/java-exercises/oop/index.php
 Object-oriented  programming: Object-oriented  programming (OOP) is a programming paradigm based on the concept of "objects", which can contain data and code. The data is in the form of fields (often known as attributes or properties), and the code is in the form of procedures (often known as methods).
@@ -3497,6 +3509,7 @@ If a source file has more than one class, each class is  compiled into a separat
 
 ### 30. Write a Java program to create a class called "GymMembership" with attributes for member name, membership type, and duration. Create a subclass "PremiumMembership" that adds attributes for personal trainer availability and spa access. Implement methods to calculate membership fees and check for special offers based on membership type.
 
+# Java Exercises Interface
 
 https://www.w3resource.com/java-exercises/index-interface.php
 ### 1. Write a Java program to create an interface Shape with the getArea() method. Create three classes Rectangle, Circle, and Triangle that implement the Shape interface. Implement the getArea() method for each of the three classes.
@@ -3529,7 +3542,9 @@ https://www.w3resource.com/java-exercises/index-interface.php
 ### 10. Write a Java program to create an interface Encryptable with methods encrypt (String data) and decrypt (String encryptedData) that define encryption and decryption operations. Create two classes AES and RSA that implement the Encryptable interface and provide their own encryption and decryption algorithms.
 
 
-11. Write a Java program to create an interface Sortable with a method sort (int[] array) that sorts an array of integers in descending order. Create two classes QuickSort and MergeSort that implement the Sortable interface and provide their own implementations of the sort() method.
+### 11. Write a Java program to create an interface Sortable with a method sort (int[] array) that sorts an array of integers in descending order. Create two classes QuickSort and MergeSort that implement the Sortable interface and provide their own implementations of the sort() method.
+
+# Java Exercises Encapsulation
 
 https://www.w3resource.com/java-exercises/encapsulation/index.php
 Java Encapsulation:
@@ -3562,6 +3577,7 @@ An object's encapsulation allows it to hide its data and methods. It is one of t
 
 ### 7. Write a Java program to create a class called Student with private instance variables student_id, student_name, and grades. Provide public getter and setter methods to access and modify the student_id and student_name variables. However, provide a method called addGrade() that allows adding a grade to the grades variable while performing additional validation.
 
+# Java Exercises Polymorphism
 
 https://www.w3resource.com/java-exercises/index-polymorphism.php
 Polymorphism
@@ -3602,6 +3618,8 @@ In Core, Java Polymorphism is one of easy concept to understand. Polymorphism de
 
 
 ### 12. Write a Java program to create a base class Shape with methods draw() and calculateArea(). Create two subclasses Circle and Cylinder. Override the draw() method in each subclass to draw the respective shape. In addition, override the calculateArea() method in the Cylinder subclass to calculate and return the total surface area of the cylinder.
+
+# Java Exercises String
 
 https://www.w3resource.com/java-exercises/string/index.php
 ### 1. Write a Java program to get the character at the given index within the string.
@@ -4697,6 +4715,8 @@ Input the second string:
 Check first string contains letters from the second string:
 true
 
+# Java Exercises Lambda
+
 https://www.w3resource.com/java-exercises/lambda/index.php
 ava 8 introduces several new language features designed to make it easier to write such blocks of code-the key feature being lambda expressions, also colloquially referred to as closures or anonymous methods. A lambda expression is just a shorter way of writing an implementation of a method for later execution.
 
@@ -4798,6 +4818,7 @@ ava 8 introduces several new language features designed to make it easier to wri
 
 ### 25. Write a Java program to implement a lambda expression to convert an integer to their corresponding binary representation.
 
+# Java Exercises Stream
 
 https://www.w3resource.com/java-exercises/stream/index.php
 Processing Data with  Java SE 8 Streams:
@@ -4837,6 +4858,7 @@ Aggregate operations: Streams support SQL-like operations and common operations 
 
 ### 8. Write a Java program to find the second smallest and largest elements in a list of integers using streams.
 
+# Java Exercises Method
 
 https://www.w3resource.com/java-exercises/method/index.php
 ### 1. Write a Java method to find the smallest number among three numbers.
@@ -5078,6 +5100,8 @@ Expected Output:
 Input a string:  AIEEE
 Check all the characters of the said string are vowels or not!
 true
+
+# Java Exercises Numbers
 
 https://www.w3resource.com/java-exercises/numbers/index.php
 ### 1. Write a Java program to check whether a given number is ugly.
@@ -5448,6 +5472,8 @@ Expected Output
 Input an integer:  25
 Is Lucky number? true
 
+# Java Exercises Collection
+
 https://www.w3resource.com/java-exercises/collection/index.php
 Java Collection Exercises [126 exercises with solution]
 Java Collection refers to a  framework provided by Java to store and manipulate groups of objects. It offers a set of interfaces (like List, Set, Queue, etc.) and classes (like ArrayList, HashSet, PriorityQueue, etc.) that provide different ways to organize and work with collections of elements. This  framework simplifies common operations such as adding, removing, and accessing elements. It offers a wide range of data structures to suit various programming needs.
@@ -5550,7 +5576,11 @@ Null Values: Allows null values to be associated with keys.
 Not Synchronized: Not inherently thread-safe; external synchronization needed for concurrent access.
 Performance: Offers guaranteed logarithmic time complexity for most operations.
 Navigable Map Operations: Provides additional operations for navigating elements based on their order.
+
+# Java Exercises Sorting
+
 https://www.w3resource.com/java-exercises/sorting/index.php
+
 ### 1. Write a Java program to sort an array of given integers using the Quick sort algorithm.
 Quick sort is a comparison sort, meaning it can sort items of any type for which a "less-than" relation (formally, a total order) is defined.
 
@@ -5644,6 +5674,7 @@ Stooge sort is a recursive sorting algorithm with a time complexity of O(nlog 3 
 
 Bucket sort is a sorting algorithm that distributes the elements of an array into a number of buckets. Each bucket is then sorted individually, either using a different sorting algorithm, or by recursively applying the bucket sorting algorithm. It is a distribution sort, a generalization of pigeonhole sort, and a cousin of radix sort in the most-to-least significant digit flavor.
 
+# Java Exercises Search
 
 https://www.w3resource.com/java-exercises/search/index.php
 ### 1. Write a Java program to find a specified element in a given array of elements using Binary Search.
