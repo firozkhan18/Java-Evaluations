@@ -299,3 +299,281 @@ Thats it for the common scenarios. There are other less common scenarios you can
 - Less Verbose Code - Reduces the amount of code needed to process a Collection.
 - Lesser intermediate variables - Intermediate variables can be an opportunity to make mistakes. Having fewer of them can help us avoid unexpected bugs.
 - Intuitive code - Some developers will disagree that streams are more intuitive than other methods. However, they are much more intuitive than other methods once we get used to them. Reading 5 lines to understand that we are filtering and removing products from a list isn't intuitive compared to reading just a filter() method.
+
+## Java Streams By Example
+
+In this blog, we are going to take a closer look at the Java 8 Streams API. We will mainly do so by means of examples. We will cover many operations and after reading this blog, you will have a very good basic understanding of the Streams API. Enjoy reading!
+
+## 1. Introduction
+The Streams API has been introduced in Java 8 and has been part of the Java language specification for several years by now. Nevertheless, it might be that Streams seem a bit magical to you. Therefore, we will cover the basic concepts of Streams and explain them with some examples.
+
+It all starts with the java.util.stream package. The offical Java documentation for this package which contains some good reference documentation, can be found here. Some characteristics of Streams (taken from the official documentation) compared to Collections are:
+
+Streams do not store data. Instead, they are a source for data.
+Streams are functional in nature and this is probably why Streams are difficult to comprehend for most people. They produce a result, e.g. like a sum or a new Stream.
+Streams are lazyness seeking. Operations can be intermediate or terminal. We will cover both in the next sections. Intermediate operations are always lazy. E.g. find the first occurrence of an element in the Stream. It is not necessary to inspect all elements of the Stream. Once the first occurrence has been found, the search can be ended.
+Possibly unbounded. As long as the Stream produces data, the Stream will not end.
+The elements of a Stream can only be visited once, just like an Iterator.
+In the next sections we will cover how to create Streams, cover some intermediate operations and finally we will cover some terminal operations. The sources are available at GitHub.
+
+## 2. Create a Stream Source
+There are several ways for creating Streams. They can be created from a Collection, from an Array, from a file, etc. In this section, we will create some tests which will show you how to create Streams in varying ways. We will create the Stream and use the terminal operation collect in order to consume the Stream into a List. We do not perform any other operations on the Stream yet, we leave that for the other sections. At the end, we assert whether the List is identical to what we expect. The tests are located in the MyJavaStreams unit test.
+
+## 2.1 Create a Stream From a Collection
+Assume having a List of Strings named stringsList. We can just call the stream method of the List and then collect the results into a new List. Fairly simple and both lists are equal of course.
+```java
+private static final List<String> stringsList = Arrays.asList("a", "b", "c");
+ 
+@Test
+public void createStreamsFromCollection() {
+    List<String> streamedStrings = stringsList.stream().collect(Collectors.toList());
+    assertLinesMatch(stringsList, streamedStrings);
+}
+```
+## 2.2 Create a Stream From Arrays
+We can use Arrays.stream which takes an Array as an argument in order to create a Stream.
+```java
+@Test
+public void createStreamsFromArrays() {
+    List<String> streamedStrings = Arrays.stream(new String[]{"a", "b", "c"}).collect(Collectors.toList());
+    assertLinesMatch(stringsList, streamedStrings);
+}
+```
+## 2.3 Create a Stream From Stream.of
+We can use Stream.of which takes the elements of the Stream as arguments in order to create a Stream.
+```java
+@Test
+public void createStreamsFromStreamOf() {
+    List<String> streamedStrings = Stream.of("a", "b", "c").collect(Collectors.toList());
+    assertLinesMatch(stringsList, streamedStrings);
+}
+```
+## 2.4 Create a Stream From IntStream
+We can use IntStream.of which takes primitive integer values as arguments in order to create a Stream. DoubleStream.of and LongStream.of also can be used. Note that we use the terminal operation toArray in this case, this will return an array containing the elements of the Stream.
+```java
+@Test
+public void createStreamsFromIntStream() {
+    int[] streamedInts = IntStream.of(1, 2, 3).toArray();
+    assertArrayEquals(new int[]{1, 2, 3}, streamedInts);
+}
+```
+## 2.5 Create a Stream From a File
+We can create a Stream from a file inputFile. The lines method of the BufferedReader class will stream the lines.
+```java
+@Test
+public void createStreamsFromFile() {
+    try {
+        List<String> expectedLines = Arrays.asList("line1", "line2", "line3");
+        BufferedReader reader = new BufferedReader(new FileReader(new File("test/com/mydeveloperplanet/inputfile.txt")));
+        List<String> streamedLines = reader.lines().collect(Collectors.toList());
+        assertLinesMatch(expectedLines, streamedLines);
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+    }
+}
+```
+## 3. Intermediate operations
+Streams become interesting when we can perform operations to them. The first category are intermediate operations. These operations return a new Stream but do not return a final result. The intermediate operations can be categorized into stateless operations, retaining no information about the previously processed element, and stateful operations which may need to process all of the elements before producing an intermediate result.
+
+The complete list of operations which can be invoked, can be found in the Streams API.
+
+In the folowing examples, we will make use of a Car object containing four parameters: id, brand, type and color. The Car object also contains getters and implementations for equals, hashCode and toString, which we do not list here for brevity, but it should be clear what these do.
+```java
+public class Car {
+    private int id;
+    private String brand;
+    private String type;
+    private String color;
+ 
+    public Car (int id, String brand, String type, String color) {
+        this.id = id;
+        this.brand = brand;
+        this.type = type;
+        this.color = color;
+    }
+    ...
+}
+```
+In the unit test, we define four Car objects which we will use in the next examples:
+```java
+private static final Car volkswagenGolf = new Car(0, "Volkswagen", "Golf", "blue");
+private static final Car skodaOctavia = new Car(1, "Skoda", "Octavia", "green");
+private static final Car renaultKadjar = new Car(2, "Renault", "Kadjar", "red");
+private static final Car volkswagenTiguan = new Car(3, "Volkswagen", "Tiguan", "red");
+```
+## 3.1 Stateless Operations
+### 3.1.1 The Filter Operation
+The filter operation allows us to create a new Stream based on a given Predicate. In the example, we first create a Stream of the 4 cars and create a new Stream with only the Volkswagen cars.
+```java
+@Test
+public void filterStream() {
+    List<Car> expectedCars = Arrays.asList(volkswagenGolf, volkswagenTiguan);
+    List<Car> filteredCars = Stream.of(volkswagenGolf, skodaOctavia, renaultKadjar, volkswagenTiguan)
+                                   .filter(car -> car.getBrand().equals("Volkswagen"))
+                                   .collect(Collectors.toList());
+    assertIterableEquals(expectedCars, filteredCars);
+}
+```
+### 3.1.2 The map Operation
+In all the previous examples, the types in the source Stream and the resulting Stream were always identical. Often, you want to apply a function on each element. E.g. if we want the resulting Stream to only contain the brands instead of the Car objects, we can use the map operation and apply the getBrand method to each element which results in a new Stream with only the brand names.
+```java
+@Test
+public void mapStream() {
+    List<String> expectedBrands = Arrays.asList("Volkswagen", "Skoda", "Renault", "Volkswagen");
+    List<String> brands = Stream.of(volkswagenGolf, skodaOctavia, renaultKadjar, volkswagenTiguan)
+                                .map(Car::getBrand)
+                                .collect(Collectors.toList());
+    assertIterableEquals(expectedBrands, brands);
+}
+```
+### 3.1.3 Combine filter and map operation
+Of course, it is perfectly valid to combine operations and chain them in a Stream pipeline. In the next example, we filter in order to retrieve the Volkswagen cars and then use the map operation in order to retrieve only the colors. This way, we end up with a list containing the colors of the Volkswagen cars.
+```java
+@Test
+public void filterMapStream() {
+    List<String> expectedColors = Arrays.asList("blue", "red");
+    List<String> volkswagenColors = Stream.of(volkswagenGolf, skodaOctavia, renaultKadjar, volkswagenTiguan)
+                                          .filter(car -> car.getBrand().equals("Volkswagen"))
+                                          .map(Car::getColor)
+                                          .collect(Collectors.toList());
+    assertIterableEquals(expectedColors, volkswagenColors);
+}
+```
+## 3.2 Stateful Operations
+### 3.2.1 The distinct Operation
+The distinct operation will return a Stream containing only distinct elements based on equals method implementation of the elements. In the next example, we first retrieve a Stream of the brands and then perform the distinct operation to it. This results in a list of the three distinct brands we used.
+```java
+@Test
+public void distinctStream() {
+    List<String> expectedBrands = Arrays.asList("Volkswagen", "Skoda", "Renault");
+    List<String> brands = Stream.of(volkswagenGolf, skodaOctavia, renaultKadjar, volkswagenTiguan)
+                                .map(Car::getBrand)
+                                .distinct()
+                                .collect(Collectors.toList());
+    assertIterableEquals(expectedBrands, brands);
+}
+```
+### 3.2.2 The sorted Operation
+The sorted operation will sort the elements of the Stream according to their natural order. It is also possible to use a Comparator as an argument in order to have a more custom sorting. The next example will retrieve the brands from the Stream and sort them alphabetically.
+```java
+@Test
+public void sortedStream() {
+    List<String> expectedSortedBrands = Arrays.asList("Renault", "Skoda", "Volkswagen", "Volkswagen");
+    List<String> brands = Stream.of(volkswagenGolf, skodaOctavia, renaultKadjar, volkswagenTiguan)
+                                .map(Car::getBrand)
+                                .sorted()
+                                .collect(Collectors.toList());
+    assertIterableEquals(expectedSortedBrands, brands);
+}
+```
+## 3.3 Peek For Debugging Purposes
+The last intermediate operation we will discuss is the peek operation. This is a special one and is mainly intended to be used for debugging purposes. Peek will execute an action on the element when it is being consumed. Let’s take the combined filter and map example and add some peek operations to it in order to print the elements being consumed.
+```java
+@Test
+public void peekStream() {
+    List<String> expectedColors = Arrays.asList("blue", "red");
+    List<String> volkswagenColors = Stream.of(volkswagenGolf, skodaOctavia, renaultKadjar, volkswagenTiguan)
+                                          .filter(car -> car.getBrand().equals("Volkswagen"))
+                                          .peek(e -> System.out.println("Filtered value: " + e))
+                                          .map(Car::getColor)
+                                          .peek(e -> System.out.println("Mapped value: " + e))
+                                          .collect(Collectors.toList());
+    assertIterableEquals(expectedColors, volkswagenColors);
+}
+```
+The output of this test is:
+
+Filtered value: Car{id=0, brand='Volkswagen', type='Golf', color='blue'}
+Mapped value: blue
+Filtered value: Car{id=3, brand='Volkswagen', type='Tiguan', color='red'}
+Mapped value: red
+## 4. Terminal Operations
+In this section, we will cover some terminal operations.
+
+### 4.1 The collect Operation
+We already used the collect terminal operation in all of the previous examples. We always used the Collectors.toList argument in the collect operation. There are more options to use though. We will cover some in the next examples. The complete list can be found in the JavaDoc.
+
+With Collectors.joining, we can concatenate the elements as String separated by a delimiter.
+```java
+@Test
+public void collectJoinStream() {
+    String expectedBrands = "Volkswagen;Skoda;Renault;Volkswagen";
+    String joinedBrands = Stream.of(volkswagenGolf, skodaOctavia, renaultKadjar, volkswagenTiguan)
+                                .map(Car::getBrand)
+                                .collect(Collectors.joining(";"));
+    assertEquals(expectedBrands, joinedBrands);
+}
+```
+With Collectors.summingInt, we can compute the sum of properties of elements. In our example, we just compute the sum of the id’s of the Cars.
+```java
+@Test
+public void collectSummingIntStream() {
+    int sumIds = Stream.of(volkswagenGolf, skodaOctavia, renaultKadjar, volkswagenTiguan)
+                       .collect(Collectors.summingInt(Car::getId));
+   assertEquals(6, sumIds);
+}
+```
+With Collectors.groupingBy, we can group elements in a Map. In our example, we group the elements based on the brand.
+```java
+@Test
+public void collectGroupingByStream() {
+    Map<String, List<Car>> expectedCars = new HashMap<>();
+    expectedCars.put("Skoda", Arrays.asList(skodaOctavia));
+    expectedCars.put("Renault", Arrays.asList(renaultKadjar));
+    expectedCars.put("Volkswagen", Arrays.asList(volkswagenGolf, volkswagenTiguan));
+ 
+    Map<String, List<Car>> groupedCars = Stream.of(volkswagenGolf, skodaOctavia, renaultKadjar, volkswagenTiguan)
+                                               .collect(Collectors.groupingBy(Car::getBrand));
+    assertTrue(expectedCars.equals(groupedCars));
+}
+```
+### 4.2 The reduce Operation
+The reduce operation performs a reduction on the elements of a Stream. It uses an identity (i.e. starting value) and an accumalator function which performs the reduction. In our example, we perform a summation over the id’s of the elements, just like we did when we used the Collectors.summingInt collect operation.
+```java
+@Test
+public void reduceStream() {
+    int sumIds = Stream.of(volkswagenGolf, skodaOctavia, renaultKadjar, volkswagenTiguan)
+                       .map(Car::getId)
+                       .reduce(0, Integer::sum);
+    assertEquals(6, sumIds);
+}
+```
+### 4.3 The forEach Operation
+The forEach operation performs a function to every element. It is quite similar to the intermediate peek operation.
+```java
+@Test
+public void forEachStream() {
+    Stream.of(volkswagenGolf, skodaOctavia, renaultKadjar, volkswagenTiguan)
+          .forEach(System.out::println);
+}
+```
+The outcome of this test is the following:
+```java
+Car{id=0, brand='Volkswagen', type='Golf', color='blue'}
+Car{id=1, brand='Skoda', type='Octavia', color='green'}
+Car{id=2, brand='Renault', type='Kadjar', color='red'}
+Car{id=3, brand='Volkswagen', type='Tiguan', color='red'}
+```
+### 4.4 The count operation
+The count operation counts the number of elements in the Stream.
+```java
+@Test
+public void countStream() {
+    long count = Stream.of(volkswagenGolf, skodaOctavia, renaultKadjar, volkswagenTiguan).count();
+    assertEquals(4, count);
+}
+```
+### 4.5 The max Operation
+The max operation returns the maximum element of the Stream based on the given Comparator. In our example, we create a Stream of the id’s and retrieve the element with the highest id. Remark that this returns an Optional. We just provided an alternative value when the highest id could not be determined.
+```java
+@Test
+public void maxStream() {
+    int maxId = Stream.of(volkswagenGolf, skodaOctavia, renaultKadjar, volkswagenTiguan)
+                      .map(Car::getId)
+                      .max((o1, o2) -> o1.compareTo(o2))
+                      .orElse(-1);
+    assertEquals(3, maxId);
+}
+```
+### 5. Conclusion
+The Java Streams API is very powerful and not very difficult to learn. It is very readable and removes boiler plate code. If you are not yet acquainted with the Streams API, just play around with the provided examples and you will be up to speed in no time. 
