@@ -1,4 +1,85 @@
 1. Write a Java program to print 'Hello' on screen and your name on a separate line.
+
+Write a Java program to print 'Hello' on screen and your name on a separate line.
+
+Pictorial Presentation:
+
+Java: Print hello and your name on a separate lines
+Sample Solution:
+
+Java Code:
+```java
+public class Exercise1 { 
+    public static void main(String[] args) {
+        // Print a greeting message to the console
+        System.out.println("Hello\nAlexandra Abramov!");
+    } 
+}
+```
+Explanation:
+
+In the exercise above
+
+The "main()" method is the program entry point.
+It uses System.out.println to print the message.
+The message consists of two lines: "Hello" and "Alexandra Abramov!" separated by a newline character (\n).
+When we run this Java program, we'll see this message displayed in the console or terminal.
+
+Sample Output:
+
+Hello                                                                                                      
+Alexandra Abramov!
+Flowchart:
+
+Flowchart: Print hello and your name on a separate lines
+Sample solution using input from the user:
+
+Java Code:
+```java
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        // Create a Scanner object to read input from the console
+        Scanner input = new Scanner(System.in);
+        // Prompt the user to input their first name
+        System.out.print("Input your first name: ");
+        String fname = input.next();
+        // Prompt the user to input their last name
+        System.out.print("Input your last name: ");
+        String lname = input.next();
+        // Output a greeting message with the user's full name
+        System.out.println();
+        System.out.println("Hello \n" + fname + " " + lname);
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+import java.util.Scanner;: This code imports the "Scanner" class, which allows the program to read input from the user.
+public class Main {: This code declares a class named "Main," and it contains the main method, which is the entry point of the program.
+public static void main(String[] args) {: This line defines the main method. Here's what each part means:
+public: This keyword indicates that the method can be accessed from outside the class.
+static: This keyword means that the method belongs to the class itself, not to a specific instance of the class.
+void: This specifies that the main method doesn't return any value.
+main: This is the name of the method.
+(String[] args): This is the method's parameter list, which accepts an array of strings. In this case, it's not used.
+Scanner input = new Scanner(System.in);: This code creates a Scanner object named input to read input from the console (user's keyboard).
+System.out.print("Input your first name: ");: This code prints a message to the console, asking the user to input their first name.
+String fname = input.next();: This code reads the user's input for their first name and stores it in the variable fname.
+System.out.print("Input your last name: ");: This code prints a message to the console, asking the user to input their last name.
+String lname = input.next();: This code reads the user's input for their last name and stores it in the variable lname.
+System.out.println();: This code prints a blank line to separate the output.
+System.out.println("Hello \n" + fname + " " + lname);: This code prints a greeting message to the console. It combines the user's full name with the text "Hello" and a newline character (\n) to create a formatted greeting message.
+Sample Output:
+
+Input your first name:  James 
+Input your last name:  Smith
+
+Hello 
+James Smith
+
 Expected Output :
 Hello
 Alexandra Abramov
