@@ -1161,6 +1161,64 @@ Hexadecimal number is : F
 
 
 ### 21. Write a Java program to convert a decimal number to an octal number.
+
+Decimal number: The decimal numeral system is the standard system for denoting integer and non-integer numbers. It is also called base-ten positional numeral system.
+
+Octal number: The octal numeral system is the base-8 number system, and uses the digits 0 to 7.
+
+Pictorial Presentation: Decimal to Octal number
+
+Java: Convert a decimal number to octal number
+Sample Solution:
+
+Java Code:
+```java
+import java.util.Scanner;
+
+public class Exercise21 {
+    public static void main(String args[]) {
+        // Declare variables to store decimal number, remainder, quotient, and an array for octal digits
+        int dec_num, rem, quot, i = 1, j;
+        int oct_num[] = new int[100];
+        
+        // Create a Scanner object to read input from the user
+        Scanner scan = new Scanner(System.in);
+
+        // Prompt the user to input a decimal number
+        System.out.print("Input a Decimal Number: ");
+        dec_num = scan.nextInt();
+
+        // Initialize the quotient with the decimal number
+        quot = dec_num;
+
+        // Convert the decimal number to octal and store octal digits
+        while (quot != 0) {
+            oct_num[i++] = quot % 8;
+            quot = quot / 8;
+        }
+
+        // Display the octal representation of the decimal number
+        System.out.print("Octal number is: ");
+        for (j = i - 1; j > 0; j--) {
+            System.out.print(oct_num[j]);
+        }
+        
+        System.out.print("\n");
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+It takes a decimal number ('dec_num') as input from the user using the "Scanner" class.
+It initializes an array 'oct_num' to store the octal digits of the converted number and other necessary variables.
+It enters a loop to perform the decimal-to-octal conversion:
+In each iteration, it calculates the remainder of 'dec_num' when divided by 8 and stores it in the 'oct_num' array.
+It then updates 'dec_num' by dividing it by 8 (which effectively shifts it to the right).
+The loop continues until 'dec_num' becomes zero, effectively converting the entire decimal number to octal.
+After the loop, it prints the octal representation of the decimal number by iterating through the 'oct_num' array in reverse order.
+
 Input Data:
 Input a Decimal Number: 15
 Expected Output
@@ -1169,6 +1227,59 @@ Octal number is: 17
 
 
 ### 22. Write a Java program to convert a binary number to a decimal number.
+
+Binary number: A binary number is a number expressed in the base-2 numeral system or binary numeral system. This system uses only two symbols: typically 1 (one) and 0 (zero).
+
+Decimal number: The decimal numeral system is the standard system for denoting integer and non-integer numbers. It is also called base-ten positional numeral system.
+
+Pictorial Presentation: Binary to Decimal number
+
+Java: Convert a binary number to decimal number
+Sample Solution:
+
+Java Code:
+```java
+import java.util.Scanner;
+
+public class Exercise22 {
+    public static void main(String[] args) {
+        // Create a Scanner object to read input from the user
+        Scanner sc = new Scanner(System.in);
+        
+        // Declare variables to store binary and decimal numbers, remainder, and a multiplier
+        long binaryNumber, decimalNumber = 0, j = 1, remainder;
+        
+        // Prompt the user to input a binary number
+        System.out.print("Input a binary number: ");
+        binaryNumber = sc.nextLong();
+
+        // Convert the binary number to decimal
+        while (binaryNumber != 0) {
+            remainder = binaryNumber % 10;
+            decimalNumber = decimalNumber + remainder * j;
+            j = j * 2;
+            binaryNumber = binaryNumber / 10;
+        }
+        
+        // Display the decimal representation of the binary number
+        System.out.println("Decimal Number: " + decimalNumber);
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+It takes a binary number as input from the user using the "Scanner" class and stores it in the variable 'binaryNumber'.
+It initializes a variable 'decimalNumber' to store the decimal equivalent and another variable 'j' as a multiplier, starting from 1.
+It enters a loop to perform the binary-to-decimal conversion:
+In each iteration, it calculates the remainder when the 'binaryNumber' is divided by 10 (which gives the least significant binary digit).
+It then adds this remainder multiplied by the current value of 'j' to the 'decimalNumber'.
+It multiplies 'j' by 2 to prepare for the next binary digit.
+It updates 'binaryNumber' by removing the least significant digit (rightmost) and by dividing it by 10.
+The loop continues until 'binaryNumber' becomes zero, effectively converting the entire binary number to decimal.
+After the loop, it prints the decimal representation of the binary number stored in the 'decimalNumber' variable.
+
 Input Data:
 Input a binary number: 100
 Expected Output
@@ -1177,6 +1288,83 @@ Decimal Number: 4
 
 
 ### 23. Write a Java program to convert a binary number to a hexadecimal number.
+
+Binary number: A binary number is a number expressed in the base-2 numeral system or binary numeral system. This system uses only two symbols: typically 0(zero) and 1(one).
+
+Hexadecimal number: This is a positional numeral system with a radix, or base, of 16. Hexadecimal uses sixteen distinct symbols, most often the symbols 0-9 to represent values zero to nine, and A, B, C, D, E, F (or alternatively a, b, c, d, e, f) to represent values ten to fifteen.
+
+Test Data:
+Input a binary number: 1101
+
+Pictorial Presentation: Binary to Hexadecimal number
+
+Java: Convert a binary number to hexadecimal number
+Sample Solution:
+
+Java Code:
+```java
+import java.util.Scanner;
+
+public class Exercise23 {
+    public static void main(String[] args) {
+        // Declare an array to store hexadecimal digits, variables for calculation, and binary input
+        int[] hex = new int[1000];
+        int i = 1, j = 0, rem, dec = 0, bin;
+
+        // Create a Scanner object to read input from the user
+        Scanner in = new Scanner(System.in);
+
+        // Prompt the user to input a binary number
+        System.out.print("Input a Binary Number: ");
+        bin = in.nextInt();
+
+        // Convert the binary number to decimal
+        while (bin > 0) {
+            rem = bin % 2;
+            dec = dec + rem * i;
+            i = i * 2;
+            bin = bin / 10;
+        }
+        i = 0;
+
+        // Convert the decimal number to hexadecimal
+        while (dec != 0) {
+            hex[i] = dec % 16;
+            dec = dec / 16;
+            i++;
+        }
+
+        // Display the hexadecimal value
+        System.out.print("Hexadecimal value: ");
+        for (j = i - 1; j >= 0; j--) {
+            if (hex[j] > 9) {
+                System.out.print((char)(hex[j] + 55));
+            } else {
+                System.out.print(hex[j]);
+            }
+        }
+        System.out.print("\n");
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+Initializes an array 'hex' to store the hexadecimal digits of the converted number, as well as other necessary variables.
+It takes a binary number as input from the user using the "Scanner" class and stores it in the variable 'bin'.
+It enters a loop to convert the binary number to decimal:
+In each iteration, it calculates the remainder when the 'bin' is divided by 2 (which gives the least significant binary digit).
+It adds this remainder multiplied by 'i' to the 'dec' variable to accumulate the decimal value.
+It multiplies 'i' by 2 to prepare for the next binary digit.
+It updates 'bin' by removing the least significant digit (rightmost) by dividing it by 10.
+The loop continues until 'bin' becomes zero, effectively converting the entire binary number to decimal.
+After converting to decimal, it enters another loop to convert the decimal number to hexadecimal:
+In each iteration, it calculates the remainder when 'dec' is divided by 16 (which gives the least significant hexadecimal digit).
+It stores this remainder in a 'hex' array.
+It updates 'dec' by dividing it by 16 to move to the next hexadecimal digit.
+Finally, it prints the hexadecimal representation of the original binary number by iterating through the 'hex' array in reverse order. It also handles hexadecimal digits greater than 9 by converting them to the corresponding letters A-F.
+
 Input Data:
 Input a Binary Number: 1101
 Expected Output
@@ -1185,6 +1373,81 @@ HexaDecimal value: D
 
 
 ### 24. Write a Java program to convert a binary number to an octal number.
+
+Binary number: A binary number is a number expressed in the base-2 numeral system or binary numeral system. This system uses only two symbols: typically 0(zero) and 1(one).
+
+Octal number: The octal numeral system is the base-8 number system, and uses the digits 0 to 7.
+
+Test Data:
+Input a binary number: 111
+
+Pictorial Presentation: Binary to Octal number
+
+Java: Convert a binary number to a Octal number
+Sample Solution:
+
+Java Code:
+```java
+import java.util.*;
+
+public class Exercise24 {
+    public static void main(String[] args) {
+        // Declare variables to store binary and decimal numbers, remainder, quotient, and an array for octal digits
+        int binnum, binnum1, rem, decnum = 0, quot, i = 1, j;
+        int octnum[] = new int[100];
+
+        // Create a Scanner object to read input from the user
+        Scanner scan = new Scanner(System.in);
+
+        // Prompt the user to input a binary number
+        System.out.print("Input a Binary Number : ");
+        binnum = scan.nextInt();
+        binnum1 = binnum;
+
+        // Convert the binary number to decimal
+        while (binnum > 0) {
+            rem = binnum % 10;
+            decnum = decnum + rem * i;
+            i = i * 2;
+            binnum = binnum / 10;
+        }
+
+        i = 1;
+        quot = decnum;
+
+        // Convert the decimal number to octal
+        while (quot > 0) {
+            octnum[i++] = quot % 8;
+            quot = quot / 8;
+        }
+
+        // Display the equivalent octal value of the original binary number
+        System.out.print("Equivalent Octal Value of " + binnum1 + " is :");
+        for (j = i - 1; j > 0; j--) {
+            System.out.print(octnum[j]);
+        }
+        System.out.print("\n");
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+First, initialize an array 'octnum' to store the octal digits of the converted number and other necessary variables.
+It takes a binary number as input from the user using the "Scanner" class and stores it in the variable 'binnum'.
+Next it enters a loop to convert the binary number to decimal:
+In each iteration, it calculates the remainder when 'binnum' is divided by 10 (which gives the least significant binary digit).
+It adds this remainder multiplied by i to the 'decnum' variable to accumulate the decimal value.
+It multiplies 'i' by 2 to prepare for the next binary digit.
+It updates 'binnum' by removing the least significant digit (rightmost) and by dividing it by 10.
+The loop continues until 'binnum' becomes zero, effectively converting the entire binary number to decimal.
+After converting to decimal, it enters another loop to convert the decimal number to octal:
+In each iteration, it calculates the remainder when 'decnum' is divided by 8 (which gives the least significant octal digit).
+It stores this remainder in the 'octnum' array.
+It updates 'decnum' by dividing it by 8 to move to the next octal digit.
+Finally, it prints the octal representation of the original binary number by iterating through the 'octnum' array in reverse order.
+
 Input Data:
 Input a Binary Number: 111
 Expected Output
@@ -1193,6 +1456,61 @@ Octal number: 7
 
 
 ### 25. Write a Java program to convert a octal number to a decimal number.
+
+Octal number: The octal numeral system is the base-8 number system, and uses the digits 0 to 7.
+
+Decimal number: The decimal numeral system is the standard system for denoting integer and non-integer numbers. It is also called base-ten positional numeral system.
+
+Test Data:
+Input any octal number: 10
+
+Pictorial Presentation: Octal to Decimal number
+
+Java: Convert a octal number to a decimal number
+Sample Solution:
+
+Java Code:
+```java
+import java.util.Scanner;
+
+public class Exercise25 {
+    public static void main(String[] args) {
+        // Create a Scanner object to read input from the user
+        Scanner in = new Scanner(System.in);
+        
+        // Declare variables to store octal and decimal numbers, and an index counter
+        long octal_num, decimal_num = 0;
+        int i = 0;
+        
+        // Prompt the user to input an octal number
+        System.out.print("Input any octal number: ");
+        octal_num = in.nextLong();
+        
+        // Convert the octal number to decimal
+        while (octal_num != 0) {
+            decimal_num = (long)(decimal_num + (octal_num % 10) * Math.pow(8, i++));
+            octal_num = octal_num / 10;
+        }
+        
+        // Display the equivalent decimal number
+        System.out.print("Equivalent decimal number: " + decimal_num + "\n");
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+First, it takes an octal number as input from the user using the "Scanner" class and stores it in the variable 'octal_num'.
+It initializes a variable 'decimal_num' to store the decimal equivalent and another variable 'i' to keep track of the position of each octal digit.
+It enters a loop to perform the octal-to-decimal conversion:
+In each iteration, it calculates the remainder when 'octal_num' is divided by 10 (which gives the least significant octal digit).
+It multiplies this remainder by 8 raised to the power of 'i' and adds it to 'decimal_num' to accumulate the decimal value.
+To move to the next octal digit, it increments i.
+It updates 'octal_num' by removing the least significant digit (rightmost) by dividing it by 10.
+The loop continues until 'octal_num' becomes zero, effectively converting the entire octal number to decimal.
+After the loop, it prints the decimal representation of the original octal number stored in the ‘decimal_num’ variable.
+
 Input Data:
 Input any octal number: 10
 Expected Output
@@ -1201,6 +1519,71 @@ Equivalent decimal number: 8
 
 
 ### 26. Write a Java program to convert a octal number to a binary number.
+
+Octal number: The octal numeral system is the base-8 number system, and uses the digits 0 to 7.
+
+Binary number: A binary number is a number expressed in the base-2 numeral system or binary numeral system. This system uses only two symbols: typically 1 (one) and 0 (zero).
+
+Test Data:
+Input any octal number: 7
+
+Pictorial Presentation: Octal to Binary number
+
+Java: Convert a octal number to a binary number
+Sample Solution:
+
+Java Code:
+
+```java
+import java.util.Scanner;
+
+public class Exercise26 {
+    public static void main(String[] args) {
+        // Create a Scanner object to read input from the user
+        Scanner in = new Scanner(System.in);
+        
+        // Define an array to map octal digits to their binary equivalents
+        int[] octal_numvalues = {0, 1, 10, 11, 100, 101, 110, 111};
+        
+        // Declare variables to store octal, temporary octal, and binary numbers, and a place value
+        long octal_num, tempoctal_num, binary_num, place;
+        int rem;
+        
+        // Prompt the user to input an octal number
+        System.out.print("Input any octal number: ");
+        octal_num = in.nextLong();
+        tempoctal_num = octal_num;
+        binary_num = 0;
+        place = 1;
+        
+        // Convert the octal number to binary using the mapping array
+        while (tempoctal_num != 0) {
+            rem = (int)(tempoctal_num % 10);
+            binary_num = octal_numvalues[rem] * place + binary_num;
+            tempoctal_num /= 10;
+            place *= 1000;
+        }
+        
+        // Display the equivalent binary number
+        System.out.print("Equivalent binary number: " + binary_num + "\n");
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+First, it takes an octal number as input from the user using the "Scanner" class and stores it in the variable 'octal_num'.
+It initializes an array 'octal_numvalues' to store the binary equivalents of octal digits (0 to 7).
+It initializes variables 'tempoctal_num' to temporarily store the octal number, 'binary_num' to store the binary equivalent, 'place' to keep track of the position of each octal digit, and 'rem' to store the remainder when dividing 'tempoctal_num' by 10.
+Next it enters a loop to perform the octal-to-binary conversion:
+In each iteration, it calculates the remainder 'rem' when 'tempoctal_num' is divided by 10 (which gives the least significant octal digit).
+It uses 'rem' to look up the binary equivalent from the 'octal_numvalues' array and adds it to 'binary_num', taking into account the appropriate place value.
+It divides 'tempoctal_num' by 10 to remove the least significant digit (rightmost).
+It updates the 'place' variable to move to the next group of three binary digits.
+The loop continues until 'tempoctal_num' becomes zero, effectively converting the entire octal number to binary.
+Finally (after the loop), it prints the binary representation of the original octal number stored in the 'binary_num' variable.
+
 Input Data:
 Input any octal number: 7
 Expected Output
@@ -1209,6 +1592,55 @@ Equivalent binary number: 111
 
 
 ### 27. Write a Java program to convert a octal number to a hexadecimal number.
+
+Octal number: The octal numeral system is the base-8 number system, and uses the digits 0 to 7.
+
+Hexadecimal number: This is a positional numeral system with a radix, or base, of 16. Hexadecimal uses sixteen distinct symbols, most often the symbols 0-9 to represent values zero to nine, and A, B, C, D, E, F (or alternatively a, b, c, d, e, f) to represent values ten to fifteen.
+
+Test Data:
+Input any octal number: 100
+
+Pictorial Presentation: Octal to Hexadecimal number
+
+Java: Convert a octal number to a hexadecimal number
+Sample Solution:
+
+Java Code:
+
+```java
+public class Exercise27 {
+    public static void main(String args[]) {
+        // Declare variables to store octal number and its decimal and hexadecimal equivalents
+        String octal_num, hex_num;
+        int decnum;
+        
+        // Create a Scanner object to read input from the user
+        Scanner in = new Scanner(System.in);
+        
+        // Prompt the user to input an octal number
+        System.out.print("Input an octal number : ");
+        octal_num = in.nextLine();
+        
+        // Convert the octal number to its decimal equivalent using parseInt
+        decnum = Integer.parseInt(octal_num, 8);
+        
+        // Convert the decimal number to its hexadecimal equivalent
+        hex_num = Integer.toHexString(decnum);
+        
+        // Display the equivalent hexadecimal number
+        System.out.print("Equivalent hexadecimal number: " + hex_num + "\n");
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+First, it takes an octal number as input from the user using the "Scanner" class and stores it as a string in the variable 'octal_num'.
+It uses the "Integer.parseInt()" method to convert the 'octal_num' string to an integer 'decnum', specifying base 8 (octal) as the input radix.
+It then uses the "Integer.toHexString()" method to convert the 'decnum' to its hexadecimal representation and stores it in the 'hex_num' string.
+Finally, it prints the hexadecimal representation of the original octal number stored in the 'hex_num' variable.
+
 Input Data:
 Input a octal number : 100
 Expected Output
@@ -1217,6 +1649,73 @@ Equivalent hexadecimal number: 40
 
 
 ### 28. Write a Java program to convert a hexadecimal value into a decimal number.
+
+Hexadecimal number: This is a positional numeral system with a radix, or base, of 16. Hexadecimal uses sixteen distinct symbols, most often the symbols 0-9 to represent values zero to nine, and A, B, C, D, E, F (or alternatively a, b, c, d, e, f) to represent values ten to fifteen.
+
+Decimal number: The decimal numeral system is the standard system for denoting integer and non-integer numbers. It is also called base-ten positional numeral system.
+
+Test Data:
+Input any hexadecimal number: 25
+
+Pictorial Presentation: Hexadecimal to Decimal number
+
+Java: Convert a hexadecimal to a decimal number
+Sample Solution:
+
+Java Code:
+
+```java
+import java.util.Scanner;
+
+public class Exercise28 {
+    // Function to convert a hexadecimal string to a decimal integer
+    public static int hex_to_decimal(String s) {
+        // Define a string containing hexadecimal digits
+        String digits = "0123456789ABCDEF";
+        s = s.toUpperCase(); // Convert the input string to uppercase
+        int val = 0; // Initialize the decimal value to 0
+
+        // Iterate through each character in the input string
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i); // Get the current character
+            int d = digits.indexOf(c); // Find the index of the character in the digits string
+            val = 16 * val + d; // Update the decimal value using hexadecimal conversion
+        }
+
+        return val; // Return the decimal value
+    }
+
+    public static void main(String args[]) {
+        String hexdec_num;
+        int dec_num;
+        Scanner scan = new Scanner(System.in);
+
+        // Prompt the user to input a hexadecimal number
+        System.out.print("Input a hexadecimal number: ");
+        hexdec_num = scan.nextLine();
+
+        // Call the hex_to_decimal function to convert the hexadecimal number to decimal
+        dec_num = hex_to_decimal(hexdec_num);
+
+        // Display the equivalent decimal number
+        System.out.print("Equivalent decimal number is: " + dec_num + "\n");
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+First, it defines a method "hex_to_decimal()" that takes a hexadecimal string 's' as input and converts it to its decimal equivalent.
+The method initializes a string 'digits' containing the hexadecimal digits (0-9 and A-F) and ensures that the input string 's' is in uppercase to handle both uppercase and lowercase hexadecimal characters.
+It initializes an integer variable 'val' to store the decimal value.
+Next it iterates through each character 'c' in the input string 's' and finds the corresponding decimal value 'd' by looking up the index of 'c' in the 'digits' string.
+It updates the 'val' by multiplying it by 16 and adding the decimal value 'd'.
+The method returns the final decimal value 'val'.
+In the "main()" function, it takes a hexadecimal number as input from the user using the "Scanner" class and stores it in the 'hexdec_num' string.
+It calls the "hex_to_decimal()" method, passing 'hexdec_num' as an argument, to convert the hexadecimal string to its decimal equivalent and stores it in the 'dec_num' variable.
+Finally, it prints the decimal representation of the original hexadecimal number stored in the 'dec_num' variable.
+
 Input Data:
 Input a hexadecimal number: 25
 Expected Output
@@ -1225,6 +1724,84 @@ Equivalent decimal number is: 37
 
 
 ### 29. Write a Java program to convert a hexadecimal number into a binary number.
+
+Hexadecimal number: This is a positional numeral system with a radix, or base, of 16. Hexadecimal uses sixteen distinct symbols, most often the symbols 0-9 to represent values zero to nine, and A, B, C, D, E, F (or alternatively a, b, c, d, e, f) to represent values ten to fifteen.
+
+Binary number: A binary number is a number expressed in the base-2 numeral system or binary numeral system. This system uses only two symbols: typically 1 (one) and 0 (zero).
+
+Test Data:
+Input any hexadecimal number: 37
+
+Pictorial Presentation: Hexadecimal to Binary number
+
+Java: Convert a hexadecimal to a binary number
+Sample Solution:
+
+Java Code:
+```java
+import java.util.Scanner;
+
+public class Exercise29 {
+    // Function to convert a hexadecimal string to a decimal integer
+    public static int hex_to_binary(String s) {
+        // Define a string containing hexadecimal digits
+        String digits = "0123456789ABCDEF";
+        s = s.toUpperCase(); // Convert the input string to uppercase
+        int val = 0; // Initialize the decimal value to 0
+
+        // Iterate through each character in the input string
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i); // Get the current character
+            int d = digits.indexOf(c); // Find the index of the character in the digits string
+            val = 16 * val + d; // Update the decimal value using hexadecimal conversion
+        }
+
+        return val; // Return the decimal value
+    }
+
+    public static void main(String args[]) {
+        String hexdec_num;
+        int dec_num, i = 1, j;
+        int bin_num[] = new int[100];
+        Scanner scan = new Scanner(System.in);
+
+        // Prompt the user to enter a hexadecimal number
+        System.out.print("Enter Hexadecimal Number : ");
+        hexdec_num = scan.nextLine();
+
+        // Call the hex_to_binary function to convert the hexadecimal number to decimal
+        dec_num = hex_to_binary(hexdec_num);
+
+        // Convert the decimal number to binary
+        while (dec_num != 0) {
+            bin_num[i++] = dec_num % 2;
+            dec_num = dec_num / 2;
+        }
+
+        // Display the equivalent binary number
+        System.out.print("Equivalent Binary Number is: ");
+        for (j = i - 1; j > 0; j--) {
+            System.out.print(bin_num[j]);
+        }
+
+        System.out.print("\n");
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+First, it defines a method "hex_to_decimal()" that takes a hexadecimal string 's' as input and converts it to its decimal equivalent.
+The method initializes a string 'digits' containing the hexadecimal digits (0-9 and A-F) and ensures that the input string 's' is in uppercase to handle both uppercase and lowercase hexadecimal characters.
+It initializes an integer variable 'val' to store the decimal value.
+Next it iterates through each character 'c' in the input string 's' and finds the corresponding decimal value 'd' by looking up the index of 'c' in the 'digits' string.
+It updates the 'val' by multiplying it by 16 and adding the decimal value 'd'.
+The method returns the final decimal value 'val'.
+In the "main()" function, it takes a hexadecimal number as input from the user using the "Scanner" class and stores it in the 'hexdec_num' string.
+It calls the "hex_to_decimal()" method, passing 'hexdec_num' as an argument, to convert the hexadecimal string to its decimal equivalent and stores it in the 'dec_num' variable.
+Finally, it prints the decimal representation of the original hexadecimal number stored in the 'dec_num' variable.
+
 Input Data:
 Enter Hexadecimal Number : 37
 Expected Output
@@ -1233,6 +1810,87 @@ Equivalent Binary Number is: 110111
 
 
 ### 30. Write a Java program to convert a hexadecimal value into an octal number.
+
+Hexadecimal number: This is a positional numeral system with a radix, or base, of 16. Hexadecimal uses sixteen distinct symbols, most often the symbols 0-9 to represent values zero to nine, and A, B, C, D, E, F (or alternatively a, b, c, d, e, f) to represent values ten to fifteen.
+
+Octal number: The octal numeral system is the base-8 number system, and uses the digits 0 to 7.
+
+Test Data:
+Input any hexadecimal number: 40
+
+Pictorial Presentation: Hexadecimal to Octal number
+
+Java: Convert a hexadecimal to a octal number
+Sample Solution:
+
+Java Code:
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    // Function to convert a hexadecimal string to a decimal integer
+    public static int hex_to_oct(String s) {
+        // Define a string containing hexadecimal digits
+        String digits = "0123456789ABCDEF";
+        s = s.toUpperCase(); // Convert the input string to uppercase
+        int val = 0; // Initialize the decimal value to 0
+
+        // Iterate through each character in the input string
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i); // Get the current character
+            int d = digits.indexOf(c); // Find the index of the character in the digits string
+            val = 16 * val + d; // Update the decimal value using hexadecimal conversion
+        }
+
+        return val; // Return the decimal value
+    }
+
+    public static void main(String args[]) {
+        String hexdec_num;
+        int dec_num, i = 1, j;
+        int octal_num[] = new int[100];
+        Scanner in = new Scanner(System.in);
+
+        // Prompt the user to input a hexadecimal number
+        System.out.print("Input a hexadecimal number: ");
+        hexdec_num = in.nextLine();
+
+        // Call the hex_to_oct function to convert the hexadecimal number to decimal
+        dec_num = hex_to_oct(hexdec_num);
+
+        // Convert the decimal number to octal
+        while (dec_num != 0) {
+            octal_num[i++] = dec_num % 8;
+            dec_num = dec_num / 8;
+        }
+
+        // Display the equivalent octal number
+        System.out.print("Equivalent of octal number is: ");
+        for (j = i - 1; j > 0; j--) {
+            System.out.print(octal_num[j]);
+        }
+
+        System.out.print("\n");
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+First, it defines a method "hex_to_oct()" that takes a hexadecimal string 's' as input and converts it to its decimal equivalent. It initializes a string 'digits' containing the hexadecimal digits (0-9 and A-F), ensures that the input string 's' is in uppercase, and iterates through the characters to compute the decimal value.
+In the "main()" function, it takes a hexadecimal number as input from the user using the "Scanner" class and stores it in the 'hexdec_num' string.
+It calls the " hex_to_oct ()" method, passing 'hexdec_num' as an argument, to convert the hexadecimal string to its decimal equivalent and stores it in the 'dec_num' variable.
+Then, it converts the decimal number to octal:
+It initializes an integer array 'octal_num' to store the octal digits.
+It enters a loop to perform the decimal-to-octal conversion:
+In each iteration, it calculates the remainder when 'dec_num' is divided by 8 (which gives the least significant octal digit).
+It stores this remainder in the 'octal_num' array.
+It updates 'dec_num' by dividing it by 8 to move to the next octal digit.
+It uses 'i' to keep track of each octal digit's position.
+Finally, it prints the octal representation of the original hexadecimal number by iterating through the 'octal_num' array in reverse order (from the most significant digit to the least significant digit).
+
 Input Data:
 Input a hexadecimal number: 40
 Expected Output
@@ -1241,6 +1899,43 @@ Equivalent of octal number is: 100
 
 
 ### 31. Write a Java program to check whether Java is installed on your computer.
+
+```java
+public class Exercise31 {
+    public static void main(String[] args) {
+        // Display Java version
+        System.out.println("\nJava Version: " + System.getProperty("java.version"));
+        
+        // Display Java runtime version
+        System.out.println("Java Runtime Version: " + System.getProperty("java.runtime.version"));
+        
+        // Display Java home directory
+        System.out.println("Java Home: " + System.getProperty("java.home"));
+        
+        // Display Java vendor name
+        System.out.println("Java Vendor: " + System.getProperty("java.vendor"));
+        
+        // Display Java vendor URL
+        System.out.println("Java Vendor URL: " + System.getProperty("java.vendor.url"));
+        
+        // Display Java class path
+        System.out.println("Java Class Path: " + System.getProperty("java.class.path") + "\n");
+    }
+}
+```
+Explanation:
+
+In the exercise above:
+
+It uses System.getProperty() to access and retrieve specific Java system properties.
+Finally, it prints the following information about the  Java runtime environment runtime environment:
+Java Version: The Java version  installed on the system.
+ Java Runtime Version: The Java Runtime Environment (JRE) used.
+Java Home: The directory path to the Java installation directory.
+Java Vendor: The Java runtime vendor or provider.
+Java Vendor URL: The Java vendor's URL or website.
+Java Class Path: The classpath, which specifies the directories and JAR files that the Java runtime should use when searching for classes and resources.
+
 Expected Output
 
 Java Version: 1.8.0_71                                                            
@@ -1252,6 +1947,62 @@ Java Class Path: .
 
 
 ### 32. Write a Java program to compare two numbers.
+
+Pictorial Presentation:
+
+Java Code:
+
+```java
+import java.util.Scanner;
+
+public class Exercise32 {
+    public static void main(String args[]) {
+        // Create a Scanner to obtain input from the command window
+        Scanner input = new Scanner(System.in);
+        int number1; // First number to compare
+        int number2; // Second number to compare
+
+        // Prompt the user to input the first integer
+        System.out.print("Input first integer: ");
+        number1 = input.nextInt(); // Read the first number from the user
+
+        // Prompt the user to input the second integer
+        System.out.print("Input second integer: ");
+        number2 = input.nextInt(); // Read the second number from the user
+
+        // Compare and display the results
+        if (number1 == number2)
+            System.out.printf("%d == %d\n", number1, number2);
+        if (number1 != number2)
+            System.out.printf("%d != %d\n", number1, number2);
+        if (number1 < number2)
+            System.out.printf("%d < %d\n", number1, number2);
+        if (number1 > number2)
+            System.out.printf("%d > %d\n", number1, number2);
+        if (number1 <= number2)
+            System.out.printf("%d <= %d\n", number1, number2);
+        if (number1 >= number2)
+            System.out.printf("%d >= %d\n", number1, number2);
+    }
+}
+```  
+
+Explanation:
+
+In the exercise above –
+
+First, it uses the "Scanner" class to obtain input from the command window (user input).
+It declares two integer variables 'number1' and 'number2' to store the two numbers provided by the user.
+It prompts the user to input the first integer using System.out.print("Input first integer: ") and reads the input into 'number1'.
+It prompts the user to input the second integer using System.out.print("Input second integer: ") and reads the input into 'number2'.
+Next it performs a series of comparisons using if statements and prints the results using System.out.printf():
+if (number1 == number2) checks if 'number1' is equal to 'number2' and prints a message if they are equal.
+if (number1 != number2) checks if 'number1' is not equal to 'number2' and prints a message if they are not equal.
+if (number1 < number2) checks if 'number1' is less than 'number2' and prints a message if 'number1' is less than 'number2'.
+if (number1 > number2) checks if 'number1' is greater than 'number2' and prints a message if 'number1' is greater than 'number2'.
+if (number1 <= number2) checks if 'number1' is less than or equal to 'number2' and prints a message accordingly.
+if (number1 >= number2) checks if 'number1' is greater than or equal to number2 and prints a message accordingly.
+
 Input Data:
 Input first integer: 25
 Input second integer: 39
@@ -1263,6 +2014,53 @@ Expected Output
 
 
 ### 33. Write a Java program and compute the sum of an integer's digits.
+
+```java
+import java.util.Scanner;
+
+public class Exercise33 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        // Prompt the user to input an integer
+        System.out.print("Input an integer: ");
+        
+        // Read the integer from the user
+        long n = input.nextLong();
+        
+        // Calculate and display the sum of the digits
+        System.out.println("The sum of the digits is: " + sumDigits(n));
+    }
+
+    public static int sumDigits(long n) {
+        int sum = 0;
+        
+        // Calculate the sum of the digits
+        while (n != 0) {
+            sum += n % 10;
+            n /= 10;
+        }
+        
+        return sum;
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+It uses the Scanner class to obtain input from the user.
+First, it prompts the user to input an integer using System.out.print("Input an integer: ") and reads the input into the variable 'n'.
+It then calls a separate method named "sumDigits()" and passes the input integer n as an argument.
+Inside the "sumDigits()" method:
+It initializes an integer variable 'sum' to store the sum of the digits, starting with 0.
+It enters a while loop that continues as long as 'n' is not equal to 0.
+Inside the loop, it calculates the last digit of 'n' using the modulus operator (n % 10) and adds it to the 'sum' variable.
+It then removes the last digit from 'n' by dividing it by 10 (n /= 10).
+This process continues until all digits of the original number have been processed.
+Finally, it returns the 'sum' containing the sum of the digits.
+Finally, back in the "main()" method, it prints the result of the "sumDigits()" method, displaying the sum of the digits of the entered integer.
+
 Input Data:
 Input an integer: 25
 Expected Output
@@ -1271,6 +2069,41 @@ The sum of the digits is: 7
 
 
 ### 34. Write a Java program to compute hexagon area.
+```java
+import java.util.Scanner;
+
+public class Exercise34 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        // Prompt the user to input the length of a side of the hexagon
+        System.out.print("Input the length of a side of the hexagon: ");
+        
+        // Read the length of a side from the user
+        double s = input.nextDouble();
+        
+        // Calculate and display the area of the hexagon
+        System.out.print("The area of the hexagon is: " + hexagonArea(s) + "\n");
+    }
+
+    public static double hexagonArea(double s) {
+        // Calculate the area of a hexagon based on its side length
+        return (6 * (s * s)) / (4 * Math.tan(Math.PI / 6));
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+First it uses the "Scanner" class to obtain input from the user.
+It prompts the user to input the length of a side of the hexagon using System.out.print("Input the length of a side of the hexagon: ") and reads the input into the variable 's'.
+It then calls a separate method named "hexagonArea()" and passes the input length s as an argument.
+Inside the "hexagonArea()" method:
+It calculates the area of the hexagon using the formula (6 s^2) / (4 tan(π/6)), where s is the length of a side and tan(π/6) represents the tangent of 30 degrees (π/6 radians), which is a constant value.
+It returns the calculated area as a double.
+Finally, back in the "main()" method, it prints the result of the "hexagonArea()" method, displaying the area of the hexagon based on the user-provided side length.
+
 Area of a hexagon = (6 * s^2)/(4*tan(π/6))
 where s is the length of a side
 Input Data:
@@ -1281,6 +2114,62 @@ The area of the hexagon is: 93.53074360871938
 
 
 ### 35. Write a Java program to compute the area of a polygon.
+
+Area of a polygon = (n*s^2)/(4*tan(π/n))
+where n is n-sided polygon and s is the length of a side.
+
+Test Data:
+Input the number of sides on the polygon: 7
+Input the length of one of the sides: 6
+
+Pictorial Presentation: Area of Polygon
+
+Java: Compute the area of a polygon
+Sample Solution:
+
+Java Code:
+```java
+import java.util.Scanner;
+
+public class Exercise35 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        // Prompt the user to input the number of sides on the polygon
+        System.out.print("Input the number of sides on the polygon: ");
+        
+        // Read the number of sides from the user
+        int ns = input.nextInt();
+        
+        // Prompt the user to input the length of one of the sides
+        System.out.print("Input the length of one of the sides: ");
+        
+        // Read the length of one side from the user
+        double side = input.nextDouble();
+        
+        // Calculate and display the area of the polygon
+        System.out.print("The area is: " + polygonArea(ns, side) + "\n");
+    }
+    
+    public static double polygonArea(int ns, double side) {
+        // Calculate the area of a polygon based on the number of sides and side length
+        return (ns * (side * side)) / (4.0 * Math.tan((Math.PI / ns)));
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+First, it uses the "Scanner" class to obtain user input.
+The user is prompted to input the number of sides on the polygon using System.out.print("Input the number of sides on the polygon: "), and the input is read into the variable 'ns' as an integer.
+The user is prompted to input the length of one of the sides of the polygon using System.out.print("Input the length of one of the sides: "), and the input is read into the variable 'side' as a double.
+The code then calls a separate method named "polygonArea" and passes the number of sides ns and the side length 'side' as arguments.
+Inside the "polygonArea()" method:
+It calculates the area of the polygon using the formula (ns side^2) / (4 tan(π / ns)), where 'ns' is the number of sides, 'side' is the length of one side, and tan(π / ns) represents the tangent of the angle formed by each side of the polygon, given by π / ns.
+The calculated area is returned as a double.
+In the "main()" method, the result of the "polygonArea()" method is printed, displaying the area of the polygon based on the user-provided number of sides and side length.
+
 Area of a polygon = (n*s^2)/(4*tan(π/n))
 where n is n-sided polygon and s is the length of a side
 Input Data:
@@ -1292,6 +2181,78 @@ The area is: 130.82084798405722
 
 
 ### 36. Write a Java program to compute the distance between two points on the earth's surface.
+
+Distance between the two points [ (x1,y1) & (x2,y2)]
+d = radius * arccos(sin(x1) * sin(x2) + cos(x1) * cos(x2) * cos(y1 - y2))
+Radius of the earth r = 6371.01 Kilometers
+
+Test Data:
+Input the latitude of coordinate 1: 25
+Input the longitude of coordinate 1: 35
+Input the latitude of coordinate 2: 52.5
+Input the longitude of coordinate 2: 35.5
+
+Pictorial Presentation:
+
+Java: Compute the distance between two points on the surface of earth
+Sample Solution:
+
+Java Code:
+```java
+import java.util.Scanner;
+
+public class Exercise36 {
+    
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        // Prompt the user to input the latitude and longitude of coordinate 1
+        System.out.print("Input the latitude of coordinate 1: ");
+        double lat1 = input.nextDouble();
+        System.out.print("Input the longitude of coordinate 1: ");
+        double lon1 = input.nextDouble();
+        
+        // Prompt the user to input the latitude and longitude of coordinate 2
+        System.out.print("Input the latitude of coordinate 2: ");
+        double lat2 = input.nextDouble();
+        System.out.print("Input the longitude of coordinate 2: ");
+        double lon2 = input.nextDouble();
+
+        // Calculate and display the distance between the two coordinates
+        System.out.print("The distance between those points is: " + distance_Between_LatLong(lat1, lon1, lat2, lon2) + " km\n");
+    }
+
+    // Points will be converted to radians before calculation
+    public static double distance_Between_LatLong(double lat1, double lon1, double lat2, double lon2) {
+        // Convert latitude and longitude to radians
+        lat1 = Math.toRadians(lat1);
+        lon1 = Math.toRadians(lon1);
+        lat2 = Math.toRadians(lat2);
+        lon2 = Math.toRadians(lon2);
+
+        // Earth's mean radius in kilometers
+        double earthRadius = 6371.01;
+
+        // Calculate the distance using the haversine formula
+        return earthRadius * Math.acos(Math.sin(lat1) * Math.sin(lat2) + Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon1 - lon2));
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+First, it uses the "Scanner" class to obtain user input.
+The user is prompted to input the latitude and longitude of two coordinates:
+Latitude and longitude of coordinate 1 are read into the variables 'lat1' and 'lon1'.
+Latitude and longitude of coordinate 2 are read into the variables 'lat2' and 'lon2'.
+The code then calls a separate method named "distance_Between_LatLong()" and passes the latitude and longitude values of both coordinates as arguments.
+Inside the "distance_Between_LatLong()" method:
+It converts latitude and longitude values from degrees to radians using the " Math.toRadians()" method to perform trigonometric calculations.
+It calculates the distance between the two coordinates using the Haversine formula for calculating distances on a sphere.
+The calculated distance is returned as a double, representing the distance in kilometers.
+Finally, in the "main() method, the result of the "distance_Between_LatLong()" method is printed, displaying the distance between the two coordinates in kilometers.
+
 Distance between the two points [ (x1,y1) & (x2,y2)]
 d = radius * arccos(sin(x1) * sin(x2) + cos(x1) * cos(x2) * cos(y1 - y2))
 Radius of the earth r = 6371.01 Kilometers
@@ -1306,6 +2267,44 @@ The distance between those points is: 1480.0848451069087 km
 
 
 ### 37. Write a Java program to reverse a string.
+
+```java
+import java.util.Scanner;
+
+public class Exercise37 {
+    public static void main(String[] args) {
+        // Create a scanner to obtain input from the user
+        Scanner scanner = new Scanner(System.in);
+        
+        // Prompt the user to input a string
+        System.out.print("Input a string: ");
+        
+        // Read the input string and convert it to a character array
+        char[] letters = scanner.nextLine().toCharArray();
+        
+        // Display a message before printing the reversed string
+        System.out.print("Reverse string: ");
+        
+        // Iterate through the character array in reverse order and print each character
+        for (int i = letters.length - 1; i >= 0; i--) {
+            System.out.print(letters[i]);
+        }
+        
+        // Print a newline character to end the output line
+        System.out.print("\n");
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+First, it uses the "Scanner" class to obtain user input.
+The user is prompted to input a string using System.out.print("Input a string: ").
+The input string is read using scanner.nextLine() and converted to a character array using toCharArray(). This character array is stored in the 'letters' variable.
+Next, the code enters a loop that iterates from the last character of the 'letters' array to the first character (in reverse order). Inside the loop, it prints each character, effectively reversing the string character by character.
+Finally, a newline character is printed to ensure a clean output format.
+
 Input Data:
 Input a string: The quick brown fox
 Expected Output
@@ -1314,6 +2313,71 @@ Reverse string: xof nworb kciuq ehT
 
 
 ### 38. Write a Java program to count letters, spaces, numbers and other characters in an input string.
+```java
+import java.util.Scanner;
+
+public class Exercise38 {
+    public static void main(String[] args) {
+        // Define a test string containing letters, numbers, spaces, and other characters
+        String test = "Aa kiu, I swd skieo 236587. GH kiu: sieo?? 25.33";
+        
+        // Call the count method to analyze the characters in the test string
+        count(test);
+    }
+
+    public static void count(String x) {
+        // Convert the input string to a character array
+        char[] ch = x.toCharArray();
+        
+        // Initialize counters for letters, spaces, numbers, and other characters
+        int letter = 0;
+        int space = 0;
+        int num = 0;
+        int other = 0;
+        
+        // Iterate through the character array to categorize characters
+        for (int i = 0; i < x.length(); i++) {
+            // Check if the character is a letter
+            if (Character.isLetter(ch[i])) {
+                letter++;
+            }
+            // Check if the character is a digit (number)
+            else if (Character.isDigit(ch[i])) {
+                num++;
+            }
+            // Check if the character is a space
+            else if (Character.isSpaceChar(ch[i])) {
+                space++;
+            }
+            // Character falls into the "other" category if none of the above conditions are met
+            else {
+                other++;
+            }
+        }
+        
+        // Display the original string
+        System.out.println("The string is : Aa kiu, I swd skieo 236587. GH kiu: sieo?? 25.33");
+        
+        // Display the counts of letters, spaces, numbers, and other characters
+        System.out.println("letter: " + letter);
+        System.out.println("space: " + space);
+        System.out.println("number: " + num);
+        System.out.println("other: " + other);
+    }
+} 
+```
+Explanation:
+
+In the exercise above -
+
+The string to be analyzed is stored in the 'test' variable.
+The "count()" method takes a string 'x' as its parameter.
+Inside the "count()" method, the "toCharArray()" method is used to convert the input string x into an array of characters 'ch'.
+Four variables (letter, space, num, and other) are initialized to zero. These variables will be used to count the respective types of characters in the string.
+A for loop iterates through each character in the 'ch' array.
+Inside the loop, it checks the type of each character using various "Character" class methods like isLetter(), isDigit(), and isSpaceChar(). Depending on the type, it increments the corresponding counter variable (letter, num, space, or other).
+Finally, it prints the original string and the counts of each character type.
+
 Expected Output
 
 The string is :  Aa kiu, I swd skieo 236587. GH kiu: sieo?? 25.33
@@ -1324,6 +2388,44 @@ other: 6
 
 
 ### 39. Write a Java program to create and display a unique three-digit number using 1, 2, 3, 4. Also count how many three-digit numbers are there.
+```java
+import java.util.Scanner;
+
+public class Exercise39 {
+    public static void main(String[] args) {
+        int amount = 0; // Initialize a counter for three-digit numbers
+        
+        // Iterate through three nested loops to generate all unique three-digit numbers
+        for (int i = 1; i <= 4; i++) {
+            for (int j = 1; j <= 4; j++) {
+                for (int k = 1; k <= 4; k++) {
+                    // Check if 'i,' 'j,' and 'k' are all different (not equal)
+                    if (k != i && k != j && i != j) {
+                        amount++; // Increment the counter
+                        System.out.println(i + "" + j + "" + k); // Print the generated three-digit number
+                    }
+                }
+            }
+        }
+        
+        // Display the total number of generated three-digit numbers
+        System.out.println("Total number of the three-digit-number is " + amount);
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+First, the variable 'amount' is initialized to 0. This variable will be used to count the total number of three-digit numbers that meet the criteria.
+The code uses three nested for loops to generate all possible combinations of three digits from 1 to 4.
+The outermost loop iterates through the first digit (i) from 1 to 4.
+The middle loop iterates through the second digit (j) from 1 to 4.
+The innermost loop iterates through the third digit (k) from 1 to 4.
+Within the innermost loop, there is a conditional check if(k != i && k != j && i != j). This condition ensures that 'i', 'j', and 'k' are all distinct digits, meaning they are not equal to each other. This avoids repetition in the generated numbers.
+When a valid combination is found (i.e., three distinct digits), it increments the amount variable, prints the three-digit number in the format 'ijk', and moves on to the next combination.
+Finally, all possible combinations are generated and counted, it prints the total number of three-digit numbers that meet the criteria.
+
 Expected Output
 
 123                                                      
@@ -1336,6 +2438,30 @@ Total number of the three-digit-number is 24
 
 
 ### 40. Write a Java program to list the available character sets in charset objects.
+```java
+import java.nio.charset.Charset;
+
+public class Exercise40 {
+    public static void main(String[] args) {
+        System.out.println("List of available character sets: ");
+        
+        // Iterate through the available character sets and print their names
+        for (String str : Charset.availableCharsets().keySet()) {
+            System.out.println(str);
+        }
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+First, import the Charset class from the "java.nio.charset" package.
+In the "main()" method, it prints the header "List of available character sets."
+It uses a for-each loop to iterate through the keys (character set names) in the set of available character sets provided by Charset.availableCharsets().keySet().
+Inside the loop, it prints each character set name on a separate line.
+Finally, when you run the program, it will list and display the names of all available character sets (encodings) supported by your Java runtime environment.
+
 Expected Output
 
 List of available character sets:                                       
