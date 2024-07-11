@@ -1,6 +1,6 @@
 https://www.w3resource.com/java-exercises/basic/index.php
 
-1. Write a Java program to print 'Hello' on screen and your name on a separate line.
+### 1. Write a Java program to print 'Hello' on screen and your name on a separate line.
 
 Pictorial Presentation:
 
@@ -85,25 +85,132 @@ Expected Output :
 Hello
 Alexandra Abramov
 
-Click me to see the solution
 
-2. Write a Java program to print the sum of two numbers.
+
+### 2. Write a Java program to print the sum of two numbers.
+
+```java
+public class Exercise2 {
+    public static void main(String[] args) {
+        // Calculate the sum of 24 and 26
+        int sum = 24 + 26;
+        // Print the result of the addition
+        System.out.println(sum);
+    }
+}
+```
+```java
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) 
+  {
+    // Create a Scanner object to read input from the user
+    Scanner input = new Scanner(System.in);    
+    // Prompt the user to input the first number
+    System.out.print("Input the first number: ");    
+    // Read and store the first number
+    int num1 = input.nextInt();    
+    // Prompt the user to input the second number
+    System.out.print("Input the second number: ");    
+    // Read and store the second number
+    int num2 = input.nextInt();    
+    // Calculate the sum of the two numbers
+    int sum = num1 + num2;    
+    // Display a blank line for separation
+    System.out.println();    
+    // Display the sum of the two numbers
+    System.out.println("Sum: " + sum);
+  }
+}
+```
 Test Data:
 74 + 36
 Expected Output :
 110
 
-Click me to see the solution
 
-3. Write a Java program to divide two numbers and print them on the screen.
+
+### 3. Write a Java program to divide two numbers and print them on the screen.
+```java
+public class Exercise3 {
+    public static void main(String[] args) {
+        // Calculate the result of the division 50/3
+        int result = 50 / 3;
+
+        // Print the result of the division
+        System.out.println(result);
+    }
+}
+```
+```java
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) 
+  {
+    // Create a Scanner object to read input from the user
+    Scanner input = new Scanner(System.in);    
+    // Prompt the user to input the first number
+    System.out.print("Input the first number: ");    
+    // Read and store the first number
+    int a = input.nextInt();    
+    // Prompt the user to input the second number
+    System.out.print("Input the second number: ");    
+    // Read and store the second number
+    int b = input.nextInt();    
+    // Calculate the division of a and b
+    int d = (a / b);    
+    // Display a blank line for separation
+    System.out.println();    
+    // Display the result of the division
+    System.out.println("The division of a and b is: " + d);
+  }
+}
+```
 Test Data :
 50/3
 Expected Output :
 16
 
-Click me to see the solution
 
-4. Write a Java program to print the results of the following operations.
+
+### 4. Write a Java program to print the results of the following operations.
+```java
+public class Exercise4 {
+    public static void main(String[] args) {
+        // Calculate and print the result of the expression: -5 + 8 * 6
+        System.out.println(-5 + 8 * 6);
+
+        // Calculate and print the result of the expression: (55 + 9) % 9
+        System.out.println((55 + 9) % 9);
+
+        // Calculate and print the result of the expression: 20 + -3 * 5 / 8
+        System.out.println(20 + -3 * 5 / 8);
+
+        // Calculate and print the result of the expression: 5 + 15 / 3 * 2 - 8 % 3
+        System.out.println(5 + 15 / 3 * 2 - 8 % 3);
+    }
+}
+```
+```java
+public class Main {
+  public static void main(String[] args) {
+    // Calculate and store the result of the expression: -5 + 8 * 6
+    int w = -5 + 8 * 6;
+
+    // Calculate and store the result of the expression: (55 + 9) % 9
+    int x = (55 + 9) % 9;
+
+    // Calculate and store the result of the expression: 20 + (-3 * 5 / 8)
+    int y = 20 + (-3 * 5 / 8);
+
+    // Calculate and store the result of the expression: 5 + 15 / 3 * 2 - 8 % 3
+    int z = 5 + 15 / 3 * 2 - 8 % 3;
+
+    // Print the calculated values, each on a new line
+    System.out.print(w + "\n" + x + "\n" + y + "\n" + z);
+  }
+}
+```
 Test Data:
 a. -5 + 8 * 6
 b. (55+9) % 9
@@ -115,18 +222,32 @@ Expected Output :
 19
 13
 
-Click me to see the solution
-
-5. Write a Java program that takes two numbers as input and displays the product of two numbers.
+### 5. Write a Java program that takes two numbers as input and displays the product of two numbers.
+```java
+import java.util.Scanner; 
+public class Exercise5 { 
+ public static void main(String[] args) {
+  // Create a Scanner object to read input from the user
+  Scanner in = new Scanner(System.in);   
+  // Prompt the user to input the first number
+  System.out.print("Input first number: ");
+  // Read and store the first number
+  int num1 = in.nextInt();   
+  // Prompt the user to input the second number
+  System.out.print("Input second number: ");
+  // Read and store the second number   
+  // Calculate the product of the two numbers and display the result
+  System.out.println(num1 + " x " + num2 + " = " + num1 * num2);
+ }
+} 
+```
 Test Data:
 Input first number: 25
 Input second number: 5
 Expected Output :
 25 x 5 = 125
 
-Click me to see the solution
-
-6. Write a Java program to print the sum (addition), multiply, subtract, divide and remainder of two numbers.
+### 6. Write a Java program to print the sum (addition), multiply, subtract, divide and remainder of two numbers.
 Test Data:
 Input first number: 125
 Input second number: 24
@@ -137,9 +258,9 @@ Expected Output :
 125 / 24 = 5
 125 mod 24 = 5
 
-Click me to see the solution
 
-7. Write a Java program that takes a number as input and prints its multiplication table up to 10.
+
+### 7. Write a Java program that takes a number as input and prints its multiplication table up to 10.
 Test Data:
 Input a number: 8
 Expected Output :
@@ -149,9 +270,9 @@ Expected Output :
 ...
 8 x 10 = 80
 
-Click me to see the solution
 
-8. Write a Java program to display the following pattern.
+
+### 8. Write a Java program to display the following pattern.
 Sample Pattern :
 
 
@@ -160,37 +281,37 @@ Sample Pattern :
 J  J  aaaaa   V V  aaaaa                                                
  JJ  a     a   V  a     a
  
-Click me to see the solution
 
-9. Write a Java program to compute the specified expressions and print the output.
+
+### 9. Write a Java program to compute the specified expressions and print the output.
 Test Data:
 ((25.5 * 3.5 - 3.5 * 3.5) / (40.5 - 4.5))
 Expected Output
 2.138888888888889
 
-Click me to see the solution
 
-10. Write a Java program to compute a specified formula.
+
+### 10. Write a Java program to compute a specified formula.
 Specified Formula :
 4.0 * (1 - (1.0/3) + (1.0/5) - (1.0/7) + (1.0/9) - (1.0/11))
 Expected Output
 2.9760461760461765
 
-Click me to see the solution
 
-11. Write a Java program to print the area and perimeter of a circle.
+
+### 11. Write a Java program to print the area and perimeter of a circle.
 Test Data:
 Radius = 7.5
 Expected Output
 Perimeter is = 47.12388980384689
 Area is = 176.71458676442586
 
-Click me to see the solution
 
-12. Write a Java program that takes three numbers as input to calculate and print the average of the numbers.
-Click me to see the solution
 
-13. Write a Java program to print the area and perimeter of a rectangle.
+### 12. Write a Java program that takes three numbers as input to calculate and print the average of the numbers.
+
+
+### 13. Write a Java program to print the area and perimeter of a rectangle.
 Test Data:
 Width = 5.5 Height = 8.5
 
@@ -199,9 +320,9 @@ Expected Output
 Area is 5.6 * 8.5 = 47.60
 Perimeter is 2 * (5.6 + 8.5) = 28.20
 
-Click me to see the solution
 
-14. Write a Java program to print an American flag on the screen.
+
+### 14. Write a Java program to print an American flag on the screen.
 Expected Output
 
 * * * * * * ==================================                          
@@ -220,12 +341,12 @@ Expected Output
 ==============================================                          
 ==============================================
  
-Click me to see the solution
 
-15. Write a Java program to swap two variables.
-Click me to see the solution
 
-16. Write a Java program to print a face.
+### 15. Write a Java program to swap two variables.
+
+
+### 16. Write a Java program to print a face.
 Expected Output
 
  +"""""+                                                 
@@ -233,123 +354,123 @@ Expected Output
  |  ^  |                                                 
  | '-' |                                                 
  +-----+
-Click me to see the solution
 
-17. Write a Java program to add two binary numbers.
+
+### 17. Write a Java program to add two binary numbers.
 Input Data:
 Input first binary number: 10
 Input second binary number: 11
 Expected Output
 
 Sum of two binary numbers: 101
-Click me to see the solution
 
-18. Write a Java program to multiply two binary numbers.
+
+### 18. Write a Java program to multiply two binary numbers.
 Input Data:
 Input the first binary number: 10
 Input the second binary number: 11
 Expected Output
 
 Product of two binary numbers: 110 
-Click me to see the solution
 
-19. Write a Java program to convert an integer number to a binary number.
+
+### 19. Write a Java program to convert an integer number to a binary number.
 Input Data:
 Input a Decimal Number : 5
 Expected Output
 
 Binary number is: 101 
-Click me to see the solution
 
-20. Write a Java program to convert a decimal number to a hexadecimal number.
+
+### 20. Write a Java program to convert a decimal number to a hexadecimal number.
 Input Data:
 Input a decimal number: 15
 Expected Output
 
 Hexadecimal number is : F 
-Click me to see the solution
 
-21. Write a Java program to convert a decimal number to an octal number.
+
+### 21. Write a Java program to convert a decimal number to an octal number.
 Input Data:
 Input a Decimal Number: 15
 Expected Output
 
 Octal number is: 17  
-Click me to see the solution
 
-22. Write a Java program to convert a binary number to a decimal number.
+
+### 22. Write a Java program to convert a binary number to a decimal number.
 Input Data:
 Input a binary number: 100
 Expected Output
 
 Decimal Number: 4 
-Click me to see the solution
 
-23. Write a Java program to convert a binary number to a hexadecimal number.
+
+### 23. Write a Java program to convert a binary number to a hexadecimal number.
 Input Data:
 Input a Binary Number: 1101
 Expected Output
 
 HexaDecimal value: D
-Click me to see the solution
 
-24. Write a Java program to convert a binary number to an octal number.
+
+### 24. Write a Java program to convert a binary number to an octal number.
 Input Data:
 Input a Binary Number: 111
 Expected Output
 
 Octal number: 7 
-Click me to see the solution
 
-25. Write a Java program to convert a octal number to a decimal number.
+
+### 25. Write a Java program to convert a octal number to a decimal number.
 Input Data:
 Input any octal number: 10
 Expected Output
 
 Equivalent decimal number: 8
-Click me to see the solution
 
-26. Write a Java program to convert a octal number to a binary number.
+
+### 26. Write a Java program to convert a octal number to a binary number.
 Input Data:
 Input any octal number: 7
 Expected Output
 
 Equivalent binary number: 111 
-Click me to see the solution
 
-27. Write a Java program to convert a octal number to a hexadecimal number.
+
+### 27. Write a Java program to convert a octal number to a hexadecimal number.
 Input Data:
 Input a octal number : 100
 Expected Output
 
 Equivalent hexadecimal number: 40
-Click me to see the solution
 
-28. Write a Java program to convert a hexadecimal value into a decimal number.
+
+### 28. Write a Java program to convert a hexadecimal value into a decimal number.
 Input Data:
 Input a hexadecimal number: 25
 Expected Output
 
 Equivalent decimal number is: 37
-Click me to see the solution
 
-29. Write a Java program to convert a hexadecimal number into a binary number.
+
+### 29. Write a Java program to convert a hexadecimal number into a binary number.
 Input Data:
 Enter Hexadecimal Number : 37
 Expected Output
 
 Equivalent Binary Number is: 110111
-Click me to see the solution
 
-30. Write a Java program to convert a hexadecimal value into an octal number.
+
+### 30. Write a Java program to convert a hexadecimal value into an octal number.
 Input Data:
 Input a hexadecimal number: 40
 Expected Output
 
 Equivalent of octal number is: 100 
-Click me to see the solution
 
-31. Write a Java program to check whether Java is installed on your computer.
+
+### 31. Write a Java program to check whether Java is installed on your computer.
 Expected Output
 
 Java Version: 1.8.0_71                                                            
@@ -358,9 +479,9 @@ Java Home: /opt/jdk/jdk1.8.0_71/jre
 Java Vendor: Oracle Corporation                                                   
 Java Vendor URL: http://Java.oracle.com/                                          
 Java Class Path: .
-Click me to see the solution
 
-32. Write a Java program to compare two numbers.
+
+### 32. Write a Java program to compare two numbers.
 Input Data:
 Input first integer: 25
 Input second integer: 39
@@ -369,17 +490,17 @@ Expected Output
 25 != 39                                                                          
 25 < 39                                                                           
 25 <= 39
-Click me to see the solution
 
-33. Write a Java program and compute the sum of an integer's digits.
+
+### 33. Write a Java program and compute the sum of an integer's digits.
 Input Data:
 Input an integer: 25
 Expected Output
 
 The sum of the digits is: 7
-Click me to see the solution
 
-34. Write a Java program to compute hexagon area.
+
+### 34. Write a Java program to compute hexagon area.
 Area of a hexagon = (6 * s^2)/(4*tan(π/6))
 where s is the length of a side
 Input Data:
@@ -387,9 +508,9 @@ Input the length of a side of the hexagon: 6
 Expected Output
 
 The area of the hexagon is: 93.53074360871938
-Click me to see the solution
 
-35. Write a Java program to compute the area of a polygon.
+
+### 35. Write a Java program to compute the area of a polygon.
 Area of a polygon = (n*s^2)/(4*tan(π/n))
 where n is n-sided polygon and s is the length of a side
 Input Data:
@@ -398,9 +519,9 @@ Input the length of one of the sides: 6
 Expected Output
 
 The area is: 130.82084798405722
-Click me to see the solution
 
-36. Write a Java program to compute the distance between two points on the earth's surface.
+
+### 36. Write a Java program to compute the distance between two points on the earth's surface.
 Distance between the two points [ (x1,y1) & (x2,y2)]
 d = radius * arccos(sin(x1) * sin(x2) + cos(x1) * cos(x2) * cos(y1 - y2))
 Radius of the earth r = 6371.01 Kilometers
@@ -412,17 +533,17 @@ Input the longitude of coordinate 2: 25.5
 Expected Output
 
 The distance between those points is: 1480.0848451069087 km 
-Click me to see the solution
 
-37. Write a Java program to reverse a string.
+
+### 37. Write a Java program to reverse a string.
 Input Data:
 Input a string: The quick brown fox
 Expected Output
 
 Reverse string: xof nworb kciuq ehT
-Click me to see the solution
 
-38. Write a Java program to count letters, spaces, numbers and other characters in an input string.
+
+### 38. Write a Java program to count letters, spaces, numbers and other characters in an input string.
 Expected Output
 
 The string is :  Aa kiu, I swd skieo 236587. GH kiu: sieo?? 25.33
@@ -430,9 +551,9 @@ letter: 23
 space: 9                                                 
 number: 10                                               
 other: 6
-Click me to see the solution
 
-39. Write a Java program to create and display a unique three-digit number using 1, 2, 3, 4. Also count how many three-digit numbers are there.
+
+### 39. Write a Java program to create and display a unique three-digit number using 1, 2, 3, 4. Also count how many three-digit numbers are there.
 Expected Output
 
 123                                                      
@@ -442,9 +563,9 @@ Expected Output
 431                                                      
 432                                                      
 Total number of the three-digit-number is 24
-Click me to see the solution
 
-40. Write a Java program to list the available character sets in charset objects.
+
+### 40. Write a Java program to list the available character sets in charset objects.
 Expected Output
 
 List of available character sets:                                       
@@ -469,22 +590,22 @@ x-windows-874
 x-windows-949                                                           
 x-windows-950                                                           
 x-windows-iso2022jp
-Click me to see the solution
 
-41. Write a Java program to print the ASCII value of a given character.
+
+### 41. Write a Java program to print the ASCII value of a given character.
 Expected Output
 
 The ASCII value of Z is :90
-Click me to see the solution
 
-42. Write a Java program to input and display your password.
+
+### 42. Write a Java program to input and display your password.
 Expected Output
 
 Input your Password:                                                    
 Your password was: abc@123
-Click me to see the solution
 
-43. Write a Java program to print the following string in a specific format (see output).
+
+### 43. Write a Java program to print the following string in a specific format (see output).
 Sample Output
 
 Twinkle, twinkle, little star,
@@ -493,35 +614,35 @@ Twinkle, twinkle, little star,
 		Like a diamond in the sky. 
 Twinkle, twinkle, little star, 
 	How I wonder what you are
-Click me to see the solution
 
-44. Write a Java program that accepts an integer (n) and computes the value of n+nn+nnn.
+
+### 44. Write a Java program that accepts an integer (n) and computes the value of n+nn+nnn.
 Sample Output:
 
 Input number: 5                                                        
 5 + 55  + 555
-Click me to see the solution
 
-45. Write a Java program to find the size of a specified file.
+
+### 45. Write a Java program to find the size of a specified file.
 Sample Output:
 
 /home/students/abc.txt  : 0 bytes                                      
 /home/students/test.txt : 0 bytes 
-Click me to see the solution
 
-46. Write a Java program to display system time.
+
+### 46. Write a Java program to display system time.
 Sample Output:
 
 Current Date time: Fri Jun 16 14:17:40 IST 2017 
-Click me to see the solution
 
-47. Write a Java program to display the current date and time in a specific format.
+
+### 47. Write a Java program to display the current date and time in a specific format.
 Sample Output:
 
 Now: 2017/06/16 08:52:03.066 
-Click me to see the solution
 
-48. Write a Java program to print odd numbers from 1 to 99. Prints one number per line.
+
+### 48. Write a Java program to print odd numbers from 1 to 99. Prints one number per line.
 Sample Output:
 
 1                                                                      
@@ -537,16 +658,16 @@ Sample Output:
 95                                                                     
 97                                                                     
 99 
-Click me to see the solution
 
-49. Write a Java program to accept a number and check whether the number is even or not. Prints 1 if the number is even or 0 if odd.
+
+### 49. Write a Java program to accept a number and check whether the number is even or not. Prints 1 if the number is even or 0 if odd.
 Sample Output:
 
 Input a number: 20                                                     
 1
-Click me to see the solution
 
-50. Write a Java program to print numbers between 1 and 100 divisible by 3, 5 and both.
+
+### 50. Write a Java program to print numbers between 1 and 100 divisible by 3, 5 and both.
 Sample Output:
 
 Divided by 3:                                                          
@@ -559,203 +680,203 @@ Divided by 5:
                                                                        
 Divided by 3 & 5:                                                      
 15, 30, 45, 60, 75, 90,
-Click me to see the solution
 
-51. Write a Java program to convert a string to an integer.
+
+### 51. Write a Java program to convert a string to an integer.
 Sample Output:
 
 Input a number(string): 25                                             
 The integer value is: 25
-Click me to see the solution
 
-52. Write a Java program to calculate the sum of two integers and return true if the sum is equal to a third integer.
+
+### 52. Write a Java program to calculate the sum of two integers and return true if the sum is equal to a third integer.
 Sample Output:
 
 Input the first number : 5                                             
 Input the second number: 10                                            
 Input the third number : 15                                            
 The result is: true
-Click me to see the solution
 
-53. Write a Java program that accepts three integers from the user. It returns true if the second number is higher than the first number and the third number is larger than the second number. If "abc" is true, the second number does not need to be larger than the first number.
+
+### 53. Write a Java program that accepts three integers from the user. It returns true if the second number is higher than the first number and the third number is larger than the second number. If "abc" is true, the second number does not need to be larger than the first number.
 Sample Output:
 
 Input the first number : 5                                             
 Input the second number: 10                                            
 Input the third number : 15                                            
 The result is: true
-Click me to see the solution
 
-54. Write a Java program that accepts three integers from the user and returns true if two or more of them (integers) have the same rightmost digit. The integers are non-negative.
+
+### 54. Write a Java program that accepts three integers from the user and returns true if two or more of them (integers) have the same rightmost digit. The integers are non-negative.
 Sample Output:
 
 Input the first number : 5                                             
 Input the second number: 10                                            
 Input the third number : 15                                            
 The result is: true
-Click me to see the solution
 
-55. Write a Java program to convert seconds to hours, minutes and seconds.
+
+### 55. Write a Java program to convert seconds to hours, minutes and seconds.
 Sample Output:
 
 Input seconds: 86399                                                   
 23:59:59
-Click me to see the solution
 
-56. Write a Java program to find the number of values in a given range divisible by a given value.
+
+### 56. Write a Java program to find the number of values in a given range divisible by a given value.
 For example x = 5, y=20 and p =3, find the number of integers within the range x..y and that are divisible by p i.e. { i :x ≤ i ≤ y, i mod p = 0 }
 Sample Output:
 
 5
-Click me to see the solution
 
-57. Write a Java program to accept an integer and count the factors of the number.
+
+### 57. Write a Java program to accept an integer and count the factors of the number.
 Sample Output:
 
 Input an integer: 25                                                   
 3
-Click me to see the solution
 
-58. Write a Java program to capitalize the first letter of each word in a sentence.
+
+### 58. Write a Java program to capitalize the first letter of each word in a sentence.
 Sample Output:
 
 Input a Sentence: the quick brown fox jumps over the lazy dog.         
 The Quick Brown Fox Jumps Over The Lazy Dog.
-Click me to see the solution
 
-59. Write a Java program to convert a string into lowercase.
+
+### 59. Write a Java program to convert a string into lowercase.
 Sample Output:
 
 Input a String: THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.           
 the quick brown fox jumps over the lazy dog.
-Click me to see the solution
 
-60. Write a Java program to find the penultimate (next to the last) word in a sentence.
+
+### 60. Write a Java program to find the penultimate (next to the last) word in a sentence.
 Sample Output:
 
 Input a String: The quick brown fox jumps over the lazy dog.
 Penultimate word: lazy
-Click me to see the solution
 
-61. Write a Java program to reverse a word.
+
+### 61. Write a Java program to reverse a word.
 Sample Output:
 
 Input a word: dsaf
 Reverse word: fasd
-Click me to see the solution
 
-62. Write a Java program that accepts three integer values and returns true if one is 20 or more less than the others' subtractions.
+
+### 62. Write a Java program that accepts three integer values and returns true if one is 20 or more less than the others' subtractions.
 Sample Output:
 
 Input the first number : 15                                            
 Input the second number: 20                                            
 Input the third number : 25                                            
 false
-Click me to see the solution
 
-63. Write a Java program that accepts two integer values from the user and returns the largest value. However if the two values are the same, return 0 and find the smallest value if the two values have the same remainder when divided by 6.
+
+### 63. Write a Java program that accepts two integer values from the user and returns the largest value. However if the two values are the same, return 0 and find the smallest value if the two values have the same remainder when divided by 6.
 Sample Output:
 
 Input the first number : 12                                            
 Input the second number: 13                                            
 Result: 13
-Click me to see the solution
 
-64. Write a Java program that accepts two integer values between 25 and 75 and returns true if there is a common digit in both numbers.
+
+### 64. Write a Java program that accepts two integer values between 25 and 75 and returns true if there is a common digit in both numbers.
 Sample Output:
 
 Input the first number : 35                                            
 Input the second number: 45                                            
 Result: true
-Click me to see the solution
 
-65. Write a Java program to calculate the modules of two numbers without using any inbuilt modulus operator.
+
+### 65. Write a Java program to calculate the modules of two numbers without using any inbuilt modulus operator.
 Sample Output:
 
 Input the first number : 19                                            
 Input the second number: 7                                             
 5   
-Click me to see the solution
 
-66. Write a Java program to compute the sum of the first 100 prime numbers.
+
+### 66. Write a Java program to compute the sum of the first 100 prime numbers.
 Sample Output:
 
 Sum of the first 100 prime numbers: 24133 
-Click me to see the solution
 
-67. Write a Java program to insert a word in the middle of another string.
+
+### 67. Write a Java program to insert a word in the middle of another string.
 Insert "Tutorial" in the middle of "Python 3.0", so the result will be Python Tutorial 3.0.
 Sample Output:
 
 Python Tutorial 3.0
-Click me to see the solution
 
-68. Write a Java program to create another string of 4 copies of the last 3 characters of the original string. The original string length must be 3 and above.
+
+### 68. Write a Java program to create another string of 4 copies of the last 3 characters of the original string. The original string length must be 3 and above.
 Sample Output:
 
 3.03.03.03.0 
-Click me to see the solution
 
-69. Write a Java program to extract the first half of a even string.
+
+### 69. Write a Java program to extract the first half of a even string.
 Test Data: Python
 Sample Output:
 Pyt
-Click me to see the solution
 
-70. Write a Java program to create a string in the form of short_string + long_string + short_string from two strings. The strings must not have the same length.
+
+### 70. Write a Java program to create a string in the form of short_string + long_string + short_string from two strings. The strings must not have the same length.
 Test Data: Str1 = Python
 Str2 = Tutorial
 Sample Output:
 
 PythonTutorialPython
-Click me to see the solution
 
-71. Write a Java program to create the concatenation of the two strings except removing the first character of each string. The length of the strings must be 1 and above.
+
+### 71. Write a Java program to create the concatenation of the two strings except removing the first character of each string. The length of the strings must be 1 and above.
 Test Data: Str1 = Python
 Str2 = Tutorial
 Sample Output:
 
 ythonutorial
-Click me to see the solution
 
-72. Write a Java program to create a string taking the first three characters from a given string. If the string length is less than 3 use "#" as substitute characters.
+
+### 72. Write a Java program to create a string taking the first three characters from a given string. If the string length is less than 3 use "#" as substitute characters.
 Test Data: Str1 = " "
 Sample Output:
 
 ###
-Click me to see the solution
 
-73. Write a Java program to create a string taking the first and last characters from two given strings. If the length of each string is 0 use "#" for missing characters.
+
+### 73. Write a Java program to create a string taking the first and last characters from two given strings. If the length of each string is 0 use "#" for missing characters.
 Test Data: str1 = "Python"
 str2 = " "
 Sample Output:
 
 P#
-Click me to see the solution
 
-74. Write a Java program to test if 10 appears as the first or last element of an array of integers. The array length must be broader than or equal to 2.
+
+### 74. Write a Java program to test if 10 appears as the first or last element of an array of integers. The array length must be broader than or equal to 2.
 Sample Output:
 Test Data: array = 10, -20, 0, 30, 40, 60, 10
 
 true
-Click me to see the solution
 
-75. Write a Java program to test if the first and last elements of an array of integers are the same. The array length must be broader than or equal to 2.
+
+### 75. Write a Java program to test if the first and last elements of an array of integers are the same. The array length must be broader than or equal to 2.
 Test Data: array = 50, -20, 0, 30, 40, 60, 10
 Sample Output:
 
 false
-Click me to see the solution
 
-76. Write a Java program to test if the first and last element of two integer arrays are the same. The array length must be greater than or equal to 2.
+
+### 76. Write a Java program to test if the first and last element of two integer arrays are the same. The array length must be greater than or equal to 2.
 Test Data: array1 = 50, -20, 0, 30, 40, 60, 12
 array2 = 45, 20, 10, 20, 30, 50, 11
 Sample Output:
 
 false
-Click me to see the solution
 
-77. Write a Java program to create an array of length 2 from two integer arrays with three elements. The newly created array will contain the first and last elements from the two arrays.
+
+### 77. Write a Java program to create an array of length 2 from two integer arrays with three elements. The newly created array will contain the first and last elements from the two arrays.
 Test Data: array1 = 50, -20, 0
 array2 = 5, -50, 10
 Sample Output:
@@ -763,44 +884,44 @@ Sample Output:
 Array1: [50, -20, 0]                                                   
 Array2: [5, -50, 10]                                                   
 New Array: [50, 10]
-Click me to see the solution
 
-78. Write a Java program to test that a given array of integers of length 2 contains a 4 or a 7.
+
+### 78. Write a Java program to test that a given array of integers of length 2 contains a 4 or a 7.
 Sample Output:
 
 Original Array: [5, 7]                                                 
 true 
-Click me to see the solution
 
-79. Write a Java program to rotate an array (length 3) of integers in the left direction.
+
+### 79. Write a Java program to rotate an array (length 3) of integers in the left direction.
 Sample Output:
 
 Original Array: [20, 30, 40]                                           
 Rotated Array: [30, 40, 20]
-Click me to see the solution
 
-80. Write a Java program to get the largest value between the first and last elements of an array (length 3) of integers.
+
+### 80. Write a Java program to get the largest value between the first and last elements of an array (length 3) of integers.
 Sample Output:
 
 Original Array: [20, 30, 40]                                           
 Larger value between first and last element: 40 
-Click me to see the solution
 
-81. Write a Java program to swap the first and last elements of an array (length must be at least 1) and create another array.
+
+### 81. Write a Java program to swap the first and last elements of an array (length must be at least 1) and create another array.
 Sample Output:
 
 Original Array: [20, 30, 40]                                           
 New array after swaping the first and last elements: [40, 30, 20] 
-Click me to see the solution
 
-82. Write a Java program to find the largest element between the first, last, and middle values in an array of integers (even length).
+
+### 82. Write a Java program to find the largest element between the first, last, and middle values in an array of integers (even length).
 Sample Output:
 
 Original Array: [20, 30, 40, 50, 67]                                   
 Largest element between first, last, and middle values: 67 
-Click me to see the solution
 
-83. Write a Java program to multiply the corresponding elements of two integer arrays.
+
+### 83. Write a Java program to multiply the corresponding elements of two integer arrays.
 Sample Output:
 
 Array1: [1, 3, -5, 4]                                                  
@@ -808,159 +929,159 @@ Array1: [1, 3, -5, 4]
 Array2: [1, 4, -5, -2]                                                 
                                                                        
 Result: 1 12 25 -8
-Click me to see the solution
 
-84. Write a Java program to take the last three characters from a given string. It will add the three characters at both the front and back of the string. String length must be greater than three and more.
+
+### 84. Write a Java program to take the last three characters from a given string. It will add the three characters at both the front and back of the string. String length must be greater than three and more.
 Test data: "Python" will be "honPythonhon"
 Sample Output:
 
 honPythonhon
-Click me to see the solution
 
-85. Write a Java program to check if a string starts with a specified word.
+
+### 85. Write a Java program to check if a string starts with a specified word.
 Sample Data: string1 = "Hello how are you?"
 Sample Output:
 
 true
-Click me to see the solution
-
-86. Write a Java program starting with an integer n, divide it by 2 if it is even, or multiply it by 3 and add 1 if it is odd. Repeat the process until n = 1.
-Click me to see the solution
-
-87. Write a Java program that then reads an integer and calculates the sum of its digits and writes the number of each digit of the sum in English.
-Click me to see the solution
-
-88. Write a Java program to get the current system environment and system properties.
-Click me to see the solution
-
-89. Write a Java program to check whether a security manager has already been established for the current application or not.
-Click me to see the solution
 
 
-90. Write a Java program to get the value of environment variables PATH, TEMP, USERNAME.
-Click me to see the solution
+### 86. Write a Java program starting with an integer n, divide it by 2 if it is even, or multiply it by 3 and add 1 if it is odd. Repeat the process until n = 1.
 
-91. Write a Java program to measure how long code executes in nanoseconds.
-Click me to see the solution
 
-92. Write a Java program to count the number of even and odd elements in a given array of integers.
-Click me to see the solution
+### 87. Write a Java program that then reads an integer and calculates the sum of its digits and writes the number of each digit of the sum in English.
 
-93. Write a Java program to test if an array of integers contains an element 10 next to 10 or an element 20 next to 20, but not both.
-Click me to see the solution
 
-94. Write a Java program to rearrange all the elements of a given array of integers so that all the odd numbers come before all the even numbers.
-Click me to see the solution
+### 88. Write a Java program to get the current system environment and system properties.
 
-95. Write a Java program to create an array (length # 0) of string values. The elements will contain "0", "1", "2" … through ... n-1.
-Click me to see the solution
+
+### 89. Write a Java program to check whether a security manager has already been established for the current application or not.
+
+
+
+### 90. Write a Java program to get the value of environment variables PATH, TEMP, USERNAME.
+
+
+### 91. Write a Java program to measure how long code executes in nanoseconds.
+
+
+### 92. Write a Java program to count the number of even and odd elements in a given array of integers.
+
+
+### 93. Write a Java program to test if an array of integers contains an element 10 next to 10 or an element 20 next to 20, but not both.
+
+
+### 94. Write a Java program to rearrange all the elements of a given array of integers so that all the odd numbers come before all the even numbers.
+
+
+### 95. Write a Java program to create an array (length # 0) of string values. The elements will contain "0", "1", "2" … through ... n-1.
+
 
 96. Write a Java program to check if there is a 10 in an array of integers with a 20 somewhere later on.
-Click me to see the solution
-
-97. Write a Java program to check if an array of integers contains a specified number next to each other or two same numbers separated by one element.
-Click me to see the solution
-
-98. Write a Java program to check if the value 20 appears three times and no 20's are next to each other in the array of integers.
-Click me to see the solution
-
-99. Write a Java program that checks if a specified number appears in every pair of adjacent integers of a given array of integers.
-Click me to see the solution
-
-100. Write a Java program to count the elements that differ by 1 or less between two given arrays of integers with the same length.
-Click me to see the solution
 
 
-101. Write a Java program to determine whether the number 10 in a given array of integers exceeds 20.
-Click me to see the solution
+### 97. Write a Java program to check if an array of integers contains a specified number next to each other or two same numbers separated by one element.
 
-102. Write a Java program to check if a specified array of integers contains 10 or 30.
-Click me to see the solution
 
-103. Write a Java program to create an array from a given array of integers. The newly created array will contain elements from the given array after the last element value is 10.
-Click me to see the solution
+### 98. Write a Java program to check if the value 20 appears three times and no 20's are next to each other in the array of integers.
 
-104. Write a Java program to create an array from a given array of integers. The newly created array will contain the elements from the given array before the last element value of 10.
-Click me to see the solution
 
-105. Write a Java program to check if a group of numbers (l) at the start and end of a given array are the same.
-Click me to see the solution
+### 99. Write a Java program that checks if a specified number appears in every pair of adjacent integers of a given array of integers.
 
-106. Write a Java program to create an array left shifted from a given array of integers.
-Click me to see the solution
 
-107. Write a Java program to check if an array of integers contains three increasing adjacent numbers.
-Click me to see the solution
+### 100. Write a Java program to count the elements that differ by 1 or less between two given arrays of integers with the same length.
 
-108. Write a Java program to add all the digits of a given positive integer until the result has a single digit.
-Click me to see the solution
 
-109. Write a Java program to form a staircase shape of n coins where every k-th row must have exactly k coins.
-Click me to see the solution
 
-110. Write a Java program to check whether the given integer is a power of 4 or not.
+### 101. Write a Java program to determine whether the number 10 in a given array of integers exceeds 20.
+
+
+### 102. Write a Java program to check if a specified array of integers contains 10 or 30.
+
+
+### 103. Write a Java program to create an array from a given array of integers. The newly created array will contain elements from the given array after the last element value is 10.
+
+
+### 104. Write a Java program to create an array from a given array of integers. The newly created array will contain the elements from the given array before the last element value of 10.
+
+
+### 105. Write a Java program to check if a group of numbers (l) at the start and end of a given array are the same.
+
+
+### 106. Write a Java program to create an array left shifted from a given array of integers.
+
+
+### 107. Write a Java program to check if an array of integers contains three increasing adjacent numbers.
+
+
+### 108. Write a Java program to add all the digits of a given positive integer until the result has a single digit.
+
+
+### 109. Write a Java program to form a staircase shape of n coins where every k-th row must have exactly k coins.
+
+
+### 110. Write a Java program to check whether the given integer is a power of 4 or not.
 Given num = 64, return true. Given num = 6, return false.
-Click me to see the solution
 
-111. Write a Java program to add two numbers without arithmetic operators.
+
+### 111. Write a Java program to add two numbers without arithmetic operators.
 Given x = 10 and y = 12; result = 22
-Click me to see the solution
 
 
-112. Write a Java program to compute the number of trailing zeros in a factorial.
+
+### 112. Write a Java program to compute the number of trailing zeros in a factorial.
 7! = 5040, therefore the output should be 1
-Click me to see the solution
 
-113. Write a Java program to merge two given sorted arrays of integers and create another sorted array.
+
+### 113. Write a Java program to merge two given sorted arrays of integers and create another sorted array.
 array1 = [1,2,3,4]
 array2 = [2,5,7, 8]
 result = [1,2,2,3,4,5,7,8]
-Click me to see the solution
 
-114. Write a Java program that rotates a string by an offset (rotate from left to right.
-Click me to see the solution
 
-115. Write a Java program to check if a positive number is a palindrome or not.
+### 114. Write a Java program that rotates a string by an offset (rotate from left to right.
+
+
+### 115. Write a Java program to check if a positive number is a palindrome or not.
 Input a positive integer: 151
 Is 151 is a palindrome number?
 true
-Click me to see the solution
 
-116. Write a Java program that iterates integers from 1 to 100. For multiples of three print "Fizz" instead of the number and print "Buzz" for five. When the number is divided by three and five, print "fizz buzz".
-Click me to see the solution
 
-117. Write a Java program to compute the square root of a given number.
+### 116. Write a Java program that iterates integers from 1 to 100. For multiples of three print "Fizz" instead of the number and print "Buzz" for five. When the number is divided by three and five, print "fizz buzz".
+
+
+### 117. Write a Java program to compute the square root of a given number.
 Input a positive integer: 25
 Square root of 25 is: 5
-Click me to see the solution
 
-118. Write a Java program to get the first occurrence (Position starts from 0.) of a string within a given string.
-Click me to see the solution
 
-119. Write a Java program to get the first occurrence (Position starts from 0.) of an element of a given array.
-Click me to see the solution
+### 118. Write a Java program to get the first occurrence (Position starts from 0.) of a string within a given string.
 
-120. Write a Java program that searches for a value in an m x n matrix.
-Click me to see the solution
 
-121. Write a Java program to reverse a linked list.
+### 119. Write a Java program to get the first occurrence (Position starts from 0.) of an element of a given array.
+
+
+### 120. Write a Java program that searches for a value in an m x n matrix.
+
+
+### 121. Write a Java program to reverse a linked list.
 Example: For linked list 20->40->60->80, the reversed linked list is 80->60->40->20
-Click me to see the solution
 
-122. Write a Java program to find a contiguous subarray with the largest sum from a given array of integers.
-Note: In computer science, the maximum subarray problem is the task of finding the contiguous subarray within a one-dimensional array of numbers which has the largest sum. For example, for the sequence of values −2, 1, −3, 4, −1, 2, 1, −5, 4; the contiguous subarray with the largest sum is 4, −1, 2, 1, with sum 6. The subarray should contain one integer at least. Click me to see the solution
 
-123. Write a Java program to find the subarray with smallest sum from a given array of integers.
-Click me to see the solution
+### 122. Write a Java program to find a contiguous subarray with the largest sum from a given array of integers.
+Note: In computer science, the maximum subarray problem is the task of finding the contiguous subarray within a one-dimensional array of numbers which has the largest sum. For example, for the sequence of values −2, 1, −3, 4, −1, 2, 1, −5, 4; the contiguous subarray with the largest sum is 4, −1, 2, 1, with sum 6. The subarray should contain one integer at least. 
 
-124. Write a Java program to find the index of a value in a sorted array. If the value does not find return the index where it would be if it were inserted in order.
+### 123. Write a Java program to find the subarray with smallest sum from a given array of integers.
+
+
+### 124. Write a Java program to find the index of a value in a sorted array. If the value does not find return the index where it would be if it were inserted in order.
 Example:
 [1, 2, 4, 5, 6] 5(target) -> 3(index)
 [1, 2, 4, 5, 6] 0(target) -> 0(index)
 [1, 2, 4, 5, 6] 7(target) -> 5(index)
-Click me to see the solution
 
-125. Write a Java program to get the preorder traversal of the values of the nodes in a binary tree.
+
+### 125. Write a Java program to get the preorder traversal of the values of the nodes in a binary tree.
 Example:
     10
    / \
@@ -968,8 +1089,8 @@ Example:
  / \
 40   50
 Expected output: 10 20 40 50 30
-Click me to see the solution
-126. Write a Java program to get the in-order traversal of its nodes' values in a binary tree.
+
+### 126. Write a Java program to get the in-order traversal of its nodes' values in a binary tree.
     10
    / \
   20   30
@@ -977,63 +1098,63 @@ Click me to see the solution
 40   50
 Example:{10, 20, 30, 40, 50}
 Output: 40 20 50 10 30
-Click me to see the solution
-127. Write a Java program to get the Postorder traversal of its nodes' values in a binary tree.
+
+### 127. Write a Java program to get the Postorder traversal of its nodes' values in a binary tree.
     10
    / \
   20   30
  / \
 40   50
-Click me to see the solution
-128. Write a Java program to calculate the median of a non-sorted array of integers.
+
+### 128. Write a Java program to calculate the median of a non-sorted array of integers.
 Original array: [10, 2, 38, 22, 38, 23]
 Median of the said array of integers: 30
 Original array: [10, 2, 38, 23, 38, 23, 21]
 Median of the said array of integers: 23
-Click me to see the solution
 
-129. Write a Java program to find a number that appears only once in a given array of integers. All numbers occur twice.
+
+### 129. Write a Java program to find a number that appears only once in a given array of integers. All numbers occur twice.
 Source Array : [10, 20, 10, 20, 30, 40, 40, 30, 50] 50 appears only once
-Click me to see the solution
 
-130. Write a Java program to find the maximum depth of a given binary tree.
+
+### 130. Write a Java program to find the maximum depth of a given binary tree.
 Sample Output: The Maximum depth of the binary tree is: 3
-Click me to see the solution
 
-131. Write a Java program to find the updated length of a sorted array where each element appears only once (remove duplicates).
+
+### 131. Write a Java program to find the updated length of a sorted array where each element appears only once (remove duplicates).
 Original array: [1, 1, 2, 3, 3, 3, 4, 5, 6, 7, 7] The length of the original array is: 11 After removing duplicates, the new length of the array is: 7
-Click me to see the solution
 
-132. Write a Java program to find the updated length of a given sorted array where duplicate elements appear at most twice.
+
+### 132. Write a Java program to find the updated length of a given sorted array where duplicate elements appear at most twice.
 Original array: [1, 1, 2, 3, 3, 3, 4, 5, 6, 7, 7, 7, 7]
 The length of the original array is: 13
 After removing duplicates, the new length of the array is: 10
-Click me to see the solution
 
-133. Write a Java program to find a path from top left to bottom in the right direction which minimizes the sum of all numbers along its path.
+
+### 133. Write a Java program to find a path from top left to bottom in the right direction which minimizes the sum of all numbers along its path.
 Note: Move either down or right at any point in time.
 Sample Output: Sum of all numbers along its path: 13
-Click me to see the solution
 
-134. Write a Java program to find distinct ways to climb to the top (n steps to reach the top) of stairs. Each time you climb, you can climb 1 or 2 steps.
+
+### 134. Write a Java program to find distinct ways to climb to the top (n steps to reach the top) of stairs. Each time you climb, you can climb 1 or 2 steps.
 Example: n = 5
 a) 1+1+1+1+1 = 5 b) 1+1+1+2 = 5 c) 1+2+2 = 5 d) 2+2+1 = 5 e) 2+1+1+1 = 5 f) 2+1+2 = 5 g) 1+2+1+1 = 5 h) 1+1+2+1 = 5
 Sample Output: Distinct ways can you climb to the top: 8
-Click me to see the solution
 
-135. Write a Java program to remove duplicates from a sorted linked list.
+
+### 135. Write a Java program to remove duplicates from a sorted linked list.
 Original List with duplicate elements:
 12->12->13->14->15->15->16->17->17
 After removing duplicates from the said list:
 12->13->14->15->16->17
-Click me to see the solution
 
-136. Write a Java program to find possible distinct paths from the top-left corner to the bottom-right corner of a given grid (m x n).
+
+### 136. Write a Java program to find possible distinct paths from the top-left corner to the bottom-right corner of a given grid (m x n).
 Note: You can move either down or right at any point in time.
 Sample Output: Unique paths from top-left corner to bottom-right corner of the said grid: 3
-Click me to see the solution
 
-137. Write a Java program to find possible unique paths considering some obstacles, from top-left corner to bottom-right corner of a given grid (m x n).
+
+### 137. Write a Java program to find possible unique paths considering some obstacles, from top-left corner to bottom-right corner of a given grid (m x n).
 Note: You can move either down or right at any point in time and an obstacle and empty space is marked as 1 and 0 respectively in the grid.
 Sample grid:
 int[][] obstacle_Grid ={
@@ -1042,9 +1163,9 @@ int[][] obstacle_Grid ={
 {0, 0, 0},
 };
 Sample Output: Unique paths from top-left corner to bottom-right corner of the said grid (considering some obstacles): 2
-Click me to see the solution
 
-138. Write a Java program to find the longest words in a dictionary.
+
+### 138. Write a Java program to find the longest words in a dictionary.
 Example-1:
 {
 "cat",
@@ -1063,52 +1184,52 @@ Example-2:
 "am"
 }
 Result: "cat", "dog", "red"
-Click me to see the solution
 
-139. Write a Java program to get the index of the first and the last number of a subarray where the sum of numbers is zero. This is from a given array of integers.
+
+### 139. Write a Java program to get the index of the first and the last number of a subarray where the sum of numbers is zero. This is from a given array of integers.
 Original Array : [1, 2, 3, -6, 5, 4]
 Index of the subarray of the said array where the sum of numbers is zero: [0, 3]
-Click me to see the solution
 
-140. Write a Java program to merge all overlapping intervals from a given collection of intervals.
+
+### 140. Write a Java program to merge all overlapping intervals from a given collection of intervals.
 Sample Output: 1 6
 8 10
 15 20
-Click me to see the solution
 
-141. Write a Java program to check if a given string has all distinct characters.
+
+### 141. Write a Java program to check if a given string has all distinct characters.
 Sample Output: Original String : xyyz
 String has all unique characters: false
-Click me to see the solution
 
-142. Write a Java program to check if two strings are anagrams or not.
+
+### 142. Write a Java program to check if two strings are anagrams or not.
 According to Wikipedia "An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once. For example, the word anagram can be rearranged into nag a ram, or the word binary into brainy."
 Sample Output: String-1 : wxyz
 String-2 : zyxw
 Check if two given strings are anagrams or not?: true
-Click me to see the solution
 
-143. Write a Java program to merge the two sorted linked lists.
+
+### 143. Write a Java program to merge the two sorted linked lists.
 Sample Output:
 Merge Two Sorted ListsT:
 1 2 3 7 9 13 40
-Click me to see the solution
 
-144. Write a Java program to remove all occurrences of a specified value in a given array of integers. Return the updated array length.
+
+### 144. Write a Java program to remove all occurrences of a specified value in a given array of integers. Return the updated array length.
 Sample Output:
 Original array: [1, 4, 6, 7, 6, 2]
 The length of the new array is: 4
-Click me to see the solution
 
-145. Write a Java program to remove the nth element from the end of a given list.
+
+### 145. Write a Java program to remove the nth element from the end of a given list.
 Sample Output:
 Original node:
 1 2 3 4 5
 After removing 2nd element from end:
 1 2 3 5
-Click me to see the solution
 
-146. Write a Java program to convert an array of sorted items into a binary search tree. Maintain the minimal height of the tree.
+
+### 146. Write a Java program to convert an array of sorted items into a binary search tree. Maintain the minimal height of the tree.
 Sample Output:
 2
 1
@@ -1116,35 +1237,35 @@ Sample Output:
 6
 5
 3
-Click me to see the solution
 
-147. Write a Java program to find the number of bits required to flip to convert two given integers.
+
+### 147. Write a Java program to find the number of bits required to flip to convert two given integers.
 Sample Output:
 2
-Click me to see the solution
 
-148. Write a Java program to find the index of the first unique character in a given string. Assume that there is at least one unique character in the string.
+
+### 148. Write a Java program to find the index of the first unique character in a given string. Assume that there is at least one unique character in the string.
 Sample Output:
 Original String: wresource
 First unique character of the above: 0
-Click me to see the solution
 
-149. Write a Java program to check if a given string is a permutation of another given string.
+
+### 149. Write a Java program to check if a given string is a permutation of another given string.
 Sample Output:
 Original strings: xxyz yxzx
 true
-Click me to see the solution
 
-150. Write a Java program to test if a binary tree is a subtree of another binary tree.
+
+### 150. Write a Java program to test if a binary tree is a subtree of another binary tree.
 Sample Output:
 Original strings: xxyz yxzx
 true
-Click me to see the solution
+
 
 
 https://www.w3resource.com/java-exercises/basic/index1.php
 
-151. Write a Java program to find the value of a specified expression.
+### 151. Write a Java program to find the value of a specified expression.
 a) 101 + 0) / 3
 b) 3.0e-6 * 10000000.1
 c) true && true
@@ -1159,9 +1280,9 @@ Expected Output :
 (false && true)-> false
 ((false && false) || (true && true))-> true
 (false || false) && (true && true)-> false
-Click me to see the solution
 
-152. Write a Java program that accepts four integers from the user and prints equal if all four are equal, and not equal otherwise.
+
+### 152. Write a Java program that accepts four integers from the user and prints equal if all four are equal, and not equal otherwise.
 
 
 Sample Output:
@@ -1171,18 +1292,18 @@ Input third number: 45
 Input fourth number: 23
 Numbers are not equal!
 
-Click me to see the solution
 
-153. Write a Java program that accepts two double variables and test if both strictly between 0 and 1 and false otherwise.
+
+### 153. Write a Java program that accepts two double variables and test if both strictly between 0 and 1 and false otherwise.
 
 Sample Output:
 Input first number: 5
 Input second number: 1
 false
 
-Click me to see the solution
 
-154. Write a Java program to print the contents of a two-dimensional Boolean array where t represents true and f represents false.
+
+### 154. Write a Java program to print the contents of a two-dimensional Boolean array where t represents true and f represents false.
 
 Sample array:
 array = {{true, false, true},
@@ -1191,9 +1312,9 @@ Expected Output :
 t f t
 f t f
 
-Click me to see the solution
 
-155. Write a Java program to print an array after changing the rows and columns of a two-dimensional array.
+
+### 155. Write a Java program to print an array after changing the rows and columns of a two-dimensional array.
 
 Original Array:
 10 20 30
@@ -1202,16 +1323,16 @@ After changing the rows and columns of the said array:10 40
 20 50
 30 60
 
-Click me to see the solution
 
-156. Write a Java program that returns the largest integer but not larger than the base-2 logarithm of a specified integer.
+
+### 156. Write a Java program that returns the largest integer but not larger than the base-2 logarithm of a specified integer.
 
 Original Number: 2350
 Result: 115
 
-Click me to see the solution
 
-157. Write a Java program to prove that Euclid’s algorithm computes the greatest common divisor of two integers that have positive values.
+
+### 157. Write a Java program to prove that Euclid’s algorithm computes the greatest common divisor of two integers that have positive values.
 
 According to Wikipedia "The Euclidean algorithm is based on the principle that the greatest common divisor of two numbers does not change if the larger number is replaced by its difference with the smaller number. For example, 21 is the GCD of 252 and 105 (as 252 = 21 × 12 and 105 = 21 × 5), and the same number 21 is also the GCD of 105 and 252 − 105 = 147. Since this replacement reduces the larger of the two numbers, repeating this process gives successively smaller pairs of numbers until the two numbers become equal. When that occurs, they are the GCD of the original two numbers. By reversing the steps, the GCD can be expressed as a sum of the two original numbers each multiplied by a positive or negative integer, e.g., 21 = 5 × 105 + (−2) × 252. The fact that the GCD can always be expressed in this way is known as Bézout's identity."
 
@@ -1219,28 +1340,18 @@ Expected Output:
 result: 24
 result: 1
 
-Click me to see the solution
 
-158. Write a Java program to create a two-dimensional array (m x m) A[][] such that A[i][j] is false if I and j are prime otherwise A[i][j] becomes true.
+
+### 158. Write a Java program to create a two-dimensional array (m x m) A[][] such that A[i][j] is false if I and j are prime otherwise A[i][j] becomes true.
 
 Sample Output:
 true true true
 true true true
 true true false
 
-Click me to see the solution
 
-159. Write a Java program to find the k largest elements in a given array. Elements in the array can be in any order.
 
-Expected Output:
-Original Array:
-[1, 4, 17, 7, 25, 3, 100]
-3 largest elements of the said array are:
-100 25 17
-
-Click me to see the solution
-
-160. Write a Java program to find the k smallest elements in a given array. Elements in the array can be in any order.
+### 159. Write a Java program to find the k largest elements in a given array. Elements in the array can be in any order.
 
 Expected Output:
 Original Array:
@@ -1248,9 +1359,19 @@ Original Array:
 3 largest elements of the said array are:
 100 25 17
 
-Click me to see the solution
 
-161. Write a Java program to find the kth smallest and largest element in a given array. Elements in the array can be in any order.
+
+### 160. Write a Java program to find the k smallest elements in a given array. Elements in the array can be in any order.
+
+Expected Output:
+Original Array:
+[1, 4, 17, 7, 25, 3, 100]
+3 largest elements of the said array are:
+100 25 17
+
+
+
+### 161. Write a Java program to find the kth smallest and largest element in a given array. Elements in the array can be in any order.
 
 Expected Output:
 Original Array:
@@ -1260,9 +1381,9 @@ K'th smallest element of the said array:
 K'th largest element of the said array:
 25
 
-Click me to see the solution
 
-162. Write a Java program that finds numbers greater than the average of an array.
+
+### 162. Write a Java program that finds numbers greater than the average of an array.
 
 Expected Output:
 Original Array:
@@ -1272,87 +1393,87 @@ The numbers in the said array that are greater than the average are:
 25
 100
 
-Click me to see the solution
 
-163. Write a Java program that will accept an integer and convert it into a binary representation. Now count the number of bits equal to zero in this representation.
+
+### 163. Write a Java program that will accept an integer and convert it into a binary representation. Now count the number of bits equal to zero in this representation.
 
 Expected Output:
 Input first number: 25
 Binary representation of 25 is: 11001
 Number of zero bits: 2
 
-Click me to see the solution
 
-164. Write a Java program to divide the two given integers using the subtraction operator.
+
+### 164. Write a Java program to divide the two given integers using the subtraction operator.
 
 Expected Output:
 Input the dividend: 625
 Input the divider: 25
 Result: 25.0
 
-Click me to see the solution
 
-165. Write a Java program to move every positive number to the right and every negative number to the left of a given array of integers.
+
+### 165. Write a Java program to move every positive number to the right and every negative number to the left of a given array of integers.
 
 Expected Output:
 Original array: [-2, 3, 4, -1, -3, 1, 2, -4, 0]
 Result: [-4, -3, -2, -1, 0, 1, 2, 3, 4]
 
-Click me to see the solution
 
-166. Write a Java program to transform a given integer into String format.
+
+### 166. Write a Java program to transform a given integer into String format.
 
 Expected Output:
 Input an integer: 35
 String format of the said integer: 35
 
-Click me to see the solution
 
-167. Write a Java program to move every zero to the right side of a given array of integers.
+
+### 167. Write a Java program to move every zero to the right side of a given array of integers.
 
 Original array: [0, 3, 4, 0, 1, 2, 5, 0]
 Result: [3, 4, 1, 2, 5, 0, 0, 0]
 
-Click me to see the solution
 
-168. Write a Java program to multiply two given integers without using the multiply operator (*).
+
+### 168. Write a Java program to multiply two given integers without using the multiply operator (*).
 
 Input the first number: 25
 Input the second number: 5
 Result: 125
 
-Click me to see the solution
 
-169. Write a Java program to reverse a sentence (assume a single space between two words) without reverse every word.
+
+### 169. Write a Java program to reverse a sentence (assume a single space between two words) without reverse every word.
 
 Input a string: The quick brown fox jumps over the lazy dog
 Result: dog lazy the over jumps fox brown quick The
 
-Click me to see the solution
 
-170. Write a Java program to find the length of the longest consecutive sequence in a given array of integers.
+
+### 170. Write a Java program to find the length of the longest consecutive sequence in a given array of integers.
 
 Original array: [1, 1, 2, 3, 3, 4, 5, 2, 4, 5, 6, 7, 8, 9, 6, -1, -2]
 7
 
-Click me to see the solution
 
-171. Write a Java program to accept two strings and test if the second string contains the first one.
+
+### 171. Write a Java program to accept two strings and test if the second string contains the first one.
 
 Input first string: Once in a blue moon
 Input second string: See eye to eye
 If the second string contains the first one? false
 
-Click me to see the solution
 
-172. Write a Java program to get the number of elements in a given array of integers that are smaller than the integer in another given array of integers.
+
+### 172. Write a Java program to get the number of elements in a given array of integers that are smaller than the integer in another given array of integers.
 
 Expected Output:
 0
 3
 7
 
-Click me to see the solution
+
 
 173. Write a Java program to find the median of the numbers inside the window (size k) at each step in a given array of integers with duplicate numbers. Move the window to the array start.
 
@@ -1380,7 +1501,7 @@ Result:
 6
 7
 8
-Click me to see the solution
+
 
 174. Write a Java program to find the maximum number inside the number in the window (size k) at each step in a given array of integers with duplicate numbers. Move the window to the top of the array.
 
@@ -1408,7 +1529,7 @@ Result:
 6
 7
 8
-Click me to see the solution
+
 
 175. Write a Java program to delete a specified node in the middle of a singly linked list.
 
@@ -1422,7 +1543,7 @@ Original Linked list:
 10->20->30->40->50
 After deleting the fourth node, Linked list becomes:
 10->20->30->50
-Click me to see the solution
+
 
 176. Write a Java program that partitions an array of integers into even and odd numbers.
 
@@ -1430,7 +1551,7 @@ Expected Output
 
 Original array: [7, 2, 4, 1, 3, 5, 6, 8, 2, 10]
 After partition the said array becomes: [10, 2, 4, 2, 8, 6, 5, 3, 1, 7]
-Click me to see the solution
+
 
 177. Write a Java program to get an updated binary tree with the same structure and value as a given binary tree.
 
@@ -1449,7 +1570,7 @@ Clone of the said Treenode:
 2
 3
 1
-Click me to see the solution
+
 
 178. Write a Java program to find the longest increasing continuous subsequence in a given array of integers.
 
@@ -1457,7 +1578,7 @@ Expected Output:
 
 Original array: [10, 11, 12, 13, 14, 7, 8, 9, 1, 2, 3]
 Size of longest increasing continuous subsequence: 5
-Click me to see the solution
+
 
 179. Write a Java program to add one to a positive number represented as an array of digits.
 
@@ -1468,7 +1589,7 @@ Expected Output:
 
 Original array: [9, 9, 9, 9]
 Array of digits: [1, 0, 0, 0, 0]
-Click me to see the solution
+
 
 180. Write a Java program to swap two adjacent nodes in a linked list.
 
@@ -1479,7 +1600,7 @@ Original Linked list:
 
 After swiping Linked list becomes:
 20->10->40->30->50
-Click me to see the solution
+
 
 181. Write a Java program to find the length of the last word in a given string. The string contains upper/lower-case alphabets and empty space characters like ' '.
 
@@ -1487,7 +1608,7 @@ Sample Output:
 
 Original String: The length of last word
 Length of the last word of the above string: 4
-Click me to see the solution
+
 
 182. Write a Java program to check if two binary trees are identical. Assume that two binary trees have the same structure and every identical position has the same value.
 
@@ -1498,7 +1619,7 @@ false
 
 Comparing TreeNode b and TreeNode c:
 true
-Click me to see the solution
+
 
 183. Write a Java program to accept a positive number and repeatedly add all its digits until the result has only one digit.
 
@@ -1506,7 +1627,7 @@ Expected Output:
 
 Input a positive integer:  25
 7
-Click me to see the solution
+
 
 184. Write a Java program to find the length of the longest consecutive sequence path in a given binary tree.
 Note: The longest consecutive path need to be from parent to child.
@@ -1515,13 +1636,13 @@ Java Basic Exercises: Find the length of the longest consecutive sequence path o
 Expected Output:
 
 Length of the longest consecutive sequence path:  4
-Click me to see the solution
+
 
 185. Write a Java program to check if two strings are isomorphic or not.
 Expected Output:
 
 Is abca and zbxz are Isomorphic? true
-Click me to see the solution
+
 
 186. Write a Java program to check if a number is a strobogrammatic number. The number is represented as a string.
 
@@ -1532,14 +1653,14 @@ The first few strobogrammatic numbers are:
 Expected Output:
 
 Is 9006 is Strobogrammatic? true
-Click me to see the solution
+
 
 187. Write a Java program to find the index of the first non-repeating character in a given string.
 
 Expected Output:
 
 Index of first non-repeating character in 'google' is: 4
-Click me to see the solution
+
 
 188. Write a Java program to find all the start indices of a given string's anagrams in another given string.
 
@@ -1547,21 +1668,21 @@ Expected Output:
 
 Original String: zyxwyxyxzwxyz
 Starting anagram indices of xyz: [0, 6, 10]
-Click me to see the solution
+
 
 189. Write a Java program to two non-negative integers num1 and num2 represented as strings, return the sum of num1 and num2.
 
 Expected Output:
 
 '123' + '456' = 579
-Click me to see the solution
+
 
 190. Write a Java program to find the missing string from two given strings.
 
 Expected Output:
 
 Missing string: [Solution]
-Click me to see the solution
+
 
 191. Write a Java program to test whether there are two integers x and y such that x^2 + y^2 is equal to a given positive number.
 
@@ -1569,14 +1690,14 @@ Expected Output:
 
 Input a positive integer:  25
 Is 25 sum of two square numbers? true
-Click me to see the solution
+
 
 192. Write a Java program to rearrange the alphabets in the order followed by the sum of digits in a given string containing uppercase alphabets and integer digits (from 0 to 9).
 
 Expected Output:
 
 ADEHNS23
-Click me to see the solution
+
 
 193. Write a Java program that accepts an integer and sums the elements from all possible subsets of a set formed by the first n natural numbers.
 
@@ -1584,7 +1705,7 @@ Expected Output:
 
 Input a positive integer:  25
 Sum of subsets of n is : 1157627904
-Click me to see the solution
+
 
 194. Write a Java program to determine the all positions of a given number in a given matrix. If the number is not found print ("Number not found!").
 
@@ -1595,7 +1716,7 @@ Expected Output:
 (1,0)
 
 (2,1)
-Click me to see the solution
+
 
 195. Write a Java program to check if three given side lengths (integers) can make a triangle or not.
 
@@ -1605,7 +1726,7 @@ Input side1:  5
 Input side2:  6
 Input side3:  8
 Is the said sides form a triangle: true 
-Click me to see the solution
+
 
 196. rite a Java program to create a spiral array of n * n sizes from a given integer n.
 
@@ -1618,7 +1739,7 @@ Spiral array becomes:
 15 24 25 20 7
 14 23 22 21 8
 13 12 11 10 9
-Click me to see the solution
+
 
 197. Write a Java program to test if a given number (positive integer) is a perfect square or not.
 
@@ -1626,7 +1747,7 @@ Expected Output:
 
 Input a positive integer:  6
 Is the said number perfect square? false 
-Click me to see the solution
+
 
 198. Write a Java program to calculate the position of a given prime number.
 
@@ -1634,7 +1755,7 @@ Expected Output:
 
 Input a positive integer:  15
 Position of the said Prime number: 6
-Click me to see the solution
+
 
 199. Write a Java program to check if a string follows a given pattern.
 
@@ -1647,7 +1768,7 @@ Given pattern = "xxxx", str = "red red red red", return true.
 Expected Output:
 
 Is the string and pattern matched? false
-Click me to see the solution
+
 
 200. Write a Java program to remove duplicate letters and arrange them in lexicographical order from a given string containing only lowercase letters.
 
@@ -1657,7 +1778,7 @@ Expected Output:
 
 Original string: zxywooxz
 After removing duplicate characters: xywoz
-Click me to see the solution
+
 
 201. Write a Java program to divide a given array of integers into given k non-empty subsets whose sums are all equal. Return true if all sums are equal otherwise return false.
 
@@ -1670,7 +1791,7 @@ Expected Output:
 Original Array: [1, 3, 3, 5, 6, 6]
 Target of subsets: 4
 After removing duplicate characters: true
-Click me to see the solution
+
 
 202. Write a Java program to find the total number of continuous subarrays in a given array of integers whose sum equals an integer.
 
@@ -1679,7 +1800,7 @@ Expected Output:
 Original Array: [4, 2, 3, 3, 7, 2, 4]
 Value of k: 6
 Total number of continuous subarrays: 3
-Click me to see the solution
+
 
 203. Write a Java program to find the contiguous subarray of given length k which has the maximum average value of a given array of integers. Display the maximum average value.
 
@@ -1688,7 +1809,7 @@ Expected Output:
 Original Array: [4, 2, 3, 3, 7, 2, 4]
 Value of k: 3
 Maximum average value: 4.333333333333333
-Click me to see the solution
+
 
 204. Write a Java program to compute xn % y where x, y and n are all 32-bit integers.
 
@@ -1698,7 +1819,7 @@ Input x :  25
 Input n :  35
 Input y :  45
 x^n % y = 5.0
-Click me to see the solution
+
 
 205. Write a Java program to check whether an integer is a power of 2 or not using O(1) time.
 
@@ -1709,7 +1830,7 @@ Expected Output:
 
 Input a number :  25
 false
-Click me to see the solution
+
 
 206. From Wikipedia,
 A cyclic redundancy check (CRC) is an error-detecting code commonly used in digital networks and storage devices to detect accidental changes to raw data. Blocks of data entering these systems get a short check value attached, based on the remainder of a polynomial division of their contents. On retrieval, the calculation is repeated and, in the event the check values do not match, corrective action can be taken against data corruption. CRCs can be used for error correction.
@@ -1719,7 +1840,7 @@ Write a Java program to generate a CRC32 checksum of a given string or byte arra
 Input:
 Input a string:  The quick brown fox
 crc32 checksum of the string: b74574de
-Click me to see the solution
+
 
 207. Write a Java program to merge two sorted (ascending) linked lists in ascending order.
 
@@ -1732,7 +1853,7 @@ How many elements do you want to add in 2nd linked list?:  3
 Input numbers of 2nd linked list in ascending order:  4 5 6
 
 Merged list: 1 2 3 4 5 6 
-Click me to see the solution
+
 
 208. Write a Java program to create a basic string compression method using repeated character counts.
 
@@ -1744,7 +1865,7 @@ Enter a string (you can include space as well)
  aaaabbbbcccccddddeeee
 The compressed string along with the counts of repeated characters is:
 a4b4c5d4e4
-Click me to see the solution
+
 
 209. Write a Java program to find all unique combinations from a collection of candidate numbers. The sum of the numbers will equal a given target number.
 
@@ -1760,7 +1881,7 @@ Enter target sum:
  21
 A solution set is:
 { 6 7 8 }
-Click me to see the solution
+
 
 210. Write a Java program to match any single character (use ?) or any sequence of characters (use *) including empty. The matching should cover the entire input string.
 
@@ -1771,7 +1892,7 @@ Enter a string
 Enter a pattern
  b*
 Yes
-Click me to see the solution
+
 
 211. Write a Java program to find the heights of the top three buildings in descending order from eight given buildings.
 
@@ -1788,7 +1909,7 @@ Heights of the top three buildings:
 45
 25
 24
-Click me to see the solution
+
 
 212. Write a Java program to compute the digit number of the sum of two given integers.
 
@@ -1802,7 +1923,7 @@ Input two integers(a b):
  13 25
 Digit number of sum of said two integers:
 2
-Click me to see the solution
+
 
 213. Write a Java program to check whether three given lengths (integers) of three sides form a right triangle. Print "Yes" if the given sides form a right triangle otherwise print "No".
 
@@ -1816,7 +1937,7 @@ Input three integers(sides of a triangle)
  6 9 12
 If the given sides form a right triangle?
 No
-Click me to see the solution
+
 
 214. Write a Java program which solve the equation:
 ax+by=c
@@ -1833,7 +1954,7 @@ Expected Output:
 Input the value of a, b, c, d, e, f:
  5 6 8 9 7 4
 -1.684 2.737
-Click me to see the solution
+
 
 215. Write a Java program to compute the debt amount in n months. Monthly, the loan adds 4% interest to the $100,000 borrowed and rounds it to the nearest 1,000.
 
@@ -1848,7 +1969,7 @@ Input number of months:
 
 Amount of debt: 
 129000
-Click me to see the solution
+
 
 216. Write a Java program which reads an integer n and finds the number of combinations of a,b,c and d (0 ≤ a,b,c,d ≤ 9) where (a + b + c + d) equals n.
 
@@ -1863,7 +1984,7 @@ Input the number(n):
  5 
 Number of combinations of a, b, c and d :
 56
-Click me to see the solution
+
 
 217. Write a Java program to print the number of prime numbers less than or equal to a given integer.
 
@@ -1877,7 +1998,7 @@ Input the number(n):
  1235
 Number of prime numbers which are less than or equal to n.:
 202
-Click me to see the solution
+
 
 218. Write a Java program to compute the radius and central coordinates (x, y) of a circle constructed from three given points on the plane surface.
 
@@ -1892,7 +2013,7 @@ Input x1, y1, x2, y2, x3, y3 separated by a single space:
 
 Radius and the central coordinate:
 1.821 (5.786 7.643)                     
-Click me to see the solution
+
 
 219. Write a Java program to check if a point (x, y) is in a triangle or not. A triangle is formed by three points.
 
@@ -1915,7 +2036,7 @@ Input (xp, yp)
 5
 6
 The point is outside the triangle.                    
-Click me to see the solution
+
 
 220. Write a Java program to compute and print the sum of two given integers (more than or equal to zero). If the given integers or the sum have more than 80 digits, print "overflow".
 
@@ -1929,7 +2050,7 @@ Input two integers:
 
 Sum of the said two integers:
 71                   
-Click me to see the solution
+
 
 221. Write a Java program that accepts six numbers as input and sorts them in descending order.
 
@@ -1943,7 +2064,7 @@ Expected Output:
  4 6 8 2 7 9
 After sorting the said integers:
 9 8 7 6 4 2                   
-Click me to see the solution
+
 
 222. Write a Java program to test whether two lines PQ and RS are parallel. The four points are P(x1, y1), Q(x2, y2), R(x3, y3), and S(x4, y4).
 
@@ -1963,7 +2084,7 @@ Input R(x3,y3),separated by a space.
 Input S(x4,y4),separated by a space.
  5 6
 Two lines are not parallel.             
-Click me to see the solution
+
 
 223. Write a Java program to find the maximum sum of a contiguous subsequence from a given sequence of numbers a1, a2, a3, ... an. A subsequence of one element is also a continuous subsequence.
 
@@ -1981,7 +2102,7 @@ Input the integers:
  25 61 35 42 66
 Maximum sum of the said contiguous subsequence:
 229             
-Click me to see the solution
+
 
 224. There are two circles C1 with radius r1, central coordinate (x1, y1) and C2 with radius r2 and central coordinate (x2, y2).
 Write a Java program to test the followings -
@@ -2001,7 +2122,7 @@ Input x1, y1, r1: (numbers are separated by a space)
 Input x2, y2, r2: (numbers are separated by a space)
  8 9 5 4
 C1 and C2  do not overlap      
-Click me to see the solution
+
 
 225. Write a Java program that reads a date (from 2004/1/1 to 2004/12/31) and prints the day of the date. Jan. 1, 2004, was Thursday. Note that 2004 is a leap year.
 
@@ -2013,7 +2134,7 @@ Input date (1-31)
  15
 Name of the date: 
 Wednesday
-Click me to see the solution
+
 
 226. Write a Java program to print mode values from a given sequence of integers. The mode value is the element that occurs most frequently. If there are several mode values, print them in ascending order.
 
@@ -2037,7 +2158,7 @@ Mode value(s)in ascending order:
 25
 35
 45
-Click me to see the solution
+
 
 227. Write a Java program that reads a text (only alphabetical characters and spaces) and prints two words. The first one is the word which is frequently used in the text. The second one is the word with the most letters.
 Note: A word is a sequence of letters which is separated by the spaces.
@@ -2052,7 +2173,7 @@ Thank you for your comment and your participation.
 Input a text in a line:
 Most frequent text and the word which has the maximum number of letters:
 your participation.
-Click me to see the solution
+
 
 228. Write a Java program that reads n digits (given) chosen from 0 to 9 and prints the number of combinations where the sum of the digits equals another given number (s). Do not use the same digits in a combination.
 For example, the combinations where n = 3 and s = 6 are as follows:
@@ -2070,7 +2191,7 @@ Input number of combinations and sum (separated by a space in a line):
 3 6
 Number of combinations:
 3
-Click me to see the solution
+
 
 229. Write a Java program that reads the two adjoining sides and the diagonal of a parallelogram. It will check whether the parallelogram is a rectangle or a rhombus.
 According to Wikipedia-
@@ -2088,7 +2209,7 @@ Expected Output:
 Input two adjoined sides and the diagonal of a parallelogram (comma separated):
 8,8,8
 This is a rhombus.
-Click me to see the solution
+
 
 230. Write a Java program to replace a string "python" with "java" and "java" with "python" in a given string.
 
@@ -2104,7 +2225,7 @@ Input the string:
 python is more propular than java
 New string:
 java is more propular than python
-Click me to see the solution
+
 
 231. Write a Java program to find the difference between the largest integer and the smallest integer. These integers are created by 8 numbers from 0 to 9. The number that can be rearranged starts with 0 as in 00135668.
 
@@ -2120,7 +2241,7 @@ Input an integer created by 8 numbers from 0 to 9:
 567894321
 Difference between the largest and the smallest integer from the given integer:
 75308643
-Click me to see the solution
+
 
 232. Write a Java program to compute the sum of the first n prime numbers.
 
@@ -2134,7 +2255,7 @@ Input a number (n<=10000) to compute the sum:
 100
 Sum of first 100 prime numbers:
 24133
-Click me to see the solution
+
 
 233. Write a Java program that accepts an even number (n should be greater than or equal to 4 and less than or equal to 50,000, a Goldbach number) from the user and creates combinations that express the given number as a sum of two prime numbers. Print the number of combinations.
 
@@ -2152,7 +2273,7 @@ Sample Output:
 Input an even number: 100
 
 Number of combinations: 6
-Click me to see the solution
+
 
 234. If you draw a straight line on a plane, the plane is divided into two regions. For example, if you draw two straight lines in parallel, you get three areas. If you draw vertically from one to the other you get 4 areas.
 
@@ -2167,7 +2288,7 @@ Input number of straight lines:
 5
 Number of regions:
 16
-Click me to see the solution
+
 
 235. There are four different points on a plane: P(xp, yp), Q(xq, yq), R(xr, yr) and S(xs, ys). Write a Java program to test whether AB and CD are orthogonal or not.
 
@@ -2179,7 +2300,7 @@ Sample Output:
 Input xp, yp, xq, yq, xr, yr, xs, ys:
 3.5 4.5 2.5 -1.5 3.5 1.0 0.0 4.5
 Two lines are not orthogonal.
-Click me to see the solution
+
 
 236. Write a Java program to sum all numerical values (positive integers) embedded in a sentence.
 
@@ -2193,7 +2314,7 @@ Input some text and numeric values:
 
 Sum of the numeric values:
 15
-Click me to see the solution
+
 
 237. There are 10 vertical and horizontal squares on a plane. Each square is painted in blue and green. Blue represents the sea, and green represents the land. When two green squares are in contact with the top and bottom, or right and left, they are ground. The area created by only one green square is called an "island". For example, the figure below shows five islands.
 Write a Java program to read the mass data and find the number of islands. .
@@ -2217,7 +2338,7 @@ Input 10 rows of 10 numbers representing green squares (island) as 1 and blue sq
 1110001000
 Number of islands:
 5
-Click me to see the solution
+
 
 238. When characters are consecutive in a string, it is possible to shorten it by replacing them with a certain rule. For example, the character string YYYYY, if it is expressed as # 5 Y, it is compressed by one character.
 Write a Java program to restore the original string by entering the compressed string with this rule. However, the # character does not appear in the restored character string.
@@ -2232,7 +2353,7 @@ Sample Output:
 Input the text:
 XY#6Z1#4023
 XYZZZZZZ1000023
-Click me to see the solution
+
 
 239. A search engine giant such as Google accepts thousands of web pages from around the world and categorizes them, creating a huge database of information. Search engines also analyze search keywords entered by the user and create database queries based on those keywords. In both cases, complicated processing is carried out to realize efficient retrieval, but the basics are all about cutting out words from sentences.
 Write a Java program to cut out words of 3 to 6 characters length from a given sentence not more than 1024 characters.
@@ -2248,7 +2369,7 @@ The quick brown fox
 
 3 to 6 characters length of words:
 The quick brown fox
-Click me to see the solution
+
 
 240. As shown in Figure 1, arrange integers (0 to 99) as narrow hilltops. When reading such data from top to bottom, following the next rule represents a huge amount of data.
 Write a Java program that computes the maximum value of the sum of the passing integers.
@@ -2271,7 +2392,7 @@ Input the numbers (ctrl+c to exit):
 8
 Maximum value of the sum of integers passing according to the rule on one line.
 64
-Click me to see the solution
+
 
 241. Write a Java program to find the number of combinations that satisfy p + q + r + s = n where n is a given number <= 4000 and p, q, r, s range from 0 to 1000.
 
@@ -2281,7 +2402,7 @@ Input a positive integer:
 252
 Number of combinations of a,b,c,d:
 2731135
-Click me to see the solution
+
 
 242. Your task is to develop a small piece of spreadsheet software. Write a Java program that adds up the columns and rows of a given table as shown in the specified figure:
 
@@ -2297,7 +2418,7 @@ Result:
    54   57   45   63  219
    61   68   47   59  235
   208  229  172  202  811
-Click me to see the solution
+
 
 243. Write a Java program that reads a list of pairs of a word and a page number. It prints the words and a list of page numbers.
 
@@ -2311,7 +2432,7 @@ apple
 5
 banana
 6
-Click me to see the solution
+
 
 244. Write a Java program that accepts a string from the user and checks whether it is correct or not.
 
@@ -2324,7 +2445,7 @@ Input:
 Input a string:
  XYZ
 Correct format..
-Click me to see the solution
+
 
 245. Write a Java program that accepts students' names, ids, and marks and displays their highest and lowest scores.
 
@@ -2340,7 +2461,7 @@ Johnson v3 85
 name, ID of the highest score and the lowest score:
 Johnson v3
 Peter v2
-Click me to see the solution
+
 
 246. Let us use the letter H to mean "hundred", the letter T to mean "ten" and “1, 2, . . . n” to represent the one digit n (<10). Using the given format, write a Java program that converts 3 digits positive numbers. For example, 234 should be output as BBSSS1234 because it has 2 "hundreds", 3 "ten", and 4 ones.
 
@@ -2357,7 +2478,7 @@ Input a positive number(max three digits):
 235
 Result:
 HHTTT12345
-Click me to see the solution
+
 
 247. Write a Java program that accepts three integers and checks whether the sum of the first two integers is greater than the third integer. Three integers are in the interval [-231, 231 ].
 
@@ -2366,7 +2487,7 @@ Input three integers (a,b,c):
 5 8 9
 Check whether (a + b) is greater than c?
 true
-Click me to see the solution
+
 
 248. From Wikipedia, An abecedarium (or abecedary) is an inscription consisting of the letters of an alphabet, almost always listed in order. Typically, abecedaria (or abecedaries) are practice exercises.
 Write a Java program to check if each letter of a given word (Abecadrian word) is less than the one before it.
@@ -2374,7 +2495,7 @@ Write a Java program to check if each letter of a given word (Abecadrian word) i
 Input:
 Input a word:  ABCD
 Is Abecadrian word? true
-Click me to see the solution
+
 
 249. From Wikipedia,
 The Hamming weight of a string is the number of symbols that are different from the zero-symbol of the alphabet used. It is thus equivalent to the Hamming distance from the all-zero string of the same length. For the most typical case, a string of bits, this is the number of 1's in the string, or the digit sum of the binary representation of a given number and the ℓ₁ norm of a bit vector. In this binary case, it is also called the population count, popcount, sideways sum, or bit summation.
@@ -2389,68 +2510,68 @@ Write a Java program to count the number of set bits in a 32-bit integer.
 Input:
 Input a number:  1427
 6
-Click me to see the solution
+
 
 https://www.w3resource.com/java-exercises/recursive/index.php
 1. Write a Java recursive method to calculate the factorial of a given positive integer.
 
-Click me to see the solution
+
 
 2. Write a Java recursive method to calculate the sum of all numbers from 1 to n.
 
-Click me to see the solution
+
 
 3. Write a Java recursive method to calculate the nth Fibonacci number.
 
-Click me to see the solution
+
 
 4. Write a Java recursive method to check if a given string is a palindrome.
 
-Click me to see the solution
+
 
 5. Write a Java recursive method to calculate the exponentiation of a number (base) raised to a power (exponent).
 
-Click me to see the solution
+
 
 6. Write a Java recursive method to reverse a given string.
 
-Click me to see the solution
+
 
 7. Write a Java recursive method to find the greatest common divisor (GCD) of two numbers.
 
-Click me to see the solution
+
 
 8. Write a Java recursive method to count the number of occurrences of a specific element in an array.
 
-Click me to see the solution
+
 
 9. Write a Java recursive method to find the sum of all odd numbers in an array.
 
-Click me to see the solution
+
 
 10. Write a Java recursive method to find the length of a given string.
 
-Click me to see the solution
+
 
 11. Write a Java recursive method to generate all possible permutations of a given string.
 
-Click me to see the solution
+
 
 12. Write a Java recursive method to find the maximum element in an array.
 
-Click me to see the solution
+
 
 13. Write a Java recursive method to calculate the product of all numbers in an array.
 
-Click me to see the solution
+
 
 14. Write a Java recursive method to find the sum of the digits of a given integer.
 
-Click me to see the solution
+
 
 15. Write a Java recursive method to check if a given array is sorted in ascending order.
 
-Click me to see the solution
+
 https://www.w3resource.com/java-exercises/exception/index.php
 Java Exceptions to handle errors:
 
@@ -2461,39 +2582,39 @@ This section covers how to catch and handle exceptions. It includes try, catch, 
 
 1. Write a Java program that throws an exception and catch it using a try-catch block.
 
-Click me to see the solution
+
 
 2. Write a Java program to create a method that takes an integer as a parameter and throws an exception if the number is odd.
 
-Click me to see the solution
+
 
 3. Write a Java program to create a method that reads a file and throws an exception if the file is not found.
 
-Click me to see the solution
+
 
 4. Write a Java program that reads a list of numbers from a file and throws an exception if any of the numbers are positive.
 
-Click me to see the solution
+
 
 5. Write a Java program that reads a file and throws an exception if the file is empty.
 
-Click me to see the solution
+
 
 6. Write a Java program that reads a list of integers from the user and throws an exception if any numbers are duplicates.
 
-Click me to see the solution
+
 
 7. Write a Java program to create a method that takes a string as input and throws an exception if the string does not contain vowels.
 
-Click me to see the solution
+
 https://www.w3resource.com/java-exercises/array/index.php
 1. Write a Java program to sort a numeric array and a string array.
 
-Click me to see the solution
+
 
 2. Write a Java program to sum values of an array.
 
-Click me to see the solution
+
 
 3. Write a Java program to print the following grid.
 
@@ -2509,147 +2630,147 @@ Expected Output :
 - - - - - - - - - -                                                                                           
 - - - - - - - - - -                                                                                           
 - - - - - - - - - -  
-Click me to see the solution
+
 
 4. Write a Java program to calculate the average value of array elements.
 
-Click me to see the solution
+
 
 5. Write a Java program to test if an array contains a specific value.
 
-Click me to see the solution
+
 
 6. Write a Java program to find the index of an array element.
 
-Click me to see the solution
+
 
 7. Write a Java program to remove a specific element from an array.
 
-Click me to see the solution
+
 
 8. Write a Java program to copy an array by iterating the array.
 
-Click me to see the solution
+
 
 9. Write a Java program to insert an element (specific position) into an array.
 
-Click me to see the solution
+
 
 10. Write a Java program to find the maximum and minimum value of an array.
 
-Click me to see the solution
+
 
 11. Write a Java program to reverse an array of integer values.
 
-Click me to see the solution
+
 
 12. Write a Java program to find duplicate values in an array of integer values.
 
-Click me to see the solution
+
 
 13. Write a Java program to find duplicate values in an array of string values.
 
-Click me to see the solution
+
 
 14. Write a Java program to find common elements between two arrays (string values).
 
-Click me to see the solution
+
 
 15. Write a Java program to find common elements between two integer arrays.
 
-Click me to see the solution
+
 
 16. Write a Java program to remove duplicate elements from an array.
 
-Click me to see the solution
+
 
 17. Write a Java program to find the second largest element in an array.
 
-Click me to see the solution
+
 
 18. Write a Java program to find the second smallest element in an array.
 
-Click me to see the solution
+
 
 19. Write a Java program to add two matrices of the same size.
 
-Click me to see the solution
+
 
 20. Write a Java program to convert an array to an ArrayList.
 
-Click me to see the solution
+
 
 21. Write a Java program to convert an ArrayList to an array.
 
-Click me to see the solution
+
 
 22. Write a Java program to find all pairs of elements in an array whose sum is equal to a specified number.
 
-Click me to see the solution
+
 
 23. Write a Java program to test two arrays' equality.
 
-Click me to see the solution
+
 
 24. Write a Java program to find a missing number in an array.
 
-Click me to see the solution
+
 
 25. Write a Java program to find common elements in three sorted (in non-decreasing order) arrays.
 
-Click me to see the solution
+
 
 26. Write a Java program to move all 0's to the end of an array. Maintain the relative order of the other (non-zero) array elements.
 
-Click me to see the solution
+
 
 27. Write a Java program to find the number of even and odd integers in a given array of integers.
 
-Click me to see the solution
+
 
 28. Write a Java program to get the difference between the largest and smallest values in an array of integers. The array must have a length of at least 1.
 
-Click me to see the solution
+
 
 29. Write a Java program to compute the average value of an array of integers except the largest and smallest values.
 
-Click me to see the solution
+
 
 30. Write a Java program to check if an array of integers is without 0 and -1.
 
-Click me to see the solution
+
 
 31. Write a Java program to check if the sum of all the 10's in the array is exactly 30. Return false if the condition does not satisfy, otherwise true.
 
-Click me to see the solution
+
 
 32. Write a Java program to check if an array of integers contains two specified elements 65 and 77.
 
-Click me to see the solution
+
 
 33. Write a Java program to remove duplicate elements from a given array and return the updated array length.
 Sample array: [20, 20, 30, 40, 50, 50, 50]
 After removing the duplicate elements the program should return 4 as the new length of the array. 
 
-Click me to see the solution
+
 
 34. Write a Java program to find the length of the longest consecutive elements sequence from an unsorted array of integers.
 Sample array: [49, 1, 3, 200, 2, 4, 70, 5]
 The longest consecutive elements sequence is [1, 2, 3, 4, 5], therefore the program will return its length 5. 
 
-Click me to see the solution
+
 
 35. Write a Java program to find the sum of the two elements of a given array equal to a given integer.
 Sample array: [1,2,4,5,6]
 Target value: 6. 
 
-Click me to see the solution
+
 
 36. Write a Java program to find all the distinct triplets such that the sum of all the three elements [x, y, z (x ≤ y ≤ z)] equal to a specified number.
 Sample array: [1, -2, 0, 5, -1, -4]
 Target value: 2. 
 
-Click me to see the solution
+
 
 37. Write a Java program to create an array of its anti-diagonals from a given square matrix. 
 
@@ -2665,76 +2786,76 @@ Output:
 [4]
 ]
 
-Click me to see the solution
+
 
 38. Write a Java program to get the majority element from an array of integers containing duplicates.  
 
 Majority element: A majority element is an element that appears more than n/2 times where n is the array size.
 
-Click me to see the solution
+
 
 39. Write a Java program to print all the LEADERS in the array.  
 Note: An element is leader if it is greater than all the elements to its right side.
 
-Click me to see the solution
+
 
 40. Write a Java program to find the two elements in a given array of positive and negative numbers such that their sum is close to zero.  
 
-Click me to see the solution
+
 
 41. Write a Java program to find the smallest and second smallest elements of a given array.  
 
-Click me to see the solution
+
 
 42. Write a Java program to separate 0s and 1s in an array of 0s and 1s into left and right sides.  
 
-Click me to see the solution
+
 
 43. Write a Java program to find all combinations of four elements of an array whose sum is equal to a given value.  
 
-Click me to see the solution
+
 
 44. Write a Java program to count the number of possible triangles from a given unsorted array of positive integers.  
 Note: The triangle inequality states that the sum of the lengths of any two sides of a triangle must be greater than or equal to the length of the third side.
 
-Click me to see the solution
+
 
 45. Write a Java program to cyclically rotate a given array clockwise by one.  
 
-Click me to see the solution
+
 
 46. Write a Java program to check whether there is a pair with a specified sum in a given sorted and rotated array.  
 
-Click me to see the solution
+
 
 47. Write a Java program to find the rotation count in a given rotated sorted array of integers.  
 
-Click me to see the solution
+
 
 48. Write a Java program to arrange the elements of an array of integers so that all negative integers appear before all positive integers.  
 
-Click me to see the solution
+
 
 49. Write a Java program to arrange the elements of an array of integers so that all positive integers appear before all negative integers.  
 
-Click me to see the solution
+
 
 50. Write a Java program to sort an array of positive integers from an array. In the sorted array the value of the first element should be maximum, the second value should be a minimum, third should be the second maximum, the fourth should be the second minimum and so on.  
 
-Click me to see the solution
+
 
 51. Write a Java program that separates 0s on the left hand side and 1s on the right hand side from a random array of 0s and 1.  
 
-Click me to see the solution
+
 
 52. Write a Java program to separate even and odd numbers from a given array of integers. Put all even numbers first, and then odd numbers.  
 
-Click me to see the solution
+
 
 53. Write a Java program to replace every element with the next greatest element (from the right side) in a given array of integers.
 There is no element next to the last element, therefore replace it with -1. 
 
-Click me to see the solution
+
 
 54. Write a Java program to check if a given array contains a subarray with 0 sum.  
 
@@ -2748,7 +2869,7 @@ Does the said array contain a subarray with 0 sum: true
 Does the said array contain a subarray with 0 sum: false
 Does the said array contain a subarray with 0 sum: true
 
-Click me to see the solution
+
 
 55. Write a Java program to print all sub-arrays with 0 sum present in a given array of integers.  
 
@@ -2764,7 +2885,7 @@ Sub-arrays with 0 sum : [3, -7, 3, 2, 3, 1, -3, -2]
 Sub-arrays with 0 sum : [1, 2, -3]
 Sub-arrays with 0 sum : [2, -2]
 
-Click me to see the solution
+
 
 56. Write a Java program to sort a binary array in linear time.  
 From Wikipedia,
@@ -2777,7 +2898,7 @@ b_nums[] = { 0, 1, 1, 0, 1, 1, 0, 1, 0, 0 }
 Output:
 After sorting: [0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
 
-Click me to see the solution
+
 
 57. Write a Java program to check if a sub-array is formed by consecutive integers from a given array of integers.  
 
@@ -2788,7 +2909,7 @@ Output:
 The largest sub-array is [1, 7]
 Elements of the sub-array: 5 0 2 1 4 3 6
 
-Click me to see the solution
+
 
 58. Given two sorted arrays A and B of size p and q, write a Java program to merge elements of A with B by maintaining the sorted order i.e. fill A with first p smallest elements and fill B with remaining elements.  
 
@@ -2801,7 +2922,7 @@ Sorted Arrays:
 A: [1, 2, 4, 5, 6, 7]
 B: [8, 9, 10]
 
-Click me to see the solution
+
 
 59. Write a Java program to find the maximum product of two integers in a given array of integers.  
 
@@ -2811,7 +2932,7 @@ nums = { 2, 3, 5, 7, -7, 5, 8, -5 }
 Output:
 Pair is (7, 8), Maximum Product: 56
 
-Click me to see the solution
+
 
 60. Write a Java program to shuffle a given array of integers.  
 
@@ -2821,7 +2942,7 @@ nums = { 1, 2, 3, 4, 5, 6 }
 Output:
 Shuffle Array: [4, 2, 6, 5, 1, 3]
 
-Click me to see the solution
+
 
 61. Write a Java program to rearrange a given array of unique elements such that every second element of the array is greater than its left and right elements.  
 
@@ -2832,7 +2953,7 @@ Output:
 Array with every second element is greater than its left and right elements:
 [1, 4, 2, 9, 3, 8, 5, 10, 7, 14, 12]
 
-Click me to see the solution
+
 
 62. Write a Java program to find equilibrium indices in a given array of integers.  
 
@@ -2843,7 +2964,7 @@ Output:
 Equilibrium indices found at : 3
 Equilibrium indices found at : 6
 
-Click me to see the solution
+
 
 63. Write a Java program to replace each element of the array with the product of every other element in a given array of integers.  
 
@@ -2857,7 +2978,7 @@ Array with product of every other element:
 Array with product of every other element:
 [5040, 0, 0, 0, 0, 0, 0, 0]
 
-Click me to see the solution
+
 
 64. Write a Java program to find the Longest Bitonic Subarray in a given array.  
 
@@ -2872,7 +2993,7 @@ The longest bitonic subarray is [3,9]
 Elements of the said sub-array: 5 6 10 11 9 6 4
 The length of longest bitonic subarray is 7
 
-Click me to see the solution
+
 
 65. Write a Java program to find the maximum difference between two elements in a given array of integers such that the smaller element appears before the larger element.  
 
@@ -2883,7 +3004,7 @@ Output:
 The maximum difference between two elements of the said array elements
 10
 
-Click me to see the solution
+
 
 66. Write a Java program to find a contiguous subarray within a given array of integers with the largest sum.  
 
@@ -2896,7 +3017,7 @@ int[] A = {1, 2, -3, -4, 0, 6, 7, 8, 9}
 Output:
 The largest sum of contiguous sub-array: 30
 
-Click me to see the solution
+
 
 67. Write a Java program to find the subarray with the largest sum in a given circular array of integers.  
 
@@ -2908,7 +3029,7 @@ Output:
 The sum of subarray with the largest sum is 6
 The sum of subarray with the largest sum is 21
 
-Click me to see the solution
+
 
 68. Write a Java program to create all possible permutations of a given array of distinct integers.  
 
@@ -2930,7 +3051,7 @@ Possible permutations of the said array:
 [3, 2, 1]
 [3, 1, 2]
 
-Click me to see the solution
+
 
 69. Write a Java program to find the minimum subarray sum of specified size in a given array of integers.  
 
@@ -2941,7 +3062,7 @@ Output:
 Sub-array size: 4
 Sub-array from 0 to 3 and sum is: 10
 
-Click me to see the solution
+
 
 70. Write a Java program to find the smallest length of a contiguous subarray of which the sum is greater than or equal to a specified value. Return 0 instead.  
 
@@ -2951,7 +3072,7 @@ nums = {1, 2, 3, 4, 6}
 Output:
 Minimum length of a contiguous subarray of which the sum is 8, 2
 
-Click me to see the solution
+
 
 71. Write a Java program to find the largest number from a given list of non-negative integers.  
 
@@ -2961,7 +3082,7 @@ nums = {1, 2, 3, 0, 4, 6}
 Output:
 Largest number using the said array numbers: 643210
 
-Click me to see the solution
+
 
 72. Write a Java program to find and print one continuous subarray (from a given array of integers) that if you only sort the said subarray in ascending order then the entire array will be sorted in ascending order.  
 
@@ -2975,7 +3096,7 @@ Continuous subarray:
 Continuous subarray:
 3 2 7 5 6 4
 
-Click me to see the solution
+
 
 73. Write a Java program to sort a given array of distinct integers where all its numbers are sorted except two numbers.  
 
@@ -2987,7 +3108,7 @@ Output:
 After sorting new array becomes: [3, 5, 6, 7, 8, 9]
 After sorting new array becomes: [-2, 0, 1, 2, 3, 4, 5]
 
-Click me to see the solution
+
 
 74. Write a Java program to find all triplets equal to a given sum in an unsorted array of integers.  
 
@@ -2999,7 +3120,7 @@ Triplets of sum 7
 (0 1 6)
 (0 3 4)
 
-Click me to see the solution
+
 
 75. Write a Java program to calculate the largest gap between sorted elements of an array of integers.  
 
@@ -3007,7 +3128,7 @@ Example:
 Original array: [23, -2, 45, 38, 12, 4, 6]
 Largest gap between sorted elements of the said array: 15
 
-Click me to see the solution
+
 
 76. Write a Java program to determine whether numbers in an array can be rearranged so that each number appears exactly once in a consecutive list of numbers. Return true otherwise false.  
 
@@ -3015,7 +3136,7 @@ Example:
 Original array: [1, 2, 5, 0, 4, 3, 6]
 Check consecutive numbers in the said array!true
 
-Click me to see the solution
+
 
 77. Write a Java program that checks whether an array of integers alternates between positive and negative values.  
 
@@ -3023,7 +3144,7 @@ Example:
 Original array: [1, -2, 5, -4, 3, -6]
 Check the said array of integers alternates between positive and negative values!true
 
-Click me to see the solution
+
 
 78. Write a Java program that checks whether an array is negative dominant or not. If the array is negative dominant return true otherwise false.  
 
@@ -3032,7 +3153,7 @@ Original array of numbers:
 [1, -2, -5, -4, 3, -6]
 Check Negative Dominance in the said array!true
 
-Click me to see the solution
+
 
 79. Write a Java program that returns the missing letter from an array of increasing letters (upper or lower). Assume there will always be one omission from the array.  
 
@@ -3041,7 +3162,7 @@ Original array of elements:
 [p, r, s, t]
 Missing letter in the said array: q
 
-Click me to see the solution
+
 https://www.w3resource.com/java-exercises/index-inheritance.php
 Java Inheritance: In the Java language, classes can be derived from other classes, thereby inheriting fields and methods from those classes.
 
@@ -3055,72 +3176,72 @@ Classes can be derived from classes that are derived from classes that are deriv
 [An  editor is available at the bottom of the page to write and execute the scripts. Go to the editor]
 
 1. Write a Java program to create a class called Animal with a method called makeSound(). Create a subclass called Cat that overrides the makeSound() method to bark.
-Click me to see the solution
+
 
 2. Write a Java program to create a class called Vehicle with a method called drive(). Create a subclass called Car that overrides the drive() method to print "Repairing a car".
-Click me to see the solution
+
 
 3. Write a Java program to create a class called Shape with a method called getArea(). Create a subclass called Rectangle that overrides the getArea() method to calculate the area of a rectangle.
-Click me to see the solution
+
 
 4. Write a Java program to create a class called Employee with methods called work() and getSalary(). Create a subclass called HRManager that overrides the work() method and adds a new method called addEmployee().
-Click me to see the solution
+
 
 5. Write a Java program to create a class known as "BankAccount" with methods called deposit() and withdraw(). Create a subclass called SavingsAccount that overrides the withdraw() method to prevent withdrawals if the account balance falls below one hundred.
-Click me to see the solution
+
 
 6. Write a Java program to create a class called Animal with a method named move(). Create a subclass called Cheetah that overrides the move() method to run.
-Click me to see the solution
+
 
 7. Write a Java program to create a class known as Person with methods called getFirstName() and getLastName(). Create a subclass called Employee that adds a new method named getEmployeeId() and overrides the getLastName() method to include the employee's job title.
-Click me to see the solution
+
 
 8. Write a Java program to create a class called Shape with methods called getPerimeter() and getArea(). Create a subclass called Circle that overrides the getPerimeter() and getArea() methods to calculate the area and perimeter of a circle.
-Click me to see the solution
+
 
 9. Write a Java program to create a vehicle class hierarchy. The base class should be Vehicle, with subclasses Truck, Car and Motorcycle. Each subclass should have properties such as make, model, year, and fuel type. Implement methods for calculating fuel efficiency, distance traveled, and maximum speed.
-Click me to see the solution
+
 
 10. Write a Java program that creates a class hierarchy for employees of a company. The base class should be Employee, with subclasses Manager, Developer, and  Programmer. Each subclass should have properties such as name, address, salary, and job title. Implement methods for calculating bonuses, generating performance reports, and managing projects.
-Click me to see the solution
+
 https://www.w3resource.com/java-exercises/index-abstract.php
 All  programming languages provide abstractions. It can be argued that the complexity of the problems you’re able to solve is directly related to the kind and quality of abstraction. An essential element of object-oriented programming is an abstraction. For more information read this article.
 
 1. Write a Java program to create an abstract class Animal with an abstract method called sound(). Create subclasses Lion and Tiger that extend the Animal class and implement the sound() method to make a specific sound for each animal.
-Click me to see the solution
+
 
 2. Write a Java program to create an abstract class Shape with abstract methods calculateArea() and calculatePerimeter(). Create subclasses Circle and Triangle that extend the Shape class and implement the respective methods to calculate the area and perimeter of each shape.
-Click me to see the solution
+
 
 3. Write a Java program to create an abstract class BankAccount with abstract methods deposit() and withdraw(). Create subclasses: SavingsAccount and CurrentAccount that extend the BankAccount class and implement the respective methods to handle deposits and withdrawals for each account type.
-Click me to see the solution
+
 
 4. Write a Java program to create an abstract class Animal with abstract methods eat() and sleep(). Create subclasses Lion, Tiger, and Deer that extend the Animal class and implement the eat() and sleep() methods differently based on their specific behavior.
-Click me to see the solution
+
 
 5. Write a Java program to create an abstract class Employee with abstract methods calculateSalary() and displayInfo(). Create subclasses Manager and Programmer that extend the Employee class and implement the respective methods to calculate salary and display information for each role.
-Click me to see the solution
+
 
 6. Write a Java program to create an abstract class Shape3D with abstract methods calculateVolume() and calculateSurfaceArea(). Create subclasses Sphere and Cube that extend the Shape3D class and implement the respective methods to calculate the volume and surface area of each shape.
-Click me to see the solution
+
 
 7. Write a Java program to create an abstract class Vehicle with abstract methods startEngine() and stopEngine(). Create subclasses Car and Motorcycle that extend the Vehicle class and implement the respective methods to start and stop the engines for each vehicle type.
-Click me to see the solution
+
 
 8. Write a Java program to create an abstract class Person with abstract methods eat() and exercise(). Create subclasses Athlete and LazyPerson that extend the Person class and implement the respective methods to describe how each person eats and exercises.
-Click me to see the solution
+
 
 9. Write a Java program to create an abstract class Instrument with abstract methods play() and tune(). Create subclasses for Glockenspiel and Violin that extend the Instrument class and implement the respective methods to play and tune each instrument.
-Click me to see the solution
+
 
 10. Write a Java program to create an abstract class Shape2D with abstract methods draw() and resize(). Create subclasses Rectangle and Circle that extend the Shape2D class and implement the respective methods to draw and resize each shape.
-Click me to see the solution
+
 
 11. Write a Java program to create an abstract class Bird with abstract methods fly() and makeSound(). Create subclasses Eagle and Hawk that extend the Bird class and implement the respective methods to describe how each bird flies and makes a sound.
-Click me to see the solution
+
 
 12. Write a Java program to create an abstract class GeometricShape with abstract methods area() and perimeter(). Create subclasses Triangle and Square that extend the GeometricShape class and implement the respective methods to calculate the area and perimeter of each shape.
-Click me to see the solution
+
 https://www.w3resource.com/java-exercises/thread/index.php
 In computer science, a thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler, which is typically a part of the  operating system. The implementation of threads and  processes differs between  operating systems.
 
@@ -3131,91 +3252,91 @@ Every thread has a priority. Threads with higher priority are executed in prefer
 
 1. Write a Java program to create a basic Java thread that prints " Hello, World!" when executed.
 
-Click me to see the solution
+
 
 2. Write a Java program that creates two threads to find and print even and odd numbers from 1 to 20.
 
-Click me to see the solution
+
 
 3. Write a Java program that sorts an array of integers using multiple threads.
 
-Click me to see the solution
+
 
 4. Write a Java program that performs matrix multiplication using multiple threads.
 
-Click me to see the solution
+
 
 5. Write a Java program that calculates the sum of all prime numbers up to a given limit using multiple threads.
 
-Click me to see the solution
+
 
 6. Write a Java program to implement a concurrent web crawler that crawls multiple websites simultaneously using threads.
 
-Click me to see the solution
+
 
 7. Write a Java program that creates a bank account with concurrent deposits and withdrawals using threads.
 
-Click me to see the solution
+
 https://www.w3resource.com/java-exercises/multithreading/index.php
 1. Write a Java program to create and start multiple threads that increment a shared counter variable concurrently.
 
-Click me to see the solution
+
 
 2. Write a Java program to create a producer-consumer scenario using the wait() and notify() methods for thread synchronization.
 
-Click me to see the solution
+
 
 3. Write a Java program that uses the ReentrantLock class to synchronize access to a shared resource among multiple threads.
 
-Click me to see the solution
+
 
 4. Write a Java program to demonstrate Semaphore usage for thread synchronization.
 
-Click me to see the solution
+
 
 5. Write a Java program to showcase the usage of the CyclicBarrier class for thread synchronization.
 
-Click me to see the solution
+
 
 6. Write a Java program that uses the CountDownLatch class to synchronize the start and finish of multiple threads.
 
-Click me to see the solution
+
 
 7. Write a Java program to illustrate the usage of the ReadWriteLock interface for concurrent read-write access to a shared resource.
 
-Click me to see the solution
+
 
 8. Write a Java program demonstrating how to access a map concurrently using the ConcurrentHashMap class.
 
-Click me to see the solution
+
 
 9. Write a Java program that utilizes the ConcurrentLinkedQueue class to implement a thread-safe queue.
 
-Click me to see the solution
+
 
 10. Write a Java program to showcase the usage of the Phaser class for coordination and synchronization of multiple threads.
 
-Click me to see the solution
+
 
 11. Write a Java program that utilizes the Exchanger class for exchanging data between two threads.
 
-Click me to see the solution
+
 
 12. Write a Java program to demonstrate the usage of the Callable and Future interfaces for executing tasks asynchronously and obtaining their results.
 
-Click me to see the solution
+
 
 13. Write a Java program that uses the ScheduledExecutorService interface to schedule tasks for execution at a specified time or with a fixed delay.
 
-Click me to see the solution
+
 
 14. Write a Java program to demonstrate the usage of the ForkJoinPool class for parallel execution of recursive tasks.
 
-Click me to see the solution
+
 
 15. Write a Java program that utilizes the StampedLock class for optimizing concurrent read-write access to a shared resource.
 
-Click me to see the solution
+
 https://www.w3resource.com/java-exercises/generic/index.php
 Generic Methods:
 
@@ -3225,31 +3346,31 @@ The syntax for a generic method includes a list of type parameters, inside angle
 
 1. Write a Java program to create a generic method that takes two arrays of the same type and checks if they have the same elements in the same order.
 
-Click me to see the solution
+
 
 2. Write a Java program to create a generic method that takes a list of numbers and returns the sum of all the even and odd numbers.
 
-Click me to see the solution
+
 
 3. Write a Java program to create a generic method that takes a list of any type and a target element. It returns the index of the first occurrence of the target element in the list. Return -1 if the target element cannot be found.
 
-Click me to see the solution
+
 
 4. Write a Java program to create a generic method that takes a list of any type and returns it as a new list with the elements in reverse order.
 
-Click me to see the solution
+
 
 5. Write a Java program to create a generic method that takes two lists of the same type and merges them into a single list. This method alternates the elements of each list.
 
-Click me to see the solution
+
 
 6. Write a Java program to create a generic method that takes a list of any type and a predicate. It returns an array list containing only elements that satisfy the predicate.
 
-Click me to see the solution
+
 
 7. Write a Java program to create a generic method that takes a map of any type and prints each key-value pair.
 
-Click me to see the solution
+
 https://www.w3resource.com/java-exercises/oop/index.php
 Object-oriented  programming: Object-oriented  programming (OOP) is a programming paradigm based on the concept of "objects", which can contain data and code. The data is in the form of fields (often known as attributes or properties), and the code is in the form of procedures (often known as methods).
 
@@ -3260,156 +3381,156 @@ If a source file has more than one class, each class is  compiled into a separat
 
 1. Write a Java program to create a class called "Person" with a name and age attribute. Create two instances of the "Person" class, set their attributes using the constructor, and print their name and age.
 
-Click me to see the solution
+
 
 2. Write a Java program to create a class called "Dog" with a name and breed attribute. Create two instances of the "Dog" class, set their attributes using the constructor and modify the attributes using the setter methods and print the updated values.
 
-Click me to see the solution
+
 
 3. Write a Java program to create a class called "Rectangle" with width and height attributes. Calculate the area and perimeter of the rectangle.
 
-Click me to see the solution
+
 
 4. Write a Java program to create a class called "Circle" with a radius attribute. You can access and modify this attribute. Calculate the area and circumference of the circle.
 
-Click me to see the solution
+
 
 5. Write a Java program to create a class called "Book" with attributes for title, author, and ISBN, and methods to add and remove books from a collection.
 
-Click me to see the solution
+
 
 6. Write a Java program to create a class called "Employee" with a name, job title, and salary attributes, and methods to calculate and update salary.
 
-Click me to see the solution
+
 
 7. Write a Java program to create a class called "Bank" with a collection of accounts and methods to add and remove accounts, and to deposit and withdraw money. Also define a class called "Account" to maintain account details of a particular customer.
 
-Click me to see the solution
+
 
 8. Write a Java program to create class called "TrafficLight" with attributes for color and duration, and methods to change the color and check for red or green.
 
-Click me to see the solution
+
 
 9. Write a Java program to create a class called "Employee" with a name, salary, and hire date attributes, and a method to calculate years of service.
 
-Click me to see the solution
+
 
 10. Write a Java program to create a class called "Student" with a name, grade, and courses attributes, and methods to add and remove courses.
 
-Click me to see the solution
+
 
 11. Write a Java program to create a class called "Library" with a collection of books and methods to add and remove books.
 
-Click me to see the solution
+
 
 12. Write a Java program to create a class called "Airplane" with a flight number, destination, and departure time attributes, and methods to check flight status and delay.
 
-Click me to see the solution
+
 
 13. Write a Java program to create a class called "Inventory" with a collection of products and methods to add and remove products, and to check for low inventory.
 
-Click me to see the solution
+
 
 14. Write a Java program to create a class called "School" with attributes for students, teachers, and classes, and methods to add and remove students and teachers, and to create classes.
 
-Click me to see the solution
+
 
 15. Write a Java program to create a class called "MusicLibrary" with a collection of songs and methods to add and remove songs, and to play a random song.
 
-Click me to see the solution
+
 
 16. Write a Java program to create a class called "Shape" with abstract methods for calculating area and perimeter, and subclasses for "Rectangle", "Circle", and "Triangle".
 
-Click me to see the solution
+
 
 17. Write a Java program to create a class called "Movie" with attributes for title, director, actors, and reviews, and methods for adding and retrieving reviews.
 
-Click me to see the solution
+
 
 18. Write a Java program to create a class called "Restaurant" with attributes for menu items, prices, and ratings, and methods to add and remove items, and to calculate average rating.
 
-Click me to see the solution
+
 
 19. Write a Java program to create a class with methods to search for flights and hotels, and to book and cancel reservations.
 
-Click me to see the solution
+
 
 20. Write a Java program to create a class called "BankAccount" with attributes for account number, account holder's name, and balance. Include methods for depositing and withdrawing money, as well as checking the balance. Create a subclass called "SavingsAccount" that adds an interest rate attribute and a method to apply interest.
 
-Click me to see the solution
+
 
 21. Write a Java program to create a class called "Vehicle" with attributes for make, model, and year. Create subclasses "Car" and "Truck" that add specific attributes like trunk size for cars and payload capacity for trucks. Implement a method to display vehicle details in each subclass.
 
-Click me to see the solution
+
 
 22. Write a Java program to create a class called "Customer" with attributes for name, email, and purchase history. Implement methods to add purchases to the history and calculate total expenditure. Create a subclass "LoyalCustomer" that adds a discount rate attribute and a method to apply the discount.
 
-Click me to see the solution
+
 
 23. Write a Java program to create a class called "Course" with attributes for course name, instructor, and credits. Create a subclass "OnlineCourse" that adds attributes for platform and duration. Implement methods to display course details and check if the course is eligible for a certificate based on duration.
 
-Click me to see the solution
+
 
 24. Write a Java program to create a class called "ElectronicsProduct" with attributes for product ID, name, and price. Implement methods to apply a discount and calculate the final price. Create a subclass " WashingMachine" that adds a warranty period attribute and a method to extend the warranty.
 
-Click me to see the solution
+
 
 25. Write a Java program to create a class called "Building" with attributes for address, number of floors, and total area. Create subclasses "ResidentialBuilding" and "CommercialBuilding" that add specific attributes like number of apartments for residential and office space for commercial buildings. Implement a method to calculate the total rent for each subclass.
 
-Click me to see the solution
+
 
 26. Write a Java program to create a class called "Event" with attributes for event name, date, and location. Create subclasses "Seminar" and "MusicalPerformance" that add specific attributes like number of speakers for seminars and performer list for concerts. Implement methods to display event details and check for conflicts in the event schedule.
 
-Click me to see the solution
+
 
 27. Write a Java program to create a class called "CustomerOrder" with attributes for order ID, customer, and order date. Create a subclass "OnlineOrder" that adds attributes for delivery address and tracking number. Implement methods to calculate delivery time based on the address and update the tracking status.
 
-Click me to see the solution
+
 
 28. Write a Java program to create a class called "Reservation" with attributes for reservation ID, customer name, and date. Create subclasses "ResortReservation" and "RailwayReservation" that add specific attributes like room number for hotels and seat number for flights. Implement methods to check reservation status and modify reservation details.
 
-Click me to see the solution
+
 
 29. Write a Java program to create a class called "Pet" with attributes for name, species, and age. Create subclasses "Dog" and "Bird" that add specific attributes like favorite toy for dogs and wing span for birds. Implement methods to display pet details and calculate the pet's age in human years.
 
-Click me to see the solution
+
 
 30. Write a Java program to create a class called "GymMembership" with attributes for member name, membership type, and duration. Create a subclass "PremiumMembership" that adds attributes for personal trainer availability and spa access. Implement methods to calculate membership fees and check for special offers based on membership type.
 
-Click me to see the solution
+
 https://www.w3resource.com/java-exercises/index-interface.php
 1. Write a Java program to create an interface Shape with the getArea() method. Create three classes Rectangle, Circle, and Triangle that implement the Shape interface. Implement the getArea() method for each of the three classes.
-Click me to see the solution
+
 
 2. Write a Java program to create a Animal interface with a method called bark() that takes no arguments and returns void. Create a Dog class that implements Animal and overrides speak() to print "Dog is barking".
-Click me to see the solution
+
 
 3. Write a Java program to create an interface Flyable with a method called fly_obj(). Create three classes Spacecraft, Airplane, and Helicopter that implement the Flyable interface. Implement the fly_obj() method for each of the three classes.
-Click me to see the solution
+
 
 4. Write a Java programming to create a banking system with three classes - Bank, Account, SavingsAccount, and CurrentAccount. The bank should have a list of accounts and methods for adding them. Accounts should be an interface with methods to deposit, withdraw, calculate interest, and view balances. SavingsAccount and CurrentAccount should implement the Account interface and have their own unique methods.
-Click me to see the solution
+
 
 5. Write a Java program to create an interface Resizable with methods resizeWidth(int width) and resizeHeight(int height) that allow an object to be resized. Create a class Rectangle that implements the Resizable interface and implements the resize methods.
-Click me to see the solution
+
 
 6. Write a Java program to create an interface Drawable with a method draw() that takes no arguments and returns void. Create three classes Circle, Rectangle, and Triangle that implement the Drawable interface and override the draw() method to draw their respective shapes.
-Click me to see the solution
+
 
 7. Write a Java program to create an interface Sortable with a method sort() that sorts an array of integers in ascending order. Create two classes BubbleSort and SelectionSort that implement the Sortable interface and provide their own implementations of the sort() method.
-Click me to see the solution
+
 
 8. Write a Java program to create an interface Playable with a method play() that takes no arguments and returns void. Create three classes Football, Volleyball, and Basketball that implement the Playable interface and override the play() method to play the respective sports.
-Click me to see the solution
+
 
 9. Write a Java program to create an interface Searchable with a method search(String keyword) that searches for a given keyword in a text document. Create two classes Document and WebPage that implement the Searchable interface and provide their own implementations of the search() method.
-Click me to see the solution
+
 
 10. Write a Java program to create an interface Encryptable with methods encrypt (String data) and decrypt (String encryptedData) that define encryption and decryption operations. Create two classes AES and RSA that implement the Encryptable interface and provide their own encryption and decryption algorithms.
-Click me to see the solution
+
 
 11. Write a Java program to create an interface Sortable with a method sort (int[] array) that sorts an array of integers in descending order. Create two classes QuickSort and MergeSort that implement the Sortable interface and provide their own implementations of the sort() method.
-Click me to see the solution
+
 https://www.w3resource.com/java-exercises/encapsulation/index.php
 Java Encapsulation:
 
@@ -3417,71 +3538,71 @@ An object's encapsulation allows it to hide its data and methods. It is one of t
 
 1. Write a Java program to create a class called Person with private instance variables name, age. and country. Provide public getter and setter methods to access and modify these variables.
 
-Click me to see the solution
+
 
 2. Write a Java program to create a class called BankAccount with private instance variables accountNumber and balance. Provide public getter and setter methods to access and modify these variables.
 
-Click me to see the solution
+
 
 3. Write a Java program to create a class called Rectangle with private instance variables length and width. Provide public getter and setter methods to access and modify these variables.
 
-Click me to see the solution
+
 
 4. Write a Java program to create a class called Employee with private instance variables employee_id, employee_name, and employee_salary. Provide public getter and setter methods to access and modify the id and name variables, but provide a getter method for the salary variable that returns a formatted string.
 
-Click me to see the solution
+
 
 5. Write a Java program to create a class called Circle with a private instance variable radius. Provide public getter and setter methods to access and modify the radius variable. However, provide two methods called calculateArea() and calculatePerimeter() that return the calculated area and perimeter based on the current radius value.
 
-Click me to see the solution
+
 
 6. Write a Java program to create a class called Car with private instance variables company_name, model_name, year, and mileage. Provide public getter and setter methods to access and modify the company_name, model_name, and year variables. However, only provide a getter method for the mileage variable.
 
-Click me to see the solution
+
 
 7. Write a Java program to create a class called Student with private instance variables student_id, student_name, and grades. Provide public getter and setter methods to access and modify the student_id and student_name variables. However, provide a method called addGrade() that allows adding a grade to the grades variable while performing additional validation.
 
-Click me to see the solution
+
 https://www.w3resource.com/java-exercises/index-polymorphism.php
 Polymorphism
 
 In Core, Java Polymorphism is one of easy concept to understand. Polymorphism definition is that Poly means many and morphos means forms. It describes the feature of languages that allows the same word or symbol to be interpreted correctly in different situations based on the context. There are two types of Polymorphism available in Java. For example, in English, the verb “run” means different things if you use it with “a footrace,” a “business,” or “a computer.” You understand the meaning of “run” based on the other words used with it. Check out this article for more information.
 
 1. Write a Java program to create a base class Animal (Animal Family) with a method called Sound(). Create two subclasses Bird and Cat. Override the Sound() method in each subclass to make a specific sound for each animal.
-Click me to see the solution
+
 
 2. Write a Java program to create a class Vehicle with a method called speedUp(). Create two subclasses Car and Bicycle. Override the speedUp() method in each subclass to increase the vehicle's speed differently.
-Click me to see the solution
+
 
 3. Write a Java program to create a base class Shape with a method called calculateArea(). Create three subclasses: Circle, Rectangle, and Triangle. Override the calculateArea() method in each subclass to calculate and return the shape's area.
-Click me to see the solution
+
 
 4. Write a Java program to create a class Employee with a method called calculateSalary(). Create two subclasses Manager and Programmer. In each subclass, override the calculateSalary() method to calculate and return the salary based on their specific roles.
-Click me to see the solution
+
 
 5. Write a Java program to create a base class Sports with a method called play(). Create three subclasses: Football, Basketball, and Rugby. Override the play() method in each subclass to play a specific statement for each sport.
-Click me to see the solution
+
 
 6. Write a Java program to create a class Shape with methods getArea() and getPerimeter(). Create three subclasses: Circle, Rectangle, and Triangle. Override the getArea() and getPerimeter() methods in each subclass to calculate and return the area and perimeter of the respective shapes.
-Click me to see the solution
+
 
 7. Write a Java program to create a base class Animal with methods move() and makeSound(). Create two subclasses Bird and Panthera. Override the move() method in each subclass to describe how each animal moves. Also, override the makeSound() method in each subclass to make a specific sound for each animal.
-Click me to see the solution
+
 
 8. Write a Java program to create a base class Shape with methods draw() and calculateArea(). Create three subclasses: Circle, Square, and Triangle. Override the draw() method in each subclass to draw the respective shape, and override the calculateArea() method to calculate and return the area of each shape.
-Click me to see the solution
+
 
 9. Write a Java program to create a base class BankAccount with methods deposit() and withdraw(). Create two subclasses SavingsAccount and CheckingAccount. Override the withdraw() method in each subclass to impose different withdrawal limits and fees.
-Click me to see the solution
+
 
 10. Write a Java program to create a base class Animal with methods eat() and sound(). Create three subclasses: Lion, Tiger, and Panther. Override the eat() method in each subclass to describe what each animal eats. In addition, override the sound() method to make a specific sound for each animal.
-Click me to see the solution
+
 
 11. Write a Java program to create a base class Vehicle with methods startEngine() and stopEngine(). Create two subclasses Car and Motorcycle. Override the startEngine() and stopEngine() methods in each subclass to start and stop the engines differently.
-Click me to see the solution
+
 
 12. Write a Java program to create a base class Shape with methods draw() and calculateArea(). Create two subclasses Circle and Cylinder. Override the draw() method in each subclass to draw the respective shape. In addition, override the calculateArea() method in the Cylinder subclass to calculate and return the total surface area of the cylinder.
-Click me to see the solution
+
 https://www.w3resource.com/java-exercises/string/index.php
 1. Write a Java program to get the character at the given index within the string.
 
@@ -3490,7 +3611,7 @@ Sample Output:
 Original String = Java Exercises!                                                                             
 The character at position 0 is J                                                                              
 The character at position 10 is i 
-Click me to see the solution
+
 
 2. Write a Java program to get the character (Unicode code point) at the given index within the string.
 
@@ -3499,7 +3620,7 @@ Sample Output:
 Original String : w3resource.com                                                                              
 Character(unicode point) = 51                                                                                 
 Character(unicode point) = 101 
-Click me to see the solution
+
 
 3. Write a Java program to get the character (Unicode code point) before the specified index within the string.
 
@@ -3508,7 +3629,7 @@ Sample Output:
 Original String : w3resource.com                                                                              
 Character(unicode point) = 119                                                                                
 Character(unicode point) = 99
-Click me to see the solution
+
 
 4. Write a Java program to count Unicode code points in the specified text range of a string.
 
@@ -3516,7 +3637,7 @@ Sample Output:
 
 Original String : w3rsource.com                                                                               
 Codepoint count = 9
-Click me to see the solution
+
 
 5. Write a Java program to compare two strings lexicographically.
 Two strings are lexicographically equal if they are the same length and contain the same characters in the same positions.
@@ -3526,7 +3647,7 @@ Sample Output:
 String 1: This is Exercise 1                                                                                  
 String 2: This is Exercise 2                                                                                  
 "This is Exercise 1" is less than "This is Exercise 2" 
-Click me to see the solution
+
 
 6. Write a Java program to compare two strings lexicographically, ignoring case differences.
 
@@ -3535,7 +3656,7 @@ Sample Output:
 String 1: This is exercise 1                                                                                  
 String 2: This is Exercise 1                                                                                  
 "This is exercise 1" is equal to "This is Exercise 1"
-Click me to see the solution
+
 
 7. Write a Java program to concatenate a given string to the end of another string.
 
@@ -3544,7 +3665,7 @@ Sample Output:
 String 1: PHP Exercises and                                                                                   
 String 2: Python Exercises                                                                                    
 The concatenated string: PHP Exercises and Python Exercises
-Click me to see the solution
+
 
 8. Write a Java program to test if a given string contains the specified sequence of char values.
 
@@ -3553,7 +3674,7 @@ Sample Output:
 Original String: PHP Exercises and Python Exercises                                                           
 Specified sequence of char values: and                                                                        
 true 
-Click me to see the solution
+
 
 9. Write a Java program to compare a given string to the specified character sequence.
 
@@ -3561,7 +3682,7 @@ Sample Output:
 
 Comparing example.com and example.com: true                                                                   
 Comparing Example.com and example.com: false
-Click me to see the solution
+
 
 10. Write a Java program to compare a given string to a specified string buffer.
 
@@ -3569,14 +3690,14 @@ Sample Output:
 
 Comparing example.com and example.com: true                                                                   
 Comparing Example.com and example.com: false 
-Click me to see the solution
+
 
 11. Write a Java program to create a String object with a character array.
 
 Sample Output:
 
 The book contains 234 pages.
-Click me to see the solution
+
 
 12. Write a Java program to check whether a given string ends with another string.
 
@@ -3584,7 +3705,7 @@ Sample Output:
 
 "Python Exercises" ends with "se"? false                                                                      
 "Python Exercise" ends with "se"? true
-Click me to see the solution
+
 
 13. Write a Java program to check whether two String objects contain the same data.
 
@@ -3592,7 +3713,7 @@ Sample Output:
 
 "Stephen Edwin King" equals "Walter Winchell"? false                                                          
 "Stephen Edwin King" equals "Mike Royko"? false
-Click me to see the solution
+
 
 14. Write a Java program to compare a given string to another string, ignoring case considerations.
 
@@ -3600,7 +3721,7 @@ Sample Output:
 
 "Stephen Edwin King" equals "Walter Winchell"? false                                                          
 "Stephen Edwin King" equals "stephen edwin king"? true 
-Click me to see the solution
+
 
 15. Write a Java program to print the current date and time in the specified format.
 
@@ -3610,28 +3731,28 @@ Current Date and Time :
 June 19, 2017                                                                                                 
 3:13 pm 
 N.B. : The current date and time will change according to your system date and time.
-Click me to see the solution
+
 
 16. Write a Java program to get the contents of a given string as a byte array.
 
 Sample Output:
 
 The new String equals This is a sample String.
-Click me to see the solution
+
 
 17. Write a Java program to get the contents of a given string as a character array.
 
 Sample Output:
 
 The char array equals "[C@2a139a55"
-Click me to see the solution
+
 
 18. Write a Java program to create a distinct identifier for a given string.
 
 Sample Output:
 
 The hash for Python Exercises. is 863132599 
-Click me to see the solution
+
 
 19. Write a Java program to get the index of all the characters of the alphabet.
 
@@ -3651,7 +3772,7 @@ u  v  w  x  y  z
 
 Sample string of all alphabet: "The quick brown fox jumps over the lazy dog."
 
-Click me to see the solution
+
 
 20. Write a Java program to get the Canonical representation of the string object.
 
@@ -3659,7 +3780,7 @@ Sample Output:
 
 str1 == str2? false                                                                                           
 str1 == str3? true
-Click me to see the solution
+
 
 21. Write a Java program to get the last index of a string within a string.
 
@@ -3678,14 +3799,14 @@ k  l  m  n  o  p q  r  s  t
 21 27 13 18 38 37
 Sample string of all alphabet: "The quick brown fox jumps over the lazy dog."
 
-Click me to see the solution
+
 
 22. Write a Java program to get the length of a given string.
 
 Sample Output:
 
 The string length of 'example.com' is: 11
-Click me to see the solution
+
 
 23. Write a Java program to find out whether a region in the current string matches a region in another string.
 
@@ -3693,7 +3814,7 @@ Sample Output:
 
 str1[0 - 7] == str2[28 - 35]? true                                                                            
 str1[9 - 15] == str2[9 - 15]? false 
-Click me to see the solution
+
 
 24. Write a Java program to replace a specified character with another character.
 
@@ -3701,7 +3822,7 @@ Sample Output:
 
 Original string: The quick brown fox jumps over the lazy dog.                                                 
 New String: The quick brown fox jumps over the lazy fog.
-Click me to see the solution
+
 
 25. Write a Java program to replace each substring of a given string that matches the given regular expression with the given replacement.
 
@@ -3713,7 +3834,7 @@ Sample Output:
 
 Original string: The quick brown fox jumps over the lazy dog.                                                 
 New String: The quick brown cat jumps over the lazy dog.         
-Click me to see the solution
+
 
 26. Write a Java program to check whether a given string starts with another string.
 
@@ -3721,7 +3842,7 @@ Sample Output:
 
 Red is favorite color. starts with Red? true                                                                  
 Orange is also my favorite color. starts with Red? false
-Click me to see the solution
+
 
 27. Write a Java program to get a substring of a given string at two specified positions.
 
@@ -3729,14 +3850,14 @@ Sample Output:
 
 old = The quick brown fox jumps over the lazy dog.                                                            
 new = brown fox jumps
-Click me to see the solution
+
 
 28. Write a Java program to create a character array containing a string.
 
 Sample Output:
 
 Java Exercises.
-Click me to see the solution
+
 
 29. Write a Java program to convert all characters in a string to lowercase.
 
@@ -3744,7 +3865,7 @@ Sample Output:
 
 Original String: The Quick BroWn FoX!                                                                         
 String in lowercase: the quick brown fox!
-Click me to see the solution
+
 
 30. Write a Java program to convert all characters in a string to uppercase.
 
@@ -3752,7 +3873,7 @@ Sample Output:
 
 Original String: The Quick BroWn FoX!                                                                         
 String in uppercase: THE QUICK BROWN FOX!  
-Click me to see the solution
+
 
 31. Write a Java program to trim leading or trailing whitespace from a given string.
 
@@ -3760,7 +3881,7 @@ Sample Output:
 
 Original String:  Java Exercises                                                                              
 New String: Java Exercises
-Click me to see the solution
+
 
 32. Write a Java program to find the longest Palindromic Substring within a string.
 
@@ -3770,7 +3891,7 @@ The given string is: thequickbrownfoxxofnworbquickthe
 The longest palindrome substring in the giv
 en string is; brownfoxxofnworb
 The length of the palindromic substring is: 16
-Click me to see the solution
+
 
 33. Write a Java program to find all interleavings of given strings.
 
@@ -3784,7 +3905,7 @@ YWXZ
 WXYZ
 YZWX
 WYXZ
-Click me to see the solution
+
 
 34. Write a Java program to find the second most frequent character in a given string.
 
@@ -3792,7 +3913,7 @@ Sample Output:
 
 The given string is: successes
 The second most frequent char in the string is: c
-Click me to see the solution
+
 
 35. Write a Java program to print all permutations of a given string with repetition.
 
@@ -3807,7 +3928,7 @@ PPR
 RRP
 RRQ
 RRR
-Click me to see the solution
+
 
 36. Write a Java program to check whether two strings interlive of a given string. Assuming that unique characters are present in both strings.
 
@@ -3820,7 +3941,7 @@ The given string is interleaving: true
 The given string is: PNQMO
 The interleaving strings are MNO and PQ
 The given string is interleaving: false
-Click me to see the solution
+
 
 37. Write a Java program to find the length of the longest substring of a given string without repeating characters.
 
@@ -3829,7 +3950,7 @@ Sample Output:
 Input String : pickoutthelongestsubstring
 The longest substring : [u, b, s, t, r, i, n, g]
 The longest Substring Length : 8
-Click me to see the solution
+
 
 38. Write a Java program to print the result of removing duplicates from a given string.
 
@@ -3837,7 +3958,7 @@ Sample Output:
 
 The given string is: w3resource
 After removing duplicates characters the new string is: w3resouc
-Click me to see the solution
+
 
 39. Write a Java program to find the first non-repeating character in a string.
 
@@ -3845,7 +3966,7 @@ Sample Output:
 
 The given string is: gibblegabbler
 The first non repeated character in String is: i
-Click me to see the solution
+
 
 40. Write a Java program to divide a string into n equal parts.
 
@@ -3859,7 +3980,7 @@ fghij
 klmno
 pqrst
 uvwxy
-Click me to see the solution
+
 
 41. Write a Java program to remove duplicate characters from a given string that appear in another given string.
 
@@ -3870,7 +3991,7 @@ The given mask string is: queen
 
 The new string is: 
 th ick brow fox
-Click me to see the solution
+
 
 42. Write a Java program to print a list of items containing all characters of a given word.
 
@@ -3882,7 +4003,7 @@ The given word is: bib
 The strings containing all the letters of the given word are: 
 rabbit
 bribe
-Click me to see the solution
+
 
 43. Write a Java program to find the character in a string that occurs the most frequently.
 
@@ -3890,7 +4011,7 @@ Sample Output:
 
 The given string is: test string
 Max occurring character in the given string is: t
-Click me to see the solution
+
 
 44. Write a Java program to reverse a string using recursion.
 
@@ -3899,7 +4020,7 @@ Sample Output:
 The given string is: The quick brown fox jumps
 The string in reverse order is:
 spmuj xof nworb kciuq ehT
-Click me to see the solution
+
 
 45. Write a Java program to reverse words in a given string.
 
@@ -3907,7 +4028,7 @@ Sample Output:
 
 The given string is: Reverse words in a given string
 The new string after reversed the words: string given a in words Reverse
-Click me to see the solution
+
 
 46. Write a Java program to reverse every word in a string using methods.
 
@@ -3916,7 +4037,7 @@ Sample Output:
 The given string is: This is a test string
 The string reversed word by word is: 
 sihT si a tset gnirts
-Click me to see the solution
+
 
 47. Write a Java program to rearrange a string so that the same characters are positioned a distance away.
 
@@ -3925,7 +4046,7 @@ Sample Output:
 The given string is: accessories
 The string after arrange newly is: 
 secrsecisao
-Click me to see the solution
+
 
 48. Write a Java program to remove "b" and "ac" from a given string.
 
@@ -3933,7 +4054,7 @@ Sample Output:
 
 The given string is: abrambabasc
 After removing the new string is: aramaasc
-Click me to see the solution
+
 
 49. Write a Java program to find the first non-repeating character from a stream of characters.
 
@@ -3958,7 +4079,7 @@ Reading: o
 The first non-repeating character so far is:  d
 Reading: d
 The first non-repeating character so far is:  i
-Click me to see the solution
+
 
 50. Write a Java program to find the lexicographic rank of a given string.
 
@@ -3971,7 +4092,7 @@ ABCD ABDC ACBD ACDB ADBC ADCB BACD BADC BCAD BCDA BDAC BDCA
 1   2   3   4   5   6   7   8   9   10   11   12
 The BDCA appear in 12 position of permutation (lexicographic order).
 
-Click me to see the solution
+
 
 51. Write a Java program to count and print all duplicates in the input string.
 
@@ -3981,7 +4102,7 @@ The given string is: w3resource
 The duplicate characters and counts are: 
 e  appears  2  times
 r  appears  2  times
-Click me to see the solution
+
 
 52. Write a Java program to check if two given strings are rotations of each other.
 
@@ -3993,7 +4114,7 @@ The concatination of 1st string twice is: ABACDABACD
 The 2nd string CDABA  exists in the new string.
 
 Strings are rotations of each other
-Click me to see the solution
+
 
 53. Write a Java program to match two strings where one string contains wildcard characters.
 
@@ -4002,7 +4123,7 @@ Sample Output:
 The given string is: abcdhgh
 The given pattern string is: abc*d?*
 The given pattern is matching.
-Click me to see the solution
+
 
 54. Write a Java program to find the smallest window in a string containing all characters in another string.
 
@@ -4011,7 +4132,7 @@ Sample Output:
 The given string is: welcome to w3resource
 Characters to find in the main sring are: tower
 The smallest window which contains the finding characters is : to w3re
-Click me to see the solution
+
 
 55. Write a Java program to remove all adjacent duplicates recursively from a given string.
 
@@ -4020,7 +4141,7 @@ Sample Output:
 The given string is: aabaarbarccrabmq
 The new string after removing all adjacent duplicates is:
 brmq
-Click me to see the solution
+
 
 56. Write a Java program that appends two strings, omitting one character if the concatenation creates double characters.
 
@@ -4028,7 +4149,7 @@ Sample Output:
 
 The given strings are: food  and  door
 The string after concatination are: foodoor
-Click me to see the solution
+
 
 57. Write a Java program to create a string from a given string by swapping the last two characters of the given string. The string length must be two or more.
 
@@ -4036,7 +4157,7 @@ Sample Output:
 
 The given strings is: string
 The string after swap last two characters are: strign
-Click me to see the solution
+
 
 58. Write a Java program to read a string and return true if it ends with a specified string of length 2.
 
@@ -4047,7 +4168,7 @@ The string containing ng at last: true
 
 The given strings is: strign
 The string containing ng at last: false
-Click me to see the solution
+
 
 59. Write a Java program to read a string. If the string begins with "red" or "black" return that color string, otherwise return the empty string.
 
@@ -4055,7 +4176,7 @@ Sample Output:
 
 The given strings is: blacksea
 The string begins with the color: black
-Click me to see the solution
+
 
 60. Write a Java program to read two strings append them together and return the result. If the strings are different lengths, remove characters from the beginning of the longer string and make them equal lengths.
 
@@ -4063,7 +4184,7 @@ Sample Output:
 
 The given strings is: Welcome and home
 The new string is: comehome
-Click me to see the solution
+
 
 61. Write a Java program to create a new string taking specified number of characters from first and last position of a given string.
 
@@ -4072,7 +4193,7 @@ Sample Output:
 The given strings is: Welcome
 The given numbers is: 3
 The new string is: Welome
-Click me to see the solution
+
 
 62. Write a Java program to read a string and return true if "good" appears starting at index 0 or 1 in the given string.
 
@@ -4080,7 +4201,7 @@ Sample Output:
 
 The given strings is: goodboy
 The 'good' appear in the string is: true
-Click me to see the solution
+
 
 63. Write a Java program to check whether the first two characters appear at the end of a given string.
 
@@ -4088,7 +4209,7 @@ Sample Output:
 
 The given strings is: educated
 The first two characters appear in the last is: true
-Click me to see the solution
+
 
 64. Write a Java program to read a string. If a substring of length two appears at both its beginning and end, return a string without the substring at the beginning; otherwise, return the original string unchanged.
 
@@ -4096,7 +4217,7 @@ Sample Output:
 
 The given strings is: educated
 The new string is: ucated
-Click me to see the solution
+
 
 65. Write a Java program to read a given string and return the string without the first or last characters if they are the same, otherwise return the string without the characters.
 
@@ -4104,7 +4225,7 @@ Sample Output:
 
 The given strings is: testcricket
 The new string is: estcricke
-Click me to see the solution
+
 
 66. Write a Java program to read a string and return it without the first two characters. Keep the first character if it is 'g' and keep the second character if it is 'h'.
 
@@ -4118,7 +4239,7 @@ The new string is: hoto
 
 The given strings is: ghost
 The new string is: ghost
-Click me to see the solution
+
 
 67. Write a Java program to read a string and remove the first two characters if one or both are equal to a specified character, otherwise leave them unchanged.
 
@@ -4132,7 +4253,7 @@ The new string is: bat
 
 The given strings is: own
 The new string is: wn
-Click me to see the solution
+
 
 68. Write Java program to read a string and return after removing specified characters and their immediate left and right adjacent characters.
 
@@ -4146,7 +4267,7 @@ The new string is: testring
 
 The given strings is: test#the#string
 The new string is: teshtring
-Click me to see the solution
+
 
 69. Write a Java program to return the substring that is between the first and last appearance of the substring 'toast' in the given string, or return an empty string if the substring 'toast' does not exist.
 
@@ -4154,7 +4275,7 @@ Sample Output:
 
 The given strings is: sweettoastbuttertoast
 The new string is: butter
-Click me to see the solution
+
 
 70. Write a Java program that checks if a string has pq-balance if it contains at least one 'q' directly after each ‘p’. But a 'q' before the 'p' invalidates pq-balance.
 
@@ -4165,7 +4286,7 @@ The string is pq-balanced? true
 
 The given strings is: gfpmpnpqpab
 The string is pq-balanced? false
-Click me to see the solution
+
 
 71. Write a Java program to check two given strings whether any of them appears at the end of the other string (ignore case sensitivity).
 
@@ -4176,7 +4297,7 @@ Is one string appears at the end of other? true
 
 The given strings are: pqrxyz  and xyz
 Is one string appears at the end of other? true
-Click me to see the solution
+
 
 72. Write a Java program to return true if a given string contains the string 'pop', but the middle 'o' also may contain another character.
 
@@ -4187,7 +4308,7 @@ Is p?p appear in the given string? true
 
 The given string is: dikp$pdik
 Is p?p appear in the given string? true
-Click me to see the solution
+
 
 73. Write a Java program to check whether a substring appears before a period(.) within a given string.
 
@@ -4198,7 +4319,7 @@ Is 'abc' appear before period? true
 
 The given string is: test.abctest
 Is 'abc' appear before period? false
-Click me to see the solution
+
 
 74. Write a Java program to check whether a prefix string created using the first specific character in a given string appears somewhere else in the string.
 
@@ -4211,7 +4332,7 @@ Is 'Mrs' appear else where in the string? false
 The given string is: MrsJemsMrsam
 The prefix string length is: 3
 Is 'Mrs' appear else where in the string? true
-Click me to see the solution
+
 
 75. Write a Java program to check whether a given substring appears in the middle of another string. Here middle means the difference between the number of characters to the left and right of the given substring is not more than 1.
 
@@ -4222,7 +4343,7 @@ Is abc appear in middle? false
 
 The given string is: xxabcxxx
 Is abc appear in middle? true
-Click me to see the solution
+
 
 76. Write a Java program to count how many times the substring 'life' appears anywhere in a given string. Counting can also happen with the substring 'li?e', any character instead of 'f'.
 
@@ -4230,7 +4351,7 @@ Sample Output:
 
 The given string is: liveonwildlife
 The substring life or li?e appear number of times: 2
-Click me to see the solution
+
 
 77. Write a Java program to add a string with a specific number of times separated by a substring.
 
@@ -4239,7 +4360,7 @@ Sample Output:
 The given strings are: try  and  best
 Number to times to be repeat: 3
 The new string is: trybesttrybesttry
-Click me to see the solution
+
 
 78. Write a Java program to repeat a specific number of characters for a specific number of times from the last part of a given string.
 
@@ -4247,7 +4368,7 @@ Sample Output:
 
 The given string is: string
 The new string after repetition: inginging
-Click me to see the solution
+
 
 79. Write a Java program to create a string from a given string. This is done after removing the 2nd character from the substring of length three starting with 'z' and ending with 'g' presents in the said string.
 
@@ -4255,7 +4376,7 @@ Sample Output:
 
 The given string is: zzgkitandkatcaketoket
 The new string is: zgkitandkatcaketoket
-Click me to see the solution
+
 
 80. Write a Java program to check whether the character immediately before and after a specified character is the same in a given string.
 
@@ -4269,7 +4390,7 @@ The before and after character are same: false
 
 The given string is: #moon#night
 The before and after character are same: true
-Click me to see the solution
+
 
 81. Write a Java program to check whether two strings of length 3 and 4 appear the same number of times in a given string.
 
@@ -4277,7 +4398,7 @@ Sample Output:
 
 The given string is: redcapmanwithbluecar
 The appearance of red and blue are same: true
-Click me to see the solution
+
 
 82. Write a Java program to create a string containing every character twice of a given string.
 
@@ -4285,7 +4406,7 @@ Sample Output:
 
 The given string is: welcome
 The new string is: wweellccoommee
-Click me to see the solution
+
 
 83. Write a Java program to create a string from two given strings. This is so that each character of the two strings appears individually in the created string.
 
@@ -4293,7 +4414,7 @@ Sample Output:
 
 The given strings  are: welcome  and  w3resource
 The new string is: wwe3lrceosmoeurce
-Click me to see the solution
+
 
 84. Write a Java program to make an original string made of p number of characters from the first character in a given string. This is followed by p-1 number of characters till p is greater than zero.
 
@@ -4302,7 +4423,7 @@ Sample Output:
 The given string is: welcome
 Number of repetition characters and repetition: 4
 The new string is: welcwelwew
-Click me to see the solution
+
 
 85. Write a Java program to make up a string with each character before and after a non-empty substring whichever it appears in a non-empty given string.
 
@@ -4310,7 +4431,7 @@ Sample Output:
 
 The given string are: weablcoabmeab  and ab
 The new string is: elome
-Click me to see the solution
+
 
 86. Write a Java program to count the number of triples (characters appearing three times in a row) in a given string.
 
@@ -4318,7 +4439,7 @@ Sample Output:
 
 The given string is: welllcommmmeee
 The number of triples in the string is: 4
-Click me to see the solution
+
 
 87. Write a Java program to check whether a specified character is happy or not. A character is happy when the same character appears to its left or right in a string.
 
@@ -4329,7 +4450,7 @@ Is z happy in the string: true
 
 The given string is: azmzlea
 Is z happy in the string: falses
-Click me to see the solution
+
 
 88. Write a Java program to return a string where every appearance of the lowercase word 'is' has been replaced with 'is not'.
 
@@ -4337,7 +4458,7 @@ Sample Output:
 
 The given string is: it is a string
 The new string is: it is not a string
-Click me to see the solution
+
 
 89. Write a Java program to calculate the sum of the numbers that appear in a given string.
 
@@ -4345,7 +4466,7 @@ Sample Output:
 
 The given string is: it 15 is25 a 20string
 The sum of numbers in the string is: 60
-Click me to see the solution
+
 
 90. Write a Java program to check the number of times the two substrings appearing anywhere in a string.
 
@@ -4353,7 +4474,7 @@ Sample Output:
 
 The given string is: Thisisthethesis
 Are the appearance of 'the' and 'is' equal? false
-Click me to see the solution
+
 
 91. Write a Java program to count the number of words ending in 'm' or 'n' (not case sensitive) in a given text.
 
@@ -4361,7 +4482,7 @@ Sample Output:
 
 The given string is: mam is in the room
 The number of words ends eith m or n is: 3
-Click me to see the solution
+
 
 92. Write a Java program that returns a substring after removing all instances of remove string as given from the given main string.
 
@@ -4370,7 +4491,7 @@ Sample Output:
 The main string is: This is the test string
 The removable string is: st
 The new string is: This is the te ring
-Click me to see the solution
+
 
 93. Write a Java program to find the longest substring that appears at both ends of a given string.
 
@@ -4378,7 +4499,7 @@ Sample Output:
 
 The given string is: playersplay
 The longest substring in the string is: play
-Click me to see the solution
+
 
 94. Write a Java program to find the longest mirror image string at both ends of a given string.
 
@@ -4386,7 +4507,7 @@ Sample Output:
 
 The given string is: rotavator
 The longest mirror image string in the string is: rotavator
-Click me to see the solution
+
 
 95. Write a Java program to return the sum of the digits present in the given string. In the absence of digits, the sum is 0.
 
@@ -4394,7 +4515,7 @@ Sample Output:
 
 The given string is: ab5c2d4ef12s
 The sum of the digits in the string is: 14
-Click me to see the solution
+
 
 96. Write a Java program to create a new string after removing a specified character from a given string. This is except the first and last position.
 
@@ -4402,7 +4523,7 @@ Sample Output:
 
 The given string is: zebrazone
 The new string is: zebraone
-Click me to see the solution
+
 
 97. Write a Java program to return a string with characters at index positions 0,1,2,5,6,7, ... from a given string.
 
@@ -4410,7 +4531,7 @@ Sample Output:
 
 The given string is: w3resource.com
 The new string is: w3rour.co
-Click me to see the solution
+
 
 98. Write a Java program to check whether the first instance of a given character is immediately followed by the same character in a given string.
 
@@ -4418,7 +4539,7 @@ Sample Output:
 
 The given string is: fizzez
 Is 'z' appear twice respectively? true
-Click me to see the solution
+
 
 99. Write a Java program to return an updated string using every character of even position from a given string.
 
@@ -4426,7 +4547,7 @@ Sample Output:
 
 The given string is: w3resource.com
 The new string is: wrsuc.o
-Click me to see the solution
+
 
 100. Write a Java program to check if a given string contains another string. Returns true or false.
 
@@ -4440,7 +4561,7 @@ true
 
 Is 'millions' present in the said text?
 false
-Click me to see the solution
+
 
 101. Write a Java program to test if a string contains only digits. Returns true or false.
 
@@ -4453,7 +4574,7 @@ true
 Second string:
 13123123123Z1231231231231231212312312
 false
-Click me to see the solution
+
 
 102. Write a Java program to convert a given string to int, long, floating and double.
 
@@ -4471,7 +4592,7 @@ Convert String to float/Float:
 Convert String to double/Double:
 "21.25478254D" as double is 21.25478254 and as Double is 21.25478254
 false
-Click me to see the solution
+
 
 103. Write a Java program to remove a specified character from a given string.
 
@@ -4482,7 +4603,7 @@ abcdefabcdeabcdaaa
 
 Second string:
 bcdefbcdebcd
-Click me to see the solution
+
 
 104. Write a Java program to sort in ascending and descending order by the length of the given array of strings.
 
@@ -4493,14 +4614,14 @@ Original unsorted colors: [Green, White, Black, Pink, Orange, Blue, Champagne, I
 Sorted color (descending order): [Champagne, Orange, Indigo, Green, White, Black, Ivory, Pink, Blue]
 
 Sorted color (ascending order): [Pink, Blue, Green, White, Black, Ivory, Orange, Indigo, Champagne]
-Click me to see the solution
+
 
 105. Write a Java program to count the occurrences of a given string in another given string.
 
 Sample Output:
 
 aa' has occured 3 times in 'abcd abc aabc baa abcaa'
-Click me to see the solution
+
 
 106. Write a Java program to concatenate a given string with itself a given number of times.
 
@@ -4509,11 +4630,11 @@ Sample Output:
 Original string: PHP
 
 After repeating 7 times: PHPPHPPHPPHPPHPPHPPHP
-Click me to see the solution
+
 
 107. Write a Java program to count occurrences of a certain character in a given string.
 
-Click me to see the solution
+
 
 108. Write a Java program to check whether there are two consecutive (following each other continuously), identical letters in a given string.
 
@@ -4525,7 +4646,7 @@ Original word: Java
 If there are two consecutive identical letters in the said string: false
 Original word: Yellow
 If there are two consecutive identical letters in the said string: true
-Click me to see the solution
+
 
 109. Write a Java program that reverses all odd-length words in a string.
 
@@ -4540,7 +4661,7 @@ Original text: Create a Date object using the Calendar class
 
 Reverses the words in the string that have odd lengths:
 etaerC a etaD tcejbo using the radnelaC class
-Click me to see the solution
+
 
 110. Write a Java program to count the number of characters (alphanumeric only) that occur more than twice in a given string.
 
@@ -4551,7 +4672,7 @@ Number of duplicate characters in the said String (Occurs more than twice.): 1
 
 Original String: Create a Date Calendar.
 Number of duplicate characters in the said String (Occurs more than twice.): 3
-Click me to see the solution
+
 
 111. Write a Java program that removes a specified word from given text. Return the updated string..
 
@@ -4563,7 +4684,7 @@ Input a word to remove:
  Solution
 New string, after removing the said word:
 Exercises Practice 
-Click me to see the solution
+
 
 112. A string is created by using another string's letters. Letters are case sensitive. Write a Java program that checks the letters of the second string are present in the first string. Return true otherwise false.
 
@@ -4575,109 +4696,109 @@ Input the second string:
  Ja
 Check first string contains letters from the second string:
 true
-Click me to see the solution
+
 https://www.w3resource.com/java-exercises/lambda/index.php
 ava 8 introduces several new language features designed to make it easier to write such blocks of code-the key feature being lambda expressions, also colloquially referred to as closures or anonymous methods. A lambda expression is just a shorter way of writing an implementation of a method for later execution.
 
 1. Write a Java program to implement a lambda expression to find the sum of two integers.
 
-Click me to see the solution
+
 
 2. Write a Java program to implement a lambda expression to check if a given string is empty.
 
-Click me to see the solution
+
 
 3. Write a Java program to implement a lambda expression to convert a list of strings to uppercase and lowercase.
 
-Click me to see the solution
+
 
 4. Write a Java program to implement a lambda expression to filter out even and odd numbers from a list of integers.
 
-Click me to see the solution
+
 
 5. Write a Java program to implement a lambda expression to sort a list of strings in alphabetical order.
 
-Click me to see the solution
+
 
 6. Write a Java program to implement a lambda expression to find the average of a list of doubles.
 
-Click me to see the solution
+
 
 7. Write a Java program to implement a lambda expression to remove duplicates from a list of integers.
 
-Click me to see the solution
+
 
 8. Write a lambda expression to implement a lambda expression to calculate the factorial of a given number.
 
-Click me to see the solution
+
 
 9. Write a Java program to implement a lambda expression to create a lambda expression to check if a number is prime.
 
-Click me to see the solution
+
 
 10. Write a Java program to implement a lambda expression to concatenate two strings.
 
-Click me to see the solution
+
 
 11. Write a Java program to implement a lambda expression to find the maximum and minimum values in a list of integers.
 
-Click me to see the solution
+
 
 12. Write a Java program to create a lambda expression to multiply and sum all elements in a list of integers.
 
-Click me to see the solution
+
 
 13. Write a Java program to implement a lambda expression to count words in a sentence.
 
-Click me to see the solution
+
 
 14. Write a Java program to implement a lambda expression to check if a given string is a palindrome.
 
-Click me to see the solution
+
 
 15. Write a Java program to implement a lambda expression to calculate the sum of squares of all odd and even numbers in a list.
 
-Click me to see the solution
+
 
 16. Write a Java program to implement a lambda expression to check if a list of strings contains a specific word.
 
-Click me to see the solution
+
 
 17. Write a Java program to implement a lambda expression to find the length of the longest and smallest string in a list.
 
-Click me to see the solution
+
 
 18. Write a Java program to implement a lambda expression to check if a given number is a perfect square.
 
-Click me to see the solution
+
 
 19. Write a Java program to implement a lambda expression to find the second largest and smallest element in an array.
 
-Click me to see the solution
+
 
 20. Write a Java program to implement a lambda expression to sort a list of objects based on a specific attribute.
 
-Click me to see the solution
+
 
 21. Write a Java program to implement a lambda expression to calculate the sum of all prime numbers in a given range.
 
-Click me to see the solution
+
 
 22. Write a Java program to implement a lambda expression to check if a list of strings are all uppercase or all lowercase or mixedcase.
 
-Click me to see the solution
+
 
 23. Write a Java program to implement a lambda expression to find the average length of strings in a list.
 
-Click me to see the solution
+
 
 24. Write a Java program to implement a lambda expression to find the largest prime factor of a given number.
 
-Click me to see the solution
+
 
 25. Write a Java program to implement a lambda expression to convert an integer to their corresponding binary representation.
 
-Click me to see the solution
+
 https://www.w3resource.com/java-exercises/stream/index.php
 Processing Data with  Java SE 8 Streams:
 
@@ -4688,35 +4809,35 @@ Source: Streams consume from a data-providing source such as collections, arrays
 Aggregate operations: Streams support SQL-like operations and common operations from functional  programing languages, such as filter, map, reduce, find, match, sorted, and so on.
 1. Write a Java program to calculate the average of a list of integers using streams.
 
-Click me to see the solution
+
 
 2. Write a Java program to convert a list of strings to uppercase or lowercase using streams.
 
-Click me to see the solution
+
 
 3. Write a Java program to calculate the sum of all even, odd numbers in a list using streams.
 
-Click me to see the solution
+
 
 4. Write a Java program to remove all duplicate elements from a list using streams.
 
-Click me to see the solution
+
 
 5. Write a Java program to count the number of strings in a list that start with a specific letter using streams.
 
-Click me to see the solution
+
 
 6. Write a Java program to sort a list of strings in alphabetical order, ascending and descending using streams.
 
-Click me to see the solution
+
 
 7. Write a Java program to find the maximum and minimum values in a list of integers using streams.
 
-Click me to see the solution
+
 
 8. Write a Java program to find the second smallest and largest elements in a list of integers using streams.
 
-Click me to see the solution
+
 https://www.w3resource.com/java-exercises/method/index.php
 1. Write a Java method to find the smallest number among three numbers.
 Test Data:
@@ -4726,7 +4847,7 @@ Input the third number: 29
 Expected Output:
 
 The smallest value is 25.0
-Click me to see the solution
+
 
 2. Write a Java method to compute the average of three numbers.
 Test Data:
@@ -4736,7 +4857,7 @@ Input the third number: 65
 Expected Output:
 
 The average value is 45.0
-Click me to see the solution
+
 
 3. Write a Java method to display the middle character of a string.
 Note: a) If the length of the string is odd there will be two middle characters.
@@ -4747,7 +4868,7 @@ Expected Output:
 
                                                                           
 The middle character in the string: 5
-Click me to see the solution
+
 
 4. Write a Java method to count all vowels in a string.
 Test Data:
@@ -4755,7 +4876,7 @@ Input the string: w3resource
 Expected Output:
 
 Number of  Vowels in the string: 4
-Click me to see the solution
+
 
 5. Write a Java method to count all the words in a string.
 Test Data:
@@ -4763,7 +4884,7 @@ Input the string: The quick brown fox jumps over the lazy dog.
 Expected Output:
 
 Number of words in the string: 9
-Click me to see the solution
+
 
 6. Write a Java method to compute the sum of digits in an integer.
 Test Data:
@@ -4771,7 +4892,7 @@ Input an integer: 25
 Expected Output:
 
 The sum is 7 
-Click me to see the solution
+
 
 7. Write a Java method to display the first 50 pentagonal numbers.
 Note: A pentagonal number is a figurate number that extends the concept of triangular and square numbers to the pentagon, but, unlike the first two, the patterns involved in the construction of pentagonal numbers are not rotationally symmetrical.
@@ -4783,7 +4904,7 @@ Expected Output:
 651   715   782   852   925   1001  1080  1162  1247  1335
 1426  1520  1617  1717  1820  1926  2035  2147  2262  2380
 2501  2625  2752  2882  3015  3151  3290  3432  3577  3725 
-Click me to see the solution
+
 
 8. Write a Java method to compute the future investment value at a given interest rate for a specified number of years.
 Sample data (Monthly compounded) and Output:
@@ -4799,7 +4920,7 @@ Years    FutureValue
 3            1348.18                                     
 4            1489.35                                     
 5            1645.31
-Click me to see the solution
+
 
 9. Write a Java method to print characters between two characters (i.e. A to P).
 Note: Prints 20 characters per line
@@ -4811,7 +4932,7 @@ Expected Output:
 P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c                  
 d e f g h i j k l m n o p q r s t u v w                  
 x y z
-Click me to see the solution
+
 
 10. Write a Java method to check whether a year (integer) entered by the user is a leap year or not.
 
@@ -4819,7 +4940,7 @@ Expected Output:
 
 Input a year: 2017                                                                        
 false
-Click me to see the solution
+
 
 11. Write a Java method to check whether a string is a valid password.
 Password rules:
@@ -4834,7 +4955,7 @@ Expected Output:
 3. A password must contain at least two digits                                        
 Input a password (You are agreeing to the above Terms and Conditions.): abcd1234           
 Password is valid: abcd1234 
-Click me to see the solution
+
 
 12. Write a Java method (takes n as input) to display an n-by-n matrix.
 
@@ -4851,7 +4972,7 @@ Input a number: 10
 1 1 0 1 0 1 0 0 1 0                                                                       
 0 0 1 0 0 0 0 1 1 0                                                        
 1 1 1 0 0 1 1 1 1 0
-Click me to see the solution
+
 
 13. Write Java methods to calculate triangle area.
 
@@ -4861,7 +4982,7 @@ Input Side-1: 10
 Input Side-2: 15                                                                               
 Input Side-3: 20                                                                              
 The area of the triangle is 72.6184377413890
-Click me to see the solution
+
 
 14. Write a Java method to create a pentagon's area.
 
@@ -4870,14 +4991,14 @@ Expected Output:
 Input the number of sides: 5                             
 Input the side: 6                                        
 The area of the pentagon is 61.93718642120281
-Click me to see the solution
+
 
 15. Write a Java method to display the current date and time.
 
 Expected Output:
 
 Current date and time: Wednesday January 25, 2017 7:47:43
-Click me to see the solution
+
 
 16. Write a Java method to find all twin prime numbers less than 100.
 
@@ -4891,7 +5012,7 @@ Expected Output:
 (41, 43)                                                 
 (59, 61)                                                 
 (71, 73) 
-Click me to see the solution
+
 
 17. Write a Java method to count the number of digits in an integer with the value 2. The integer may be assumed to be non-negative.
 
@@ -4899,7 +5020,7 @@ Expected Output:
 
 Input a number:  12541
 1
-Click me to see the solution
+
 
 18. Write a Java method that accepts three integers and checks whether they are consecutive or not. Returns true or false.
 
@@ -4909,7 +5030,7 @@ Input the first number:  15
 Input the second number:  16
 Input the third number:  17
 Check whether the three said numbers are consecutive or not!true
-Click me to see the solution
+
 
 19. Write a Java method that accepts three integers and returns true if one is the middle point between the other two integers, otherwise false.
 
@@ -4920,7 +5041,7 @@ Input the second number:  4
 Input the third number:  6
 Check whether the three said numbers has a midpoint!
 true
-Click me to see the solution
+
 
 20. Write a Java method for extracting the first digit from a positive or negative integer.
 
@@ -4929,7 +5050,7 @@ Expected Output:
 Input an integer(positive/negative): 1234
 Extract the first digit from the said integer:
 1
-Click me to see the solution
+
 
 21. Write a Java method to display the factors of 3 in a given integer.
 
@@ -4939,7 +5060,7 @@ Input an integer(positive/negative): 81
 
 Factors of 3 of the said integer:
 81 = 3 * 3 * 3 * 3 * 1
-Click me to see the solution
+
 
 22. Write a Java method to check whether every digit of a given integer is even. Return true if every digit is odd otherwise false.
 
@@ -4948,7 +5069,7 @@ Expected Output:
 Input an integer: 8642
 Check whether every digit of the said integer is even or not!
 true
-Click me to see the solution
+
 
 23. Write a Java method that checks whether all the characters in a given string are vowels (a, e,i,o,u) or not. Return true if each character in the string is a vowel, otherwise return false.
 
@@ -4957,7 +5078,7 @@ Expected Output:
 Input a string:  AIEEE
 Check all the characters of the said string are vowels or not!
 true
-Click me to see the solution
+
 https://www.w3resource.com/java-exercises/numbers/index.php
 1. Write a Java program to check whether a given number is ugly.
 In number system, ugly numbers are positive numbers whose only prime factors are 2, 3 or 5. First 10 ugly numbers are 1, 2, 3, 4, 5, 6, 8, 9, 10, 12. By convention, 1 is included.
@@ -4965,7 +5086,7 @@ Test Date:Input an integer number: 235
 Expected Output :
 It is not an ugly number.
 
-Click me to see the solution
+
 
 2. Write a Java program that categorizes integers between 1 and 10,000 as Abundant, Deficient, and Perfect.
 In number theory, an abundant number is a number for which the sum of its proper divisors is greater than the number itself.
@@ -4986,10 +5107,10 @@ Deficient number: 7508
 Perfect number: 4
 Abundant number: 2488
 
-Click me to see the solution
+
 
 3. Write a Java program to generate random integers in a specific range.
-Click me to see the solution
+
 
 
 4. Write a Java program to generate and show all Kaprekar numbers less than 1000.
@@ -5005,7 +5126,7 @@ Expected Output :
 703     494209    494 + 209                              
 999     998001    998 + 001                              
 8 Kaprekar numbers.  
-Click me to see the solution
+
 
 5. Write a Java program to find the number of seed Lychrel number candidates and related numbers for n in the range 1..10000 inclusive. (With a 500-iteration limit).
 A Lychrel number is a natural number that cannot form a palindrome through the iterative process of repeatedly reversing its digits and adding the resulting numbers. This process is sometimes called the 196-algorithm, after the most famous number associated with the process.
@@ -5015,13 +5136,13 @@ Expected Output :
 244 Lychrel related
 5 Lychrel palindromes: [196, 879, 1997, 7059, 9999]
 
-Click me to see the solution
+
 
 6. Write a Java program to generate and show the first 15 narcissistic decimal numbers.
 Expected Output :
 
 0 1 2 3 4 5 6 7 8 9 153 370 371 407 1634
-Click me to see the solution
+
 
 7. Write a Java program to display the first 10 lucus numbers.
 The Lucas numbers or series are an integer sequence named after the mathematician François Édouard Anatole Lucas, who studied both that sequence and the closely related Fibonacci numbers. Lucas numbers and Fibonacci numbers form complementary instances of Lucas sequences.
@@ -5041,7 +5162,7 @@ Expected Output :
 29                                                                      
 47                                                                      
 76
-Click me to see the solution
+
 
 8.Write a Java program to print out the first 10 Catalan numbers by extracting them from Pascal's triangle.
 In combinatorial  mathematics, the Catalan numbers form a sequence of natural numbers that occur in various counting problems, often involving recursively-defined objects. They are named after the Belgian mathematician Eugène Charles Catalan.
@@ -5059,7 +5180,7 @@ List 10 Catalan numbers:-
 1430                                                                    
 4862                                                                    
 16796  
-Click me to see the solution
+
 
 9. Write a Java program to find and print the first 10 happy numbers.
 Happy number: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1, or it loops endlessly in a cycle which does not include 1.
@@ -5080,7 +5201,7 @@ First 10 Happy numbers:
 23                                                                      
 28                                                                      
 31   
-Click me to see the solution
+
 
 10. Write a Java program to check whether a given number is a happy number or unhappy number.
 Happy number: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1, or it loops endlessly in a cycle which does not include 1.
@@ -5091,7 +5212,7 @@ Expected Output
 
 Input a number: 5                                                       
 Unhappy Number
-Click me to see the solution
+
 
 11. Write a Java program to check whether a given number is a Disarium number or an unhappy number.
 A Disarium number is a number defined by the following process :
@@ -5104,7 +5225,7 @@ Expected Output
 
 Input a number : 25                                                     
 Not a Disarium Number.
-Click me to see the solution
+
 
 12. Write a Java program to check whether a number is a Harshad Number or not.
 In recreational  mathematics, a harshad number in a given number base, is an integer that is divisible by the sum of its digits when written in that base.
@@ -5114,7 +5235,7 @@ Expected Output
 Input a number : 353  
                                                   
 353 is not a Harshad Number.
-Click me to see the solution
+
 
 13. Write a Java program to check whether a number is a Pronic or Heteromecic Number or not.
 A pronic number is a number which is the product of two consecutive integers, that is, a number of the form n(n + 1).
@@ -5125,7 +5246,7 @@ Expected Output
 Input a number : 110
 Pronic Number.
 
-Click me to see the solution
+
 
 14. Write a Java program to check whether a number is an automorphic number or not.
 In  mathematics, an automorphic number is a number whose square "ends" in the same digits as the number itself. For example, 52 = 25, 62 = 36, 762 = 5776, and 8906252 = 793212890625, so 5, 6, 76 and 890625 are all automorphic numbers.
@@ -5133,7 +5254,7 @@ Expected Output
 
 Input a number : 76                                                   
 Automorphic Number.
-Click me to see the solution
+
 
 15. Write a Java program to check whether a number is a Duck Number or not.
 Note: A Duck number is a number which has zeroes present in it, but there should be no zero present in the beginning of the number. For example 3210, 7056, 8430709 are all duck numbers whereas 08237, 04309 are not.
@@ -5142,7 +5263,7 @@ Expected Output
 Input a number : 3210                                                   
 Duck number
  
-Click me to see the solution
+
 
 16. Write a Java program to check two numbers are Amicable numbers or not.
 Amicable numbers are two different numbers so related that the sum of the proper divisors of each is equal to the other number.
@@ -5152,7 +5273,7 @@ Expected Output
 Input the first number: 220                                             
 Input the second number: 284                                            
 These numbers are amicable.
-Click me to see the solution
+
 
 17. Write a Java program to check if a given number is a circular prime or not.
 Circular Prime : A circular prime is a prime number with the property that the number generated at each intermediate step when cyclically permuting its (base 10) digits will be prime.
@@ -5162,7 +5283,7 @@ Input a number: 35
 Expected Output
 
 It is not a Circular Prime number.
-Click me to see the solution
+
 
 18. Write a Java program to check if a number is a cube or not.
 In arithmetic and algebra, the cube of a number n is its third power: the result of the number multiplied by itself twice:
@@ -5172,7 +5293,7 @@ Input a number: 8
 Expected Output
 
 Number is a cube.
-Click me to see the solution
+
 
 19. Write a Java program to check if a number is cyclic or not.
 A cyclic number is an integer in which cyclic permutations of the digits are successive multiples of the number. The most widely known are 142857:
@@ -5187,7 +5308,7 @@ Input a number: 142857
 Expected Output
 
 It is a cyclic number.
-Click me to see the solution
+
 
 20. Write a Java program to display the first 10 Fermat numbers.
 In  mathematics, a Fermat number is a positive integer of the form
@@ -5208,7 +5329,7 @@ Expected Output
 1.157920892373162E77                                                    
 1.3407807929942597E154                                                  
 Infinity   
-Click me to see the solution
+
 
 21. Write a Java program to find any number between 1 and n that can be expressed as the sum of two cubes in two (or more) different ways.
 //http://introcs.cs.princeton.edu/java/13flow/Ramanujan.java.html
@@ -5240,7 +5361,7 @@ Expected Output
 20683 = 10^3 + 27^3 = 19^3 + 24^3                                       
 65728 = 12^3 + 40^3 = 31^3 + 33^3                                       
 64232 = 17^3 + 39^3 = 26^3 + 36^3
-Click me to see the solution
+
 
 22. Write a program to check if a number is a Mersenne number or not.
 In  mathematics, a Mersenne number is a number that can be written in the form M(n) = 2n − 1 for some integer n.
@@ -5250,7 +5371,7 @@ Expected Output
 
 Input a number: 127                                                     
 127 is a Mersenne number.
-Click me to see the solution
+
 
 23. Write a Java program to find all narcissistic numbers between 1 and 1000.
 In number theory, a narcissistic number is a number that is the sum of its own digits each raised to the power of the number of digits.
@@ -5271,7 +5392,7 @@ Expected Output
 370                                                    
 371                                                    
 407
-Click me to see the solution
+
 
 24. Write a Java program to check if a number is a palindrome or not.
 In number system a palindromic number is a number that is the same when written forwards or backwards, i.e., of the form .
@@ -5280,7 +5401,7 @@ The first few palindromic numbers are therefore are 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 Expected Output
 Input a number: 5                                                       
 It is a Palindrome number. 
-Click me to see the solution
+
 
 25. Write a Java program to print the first 15 numbers of the Pell series.
 In  mathematics, the Pell numbers are an infinite sequence of integers. The sequence of Pell numbers starts with 0 and 1, and then each Pell number is the sum of twice the previous Pell number and the Pell number before that.:
@@ -5292,7 +5413,7 @@ Expected Output
 First 20 Pell numbers:                                                  
 1 2 5 12 29 70 169 408 985 2378 5741 13860 33461 80782 195025 470832 113
 6689 2744210 6625109 15994428
-Click me to see the solution
+
 
 26. Write a Java program to check whether a number is a Keith Number or not.
 In recreational  mathematics, a Keith number or repfigit number (short for repetitive Fibonacci-like digit) is a number in the following integer sequence:
@@ -5301,7 +5422,7 @@ In recreational  mathematics, a Keith number or repfigit number (short for repet
 Expected Output
 Input a number: 75                                                         
 Keith Number
-Click me to see the solution
+
 
 27. Write a Java program to create the first twenty Hamming numbers.
 In  computer science, regular numbers are often called Hamming numbers, Hamming Numbers are numbers whose only prime factors are 2, 3 and 5.
@@ -5311,7 +5432,7 @@ The first few hamming numbers are :
 Expected Output
 First Twenty Hamming numbers: 1 2 3 4 5 6 8 9 10 12 15 16 18 20 24 25 27
  30 32 36
-Click me to see the solution
+
 
 28. Write a Java program to check whether a number is an Armstrong Number or not.
 Armstrong (Michael F. Armstrong) number is a number that is equal to the sum of cubes of its digits. For example 0, 1, 153, 370, 371 and 407 are the Armstrong numbers
@@ -5319,14 +5440,14 @@ Expected Output
 
 Input an integer:  153
 Is Armstrong number? true
-Click me to see the solution
+
 
 29. Write a Java program to check whether a number is a Luck number or not.
 Expected Output
 
 Input an integer:  25
 Is Lucky number? true
-Click me to see the solution
+
 https://www.w3resource.com/java-exercises/collection/index.php
 Java Collection Exercises [126 exercises with solution]
 Java Collection refers to a  framework provided by Java to store and manipulate groups of objects. It offers a set of interfaces (like List, Set, Queue, etc.) and classes (like ArrayList, HashSet, PriorityQueue, etc.) that provide different ways to organize and work with collections of elements. This  framework simplifies common operations such as adding, removing, and accessing elements. It offers a wide range of data structures to suit various programming needs.
@@ -5432,125 +5553,125 @@ Navigable Map Operations: Provides additional operations for navigating elements
 https://www.w3resource.com/java-exercises/sorting/index.php
 1. Write a Java program to sort an array of given integers using the Quick sort algorithm.
 Quick sort is a comparison sort, meaning it can sort items of any type for which a "less-than" relation (formally, a total order) is defined.
-Click me to see the solution
+
 
 2. Write a Java program to sort an array of given integers using the Bubble Sorting Algorithm.
 According to Wikipedia "Bubble sort, sometimes called sinking sort, is a simple sorting algorithm that repeatedly steps through the list to be sorted. It compares each pair of adjacent items and swaps them if they are in the wrong order. The pass through the list is repeated until no swaps are needed, which indicates the list is in order. The algorithm, which is a comparison sort, is named for the way smaller elements "bubble" to the top of the list. Although the algorithm is simple, it is too slow and impractical for most problems even compared to an insertion sort. It can be practical if the input is usually in sort order but occasionally has some out-of-order elements nearly in position."
-Click me to see the solution
+
 
 
 
 3. Write a Java program to sort an array of given integers using the Radix sort algorithm.
 According to Wikipedia "In computer science, radix sort is a non-comparative integer sorting algorithm that sorts data with integer keys by grouping keys by the individual digits that share the same significant position and value".
-Click me to see the solution
+
 
 
 4. Write a Java program to sort an array of given integers using the Merge Sort Algorithm.
 According to Wikipedia "Merge sort (also commonly spelled mergesort) is an O (n log n) comparison-based sorting algorithm. Most implementations produce a stable sort, which means that the implementation preserves the input order of equal elements in the sorted output."
-Click me to see the solution
+
 
 5. Write a Java program to sort an array of given integers using the Heap sort algorithm.
 
 In computer science heapsort (invented by J. W. J. Williams in 1964) is a comparison-based sorting algorithm. Heapsort can be thought of as an improved selection sort: like that algorithm, it divides its input into a sorted and an unsorted region, and it interactively shrinks the unsorted region by extracting the largest element and moving that to the sorted region. The improvement consists of the use of a heap data structure rather than a linear-time search to find the maximum. Although somewhat slower in practice on most machines than a well-implemented quicksort, it has the advantage of a more favorable worst-case O(n log n) runtime. Heapsort is an in-place algorithm, but not a stable sort.
-Click me to see the solution
+
 
 6. Write a Java program to sort an array of given integers using the Selection Sort Algorithm.
 
 Wikipedia says "In computer science, selection sort is a sorting algorithm, specifically an in-place comparison sort. It has O(n2) time complexity, making it inefficient on large lists, and generally performs less efficiently than the similar insertion sort".
-Click me to see the solution
+
 
 7. Write a Java program to sort an array of given integers using the Insertion sort algorithm.
 
 Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time. It is much less efficient on large lists than other algorithms such as quicksort, heapsort, or merge sort.
-Click me to see the solution
+
 
 8. Write a Java program to sort an array of positive integers using the Bead Sort Algorithm.
 According to Wikipedia "Bead sort, also called gravity sort, is a natural sorting algorithm, developed by Joshua J. Arulanandham, Cristian S. Calude and Michael J. Dinneen in 2002, and published in The Bulletin of the European Association for Theoretical Computer Science. Both digital and analog hardware implementations of bead sort can achieve a sorting time of O(n); however, the implementation of this algorithm tends to be significantly slower in software and can only be used to sort lists of positive integers. Also, it seems that even in the best case, the algorithm requires O(n2) space".
-Click me to see the solution
+
 
 9. Write a Java program to sort an array of positive integers using the BogoSort Sort Algorithm.
 
 In computer science, Bogosort is a particularly ineffective sorting algorithm based on the generate and test paradigm. The algorithm successively generates permutations of its input until it finds one that is sorted. It is not useful for sorting but may be used for educational purposes, to contrast it with other more realistic algorithms.
-Click me to see the solution
+
 
 10. Write a Java program to sort an array of positive integers using the Cocktail sort algorithm.
 
 Cocktail shaker sort (also known as bidirectional bubble sort, cocktail sort, shaker sort, ripple sort, shuffle sort, or shuttle sort ) is a variation of bubble sort that is both a stable sorting algorithm and a comparison sort. The algorithm differs from a bubble sort in that it sorts in both directions on each pass through the list. This sorting algorithm is only marginally more difficult to implement than a bubble sort and solves the problem of turtles in bubble sorts. It provides only marginal performance improvements, and does not improve asymptotic performance; like the bubble sort, it is not of practical interest, though it finds some use in education.
-Click me to see the solution
+
 
 11. Write a Java program to sort an array of given integers using the CombSort algorithm.
 
 The Comb Sort is a variant of the Bubble Sort. Like the Shell sort, the Comb Sort increases the gap used in comparisons and exchanges. Some implementations use the insertion sort once the gap is less than a certain amount. The basic idea is to eliminate turtles, or small values near the end of the list, since in a bubble sort these slow the sorting down tremendously. Rabbits, large values around the beginning of the list do not pose a problem in a bubble sort.
-Click me to see the solution
+
 
 12. Write a Java program to sort an array of given integers using the CountingSort algorithm.
 
 According to Wikipedia "In computer science, counting sort is an algorithm for sorting a collection of objects according to keys that are small integers; that is, it is an integer sorting algorithm. It operates by counting the number of objects that have each distinct key value. It uses arithmetic on those counts to determine the positions of each key value in the output sequence. Its running time is linear based on the number of items and the difference between the maximum and minimum key values, so it is only suitable for direct use in situations where the variation in keys is not significantly wider than the number of items. However, it is often used as a subroutine in another sorting algorithm, radix sort, which handles larger keys more efficiently".
-Click me to see the solution
+
 
 13. Write a Java program to sort an array of given integers using the Gnome sort algorithm.
 
 Gnome sort is a sorting algorithm originally proposed by Dr. Hamid Sarbazi-Azad (Professor of Computer Engineering at Sharif University of Technology) in 2000 and called "stupid sort" (not to be confused with bogosort), and then later described by Dick Grune and named "gnome sort".
 The algorithm always finds the first place where two adjacent elements are in the wrong order, and swaps them. It takes advantage of the fact that swapping can introduce a new out-of-order adjacent pair only next to the two swapped elements.
-Click me to see the solution
+
 
 14. Write a Java program to sort an array of given integers using the Pancake sort algorithm.
 
 Pancake sorting is the colloquial term for the mathematical problem of sorting a disordered stack of pancakes in order of size. This is when a spatula can be inserted at any point in the stack and used to flip all pancakes above it. Pancake numbers are the minimum number of flips required for a given number of pancakes. The problem was first discussed by American geometer Jacob E. Goodman. It is a variation of the sorting problem in which the only allowed operation is to reverse the elements of some prefix of the sequence.
-Click me to see the solution
+
 
 15. Write a Java program to sort an array of given integers using the Permutation sort algorithm.
 
 Implement a permutation sort, which generates the possible permutations of the input array/list until discovering the sorted one.
-Click me to see the solution
+
 
 16. Write a Java program to sort an array of given integers Shell Sort Algorithm.
 
 According to Wikipedia "Shell sort or Shell's method, is an in-place comparison sort. It can be seen as either a generalization of sorting by exchange (bubble sort) or sorting by insertion (insertion sort). The method starts by sorting pairs of elements far apart from each other, then progressively reducing the gap between elements to be compared. Starting with far apart elements can move some out-of-place elements into position faster than a simple nearest neighbor exchange."
-Click me to see the solution
+
 
 17. Write a Java program to sort an array of given non-negative integers using the Sleep Sort Algorithm.
 
 Sleep sort works by starting a separate task for each item to be sorted. Each task sleeps for an interval corresponding to the item's sort key, then emits the item. Items are then collected sequentially in time.
-Click me to see the solution
+
 
 18. Write a Java program to sort an array of given non-negative integers using the Stooge Sort Algorithm.
 
 Stooge sort is a recursive sorting algorithm with a time complexity of O(nlog 3 / log 1.5 ) = O(n2.7095...). The running time of the algorithm is thus slower than efficient sorting algorithms, such as Merge sort, and is even slower than Bubble sort.
-Click me to see the solution
+
 
 19. Write a Java program to sort an array of given integers using the Bucket Sort Algorithm.
 
 Bucket sort is a sorting algorithm that distributes the elements of an array into a number of buckets. Each bucket is then sorted individually, either using a different sorting algorithm, or by recursively applying the bucket sorting algorithm. It is a distribution sort, a generalization of pigeonhole sort, and a cousin of radix sort in the most-to-least significant digit flavor.
-Click me to see the solution
+
 
 https://www.w3resource.com/java-exercises/search/index.php
 1. Write a Java program to find a specified element in a given array of elements using Binary Search.
-Click me to see the solution
+
 
 2. Write a Java program to find a specified element in a given array of elements using Linear Search.
-Click me to see the solution
+
 
 3. Write a Java program to find a specified element in a given sorted array of elements using Jump Search.
 From Wikipedia, in  computer science, a jump search or block search refers to a search algorithm for ordered lists. It works by first checking all items Lkm, where ℜ ∈ ℵ and m is the block size, until an item is found that is larger than the search key. To find the exact position of the search key in the list a linear search is performed on the sublist L[(k-1)m, km].
-Click me to see the solution
+
 
 
 4. Write a Java program to find a specified element in a given array of elements using Interpolation Search.
 From Wikipedia, Interpolation search is an algorithm for searching for a key in an array that has been ordered by numerical values assigned to the keys (key values). It was first described by W. W. Peterson in 1957. Interpolation search resembles the method by which people search a telephone directory for a name (the key value by which the book's entries are ordered): in each step the algorithm calculates where in the remaining search space the sought item might be, based on the key values at the bounds of the search space and the value of the sought key, usually via a linear interpolation. The key value actually found at this estimated position is then compared to the key value being sought. If it is not equal, then depending on the comparison, the remaining search space is reduced to the part before or after the estimated position. This method will only work if calculations on the size of differences between key values are sensible.
-Click me to see the solution
+
 
 5. Write a Java program to find a specified element in a given sorted array of elements using Exponential search.
 
 From Wikipedia, in  computer science, an exponential search (also called doubling search or galloping search or Struzik search) is an algorithm, created by Jon Bentley and Andrew Chi-Chih Yao in 1976, for searching sorted, unbounded/infinite lists. There are numerous ways to implement this with the most common being to determine a range that the search key resides in and performing a binary search within that range. This takes O(log i) where i is the position of the search key in the list, if the search key is in the list, or the position where the search key should be, if the search key is not in the list.
-Click me to see the solution
+
 
 6. Write a Java program to find a specified element in a given array of elements using Ternary search.
 
 From Wikipedia, a ternary search algorithm is a technique in  computer science for finding the minimum or maximum of a unimodal function. A ternary search determines either that the minimum or maximum cannot be in the first third of the domain or that it cannot be in the last third of the domain, then repeats on the remaining two thirds. A ternary search is an example of a divide and conquer algorithm.
-Click me to see the solution
+
 
 7. Given is a 2-dimensional integer array [0..m-1, 0..n-1], each row and column of which is in ascending order (see example)
 Find the row, column position of a specified number in a given 2-dimensional array
 Write a Java program to find the row, column position of a specified number (row, column position) in a given 2-dimensional array.
-Click me to see the solution
+
