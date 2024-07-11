@@ -44,23 +44,30 @@ class Student
 ```
 ### 47) Given a list of students, write a Java 8 code to partition the students who got above 60% from those who didn’t?
 ```java
-Map<Boolean, List<Student>> studentspartionedByPercentage = studentList.stream().collect(Collectors.partitioningBy(student -> student.getPercentage() > 60.0));
+Map<Boolean, List<Student>> studentspartionedByPercentage = studentList.stream()
+                                                            .collect(Collectors.partitioningBy(student -> student.getPercentage() > 60.0));
 ```
 ### 48) Given a list of students, write a Java 8 code to get the names of top 3 performing students?
 ```java
-List<Student> top3Students = studentList.stream().sorted(Comparator.comparingDouble(Student::getPercentage).reversed()).limit(3).collect(Collectors.toList());
+List<Student> top3Students = studentList.stream()
+                                        .sorted(Comparator.comparingDouble(Student::getPercentage).reversed())
+                                        .limit(3)
+                                        .collect(Collectors.toList());
 ```
 ### 49) Given a list of students, how do you get the name and percentage of each student?
 ```java
-Map<String, Double> namePercentageMap = studentList.stream().collect(Collectors.toMap(Student::getName, Student::getPercentage));
+Map<String, Double> namePercentageMap = studentList.stream()
+                                                   .collect(Collectors.toMap(Student::getName, Student::getPercentage));
 ```
 ### 50) Given a list of students, how do you get the subjects offered in the college?
 ```java
-Set<String> subjects = studentList.stream().map(Student::getSubject).collect(Collectors.toSet());
+Set<String> subjects = studentList.stream()
+                                  .map(Student::getSubject).collect(Collectors.toSet());
 ```
 ### 51) Given a list of students, write a Java 8 code to get highest, lowest and average percentage of students?
 ```java
-DoubleSummaryStatistics studentStats = studentList.stream().collect(Collectors.summarizingDouble(Student::getPercentage));
+DoubleSummaryStatistics studentStats = studentList.stream()
+                                                  .collect(Collectors.summarizingDouble(Student::getPercentage));
           
 System.out.println("Highest Percentage : "+studentStats.getMax());          
 System.out.println("Lowest Percentage : "+studentStats.getMin());          
@@ -72,7 +79,8 @@ Long studentCount = studentList.stream().collect(Collectors.counting());
 ```
 ### 53) How do you get the students grouped by subject from the given list of students?
 ```java
-Map<String, List<Student>> studentsGroupedBySubject = studentList.stream().collect(Collectors.groupingBy(Student::getSubject));
+Map<String, List<Student>> studentsGroupedBySubject = studentList.stream()
+                                                                .collect(Collectors.groupingBy(Student::getSubject));
 ```
 ### Questions from 54 to 61 are on the following Employee class.
 ```java
@@ -153,7 +161,8 @@ employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment, Col
 ### 55) Given a list of employees, find out the average salary of male and female employees?
 ```java
 Map<String, Double> avgSalaryOfMaleAndFemaleEmployees=
-                employeeList.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingDouble(Employee::getSalary)));
+                employeeList.stream()
+                            .collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingDouble(Employee::getSalary)));
 ```
 ### 56) Write a Java 8 code to get the details of highest paid employee in the organization from the given list of employees?
 ```java
@@ -163,12 +172,14 @@ employeeList.stream().collect(Collectors.maxBy(Comparator.comparingDouble(Employ
 ### 57) Write the Java 8 code to get the average age of each department in an organization?
 ```java
 Map<String, Double> avgAgeOfEachDepartment =
-                employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.averagingInt(Employee::getAge)));
+                employeeList.stream()
+                            .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.averagingInt(Employee::getAge)));
 ```
 ### 58) Given a list of employees, how do you find out who is the senior most employee in the organization?
 ```java
 Optional<Employee> seniorMostEmployeeWrapper=
-employeeList.stream().sorted(Comparator.comparingInt(Employee::getYearOfJoining)).findFirst();
+                                employeeList.stream()
+                                            .sorted(Comparator.comparingInt(Employee::getYearOfJoining)).findFirst();
 ```
 ### 59) Given a list of employees, get the details of the most youngest employee in the organization?
 ```java
@@ -178,12 +189,14 @@ Optional<Employee> youngestEmployee =
 ### 60) How do you get the number of employees in each department if you have given a list of employees?
 ```java
 Map<String, Long> employeeCountByDepartment=
-employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()));
+                                            employeeList.stream()
+                                                        .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()));
 ```
 ### 61) Given a list of employees, find out the number of male and female employees in the organization?
 ```java
 Map<String, Long> noOfMaleAndFemaleEmployees=
-employeeList.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
+                                            employeeList.stream()
+                                                        .collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
 ```
 See More : Solving Real Time Queries Using Java 8 Features -Employee Management System
 
