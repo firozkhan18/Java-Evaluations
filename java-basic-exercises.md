@@ -2489,12 +2489,55 @@ x-windows-iso2022jp
 
 
 ### 41. Write a Java program to print the ASCII value of a given character.
+```java
+public class Exercise41 {
+    public static void main(String[] args) {
+        // Define an integer variable 'chr' and assign the ASCII value of 'Z' to it.
+        int chr = 'Z';
+        
+        // Print the ASCII value of 'Z' to the console.
+        System.out.println("The ASCII value of Z is: " + chr);
+    }
+}
+```
 Expected Output
 
 The ASCII value of Z is :90
 
 
 ### 42. Write a Java program to input and display your password.
+```java
+import java.io.Console;
+
+public class Example42 {
+    public static void main(String[] args) {
+        // Declare a Console variable 'cons'.
+        Console cons;
+
+        // Check if the system console is available.
+        if ((cons = System.console()) != null) {
+            // Declare a character array 'pass_ward' to store the password.
+            char[] pass_ward = null;
+
+            try {
+                // Prompt the user to input their password.
+                pass_ward = cons.readPassword("Input your Password:");
+
+                // Display the password to the console.
+                System.out.println("Your password was: " + new String(pass_ward));
+            } finally {
+                // Ensure that the password array is securely cleared.
+                if (pass_ward != null) {
+                    java.util.Arrays.fill(pass_ward, ' ');
+                }
+            }
+        } else {
+            // If the system console is not available, throw a runtime exception.
+            throw new RuntimeException("Can't get the password... No console");
+        }
+    }
+}
+```
 Expected Output
 
 Input your Password:                                                    
@@ -2502,6 +2545,14 @@ Your password was: abc@123
 
 
 ### 43. Write a Java program to print the following string in a specific format (see output).
+```java
+public class Example43 {
+    public static void main(String[] args) {
+        // Display a pattern of a nursery rhyme.
+        System.out.println("\nTwinkle, twinkle, little star, \n\tHow I wonder what you are! \n\t\tUp above the world so high, \n\t\tLike a diamond in the sky. \nTwinkle, twinkle, little star, \n\tHow I wonder what you are!\n\n");
+    }
+}
+```
 Sample Output
 
 Twinkle, twinkle, little star,
@@ -2513,6 +2564,24 @@ Twinkle, twinkle, little star,
 
 
 ### 44. Write a Java program that accepts an integer (n) and computes the value of n+nn+nnn.
+```java
+import java.util.Scanner;
+
+public class Exercise44 {
+    public static void main(String[] args) {
+        int n;
+        char s1, s2, s3;
+        Scanner in = new Scanner(System.in);
+        
+        // Prompt the user to input a number.
+        System.out.print("Input number: ");
+        n = in.nextInt();
+        
+        // Display the number in a specific pattern.
+        System.out.printf("%d + %d%d  + %d%d%d\n", n, n, n, n, n, n);
+    }
+}
+```
 Sample Output:
 
 Input number: 5                                                        
@@ -2520,6 +2589,18 @@ Input number: 5
 
 
 ### 45. Write a Java program to find the size of a specified file.
+```java
+import java.util.Scanner;
+import java.io.File;
+
+public class Exercise45 {
+    public static void main(String[] args) {
+        // Display the file sizes in bytes for two files.
+        System.out.println("/home/students/abc.txt  : " + new File("abc.txt").length() + " bytes");
+        System.out.println("/home/students/test.txt : " + new File("test.txt").length() + " bytes");
+    }
+}
+```
 Sample Output:
 
 /home/students/abc.txt  : 0 bytes                                      
@@ -2527,18 +2608,62 @@ Sample Output:
 
 
 ### 46. Write a Java program to display system time.
+```java
+public class Exercise46 {
+  
+  public static void main(String[] args) {
+         // Display the current date and time using System.currentTimeMillis()
+         System.out.format("\nCurrent Date time: %tc%n\n", System.currentTimeMillis());
+    }
+}
+```
 Sample Output:
 
 Current Date time: Fri Jun 16 14:17:40 IST 2017 
 
 
 ### 47. Write a Java program to display the current date and time in a specific format.
+```java
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.TimeZone;
+
+public class Exercise47 {
+
+	public static void main(String args[]) {
+		// Create a SimpleDateFormat with a specific date and time format
+		SimpleDateFormat cdt = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
+		
+		// Set the time zone for the calendar to GMT
+		cdt.setCalendar(Calendar.getInstance(TimeZone.getTimeZone("GMT")));
+		
+		// Display the current date and time in the specified format
+		System.out.println("\nNow: " + cdt.format(System.currentTimeMillis()));
+	}
+}
+```
 Sample Output:
 
 Now: 2017/06/16 08:52:03.066 
 
 
 ### 48. Write a Java program to print odd numbers from 1 to 99. Prints one number per line.
+```java
+import java.util.*;
+
+public class Exercise48 {
+    public static void main(String[] args) {
+        // Iterate through numbers from 1 to 99
+        for (int i = 1; i < 100; i++) {
+            // Check if the number is odd
+            if (i % 2 != 0) {
+                // Print the odd number
+                System.out.println(i);
+            }
+        }
+    }
+}
+```
 Sample Output:
 
 1                                                                      
@@ -2557,6 +2682,27 @@ Sample Output:
 
 
 ### 49. Write a Java program to accept a number and check whether the number is even or not. Prints 1 if the number is even or 0 if odd.
+```java
+import java.util.*;
+
+public class Exercise49 {
+    public static void main(String[] args) {
+        // Create a scanner for user input
+        Scanner in = new Scanner(System.in);
+        
+        // Prompt the user to input a number
+        System.out.print("Input a number: ");
+        int n = in.nextInt();
+        
+        // Check if the number is even and print the result
+        if (n % 2 == 0) {
+            System.out.println(1); // If the number is even, print 1
+        } else {
+            System.out.println(0); // If the number is odd, print 0
+        }
+    }
+}
+```
 Sample Output:
 
 Input a number: 20                                                     
@@ -2564,6 +2710,33 @@ Input a number: 20
 
 
 ### 50. Write a Java program to print numbers between 1 and 100 divisible by 3, 5 and both.
+```java
+public class Exercise50 {
+    public static void main(String args[]) {
+        // Print numbers divided by 3
+        System.out.println("\nDivided by 3: ");
+        for (int i = 1; i < 100; i++) {
+            if (i % 3 == 0)
+                System.out.print(i + ", ");
+        }
+
+        // Print numbers divided by 5
+        System.out.println("\n\nDivided by 5: ");
+        for (int i = 1; i < 100; i++) {
+            if (i % 5 == 0)
+                System.out.print(i + ", ");
+        }
+
+        // Print numbers divided by both 3 and 5
+        System.out.println("\n\nDivided by 3 & 5: ");
+        for (int i = 1; i < 100; i++) {
+            if (i % 3 == 0 && i % 5 == 0)
+                System.out.print(i + ", ");
+        }
+        System.out.println("\n");
+    }
+}
+```
 Sample Output:
 
 Divided by 3:                                                          
