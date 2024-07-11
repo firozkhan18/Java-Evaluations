@@ -110,9 +110,7 @@
 
 ### 1. // Program to find the sum of all elements in an array
 
-|    java 7 |  java 8|
-|---------------------|-------------------|
-|```java
+```java
 public class SumOfArrayElements {
     public static void main(String[] args) {
         int[] array = {1, 2, 3, 4, 5};
@@ -123,19 +121,8 @@ public class SumOfArrayElements {
         System.out.println("Sum of array elements: " + sum);
     }
 }
-```|```java
-public class SumOfArrayElements {
-    public static void main(String[] args) {
-        int[] array = {1, 2, 3, 4, 5};
-        int sum = 0;
-        for (int num : array) {
-            sum += num;
-        }
-        System.out.println("Sum of array elements: " + sum);
-    }
-}
-```|
-
+```
+| java 7 | java 8| |---------------------|-------------------| |java public class SumOfArrayElements { public static void main(String[] args) { int[] array = {1, 2, 3, 4, 5}; int sum = 0; for (int num : array) { sum += num; } System.out.println("Sum of array elements: " + sum); } } |```java public class SumOfArrayElements { public static void main(String[] args) { int[] array = {1, 2, 3, 4, 5}; int sum = 0; for (int num : array) { sum += num; } System.out.println("Sum of array elements: " + sum); } }|
 ### 2. // Program to check if a given number is prime or not
 ```java
 public class CheckPrimeNumber {
