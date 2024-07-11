@@ -5767,23 +5767,151 @@ public class BinaryTree {
 ### 131. Write a Java program to find the updated length of a sorted array where each element appears only once (remove duplicates).
 Original array: [1, 1, 2, 3, 3, 3, 4, 5, 6, 7, 7] The length of the original array is: 11 After removing duplicates, the new length of the array is: 7
 
+```java
+import java.util.Arrays;
 
+class Solution {
+    // Static method to remove duplicates from the given array
+    static int removeDuplicates(int[] nums) {
+        if (nums == null) {
+            return 0;
+        }
+        if (nums.length <= 1) {
+            return nums.length;
+        }
+        int current_pos = 0;
+        int moving_pos;
+        for (moving_pos = 1; moving_pos < nums.length; moving_pos++) {
+            // Check if the current element is different from the next element
+            if (nums[current_pos] != nums[moving_pos]) {
+                // If different, move the unique element to the next position in the array
+                nums[current_pos + 1] = nums[moving_pos];
+                current_pos++; // Increment the position for the unique element
+            }
+        }
+        // The new length of the array is one more than the current position
+        return current_pos + 1;
+    }
+
+    /* Driver program to test above functions */
+    public static void main(String[] args) {
+        int[] nums = {1, 1, 2, 3, 3, 3, 4, 5, 6, 7, 7};
+        System.out.println("Original array: " + Arrays.toString(nums));
+        System.out.println("The length of the original array is: " + nums.length);
+        System.out.println("After removing duplicates, the new length of the array is: " + removeDuplicates(nums));
+    }
+}
+```
 ### 132. Write a Java program to find the updated length of a given sorted array where duplicate elements appear at most twice.
 Original array: [1, 1, 2, 3, 3, 3, 4, 5, 6, 7, 7, 7, 7]
 The length of the original array is: 13
 After removing duplicates, the new length of the array is: 10
 
+```java
+import java.util.Arrays;
 
+class Solution {
+    // Static method to remove duplicates from the given array, allowing at most two duplicates
+    static int remove_Duplicates_twice(int[] nums) {
+        // Check for invalid or empty input array
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+
+        int index = 1; // Initialize the index for the resulting array
+        for (int i = 2; i < nums.length; i++) {
+            // Check if the current element is different from the element at 'index',
+            // or if it's the second occurrence of a duplicate, but not the third
+            if (nums[i] != nums[index] || (nums[i] == nums[index] && nums[i] != nums[index - 1])) {
+                index++; // Increment the index for the resulting array
+                nums[index] = nums[i]; // Copy the unique or second occurrence of a duplicate element
+            }
+        }
+        // The new length of the array is one more than the 'index'
+        return index + 1;
+    }
+
+    /* Driver program to test above functions */
+    public static void main(String[] args) {
+        int[] nums = {1, 1, 2, 3, 3, 3, 4, 5, 6, 7, 7, 7, 7};
+        System.out.println("Original array: " + Arrays.toString(nums));
+        System.out.println("The length of the original array is: " + nums.length);
+        System.out.println("After removing duplicates, the new length of the array is: " + remove_Duplicates_twice(nums));
+    }
+}
+```
 ### 133. Write a Java program to find a path from top left to bottom in the right direction which minimizes the sum of all numbers along its path.
 Note: Move either down or right at any point in time.
 Sample Output: Sum of all numbers along its path: 13
+```java
+import java.util.*
+public class Solution {
+    // Static method to find the minimum path sum in a 2D grid
+    public static int minPathSum(int[][] grid) {
+        // Check for invalid or empty input grid
+        if (grid == null || grid.length == 0 || grid[0] == null || grid[0].length == 0) {
+            return 0;
+        }
+        int m = grid.length; // Number of rows in the grid
+        int n = grid[0].length; // Number of columns in the grid
+        int[][] temp = new int[m][n]; // Temporary array to store minimum path sum
 
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == 0 && j == 0) {
+                    temp[i][j] = grid[i][j]; // Initialize the starting point
+                    continue;
+                }
+
+                // Calculate the minimum path sum from either the cell above or the cell on the left
+                int from_up = i == 0 ? Integer.MAX_VALUE : temp[i - 1][j];
+                int from_left = j == 0 ? Integer.MAX_VALUE : temp[i][j - 1];
+                temp[i][j] = Math.min(from_up, from_left) + grid[i][j]; // Update the temporary array
+            }
+        }
+        // Return the minimum path sum for the last cell
+        return temp[m - 1][n - 1];
+    }
+
+    public static void main(String[] args) {
+        // Example grid
+        int[][] grid = new int[][] {{7, 4, 2},
+                                    {0, 5, 6},
+                                    {3, 1, 2}};
+        
+        System.out.println("Sum of all numbers along its path: " + minPathSum(grid));
+    }	
+}
+```
 
 ### 134. Write a Java program to find distinct ways to climb to the top (n steps to reach the top) of stairs. Each time you climb, you can climb 1 or 2 steps.
 Example: n = 5
 a) 1+1+1+1+1 = 5 b) 1+1+1+2 = 5 c) 1+2+2 = 5 d) 2+2+1 = 5 e) 2+1+1+1 = 5 f) 2+1+2 = 5 g) 1+2+1+1 = 5 h) 1+1+2+1 = 5
 Sample Output: Distinct ways can you climb to the top: 8
+```java
+import java.util.*
+class Solution {
+    // Static method to calculate the distinct ways to climb stairs
+    public static int climbStairs(int n) {
+        if (n <= 1) {
+            return 1; // If there is 0 or 1 step, there is only 1 way to climb.
+        }
+        int[] s_case = new int[n + 1]; // Create an array to store the number of distinct ways for each step count.
+        s_case[0] = 1; // There is 1 way to climb 0 steps.
+        s_case[1] = 1; // There is 1 way to climb 1 step.
+        for (int i = 2; i <= n; i++) {
+            // Calculate the number of distinct ways for each step by adding the ways from the previous two steps.
+            s_case[i] = s_case[i - 1] + s_case[i - 2];
+        }
+        return s_case[n]; // Return the number of distinct ways to climb n steps.
+    }
 
+    public static void main(String[] args) {
+        int steps = 5; // The number of steps to climb
+        System.out.println("Distinct ways can you climb to the top: " + climbStairs(steps));
+    }
+}
+```
 
 ### 135. Write a Java program to remove duplicates from a sorted linked list.
 Original List with duplicate elements:
@@ -5791,11 +5919,126 @@ Original List with duplicate elements:
 After removing duplicates from the said list:
 12->13->14->15->16->17
 
+```java
+class LinkedList {
+	Node head; // Reference to the head node of the linked list
+
+	/* Linked list Node */
+	class Node {
+		int data; // Data stored in the node
+		Node next; // Reference to the next node
+
+		Node(int d) {
+			data = d;
+			next = null;
+		}
+	}
+
+	// Method to remove duplicate elements from the linked list
+	void remove_Duplicates() {
+		Node current = head; // Initialize the current node to the head
+		Node next_next; // Reference to the next of the next node
+
+		if (head == null)
+			return; // If the linked list is empty, return
+
+		while (current.next != null) {
+			if (current.data == current.next.data) {
+				next_next = current.next.next;
+				current.next = null; // Remove the duplicate node
+				current.next = next_next; // Update the next reference
+			} else
+				current = current.next; // Move to the next node
+		}
+	}
+
+	// Method to insert a new node at the front of the linked list
+	public void push(int new_data) {
+		Node new_node = new Node(new_data); // Create a new node
+		new_node.next = head; // Set the next of the new node to the current head
+		head = new_node; // Update the head to the new node
+	}
+
+	// Method to print the linked list
+	void printList() {
+		Node temp = head; // Initialize a temporary node with the head
+		while (temp != null) {
+			System.out.print(temp.data); // Print the data of the current node
+			if (temp.next != null) {
+				System.out.print("->"); // Print an arrow to indicate the next node
+			}
+			temp = temp.next; // Move to the next node
+		}
+		System.out.println(); // Print a new line to complete the list
+	}
+
+	// Driver program to test the above functions
+	public static void main(String args[]) {
+		LinkedList l_list = new LinkedList();
+		
+		// Insert data into the linked list
+		l_list.push(17);
+		l_list.push(17);
+		l_list.push(16);
+		l_list.push(15);
+		l_list.push(15);
+		l_list.push(14);
+		l_list.push(13);
+		l_list.push(12);
+		l_list.push(12);
+		
+		System.out.println("Original List with duplicate elements:");
+		l_list.printList();
+		
+		l_list.remove_Duplicates(); // Remove duplicates
+		
+		System.out.println("After removing duplicates from the said list:");
+		l_list.printList();
+	}
+}
+```
 
 ### 136. Write a Java program to find possible distinct paths from the top-left corner to the bottom-right corner of a given grid (m x n).
 Note: You can move either down or right at any point in time.
 Sample Output: Unique paths from top-left corner to bottom-right corner of the said grid: 3
+```java
+import java.util.*
+public class Solution {
+    /**
+     * @param n, m: positive integer (1 <= n ,m <= 100)
+     * @return an integer
+     */
+    public static int unique_Paths(int m, int n) {
+        if (m <= 0 || n <= 0) {
+            return 0;
+        }
+        int[][] grid = new int[m][n]; // Create a grid to store the number of unique paths
 
+        // Nested loops to iterate through the grid
+        for (int i = m - 1; i >= 0; --i) { // Start from the bottom row and move upwards
+            for (int j = n - 1; j >= 0; --j) { // Start from the rightmost column and move leftwards
+                grid[i][j] = get_Paths(grid, i, j); // Calculate the unique paths for the current cell
+            }
+        }
+        return grid[0][0]; // The top-left corner now contains the total unique paths
+    }
+    
+    // Helper function to calculate unique paths for a cell
+    private static int get_Paths(int[][] grid, int i, int j) {
+        if (i >= grid.length - 1 || j >= grid[0].length - 1) {
+            return 1; // If at the rightmost column or bottom row, there is only one path
+        }
+        return grid[i][j + 1] + grid[i + 1][j]; // Sum the unique paths from the right and bottom cells
+    }
+    
+    // Main method for testing the unique_Paths function
+    public static void main(String[] args) {
+		int m = 3;
+		int n = 2;
+		System.out.println("Unique paths from top-left corner to bottom-right corner of the said grid: "+unique_Paths(m, n));
+	}		
+}
+```
 
 ### 137. Write a Java program to find possible unique paths considering some obstacles, from top-left corner to bottom-right corner of a given grid (m x n).
 Note: You can move either down or right at any point in time and an obstacle and empty space is marked as 1 and 0 respectively in the grid.
@@ -5807,6 +6050,46 @@ int[][] obstacle_Grid ={
 };
 Sample Output: Unique paths from top-left corner to bottom-right corner of the said grid (considering some obstacles): 2
 
+```java
+import java.util.*
+public class Solution {
+    public static int uniquePaths_With_obstacle_Grid(int[][] obstacle_Grid) {
+        // Get the number of rows (m) in the obstacle grid
+		int m = obstacle_Grid.length;
+		if (m <= 0) {
+			return 0;
+		}
+        // Get the number of columns (n) in the obstacle grid
+		int n = obstacle_Grid[0].length;
+		if (n <= 0) {
+			return 0;
+		}
+        // Create a dynamic programming array to store unique paths
+		int[][] dp = new int[m + 1][n + 1];
+		dp[m][n - 1] = 1;
+
+        // Nested loops to iterate through the grid
+		for (int i = m - 1; i >= 0; --i) { // Start from the bottom row and move upwards
+			for (int j = n - 1; j >= 0; --j) { // Start from the rightmost column and move leftwards
+                // Calculate unique paths for the current cell based on obstacles
+				dp[i][j] = (obstacle_Grid[i][j] == 0) ? dp[i + 1][j] + dp[i][j + 1] : 0;
+			}
+		}
+        // Return the count of unique paths from top-left to bottom-right corner
+		return dp[0][0];
+	}
+    
+  // Main method for testing the uniquePaths_With_obstacle_Grid function
+  public static void main(String[] args) {
+		int[][] obstacle_Grid ={
+            {0, 0, 0}, 
+            {0, 1, 0}, 
+            {0, 0, 0}, 
+        };
+		System.out.println("Unique paths from top-left corner to bottom-right corner of the said grid (considering some obstacles): "+uniquePaths_With_obstacle_Grid(obstacle_Grid));
+	}		
+}
+```
 
 ### 138. Write a Java program to find the longest words in a dictionary.
 Example-1:
@@ -5828,49 +6111,502 @@ Example-2:
 }
 Result: "cat", "dog", "red"
 
+```java
+import java.util.*;
+
+public class Solution {
+    // Function to find and return the longest words in the given dictionary
+    static ArrayList longestWords(String[] dictionary) {
+        ArrayList list = new ArrayList();
+        int longest_length = 0;
+
+        // Iterate through each word in the dictionary
+        for (String str : dictionary) {
+            int length = str.length();
+            
+            // Check if the current word is longer than the previously found longest word(s)
+            if (length > longest_length) {
+                longest_length = length;
+                list.clear(); // Clear the list as a new longest word is found
+            }
+            
+            // If the current word has the same length as the longest word(s), add it to the list
+            if (length == longest_length) {
+                list.add(str);
+            }
+        }
+        return list; // Return the list of longest words
+    }
+    
+    public static void main(String[] args) {
+        // Sample dictionary containing words
+        // String[] dict = {"cat", "flag", "green", "country", "w3resource"};
+        String[] dict = {"cat", "dog", "red", "is", "am"};
+
+        // Print the original dictionary and the longest word(s)
+        System.out.println("Original dictionary: " + Arrays.toString(dict));
+        System.out.println("Longest word(s) of the above dictionary: " + longestWords(dict));
+    }		
+}
+```
 
 ### 139. Write a Java program to get the index of the first and the last number of a subarray where the sum of numbers is zero. This is from a given array of integers.
 Original Array : [1, 2, 3, -6, 5, 4]
 Index of the subarray of the said array where the sum of numbers is zero: [0, 3]
+```java
+import java.util.*;
 
+public class Solution {
+    // Function to find the subarray with a sum of zero in the given array
+    public static List<Integer> subarraySum(int[] nums) {
+        List<Integer> temp = new ArrayList<>();
+        
+        // Check if the input array is null or empty, and return an empty list if so
+        if (nums == null || nums.length == 0) {
+            return temp;
+        }
+        
+        int pre_Sum = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(pre_Sum, -1);
+        
+        // Iterate through the elements of the input array
+        for (int i = 0; i < nums.length; i++) {
+            pre_Sum += nums[i];
+            
+            // Check if the current prefix sum already exists in the map
+            if (map.containsKey(pre_Sum)) {
+                temp.add(map.get(pre_Sum) + 1); // Add the start index of the subarray
+                temp.add(i); // Add the end index of the subarray
+                return temp; // Return the list of indices
+            }
+            
+            // If the prefix sum is not found, add it to the map with its index
+            map.put(pre_Sum, i);
+        }
+        
+        return temp; // Return an empty list if no subarray with a sum of zero is found
+    }
+    
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, -6, 5, 4};
+
+        // Print the original array and the indices of the subarray with a sum of zero
+        System.out.println("Original Array: " + Arrays.toString(nums));
+        System.out.println("Index of the subarray of the said array where the sum of numbers is zero: " + subarraySum(nums));
+    }		
+}
+```
 
 ### 140. Write a Java program to merge all overlapping intervals from a given collection of intervals.
 Sample Output: 1 6
 8 10
 15 20
 
+```java
+import java.util.*;
 
+public class Solution
+{   
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        // Create an ArrayList of Interval objects
+        ArrayList<Interval> x = new ArrayList<>();
+
+        // Add intervals to the ArrayList
+        x.add(new Interval(1, 3));
+        x.add(new Interval(2, 6));
+        x.add(new Interval(8, 10));
+        x.add(new Interval(15, 18));
+        x.add(new Interval(17, 20));
+
+        // Merge overlapping intervals
+        x = merge(x);
+
+        // Print the merged intervals
+        for(Interval i : x)
+        {
+            System.out.println(i.getStart() + " " + i.getEnd());
+        }
+    }
+
+    public static ArrayList<Interval> merge(ArrayList<Interval> intervals) {
+        // Check for the number of intervals
+        if(intervals.size() == 0 || intervals.size() == 1)
+            return intervals;
+
+        // Sort the intervals based on the start values
+        Collections.sort(intervals, new IntervalComparator());
+
+        // Initialize the variables
+        Interval first = intervals.get(0);
+        int start = first.getStart();
+        int end = first.getEnd();
+
+        // Create a list for the merged intervals
+        ArrayList<Interval> result = new ArrayList<Interval>();
+
+        // Merge overlapping intervals
+        for (int i = 1; i < intervals.size(); i++) {
+            Interval current = intervals.get(i);
+            if (current.getStart() <= end) {
+                end = Math.max(current.getEnd(), end);
+            } else {
+                result.add(new Interval(start, end));
+                start = current.getStart();
+                end = current.getEnd();
+            }
+        }
+
+        // Add the last merged interval
+        result.add(new Interval(start, end));
+        return result;
+    }
+}
+
+class Interval 
+{
+    private int start;
+    private int end;
+
+    Interval() {
+        start = 0;
+        end = 0;
+    }
+
+    Interval(int s, int e) 
+    {
+        start = s;
+        end = e;
+    }
+
+    public int getStart() {
+        return start;
+    }
+
+    public int getEnd() {
+        return end;
+    }
+}
+
+class IntervalComparator implements Comparator<Interval>
+{
+    public int compare(Interval i1, Interval i2)
+    {
+        // Compare intervals based on start values
+        return i1.getStart() - i2.getStart();
+    }
+}
+```
 ### 141. Write a Java program to check if a given string has all distinct characters.
 Sample Output: Original String : xyyz
 String has all unique characters: false
-
+```java
+import java.util.*;
+public  class Solution {
+    /**
+     * @param str: a string
+     * @return: a boolean
+     */
+    public static boolean is_Unique_str(String str) {
+        // Convert the input string to a character array
+        char[] chars = str.toCharArray();
+        
+        // Sort the character array in lexicographical order
+        Arrays.sort(chars);
+        
+        // Check for repeated characters in the sorted array
+        for (int i = 1; i < chars.length; ++i) {
+            if (chars[i] == chars[i-1]) {
+                return false;
+            }
+        }
+        
+        // If no repeated characters are found, the string is considered to have all unique characters
+        return true;
+    }
+    
+    public static void main(String[] args) {
+        // Test case: Check if the string "xyyz" has all unique characters
+        // Note: You can change the value of the 'str' variable for different input strings.
+        String str = "xyyz";
+        
+        // Print the original string
+        System.out.println("Original String : " + str);
+        
+        // Check if the string has all unique characters and print the result
+        System.out.println("String has all unique characters: " + is_Unique_str(str));
+    }   
+}
+```
 
 ### 142. Write a Java program to check if two strings are anagrams or not.
 According to Wikipedia "An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once. For example, the word anagram can be rearranged into nag a ram, or the word binary into brainy."
 Sample Output: String-1 : wxyz
 String-2 : zyxw
 Check if two given strings are anagrams or not?: true
-
+```java
+import java.util.*
+public  class Solution {
+    /**
+     * @param s: The first string
+     * @param b: The second string
+     * @return true or false
+     */
+   public static boolean anagram_test(String str1, String str2) {
+        // Check if either input string is null
+        if (str1 == null || str2 == null) {
+            return false;
+        } 
+        // Check if the lengths of the two strings are different
+        else if (str1.length() != str2.length()) {
+            return false;
+        } 
+        // Check if both strings are empty (an edge case)
+        else if (str1.length() == 0 && str2.length() == 0) {
+            return true;
+        }
+        
+        // Create an integer array to count character occurrences
+        int[] count = new int[256];
+        
+        // Count character occurrences in both strings
+        for (int i = 0; i < str1.length(); i++) {
+            count[str1.charAt(i)]++;
+            count[str2.charAt(i)]--;
+        }
+        
+        // Check if all counts in the array are zero, indicating anagrams
+        for (int num : count) {
+            if (num != 0) {
+                return false;
+            }
+        }
+        
+        // If all checks pass, the strings are anagrams
+        return true;
+    }
+    
+    public static void main(String[] args) {
+        // Test case: Check if the strings "wxyz" and "zyxw" are anagrams
+        String str1 = "wxyz";
+        String str2 = "zyxw";
+        
+        // Print the original strings
+        System.out.println("String-1 : " + str1);
+        System.out.println("String-2 : " + str2);
+        
+        // Check if the two given strings are anagrams and print the result
+        System.out.println("Check if two given strings are anagrams or not?: " + anagram_test(str1, str2));
+    }   
+}
+```
 
 ### 143. Write a Java program to merge the two sorted linked lists.
 Sample Output:
 Merge Two Sorted ListsT:
 1 2 3 7 9 13 40
+```java
+import java.util.*
+public class Solution {
+    public static void main(String[] args) {
+        // Create two sorted linked lists
+        ListNode list1 = new ListNode(1);
+        list1.next = new ListNode(3);
+        list1.next.next = new ListNode(7);
+        list1.next.next.next = new ListNode(9);
+        list1.next.next.next.next = new ListNode(13);
+        ListNode list2 = new ListNode(2);
+        list2.next = new ListNode(40);
+        
+        // Merge the two sorted lists and get the result
+        ListNode head = mergeTwoLists(list1, list2);
+		System.out.print("Merge Two Sorted Lists:\n");
+        
+        // Print the merged list
+        while (head != null) {
+            System.out.print(head.val + " ");
+            head = head.next;
+        }
+    }
 
+    public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        // Create a new linked list for the merged result
+        ListNode head = new ListNode(0);
+        ListNode mlist = head;
+        
+        // Merge the two lists while maintaining the order
+        while (list1 != null && list2 != null) {
+            if (list1.val < list2.val) {
+                mlist.next = new ListNode(list1.val);
+                mlist = mlist.next;
+                list1 = list1.next;
+            } else {
+                mlist.next = new ListNode(list2.val);
+                mlist = mlist.next;
+                list2 = list2.next;
+            }
+        }
+        
+        // Append any remaining elements from list1
+        while (list1 != null) {
+            mlist.next = new ListNode(list1.val);
+            mlist = mlist.next;
+            list1 = list1.next;
+        }
+        
+        // Append any remaining elements from list2
+        while (list2 != null) {
+            mlist.next = new ListNode(list2.val);
+            mlist = mlist.next;
+            list2 = list2.next;
+        }
+        
+        // Skip the dummy head node and return the merged list
+        head = head.next;
+        return head;
+    }
+}
+
+class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode(int val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+```
 
 ### 144. Write a Java program to remove all occurrences of a specified value in a given array of integers. Return the updated array length.
 Sample Output:
 Original array: [1, 4, 6, 7, 6, 2]
 The length of the new array is: 4
 
+```java
+import java.util.*;
 
+public class Solution {
+    /**
+     * Remove all occurrences of a given element from an array and return the new length.
+     * @param nums: A list of integers
+     * @param element: An integer to be removed
+     * @return: The new length after removing the element
+     */
+    public static int removeElement(int[] nums, int elem) {
+        int length = nums.length; // Get the initial length of the array
+        if (length == 0) return 0; // If the array is empty, return 0 (no changes)
+        
+        int i = 0; // Initialize the index for the new array
+        
+        // Iterate through the original array
+        for (int j = 0; j < length; j++) {
+            if (nums[j] != elem) {
+                // If the current element is not equal to the element to be removed
+                // Copy it to the new position in the array
+                nums[i] = nums[j];
+                i++;
+            }
+        }
+        
+        // Replace elements beyond the new length with a sentinel value
+        if (i < length) nums[i] = '\0';
+        
+        // Return the new length (the value of 'i')
+        return i;
+    }
+    
+    public static void main(String[] args) {
+        int x = 6; // Element to be removed
+        int[] nums = {1, 4, 6, 7, 6, 2}; // Original array
+        System.out.println("Original array: " + Arrays.toString(nums));
+        
+        // Call the removeElement function and print the new length
+        System.out.println("The length of the new array is: " + removeElement(nums, x));
+    }
+}
+```
 ### 145. Write a Java program to remove the nth element from the end of a given list.
 Sample Output:
 Original node:
 1 2 3 4 5
 After removing 2nd element from end:
 1 2 3 5
+```java
+import java.util.*;
 
+public class Solution {
+    public static void main(String[] args) {
+        // Create a linked list with five nodes (1, 2, 3, 4, 5)
+        ListNode h = new ListNode(1);
+        h.next = new ListNode(2);
+        h.next.next = new ListNode(3);
+        h.next.next.next = new ListNode(4);
+        h.next.next.next.next = new ListNode(5);
+        
+        // Copy the original linked list to 'o' for display
+        ListNode o = h;
+        System.out.println("Original node:");
+        
+        // Display the original linked list
+        while (o != null) {
+            System.out.print(o.val + " ");
+            o = o.next;
+        }
+        
+        System.out.println("\nAfter removing 2nd element from end:");
+        
+        // Call the removeNthFromEnd function and print the modified linked list
+        ListNode head = removeNthFromEnd(h, 2);
+    
+        while (head != null) {
+            System.out.print(head.val + " ");
+            head = head.next;
+        }
+    }
+    
+    public static ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode p = head;
+        int size = 0;
+        
+        // Calculate the size of the linked list
+        while (p != null) {
+            size++;
+            p = p.next;
+        }
+        
+        // Check if the element to remove is the first one
+        if (n == size) {  
+            head = head.next;
+        } else {
+            int index = size - n;
+            ListNode t = head;
+            
+            // Traverse to the node before the one to remove
+            while (index > 1) {
+                t = t.next;
+                index--;
+            }
+            
+            // Update the 'next' reference to skip the node to remove
+            t.next = t.next.next;
+        }
+        
+        return head; // Return the modified linked list
+    }
+}
+
+class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode(int val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+```
 
 ### 146. Write a Java program to convert an array of sorted items into a binary search tree. Maintain the minimal height of the tree.
 Sample Output:
@@ -5880,31 +6616,233 @@ Sample Output:
 6
 5
 3
+```java
+public class Solution {
+    public static void main(String[] args) {
+        // Define an array of sorted integers
+        int[] arr = {1, 2, 3, 4, 5, 6};
+        
+        // Convert the sorted array to a balanced binary search tree (BST)
+        TreeNode root = sortedArrayToBST(arr);
+        
+        // Traverse the BST and print the values
+        traverseTree(root);
+    }
 
+    public static TreeNode sortedArrayToBST(int[] arr) {
+        if (arr.length == 0) return null;
+        
+        // Call the recursive function for creating the BST
+        return creation(arr, 0, arr.length - 1);
+    }
+
+    private static TreeNode creation(int[] arr, int start, int end) {
+        TreeNode node = new TreeNode(0);
+        
+        if (start == end - 1) {
+            // If the range contains two elements, create the nodes accordingly
+            node = new TreeNode(arr[start]);
+            node.right = new TreeNode(arr[end]);
+        } else if (start == end) {
+            // If the range contains a single element, create a node
+            return new TreeNode(arr[start]);
+        } else {
+            // Calculate the middle index of the range
+            int mid = (start + end) / 2;
+            
+            // Set the value of the current node to the middle element
+            node.val = arr[mid];
+            
+            // Recursively create left and right subtrees
+            node.left = creation(arr, start, mid - 1);
+            node.right = creation(arr, mid + 1, end);
+        }
+        return node;
+    }
+
+    private static void traverseTree(TreeNode root) {
+        // Post-order traversal of the BST (left, right, root)
+        if (root != null) {
+            traverseTree(root.left);
+            traverseTree(root.right);
+            System.out.println(root.val);
+        }
+    }
+}
+
+class TreeNode {
+    public int val;
+    public TreeNode left, right;
+
+    public TreeNode(int val) {
+        this.val = val;
+        this.left = this.right = null;
+    }
+}
+```
 
 ### 147. Write a Java program to find the number of bits required to flip to convert two given integers.
 Sample Output:
 2
+```java
+import java.util.*
+public class Solution {
+    public static void main(String[] args) {
+        // Test the bitSwapRequired function and print the result
+        System.out.println(bitSwapRequired(27, 23));
+    }
 
+    public static int bitSwapRequired(int x, int y) {
+        int ctr = 0; // Initialize a counter to keep track of bit differences
+
+        // XOR the two integers (x and y) to find differing bits
+        for (int z = x ^ y; z != 0; z = z >>> 1) {
+            // Right shift 'z' by 1 bit and check the least significant bit
+            ctr += z & 1; // If the least significant bit is 1, increment the counter
+        }
+        return ctr; // Return the total count of differing bits
+    }
+}
+```
 
 ### 148. Write a Java program to find the index of the first unique character in a given string. Assume that there is at least one unique character in the string.
 Sample Output:
 Original String: wresource
 First unique character of the above: 0
+```java
+import java.util.*;
 
+public class Solution {
+    public static void main(String[] args) {
+        // Test the first_Uniq_Char function and print the result
+        String s = "wresource";
+        System.out.println("Original String: " + s);
+        System.out.println("First unique character of the above: " + first_Uniq_Char(s));
+    }
+
+    public static int first_Uniq_Char(String s) {
+        int[] freq = new int[256]; // Create an array to store character frequencies (assuming ASCII characters)
+
+        // Count the frequency of each character in the string
+        for (char c : s.toCharArray()) {
+            freq[c - 'a']++; // Increment the count at the corresponding index in the array
+        }
+
+        // Iterate through the string to find the index of the first unique character
+        for (int i = 0; i < s.length(); i++) {
+            if (freq[s.charAt(i) - 'a'] == 1) {
+                return i; // Return the index of the first character with a frequency of 1
+            }
+        }
+
+        return -1; // Return -1 if there are no unique characters
+    }
+}
+```
 
 ### 149. Write a Java program to check if a given string is a permutation of another given string.
 Sample Output:
 Original strings: xxyz yxzx
 true
+```java
+import java.util.*;
 
+public class Solution {
+    public static void main(String[] args) {
+        // Test the stringPermutation function and print the result
+        String str1 = "xxyz";
+        String str2 = "yxzx";
+        System.out.println("Original strings: " + str1 + "  " + str2);
+        System.out.println(stringPermutation(str1, str2));
+    }
+
+    public static boolean stringPermutation(String str1, String str2) {
+        int[] arr = new int[500]; // Create an integer array to count character frequencies (assuming extended ASCII characters)
+
+        // Count the frequency of characters in the first string
+        for (int i = 0; i < str1.length(); i++) {
+            arr[(int) str1.charAt(i)] += 1;
+        }
+
+        // Decrement the count of characters in the second string
+        for (int i = 0; i < str2.length(); i++) {
+            arr[(int) str2.charAt(i)] -= 1;
+        }
+
+        // Check if all character counts are zero, indicating a permutation
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) return false; // If any count is non-zero, return false
+        }
+
+        return true; // If all counts are zero, return true, indicating a permutation
+    }
+}
+```
 
 ### 150. Write a Java program to test if a binary tree is a subtree of another binary tree.
 Sample Output:
 Original strings: xxyz yxzx
 true
 
+```java
+import java.util.*
+public class Solution {
+    /**
+     * @param T1, T2: The roots of binary tree.
+     * @return: True if T2 is a subtree of T1, or false.
+     */
+    public static boolean is_Subtree(TreeNode T1, TreeNode T2) {
+        if (T2 == null) return true; // If T2 is null, it's always a subtree (base case)
+        if (T1 == null) return false; // If T1 is null but T2 is not, T2 can't be a subtree
 
+        if (is_Same(T1, T2)) return true; // Check if the current subtrees are the same
+        if (is_Subtree(T1.left, T2) || is_Subtree(T1.right, T2)) return true; // Check left and right subtrees
+
+        return false; // If none of the above conditions match, T2 is not a subtree of T1
+    }
+
+    public static boolean is_Same(TreeNode t1, TreeNode t2) {
+        if (t1 == null || t2 == null) {
+            return t1 == t2; // If one of the nodes is null, both should be null for them to be the same
+        } else if (t1.val != t2.val) {
+            return false; // If the values are different, the trees are not the same
+        } else {
+            // Recursively check the left and right subtrees for sameness
+            return is_Same(t1.left, t2.left) && is_Same(t1.right, t2.right);
+        }
+    }
+
+    public static void main(String[] args) {
+        // Create two binary trees
+        TreeNode t1 = new TreeNode(1);
+        TreeNode t2 = new TreeNode(2);
+        TreeNode t3 = new TreeNode(3);
+        TreeNode t4 = new TreeNode(4);
+        t1.left  = t2;
+        t1.right = t3;
+
+        TreeNode n1 = new TreeNode(1);
+        TreeNode n2 = new TreeNode(2);
+        TreeNode n3 = new TreeNode(3);
+        TreeNode n4 = new TreeNode(4);
+        n1.left  = n2;
+        n1.right = n3;
+
+        // Check if n1 is a subtree of t1 and print the result
+        System.out.println(is_Subtree(t1, n1));
+    }
+}
+
+class TreeNode {
+    public int val;
+    public TreeNode left, right;
+
+    public TreeNode(int val) {
+        this.val = val;
+        this.left = this.right = null;
+    }
+}
+```
 
 https://www.w3resource.com/java-exercises/basic/index1.php
 
