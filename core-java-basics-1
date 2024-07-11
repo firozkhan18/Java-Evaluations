@@ -1,17 +1,17 @@
-What is Java Class?
+### What is Java Class?
 Java class is nothing but a template for object you are going to create or it’s a blue print by using this we create an object. In simple word we can say it’s a specification or a pattern which we define and every object we define will follow that pattern.
-What does Java Class Consist?
+### What does Java Class Consist?
           When we create class in java the first step is keyword class and then name of the class or identifier we can say.
           Next is class body which starts with curly braces {} and between this all things related with that class means their property and method will come here.
 Template is:
 Class (name of the class) {
 (Here define member of class)
 }
-Access level of class:
+### Access level of class:
 Java class has mainly two type of access level:
 Default: class objects are accessible only inside the package.
 Public: class objects are accessible in code in any package.
-What are members of Class?
+### What are members of Class?
 When we create a class its totally incomplete without defining any member of this class same like we can understand one family is incomplete if they have no members.
 Field: field is nothing but the property of the class or object which we are going to create .for example if we are creating a class called computer then they have property like model, mem_size, hd_size, os_type etc
 Method: method is nothing but the operation that an object can perform it define the behavior of object how an object can interact with outside world .startMethod (), shutdownMethod ().
@@ -21,11 +21,11 @@ Each field and method has an access level:
 •	package or default: accessible only in this package
 •	protected: accessible only in this package and in all subclasses of this class
 •	public: accessible everywhere this class is available
-Real world example of Class in Java Programming:
+### Real world example of Class in Java Programming:
 In real world if we want to understand about the class everything of same quality  can be visualize as a class e.g. men,women,birds ,bicycles ,cars or  we can say vehicle .
 The entire vehicle will make one class they have the property like no_of_wheels, color, model, brand etc.now we can think changeGear () and speedOfvehicle (), applyBreak () etc as a method on that class. Similarly all human being also can be one class now their member will be a men ,women ,child.,isAlive() ,isDeath() can be their method or behavior of that class .again we can make Men or women a separate class and define their property and method accordingly,
 In short in java every problem we get solution can be think in terms of class and object.
-One Java class example:
+### One Java class example:
 Class Stock {
 Public commodity;
 Public price;
@@ -37,11 +37,11 @@ Stock highBetaStock = new Stock();
 For calling method of Stock just call by using instance.
 highBetaStock.buy(1000);
 highBetaStock.sell();
-Summary:
+### Summary:
 In short in java everything must be thinking in terms of java class its nothing but a template they have their own members and methods for accessing those members. The entire member has their own visibility which is decided by the developer where they want to use those objects.
 How to make Thread-Safe Code in Java
 Example of Non Thread Safe Code in Java
-Here is an example of non thread-safe code, look at the code and find out why this code is not thread safe?
+### Here is an example of non thread-safe code, look at the code and find out why this code is not thread safe?
 /*
  * Non Thread-Safe Class in Java
  */
@@ -56,7 +56,7 @@ public class Counter {
 }
 Above example is not thread-safe because ++ (increment operator) is not an atomic operation and can be broken down into read, update and write operation. if multiple thread call getCount() approximately same time each of these three operation may coincide or overlap with each other for example while thread 1 is updating value , thread 2 reads and still gets old value, which eventually let thread 2 override thread 1 increment and one count is lost because multiple thread called it concurrently.
 How to make code Thread-Safe in Java
-There are multiple ways to make this code thread safe in Java:
+### There are multiple ways to make this code thread safe in Java:
 1) Use synchronized keyword in Java and lock the getCount() method so that only one thread can execute it at a time which removes possibility of coinciding or interleaving.
 2) Use Atomic Integer, which makes this ++ operation atomic and since atomic operations are thread-safe and saves cost of external synchronization.
 Here is a thread-safe version of Counter class in Java:
@@ -81,7 +81,7 @@ public class Counter {
     }
 }
 
-Important points about Thread-Safety in Java
+### Important points about Thread-Safety in Java
 Here are some points worth remembering to write thread safe code in Java, this knowledge also helps you to avoid some serious concurrency issues in Java like race condition or deadlock in Java:
 
 1) Immutable objects are by default thread-safe because there state cannot be modified once created. Since String is immutable in Java, its inherently thread-safe.
@@ -95,14 +95,14 @@ Here are some points worth remembering to write thread safe code in Java, this k
 8) In order to avoid thread-safety issue minimize sharing of objects between multiple thread.
 9) Volatile keyword in Java can also be used to instruct thread not to cache variables and read from main memory and can also instruct JVM not to reorder or optimize code from threading perspective.
 
-2 ways to find if thread holds lock on object in Java
+### 2 ways to find if thread holds lock on object in Java
 Here I am giving my answer and what I had discovered after interview
 
 1)I thought about IllegalMonitorStateException which wait() and notify() methods throw when they get called from non-synchronized context so I said I would call newspaper.wait() and if this call throws exception it means thread in java is not holding lock, otherwise thread holds lock.
 
 2)Later I discovered that thread is a static method called holdsLock(Object obj) which returns true or false based on whether threads holds lock on object passed.
 
-Wait vs Sleep vs Yield in Java
+### Wait vs Sleep vs Yield in Java
 Difference between Wait and Sleep in Java
 Main difference between wait and sleep is that wait() method release the acquired monitor when thread is waiting while Thread.sleep() method keeps the lock or monitor even if thread is waiting. Also wait method in java should be called from synchronized method or block while there is no such requirement for sleep() method. Another difference is Thread.sleep() method is a static method and applies on current thread, while wait() is an instance specific method and only got wake up if some other thread calls notify method on same object. also in case of sleep, sleeping thread immediately goes to Runnable state after waking up while in case of wait, waiting thread first acquires the lock and then goes into Runnable state. So based upon your need if you require a specified second of pause use sleep() method or if you want to implement inter-thread communication use wait method.
 
@@ -123,7 +123,7 @@ sleep(long millis)
 or
 sleep(long millis,int nanos)
 Cause the currently executing thread to sleep for the specified number of milliseconds plus the specified number of nanoseconds.
-Example of Thread Sleep method in Java
+### Example of Thread Sleep method in Java
 Here is sample code example of Sleep Thread in Java. In this example we have put Main thread in Sleep for 1 second.
 /*
  * Example of Thread Sleep method in Java
@@ -155,7 +155,7 @@ I have listed down some important and worth to remember points about Sleep() met
 5) sleep() method throws Interrupted Exception if another thread interrupt a sleeping thread in java.
 6) With sleep() in Java its not guaranteed that when sleeping thread woke up it will definitely get CPU, instead it will go to Runnable state and fight for CPU with other thread.
 7) There is a misconception about sleep method in Java that calling t.sleep() will put Thread "t" into sleeping state, that's not true because Thread.sleep method is a static method it always put current thread into Sleeping state and not thread "t".
-NoClassDefFoundError vs ClassNotFoundException
+### NoClassDefFoundError vs ClassNotFoundException
 Before seeing the differences between ClassNotFoundException and NoClassDefFoundError let's see some similarities which are main reason of confusion between these two errors:
 
 1) Both NoClassDefFoundError and ClassNotFoundException are related to unavailability of a class at run-time.
@@ -173,7 +173,7 @@ Now let's see the difference between NoClassDefFoundError and ClassNotFoundExcep
 
 Comparators and comparable in Java are two interfaces which is used to implement sorting in Java. It’s often required to sort objects stored in any collection classes like ArrayList, HashSet or in Array and that time we need to use either  compare() or  compareTo() method defined in java.util.Comparator and java.lang.Comparable.
 
-Comparator vs Comparable in Java
+### Comparator vs Comparable in Java
 Here are some of the common differences, which is worth remembering to answer this question if asked during a telephonic or face to face interview:
 1) Comparator in Java is defined in java.util package while Comparable interface in Java is defined in java.lang package, which very much says that Comparator should be used as an utility to sort objects which Comparable should be provided by default.
 2) Comparator interface in Java has method public int compare (Object o1, Object o2) which returns a negative integer, zero, or a positive integer as the first argument is less than, equal to, or greater than the second. While Comparable interface has method public int compareTo(Object o) which returns a negative integer, zero, or a positive integer as this object is less than, equal to, or greater than the specified object.
@@ -231,7 +231,7 @@ At last let’s see some best practices and recommendation on when to use Compar
 4) Order of comparison is very important while implementing Comparable or Comparator interface. for example if you are sorting object based upon name than you can compare first name or last name on any order, so decide it judiciously. I have shared more detailed tips on compareTo on my post how to implement CompareTo in Java.
 5) Comparator has a distinct advantage of being self descriptive  for example if you are writing Comparator to compare two Employees based upon there salary than name that comparator as SalaryComparator, on the other hand compareTo().
 Observer design Pattern Java Code Example
-What is Observer design Pattern?
+### What is Observer design Pattern?
 Observer design pattern in Java is very important pattern and as name suggest it’s used to observe things. Suppose you want to notify for change in a particular object than you observer that object and changes are notified to you. Object which is being observed is refereed as Subject and classes which observe subject are called Observer. This is beautiful pattern and used heavily along with Model View Controller Design pattern where change in model is propagated to view so that it can render it with modified information. Observer pattern is also a very popular Java interview questions and mostly asked on Senior or mid senior level.
 Problem which is solved by Observer Pattern:
 If we have requirement that if particular object change its state and on depending upon
@@ -332,7 +332,7 @@ public class ObserverTest {
        }
 }
 
-Advantage of Observer Design Pattern in Java: 
+### Advantage of Observer Design Pattern in Java: 
 Main advantage is loose coupling between objects called observer and observable. The subject only know the list of observers it don’t care about how they have their implementation.All the observers are notified by subject in a single event call as Broadcast communication
 Disadvantage of Observer Design Pattern in Java: 
 ·          The disadvantage is that the sometime if any problem comes, debugging becomes very difficult because flow of control is implicitly between observers and observable we can predict that now observer is going to fire and if there is chain between observers then debugging become more complex.
@@ -425,19 +425,19 @@ class Cake {
 
 Output:
 Cake{sugar=0.75, butter=0.5, eggs=2, vanila=2, flour=1.5, bakingpowder=0.0, milk=0.5, cherry=0}
-Builder design pattern in Java – Pros and Cons
+### Builder design pattern in Java – Pros and Cons
 Live everything Builder pattern also has some disadvantages, but if you look at below, advantages clearly outnumber disadvantages of Builder design pattern. Any way here are few advantages and disadvantage of Builder design pattern for creating objects in Java.
-Advantages:
+- Advantages:
 1) more maintainable if number of fields required to create object is more than 4 or 5.
 2) less error-prone as user will know what they are passing because of explicit method call.
 3) more robust as only fully constructed object will be available to client.
-Disadvantages:
+- Disadvantages:
 1) verbose and code duplication as Builder needs to copy all fields from Original or Item class.
-When to use Builder Design pattern in Java
+### When to use Builder Design pattern in Java
 Builder Design pattern is a creational pattern and should be used when number of parameter required in constructor is more than manageable usually 4 or at most 5. Don't confuse with Builder and Factory pattern there is an obvious difference between Builder and Factory pattern, as Factory can be used to create different implementation of same interface but Builder is tied up with its Container class and only returns object of Outer class.
-What is static factory method or factory design pattern
+### What is static factory method or factory design pattern
 Factory design pattern is used to create objects or Class in Java and it provides loose coupling and high cohesion. Factory pattern encapsulate object creation logic which makes it easy to change it later when you change how object gets created or you can even introduce new object with just change in one class. In GOF pattern list Factory pattern is listed as Creation design pattern. Factory should be an interface and clients first either creates factory or get factory which later used to create objects.
-Example of static factory method in JDK
+### Example of static factory method in JDK
  Best Example of Factory method design pattern is valueOf() method which is there in String and wrapper classes like Integer and Boolean and used for type conversion i.e. from converting String to Integer or String to double in java..
 Some more examples of factory method design pattern from JDK is :
 valueOf() method which returns object created by factory equivalent to value of parameter passed.
@@ -450,7 +450,7 @@ Sometime our application or framework will not know that what kind of object it 
 Whenever we create object using new() we violate principle of programming for interface rather than implementation which eventually result in inflexible code and difficult to change in maintenance. By using Factory design pattern in Java we get rid of this problem.
 Another problem we can face is class needs to contain objects of other classes or class hierarchies within it; this can be very easily achieved by just using the new keyword and the class constructor. The problem with this approach is that it is a very hard coded approach to create objects as this creates dependency between the two classes.
 So factory pattern solve this problem very easily by model an interface for creating an object which at creation time can let its subclasses decide which class to instantiate, Factory Pattern promotes loose coupling by eliminating the need to bind application-specific classes into the code. The factory methods are typically implemented as virtual methods, so this pattern is also referred to as the “Virtual Constructor”. These methods create the objects of the products or target classes.
-When to use Factory design pattern in Java
+### When to use Factory design pattern in Java
 •	Static Factory methods are common in frameworks where library code needs to create objects of types which may be sub classed by applications using the framework.        
 •	Some or all concrete products can be created in multiple ways, or we want to leave open the option that in the future there may be new ways to create the concrete product.
 •	Factory method is used when Products don't need to know how they are created.
@@ -505,7 +505,7 @@ public class Factory {
               System.out.println(rupee.getSymbol());
        }
 }
-Advantage of Factory method Pattern in Java:
+### Advantage of Factory method Pattern in Java:
 Factory pattern in Java is heavily used everywhere including JDK, open source library and other frameworks.In following are main advantages of using Factory pattern in Java:
 1) Factory method design pattern decouples the calling class from the target class, which result in less coupled and highly cohesive code?
 E.g.: JDBC is a good example for this pattern; application code doesn't need to know what database it will be used with, so it doesn't know what database-specific driver classes it should use. Instead, it uses factory methods to get Connections, Statements, and other objects to work with. Which gives you flexibility to change your back-end database without changing your DAO layer in case you are using ANSI SQL features and not coded on DBMS specific feature?
@@ -520,14 +520,14 @@ Map synchronizedMap = Collections.synchronizedMap(new HashMap());
 4. Factory method pattern is also recommended by Joshua Bloch in Effective Java.
 5 Factory method pattern offers alternative way of creating object.
 6. Factory pattern can also be used to hide information related to creation of object.
-Java Decorator Design Pattern
+### Java Decorator Design Pattern
 In this Java tutorial we will see:
 What is decorator pattern in Java?
 When to use decorator pattern in Java?
 How to use decorator pattern in Java?
 Example of decorator design pattern
 Advantage and Disadvantage of decorator pattern in Java
-What is decorator design pattern in Java?
+### What is decorator design pattern in Java?
 
 ·          Decorator design pattern is used to enhance the functionality of a particular object at run-time or dynamically.
 ·          At the same time other instance of same class will not be affected by this so individual object gets the new behavior.
@@ -536,12 +536,12 @@ What is decorator design pattern in Java?
 ·          It’s a structural design pattern and most widely used.
 I prefer to answer What is decorator design pattern in point format just to stress on important point like this pattern operator at individual object level. This question also asked in many Core Java interviews in Investment banks
 
-Problem which is solved by Decorator Pattern:
+### Problem which is solved by Decorator Pattern:
 Now the question is why this pattern has came into existence what is the problem with existing system, so the answer is if anyone wants to add some functionality to individual object or change the state of particular object at run time it is not possible what the possible is we can provide the specific behavior to all the object of that class at design time by the help of inheritance or using subclass, but Decorator pattern makes possible that we provide individual object of same class a specific behavior or state at run time. This doesn’t affect other object of same Class in Java.
 When to use Decorator pattern in Java
 ·          When sub classing is become impractical and we need large number of different possibilities to make independent object or we can say we have number of combination for an object.
 ·          Secondly when we want to add functionality to individual object not to all object at run-time we use decorator design pattern.
-Code Example of decorator design pattern:
+### Code Example of decorator design pattern:
 To better understand concept of decorator design pattern let see a code example using Decorator Pattern in Java. You can also look inside JDK and find what are classes and packages which are using decorator pattern.
 // Component on Decorator design pattern
 public abstract class Currency {
@@ -613,19 +613,19 @@ public class CurrencyCheck {
 Currency curr3 = new SGDDecorator(new Dollar());
   System.out.println(curr3.getDescription() +" dollar. "+curr3.cost(4.0));
 }
-Explanation of the code:
+### Explanation of the code:
 We can understand this in following term;
 1.      Component Interface: In our example Currency interface is component which used on its own or we need decorator for that.
 2.      Concrete Component: it implements Component and we add new behavior to this object at dynamically. Dollar and Rupee are the concrete implementation of currency.
 3.      Decorator: Decorator contains a HAS a Relationship in simple word we can say it has a instance variable that holds reference for component they implement same component which they are going to decorate. Here a Decorator is an abstract class which extends the currency.
 4.      Concrete Decorator: it’s an implementation of Decorator So USD Dollar and SGD Dollar are the implementation of Decorator contains instance variable for component interface or the thing which they are going to decorate.
-Advantage of Decorator design Pattern in Java
+- Advantage of Decorator design Pattern in Java
 In brief we see what the main advantages of using decorator design patterns are.
 1.      Decorator Pattern is flexible than inheritance because inheritance add responsibilities at compile time and it will add at run-time.
 2.      Decorator pattern enhance or modify the object functionality
-Disadvantage
+- Disadvantage
 Main disadvantage of using Decorator Pattern in Java is that the code maintenance can be a problem as it provides a lot of similar kind of small objects (each decorator).
-Differences between String, StringBuffer and StringBuilder in Java
+### Differences between String, StringBuffer and StringBuilder in Java
 String in Java
 Before looking difference between String and StringBuffer or StringBuilder let’s see some fundamental properties of String Class in Java
 
@@ -638,13 +638,13 @@ Before looking difference between String and StringBuffer or StringBuilder let�
 8) String is represented using UTF-16 format in Java.
 9) In Java you can create String from char array, byte array, another string, from StringBuffer or from StringBuilder. Java String class provides constructor for all of these.
 
-Problem with String in Java
+### Problem with String in Java
 One of its biggest strength Immutability is also biggest problem of Java String if not used correctly. many a times we create a String and then perform a lot of operation on them e.g. converting string into uppercase, lowercase , getting substring out of it , concatenating with other string etc. Since String is an immutable class every time a new String is created and older one is discarded which creates lots of temporary garbage in heap. If String are created using String literal they remain in String pool. To resolve this problem Java provides us two Classes StringBuffer and StringBuilder. String Buffer is an older class but StringBuilder is relatively new and added in JDK 5.
 
-Differences between String and StringBuffer in Java
+### Differences between String and StringBuffer in Java
 Main difference between String and StringBuffer is String is immutable while StringBuffer is mutable means you can modify a StringBuffer object once you created it without creating any new object. This mutable property makes StringBuffer an ideal choice for dealing with Strings in Java. You can convert a StringBuffer into String by its toString() method. String vs StringBuffer or what is differencebetween StringBuffer and String is one of the popular Java interview questions for either phone interview or first round. Now days they also include StringBuilder and ask String vs StringBuffer vs StringBuilder. So be preparing for that. In the next section we will see difference between StringBuffer and StringBuilder in Java.
 
-Difference between StringBuilder and StringBuffer in Java
+### Difference between StringBuilder and StringBuffer in Java
 StringBuffer is very good with mutable String but it has one disadvantage all its public methods are synchronized which makes it thread-safe but same time slow. In JDK 5 they provided similar class called StringBuilder in Java which is a copy of StringBuffer but without synchronization. Try to use StringBuilder whenever possible it performs better in most of cases than StringBuffer class. You can also use "+" for concatenating two string because "+" operation is internal implemented using either StringBuffer or StringBuilder in Java. If you see StringBuilder vs StringBuffer you will find that they are exactly similar and all API methods applicable to StringBuffer are also applicable to StringBuilder in Java. On the other hand String vs StringBuffer is completely different and there API is also completely different, same is true for StringBuilder vs String.
 Summary
 In summary here are list of difference between StringBuffer, String and StringBuilder in Java :
@@ -652,7 +652,7 @@ In summary here are list of difference between StringBuffer, String and StringBu
 2) StringBuffer is synchronized while StringBuilder is not which makes StringBuilder faster than StringBuffer.
 3) Concatenation operator "+" is internal implemented using either StringBuffer or StringBuilder.
 4) Use String if you require immutability, use Stringbuffer in java if you need mutable + thread-safety and use StringBuilder in Java if you require mutable + without thread-safety.
-Reason Why Wait , Notify and NotifyAll are in Object Class.
+### Reason Why Wait , Notify and NotifyAll are in Object Class.
 Here are some thoughts on why they should not be in Thread class which make sense to me :
 1) Wait and notify is not just normal methods or synchronization utility, more than that they are communication mechanism between two threads in Java. And Object class is correct place to make them available for every object if this mechanism is not available via any java keyword like synchronized. Remember synchronized and wait notify are two different area and don’t confuse that they are same or related. Synchronized is to provide mutual exclusion and ensuring thread safety of Java class like race condition while wait and notify are communication mechanism between two thread.
 2 )Locks are made available on per Object basis, which is another reason wait and notify is declared in Object class rather then Thread class.
@@ -676,7 +676,7 @@ Just to summarize we call wait (), notify () or notifyAll method in Java from sy
 1) IllegalMonitorStateException in Java which will occur if we don't call wait (), notify () or notifyAll () method from synchronized context.
 2) Any potential race condition between wait and notify method in Java.
 
-What is the difference between Enumeration and Iterator?
+### What is the difference between Enumeration and Iterator?
 
 Only major difference between Enumeration and iterator is Iterator has a remove() method while Enumeration doesn't. Enumeration acts as Read-only interface, because it has the methods only to traverse and fetch the objects, where as by using Iterator we can manipulate the objects like adding and removing the objects from collection e.g. Arraylist.
 Also Iterator is more secure and safe as compared to Enumeration because it  does not allow other thread to modify the collection object while some thread is iterating over it and throws ConcurrentModificationException. This is by far most important fact for me for deciding between Iterator vs Enumeration in Java.
@@ -695,7 +695,7 @@ remove()
 
 So Enumeration is used whenever we want to make Collection objects as Read-only.
 
-Difference between fail-fast Iterator vs fail-safe Iterator in Java
+### Difference between fail-fast Iterator vs fail-safe Iterator in Java
 fail-fast Iterators in Java
 As name suggest fail-fast Iterators fail as soon as they realized that structure of Collection has been changed since iteration has begun. Structural changes mean adding, removing or updating any element from collection while one thread is Iterating over that collection. fail-fast behaviour is implemented by keeping a modification count and if iteration thread realizes the change in modification count it throws ConcurrentModificationException.
 Java doc says this is not a guaranteed behavior instead its done of "best effort basis", So application programming cannot rely on this behavior. Also since multiple threads are involved while updating and checking modification count and this check is done without synchronization, there is a chance that Iteration thread still sees a stale value and might not be able to detect any change done by parallel threads. Iterators returned by most of JDK1.4 collection are fail-fast including Vector, ArrayList, HashSet etc. to read more about Iterator see my post what is Iterator in Java.
@@ -704,18 +704,18 @@ Contrary to fail-fast Iterator, fail-safe iterator doesn't throw any Exception i
 How HashMap works in Java
 How HashMap works in Java or sometime how get method work in HashMap is common questions on Java interviews now days. Almost everybody who worked in Java knows about HashMap, where to use HashMap or difference between Hashtable and HashMap then why this interview question becomes so special? Because of the depth it offers. It has become very popular java interview question in almost any senior or mid-senior level Java interviews. Investment banksmostly prefer to ask this question and sometime even ask to implement your own HashMap based upon your coding aptitude. Introduction of ConcurrentHashMap and other concurrent collections has also made these questions as starting point to delve into more advanced feature. Let’s start the journey.
 
-Questions start with simple statement 
+### Questions start with simple statement 
 
 "Have you used HashMap before" or”What is HashMap? Why do we use it “
 Almost everybody answers this with yes and then interviewee keep talking about common facts about HashMap like HashMap accept null while Hashtable doesn't, HashMap is not synchronized, HashMap is fast and so on along with basics like its stores key and value pairs etc. This shows that person has used HashMap and quite familiar with the functionality HashMap offers but interview takes a sharp turn from here and next set of follow-up questions gets more detailed about fundamentals involved with HashMap in Java. Interviewer struck back with questions like
 
-"Do you Know how HashMap works in Java” or "How does get () method of HashMap works in Java"
+### "Do you Know how HashMap works in Java” or "How does get () method of HashMap works in Java"
 And then you get answers like I don't bother its standard Java API, you better look code on Java source or Open JDK; I can find it out in Google at any time etc. But some interviewee definitely answer this and will say "HashMap works on principle of hashing, we have put(key, value) and get(key) method for storing and retrieving Objects from HashMap. When we pass Key and Value object to put() method on Java HashMap, HashMap implementation callshashCode method on Key object and applies returned hashcode into its own hashing function to find a bucket location for storing Entry object, important point to mention is that HashMap in Java stores both key and value object as Map.Entry in bucket which is essential to understand the retrieving logic. If people fails to recognize this and say it only stores Value in the bucket they will fail to explain the retrieving logic of any object stored in Java HashMap. This answer is very much acceptable and does make sense that interviewee has fair bit of knowledge on how hashing works and how HashMap works in Java. But this is just start of story and confusion increases when you put interviewee on scenarios faced by Java developers on day by day basis. Next question could be about collision detection and collision resolution in Java HashMap e.g. 
 
-"What will happen if two different objects have same hashcode?”
+### "What will happen if two different objects have same hashcode?”
 Now from here onwards real confusion starts, Sometime candidate will say that since hashcode is equal, both objects are equal and HashMap  will throw exception or not store them again etc, Then you might want to remind them about equals() and hashCode() contract  that two unequal object in Java can have same hashcode. Some will give up at this point and few will move ahead and say "Since hashcode is same, bucket location would be same and collision will occur in HashMap, Since HashMap use LinkedList to store object, this entry (object of Map.Entry comprise key and value) will be stored in LinkedList. Great this answer makes sense though there are many collision resolution methods available this is simplest and HashMap in Java does follow this. But story does not end here and interviewer asks
 
-"How will you retrieve Value object if two Keys will have same hashcode?”
+### "How will you retrieve Value object if two Keys will have same hashcode?”
 Interviewee will say we will call get() method and then HashMap uses Key Object's hashcode to find out bucket location and retrieves Value object but then you need to remind him that there are two Value objects are stored in same bucket , so they will say about traversal in LinkedList until we find the value object , then you ask how do you identify value object because you don't  have value object to compare ,Until they know that HashMap  stores both Key and Value in LinkedList node or as Map.Entry they won't be able to resolve this issue and will try and fail.
 
 But those bunch of people who remember this key information will say that after finding bucket location , we will call keys.equals() method to identify correct node in LinkedList and return associated value object for that key in Java HashMap . Perfect this is the correct answer.
@@ -728,7 +728,7 @@ If you manage to answer this question on HashMap in Java you will be greeted by 
 
 So the answer is Yes there is potential race condition exists while resizing HashMap in Java, if two thread at the same time found that now HashMap needs resizing and they both try to resizing. on the process of resizing of HashMap in Java , the element in bucket which is stored in linked list get reversed in order during their migration to new bucket because java HashMap  doesn't append the new element at tail instead it append new element at head to avoid tail traversing. If race condition happens then you will end up with an infinite loop. Though this point you can potentially argue that what the hell makes you think to use HashMap in multi-threaded environment to interviewer :)
 
-Few more question on HashMap in Java which is contributed by readers of Javarevisited blog:
+### Few more question on HashMap in Java which is contributed by readers of Javarevisited blog:
 1) Why String, Integer and other wrapper classes are considered good keys?
 String, Integer and other wrapper classes are natural candidates of HashMap key, and String is most frequently used key as well because final, and overrides equals and hashcode() method. Other wrapper class also shares similar property. Immutabiility is required, in order to prevent changes on fields used to calculate hashCode() because if key object return different hashCode during insertion and retrieval than it won't be possible to get object from HashMap. Immutability is best as it offers other advantages as well like thread-safety, if you can keep your hashCode same by only making certain fields final, then you go for that as well. Since equals() and hashCode() method is used during reterival of value object from HashMap, it’s important that key object correctly override these methods and follow contact. If unequal object return different hashcode than chances of collision will be less which subsequently improve performance of HashMap.
 
@@ -747,38 +747,38 @@ Personally, I like this question because of its depth and number of concept it t
 •	Resizing of Java HashMap
 Just to summarize here are the answers which does makes sense for above questions
 
-How HashMap works in Java
+### How HashMap works in Java
 HashMap  works on principle of hashing, we have put() and get() method for storing and retrieving object form HashMap .When we pass an both key and value to put() method to store on HashMap , it uses key object hashcode() method to calculate hashcode and they by applying hashing on that hashcode it identifies bucket location for storing value object. While retrieving it uses key object equals method to find out correct key value pair and return value object associated with that key. HashMap uses linked list in case of collision and object will be stored in next node of linked list.
 Also HashMap stores both key+value tuple in every node of linked list.
 
-What will happen if two different HashMap key objects have same hashcode?
+### What will happen if two different HashMap key objects have same hashcode?
 They will be stored in same bucket but no next node of linked list. And keys equals () method will be used to identify correct key value pair in HashMap.
 
 In terms of usage Java HashMap is very versatile and I have mostly used HashMap as cache in electronic trading application I have worked. Since finance domain used Java heavily and due to performance reason we need caching HashMap and ConcurrentHashMap comes as very handy there. You can also check following articles form Javarevisited to learn more about HashMap and Hashtable in Java:
 
-GET and POST method in HTTP and HTTPS Protocol
+### GET and POST method in HTTP and HTTPS Protocol
 GET and POST method in HTTP and HTTPS are two most popular methods used to transfer data from client to server using HTTP (Hyper Text Transfer Protocol) protocol. Both GET and POST can be used to send request and receive response but there are significant difference between them. Difference between GET and POST in HTTP or HTTPS is also a popular interview question in JSP and any web programming interview. Since HTML is independent of any web server technology like Java, ASP or PHP and HTTP is core protocol in space of internet, importance of clear understanding of GET and POST method cannot be ignored. In this tutorial we will what is GET HTTP Request, What is POST HTTP Request, when to use GET and POST HTTP method and finally some difference between GET and POST method in HTTP protocol.
 What is GET HTTP Request in http
 HTTP protocol supports several request method you can use while sending request using HTTP or HTTPS protocol. GET is one of them. As the name suggests GET method is to retrieve a page from HTTP Server. You can identify a GET request by looking method attribute on HTTP Request part. If you are using Netbeans IDE for Java web development you can enable HTTP Server monitor which can capture HTTP request and show details of request parameters, headers and other useful information. for GET HTTP request method will be GET for example almost all the URL which is accessible using link are accessed using HTTP Request. One important property of GET request is that any request parameter or query parameter is passed as URL encoded string, appended using "?" character which makes it non secure because whatever information you pass in URL String is visible to everybody. Though GET method has some very interesting and powerful use cases which we will see in next section: When to use GET HTTP Request?
-When to use HTTP GET request
+### When to use HTTP GET request
 As I said GET method is not secure and hence not a suitable choice for transferring confidential data but GET method is extremely useful for retrieving static content from web server. Here are some examples where using GET methods make sense:
 1) There is no side effect of repeated request. For example clicking a link which points to another page. It doesn't matter if you click the link twice or thrice, this also gives chance browser of server to catch the response for faster retrieval.
 2) You are not passing any sensitive and confidential information. Instead you just pass some configuration data or session id.
 3) You want URL pointed by HTTP GET request to be bookmark-able.
 4) Data requires to be sent to Server is not large and can safely accommodated in maximum length of URL supported by all browser. In general different browser has different character limit for URL length but having it under limit is good choice.
-What is POST HTTP method
+### What is POST HTTP method
 POST HTTP request is denoted by method: POST in HTTP request. In POST method data is not sent as part of URL string to server instead in POST, data is sent as part of message body. Almost all authentication requests are sent via POST method in HTTP world. POST method is secure because data is not visible in URL String and can be safely encrypted using HTTPS for further security. All sensitive and confidential information sent to be server must go on POST request and via HTTPS (HTTP with SSL). POST method is also used for submitting information to server, any information which can alter state of application like adding item into shopping cart, making payments etc. here are some examples where you should consider using POST method in HTTP request:
 1) Use POST if you are sending large data which cannot be fit into URL in case of GET.
 2) Use POST method if you are passing sensitive and confidential information to server e.g. user_id, password, account number etc.
 3) Use POST method if you are submitting data which can alter state of application e.g. adding items into cart for passing that cart for payment processing.
 4) Use POST if you are writing secure application and don't want to show query parameters in URL.
-Difference between GET and POST method in HTTP Protocol
+### Difference between GET and POST method in HTTP Protocol
 Most of the difference between GET and POST has been already discussed in their respective section. It all depends upon requirement when you want to choose GET and POST and knowledge of these differences help you to make that decision.
 1) GET method passes request parameter in URL String while POST method passes request parameter in request body.
 2) GET request can only pass limited amount of data while POST method can pass large amount of data to server.
 3) GET request can be bookmarked and cached unlike POST requests.
 4) GET is mostly used for view purpose (e.g. SQL SELECT) while POST is mainly use for update purpose (e.g. SQL INSERT or UPDATE).
-Difference between Thread and Runnable interface in Java
+### Difference between Thread and Runnable interface in Java
 Thread vs Runnable in Java
 Here are some of my thoughts on whether I should use Thread or Runnable for implementing task in Java, though you have another choice as "Callable" for implementing thread which we will discuss later.
 1) Java doesn't support multiple inheritances, which means you can only extend one class in Java so once you extended Thread class you lost your chance and cannot extend or inherit another class in Java.
@@ -805,7 +805,7 @@ Sometimes if you give this reason to interviewer he asks if C++ can support mult
 
 2) Second and more convincing reason to me is that multiple inheritances does complicate the design and creates problem during casting, constructor chaining etc. and given that there are not many scenario on which you need multiple inheritance its wise decision to omit it for the sake of simplicity. Also java avoids this ambiguity by supporting single inheritance with interfaces. Since interface only have method declaration and doesn't provide any implementation there will only be just one implementation of specific method hence there would not be any ambiguity.
 
-What is Synchronization in Java
+### What is Synchronization in Java
 Synchronization in Java is an important concept since Java is a multi-threaded language where multiple threads run in parallel to complete program execution. In multi-threaded environment synchronization of Java object or synchronization of Java class becomes extremely important. Synchronization in Java is possible by using Java keywords "synchronized" and "volatile”. Concurrent access of shared objects in Java introduces to kind of errors: thread interference and memory consistency errors and to avoid these errors you need to properly synchronize your Java object to allow mutual exclusive access of critical section to two threads. By the way This Java Synchronization tutorial is in continuation of my article How HashMap works in Java  and difference between HashMap and Hashtable in Java  if you haven’t read already you may find some useful information based on my experience in Java Collections.
 Why do we need Synchronization in Java?
 If your code is executing in multi-threaded environment, you need synchronization for objects, which are shared among multiple threads, to avoid any corruption of state or any kind of unexpected behavior. Synchronization in Java will only be needed if shared object is mutable. if your shared object is either read only or immutable object, than you don't need synchronization, despite running multiple threads. Same is true with what threads are doing with object if all the threads are only reading value then you don't require synchronization in Java. JVM guarantees that Java synchronized code will only be executed by one thread at a time. In Summary Java synchronized Keyword provides following functionality essential for concurrent programming : 
@@ -815,9 +815,9 @@ If your code is executing in multi-threaded environment, you need synchronizatio
 2) synchronized keyword also prevent reordering of code statement by compiler which can cause subtle concurrent issue if we don't use synchronized or volatile keyword.
 
 3) synchronized keyword involve locking and unlocking. before entering into synchronized method or block thread needs to acquire the lock, at this point it reads data from main memory than cache and when it release the lock, it flushes write operation into main memory which eliminates memory inconsistency errors.
-Synchronized keyword in Java
+### Synchronized keyword in Java
 Prior to Java 1.5 synchronized keyword was only way to provide synchronization of shared object in Java. Any code written by using  synchronized block or enclosed inside synchronized method will be mutually exclusive, and can only be executed by one thread at a time. You can have both static synchronized method and non static synchronized method and synchronized blocks in Java but we can not have synchronized variable in java. Using synchronized keyword with variable is illegal and will result in compilation error. Instead of synchronized variable in Java, you can have java volatile variable, which will instruct JVM threads to read value of volatile variable from main memory and don’t cache it locally. Block synchronization in Java is preferred over method synchronization in Java because by using block synchronization, you only need to lock the critical section of code instead of whole method. Since synchronization in Java comes with cost of performance, we need to synchronize only part of code which absolutely needs to be synchronized.
-Example of Synchronized Method in Java
+### Example of Synchronized Method in Java
 Using synchronized keyword along with method is easy just apply synchronized keyword in front of method. What we need to take care is that static synchronized method locked on class object lock and non static synchronized method locks on current object (this). So it’s possible that both static and non static java synchronized method running in parallel.  This is the common mistake a naive developer do while writing Java synchronized code.
 public class Counter{
 
@@ -834,7 +834,7 @@ public class Counter{
 }
 
 In this example of Java synchronization code is not properly synchronized because both getCount() and setCount() are not getting locked on same object and can run in parallel which may results in incorrect count. Here getCount() will lock in Counter.class object while setCount() will lock on current object (this). To make this code properly synchronized in Java you need to either make both method static or non static or use java synchronized block instead of java synchronized method.By the way this is one of the common mistake Java developers make while synchronizing their code.
-Example of Synchronized Block in Java
+### Example of Synchronized Block in Java
 Using synchronized block in java is also similar to using synchronized keyword in methods. Only important thing to note here is that if object used to lock synchronized block of code, Singleton.class in below example is null then Java synchronized block will throw a NullPointerException.
 public class Singleton{
 
@@ -852,7 +852,7 @@ public static Singleton getInstance(){
 
 This is a classic example of double checked locking in Singleton. In this example of Java synchronized code, we have made only critical section (part of code which is creating instance of singleton) synchronized and saved some performance. If you make whole method synchronized than every call of this method will be blocked, while you only need blocking to create singleton instance on first call. By the way, this is not the only way to write thread-safe singleton in Java. You can use Enum, or lazy loading to avoid thread-safety issue during instantiation. Even above code will not behave as expected because prior to Java 1.5, double checked locking was broker and even with volatile variable you can view half initialized object. Introduction of Java memory model and happens before guarantee in Java 5 solves this issue. To read more about Singleton in Java see that.
 
-Important points of synchronized keyword in Java
+### Important points of synchronized keyword in Java
 1. Synchronized keyword in Java is used to provide mutual exclusive access of a shared resource with multiple threads in Java. Synchronization in Java guarantees that, no two threads can execute a synchronized method which requires same lock simultaneously or concurrently.
 2. You can use java synchronized keyword only on synchronized method or synchronized block.
 3. Whenever a thread enters into java synchronized method or block it acquires a lock and whenever it leaves java synchronized method or block it releases the lock. Lock is released even if thread leaves synchronized method after completion or due to any Error or Exception.
@@ -898,7 +898,7 @@ Update 1: Recently I have been reading several Java Synchronization and Concurre
 
 Update 2:  I am grateful to my readers, who has left some insightful comments on this post. They have shared lots of good information and experience and to provide them more exposure, I am including some of there comments on main article, to benefit new readers. 
 
-@Vikas wrote
+
 Good comprehensive article about synchronized keyword in Java. to be honest I have never read all these details about synchronized block or method at one place. you may want to highlight some limitation of synchronized keyword in Java which is addressed by explicit locking using new concurrent package and Lock interface :
 
 1. synchronized keyword doesn't allow separate locks for reading and writing. as we know that multiple thread can read without affecting thread-safety of class, synchronized keyword suffer performance due to contention in case of multiple reader and one or few writer.
@@ -918,7 +918,7 @@ Just my 2 cents on your great list of Java Synchronization facts and best practi
  
 5) Any thread trying to acquire lock using synchronized method will block indefinitely, until lock is available. Instead this, tryLock() method of java.util.concurrent.locks.ReentrantLock will not block if lock is not available.
 
-What is Encapsulation in Java
+### What is Encapsulation in Java
 Encapsulation is nothing but protecting anything which is prone to change. Rational behind encapsulation is that if any functionality which is well encapsulated in code i.e. maintained in just one place and not scattered around code is easy to change. This can be better explained with a simple example of encapsulation in Java. We all know that constructor is used to create object in Java and constructor can accept argument. Suppose we have a class Loan has a constructor and then in various classes you have created instance of loan by using this constructor. Now requirements change and you need to include age of borrower as well while taking loan. Since this code is not well encapsulated i.e. not confined in one place you need to change everywhere you are calling this constructor i.e. for one change you need to modify several file instead of just one file which is more error prone and tedious, though it can be done with refactoring feature of advanced IDE wouldn't it be better if you only need to make change at one place? Yes that is possible if we encapsulate Loan creation logic in one method say createLoan() and client code call this method and this method internally crate Loan object. in this case you only need to modify this method instead of all client code.
 Example of Encapsulation in Java
 class Loan{
@@ -946,7 +946,7 @@ class Loan{
    
 }
 In this same example of Encapsulation in Java you see all member variables are made private so they are well encapsulated you can only change or access this variable directly inside this class. if you want to allow outside world to access these variables is better creating a getter and setter e.g. getLoan() that allows you to do any kind of validation, security check before return loan so it gives you complete control of whatever you want to do and single channel of access for client which is controlled and managed.
-Advantage of Encapsulation in Java and OOPS
+### Advantage of Encapsulation in Java and OOPS
 Here are few advantages of using Encapsulation while writing code in Java or any Object oriented programming language:
 1. Encapsulated Code is more flexible and easy to change with new requirements.
 2. Encapsulation in Java makes unit testing easy.
@@ -954,18 +954,18 @@ Here are few advantages of using Encapsulation while writing code in Java or any
 4. Encapsulation also helps to write immutable class in Java which are a good choice in multi-threading environment.
 5. Encapsulation reduce coupling of modules and increase cohesion inside a module because all piece of one thing are encapsulated in one place.
 6. Encapsulation allows you to change one part of code without affecting other part of code.
-What should you encapsulate in code?
+### What should you encapsulate in code?
 Anything which can be change and more likely to change in near future is candidate of Encapsulation. This also helps to write more specific and cohesive code. Example of this is object creation code, code which can be improved in future like sorting and searching logic.
-Design Pattern based on Encapsulation in Java
+### Design Pattern based on Encapsulation in Java
 Many design pattern in Java uses encapsulation concept, one of them is Factory pattern which is used to create objects. Factory pattern is better choice than new operator for creating object of those classes whose creation logic can vary and also for creating different implementation of same interface. BorderFactory class of JDK is a good example of encapsulation in Java which creates different types of Border and encapsulates creation logic of Border. Singleton pattern in Java also encapsulate how you create instance by providing getInstance() method. Since object is created inside one class and not from any other place in code you can easily change how you create object without affect other part of code.
 Important point’s about encapsulation in Java.
 1. "Whatever changes encapsulate it" is a famous design principle.
 2. Encapsulation helps in loose coupling and high cohesion of code.
 3. Encapsulation in Java is achieved using access modifier private, protected and public.
 4. Factory pattern, Singleton pattern in Java makes good use of Encapsulation.
-What is polymorphism in Java
+### What is polymorphism in Java
 Polymorphism is an Oops concept which advice use of common interface instead of concrete implementation while writing code. When we program for interface our code is capable of handling any new requirement or enhancement arise in near future due to new implementation of our common interface. If we don't use common interface and rely on concrete implementation, we always need to change and duplicate most of our code to support new implementation. It’s not only Java but other object oriented language like C++ also supports polymorphism and it comes as fundamental along with other OOPS concepts like Encapsulation , Abstraction and Inheritance.
-How Polymorphism supported in Java
+### How Polymorphism supported in Java
 Java has excellent support of polymorphism in terms of Inheritance, method overloading and method overriding. Method overriding allows Java to invoke method based on a particular object at run-time instead of declared type while coding. To get hold of concept let's see an example of polymorphism in Java:
 public class TradingSystem{
    public String getDescription(){
@@ -984,25 +984,25 @@ public class CommodityTradingSystem extends TradingSystem{
 }
 Here we have a super class called TradingSystem and there two implementation DirectMarketAccessSystem and CommodityTradingSystem and here we will write code which is flexible enough to work with any future implementation of TradingSystem we can achieve this by using Polymorphism in Java which we will see in further example.
 
-Where to use Polymorphism in code
+### Where to use Polymorphism in code
 Probably this is the most important part of this Java Polymorphism tutorial and It’s good to know where you can use Polymorphism in Java while writing code. Its common practice to always replace concrete implementation with interface it’s not that easy and comes with practice but here are some common places where I check for polymorphism:
-1) Method argument:
+### 1) Method argument:
 Always use super type in method argument that will give you leverage to pass any implementation while invoking method. For example:
 public void showDescription(TradingSystem tradingSystem){
    tradingSystem.description();
 }
 If you have used concrete implementation e.g. CommodityTradingSystem or DMATradingSystem then that code will require frequent changes whenever you add new Trading system.
-2) Variable names:
+### 2) Variable names:
 Always use Super type while you are storing reference returned from any Factory method in Java, This gives you flexibility to accommodate any new implementation from Factory. Here is an example of polymorphism while writing Java code which you can use retrieving reference from Factory:
 String systemName = Configuration.getSystemName();
 TradingSystem system = TradingSystemFactory.getSystem(systemName);
 
-3) Return type of method
+### 3) Return type of method
 Return type of any method is another place where you should be using interface to take advantage of Polymorphism in Java. In fact this is a requirement of Factory design pattern in Java to use interface as return type for factory method.
 public TradingSystem getSystem(String name){
    //code to return appropriate implementation
 }
-Method overloading and method overriding in Java
+### Method overloading and method overriding in Java
 Method overloading and method overriding uses concept of Polymorphism in Java where method name remains same in two classes but actual method called by JVM depends upon object at run time and done by dynamic binding in Java. Java supports both overloading and overriding of methods. In case of overloading method signature changes while in case of overriding method signature remains same and binding and invocation of method is decided on runtime based on actual object. This facility allows Java programmer to write very flexibly and maintainable code using interfaces without worrying about concrete implementation. One disadvantage of using Polymorphism in code is that while reading code you don't know the actual type which annoys while you are looking to find bugs or trying to debug program. But if you do Java debugging in IDE you will definitely be able to see the actual object and the method call and variable associated with it.
 Parametric Polymorphism in Java
 Java started to support parametric polymorphism with introduction of Generic in JDK1.5. Collection classes in JDK 1.5 are written using Generic Type which allows Collections to hold any type of object in run time without any change in code and this has been achieved by passing actual Type as parameter. For example see the below code of a parametric cache written using Generic which shows use of parametric polymorphism in Java. Read how to create Generic class and methods in Java for more details.
@@ -1012,7 +1012,7 @@ interface cache{
   public V get(K key);
 }
 
-What is abstract class in Java
+### What is abstract class in Java
 An abstract class is something which is incomplete and you cannot create instance of abstract class. If you want to use it you need to make it complete or concrete by extending it. A class is called concrete if it does not contain any abstract method and implements all abstract method inherited from abstract class or interface it has implemented or extended. By the way Java has concept of abstract classes, abstract method but a variable cannot be abstract in Java. Popular example of abstract class in Java is ActionListener which has abstract method called actionPerformed(ActionEvent ae). This method is called when an ActionEvent is fired like when you click on JButton. Its common in java to attach ActionListener with JButton by implementing abstract method actionPerformed(ActionEvent ae) using Anonymous class, as shown in belowExample :
 JButton  ok = new JButton("OK");
 ok.addActionListener(new ActionListener(){
@@ -1035,7 +1035,7 @@ So implementation of those start() and stop() methods should be left to their co
 
 In Java Interface is an another way of providing abstraction, Interfaces are by default abstract and only contains public static, final constant or abstract methods. It’s very common interview question is that where should we use abstract class and where should we use Java Interfaces in my view this is important to understand to design better Java application, you can go for java interface if you only know the name of methods your class should have e.g. for Server it should have start() and stop() method but we don't know how exactly these start and stop method will work. If you know some of the behaviours while designing class and that would remain common across all subclasses add that into abstract class. Interface like Runnable are good example of abstraction in Java which is used to abstract task executed by multiple thread.
 
-In Summary
+### In Summary
 1) Use abstraction if you know something needs to be in class but implementation of that varies.
 2) In Java you cannot create instance of abstract class, its compiler error.
 3) abstract is a keyword in java.
@@ -1044,7 +1044,7 @@ In Summary
 6) Variable cannot be made abstract, its only behaviour or methods which would be abstract.
 7) If a class extends an abstract class or interface it has to provide implementation to all its abstract method to be a concrete class. Alternatively this class can also be abstract.
 
-Key Points about Interface in Java
+### Key Points about Interface in Java
 In last section we saw what an interface in Java is and learned that interface provides abstraction in Java and its only way to achieve multiple inheritances at type level in Java. In this section we will see some important properties of interface in Java.
 
 1. Interface in java is declared using keyword interface and it represent a Type like any Class in Java. A reference variable of type interface can point to any implementation of that interface in Java. It’s also a good Object oriented design principle to "program for interfaces than implementation" because when you use interface to declare reference variable, method return type or method argument you are flexible enough to accept any future implementation of that interface which could be much better and high performance alternative of current implementation. Similarly calling any method on interface doesn't tie you with any particular implementation and you can leverage benefit of better or improved implementation over time. This maintenance aspect of interface is also sought in various software design interview questions in Java.
@@ -1053,7 +1053,7 @@ In last section we saw what an interface in Java is and learned that interface p
 4) In Java it’s legal for an interface to extend multiple interface. for example following code will run without any compilation error:
 interface Session extends Serializable, Clonnable{ }
 Here Session interface in Java is also a Serializable and Clonnable. This is not true for Class in Java and one Class can only extend at most another Class. In Java one Class can implement multiple interfaces. They are required to provide implementation of all methods declared inside interface or they can declare themselves as abstract class.
-Example of interface in Java
+### Example of interface in Java
 Java standard library itself has many inbuilt interfaces like Serializable, Clonnable, Runnable or Callable interface in Java.  Declaring interface is easy but making it correct in first attempt is hard but if you are in business of designing API then you need to get it right in first attempt because it’s not possible to modify interface once it released without breaking all its implementation. Here is an example of declaring interface in Java:
  interface SessionIDCreator extends Serializable, Cloneable{
         String TYPE = "AUTOMATIC";
@@ -1072,7 +1072,7 @@ Java standard library itself has many inbuilt interfaces like Serializable, Clon
     }
 
 In above example of interface in Java, SessionIDCreator is an interface while SerialSessionIDCreator is a implementation of interface. @Override annotation can be used on interface method from Java 6 onwards, so always try to use it. It’s one of those coding practice which should be in your code review checklist.
-When to use interface in Java
+### When to use interface in Java
 Interface is best choice for Type declaration or defining contract between multiple parties. If multiple programmers are working in different module of project they still use each other’s API by defining interface and not waiting for actual implementation to be ready. This brings us lot of flexibility and speed in terms of coding and development. Use of Interface also ensures best practices like "programming for interfaces than implementation" and results in more flexible and maintainable code. Though interface in Java is not the only one who provides higher level abstraction, you can also use abstract class but choosing between Interface in Java and abstract class is a skill.
 How do you detect deadlock in Java?
 Though this could have many answers, my version is first I would look the code if I see nested synchronized block or calling one synchronized method from other or trying to get lock on different object then there is good chance of deadlock if developer is not very careful.
@@ -1133,7 +1133,7 @@ System.out.println("Aquired lock on String.class object");
 
 Now there would not be any deadlock because both method is accessing lock on Integer and String object in same order . so if thread A acquires lock on Integer object , thread B will not proceed until thread A releases Integer lock , same way thread A will not be blocked even if thread B holds String lock because now thread B will not expect thread A to release Integer lock to proceed further.
 
-Difference between SendRedirect() and Forward() in JSP Servlet
+### Difference between SendRedirect() and Forward() in JSP Servlet
 SendRedirect ():  
 This method is declared in HttpServletResponse Interface.
 Signature: void sendRedirect(String url)
@@ -1147,7 +1147,7 @@ RequestDispatcher rd = request.getRequestDispatcher("pathToResource");
 Or
 RequestDispatcher rd = servletContext.getRequestDispatcher("/pathToResource");
   rd.forward(request, response);
-Difference between SendRedirect and Forward
+### Difference between SendRedirect and Forward
 Now let’s see some difference between these two methods of servlet API in tabular format.
 Forward()	SendRediret()
 When we use forward method request is transfer to other resource within the same server for further processing.	In case of sendRedirect request is transfer to another resource to different domain or different server for futher processing.
@@ -1158,10 +1158,10 @@ Visually we are not able to see the forwarded address, it is transparent	In addr
 Using forward () method is faster then send redirect.	SendRedirect is slower because one extra round trip is required because completely new request is created and old request object is lost. Two browser request required.
 When we redirect using forward and we want to use same data in new resource we can use request.setAttribute () as we have request object available.	But in sendRedirect if we want to use we have to store the data in session or pass along with the URL.
 
-Example of forward and SendRedirect in JSP Servlet:
+### Example of forward and SendRedirect in JSP Servlet:
 Any kind of online payment when we use merchant site will redirect us to net banking site which is completely new request it process our request and again redirect to merchant site?
 In Banking Application when we do login normally we use forward method. In case of online banking we are asked for username and password if it’s a correct some another servlet or resource will handle the request otherwise request has been forwarded to error page.
-Which one is good?
+### Which one is good?
 Its depends upon the scenario that which method is more useful.
 If you want control is transfer to new server or context and it is treated as completely new task then we go for Send Redirect.
 Normally forward should be used if the operation can be safely repeated upon a browser reload of the web page will not affect the result.
@@ -1191,7 +1191,7 @@ But I would recommend using the builtin Java Executors. They do all of this for 
 
 A thread pool is a group of threads initially created that waits for jobs and executes them. The idea is to have the threads always existing, so that we won't have to pay overhead time for creating them every time. They are appropriate when we know there's a stream of jobs to process, even though there could be some time when there are no jobs.
 Here's a nice diagram from Wikipedia:  
-Java Thread Pool Example using Executors and ThreadPoolExecutor
+### Java Thread Pool Example using Executors and ThreadPoolExecutor
 by Pankaj Kumar on January 18th, 2013 | Filed in: Core Java Tags: Concurrency
 A thread pool manages the pool of worker threads, it contains a queue that keeps tasks waiting to get executed. A thread pool manages the collection of Runnable threads and worker threads execute Runnable from the queue.java.util.concurrent.Executors provide implementation ofjava.util.concurrent.Executor interface to create the thread pool in java.
 Let’s write a simple program to explain it’s working.
@@ -1401,7 +1401,7 @@ Here is the output of above program that confirms above statement.
 Notice the change in active, completed and total completed task count of the executor. We can invoke shutdown() method to finish execution of all the submitted tasks and terminate the thread pool.
 
 
-How to create Thread Pools using Java 1.5 Executor Framework - Example Tutorial
+### How to create Thread Pools using Java 1.5 Executor Framework - Example Tutorial
 Java 1.5 introduced Thread pool in Java in form of Executor framework, which allows Java programmer to decouple submission of task to execution of task. If you are doing server side programming in Java than Thread pool is an important concept to maintain scalability, robustness and stability of system. For those, who are not familiar with thread pool in Java or concept of thread pool here is one liner, Thread pool in Java is pool of worker threads, which is ready to perform any task given to them, mostly in form of implementation of Runnable or Callable interface. Since Java supports multithreading in programming language itself, it allows multiple thread to run concurrently and perform parallel processing of task. In this article we will learn following things about thread pool in Java :
 1.	What is Thread pool in Java?
 2.	Why do we need Thread pool in Java ?
@@ -1409,7 +1409,7 @@ Java 1.5 introduced Thread pool in Java in form of Executor framework, which all
 4.	How to create fixed size thread pool using Executor framework in Java?
 5.	Benefits of using Thread Pool in Java?
 
-What is Thread Pool in Java and why we need it
+### What is Thread Pool in Java and why we need it
  
 As I said Thread pool is pool of already created worker thread ready to do the job. Thread pool is one of essential facility any multi-threaded server side Java application requires. One example of using thread pool is creating a web server, which process client request. If you are familiar with socket programming than you know that ServerSocket.accept() is blocking method and blocks until a socket connection made. If only one thread is used to process client request, than it subsequently limit how many client can access server concurrently. In order to support large number of clients, you may decide to use one thread per request paradigm, in which each request is processed by separate Thread, but this require Thread to be created, when request arrived.  Since creation of Thread is time consuming process, it delays request processing. It also limits number of clients based upon how many thread per JVM is allowed, which is obviously a limited number. Thread pool solves this problem for you, It creates Thread and manage them. Instead of creating Thread and discarding them once task is done, thread-pool reuses threads in form of worker thread. Since Thread are usually created and pooled when application starts, your server can immediately start request processing, which can further improve server’s response time. Apart from this, there are several other benefits of using Thread pool in Java applications, which we will see in subsequent section. In short, we need thread pools to better mange threads and decoupling task submission from execution. Thread pool and Executor framework introduced in Java 5 is an excellent thread pool provided by library.
 
@@ -1419,7 +1419,7 @@ Java 5 introduced several useful features like Enum, Generics, Variable argument
 How to create fixed size thread pool using Executor framework in Java?
 Creating fixed size thread pool using Java 5 Executor framework is pretty easy because of static factory methods provided by Executors class. All you need to do is define your task which you want to execute concurrently and than submit that task to ExecutorService. from them Thread pool will take care of how to execute that task, it can be executed by any free worker thread and if you are interested in result you can query Future object returned by submit()method. Executor framework also provides different kind of Thread Pool e.g. SingleThreadExecutor which creates just one worker thread or CachedThreadPool which creates worker threads as and when necessary. You can also check  Java documentation of Executor Framework for complete details of services provided by this API. Java concurrency in Practice also has couple of chapters dedicated to effective use of Java 5 Executor framework, which is worth reading for any senior Java developer.
 
-Example of Thread Pool in Java
+### Example of Thread Pool in Java
 Here is an example of Thread pool in Java, which uses Executor framework of Java 5 to create a fixed thread pool with number of worker thread as 10. It will then create task and submit that to Thread pool for execution:
 
 public class ThreadPoolExample {
@@ -1459,7 +1459,7 @@ Task ID : 4 performed by pool-1-thread-5
 If you look at output of this Java example you will find different threads from thread pool are executing tasks.
 
 
-Benefits of Thread Pool in Java
+### Benefits of Thread Pool in Java
 Thread Pool offers several benefit to Java application, biggest of them is separating submission of task to execution of task ,which result if more loose coupled and flexible design than tightly coupled create and execute pattern. Here are some more benefits of using Thread pool in Java:
 
 1) Use of Thread Pool reduces response time by avoiding thread creation during request or task processing.
@@ -1470,7 +1470,7 @@ Thread Pool offers several benefit to Java application, biggest of them is separ
 4) Thread Pool frees application developer from thread management stuff and allows to focus on business logic.
 
 That's all on Thread pool in Java 5. we have seen what is thread pool in Java, what is executor framework in java 5, how to create thread pool in Java and some benefits of using thread pool in Java application. no doubt knowledge of thread pool is essential for a server side core Java developer and I suggest reading Java Threads and Concurrency Practice in Java to learn more about concurrency and thread pool. 
-Java Concurrency Tutorial: Thread Pools
+### Java Concurrency Tutorial: Thread Pools
 06.26.2008
  | 53117 views | 
 inShare
@@ -1551,26 +1551,26 @@ The Runnable will be dequeued by an idle PoolThread and executed. You can see th
 To stop the ThreadPool the method ThreadPool.stop() is called. The stop called is noted internally in the isStopped member. Then each thread in the pool is stopped by calling PoolThread.stop(). Notice how the execute() method will throw an IllegalStateException if execute() is called after stop() has been called.
 The threads will stop after finishing any task they are currently executing. Notice the this.interrupt() call in PoolThread.stop(). This makes sure that a thread blocked in a wait() call inside thetaskQueue.dequeue() call breaks out of the wait() call, and leaves the dequeue() method call with anInterruptedException thrown. This exception is caught in the PoolThread.run() method, reported, and then the isStopped variable is checked. Since isStopped is now true, the PoolThread.run() will exit and the thread dies.
 
-Life Cycle of Thread – Understanding Thread States in Java
+### Life Cycle of Thread – Understanding Thread States in Java
 Pankaj December 25, 2012 Java
 Understanding Life Cycle of Thread and Thread States are very important when you are working with Threads and programming for multi-threaded environment.
 As we learned in last tutorial, we can create a java thread class by implementing Runnable interface or by extending Thread class, but to start a java thread, we first have to create the Thread object and call it’s start() method to execute run() method as a thread.
-Thread States
+### Thread States
 Below diagram shows different states of thread in java, note that we can create a thread in java and start it but how the thread states change from Runnable to Running to Blocked depends on the OS implementation of thread scheduler and java doesn’t have full control on that.
  
-New
+- New
 When we create a new Thread object using new operator, thread state is New Thread. At this point, thread is not alive and it’s a state internal to Java programming.
-Runnable
+- Runnable
 When we call start() function on Thread object, it’s state is changed to Runnable and the control is given to Thread scheduler to finish it’s execution. Whether to run this thread instantly or keep it in runnable thread pool before running it depends on the OS implementation of thread scheduler.
-Running
+- Running
 When thread is executing, it’s state is changed to Running. Thread scheduler picks one of the thread from the runnable thread pool and change it’s state to Running and CPU starts executing this thread. A thread can change state to Runnable, Dead or Blocked from running state depends on time slicing, thread completion of run() method or waiting for some resources.
-Blocked/Waiting
+- Blocked/Waiting
 A thread can be waiting for other thread to finish using thread join or it can be waiting for some resources to available, for example producer consumer problem or waiter notifier implementation or IO resources, then it’s state is changed to Waiting. Once the thread wait state is over, it’s state is changed to Runnable and it’s moved back to runnable thread pool.
-Dead
+- Dead
 Once the thread finished executing, it’s state is changed to Dead and it’s considered to be not alive.
 Above are the different states of thread and it’s good to know them and how thread changes it’s state.
 
-Java Daemon Thread Example
+### Java Daemon Thread Example
 Pankaj December 31, 2012 Java
 When we create a Thread in java, by default it’s a user thread and if it’s running JVM will not terminate the program. When a thread is marked as daemon thread, JVM doesn’t wait it to finish and as soon as all the user threads are finished, it terminates the program as well as all the associated daemon threads.
 Thread.setDaemon(true) can be used to create a daemon thread in java. Let’s see a small example of java daemon thread.
@@ -1621,7 +1621,7 @@ Finishing program
 If we don’t set the thread to be run as daemon thread, the program will never terminate even after main thread is finished it’s execution. Try commenting the statement to set thread as daemon thread and run the program.
 Usually we create a daemon thread for functionalities that are not critical to system, for example logging thread or monitoring thread to capture the system resource details and their state.
 
-Dependency Injection Design Pattern in Java Example Tutorial
+### Dependency Injection Design Pattern in Java Example Tutorial
 Pankaj December 14, 2013 Design Patterns, Java
 Dependency Injection design pattern allows us to remove the hard-coded dependencies and make our application loosely coupled, extendable and maintainable. We can implement dependency injection pattern to move the dependency resolution from compile-time to runtime.
 Dependency injection pattern seems hard to grasp with theory, so I would take a simple example and then we will see how to use dependency injection pattern to achieve loose coupling and extendability in the application.
@@ -1687,7 +1687,7 @@ Now let’s see how we can apply dependency injection pattern to solve all the p
 1.	Service components should be designed with base class or interface. It’s better to prefer interfaces or abstract classes that would define contract for the services.
 2.	Consumer classes should be written in terms of service interface.
 3.	Injector classes that will initialize the services and then the consumer classes.
-Service Components
+### Service Components
 For our case, we can have MessageService that will declare the contract for service implementations.
 MessageService.java
 package com.journaldev.java.dependencyinjection.service;
@@ -1754,7 +1754,7 @@ public class MyDIApplication implements Consumer{
 }
 Notice that our application class is just using the service. It does not initialize the service that leads to better “separation of concerns“. Also use of service interface allows us to easily test the application by mocking the MessageService and bind the services at runtime rather than compile time.
 Now we are ready to write injector classes that will initialize the service and also consumer classes.
-Injectors Classes
+### Injectors Classes
 Let’s have an interface MessageServiceInjector with method declaration that returns the Consumer class.
 MessageServiceInjector.java
 package com.journaldev.java.dependencyinjection.injector;
@@ -1922,7 +1922,7 @@ One of the best example of setter dependency injection is Struts2 Servlet API Aw
 Whether to use Constructor based dependency injection or setter based is a design decision and depends on your requirements. For example, if my application can’t work at all without the service class then I would prefer constructor based DI or else I would go for setter method based DI to use it only when it’s really needed.
 Dependency Injection is a way to achieve Inversion of control (IoC) in our application by moving objects binding from compile time to runtime. We can achieve IoC through Factory Pattern, Template Method Design Pattern, Strategy Pattern and Service Locator pattern too.
 Spring, Google Guice and Java EE CDI frameworks facilitate the process of dependency injection through use of Java Reflection API and java annotations. All we need is to annotate the field, constructor or setter method and configure them in configuration xml files or classes.
-Benefits of Dependency Injection
+### Benefits of Dependency Injection
 Some of the benefits of using Dependency Injection are:
 •	Separation of Concerns
 •	Boilerplate Code reduction in application classes because all work to initialize dependencies is handled by the injector component
@@ -1944,7 +1944,7 @@ Spring Framework is built on the Inversion of Control (IOC) principle. Dependenc
 A.	XML Based Bean Configuration
 B.	Annotation Based Bean Configuration
 C.	Java Based Bean Configuration
-Spring IoC Container
+### Spring IoC Container
 Inversion of Control is the mechanism to achieve loose-coupling between Objects dependencies. To achieve loose coupling and dynamic binding of the objects at runtime, the objects define their dependencies that are being injected by other assembler objects. Spring IoC container is the program thatinjects dependencies into an object and make it ready for our use. We have already looked how we can use Spring Dependency Injection to implement IoC in our applications.
 Spring Framework IoC container classes are part of org.springframework.beans andorg.springframework.context packages and provides us different ways to decouple the object dependencies.
 BeanFactory is the root interface of Spring IoC container. ApplicationContext is the child interface ofBeanFactory interface that provide Spring’s AOP features, internationalization etc. Some of the useful child-interfaces of ApplicationContext are ConfigurableApplicationContext and WebApplicationContext. Spring Framework provides a number of useful ApplicationContext implementation classes that we can use to get the context and then the Spring Bean.
@@ -1955,9 +1955,9 @@ Some of the useful ApplicationContext implementations that we use are;
 •	AnnotationConfigWebApplicationContext and XmlWebApplicationContext for web applications.
 Usually if you are working on Spring MVC application and your application is configured to use Spring Framework, Spring IoC container gets initialized when application starts and when a bean is requested, the dependencies are injected automatically.
 However for standalone application, you need to initialize the container somewhere in the application and then use it to get the spring beans.
-Spring Bean
+### Spring Bean
 Spring Bean is nothing special, any object in the Spring framework that we initialize through Spring container is called Spring Bean. Any normal Java POJO class can be a Spring Bean if it’s configured to be initialized via container by providing configuration metadata information.
-Spring Bean Scopes
+### Spring Bean Scopes
 There are five scopes defined for Spring Beans.
 1.	singleton – Only one instance of the bean will be created for each container. This is the default scope for the spring beans. While using this scope, make sure bean doesn’t have shared instance variables otherwise it might lead to data inconsistency issues.
 2.	prototype – A new instance will be created every time the bean is requested.
@@ -1965,18 +1965,18 @@ There are five scopes defined for Spring Beans.
 4.	session – A new bean will be created for each HTTP session by the container.
 5.	global-session – This is used to create global session beans for Portlet applications.
 Spring Framework is extendable and we can create our own scopes too, however most of the times we are good with the scopes provided by the framework.
-Spring Bean Configuration
+### Spring Bean Configuration
 Spring Framework provide three ways to configure beans to be used in the application.
 1.	Annotation Based Configuration – By using @Service or @Component annotations. Scope details can be provided with @Scope annotation.
 2.	XML Based Configuration – By creating Spring Configuration XML file to configure the beans. If you are using Spring MVC framework, the xml based configuration can be loaded automatically by writing some boiler plate code in web.xml file.
 3.	Java Based Configuration – Starting from Spring 3.0, we can configure Spring beans using java programs. Some important annotations used for java based configuration are @Configuration, @ComponentScan and @Bean.
-Spring IoC and Bean Example Project
+### Spring IoC and Bean Example Project
 Let’s look at the different aspects of Spring IoC container and Spring Bean configurations with a simple Spring project.
 For my example, I am creating Spring MVC project in Spring Tool Suite. If you are new to Spring Tool Suite and Spring MVC, please read Spring MVC Tutorial with Spring Tool Suite.
 The final project structure looks like below image.
  
 Let’s look at different components one by one.
-XML Based Bean Configuration
+### XML Based Bean Configuration
 MyBean is a simple Java POJO class.
 MyBean.java
 package com.journaldev.spring.beans;
@@ -1993,7 +1993,7 @@ public class MyBean {
     }
      
 }
-Spring Configuration XML File
+### Spring Configuration XML File
 servlet-context.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
@@ -2024,7 +2024,7 @@ servlet-context.xml
      
 </beans:beans>
 Notice that MyBean is configured using bean element with scope as singleton.
-Annotation Based Bean Configuration
+### Annotation Based Bean Configuration
 MyAnnotatedBean.java
 package com.journaldev.spring.beans;
  
@@ -2104,7 +2104,7 @@ public class HomeController {
     }
      
 }
-Deployment Descriptor
+### Deployment Descriptor
 We need to configure our application for Spring Framework, so that the configuration metadata will get loaded and context will be initialized.
 web.xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2141,7 +2141,7 @@ web.xml
  
 </web-app>
 Almost all the configuration above is boiler-plate code generated by STS tool automatically.
-Run the Web Application
+### Run the Web Application
 Now when you will launch the web application, the home page will get loaded and in the console following logs will be printed when you refresh the page multiple times.
 MyBean hashcode=118267258
 MyAnnotatedBean hashcode=1703899856
@@ -2224,7 +2224,7 @@ Java Serialization API allows us to convert an Object to stream that we can send
 4.	Java Serialization Methods
 5.	Serialization with Inheritance
 6.	Serialization Proxy Pattern
-Java Serializable Interface
+### Java Serializable Interface
 If you want a class object to be serializable, all you need to do it implement the java.io.Serializableinterface. Serializable is a marker interface and has no fields or methods to implement. It’s like an Opt-In process through which we make our classes serializable.
 Serialization process is implemented by ObjectInputStream and ObjectOutputStream, so all we need is a wrapper over them to either save it to file or send it over the network. Let’s see a simple Serialization example.
 Employee.java
@@ -2518,7 +2518,7 @@ public class ExternalizationTest {
 When we run above program, we get following output.
 1	Person Object Read=Person{id=1,name=Pankaj,gender=Male}
 So which one is better to be used for serialization purpose. Actually it’s better to use Serializable interface and by the time we reach at the end of article, you will know why.
-Java Serialization Methods
+### Java Serialization Methods
 We have seen that java serialization is automatic and all we need is implementing Serializable interface. The implementation is present in the ObjectInputStream and ObjectOutputStream classes. But what if we want to change the way we are saving data, for example we have some sensitive information in the object and before saving/retrieving we want to encrypt/decrypt it. That’s why there are four methods that we can provide in the class to change the serialization behavior.
 If these methods are present in the class, they are used for serialization purposes.
 1.	readObject(ObjectInputStream ois): If this method is present in the class, ObjectInputStream readObject() method will use this method for reading the object from stream.
@@ -2526,7 +2526,7 @@ If these methods are present in the class, they are used for serialization purpo
 3.	Object writeReplace(): If this method is present, then after serialization process this method is called and the object returned is serialized to the stream.
 4.	Object readResolve(): If this method is present, then after deserialization process, this method is called to return the final object to the caller program. One of the usage of this method is to implement Singleton pattern with Serialized classes. Read more at Serialization and Singleton.
 Usually while implementing above methods, it’s kept as private so that subclasses can’t override them. They are meant for serialization purpose only and keeping them private avoids any security issue.
-Serialization with Inheritance
+### Serialization with Inheritance
 Sometimes we need to extend a class that doesn’t implement Serializable interface. If we rely on the automatic serialization behavior and the superclass has some state, then they will not be converted to stream and hence not retrieved later on.
 This is one place, where readObject() and writeObject() methods really help. By providing their implementation, we can save the super class state to the stream and then retrieve it later on. Let’s see this in action.
 SuperClass.java
@@ -2646,7 +2646,7 @@ public class InheritanceSerializationTest {
 When we run above class, we get following output.
 1	SubClass read = SubClass{id=10,value=Data,name=Pankaj}
 So in this way, we can serialize super class state even though it’s not implementing Serializable interface. This strategy comes handy when the super class is a third-party class that we can’t change.
-Serialization Proxy Pattern
+### Serialization Proxy Pattern
 Java Serialization comes with some serious pitfalls such as;
 •	The class structure can’t be changed a lot without breaking the serialization process. So even though we don’t need some variables later on, we need to keep them just for backward compatibility.
 •	Serialization causes huge security risks, an attacker can change the stream sequence and cause harm to the system. For example, user role is serialized and an attacker change the stream value to make it admin and run malicious code.
@@ -2754,7 +2754,7 @@ When we run above class, we get below output in console.
 1	Data{data=Pankaj}
 If you will open the data.ser file, you can see that DataProxy object is saved as stream in the file.
 
-Why String is immutable or final in Java
+### Why String is immutable or final in Java
 
 String is one of the most used classes in any programming language. As we know that String is immutable and final in java and java runtime maintains a String pool that makes it a special class.
 String immutable Benefits
