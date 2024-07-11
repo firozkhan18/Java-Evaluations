@@ -108,7 +108,7 @@
 99. Write a program to implement a hashmap from scratch.
 100. Write a program to find the maximum flow in a graph using Ford-Fulkerson algorithm.
 
-1. // Program to find the sum of all elements in an array
+### 1. // Program to find the sum of all elements in an array
 ```java
 public class SumOfArrayElements {
     public static void main(String[] args) {
@@ -122,7 +122,7 @@ public class SumOfArrayElements {
 }
 ```
 
-2. // Program to check if a given number is prime or not
+### 2. // Program to check if a given number is prime or not
 ```java
 public class CheckPrimeNumber {
     public static void main(String[] args) {
@@ -143,7 +143,7 @@ public class CheckPrimeNumber {
 }
 ```
 
-3. // Program to reverse a string
+### 3. // Program to reverse a string
 ```java
 public class ReverseString {
     public static void main(String[] args) {
@@ -157,7 +157,7 @@ public class ReverseString {
 }
 ```
 
-4. // Program to find the factorial of a number
+### 4. // Program to find the factorial of a number
 ```java
 public class Factorial {
     public static void main(String[] args) {
@@ -171,7 +171,7 @@ public class Factorial {
 }
 ```
 
-5. // Program to implement a stack in Java
+### 5. // Program to implement a stack in Java
 ```java
 import java.util.Stack;
 
@@ -189,7 +189,7 @@ public class StackExample {
 }
 ```
 
-6. // Program to sort an array in ascending order
+### 6. // Program to sort an array in ascending order
 ```java
 import java.util.Arrays;
 
@@ -202,7 +202,7 @@ public class SortArray {
 }
 ```
 
-7. // Program to check if a string is a palindrome
+### 7. // Program to check if a string is a palindrome
 ```java
 public class PalindromeCheck {
     public static void main(String[] args) {
@@ -217,7 +217,7 @@ public class PalindromeCheck {
 }
 ```
 
-8. // Program to find the largest element in an array
+### 8. // Program to find the largest element in an array
 ```java
 public class LargestElement {
     public static void main(String[] args) {
@@ -233,7 +233,7 @@ public class LargestElement {
 }
 ```
 
-9. // Program to implement a queue in Java
+### 9. // Program to implement a queue in Java
 ```java
 import java.util.LinkedList;
 import java.util.Queue;
@@ -252,7 +252,7 @@ public class QueueExample {
 }
 ```
 
-10. // Program to count the number of vowels in a string
+### 10. // Program to count the number of vowels in a string
 ```java
 public class VowelCount {
     public static void main(String[] args) {
@@ -268,7 +268,7 @@ public class VowelCount {
 }
 ```
 
-11. // Program to find the second largest element in an array
+### 11. // Program to find the second largest element in an array
 ```java
 import java.util.Arrays;
 
@@ -281,7 +281,7 @@ public class SecondLargestElement {
 }
 ```
 
-12. // Program to check if two strings are anagrams of each other
+### 12. // Program to check if two strings are anagrams of each other
 ```java
 import java.util.Arrays;
 
@@ -303,7 +303,7 @@ public class AnagramCheck {
 }
 ```
 
-13. // Program to find the Fibonacci series up to a given number
+### 13. // Program to find the Fibonacci series up to a given number
 ```java
 public class FibonacciSeries {
     public static void main(String[] args) {
@@ -320,7 +320,7 @@ public class FibonacciSeries {
 }
 ```
 
-14. // Program to find the number of words in a string
+### 14. // Program to find the number of words in a string
 ```java
 public class WordCount {
     public static void main(String[] args) {
@@ -331,7 +331,7 @@ public class WordCount {
 }
 ```
 
-15. // Program to find the sum of digits of a number
+### 15. // Program to find the sum of digits of a number
 ```java
 public class SumOfDigits {
     public static void main(String[] args) {
@@ -346,7 +346,7 @@ public class SumOfDigits {
 }
 ```
 
-16. // Program to concatenate two strings
+### 16. // Program to concatenate two strings
 ```java
 public class StringConcatenation {
     public static void main(String[] args) {
@@ -358,7 +358,7 @@ public class StringConcatenation {
 }
 ```
 
-17. // Program to find the index of a given element in an array
+### 17. // Program to find the index of a given element in an array
 ```java
 public class ElementIndex {
     public static void main(String[] args) {
@@ -376,7 +376,7 @@ public class ElementIndex {
 }
 ```
 
-18. // Program to find the GCD of two numbers
+### 18. // Program to find the GCD of two numbers
 ```java
 public class GCD {
     public static void main(String[] args) {
@@ -397,7 +397,7 @@ public class GCD {
 }
 ```
 
-19. // Program to find the intersection of two arrays
+### 19. // Program to find the intersection of two arrays
 ```java
 import java.util.HashSet;
 import java.util.Set;
@@ -419,7 +419,7 @@ public class ArrayIntersection {
 }
 ```
 
-20. // Program to find the power of a number using recursion
+### 20. // Program to find the power of a number using recursion
 ```java
 public class PowerOfNumber {
     public static void main(String[] args) {
@@ -439,7 +439,7 @@ public class PowerOfNumber {
 
 Here are the Java programs for the above tasks:
 
-21. Remove duplicate elements from an array:
+### 21. Remove duplicate elements from an array:
 ```java
 import java.util.*;
 
@@ -465,7 +465,7 @@ public class RemoveDuplicates {
 }
 ```
 
-22. Convert a decimal number to binary:
+### 22. Convert a decimal number to binary:
 ```java
 import java.util.Scanner;
 
@@ -480,7 +480,7 @@ public class DecimalToBinary {
 }
 ```
 
-23. Check if a given string is a valid palindrome or not:
+### 23. Check if a given string is a valid palindrome or not:
 ```java
 import java.util.Scanner;
 
@@ -501,7 +501,7 @@ public class CheckPalindrome {
 }
 ```
 
-24. Find the frequency of each element in an array:
+### 24. Find the frequency of each element in an array:
 ```java
 import java.util.*;
 
@@ -521,7 +521,7 @@ public class ElementFrequency {
 }
 ```
 
-25. Find the maximum subarray sum in an array:
+### 25. Find the maximum subarray sum in an array:
 ```java
 public class MaxSubarraySum {
     public static void main(String[] args) {
@@ -540,7 +540,7 @@ public class MaxSubarraySum {
 }
 ```
 
-26. Binary to Decimal Conversion Program:
+### 26. Binary to Decimal Conversion Program:
 ```java
 import java.util.Scanner;
 
@@ -555,7 +555,7 @@ public class BinaryToDecimal {
 }
 ```
 
-27. Factorial using Recursion Program:
+### 27. Factorial using Recursion Program:
 ```java
 public class Factorial {
     public static void main(String[] args) {
@@ -574,7 +574,7 @@ public class Factorial {
 }
 ```
 
-28. Perfect Number Program:
+### 28. Perfect Number Program:
 ```java
 public class PerfectNumber {
     public static void main(String[] args) {
@@ -596,7 +596,7 @@ public class PerfectNumber {
 }
 ```
 
-29. Common Elements in Arrays Program:
+### 29. Common Elements in Arrays Program:
 ```java
 import java.util.HashSet;
 import java.util.Set;
@@ -621,7 +621,7 @@ public class CommonElements {
 }
 ```
 
-30. Reverse of a Number Program:
+### 30. Reverse of a Number Program:
 ```java
 public class ReverseNumber {
     public static void main(String[] args) {
@@ -638,7 +638,7 @@ public class ReverseNumber {
     }
 }
 ```
-31. Program to check if a given number is an Armstrong number:
+### 31. Program to check if a given number is an Armstrong number:
 
 ```java
 import java.util.Scanner;
@@ -667,7 +667,7 @@ public class ArmstrongNumber {
 }
 ```
 
-32. Program to find the missing number in a given array of integers:
+### 32. Program to find the missing number in a given array of integers:
 
 ```java
 import java.util.Arrays;
@@ -685,7 +685,7 @@ public class MissingNumber {
 }
 ```
 
-33. Program to implement a binary search algorithm:
+### 33. Program to implement a binary search algorithm:
 
 ```java
 public class BinarySearch {
@@ -725,7 +725,7 @@ public class BinarySearch {
 }
 ```
 
-34. Program to find the least common multiple (LCM) of two numbers:
+### 34. Program to find the least common multiple (LCM) of two numbers:
 
 ```java
 public class LCM {
@@ -750,7 +750,7 @@ public class LCM {
 }
 ```
 
-35. Program to check if a string is a valid email address:
+### 35. Program to check if a string is a valid email address:
 
 ```java
 import java.util.regex.Matcher;
@@ -776,7 +776,7 @@ public class EmailValidator {
 }
 ```
 
-36. Program to find the length of the longest consecutive sequence of a given array:
+### 36. Program to find the length of the longest consecutive sequence of a given array:
 
 ```java
 import java.util.HashSet;
@@ -810,7 +810,7 @@ public class LongestConsecutiveSequence {
 }
 ```
 
-37. Program to find the roots of a quadratic equation:
+### 37. Program to find the roots of a quadratic equation:
 
 ```java
 import java.util.Scanner;
@@ -841,7 +841,7 @@ public class QuadraticEquation {
 }
 ```
 
-38. Program to find the area of a circle:
+### 38. Program to find the area of a circle:
 
 ```java
 import java.util.Scanner;
@@ -861,7 +861,7 @@ public class CircleArea {
 }
 ```
 
-39. Program to find the smallest element in an array:
+### 39. Program to find the smallest element in an array:
 
 ```java
 public class SmallestElementInArray {
@@ -885,7 +885,7 @@ public class SmallestElementInArray {
 }
 ```
 
-40. Program to check if a given number is a palindrome:
+### 40. Program to check if a given number is a palindrome:
 
 ```java
 import java.util.Scanner;
@@ -913,7 +913,7 @@ public class PalindromeNumber {
 }
 ```
 
-11. Program to find the second largest element in an array:
+### 11. Program to find the second largest element in an array:
 
 ```java
 public class SecondLargestElement {
@@ -936,7 +936,7 @@ public class SecondLargestElement {
 }
 ```
 
-12. Program to check if two strings are anagrams of each other:
+### 12. Program to check if two strings are anagrams of each other:
 
 ```java
 import java.util.Arrays;
@@ -969,7 +969,7 @@ public class AnagramCheck {
 }
 ```
 
-13. Program to find the Fibonacci series up to a given number:
+### 13. Program to find the Fibonacci series up to a given number:
 
 ```java
 public class FibonacciSeries {
@@ -994,7 +994,7 @@ public class FibonacciSeries {
 }
 ```
 
-14. Program to find the number of words in a string:
+### 14. Program to find the number of words in a string:
 
 ```java
 public class WordCount {
@@ -1010,7 +1010,7 @@ public class WordCount {
 }
 ```
 
-15. Program to find the sum of digits of a number:
+### 15. Program to find the sum of digits of a number:
 
 ```java
 public class SumOfDigits {
@@ -1032,7 +1032,7 @@ public class SumOfDigits {
 }
 ```
 
-16. Program to concatenate two strings:
+### 16. Program to concatenate two strings:
 
 ```java
 public class ConcatenateStrings {
@@ -1048,7 +1048,7 @@ public class ConcatenateStrings {
 }
 ```
 
-17. Program to find the index of a given element in an array:
+### 17. Program to find the index of a given element in an array:
 
 ```java
 public class ElementIndex {
@@ -1070,7 +1070,7 @@ public class ElementIndex {
 }
 ```
 
-18. Program to find the GCD of two numbers:
+### 18. Program to find the GCD of two numbers:
 
 ```java
 public class GCD {
@@ -1090,7 +1090,7 @@ public class GCD {
 }
 ```
 
-19. Program to find the intersection of two arrays:
+### 19. Program to find the intersection of two arrays:
 
 ```java
 import java.util.HashSet;
@@ -1122,7 +1122,7 @@ public class IntersectionOfArrays {
 }
 ```
 
-20. Program to find the power of a number using recursion:
+### 20. Program to find the power of a number using recursion:
 
 ```java
 public class PowerOfNumber {
@@ -1141,7 +1141,7 @@ public class PowerOfNumber {
     }
 }
 ```
-21. Remove duplicates from an array
+### 21. Remove duplicates from an array
 ```java
 import java.util.Arrays;
 import java.util.LinkedHashSet;
@@ -1166,7 +1166,7 @@ public class RemoveDuplicatesFromArray {
 }
 ```
 
-22. Find the smallest element in an array
+### 22. Find the smallest element in an array
 ```java
 public class SmallestElementInArray {
     public static void main(String[] args) {
@@ -1184,7 +1184,7 @@ public class SmallestElementInArray {
 }
 ```
 
-23. Check if a given string is a valid palindrome or not
+### 23. Check if a given string is a valid palindrome or not
 ```java
 public class ValidPalindrome {
     public static void main(String[] args) {
@@ -1207,7 +1207,7 @@ public class ValidPalindrome {
 }
 ```
 
-24. Find the product of two matrices
+### 24. Find the product of two matrices
 ```java
 public class MatrixMultiplication {
     public static void main(String[] args) {
@@ -1234,7 +1234,7 @@ public class MatrixMultiplication {
 }
 ```
 
-25. Reverse a linked list
+### 25. Reverse a linked list
 ```java
 class Node {
     int data;
@@ -1288,7 +1288,7 @@ public class ReverseLinkedList {
 }
 ```
 
-26. Find the missing number in an array of consecutive numbers
+### 26. Find the missing number in an array of consecutive numbers
 ```java
 public class MissingNumberInArray {
     public static void main(String[] args) {
@@ -1307,7 +1307,7 @@ public class MissingNumberInArray {
 }
 ```
 
-27. Check if a number is a perfect number
+### 27. Check if a number is a perfect number
 ```java
 public class PerfectNumber {
     public static void main(String[] args) {
@@ -1329,7 +1329,7 @@ public class PerfectNumber {
 }
 ```
 
-28. Find the median of an array
+### 28. Find the median of an array
 ```java
 import java.util.Arrays;
 
@@ -1350,7 +1350,7 @@ public class MedianOfArray {
 }
 ```
 
-29. Check if a string contains only digits
+### 29. Check if a string contains only digits
 ```java
 public class OnlyDigitsInString {
     public static void main(String[] args) {
@@ -1373,7 +1373,7 @@ public class OnlyDigitsInString {
 }
 ```
 
-30. Find the LCM of two numbers
+### 30. Find the LCM of two numbers
 ```java
 public class LCM {
     public static int findGCD(int a, int b) {
@@ -1397,7 +1397,7 @@ public class LCM {
 }
 ```
 
-31. Maximum Subarray Sum Program:
+### 31. Maximum Subarray Sum Program:
 
 ```java
 public class MaxSubarraySum {
@@ -1420,7 +1420,7 @@ public class MaxSubarraySum {
 }
 ```
 
-32. Binary Search Algorithm Program:
+### 32. Binary Search Algorithm Program:
 
 ```java
 public class BinarySearch {
@@ -1456,7 +1456,7 @@ public class BinarySearch {
 }
 ```
 
-33. Factorial using Recursion Program:
+### 33. Factorial using Recursion Program:
 
 ```java
 public class Factorial {
@@ -1475,7 +1475,7 @@ public class Factorial {
 }
 ```
 
-34. Remove Element from Array Program:
+### 34. Remove Element from Array Program:
 
 ```java
 import java.util.Arrays;
@@ -1495,7 +1495,7 @@ public class RemoveElementFromArray {
 }
 ```
 
-35. Sum of Series Program:
+### 35. Sum of Series Program:
 
 ```java
 public class SumOfSeries {
@@ -1516,7 +1516,7 @@ public class SumOfSeries {
 }
 ```
 
-36. Count Occurrences of Character in a String Program:
+### 36. Count Occurrences of Character in a String Program:
 
 ```java
 public class CountCharacterOccurrences {
@@ -1540,7 +1540,7 @@ public class CountCharacterOccurrences {
 }
 ```
 
-37. Count Words in a Sentence Program:
+### 37. Count Words in a Sentence Program:
 
 ```java
 public class CountWordsInSentence {
@@ -1556,7 +1556,7 @@ public class CountWordsInSentence {
 }
 ```
 
-38. Area of Circle Program:
+### 38. Area of Circle Program:
 
 ```java
 public class AreaOfCircle {
@@ -1571,7 +1571,7 @@ public class AreaOfCircle {
 }
 ```
 
-39. Bubble Sort Program:
+### 39. Bubble Sort Program:
 
 ```java
 import java.util.Arrays;
@@ -1600,7 +1600,7 @@ public class BubbleSort {
 }
 ```
 
-40. Decimal to Binary Conversion Program:
+### 40. Decimal to Binary Conversion Program:
 
 ```java
 public class DecimalToBinary {
@@ -1625,7 +1625,7 @@ public class DecimalToBinary {
 49. Write a program to find the maximum and minimum element in an array.
 50. Write a program to implement a merge sort algorithm.
 
-41. FindFirstNonRepeatedChar.java
+### 41. FindFirstNonRepeatedChar.java
 
 ```java
 public class FindFirstNonRepeatedChar {
@@ -1651,7 +1651,7 @@ public class FindFirstNonRepeatedChar {
 }
 ```
 
-42. ImplementLinkedList.java
+### 42. ImplementLinkedList.java
 
 ```java
 class Node {
@@ -1701,7 +1701,7 @@ public class ImplementLinkedList {
 }
 ```
 
-43. FindMatrixTranspose.java
+### 43. FindMatrixTranspose.java
 
 ```java
 public class FindMatrixTranspose {
@@ -1731,7 +1731,7 @@ public class FindMatrixTranspose {
 }
 ```
 
-44. FindAverageOfArray.java
+### 44. FindAverageOfArray.java
 
 ```java
 public class FindAverageOfArray {
@@ -1752,7 +1752,7 @@ public class FindAverageOfArray {
 }
 ```
 
-45. FindSumOfOddNumbers.java
+### 45. FindSumOfOddNumbers.java
 
 ```java
 public class FindSumOfOddNumbers {
@@ -1775,7 +1775,7 @@ public class FindSumOfOddNumbers {
 }
 ```
 
-46. WordOccurrencesInString.java
+### 46. WordOccurrencesInString.java
 
 ```java
 public class WordOccurrencesInString {
@@ -1800,7 +1800,7 @@ public class WordOccurrencesInString {
 }
 ```
 
-47. ArmstrongNumberCheck.java
+### 47. ArmstrongNumberCheck.java
 
 ```java
 public class ArmstrongNumberCheck {
@@ -1828,7 +1828,7 @@ public class ArmstrongNumberCheck {
 }
 ```
 
-48. SelectionSort.java
+### 48. SelectionSort.java
 
 ```java
 public class SelectionSort {
@@ -1858,7 +1858,7 @@ public class SelectionSort {
 }
 ```
 
-49. FindMaxMinInArray.java
+### 49. FindMaxMinInArray.java
 
 ```java
 public class FindMaxMinInArray {
@@ -1886,7 +1886,7 @@ public class FindMaxMinInArray {
 }
 ```
 
-50. MergeSort.java
+### 50. MergeSort.java
 
 ```java
 public class MergeSort {
@@ -1942,7 +1942,7 @@ public class MergeSort {
 }
 ```
 
-51. Count the number of prime numbers in a given range:
+### 51. Count the number of prime numbers in a given range:
 ```java
 public class PrimeNumberCount {
     
@@ -1977,7 +1977,7 @@ public class PrimeNumberCount {
 }
 ```
 
-52. Find the reverse of a linked list:
+### 52. Find the reverse of a linked list:
 ```java
 class Node {
     int data;
@@ -2030,7 +2030,7 @@ public class ReverseLinkedList {
 }
 ```
 
-53. Convert a decimal number to hexadecimal:
+### 53. Convert a decimal number to hexadecimal:
 ```java
 import java.util.Scanner;
 
@@ -2047,7 +2047,7 @@ public class DecimalToHexadecimal {
 }
 ```
 
-54. Find the largest palindrome made from the product of two 3-digit numbers:
+### 54. Find the largest palindrome made from the product of two 3-digit numbers:
 
 ```java
 public class LargestPalindromeProduct {
@@ -2085,7 +2085,7 @@ public class LargestPalindromeProduct {
 }
 ```
 
-55. Implement a quick sort algorithm:
+### 55. Implement a quick sort algorithm:
 
 ```java
 public class QuickSort {
@@ -2134,7 +2134,7 @@ public class QuickSort {
 }
 ```
 
-56. Find the sum of prime numbers up to a given number:
+### 56. Find the sum of prime numbers up to a given number:
 
 ```java
 public class SumOfPrimes {
@@ -2168,7 +2168,7 @@ public class SumOfPrimes {
 }
 ```
 
-57. Generate a random number between a given range:
+### 57. Generate a random number between a given range:
 
 ```java
 import java.util.Random;
@@ -2187,7 +2187,7 @@ public class RandomNumberGenerator {
 }
 ```
 
-58. Implement a binary tree:
+### 58. Implement a binary tree:
 
 ```java
 class Node {
@@ -2246,7 +2246,7 @@ public class BinaryTree {
 }
 ```
 
-59. Find the longest common prefix in an array of strings:
+### 59. Find the longest common prefix in an array of strings:
 
 ```java
 public class LongestCommonPrefix {
@@ -2275,7 +2275,7 @@ public class LongestCommonPrefix {
 }
 ```
 
-60. Find the number of trailing zeroes in a factorial:
+### 60. Find the number of trailing zeroes in a factorial:
 
 ```java
 import java.util.Scanner;
@@ -2302,7 +2302,7 @@ public class FactorialTrailingZeroes {
     }
 }
 ```
-61. Heap sort algorithm implementation:
+### 61. Heap sort algorithm implementation:
 
 ```java
 public class HeapSort {
@@ -2356,7 +2356,7 @@ public class HeapSort {
 }
 ```
 
-62. Longest palindrome substring in a string:
+### 62. Longest palindrome substring in a string:
 
 ```java
 public class LongestPalindromeSubstring {
@@ -2395,7 +2395,7 @@ public class LongestPalindromeSubstring {
 }
 ```
 
-63. Sum of all even numbers in an array:
+### 63. Sum of all even numbers in an array:
 
 ```java
 public class SumOfEvenNumbers {
@@ -2416,7 +2416,7 @@ public class SumOfEvenNumbers {
     }
 }
 ```
-64. Depth-First Search Algorithm:
+### 64. Depth-First Search Algorithm:
 
 ```java
 import java.util.*;
@@ -2463,7 +2463,7 @@ public class DFS {
 }
 ```
 
-65. Find Kth Largest Element in an Array:
+### 65. Find Kth Largest Element in an Array:
 
 ```java
 import java.util.Arrays;
@@ -2484,7 +2484,7 @@ public class KthLargestElement {
 }
 ```
 
-66. Number of Ways to Climb Stairs:
+### 66. Number of Ways to Climb Stairs:
 
 ```java
 public class Staircase {
@@ -2510,7 +2510,7 @@ public class Staircase {
 }
 ```
 
-67. Breadth-First Search Algorithm:
+### 67. Breadth-First Search Algorithm:
 
 ```java
 import java.util.*;
@@ -2564,7 +2564,7 @@ public class BFS {
 }
 ```
 
-68. Find Missing Element in Arithmetic Progression:
+### 68. Find Missing Element in Arithmetic Progression:
 
 ```java
 public class MissingElement {
@@ -2597,7 +2597,7 @@ public class MissingElement {
 }
 ```
 
-69. Dijkstra's Algorithm:
+### 69. Dijkstra's Algorithm:
 
 ```java
 import java.util.*;
@@ -2664,7 +2664,7 @@ public class Dijkstra {
 }
 ```
 
-70. Maximum Path Sum in Binary Tree:
+### 70. Maximum Path Sum in Binary Tree:
 
 ```java
 class TreeNode {
@@ -2772,7 +2772,7 @@ public class BellmanFordAlgorithm {
 }
 ```
 
-72. Intersection of Two Linked Lists:
+### 72. Intersection of Two Linked Lists:
 
 ```java
 public class IntersectionOfLinkedLists {
@@ -2790,7 +2790,7 @@ public class IntersectionOfLinkedLists {
 }
 ```
 
-73. Longest Increasing Subsequence:
+### 73. Longest Increasing Subsequence:
 
 ```java
 public class LongestIncreasingSubsequence {
@@ -2818,7 +2818,7 @@ public class LongestIncreasingSubsequence {
 }
 ```
 
-74. Topological Sort:
+### 74. Topological Sort:
 
 ```java
 import java.util.*;
@@ -2863,7 +2863,7 @@ public class TopologicalSort {
 }
 ```
 
-75. Number of Connected Components in Graph:
+### 75. Number of Connected Components in Graph:
 
 ```java
 public class NumberOfConnectedComponents {
@@ -2895,7 +2895,7 @@ public class NumberOfConnectedComponents {
 }
 ```
 
-76. Maximum Profit by Buying and Selling Stocks:
+### 76. Maximum Profit by Buying and Selling Stocks:
 
 ```java
 public class MaxProfitStocks {
@@ -2913,7 +2913,7 @@ public class MaxProfitStocks {
 }
 ```
 
-77. Prim's Algorithm:
+### 77. Prim's Algorithm:
 
 ```java
 public class PrimsAlgorithm {
@@ -2956,7 +2956,7 @@ public class PrimsAlgorithm {
 }
 ```
 
-78. Longest Common Subsequence:
+### 78. Longest Common Subsequence:
 
 ```java
 public class LongestCommonSubsequence {
@@ -2980,7 +2980,7 @@ public class LongestCommonSubsequence {
 }
 ```
 
-79. Kruskal's Algorithm:
+### 79. Kruskal's Algorithm:
 
 ```java
 public class KruskalsAlgorithm {
@@ -3047,7 +3047,7 @@ public class KruskalsAlgorithm {
 }
 ```
 
-80. Minimum Spanning Tree:
+### 80. Minimum Spanning Tree:
 
 ```java
 import java.util.*;
@@ -3114,7 +3114,7 @@ public class MinimumSpanningTree {
     }
 }
 ```
-81. Implementing a trie data structure in Java:
+### 81. Implementing a trie data structure in Java:
 
 ```java
 public class Trie {
@@ -3191,7 +3191,7 @@ public class Trie {
 
 ```
 
-82. Finding the longest palindrome subsequence in a string in Java:
+### 82. Finding the longest palindrome subsequence in a string in Java:
 
 ```java
 public class LongestPalindromeSubsequence {
@@ -3214,7 +3214,7 @@ public class LongestPalindromeSubsequence {
     }
 }
 ```
-83. Java program to implement a hash table:
+### 83. Java program to implement a hash table:
 
 ```java
 import java.util.HashMap;
@@ -3232,7 +3232,7 @@ public class HashTable {
 }
 ```
 
-84. Java program to implement a stack using queues:
+### 84. Java program to implement a stack using queues:
 
 ```java
 import java.util.LinkedList;
@@ -3272,7 +3272,7 @@ public class StackUsingQueues {
 }
 ```
 
-85. Java program to find the maximum sum subarray using Kadane's algorithm:
+### 85. Java program to find the maximum sum subarray using Kadane's algorithm:
 
 ```java
 public class MaximumSumSubarray {
@@ -3295,7 +3295,7 @@ public class MaximumSumSubarray {
 }
 ```
 
-86. Java program to implement an AVL tree:
+### 86. Java program to implement an AVL tree:
 
 ```java
 class Node {
@@ -3317,7 +3317,7 @@ public class AVLTree {
 }
 ```
 
-87. Java program to find the shortest path in a maze:
+### 87. Java program to find the shortest path in a maze:
 
 ```java
 public class ShortestPathInMaze {
@@ -3325,7 +3325,7 @@ public class ShortestPathInMaze {
 }
 ```
 
-88. Java program to implement a disjoint-set data structure:
+### 88. Java program to implement a disjoint-set data structure:
 
 ```java
 class DisjointSet {
@@ -3367,7 +3367,7 @@ class DisjointSet {
 }
 ```
 
-89. Java program to find the longest repeating subsequence in a string:
+### 89. Java program to find the longest repeating subsequence in a string:
 
 ```java
 public class LongestRepeatingSubsequence {
@@ -3375,7 +3375,7 @@ public class LongestRepeatingSubsequence {
 }
 ```
 
-90. Java program to implement a priority queue:
+### 90. Java program to implement a priority queue:
 
 ```java
 import java.util.PriorityQueue;
@@ -3395,7 +3395,7 @@ public class PriorityQueueDemo {
 }
 ```
 ```java
-// 91. Program to find the longest common substring in two strings
+### // 91. Program to find the longest common substring in two strings
 public class LongestCommonSubstring {
     public static String longestCommonSubstring(String s1, String s2) {
         int m = s1.length();
@@ -3421,7 +3421,7 @@ public class LongestCommonSubstring {
     }
 }
 
-// 92. Program to implement a radix sort algorithm
+### // 92. Program to implement a radix sort algorithm
 public class RadixSort {
     public static void radixSort(int[] arr) {
         int max = arr[0];
@@ -3460,7 +3460,7 @@ public class RadixSort {
     }
 }
 ```
-93. Program to find the maximum number of non-overlapping intervals:
+### 93. Program to find the maximum number of non-overlapping intervals:
 
 ```java
 import java.util.Arrays;
@@ -3504,7 +3504,7 @@ public class NonOverlappingIntervals {
 }
 ```
 
-94. Program to implement a segment tree:
+### 94. Program to implement a segment tree:
 
 ```java
 public class SegmentTree {
@@ -3555,7 +3555,7 @@ public class SegmentTree {
 }
 ```
 
-95. Program to find the maximum area of a histogram:
+### 95. Program to find the maximum area of a histogram:
 
 ```java
 import java.util.Stack;
@@ -3589,7 +3589,7 @@ public class MaxHistogramArea {
 }
 ```
 
-96. Program to implement Floyd-Warshall algorithm:
+### 96. Program to implement Floyd-Warshall algorithm:
 
 ```java
 public class FloydWarshall {
@@ -3610,7 +3610,7 @@ public class FloydWarshall {
 }
 ```
 
-97. Program to find the longest word in a dictionary that can be formed from a set of letters:
+### 97. Program to find the longest word in a dictionary that can be formed from a set of letters:
 
 ```java
 import java.util.HashSet;
@@ -3652,7 +3652,7 @@ public class LongestWord {
 }
 ```
 
-98. Program to check if a binary tree is balanced:
+### 98. Program to check if a binary tree is balanced:
 
 ```java
 public class BinaryTreeBalanced {
@@ -3687,7 +3687,7 @@ public class BinaryTreeBalanced {
 }
 ```
 
-99. Program to implement a hashmap from scratch:
+### 99. Program to implement a hashmap from scratch:
 
 ```java
 public class MyHashMap {
@@ -3778,7 +3778,7 @@ public class MyHashMap {
 }
 ```
 
-100. Program to find the maximum flow in a graph using Ford-Fulkerson algorithm:
+### 100. Program to find the maximum flow in a graph using Ford-Fulkerson algorithm:
 
 ```java
 import java.util.LinkedList;
