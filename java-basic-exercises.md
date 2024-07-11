@@ -487,6 +487,57 @@ Expected Output
 
 
 ### 11. Write a Java program to print the area and perimeter of a circle.
+```java
+public class Exercise11 {
+    // Define a constant for the radius of the circle
+    private static final double radius = 7.5;
+
+    public static void main(String[] args) {
+        // Calculate the perimeter of the circle using the constant radius
+        double perimeter = 2 * Math.PI * radius;
+
+        // Calculate the area of the circle using the constant radius
+        double area = Math.PI * radius * radius;
+
+        // Print the calculated perimeter and area
+        System.out.println("Perimeter is = " + perimeter);
+        System.out.println("Area is = " + area);
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+The above Java code calculates and prints the perimeter and area of a circle with a given radius (in this case, a radius of 7.5 units). It uses mathematical constants and formulas for circles:
+
+It calculates the perimeter (circumference) using the formula: 2 * Math.PI * radius;
+It calculates the area using the formula: π * radius^2.
+The perimeter and area values are then printed to the console.
+
+```java
+import java.util.Scanner;
+
+public class Main {
+ public static void main(String[] args) {
+  // Create a Scanner object to read input from the user
+  Scanner io = new Scanner(System.in);
+  
+  // Prompt the user to input the radius of the circle
+  System.out.println("Input the radius of the circle: ");
+  
+  // Read and store the input radius
+  double radius = io.nextDouble();
+  
+  // Calculate and print the perimeter of the circle
+  System.out.println("Perimeter is = " + (2 * radius * Math.PI));
+  
+  // Calculate and print the area of the circle
+  System.out.println("Area is = " + (Math.PI * radius * radius));
+ }
+}
+```
+
 Test Data:
 Radius = 7.5
 Expected Output
@@ -496,9 +547,122 @@ Area is = 176.71458676442586
 
 
 ### 12. Write a Java program that takes three numbers as input to calculate and print the average of the numbers.
+```java
+import java.util.Scanner;
+ 
+public class Exercise12 {
+ 
+ public static void main(String[] args) {
+  // Create a Scanner object to read input from the user
+  Scanner in = new Scanner(System.in);
+   
+  // Prompt the user to input the first number
+  System.out.print("Input first number: ");
+  
+  // Read and store the first number
+  int num1 = in.nextInt();
+   
+  // Prompt the user to input the second number
+  System.out.print("Input second number: ");
+  
+  // Read and store the second number
+  int num2 = in.nextInt();
+   
+  // Prompt the user to input the third number
+  System.out.print("Input third number: ");
+  
+  // Read and store the third number
+  int num3 = in.nextInt();
+   
+  // Prompt the user to input the fourth number
+  System.out.print("Input fourth number: ");
+  
+  // Read and store the fourth number
+  int num4 = in.nextInt();
+  
+  // Prompt the user to input the fifth number
+  System.out.print("Enter fifth number: ");
+  
+  // Read and store the fifth number
+  int num5 = in.nextInt();
+   
+  // Calculate and print the average of the five numbers
+  System.out.println("Average of five numbers is: " + (num1 + num2 + num3 + num4 + num5) / 5);
+ }
+} 
+```
+Explanation:
 
+In the exercise above -
+
+It prompts the user to input five different numbers, one by one.
+It reads and stores each number in separate variables: num1, num2, num3, num4, and num5.
+It calculates the average of these five numbers by adding them together and dividing the sum by 5.
+It displays the calculated average with the message "Average of five numbers is:" to the console.
+
+```java
+import java.util.Scanner;
+
+public class Main {
+ public static void main(String[] args) {
+  // Initialize variables for sum and counting
+  double num = 0;
+  double x = 1;
+  
+  // Create a Scanner object to read input from the user
+  Scanner sc = new Scanner(System.in);
+  
+  // Prompt the user to input the number (n) for which to calculate the average
+  System.out.println("Input the number(n) you want to calculate the average: ");
+  int n = sc.nextInt();
+  
+  // Use a loop to collect n numbers and calculate their sum
+  while (x <= n) {
+   System.out.println("Input number " + "(" + (int) x + ")" + ":");
+   num += sc.nextInt();
+   x += 1;
+  }
+  
+  // Calculate the average of the collected numbers
+  double avgn = (num / n);
+
+  // Display the calculated average
+  System.out.println("Average: " + avgn);
+ }
+}
+```
 
 ### 13. Write a Java program to print the area and perimeter of a rectangle.
+```java
+public class Exercise13 { 
+   public static void main(String[] strings) {
+        // Define constants for the width and height of the rectangle
+        final double width = 5.6;
+        final double height = 8.5;
+
+        // Calculate the perimeter of the rectangle
+        double perimeter = 2 * (height + width);
+		
+        // Calculate the area of the rectangle
+        double area = width * height;			
+
+        // Print the calculated perimeter using placeholders for values
+        System.out.printf("Perimeter is 2*(%.1f + %.1f) = %.2f \n", height, width, perimeter);
+
+        // Print the calculated area using placeholders for values
+        System.out.printf("Area is %.1f * %.1f = %.2f \n", width, height, area);
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+Define constant values for the rectangle's width (5.6) and height (8.5).
+Calculate the rectangle perimeter using the formula: 2 * (height + width).
+Calculate the rectangle area using the formula: width * height.
+Prints the perimeter and area values to the console using printf statements with formatted output to display the results with specific decimal precision.
+
 Test Data:
 Width = 5.5 Height = 8.5
 
@@ -527,13 +691,113 @@ Expected Output
 ==============================================                          
 ==============================================                          
 ==============================================
- 
-
-
+```java
+public class Main {
+    public static void main(String[] args) {
+        // Define pattern strings for the top and middle sections
+        String p1 = "* * * * * * ==================================\n * * * * *  ==================================";
+        String p2 = "==============================================";
+        // Print the top section pattern 4 times
+        for (int i = 0; i < 4; i++) {
+            System.out.println(p1);
+        }
+        // Print the bottom section pattern once
+        System.out.println("* * * * * * ==================================");
+        // Print the middle section pattern 6 times
+        for (int i = 0; i < 6; i++) {
+            System.out.println(p2);
+        }
+    }
+}
+```
 ### 15. Write a Java program to swap two variables.
 
+Java: Swapping two variables
 
+Swapping two variables refers to mutually exchanging the values of the variables. Generally, this is done with the data in memory.
+
+The simplest method to swap two variables is to use a third temporary variable :
+```
+define swap(a, b)
+    temp := a
+    a := b
+    b := temp
+```
+```java
+public class Exercise15 {
+ 
+ public static void main(String[] args) {
+   // Declare variables for the values to be swapped
+   int a, b, temp;
+   
+   // Assign values to variables a and b
+   a = 15;
+   b = 27;
+   
+   // Print the values before swapping
+   System.out.println("Before swapping : a, b = " + a + ", " + b);
+   
+   // Perform the swap using a temporary variable
+   temp = a;
+   a = b;
+   b = temp;   
+   
+   // Print the values after swapping
+   System.out.println("After swapping : a, b = " + a + ", " + b);
+ }
+}
+```
+Explanation:
+
+In the exercise above -
+
+Initialize two integer variables, 'a' with the value 15 and 'b' with the value 27.
+Prints the original values of 'a' and 'b' before swapping.
+Use a temporary variable temp to temporarily store the value of 'a'.
+Assign the value of 'b' to 'a'.
+Assign the value stored in temp (originally from a) to 'b'.
+Finally, it prints the values of 'a' and 'b' after the swapping operation.
+Without using third variable.
+
+Sample Solution-2
+
+Java Code:
+```java
+public class Exercise15 {
+  public static void main(String[] args) {
+     // Declare and initialize integer variables a and b
+     int a, b;
+     a = 15;
+     b = 27;
+     
+     // Print the values before swapping
+     System.out.println("Before swapping : a, b = " + a + ", " + b);
+     
+     // Perform the swap without using a temporary variable
+     a = a + b;  // Add a and b and store the result in a
+     b = a - b;  // Subtract the original b from the new a and store the result in b
+     a = a - b;  // Subtract the new b from the updated a and store the result in a
+     
+     // Print the values after swapping
+     System.out.println("After swapping : a, b = " + a + ", " + b);
+  }
+}
+```
+Explanation:
+
+In the exercise above -
+
+Initialize two integer variables, 'a' with the value 15 and 'b' with the value 27.
+Prints the original values of 'a' and 'b' before swapping.
+Use arithmetic operations to swap values without using a temporary variable:
+a = a + b adds 'a' and 'b' and stores the sum in 'a'. Now, 'a' contains the sum of the original 'a' and 'b'.
+b = a - b subtracts the original 'b' from the updated 'a' and stores the result in 'b'. Now, 'b' contains the original value of 'a'.
+a = a - b subtracts the updated 'b' (which now contains the original value of 'a') from the updated 'a' and stores the result in 'a'. Now, 'a' contains the original value of 'b'.
+Finally, it prints the values of 'a' and 'b' after the swapping operation.
+    
 ### 16. Write a Java program to print a face.
+
+
 Expected Output
 
  +"""""+                                                 
@@ -541,9 +805,118 @@ Expected Output
  |  ^  |                                                 
  | '-' |                                                 
  +-----+
+```java
+public class Exercise16 {
+    public static void main(String[] args)
+    {
+        // Display a pattern to create an ASCII art representation of a simple face
+        System.out.println(" +\"\"\"\"\"+ ");
+        System.out.println("[| o o |]");
+        System.out.println(" |  ^  | ");
+        System.out.println(" | '-' | ");
+        System.out.println(" +-----+ ");
+    }
+}
+```
+Sample Solution (using array):
 
+Java Code:
+
+```java
+public class Main {
+
+ public static void main(String[] args) {
+  // Create an array to store lines of an ASCII art representation
+  String[] arra = new String[5];
+
+  // Populate the array with lines to form an ASCII art representation of a simple face
+  arra[0] = " +\"\"\"\"\"+ ";
+  arra[1] = "[| o o |]";
+  arra[2] = " |  ^  |";
+  arra[3] = " | '-' |";
+  arra[4] = " +-----+";
+
+  // Use a loop to print each line of the ASCII art representation
+  for (int i = 0; i < 5; i++) {
+   System.out.println(arra[i]);
+  }
+ }
+}
+```
 
 ### 17. Write a Java program to add two binary numbers.
+
+In digital electronics and mathematics, a binary number is a number expressed in the base-2 numeral system or binary numeral system. This system uses only two symbols: typically 1 (one) and 0 (zero).
+
+Test Data:
+Input first binary number: 100010
+Input second binary number: 110010
+
+```java
+import java.util.Scanner;
+
+public class Exercise17 {
+ public static void main(String[] args) {
+  // Declare variables to store two binary numbers, an index, and a remainder
+  long binary1, binary2;
+  int i = 0, remainder = 0;
+  
+  // Create an array to store the sum of binary digits
+  int[] sum = new int[20];
+  
+  // Create a Scanner object to read input from the user
+  Scanner in = new Scanner(System.in);
+
+  // Prompt the user to input the first binary number
+  System.out.print("Input first binary number: ");
+  binary1 = in.nextLong();
+  
+  // Prompt the user to input the second binary number
+  System.out.print("Input second binary number: ");
+  binary2 = in.nextLong();
+
+  // Perform binary addition while there are digits in the binary numbers
+  while (binary1 != 0 || binary2 != 0) 
+  {
+   // Calculate the sum of binary digits and update the remainder
+   sum[i++] = (int)((binary1 % 10 + binary2 % 10 + remainder) % 2);
+   remainder = (int)((binary1 % 10 + binary2 % 10 + remainder) / 2);
+   binary1 = binary1 / 10;
+   binary2 = binary2 / 10;
+  }
+  
+  // If there is a remaining carry, add it to the sum
+  if (remainder != 0) {
+   sum[i++] = remainder;
+  }
+  
+  // Decrement the index to prepare for printing
+  --i;
+  
+  // Display the sum of the two binary numbers
+  System.out.print("Sum of two binary numbers: ");
+  while (i >= 0) {
+   System.out.print(sum[i--]);
+  }
+  
+  System.out.print("\n");  
+ }
+}
+```
+Explanation:
+
+In the exercise above -
+
+Initialize variables to store the two binary numbers ('binary1' and 'binary2'), an array 'sum' to store the sum, and other necessary variables.
+Takes two binary numbers from the user using the "Scanner" class.
+Next it enters a loop to perform binary addition from the least significant digit (rightmost) to the most significant digit (leftmost).
+Calculate the sum of the corresponding digits from both binary numbers and any remainder from the previous addition.
+Store the least significant digit of the sum in the 'sum' array.
+Update the remainder and divide both input binary numbers by 10 to move to the next digit.
+After the loop, if there's still a remainder left, it adds it to the 'sum' array.
+Prints the sum of the two binary numbers by iterating through the 'sum' array from the most significant digit to the least significant digit.
+The result is displayed as a binary number.
+
 Input Data:
 Input first binary number: 10
 Input second binary number: 11
@@ -553,6 +926,96 @@ Sum of two binary numbers: 101
 
 
 ### 18. Write a Java program to multiply two binary numbers.
+
+In digital electronics and  mathematics, a binary number is a number expressed in the base-2 numeral system or binary numeral system. This system uses only two symbols: typically 1 (one) and 0 (zero).
+
+Test Data:
+Input first binary number: 110
+Input second binary number: 101
+
+Sample Solution:
+
+Java Code:
+
+```java
+import java.util.Scanner;
+public class Exercise18 {
+ public static void main(String[] args) {
+  // Declare variables to store two binary numbers and the product
+  long binary1, binary2, multiply = 0;
+  
+  // Initialize digit and factor variables for processing binary2
+  int digit, factor = 1;
+  
+  // Create a Scanner object to read input from the user
+  Scanner in = new Scanner(System.in);
+  
+  // Prompt the user to input the first binary number
+  System.out.print("Input the first binary number: ");
+  binary1 = in.nextLong();
+  
+  // Prompt the user to input the second binary number
+  System.out.print("Input the second binary number: ");
+  binary2 = in.nextLong();
+  
+  // Process binary2 to calculate the product
+  while (binary2 != 0) {
+   digit = (int)(binary2 % 10);
+   if (digit == 1) {
+    binary1 = binary1 * factor;
+    multiply = binaryproduct((int) binary1, (int) multiply);
+   } else {
+    binary1 = binary1 * factor;
+   }
+   binary2 = binary2 / 10;
+   factor = 10;
+  }
+  
+  // Display the product of the two binary numbers
+  System.out.print("Product of two binary numbers: " + multiply + "\n");
+ }
+
+ // Method to calculate the product of two binary numbers
+ static int binaryproduct(int binary1, int binary2) {
+  int i = 0, remainder = 0;
+  int[] sum = new int[20];
+  int binary_prod_result = 0;
+
+  while (binary1 != 0 || binary2 != 0) {
+   sum[i++] = (binary1 % 10 + binary2 % 10 + remainder) % 2;
+   remainder = (binary1 % 10 + binary2 % 10 + remainder) / 2;
+   binary1 = binary1 / 10;
+   binary2 = binary2 / 10;
+  }
+
+  if (remainder != 0) {
+   sum[i++] = remainder;
+  }
+  
+  --i;
+  
+  while (i >= 0) {
+   binary_prod_result = binary_prod_result * 10 + sum[i--];
+  }
+
+  return binary_prod_result;
+ }
+}
+``` 
+
+Explanation:
+
+In the exercise above -
+
+Initialize variables to store the two binary numbers ('binary1' and 'binary2'), the result 'multiply', and other necessary variables.
+Take two binary numbers from the user using the Scanner class.
+Next, it enters a loop to perform binary multiplication by considering the digits of the second binary number one by one from right to left.
+For each digit in 'binary2', if it's 1, it multiplies 'binary1' by a factor. It computes the product using the "binaryproduct()" function.
+The helper function "binaryproduct()" calculates the binary product of two numbers and returns the result.
+If the digit in binary2 is 0, it still multiplies 'binary1' by the factor but doesn't perform the product calculation.
+It updates 'binary2' by moving to the next digit (right to left) and adjusting the factor.
+After the loop, it prints the product of the two binary numbers, which is stored in the multiply variable.
+
 Input Data:
 Input the first binary number: 10
 Input the second binary number: 11
@@ -562,6 +1025,67 @@ Product of two binary numbers: 110
 
 
 ### 19. Write a Java program to convert an integer number to a binary number.
+
+Decimal number: The decimal numeral system is the standard system for denoting integer and non-integer numbers. It is also called base-ten positional numeral system.
+
+Binary number: In digital electronics and  mathematics, a binary number is a number expressed in the base-2 numeral system or binary numeral system. This system uses only two symbols: typically 1 (one) and 0 (zero).
+
+Test Data:
+Input a Decimal Number : 5
+
+Pictorial Presentation: of decimal to binary number
+
+Java: Convert a decimal number to binary numbers
+Java: Decimal number to binary numbers
+Sample Solution:
+
+Java Code:
+```java		
+import java.util.Scanner;
+
+public class Exercise19 {
+    public static void main(String args[]) {
+        // Declare variables to store decimal number, quotient, and an array for binary digits
+        int dec_num, quot, i = 1, j;
+        int bin_num[] = new int[100];
+        
+        // Create a Scanner object to read input from the user
+        Scanner scan = new Scanner(System.in);
+
+        // Prompt the user to input a decimal number
+        System.out.print("Input a Decimal Number: ");
+        dec_num = scan.nextInt();
+
+        // Initialize the quotient with the decimal number
+        quot = dec_num;
+
+        // Convert the decimal number to binary and store binary digits
+        while (quot != 0) {
+            bin_num[i++] = quot % 2;
+            quot = quot / 2;
+        }
+
+        // Display the binary representation of the decimal number
+        System.out.print("Binary number is: ");
+        for (j = i - 1; j > 0; j--) {
+            System.out.print(bin_num[j]);
+        }
+        System.out.print("\n");
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+First the code takes an integer or decimal number ('dec_num') as input from the user using the "Scanner" class.
+It initializes an array 'bin_num' to store the binary digits of the converted number and other necessary variables.
+Next it enters a loop to perform the decimal-to-binary conversion:
+In each iteration, it calculates the remainder of 'dec_num' when divided by 2 (which gives the least significant binary digit) and stores it in the 'bin_num' array.
+It then updates 'dec_num' by dividing it by 2 (which effectively shifts it to the right).
+The loop continues until 'dec_num' becomes zero, effectively converting the entire decimal number to binary.
+After the loop, it prints the binary representation of the decimal number by iterating through the 'bin_num' array in reverse order (from the most significant digit to the least significant digit).
+
 Input Data:
 Input a Decimal Number : 5
 Expected Output
@@ -570,6 +1094,65 @@ Binary number is: 101
 
 
 ### 20. Write a Java program to convert a decimal number to a hexadecimal number.
+
+Decimal number: The decimal numeral system is the standard system for denoting integer and non-integer numbers. It is also called base-ten positional numeral system.
+
+Hexadecimal number: Hexadecimal is a positional numeral system with a radix, or base, of 16. It uses sixteen distinct symbols, most often the symbols 0-9 to represent values zero to nine, and A, B, C, D, E, F (or alternatively a, b, c, d, e, f) to represent values ten to fifteen.
+
+Test Data:
+Input a decimal number: 15
+
+Pictorial Presentation: Decimal to Hexadecimal number
+
+Java: Convert a decimal number to hexadecimal number
+Sample Solution:
+
+Java Code:
+```java
+import java.util.Scanner;
+
+public class Exercise20 {
+    public static void main(String args[]) {
+        // Declare variables to store decimal number and remainder
+        int dec_num, rem;
+        
+        // Initialize an empty string for the hexadecimal number
+        String hexdec_num = "";
+        
+        // Define the hexadecimal number digits
+        char hex[] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+        
+        // Create a Scanner object to read input from the user
+        Scanner in = new Scanner(System.in);
+
+        // Prompt the user to input a decimal number
+        System.out.print("Input a decimal number: ");
+        dec_num = in.nextInt();
+
+        // Convert the decimal number to hexadecimal
+        while (dec_num > 0) {
+            rem = dec_num % 16;
+            hexdec_num = hex[rem] + hexdec_num;
+            dec_num = dec_num / 16;
+        }
+        
+        // Display the hexadecimal representation of the decimal number
+        System.out.print("Hexadecimal number is: " + hexdec_num + "\n");
+    }
+}
+```
+Explanation:
+
+In the exercise above -
+
+It takes a decimal number ('dec_num') as input from the user using the "Scanner" class.
+It initializes an empty string 'hexdec_num' to store the hexadecimal representation and defines an array 'hex' containing hexadecimal digits (0-9 and A-F).
+It enters a loop to perform the decimal-to-hexadecimal conversion:
+In each iteration, it calculates the remainder of 'dec_num' when divided by 16 (which gives the hexadecimal digit) and appends it to the 'hexdec_num' string.
+It then updates 'dec_num' by dividing it by 16.
+The loop continues until 'dec_num' becomes zero, effectively converting the entire decimal number to hexadecimal.
+After the loop, it prints the hexadecimal representation of the decimal number stored in the 'hexdec_num' string.
+
 Input Data:
 Input a decimal number: 15
 Expected Output
