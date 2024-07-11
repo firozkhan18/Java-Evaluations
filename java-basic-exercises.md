@@ -4776,54 +4776,593 @@ Given num = 64, return true. Given num = 6, return false.
 
 ### 111. Write a Java program to add two numbers without arithmetic operators.
 Given x = 10 and y = 12; result = 22
+```java
+import java.util.Scanner;
 
+public class Example111 {
+    public static void main(String[] arg) {
+        int x, y; // Declare two integer variables, 'x' and 'y'
+        Scanner in = new Scanner(System.in); // Create a Scanner object for user input
+
+        System.out.print("Input first number: "); // Prompt the user to input the first number
+        x = in.nextInt(); // Read and store the first number from the user
+
+        System.out.print("Input second number: "); // Prompt the user to input the second number
+        y = in.nextInt(); // Read and store the second number from the user
+
+        while (y != 0) {
+            int carry = x & y; // Calculate the carry by bitwise AND operation between x and y
+            x = x ^ y; // Calculate the sum without considering the carry by bitwise XOR operation
+            y = carry << 1; // Calculate the carry for the next iteration by shifting it left by one position
+        }
+
+        System.out.print("Sum: " + x); // Print the sum of the two numbers
+        System.out.print("\n"); // Print a new line
+    }
+}
+```
 
 
 ### 112. Write a Java program to compute the number of trailing zeros in a factorial.
 7! = 5040, therefore the output should be 1
 
+```java
+import java.util.Scanner;
+
+public class Example112 {
+    public static void main(String[] arg) {
+        Scanner in = new Scanner(System.in); // Create a Scanner object for user input
+        System.out.print("Input a number: "); // Prompt the user to input a number
+        int n = in.nextInt(); // Read and store the user's input as 'n'
+        int n1 = n; // Create a copy of 'n' to preserve the original value
+        long ctr = 0; // Initialize a variable 'ctr' to count trailing zeros
+
+        while (n != 0) {
+            ctr += n / 5; // Count the number of trailing zeros by dividing 'n' by 5 and accumulating the result
+            n /= 5; // Reduce 'n' by dividing it by 5 for the next iteration
+        }
+        System.out.printf("Number of trailing zeros of the factorial %d is %d ", n1, ctr); // Print the result
+        System.out.printf("\n"); // Print a new line
+    }
+}
+```
 
 ### 113. Write a Java program to merge two given sorted arrays of integers and create another sorted array.
 array1 = [1,2,3,4]
 array2 = [2,5,7, 8]
 result = [1,2,2,3,4,5,7,8]
 
+```java
+import java.util.*;
+
+public class Example113 {
+    public static void main(String[] arg) {
+        // Declare two sorted integer arrays, array1 and array2
+        // array1 has 'm' elements but is large enough to accommodate 'm+n' elements
+        // array2 has 'n' elements
+        
+        // Declaration and instantiation of array1
+        int array1[] = new int[8];
+        
+        // Initialize the first four elements of array1
+        array1[0] = 1;
+        array1[1] = 2;
+        array1[2] = 3;
+        array1[3] = 4;
+        
+        // Initialize array2
+        int[] array2 = {2, 5, 7, 8};
+        
+        System.out.println("\nArray1: " + Arrays.toString(array1));
+        System.out.println("\nArray2: " + Arrays.toString(array2));
+        
+        // Define variables m and n
+        int m = 4, n = 4;
+        
+        // Initialize pointers for array1 (i) and array2 (j) and the index for merging (index)
+        int i = m - 1, j = n - 1, index = m + n - 1;
+        
+        // Merge the two arrays into array1
+        while (i >= 0 && j >= 0) {
+            if (array1[i] > array2[j]) {
+                array1[index--] = array1[i--];
+            } else {
+                array1[index--] = array2[j--];
+            }
+        }
+        
+        // Handle remaining elements in array1 (if any)
+        while (i >= 0) {
+            array1[index--] = array1[i--];
+        }
+        
+        // Handle remaining elements in array2 (if any)
+        while (j >= 0) {
+            array1[index--] = array2[j--];
+        }
+
+        System.out.println("\nMerged array: " + Arrays.toString(array1));
+    }
+}
+```
 
 ### 114. Write a Java program that rotates a string by an offset (rotate from left to right.
 
+```java
+import java.util.*;
 
+public class Example114 {
+    public static void main(String[] arg) {
+        // Input string
+        String str = "abcdef";
+        
+        // Convert the string to a character array
+        char[] A = str.toCharArray();
+        
+        // Define the offset for rotation
+        int offset = 3;
+        
+        // Calculate the length of the character array
+        int len = A.length;
+        
+        // Ensure that the offset is within the bounds of the array
+        offset %= len;
+        
+        // Reverse the first portion of the array
+        reverse(A, 0, len - offset - 1);
+        
+        // Reverse the second portion of the array
+        reverse(A, len - offset, len - 1);
+        
+        // Reverse the entire array to complete the rotation
+        reverse(A, 0, len - 1);
+        
+        // Print the rotated array
+        System.out.println("\n" + Arrays.toString(A));
+    }
+
+    // Helper function to reverse a portion of a character array
+    private static void reverse(char[] str, int start, int end) {
+        while (start < end) {
+            char temp = str[start];
+            str[start] = str[end];
+            str[end] = temp;
+            start++;
+            end--;
+        }
+    }
+}
+```
 ### 115. Write a Java program to check if a positive number is a palindrome or not.
 Input a positive integer: 151
 Is 151 is a palindrome number?
 true
+```java
+import java.util.*;
 
+public class test {
+    public static void main(String[] args) {
+        int num;
+        
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+        
+        // Prompt the user for a positive integer
+        System.out.print("Input a positive integer: ");
+        
+        // Read the integer entered by the user
+        int n = in.nextInt();
+        
+        // Display a message to check if the number is a palindrome
+        System.out.printf("Is %d a palindrome number?\n", n);
+        
+        // Check if the number is a palindrome and print the result
+        System.out.println(is_Palindrome(n));
+    }
+
+    // Function to reverse the digits of a number
+    public static int reverse_nums(int n) {
+        int reverse = 0;
+        while (n != 0) {
+            reverse *= 10;
+            reverse += n % 10;
+            n /= 10;
+        }
+        return reverse;
+    }
+
+    // Function to check if a number is a palindrome
+    public static boolean is_Palindrome(int n) {
+        return (n == reverse_nums(n));
+    }
+}
+```
 
 ### 116. Write a Java program that iterates integers from 1 to 100. For multiples of three print "Fizz" instead of the number and print "Buzz" for five. When the number is divided by three and five, print "fizz buzz".
 
+```java
+import java.util.*;
 
+public class Exercise116 {
+    public static void main(String[] args) {
+        // Iterate from 1 to 100
+        for (int i = 1; i <= 100; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                // Check if the number is divisible by both 3 and 5 (fizz buzz)
+                System.out.printf("\n%d: fizz buzz", i);
+            } else if (i % 5 == 0) {
+                // Check if the number is divisible by 5 (buzz)
+                System.out.printf("\n%d: buzz", i);
+            } else if (i % 3 == 0) {
+                // Check if the number is divisible by 3 (fizz)
+                System.out.printf("\n%d: fizz", i);
+            }
+        }
+        System.out.printf("\n");
+    }
+}
+```
 ### 117. Write a Java program to compute the square root of a given number.
 Input a positive integer: 25
 Square root of 25 is: 5
+```java
+import java.util.*;
 
+public class Exercise117 {
+    public static void main(String[] args) {
+        int num;
+        Scanner in = new Scanner(System.in);
+
+        // Prompt the user to input a positive integer
+        System.out.print("Input a positive integer: ");
+        int n = in.nextInt(); 
+
+        // Print a message indicating the calculation about to take place
+        System.out.printf("Square root of %d is: ", n);
+
+        // Call the sqrt method to calculate the square root and print the result
+        System.out.println(sqrt(n)); 
+    }
+
+    // Method to calculate the square root of a number
+    private static int sqrt(int num) {
+        if (num == 0 || num == 1) {
+            return num;
+        }
+        int a = 0;
+        int b = num;
+
+        // Perform a binary search to find the square root
+        while (a <= b) {
+            int mid = (a + b) >> 1;
+            if (num / mid < mid) {
+                b = mid - 1;
+            } else {
+                if (num / (mid + 1) <= mid) {
+                    return mid;
+                }
+                a = mid + 1;
+            }
+        }
+        return a;
+    }
+}
+```
 
 ### 118. Write a Java program to get the first occurrence (Position starts from 0.) of a string within a given string.
+```java
+import java.util.Scanner;
 
+public class Main {
+    public static void main(String[] args) {
+        // Define two strings, 's' and 't'
+   		String s = "Python";
+   		//String t = "Py";
+   		  String t = "yt";
+   		// String t = "ab";
+        // Call the 'strStr' function with 's' and 't' as arguments and print the result
+        System.out.printf(String.valueOf(strStr(s, t)));
+    }
+
+    public static int strStr(String source, String target) {
+        // Check if either 'source' or 'target' is null
+        if (source == null || target == null) {
+            return -1; // Return -1 if either of them is null
+        }
+        
+        // Check if 'target' is an empty string or is equal to 'source'
+        if ("".equals(target) || source.equals(target)) {
+            return 0; // Return 0 if 'target' is empty or equal to 'source'
+        }
+        
+        int i = 0;
+        int last = source.length() - target.length() + 1;
+
+        // Iterate through 'source' while there are characters left to compare
+        while (i < last) {
+            if (source.charAt(i) == target.charAt(0)) {
+                boolean equal = true;
+
+                // Check if characters in 'source' match 'target' from the current position
+                for (int j = 0; j < target.length() && equal; ++j) {
+                    if (source.charAt(i + j) != target.charAt(j)) {
+                        equal = false;
+                    }
+                }
+
+                // If 'target' matches a substring of 'source', return the starting index
+                if (equal) {
+                    return i;
+                }
+            }
+            ++i;
+        }
+
+        // If 'target' is not found in 'source', return -1
+        return -1;
+    }
+}
+```
 
 ### 119. Write a Java program to get the first occurrence (Position starts from 0.) of an element of a given array.
-
+```java
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        // Declare an array of integers 'nums' and an integer 'target'
+        int nums[] = {2, 4, 6, 7, 8};
+        int target = 7;
+        
+        // Initialize 'lower' to the start of the array and 'upper' to the end of the array
+        int lower = 0;
+        int upper = nums.length - 1;
+        
+        // Initialize 'index' to -1; it will store the position of the 'target'
+        int index = -1;
+        
+        // Perform a binary search to find the 'target' in the 'nums' array
+        while (lower <= upper) {
+            // Calculate the middle index 'mid'
+            int mid = (lower + upper) >> 1;
+            
+            // Check if 'nums[mid]' is equal to the 'target'
+            if (nums[mid] == target) {
+                index = mid; // Set 'index' to the position of the 'target'
+            }
+            
+            // Adjust 'lower' and 'upper' based on the comparison with 'target'
+            if (nums[mid] >= target) {
+                upper = mid - 1; // Move 'upper' to the left half
+            } else {
+                lower = mid + 1; // Move 'lower' to the right half
+            }
+        }
+        
+        // Print the position of the 'target' in the array
+        System.out.print("Position of " + target + " is " + index);
+    }
+}
+```
 
 ### 120. Write a Java program that searches for a value in an m x n matrix.
-
+```java
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        // Initialize the 'target' value for searching
+        int target = 0;
+        
+        // Create a 3x3 matrix and populate it with values
+        int[][] matrix = new int[3][3];
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                matrix[row][col] = (1 + row * 3 + col);
+            }
+        }
+        
+        // Display the contents of the matrix
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                System.out.print(matrix[row][col] + " ");
+                if (col == 2) {
+                    System.out.println();
+                }
+            }
+        }
+        
+        // Print the result of the 'searchMatrix' function
+        System.out.print(Boolean.toString(searchMatrix(matrix, target)));
+    }
+    
+    public static boolean searchMatrix(int[][] matrix, int target) {
+        // Check if the matrix is empty or has no columns
+        if (matrix.length == 0 || matrix[0].length == 0) {
+            return false;
+        }
+        
+        // Get the number of rows 'm' and columns 'n' in the matrix
+        int m = matrix.length;
+        int n = matrix[0].length;
+        
+        // Initialize 'lower' and 'higher' for binary search
+        int lower = 0;
+        int higher = m * n - 1;
+        
+        // Perform binary search to find 'target' in the matrix
+        while (lower <= higher) {
+            int mid = (lower + higher) >> 1;
+            int val = matrix[mid / n][mid % n];
+            if (val == target) {
+                return true;
+            }
+            if (val < target) {
+                lower = mid + 1;
+            } else {
+                higher = mid - 1;
+            }
+        }
+        
+        // If 'target' is not found, return false
+        return false;
+    }
+}
+```
 
 ### 121. Write a Java program to reverse a linked list.
 Example: For linked list 20->40->60->80, the reversed linked list is 80->60->40->20
+```java
+class LinkedList {
+    // Static variable to store the head of the linked list
+    static Node head;
 
+    static class Node {
+        int data;         // Data stored in the node
+        Node next_node;   // Reference to the next node
+
+        Node(int d) {
+            data = d;
+            next_node = null;
+        }
+    }
+
+    // Function to reverse the linked list
+    Node reverse(Node node) {
+        Node prev_node = null;
+        Node current_node = node;
+        Node next_node = null;
+        while (current_node != null) {
+            next_node = current_node.next_node;
+            current_node.next_node = prev_node;
+            prev_node = current_node;
+            current_node = next_node;
+        }
+        node = prev_node;
+        return node;
+    }
+
+    // Function to print the elements of the linked list
+    void printList(Node node) {
+        while (node != null) {
+            System.out.print(node.data + " ");
+            node = node.next_node;
+        }
+    }
+
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+        
+        // Create a linked list with some initial values
+        list.head = new Node(20);
+        list.head.next_node = new Node(40);
+        list.head.next_node.next_node = new Node(60);
+        list.head.next_node.next_node.next_node = new Node(80);
+        
+        // Print the original linked list
+        System.out.println("Original Linked list:");
+        list.printList(head);
+        
+        // Reverse the linked list
+        head = list.reverse(head);
+        
+        System.out.println("");
+        // Print the reversed linked list
+        System.out.println("Reversed Linked list:");
+        list.printList(head);
+    }
+}
+```
 
 ### 122. Write a Java program to find a contiguous subarray with the largest sum from a given array of integers.
 Note: In computer science, the maximum subarray problem is the task of finding the contiguous subarray within a one-dimensional array of numbers which has the largest sum. For example, for the sequence of values −2, 1, −3, 4, −1, 2, 1, −5, 4; the contiguous subarray with the largest sum is 4, −1, 2, 1, with sum 6. The subarray should contain one integer at least. 
 
-### 123. Write a Java program to find the subarray with smallest sum from a given array of integers.
+The subarray should contain one integer at least.
 
+Pictorial Presentation:
+
+Java Basic Exercises: Find a contiguous subarray with largest sum from a given array of integers
+Sample Solution:
+
+Java Code:
+```java
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        // Input array
+        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        // Find and print the maximum subarray sum
+        System.out.print(max_SubArray(nums)); 
+    }
+
+    public static int max_SubArray(int[] nums) {
+        // Check if the input array is empty
+        if (nums.length < 1) {
+            return 0;
+        }
+        // Initialize variables to track the maximum sum, its start and end indices
+        int max = nums[0];
+        int max_Begin = 0;
+        int max_End = 0;
+        int begin = 0;
+        int end = 0;
+        int sum = 0;
+        
+        while (end < nums.length) {
+            // Update the current sum with the value at the current end index
+            sum += nums[end];
+            if (sum < 0) {
+                // If the current sum becomes negative, reset it and update the beginning index
+                sum = 0;
+                begin = end + 1;
+            } else {
+                // If the current sum is greater than the maximum, update the maximum
+                if (sum > max) {
+                    max = sum;
+                    max_Begin = begin;
+                    max_End = end;
+                }
+            }
+            end++;
+        }
+        // Return the maximum sum of the subarray
+        return max;
+    }
+}
+```
+
+### 123. Write a Java program to find the subarray with smallest sum from a given array of integers.
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // Create an ArrayList to store integers
+        ArrayList nums = new ArrayList();
+        nums.add(-2);
+        nums.add(1);
+        nums.add(-3);
+        nums.add(4);
+        // Call the min_SubArray function and print the result
+        System.out.print(min_SubArray(nums)); 
+    }
+
+    public static int min_SubArray(ArrayList nums) { 
+        // Create an array to store the same integers for dynamic programming
+        int[] nums1 = new int[nums.size()];
+        nums1[0] = nums.get(0);
+        // Initialize the minimum value to the first element
+        int min = nums1[0];
+        // Loop through the ArrayList to calculate minimum subarray sum
+        for (int i = 1; i < nums.size(); ++i) {
+            // Calculate the minimum of the current element and the sum of the previous subarray
+            nums1[i] = Math.min(nums.get(i), nums.get(i) + nums1[i - 1]);
+            // Update the minimum value if needed
+            min = Math.min(min, nums1[i]);
+        }
+        // Return the minimum subarray sum
+        return min;
+    }
+}
+```
 
 ### 124. Write a Java program to find the index of a value in a sorted array. If the value does not find return the index where it would be if it were inserted in order.
 Example:
@@ -4831,6 +5370,53 @@ Example:
 [1, 2, 4, 5, 6] 0(target) -> 0(index)
 [1, 2, 4, 5, 6] 7(target) -> 5(index)
 
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // Create an array of integers
+        int[] nums = {1, 2, 4, 5, 6};
+       int target = 5;
+     // target = 0;
+     // target = 7;
+     // Call the searchInsert function and print the result
+        System.out.print(searchInsert(nums, target)); 
+    }
+
+    public static int searchInsert(int[] nums1, int target) {
+        // Check if the input array is empty or null
+        if (nums1 == null || nums1.length == 0) {
+            return 0;
+        }
+        // Initialize variables for binary search
+        int start = 0;
+        int end = nums1.length - 1;
+        int mid = start + (end - start) / 2;
+
+        while (start + 1 < end) {
+            mid = start + (end - start) / 2;
+            // Compare the middle element with the target
+            if (nums1[mid] == target) {
+                return mid;
+            } else if (nums1[mid] > target) {
+                end = mid;
+            } else {
+                start = mid;
+            }
+        }
+        
+        // Determine the insertion position based on binary search results
+        if (nums1[start] >= target) {
+            return start;
+        } else if (nums1[start] < target && target <= nums1[end]) {
+            return end;
+        } else {
+            return end + 1;
+        }
+    }
+}
+```
 
 ### 125. Write a Java program to get the preorder traversal of the values of the nodes in a binary tree.
 Example:
@@ -4841,6 +5427,71 @@ Example:
 40   50
 Expected output: 10 20 40 50 30
 
+```java
+class Node
+{
+    int key;
+    Node left, right;
+
+    public Node(int item)
+    {
+        // Constructor to create a new Node with the given item
+        key = item;
+        left = right = null;
+    }
+}
+
+class BinaryTree
+{
+    Node root;
+
+    BinaryTree()
+    {
+        // Constructor to create an empty binary tree
+        root = null;
+    }
+
+    void print_Preorder(Node node)
+    {
+        if (node == null)
+            return;
+
+        // Print the key of the current node
+        System.out.print(node.key + " ");
+
+        // Recursively print the left subtree in preorder
+        print_Preorder(node.left);
+
+        // Recursively print the right subtree in preorder
+        print_Preorder(node.right);
+    }
+
+    void print_Preorder()  
+    {   
+        // Wrapper method to start printing the tree in preorder
+        print_Preorder(root); 
+    }
+
+    public static void main(String[] args)
+    {
+        BinaryTree tree = new BinaryTree();
+        
+        // Create a binary tree with nodes and keys
+        tree.root = new Node(55);
+        tree.root.left = new Node(21);
+        tree.root.right = new Node(80);
+        tree.root.left.left = new Node(9);
+        tree.root.left.right = new Node(29);
+        tree.root.right.left = new Node(76);
+        tree.root.right.right = new Node(91);
+
+        // Display a message and initiate the preorder traversal
+        System.out.println("Preorder traversal of binary tree is: ");
+        tree.print_Preorder();
+    }
+}
+```
+
 ### 126. Write a Java program to get the in-order traversal of its nodes' values in a binary tree.
     10
    / \
@@ -4849,6 +5500,70 @@ Expected output: 10 20 40 50 30
 40   50
 Example:{10, 20, 30, 40, 50}
 Output: 40 20 50 10 30
+```java
+class Node
+{
+    int key;
+    Node left, right;
+
+    public Node(int item)
+    {
+        // Constructor to create a new Node with the given item
+        key = item;
+        left = right = null;
+    }
+}
+
+class BinaryTree
+{
+    Node root;
+
+    BinaryTree()
+    {
+        // Constructor to create an empty binary tree
+        root = null;
+    }
+
+    void print_Inorder(Node node)
+    {
+        if (node == null)
+            return;
+
+        // Recursively print the left subtree in inorder
+        print_Inorder(node.left);
+
+        // Print the key of the current node
+        System.out.print(node.key + " ");
+
+        // Recursively print the right subtree in inorder
+        print_Inorder(node.right);
+    }
+
+    void print_Inorder()
+    {     
+        // Wrapper method to start printing the tree in inorder
+        print_Inorder(root);     
+    }
+
+    public static void main(String[] args)
+    {
+        BinaryTree tree = new BinaryTree();
+
+        // Create a binary tree with nodes and keys
+        tree.root = new Node(55);
+        tree.root.left = new Node(21);
+        tree.root.right = new Node(80);
+        tree.root.left.left = new Node(9);
+        tree.root.left.right = new Node(29);
+        tree.root.right.left = new Node(76);
+        tree.root.right.right = new Node(91);
+
+        // Display a message and initiate the inorder traversal
+        System.out.println("\nInorder traversal of binary tree is: ");
+        tree.print_Inorder(); 
+    }
+}
+```
 
 ### 127. Write a Java program to get the Postorder traversal of its nodes' values in a binary tree.
     10
@@ -4857,21 +5572,198 @@ Output: 40 20 50 10 30
  / \
 40   50
 
+```java
+class Node
+{
+    int key;
+    Node left, right;
+
+    public Node(int item)
+    {
+        // Constructor to create a new Node with the given item
+        key = item;
+        left = right = null;
+    }
+}
+
+class BinaryTree
+{
+  // Root of Binary Tree
+    Node root;
+
+    BinaryTree()
+    {
+        // Constructor to create an empty binary tree
+        root = null;
+    }
+
+ void print_Postorder(Node node)
+    {
+        if (node == null)
+            return;
+
+        // Recursively print the left subtree in postorder
+        print_Postorder(node.left);
+
+        // Recursively print the right subtree in postorder
+        print_Postorder(node.right);
+
+        // Print the key of the current node
+        System.out.print(node.key + " ");
+    }
+
+ void print_Postorder()  
+	{   
+	   // Wrapper method to start printing the tree in postorder
+	   print_Postorder(root);  
+	}
+        public static void main(String[] args)
+    {
+       BinaryTree tree = new BinaryTree();
+
+        // Create a binary tree with nodes and keys
+        tree.root = new Node(55);
+        tree.root.left = new Node(21);
+        tree.root.right = new Node(80);
+        tree.root.left.left = new Node(9);
+        tree.root.left.right = new Node(29);
+        tree.root.right.left = new Node(76);
+        tree.root.right.right = new Node(91);
+
+        // Display a message and initiate the postorder traversal
+        System.out.println("\nPostorder traversal of binary tree is: ");
+        tree.print_Postorder();
+    }
+}
+```
 ### 128. Write a Java program to calculate the median of a non-sorted array of integers.
 Original array: [10, 2, 38, 22, 38, 23]
 Median of the said array of integers: 30
 Original array: [10, 2, 38, 23, 38, 23, 21]
 Median of the said array of integers: 23
 
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // Define and initialize an array of integers
+        int[] nums = {10, 2, 38, 22, 38, 23};
+        
+        // Display the original array
+        System.out.println("Original array: " + Arrays.toString(nums));
+        
+        // Calculate and display the median of the array
+        System.out.println("Median of the said array of integers: " + getMedian(nums));
+        
+        // Define and initialize another array of integers
+        int[] nums1 = {10, 2, 38, 23, 38, 23, 21};
+        
+        // Display the original array
+        System.out.println("\nOriginal array: " + Arrays.toString(nums1));
+        
+        // Calculate and display the median of the second array
+        System.out.println("Median of the said array of integers: " + getMedian(nums1));
+    }
+
+    public static int getMedian(int[] array) {
+        // Check if the length of the array is even
+        if (array.length % 2 == 0) {
+            // Calculate the median for even-sized arrays
+            int mid = array.length / 2;
+            return (array[mid] + array[mid - 1]) / 2;
+        }
+        // Calculate the median for odd-sized arrays
+        return array[array.length / 2];
+    }
+}
+```
 
 ### 129. Write a Java program to find a number that appears only once in a given array of integers. All numbers occur twice.
 Source Array : [10, 20, 10, 20, 30, 40, 40, 30, 50] 50 appears only once
 
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // Define an array of integers
+        int nums[] = {10, 20, 10, 20, 30, 40, 40, 30, 50};
+        
+        // Declare a variable to store the result
+        int result;
+        
+        // Display the source array
+        System.out.println("Source Array : " + Arrays.toString(nums));   
+        
+        // Calculate and display the number that appears only once
+        result = getSingleNumber(nums);
+        System.out.println("\n" + result + " appears only once.");
+    }
+
+    public static int getSingleNumber(int[] nums) {
+        // Check if the array is null or empty
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        
+        // Initialize the result to 0
+        int result = 0;
+        
+        // Calculate the number that appears only once using XOR (^) operator
+        for (int i = 0; i < nums.length; i++) {
+            result ^= nums[i];
+        }
+        
+        // Return the result
+        return result;
+    }
+}
+```
 
 ### 130. Write a Java program to find the maximum depth of a given binary tree.
 Sample Output: The Maximum depth of the binary tree is: 3
 
+```java
+class Node {
+    int data;
+    Node left, right;
 
+    public Node(int item) {
+        // Constructor to initialize a node with given data
+        data = item;
+        left = right = null;
+    }
+}
+
+public class BinaryTree {
+    Node root;
+
+    public int maxDepth(Node root) {
+        // Recursive function to calculate the maximum depth of the binary tree
+        if (root == null)
+            return 0;
+        int left_Depth = maxDepth(root.left);
+        int right_Depth = maxDepth(root.right);
+        int bigger = Math.max(left_Depth, right_Depth);
+        return bigger + 1;
+    }
+
+    public static void main(String args[]) {
+        BinaryTree tree = new BinaryTree();
+        tree.root = new Node(55);
+        tree.root.left = new Node(21);
+        tree.root.right = new Node(80);
+        tree.root.left.left = new Node(9);
+        tree.root.left.right = new Node(29);
+        tree.root.right.left = new Node(76);
+        tree.root.right.right = new Node(91);
+
+        // Create a binary tree and calculate its maximum depth
+        System.out.println("The Maximum depth of the binary tree is: " + tree.maxDepth(tree.root));
+    }
+}
+```
 ### 131. Write a Java program to find the updated length of a sorted array where each element appears only once (remove duplicates).
 Original array: [1, 1, 2, 3, 3, 3, 4, 5, 6, 7, 7] The length of the original array is: 11 After removing duplicates, the new length of the array is: 7
 
