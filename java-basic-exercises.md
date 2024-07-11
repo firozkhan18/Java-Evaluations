@@ -249,6 +249,99 @@ Expected Output :
 25 x 5 = 125
 
 ### 6. Write a Java program to print the sum (addition), multiply, subtract, divide and remainder of two numbers.
+
+```java
+public class Exercise6 {
+ 
+ public static void main(String[] args) {
+  // Create a Scanner object to read input from the user
+  Scanner in = new Scanner(System.in);
+   
+  // Prompt the user to input the first number
+  System.out.print("Input first number: ");
+  // Read and store the first number
+  int num1 = in.nextInt();
+   
+  // Prompt the user to input the second number
+  System.out.print("Input second number: ");
+  // Read and store the second number
+   
+  // Calculate and print the sum of the two numbers
+  System.out.println(num1 + " + " + num2 + " = " + (num1 + num2));
+   
+  // Calculate and print the difference of the two numbers
+  System.out.println(num1 + " - " + num2 + " = " + (num1 - num2));
+   
+  // Calculate and print the product of the two numbers
+  System.out.println(num1 + " x " + num2 + " = " + (num1 * num2));
+   
+  // Calculate and print the division of the two numbers
+  System.out.println(num1 + " / " + num2 + " = " + (num1 / num2));
+ 
+  // Calculate and print the remainder of the division of the two numbers
+  System.out.println(num1 + " mod " + num2 + " = " + (num1 % num2);
+ }
+} 
+```
+Explanation:
+
+In the exercise above -
+
+It takes two integer numbers as input from the user using the Scanner class.
+```
+Scanner in = new Scanner(System.in);
+System.out.print("Input first number: ");
+int num1 = in.nextInt();
+System.out.print("Input second number: ");
+System.out.println(num1 + " + " + num2 + " = " + (num1 + num2)); - It calculates and displays the sum of the two numbers.
+System.out.println(num1 + " - " + num2 + " = " + (num1 - num2)); - It calculates and displays the difference between the two numbers.
+System.out.println(num1 + " x " + num2 + " = " + (num1 * num2)); - It calculates and displays the product of the two numbers.
+System.out.println(num1 + " / " + num2 + " = " + (num1 / num2)); - It calculates and displays the result of dividing the first number by the second number.
+System.out.println(num1 + " mod " + num2 + " = " + (num1 % num2)); - It calculates and displays the remainder (modulus) when the first number is divided by the second number.
+```
+
+```java
+import java.util.Scanner;
+
+public class Main {
+ public static void main(String[] args) {
+  // Create a Scanner object to read input from the user
+  Scanner scanner = new Scanner(System.in);
+  
+  // Prompt the user to input the first number
+  System.out.println("Input the first number: ");
+  
+  // Read and store the first number
+  int n1 = scanner.nextInt();
+  
+  // Prompt the user to input the second number
+  System.out.println("Input the second number: ");
+  
+  // Read and store the second number
+  
+  // Calculate the sum of the two numbers
+  int sum = n1 + n2;
+  
+  // Calculate the difference of the two numbers
+  int minus = n1 - n2;
+  
+  // Calculate the product of the two numbers
+  int multiply = n1 * n2;
+  
+  // Calculate the addition of the two numbers (Note: This comment may be a typo; it seems similar to the "sum" calculation)
+  int subtract = n1 + n2;
+  
+  // Calculate the division of the two numbers
+  int divide = n1 / n2;
+  
+  // Calculate the remainder when dividing the two numbers
+  int rnums = n1 % n2;
+  
+  // Display the results of the calculations
+  System.out.printf("Sum = %d\nMinus = %d\nMultiply = %d\nSubtract = %d\nDivide = %d\nRemainderOf2Numbers = %d\n ", sum, minus, multiply, subtract, divide, rnums);
+ }
+}
+```
 Test Data:
 Input first number: 125
 Input second number: 24
@@ -262,6 +355,59 @@ Expected Output :
 
 
 ### 7. Write a Java program that takes a number as input and prints its multiplication table up to 10.
+```java
+import java.util.Scanner;
+ 
+public class Exercise7 {
+ 
+ public static void main(String[] args) {
+  // Create a Scanner object to read input from the user
+  Scanner in = new Scanner(System.in);
+   
+  // Prompt the user to input a number
+  System.out.print("Input a number: ");
+  
+  // Read and store the input number
+  int num1 = in.nextInt();
+   
+  // Use a loop to calculate and print the multiplication table for the input number
+  for (int i = 0; i < 10; i++) {
+     // Calculate and print the result of num1 multiplied by (i+1)
+     System.out.println(num1 + " x " + (i + 1) + " = " + (num1 * (i + 1)));
+  }
+ }
+}
+```
+Explanation:
+
+In the exercise above -
+
+It takes an integer number as input from the user using the Scanner class.
+It then enters a for loop that iterates 10 times (for values of i from 0 to 9).
+Inside the loop, it calculates and prints the result of multiplying the input number by i+1, displaying a multiplication table for the input number from 1 to 10.
+```java
+import java.util.Scanner;
+
+public class Main {
+
+ public static void main(String[] args) {
+  // Create a Scanner object to read input from the user
+  Scanner in = new Scanner(System.in);
+  
+  // Prompt the user to input a number
+  System.out.println("Input the Number: ");
+  
+  // Read and store the input number
+  int n = in.nextInt();
+  
+  // Use a loop to generate and print the multiplication table for the input number
+  for (int i = 1; i <= 10; i++) {
+     // Calculate and print the result of n multiplied by i
+     System.out.println(n + "*" + i + " = " + (n * i));
+  }
+ }
+}
+```
 Test Data:
 Input a number: 8
 Expected Output :
@@ -281,18 +427,58 @@ Sample Pattern :
    J   a a   v   v  a a                                                 
 J  J  aaaaa   V V  aaaaa                                                
  JJ  a     a   V  a     a
- 
 
+```java
+ public class Exercise8 {
+ 
+    public static void main(String[] args) {
+        // Display the characters to form the text "Java" in a specific pattern
+        System.out.println("   J    a   v     v  a ");
+        System.out.println("   J   a a   v   v  a a");
+        System.out.println("J  J  aaaaa   V V  aaaaa");
+        System.out.println(" JJ  a     a   V  a     a");
+    }
+} 
+```
 
 ### 9. Write a Java program to compute the specified expressions and print the output.
+```java
+public class Exercise9 {
+ 
+    public static void main(String[] arg) {
+        // Calculate and print the result of a mathematical expression
+        System.out.println((25.5 * 3.5 - 3.5 * 3.5) / (40.5 - 4.5));
+    }
+} 
+```
+Explanation:
+
+The above Java code calculates and prints the result of the following mathematical expression:
+
+(25.5 * 3.5 - 3.5 * 3.5) / (40.5 - 4.5)
+
+The code performs arithmetic operations, including multiplication, subtraction, and division, and displays the final result. In this case, the result will be printed to the console.
+
 Test Data:
 ((25.5 * 3.5 - 3.5 * 3.5) / (40.5 - 4.5))
+
 Expected Output
 2.138888888888889
 
 
 
 ### 10. Write a Java program to compute a specified formula.
+```java
+public class Exercise10 { 
+    public static void main(String[] args) {
+        // Calculate the result of an alternating series and store it in 'result'
+        double result = 4.0 * (1 - (1.0/3) + (1.0/5) - (1.0/7) + (1.0/9) - (1.0/11));
+        
+        // Print the calculated result
+        System.out.println(result);
+    }
+}
+```
 Specified Formula :
 4.0 * (1 - (1.0/3) + (1.0/5) - (1.0/7) + (1.0/9) - (1.0/11))
 Expected Output
