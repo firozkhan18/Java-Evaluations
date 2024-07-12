@@ -16,6 +16,38 @@ Expected Output :
 ((false && false) || (true && true))-> true
 (false || false) && (true && true)-> false
 
+```java
+public class Solution {
+    public static void main(String[] args) {
+        // Calculate the result of (101 + 0) divided by 3
+        int r1 = (101 + 0) / 3;
+
+        // Calculate the result of 3.0e-6 multiplied by 10000000.1
+        double r2 = 3.0e-6 * 10000000.1;
+
+        // Determine if both operands (true and true) are true using the AND operator
+        boolean r3 = true && true;
+
+        // Determine if one operand is false among true and false using the AND operator
+        boolean r4 = false && true;
+
+        // Determine if at least one operand is true among different combinations using the OR and AND operators
+        boolean r5 = (false && false) || (true && true);
+
+        // Determine if both sets of operands separately evaluate to false and true, using OR and AND operators
+        boolean r6 = (false || false) && (true && true);
+        
+        // Display the results of the calculations
+        System.out.println("(101 + 0) / 3) -> " + r1);
+        System.out.println("(3.0e-6 * 10000000.1) -> " + r2);
+        System.out.println("(true && true) -> " + r3);
+        System.out.println("(false && true) -> " + r4);
+        System.out.println("((false && false) || (true && true)) -> " + r5);
+        System.out.println("(false || false) && (true && true) -> " + r6);
+    }
+} 
+```
+
 
 ### 152. Write a Java program that accepts four integers from the user and prints equal if all four are equal, and not equal otherwise.
 
@@ -27,7 +59,41 @@ Input third number: 45
 Input fourth number: 23
 Numbers are not equal!
 
+```java
+import java.util.Scanner;
 
+public class Solution {
+    public static void main(String[] args) {
+        // Creating a Scanner object to take input from the user
+        Scanner in = new Scanner(System.in);
+        
+        // Prompting the user to input the first number
+        System.out.print("Input first number: ");
+        int num1 = in.nextInt();
+        
+        // Prompting the user to input the second number
+        System.out.print("Input second number: ");
+        int num2 = in.nextInt();
+        
+        // Prompting the user to input the third number
+        System.out.print("Input third number: ");
+        int num3 = in.nextInt();
+        
+        // Prompting the user to input the fourth number
+        System.out.print("Input fourth number: ");
+        int num4 = in.nextInt();
+        
+        // Checking if all four numbers are equal
+        if (num1 == num2 && num2 == num3 && num3 == num4) {
+            // Printing a message if all numbers are equal
+            System.out.println("Numbers are equal.");
+        } else {
+            // Printing a message if numbers are not all equal
+            System.out.println("Numbers are not equal!");
+        }
+    }
+} 
+```
 
 ### 153. Write a Java program that accepts two double variables and test if both strictly between 0 and 1 and false otherwise.
 
@@ -37,6 +103,27 @@ Input second number: 1
 false
 
 
+```java
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        // Creating a Scanner object to take input from the user
+        Scanner in = new Scanner(System.in);
+        
+        // Prompting the user to input the first number
+        System.out.print("Input first number: ");
+        double n1 = in.nextDouble();
+        
+        // Prompting the user to input the second number
+        System.out.print("Input second number: ");
+        double n2 = in.nextDouble();
+        
+        // Checking if both numbers are greater than 0 and less than 1
+        System.out.println(n1 > 0 && n1 < 1 && n2 > 0 && n2 < 1);
+    }
+}
+```
 
 ### 154. Write a Java program to print the contents of a two-dimensional Boolean array where t represents true and f represents false.
 
@@ -49,6 +136,38 @@ f t f
 
 
 
+```java
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        // Creating a 2D boolean array with initial values
+        boolean[][] array = {{true, false, true},
+                             {false, true, false}};
+        
+        // Finding the number of rows in the array
+        int rows_length = array.length;
+        
+        // Finding the number of columns in the array by considering the length of the first row
+        int columns_length = array[0].length;
+        
+        // Looping through each element of the 2D array
+        for (int i = 0; i < rows_length; i++) {
+            for (int j = 0; j < columns_length; j++) {
+                // Checking if the current element is true or false and printing accordingly
+                if (array[i][j]) {
+                    System.out.print(" t "); // Printing " t " if true
+                } else {
+                    System.out.print(" f "); // Printing " f " if false
+                }
+            }
+            System.out.println(); // Moving to the next line after printing each row
+        }   
+    }
+}
+```
+
+
 ### 155. Write a Java program to print an array after changing the rows and columns of a two-dimensional array.
 
 Original Array:
@@ -58,14 +177,88 @@ After changing the rows and columns of the said array:10 40
 20 50
 30 60
 
+```java
+import java.util.Scanner;
 
+public class Solution {
+    public static void main(String[] args) {
+        // Initializing a 2D array with values
+        int[][] twodm = {
+                {10, 20, 30},
+                {40, 50, 60}
+        };
+        
+        // Displaying the original array
+        System.out.print("Original Array:\n");
+        print_array(twodm);
+        
+        // Performing transpose operation on the array
+        System.out.print("After changing the rows and columns of the said array:");
+        transpose(twodm);
+    }
+    
+    // Method to transpose the given 2D array
+    private static void transpose(int[][] twodm) {
+        // Creating a new 2D array to store the transposed elements
+        int[][] newtwodm = new int[twodm[0].length][twodm.length];
+        
+        // Transposing the elements of the array
+        for (int i = 0; i < twodm.length; i++) {
+            for (int j = 0; j < twodm[0].length; j++) {
+                newtwodm[j][i] = twodm[i][j];
+            }
+        }
+        
+        // Printing the transposed array
+        print_array(newtwodm);
+    }
+    
+    // Method to print the elements of a 2D array
+    private static void print_array(int[][] twodm) {
+        // Looping through the array and printing its elements
+        for (int i = 0; i < twodm.length; i++) {
+            for (int j = 0; j < twodm[0].length; j++) {
+                System.out.print(twodm[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+```
 
 ### 156. Write a Java program that returns the largest integer but not larger than the base-2 logarithm of a specified integer.
 
 Original Number: 2350
 Result: 115
 
+```java
+import java.util.Scanner;
 
+public class Solution {
+    
+    public static void main(String[] args) {
+        // Initializing an integer variable 'n' with the value 2350
+        int n = 2350;
+        
+        // Displaying the original number
+        System.out.printf("Original Number: %d\n", n);
+        
+        // Initializing a variable to count the number of right shifts
+        int shift_right_count = 0;
+        
+        // Performing right shift operations until 'n' becomes zero
+        do {
+            n >>= 1; // Right shifting 'n' by 1 bit
+            shift_right_count++; // Incrementing the shift count
+        } while (n != 0); // Loop continues until 'n' becomes zero
+        
+        shift_right_count--; // Decrementing the shift count by 1 to correct the count
+        
+        // Displaying the final result (shift count)
+        System.out.printf("Result: %s\r\n", shift_right_count);
+    }
+}
+```
 
 ### 157. Write a Java program to prove that Euclid’s algorithm computes the greatest common divisor of two integers that have positive values.
 
@@ -75,6 +268,39 @@ Expected Output:
 result: 24
 result: 1
 
+```java
+import java.util.Scanner;
+
+public class Solution {
+    // Method to find the greatest common divisor using Euclidean algorithm
+    public static int euclid(int x, int y) {
+        // If either of the numbers is zero, return 1 as a special case
+        if (x == 0 || y == 0) {
+            return 1;
+        }
+        
+        // If x is less than y, swap the values using a temporary variable
+        if (x < y) {
+            int t = x;
+            x = y;
+            y = t;
+        }
+        
+        // Check if x is divisible by y
+        if (x % y == 0) {
+            return y; // Return y if it evenly divides x
+        } else {
+            return euclid(y, x % y); // Recursively call the euclid method with y and the remainder of x/y
+        }
+    }
+
+    public static void main(String[] args) {
+        // Displaying the result of the Euclidean algorithm for specific pairs of numbers
+        System.out.println("result: " + euclid(48, 24));
+        System.out.println("result: " + euclid(125463, 9658));
+    }
+}
+```
 
 
 ### 158. Write a Java program to create a two-dimensional array (m x m) A[][] such that A[i][j] is false if I and j are prime otherwise A[i][j] becomes true.
@@ -84,7 +310,48 @@ true true true
 true true true
 true true false
 
+```java
+import java.util.Scanner;
 
+public class Solution {
+    // Method to determine if two numbers are relatively prime
+    public static int prime_cell(int a, int b) {
+        // If either number is zero, return 1 as a special case
+        if (a == 0 || b == 0) {
+            return 1;
+        }
+        
+        // If a is less than b, swap the values using a temporary variable
+        if (a < b) {
+            int t = a;
+            a = b;
+            b = t;
+        }
+        
+        // Check if a is divisible by b
+        if (a % b == 0) {
+            return b; // Return b if it evenly divides a
+        } else {
+            return prime_cell(b, a % b); // Recursively call prime_cell method with b and the remainder of a/b
+        }
+    }
+
+    public static void main(String[] args) {
+        int n = 3; // Initialize variable 'n' with value 3
+        boolean[][] A = new boolean[n][n]; // Create a 2D boolean array of size n x n
+        
+        // Loop through each element of the array
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                // Assign true if the result of prime_cell is 1 (relatively prime), otherwise assign false
+                A[i][j] = prime_cell(i, j) == 1;
+                System.out.print(A[i][j] + " "); // Print the value of the array element
+            }
+            System.out.println(); // Move to the next line after printing each row
+        }
+    }
+}
+```
 
 ### 159. Write a Java program to find the k largest elements in a given array. Elements in the array can be in any order.
 
@@ -94,7 +361,33 @@ Original Array:
 3 largest elements of the said array are:
 100 25 17
 
+```java
+import java.util.*;
 
+public class Solution {
+    public static void main(String[] args) {
+        // Initializing an array of integers
+        Integer arr[] = new Integer[]{1, 4, 17, 7, 25, 3, 100};
+        
+        int k = 3; // Initializing the value of 'k' as 3
+        
+        // Displaying the original array
+        System.out.println("Original Array: ");
+        System.out.println(Arrays.toString(arr));
+        
+        // Displaying the k largest elements of the array
+        System.out.println(k + " largest elements of the said array are:");
+        
+        // Sorting the array in reverse order using Collections.reverseOrder()
+        Arrays.sort(arr, Collections.reverseOrder());
+        
+        // Printing the k largest elements from the sorted array
+        for (int i = 0; i < k; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+```
 
 ### 160. Write a Java program to find the k smallest elements in a given array. Elements in the array can be in any order.
 
@@ -104,6 +397,33 @@ Original Array:
 3 largest elements of the said array are:
 100 25 17
 
+```java
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        // Initializing an array of integers
+        Integer arr[] = new Integer[]{1, 4, 17, 7, 25, 3, 100};
+        
+        int k = 3; // Initializing the value of 'k' as 3
+        
+        // Displaying the original array
+        System.out.println("Original Array: ");
+        System.out.println(Arrays.toString(arr));
+        
+        // Displaying the k smallest elements of the array
+        System.out.println(k + " smallest elements of the said array are:");
+        
+        // Sorting the array in ascending order
+        Arrays.sort(arr);
+        
+        // Printing the k smallest elements from the sorted array
+        for (int i = 0; i < k; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+```
 
 
 ### 161. Write a Java program to find the kth smallest and largest element in a given array. Elements in the array can be in any order.
@@ -116,7 +436,40 @@ K'th smallest element of the said array:
 K'th largest element of the said array:
 25
 
+```java
+import java.util.*;
 
+public class Solution {
+    public static void main(String[] args) {
+        // Initializing an array of integers
+        Integer arr[] = new Integer[]{1, 4, 17, 7, 25, 3, 100};
+        
+        int k = 2; // Initializing the value of 'k' as 2
+        
+        // Displaying the original array
+        System.out.println("Original Array: ");
+        System.out.println(Arrays.toString(arr));
+        
+        // Displaying the k'th smallest element of the array
+        System.out.println("K'th smallest element of the said array: ");
+        
+        // Sorting the array in ascending order
+        Arrays.sort(arr);
+        
+        // Printing the k'th smallest element from the sorted array
+        System.out.print(arr[k-1] + " ");
+        
+        // Displaying the k'th largest element of the array
+        System.out.println("\nK'th largest element of the said array:");
+        
+        // Sorting the array in descending order to find the k'th largest element
+        Arrays.sort(arr, Collections.reverseOrder());
+        
+        // Printing the k'th largest element from the sorted array
+        System.out.print(arr[k-1] + " ");
+    }
+}
+```
 
 ### 162. Write a Java program that finds numbers greater than the average of an array.
 
@@ -128,7 +481,34 @@ The numbers in the said array that are greater than the average are:
 25
 100
 
-
+```java
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        // Initializing an array of integers
+        Integer nums[] = new Integer[]{1, 4, 17, 7, 25, 3, 100};
+        double sum = 0; // Initializing the sum variable
+        // Displaying the original array
+        System.out.println("Original Array: ");
+        System.out.println(Arrays.toString(nums));
+        // Calculating the sum of elements in the array
+        for(int i = 0; i < nums.length; i++) {
+            sum = sum + nums[i];
+        }
+        // Calculating the average of the elements in the array
+        double average = (double) sum / nums.length;
+        // Displaying the average of the array
+        System.out.println("The average of the said array is: " + average);
+        System.out.println("The numbers in the said array that are greater than the average are: ");
+        // Printing numbers greater than the average in the array
+        for(int i = 0; i < nums.length; i++) {
+            if(nums[i] > average) {
+                System.out.println(nums[i]);
+            }
+        }
+    }
+}
+```
 
 ### 163. Write a Java program that will accept an integer and convert it into a binary representation. Now count the number of bits equal to zero in this representation.
 
@@ -137,7 +517,30 @@ Input first number: 25
 Binary representation of 25 is: 11001
 Number of zero bits: 2
 
+```java
+import java.util.Scanner;
 
+public class Solution {
+    // Method to count the number of zero bits in the binary representation of a number
+    public static int countBitsTozeroBasedOnString(int n) {
+        int ctr = 0; // Initialize counter to count zero bits
+        String binaryNumber = Integer.toBinaryString(n); // Convert integer 'n' to its binary representation
+        System.out.print("Binary representation of " + n + " is: " + binaryNumber); // Display binary representation
+        for (char ch : binaryNumber.toCharArray()) {
+            ctr += ch == '0' ? 1 : 0; // Increment counter for each '0' bit encountered
+        }
+        return ctr; // Return count of zero bits
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in); // Create Scanner object to take user input
+        System.out.print("Input first number: "); // Prompt user to input a number
+        int n = in.nextInt(); // Read input number
+
+        System.out.println("\nNumber of zero bits: " + countBitsTozeroBasedOnString(n)); // Display count of zero bits
+    }
+}
+```
 
 ### 164. Write a Java program to divide the two given integers using the subtraction operator.
 
@@ -146,6 +549,41 @@ Input the dividend: 625
 Input the divider: 25
 Result: 25.0
 
+```java
+import java.util.Scanner;
+
+public class Solution {
+    // Method to perform division using subtraction
+    public static float divide_using_subtraction(int dividend, int divider) {
+        if (divider == 0) {
+            return 0; // If the divider is zero, return 0 (division by zero error)
+        }
+        
+        float result = 0; // Initialize the result variable to store the quotient
+        
+        // Perform division using subtraction
+        while (dividend > divider) {
+            dividend -= divider; // Subtract the divider from the dividend
+            result++; // Increment the result (quotient)
+        }
+        
+        float decimalPart = (float) dividend / (float) divider; // Calculate the decimal part of the quotient
+        result += decimalPart; // Add the decimal part to the result
+        return result; // Return the final result (quotient)
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in); // Create Scanner object to take user input
+        System.out.print("Input the dividend: "); // Prompt user to input the dividend
+        int dividend = in.nextInt(); // Read input dividend
+        
+        System.out.print("Input the divider: "); // Prompt user to input the divider
+        int divider = in.nextInt(); // Read input divider
+        
+        System.out.println("\nResult: " + divide_using_subtraction(dividend, divider)); // Display the result of division
+    }
+}
+```
 
 
 ### 165. Write a Java program to move every positive number to the right and every negative number to the left of a given array of integers.
@@ -154,7 +592,48 @@ Expected Output:
 Original array: [-2, 3, 4, -1, -3, 1, 2, -4, 0]
 Result: [-4, -3, -2, -1, 0, 1, 2, 3, 4]
 
+```java
+import java.util.*;
 
+public class Solution {
+    // Method to split and sort an array
+    public static int[] split_sorting_array(int[] nums) {
+        // Check if the input array is null
+        if (nums == null) {
+            throw new IllegalArgumentException("Null array......!"); // Throw an exception for null array
+        }
+        
+        boolean flag = true; // Initialize flag to indicate array status
+        while (flag) {
+            flag = false; // Set flag to false initially
+            
+            // Iterate through the array to perform sorting
+            for (int j = 0; j < nums.length - 1; j++) {
+                if (nums[j] > nums[j + 1]) { // Check if the current element is greater than the next element
+                    swap(nums, j, j + 1); // Swap the elements if they are in the wrong order
+                    flag = true; // Set flag to true to indicate that swapping occurred
+                }
+            }
+        }
+        return nums; // Return the sorted array
+    }
+    
+    // Method to swap elements in the array
+    private static void swap(int[] nums, int left, int right) {
+        int temp = nums[right]; // Store the value of the right index in a temporary variable
+        nums[right] = nums[left]; // Assign the value of left index to the right index
+        nums[left] = temp; // Assign the stored value to the left index
+    }
+    
+    public static void main(String[] args) {
+        int[] nums = {-2, 3, 4, -1, -3, 1, 2, -4, 0}; // Initialize the input array
+        System.out.println("\nOriginal array: " + Arrays.toString(nums)); // Display the original array
+        
+        int[] result = split_sorting_array(nums); // Obtain the result of split and sorting
+        System.out.println("\nResult: " + Arrays.toString(result)); // Display the result
+    }
+}
+```
 
 ### 166. Write a Java program to transform a given integer into String format.
 
@@ -162,14 +641,116 @@ Expected Output:
 Input an integer: 35
 String format of the said integer: 35
 
+```java
+// Importing the required Java utilities package
+import java.util.*;
 
+// Defining a class named Solution
+public class Solution {
+  
+  // Method to convert an integer to a string
+  public static String transform_int_to_string(int n) {
+    boolean is_negative = false; // Initializing a boolean variable to determine if the number is negative
+    StringBuilder tsb = new StringBuilder(); // Creating a StringBuilder object to store the transformed string
+    
+    // Checking if the number is zero
+    if (n == 0) {
+      return "0"; // Returning "0" as the string representation if the number is zero
+    } else if (n < 0) {
+      is_negative = true; // Setting the flag to true if the number is negative
+    }
+    
+    n = Math.abs(n); // Converting the number to its absolute value
+    
+    // Converting the integer to its string representation digit by digit
+    while (n > 0) {
+      tsb.append(n % 10); // Appending the least significant digit to the StringBuilder
+      n /= 10; // Removing the least significant digit from the number
+    }
+    
+    // Appending a negative sign if the original number was negative
+    if (is_negative) {
+      tsb.append("-");
+    }
+    
+    // Reversing the StringBuilder and converting it to a string before returning
+    return tsb.reverse().toString();
+  }
+  
+  // The main method of the program
+  public static void main(String[] args) {
+    Scanner in = new Scanner(System.in); // Creating a Scanner object to read input from the user
+    
+    // Asking the user to input an integer
+    System.out.print("Input an integer: ");
+    int n = in.nextInt(); // Reading the integer input from the user
+    
+    // Displaying the string format of the input integer by calling the transformation method
+    System.out.println("String format of the said integer: " + transform_int_to_string(n));
+  }
+}
+```
 
 ### 167. Write a Java program to move every zero to the right side of a given array of integers.
 
 Original array: [0, 3, 4, 0, 1, 2, 5, 0]
 Result: [3, 4, 1, 2, 5, 0, 0, 0]
 
+```java
+// Importing the required Java utilities package
+import java.util.*;
 
+// Defining a class named Solution
+public class Solution {
+  
+  // Method to move all zeros in the array to the end
+  public static int[] move_zero(int[] nums) {
+    // Checking if the input array is null
+    if (nums == null) {
+      throw new IllegalArgumentException("Null array!"); // Throwing an exception for a null array
+    }
+    
+    boolean swap = true; // Initializing a boolean variable to track swapping operations
+    
+    // Loop to move zeros to the end of the array
+    while (swap) {
+      swap = false; // Resetting the swap flag for each iteration
+      
+      // Iterating through the array elements
+      for (int i = 0; i < nums.length - 1; i++) {
+        // Swapping non-zero elements with zeros to move zeros towards the end
+        if (nums[i] == 0 && nums[i + 1] != 0) {
+          swap(nums, i, i + 1); // Calling the swap method to perform the swap operation
+          swap = true; // Setting the swap flag to true after performing a swap
+        }
+      }
+    }
+    
+    return nums; // Returning the modified array
+  }
+  
+  // Private method to swap elements in the array
+  private static void swap(int[] nums, int a, int b) {
+    int temp = nums[a]; // Storing the value of nums[a] in a temporary variable
+    nums[a] = nums[b]; // Assigning the value of nums[b] to nums[a]
+    nums[b] = temp; // Assigning the value stored in the temporary variable to nums[b]
+  }
+  
+  // The main method of the program
+  public static void main(String[] args) {
+    int[] nums = {0, 3, 4, 0, 1, 2, 5, 0}; // Initializing an array with integers
+    
+    // Displaying the original array
+    System.out.println("\nOriginal array: " + Arrays.toString(nums));
+    
+    // Calling the move_zero method to move zeros to the end of the array
+    int[] result = move_zero(nums);
+    
+    // Displaying the resulting array after moving zeros to the end
+    System.out.println("\nResult: " + Arrays.toString(result));
+  }
+}
+```
 
 ### 168. Write a Java program to multiply two given integers without using the multiply operator (*).
 
@@ -177,21 +758,163 @@ Input the first number: 25
 Input the second number: 5
 Result: 125
 
+```java
+// Importing the required Java utilities package
+import java.util.*;
 
+// Defining a class named Solution
+public class Solution {
+  
+  // Method to multiply two integers without using the multiplication operator
+  public static int multiply(int n1, int n2) {
+    int result = 0; // Initializing the variable to store the result of multiplication
+    boolean negative_num = (n1 < 0 && n2 >= 0) || (n2 < 0 && n1 >= 0); // Checking if the result will be negative
+    boolean positive_num = !negative_num; // Determining if the result will be positive
+    
+    n1 = Math.abs(n1); // Converting n1 to its absolute value to simplify multiplication
+    
+    // Loop to perform multiplication without using the * operator
+    for (int i = 0; i < n1; i++) {
+      // Handling the addition or subtraction based on the signs of the numbers
+      if (negative_num && n2 > 0 || positive_num && n2 < 0)
+        result -= n2; // Subtracting n2 from the result
+      else
+        result += n2; // Adding n2 to the result
+    }
+
+    return result; // Returning the final result of multiplication
+ }
+
+  // The main method of the program
+  public static void main(String[] args) {
+    Scanner in = new Scanner(System.in); // Creating a Scanner object to read input from the user
+    
+    // Asking the user to input the first number
+    System.out.print("Input the first number: ");
+    int n1 = in.nextInt(); // Reading the first integer input from the user
+    
+    // Asking the user to input the second number
+    System.out.print("Input the second number: ");
+    int n2 = in.nextInt(); // Reading the second integer input from the user
+    
+    // Displaying the result of the multiplication by calling the multiply method
+    System.out.println("\nResult: " + multiply(n1, n2));
+  }
+}
+```
 
 ### 169. Write a Java program to reverse a sentence (assume a single space between two words) without reverse every word.
 
 Input a string: The quick brown fox jumps over the lazy dog
 Result: dog lazy the over jumps fox brown quick The
 
+```java
+// Importing the required Java utilities package
+import java.util.*;
 
+// Defining a class named Solution
+public class Solution {
+  
+  // Method to reverse the words in a given string
+  public static String reverse_str_word(String input_sentence) {
+    // Checking if the input string is null
+    if (input_sentence == null) {
+      throw new IllegalArgumentException("Input param can't be null."); // Throwing an exception for null input
+    }
+    
+    StringBuilder stringBuilder = new StringBuilder(); // Creating a StringBuilder to store the reversed string
+    String[] words = input_sentence.split(" "); // Splitting the input sentence into words based on spaces
+    
+    // Loop to append words in reverse order to the StringBuilder
+    for (int i = words.length - 1; i >= 0; i--) {
+      stringBuilder.append(words[i]); // Appending each word in reverse order
+      
+      if (i != 0) {
+        stringBuilder.append(" "); // Adding space between words except for the last word
+      }
+    }
+    
+    return stringBuilder.toString(); // Returning the reversed string of words
+  }
+  
+  // The main method of the program
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in); // Creating a Scanner object to read input from the user
+    
+    // Asking the user to input a string
+    System.out.print("Input a string: ");
+    String input = scanner.nextLine(); // Reading the input string from the user
+    
+    // Displaying the result by reversing the words in the input string
+    System.out.println("\nResult: " + reverse_str_word(input));
+  }
+}
+```
 
 ### 170. Write a Java program to find the length of the longest consecutive sequence in a given array of integers.
 
 Original array: [1, 1, 2, 3, 3, 4, 5, 2, 4, 5, 6, 7, 8, 9, 6, -1, -2]
 7
 
+```java
+// Importing the required Java utilities package
+import java.util.*;
 
+// Defining a class named Solution
+public class Solution {
+
+  // Method to find the length of the longest sequence in an array
+  public static int longest_sequence(int[] nums) {
+    // Checking if the input array is null
+    if (nums == null) {
+      throw new IllegalArgumentException("Null array..!"); // Throwing an exception for a null array
+    }
+    
+    // Checking if the array is empty
+    if (nums.length == 0) {
+      return 0; // Returning 0 if the array is empty
+    }
+    
+    boolean flag = false; // Initializing a flag to track the presence of a sequence
+    int result = 0; // Initializing the variable to store the length of the longest sequence
+    int start = 0, end = 0; // Initializing variables to track the start and end of a sequence
+
+    // Loop to iterate through the array elements
+    for (int i = 1; i < nums.length; i++) {
+      // Checking if the current element is greater than the previous element
+      if (nums[i - 1] < nums[i]) {
+        end = i; // Updating the end of the sequence if the condition is met
+      } else {
+        start = i; // Updating the start of the sequence if the condition is not met
+      }
+      
+      // Checking if the length of the current sequence is greater than the stored result
+      if (end - start > result) {
+        flag = true; // Setting the flag to indicate the presence of a longer sequence
+        result = end - start; // Updating the result with the length of the longer sequence
+      }
+    }
+    
+    // Returning the length of the longest sequence
+    if (flag) {
+      return result + 1; // Adding 1 to the result if a sequence is found
+    } else {
+      return result; // Returning the result if no sequence is found
+    }
+  }
+
+  // The main method of the program
+  public static void main(String[] args) {
+    int[] nums = { 1, 1, 2, 3, 3, 4, 5, 2, 4, 5, 6, 7, 8, 9, 6, -1, -2 }; // Initializing an array
+    
+    // Displaying the original array
+    System.out.println("\nOriginal array: " + Arrays.toString(nums));
+    
+    // Finding and displaying the length of the longest sequence in the array
+    System.out.println(longest_sequence(nums));
+  }
+}
+```
 
 ### 171. Write a Java program to accept two strings and test if the second string contains the first one.
 
@@ -199,7 +922,57 @@ Input first string: Once in a blue moon
 Input second string: See eye to eye
 If the second string contains the first one? false
 
+```java
+// Importing the required Java utilities package
+import java.util.*;
 
+// Defining a class named Solution
+public class Solution {
+  
+  // Method to check if one string contains another string
+  public static boolean is_str_contains(String str1, String str2) {
+    // Checking if either of the input strings is null
+    if (str1 == null || str2 == null) {
+      throw new IllegalArgumentException("You can't pass null strings as input."); // Throwing an exception for null input strings
+    }
+    
+    boolean ans = false; // Initializing a boolean variable to store the result
+    
+    // Loop to iterate through the characters of str2
+    for (int i = 0; i < str2.length() - 1; i++) {
+      // Checking if the current character in str2 matches the first character of str1
+      if (str2.charAt(i) == str1.charAt(0)) {
+        // Loop to compare str1 with a substring of str2 starting from the current character
+        for (int j = 0; j < str1.length(); j++) {
+          // Checking if the characters of str1 match with the corresponding substring of str2
+          if ((i + j) < str2.length() && str1.charAt(j) == str2.charAt(i + j) && j == str1.length() - 1) {
+            ans = true; // Setting the result to true if str1 is found in str2
+            break; // Exiting the loop once the match is found
+          }
+        }
+      }
+    }
+    
+    return ans; // Returning the result indicating whether str2 contains str1
+  }
+
+  // The main method of the program
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in); // Creating a Scanner object to read input from the user
+    
+    // Asking the user to input the first string
+    System.out.print("Input first string: ");
+    String str1 = scanner.nextLine(); // Reading the first string input from the user
+    
+    // Asking the user to input the second string
+    System.out.print("Input second string: ");
+    String str2 = scanner.nextLine(); // Reading the second string input from the user
+    
+    // Checking and displaying if the second string contains the first one
+    System.out.println("If the second string contains the first one? " + is_str_contains(str1, str2));
+  }
+}
+```
 
 ### 172. Write a Java program to get the number of elements in a given array of integers that are smaller than the integer in another given array of integers.
 
@@ -208,6 +981,64 @@ Expected Output:
 3
 7
 
+```java
+// Importing necessary Java utilities
+import java.util.ArrayList;
+import java.util.Arrays;
+
+// Defining a class named Solution
+public class Solution {
+  
+  // The main method of the program
+  public static void main(String[] args) {
+    // Initializing arrays for main and query data
+    int[] main_arra = {1, 2, 3, 4, 5, 6, 7, 8};
+    int[] query_arra = {1, 4, 8};
+    
+    // Getting the result by counting smaller numbers from the main array for query elements
+    ArrayList<Integer> result = count_smaller_number(main_arra, query_arra);
+    
+    // Displaying the result
+    for (int i = 0; i < result.size(); i++) {
+      System.out.println(result.get(i));
+    }
+  }
+  
+  // Method to count smaller numbers in the main array for query elements
+  public static ArrayList<Integer> count_smaller_number(int[] main_arra, int[] query_arra) {
+    // Initializing an ArrayList to store the result
+    ArrayList<Integer> result = new ArrayList<>();
+    
+    // Sorting the main array in ascending order
+    Arrays.sort(main_arra);
+    
+    // Looping through the query array elements
+    for (int i = 0; i < query_arra.length; i++) {
+      // Adding the count of smaller numbers for each query element to the result ArrayList
+      result.add(temp(main_arra, query_arra[i]));
+    }
+    
+    return result; // Returning the result ArrayList
+  }
+  
+  // Helper method to count smaller numbers in the main array
+  private static int temp(int[] main_arra, int num) {
+    int ctr = 0; // Counter to track the number of smaller elements
+    
+    // Looping through the main array
+    for (int i = 0; i < main_arra.length; i++) {
+      // Checking if the current element in the main array is smaller than the given number
+      if (main_arra[i] < num) {
+        ctr++; // Incrementing the counter for smaller numbers
+      } else {
+        break; // Exiting the loop if the current element is greater than or equal to the given number
+      }
+    }
+    
+    return ctr; // Returning the count of smaller numbers
+  }
+}
+```
 
 
 173. Write a Java program to find the median of the numbers inside the window (size k) at each step in a given array of integers with duplicate numbers. Move the window to the array start.
@@ -237,7 +1068,106 @@ Result:
 7
 8
 
+```java
+// Importing necessary Java utilities
+import java.util.*;
+import java.util.Arrays;
+import java.util.LinkedList;
 
+// Defining a class named Solution
+public class Solution {
+  
+  // The main method of the program
+  public static void main(String[] args) {
+    // Initializing an array and window size 'k'
+    int[] main_array = {1, 2, 3, 4, 5, 6, 7, 8, 8};
+    int k = 3;
+    
+    // Displaying the original array and value of 'k'
+    System.out.println("\nOriginal array: " + Arrays.toString(main_array));
+    System.out.println("\nValue of k: " + k);
+    System.out.println("\nResult: ");
+    
+    // Getting the result of the median sliding window operation
+    ArrayList<Integer> result = median_slide_window(main_array, k);
+    
+    // Displaying the result
+    for (int i = 0; i < result.size(); i++) {
+      System.out.println(result.get(i));
+    }
+  }
+  
+  // Method to compute the median in a sliding window of size 'k'
+  public static ArrayList<Integer> median_slide_window(int[] main_array, int k) {
+    ArrayList<Integer> result = new ArrayList<>();
+    
+    // If 'k' is 0 or greater than the length of the array, return an empty result
+    if (k == 0 || main_array.length < k) {
+      return result;
+    }
+    
+    // PriorityQueues to store elements on the right and left side of the window
+    PriorityQueue<Integer> right_num = new PriorityQueue<>(k);
+    PriorityQueue<Integer> left_num = new PriorityQueue<>(k, Collections.reverseOrder());
+
+    // Adding elements to the queues for initial window
+    for (int i = 0; i < k - 1; ++i) {
+      add(right_num, left_num, main_array[i]);
+    }
+
+    // Sliding the window and computing median
+    for (int i = k - 1; i < main_array.length; ++i) {
+      add(right_num, left_num, main_array[i]);
+      int median = compute_median(right_num, left_num);
+      result.add(median);
+      remove(right_num, left_num, main_array[i - k + 1]);
+    }
+    
+    return result; // Returning the result containing medians of the sliding window
+  }
+
+  // Method to compute the median from the PriorityQueues
+  private static int compute_median(PriorityQueue<Integer> right_num, PriorityQueue<Integer> left_num) {
+    if (left_num.isEmpty() && right_num.isEmpty()) {
+      return 0; // Return 0 if both queues are empty
+    }
+    
+    // Balancing the queues to get the median
+    while (left_num.size() < right_num.size()) {
+      left_num.add(right_num.poll());
+    }
+
+    while (left_num.size() - right_num.size() > 1) {
+      right_num.add(left_num.poll());
+    }
+    
+    return left_num.peek(); // Returning the median element
+  }
+
+  // Method to add elements to the PriorityQueues maintaining the order
+  private static void add(PriorityQueue<Integer> right_num, PriorityQueue<Integer> left_num, int num) {
+    if (left_num.isEmpty() && right_num.isEmpty()) {
+      left_num.add(num);
+      return;
+    } else {
+      if (num <= compute_median(right_num, left_num)) {
+        left_num.add(num);
+      } else {
+        right_num.add(num);
+      }
+    }
+  }
+
+  // Method to remove elements from the PriorityQueues
+  private static void remove(PriorityQueue<Integer> right_num, PriorityQueue<Integer> left_num, int num) {
+    if (num <= compute_median(right_num, left_num)) {
+      left_num.remove(num);
+    } else {
+      right_num.remove(num);
+    }
+  }
+}
+```
 ### 174. Write a Java program to find the maximum number inside the number in the window (size k) at each step in a given array of integers with duplicate numbers. Move the window to the top of the array.
 
 Sample output:
@@ -265,7 +1195,65 @@ Result:
 7
 8
 
-
+```java
+// Import necessary classes from java.util package
+import java.util.*;
+import java.util.Arrays;
+import java.util.LinkedList;
+// Main class to demonstrate max sliding window
+public class Main {
+    // Main method to execute the sliding window algorithm
+    public static void main(String[] args) {
+        // Sample array and value of k for testing
+        int[] main_array = {1, 2, 3, 4, 5, 6, 7, 8, 8};
+        int k = 3;
+        // Display the original array and the value of k
+        System.out.println("\nOriginal array: " + Arrays.toString(main_array));
+        System.out.println("\nValue of k: " + k);
+        System.out.println("\nResult: ");
+        // Call the method to find maximums in the sliding window
+        ArrayList result = max_slide_window(main_array, k);
+        // Display the result
+        for (int i = 0; i < result.size(); i++) {
+            System.out.println(result.get(i));
+        }
+    }
+    // Method to find maximums in a sliding window
+    public static ArrayList max_slide_window(int[] main_array, int k) {
+        // Initialize an ArrayList to store the result
+        ArrayList rst_arra = new ArrayList();
+        // Checking for invalid inputs
+        if (main_array == null || main_array.length == 0 || k < 0) {
+            return rst_arra;
+        }
+        // Using a Deque to store indexes of elements
+        Deque<Integer> deque_num = new LinkedList<>();
+        // Processing the first k elements separately
+        for (int i = 0; i < k; i++) {
+            // Removing smaller elements from the Deque
+            while (!deque_num.isEmpty() && main_array[deque_num.peekLast()] <= main_array[i]) {
+                deque_num.pollLast();
+            }
+            deque_num.offerLast(i); // Adding the current index to the Deque
+        }
+        // Processing the rest of the elements
+        for (int i = k; i < main_array.length; i++) {
+            rst_arra.add(main_array[deque_num.peekFirst()]); // Adding the maximum from the window to result
+            // Removing elements that are out of the window range
+            if (!deque_num.isEmpty() && deque_num.peekFirst() <= i - k) {
+                deque_num.pollFirst();
+            }
+            // Removing smaller elements from the Deque
+            while (!deque_num.isEmpty() && main_array[deque_num.peekLast()] <= main_array[i]) {
+                deque_num.pollLast();
+            }
+            deque_num.offerLast(i); // Adding the current index to the Deque
+        }
+        rst_arra.add(main_array[deque_num.peekFirst()]); // Adding the maximum of the last window
+        return rst_arra; // Returning the result ArrayList containing maximums
+    }
+}
+```
 ### 175. Write a Java program to delete a specified node in the middle of a singly linked list.
 
 Sample Singly linked list: 10->20->30->40->50
@@ -279,6 +1267,78 @@ Original Linked list:
 After deleting the fourth node, Linked list becomes:
 10->20->30->50
 
+```java
+// Importing necessary Java utilities
+import java.util.*;
+import java.util.Arrays;
+import java.util.LinkedList;
+
+// ListNode class definition representing each node of the linked list
+class ListNode {
+    int val;
+    ListNode next;
+
+    // Constructor to initialize the ListNode
+    ListNode(int val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+
+// Main class Solution
+public class Solution {
+    // Initializing the head of the linked list with a node containing value 10
+    public static ListNode head = new ListNode(10);
+
+    // Main method
+    public static void main(String[] args) {
+        // Creating a linked list with nodes containing values 20, 30, 40, 50
+        head.next = new ListNode(20);
+        head.next.next = new ListNode(30);
+        head.next.next.next = new ListNode(40);
+        head.next.next.next.next = new ListNode(50);
+
+        ListNode p = head; // Creating a reference 'p' to the head node
+
+        System.out.println("Original Linked list:");
+        printList(p); // Printing the original linked list
+        System.out.println("\nAfter deleting the fourth node, Linked list becomes:");
+        deleteNode(head.next.next.next); // Deleting the fourth node in the list
+        p = head; // Updating reference 'p' to the head node after deletion
+        printList(p); // Printing the updated linked list
+    }
+
+    // Method to delete a node from the linked list
+    public static void deleteNode(ListNode node) {
+        // Check if the node to be deleted is not the last node in the list
+        if (node.next != null) {
+            int temp = node.val;
+            node.val = node.next.val;
+            node.next.val = temp;
+
+            node.next = node.next.next; // Skip the next node effectively deleting the current node
+        } else {
+            // If the node to be deleted is the last node, traverse to the previous node and delete it
+            ListNode p = head;
+            while (p.next.val != node.val) {
+                p = p.next;
+            }
+            p.next = null; // Set the next of the previous node to null
+        }
+    }
+
+    // Method to print the linked list
+    static void printList(ListNode p) {
+        while (p != null) {
+            System.out.print(p.val); // Printing the value of the current node
+            if (p.next != null) {
+                System.out.print("->"); // Adding an arrow for non-last nodes
+            }
+            p = p.next; // Move to the next node
+        }
+    }
+}
+```
 
 ### 176. Write a Java program that partitions an array of integers into even and odd numbers.
 
@@ -287,7 +1347,57 @@ Expected Output
 Original array: [7, 2, 4, 1, 3, 5, 6, 8, 2, 10]
 After partition the said array becomes: [10, 2, 4, 2, 8, 6, 5, 3, 1, 7]
 
+```java
+// Importing necessary Java utilities
+import java.util.*;
 
+// Main class Solution
+public class Solution {  
+	
+    // Main method
+    public static void main(String[] args) {
+		int[] nums = {7, 2, 4, 1, 3, 5, 6, 8, 2, 10};
+		
+		// Printing the original array
+		System.out.println("Original array: " + Arrays.toString(nums));
+		
+     	// Calling the partitionArray2 method to partition the array
+        int[] result = partitionArray2(nums);
+        
+        // Printing the resulting array after partitioning
+        System.out.println("After partition the said array becomes: " + Arrays.toString(result));
+    }
+
+    // Method to partition the array based on odd and even numbers
+    public static int[] partitionArray2(int[] nums) {
+        int i = 0; // Initializing pointer i to the start of the array
+        int j = nums.length - 1; // Initializing pointer j to the end of the array
+        
+        // Looping until pointers i and j meet or cross each other
+        while (i < j) {
+            // Moving pointer i until it finds an odd number
+            while (nums[i] % 2 == 0) {
+                i++;
+            }
+            
+            // Moving pointer j until it finds an even number
+            while (nums[j] % 2 != 0) {
+                j--;
+            }
+            
+            // Swapping the odd and even numbers if i is less than j
+            if (i < j) {
+                int temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
+            }
+        }
+        
+		// Returning the partitioned array
+		return nums;
+    }
+}
+```
 ### 177. Write a Java program to get an updated binary tree with the same structure and value as a given binary tree.
 
 Expected Output:
@@ -306,6 +1416,80 @@ Clone of the said Treenode:
 3
 1
 
+```java
+// Importing necessary Java utilities
+import java.util.*;
+
+// Main class Solution
+public class Solution {
+    // Main method
+    public static void main(String[] args) {
+        // Creating TreeNode instances
+        TreeNode t1 = new TreeNode(1);
+        TreeNode t2 = new TreeNode(2);
+        TreeNode t3 = new TreeNode(3);
+        TreeNode t4 = new TreeNode(4);
+        TreeNode t5 = new TreeNode(5);
+
+        // Creating a tree structure
+        t1.left = t2;
+        t1.right = t3;
+        t2.left = t4;
+        t2.right = t5;
+
+        // Printing the original TreeNode
+        System.out.println("Original Treenode:");
+        traverseTree(t1);
+
+        // Cloning the TreeNode and printing the clone
+        System.out.println("\nClone of the said Treenode:");
+        TreeNode result = cloneTree(t1);
+        traverseTree(result);
+    }
+
+    // Method to clone a given TreeNode
+    public static TreeNode cloneTree(TreeNode root) {
+        // Checking if the root is null
+        if (root == null) {
+            return null;
+        }
+
+        // Creating a duplicate TreeNode with the same value as the original root
+        TreeNode dup = new TreeNode(root.val);
+
+        // Recursively cloning left and right subtrees
+        dup.left = cloneTree(root.left);
+        dup.right = cloneTree(root.right);
+
+        return dup; // Returning the cloned TreeNode
+    }
+
+    // Method to traverse the TreeNode in post-order traversal (Left, Right, Root)
+    private static void traverseTree(TreeNode root) {
+        // Checking if the root is not null
+        if (root != null) {
+            // Traversing the left subtree
+            traverseTree(root.left);
+            // Traversing the right subtree
+            traverseTree(root.right);
+            // Printing the value of the current TreeNode
+            System.out.println(root.val);
+        }
+    }
+}
+
+// Definition of TreeNode class
+class TreeNode {
+    public int val;
+    public TreeNode left, right;
+
+    // Constructor to initialize TreeNode with a value
+    public TreeNode(int val) {
+        this.val = val;
+        this.left = this.right = null;
+    }
+}
+```
 
 ### 178. Write a Java program to find the longest increasing continuous subsequence in a given array of integers.
 
@@ -314,7 +1498,65 @@ Expected Output:
 Original array: [10, 11, 12, 13, 14, 7, 8, 9, 1, 2, 3]
 Size of longest increasing continuous subsequence: 5
 
+```java
+// Importing necessary Java utilities
+import java.util.*;
 
+// Main class Solution
+public class Solution {
+    // Main method
+    public static void main(String[] args) {
+        // Initializing an array of integers
+        int[] nums = { 10, 11, 12, 13, 14, 7, 8, 9, 1, 2, 3 };
+        
+        // Printing the original array
+        System.out.println("Original array: " + Arrays.toString(nums));
+        
+        // Finding the size of the longest increasing continuous subsequence and printing it
+        System.out.println("Size of longest increasing continuous subsequence: " + longest_seq(nums));
+    }
+
+    // Method to find the size of the longest increasing continuous subsequence
+    public static int longest_seq(int[] nums) {
+        int max_sequ = 0; // Initializing the variable to hold the maximum sequence length
+        
+        // Handling the case when the array contains only one element
+        if (nums.length == 1) 
+            return 1; // If only one element is present, the longest sequence is of length 1
+
+        // Looping through the array to find the longest increasing or decreasing sequence
+        for (int i = 0; i < nums.length - 1; i++) {
+            int ctr = 1; // Counter to track the sequence length
+            int j = i; // Initializing j to the current index i
+            
+            // Checking for an increasing sequence
+            if (nums[i + 1] > nums[i]) {
+                while (j < nums.length - 1 && nums[j + 1] > nums[j]) {
+                    ctr++; // Incrementing the counter for each increasing element
+                    j++;
+                }
+            } 
+            // Checking for a decreasing sequence
+            else if (nums[i + 1] < nums[i]) {
+                while (j < nums.length - 1 && nums[j + 1] < nums[j]) {
+                    ctr++; // Incrementing the counter for each decreasing element
+                    j++;
+                }
+            }
+            
+            // Updating the maximum sequence length encountered so far
+            if (ctr > max_sequ) {
+                max_sequ = ctr;
+            }
+            
+            // Moving the index i ahead by the sequence length minus 2 to avoid rechecking elements
+            i += ctr - 2;
+        }
+        
+        return max_sequ; // Returning the size of the longest sequence found
+    }
+}
+```
 ### 179. Write a Java program to add one to a positive number represented as an array of digits.
 
 Sample array: [9, 9, 9, 9] which represents 9999
@@ -325,6 +1567,49 @@ Expected Output:
 Original array: [9, 9, 9, 9]
 Array of digits: [1, 0, 0, 0, 0]
 
+```java
+// Importing necessary Java utilities
+import java.util.*;
+
+// Main class Solution
+public class Solution {
+    // Main method
+    public static void main(String[] args) {
+        // Initializing an array of integers
+        int[] nums = {9, 9, 9, 9};
+        
+        // Printing the original array
+        System.out.println("Original array: " + Arrays.toString(nums));
+        
+        // Printing the array of digits after adding one to the input array
+        System.out.println("Array of digits: " + Arrays.toString(plus_One_digit(nums)));
+    }
+    
+    // Method to add one to the last digit of the input array
+    public static int[] plus_One_digit(int[] digits_nums) {
+        // Looping through the array from the end to the start
+        for (int i = digits_nums.length - 1; i > -1; --i) {
+            // Checking if the digit is not 9
+            if (digits_nums[i] != 9) {
+                digits_nums[i] += 1; // Incrementing the digit by 1
+                
+                // Setting the digits after the incremented digit to 0
+                for (int j = i + 1; j < digits_nums.length; ++j) {
+                    digits_nums[j] = 0;
+                }
+                
+                return digits_nums; // Returning the updated array
+            }
+        }
+        
+        // If all digits are 9, creating a new array with an additional digit for carrying over 1
+        int[] result = new int[digits_nums.length + 1];
+        result[0] = 1; // Setting the first digit to 1
+        
+        return result; // Returning the new array with the carried over 1
+    }
+}
+```
 
 ### 180. Write a Java program to swap two adjacent nodes in a linked list.
 
@@ -336,6 +1621,73 @@ Original Linked list:
 After swiping Linked list becomes:
 20->10->40->30->50
 
+```java
+// Importing necessary Java utilities
+import java.util.*;
+
+// Main class Solution
+public class Solution {
+    // Main method
+    public static void main(String[] args) {
+        // Creating a linked list
+        ListNode l = new ListNode(10);
+        l.next = new ListNode(20);
+        l.next.next = new ListNode(30);
+        l.next.next.next = new ListNode(40);
+        l.next.next.next.next = new ListNode(50);
+        
+        // Printing original linked list
+        System.out.println("\nOriginal Linked list:");
+        printList(l);
+        
+        // Swapping pairs of nodes in the linked list
+        ListNode p = swap_Pairs(l);
+        
+        // Printing linked list after swapping pairs
+        System.out.println("\n\nAfter swapping, Linked list becomes:");
+        printList(p);
+    }
+    
+    // Method to swap pairs of nodes in a linked list
+    public static ListNode swap_Pairs(ListNode head) {
+        ListNode temp = new ListNode(0); // Creating a temporary node
+        temp.next = head; // Setting temp node's next to the head of the original linked list
+        head = temp; // Assigning head to temp
+        
+        // Swapping pairs using iterative approach
+        while (head.next != null && head.next.next != null) {
+            ListNode a = head.next;
+            ListNode b = head.next.next;
+            head.next = b;
+            a.next = b.next;
+            b.next = a;
+            head = a;
+        }
+        return temp.next; // Returning the modified linked list
+    }
+
+    // Method to print the linked list
+    static void printList(ListNode p) {
+        while (p != null) {
+            System.out.print(p.val); // Printing node value
+            if (p.next != null) {
+                System.out.print("->"); // Adding "->" if more nodes are present
+            }
+            p = p.next; // Moving to the next node
+        }
+    }
+}
+
+// Definition of ListNode class
+class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode(int x) {
+        val = x;
+    }
+}
+```
 
 ### 181. Write a Java program to find the length of the last word in a given string. The string contains upper/lower-case alphabets and empty space characters like ' '.
 
