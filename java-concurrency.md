@@ -1770,11 +1770,11 @@ There are multiple ways to take the thread dump of any Java program. Let’s dis
 jstack is a command line tool to capture thread dumps. jstack tool is present inside the JDK_HOME/bin folder as a part of JDK since Java version 5.
 
 - jstack -l  <pid>
-# this command prints the entire thread dump to the command line console.
-# we can find all java process pids using jps command.
+//# this command prints the entire thread dump to the command line console.
+//# we can find all java process pids using jps command.
 
 - jstack -l  <pid> > <file-path>
-# this command capture the thread dump in the given file.
+//# this command capture the thread dump in the given file.
 
 - jvisualvm
 Java VisualVM is a graphical user interface tool that lets us monitor, troubleshoot, and profile Java applications. From JDK 9, Visual VM isn’t included in the Oracle JDK and Open JDK distributions so we have to download it from the official website.
@@ -1786,7 +1786,7 @@ In VisualVM on the left panel, you will see all the Java applications that are r
 The jcmd tool was introduced in Oracle JDK 7, and it internally works by sending the commands requests to the JVM. There are many commands with various capabilities like getting thread dump, getting heap dump, and getting all java process ids, …
 
 - jcmd <pid> Thread.print > <file-path>
-# we can find all java process pids using jcmd command
+//# we can find all java process pids using jcmd command
 
 - jconsole
 The jconsole tool is a JMX-compliant graphical tool for monitoring a Java virtual machine. In the jconsole, we can inspect the individual stack trace of each thread.
