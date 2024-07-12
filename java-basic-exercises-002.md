@@ -1696,6 +1696,39 @@ Sample Output:
 Original String: The length of last word
 Length of the last word of the above string: 4
 
+```java
+// Importing necessary Java utilities
+import java.util.*;
+
+// Main class Solution
+public class Solution {
+    // Main method
+    public static void main(String[] args) {
+        // Initializing a string
+        String str1 = "The length of last word";
+        // Printing the original string
+        System.out.println("Original String: " + str1);
+        // Printing the length of the last word of the string
+        System.out.println("Length of the last word of the above string: " + length_Of_last_word(str1));
+    }
+
+    // Method to calculate the length of the last word in a string
+    public static int length_Of_last_word(String str1) {
+        int length_word = 0; // Initializing the variable to store the length of the last word
+        String[] words = str1.split(" "); // Splitting the string into words based on spaces
+        
+        // Checking if words exist in the array after splitting
+        if (words.length > 0) {
+            // Assigning the length of the last word to the variable
+            length_word = words[words.length - 1].length();
+        } else {
+            length_word = 0; // If no words are present, setting the length to 0
+        }
+        
+        return length_word; // Returning the length of the last word
+    }
+}
+```
 
 ### 182. Write a Java program to check if two binary trees are identical. Assume that two binary trees have the same structure and every identical position has the same value.
 
@@ -1707,6 +1740,66 @@ false
 Comparing TreeNode b and TreeNode c:
 true
 
+```java
+// Importing necessary Java utilities
+import java.util.*;
+
+// Main class Solution
+public class Solution {
+    // Main method
+    public static void main(String[] args) {
+        // Creating TreeNode 'a'
+        TreeNode a = new TreeNode(1);
+        a.left = new TreeNode(2);
+        a.right = new TreeNode(3);
+        a.left.left = new TreeNode(4);
+		
+		// Creating TreeNode 'b'
+        TreeNode b = new TreeNode(1);
+        b.left = new TreeNode(2);
+        b.right = new TreeNode(3);
+        b.left.right = new TreeNode(4);
+		
+		// Creating TreeNode 'c'
+        TreeNode c = new TreeNode(1);
+        c.left = new TreeNode(2);
+        c.right = new TreeNode(3);
+        c.left.right = new TreeNode(4);
+		
+        // Comparing TreeNode 'a' and TreeNode 'b'
+        System.out.println("\nComparing TreeNode a and TreeNode b:");
+        System.out.println(is_Identical_tree_node(a, b));
+		
+		// Comparing TreeNode 'b' and TreeNode 'c'
+		System.out.println("\nComparing TreeNode b and TreeNode c:");
+		System.out.println(is_Identical_tree_node(b, c));
+    }
+
+    // Method to check if two TreeNode objects are identical
+    public static boolean is_Identical_tree_node(TreeNode a, TreeNode b) {
+        // Write your code here
+        if (a == null && b == null) return true;
+        if (a == null || b == null) {
+            return false;
+        }
+        if (a.val != b.val) return false;
+        return is_Identical_tree_node(a.left, b.left) &&
+                is_Identical_tree_node(a.right, b.right);
+    }
+}
+
+// Definition of TreeNode class
+class TreeNode {
+    public int val;
+    public TreeNode left, right;
+
+    // Constructor to initialize TreeNode object with a value
+    public TreeNode(int val) {
+        this.val = val;
+        this.left = this.right = null;
+    }
+}
+```
 
 ### 183. Write a Java program to accept a positive number and repeatedly add all its digits until the result has only one digit.
 
@@ -1715,7 +1808,46 @@ Expected Output:
 Input a positive integer:  25
 7
 
+```java
+// Importing necessary Java utilities
+import java.util.*;
 
+// Main class Solution
+public class Solution {
+    // Main method
+    public static void main(String[] args) {
+        // Creating Scanner object for user input
+        Scanner in = new Scanner(System.in);
+        
+        // Prompting user to input a positive integer
+        System.out.print("Input a positive integer: ");
+        
+        // Reading the input value provided by the user
+        int n = in.nextInt();
+        
+        // Checking if the input is a positive integer
+        if (n > 0)
+            // Printing the result of add_digits_until_one method if the input is positive
+            System.out.println(add_digits_until_one(n));
+    }
+
+    // Method to add digits of a number until the result becomes a single digit
+    public static int add_digits_until_one(int n) {
+        // Loop to keep adding digits until the number becomes a single digit
+        while (n > 9) {
+            int sum_digits = 0;
+            
+            // Loop to extract digits and calculate their sum
+            while (n != 0) {
+                sum_digits += n % 10; // Adding the last digit to sum
+                n /= 10; // Removing the last digit
+            }
+            n = sum_digits; // Assigning the sum to 'n' for next iteration
+        }
+        return n; // Returning the single-digit sum
+    }
+}
+```
 ### 184. Write a Java program to find the length of the longest consecutive sequence path in a given binary tree.
 Note: The longest consecutive path need to be from parent to child.
 
@@ -1724,12 +1856,127 @@ Expected Output:
 
 Length of the longest consecutive sequence path:  4
 
+```java
+// Importing necessary Java utilities
+import java.util.*;
 
+// TreeNode class definition
+class TreeNode {
+    public int val;
+    public TreeNode left, right;
+
+    // TreeNode class constructor
+    public TreeNode(int val) {
+        this.val = val;
+        this.left = this.right = null;
+    }
+}
+
+// Main class Solution
+public class Solution {
+    // Main method
+    public static void main(String[] args) {
+        // Creating the tree nodes and constructing the binary tree
+        TreeNode a = new TreeNode(1);
+        a.right = new TreeNode(3);
+        a.right.left = new TreeNode(2);
+        a.right.right = new TreeNode(4);
+        a.right.right.right = new TreeNode(5);
+        a.right.right.right.right = new TreeNode(6);
+
+        // Printing the length of the longest consecutive sequence path
+        System.out.println("Length of the longest consecutive sequence path: " + longest_Consecutive(a));
+    }
+
+    // Method to find the longest consecutive sequence path in a binary tree
+    public static int longest_Consecutive(TreeNode root) {
+        // Base case: if the root is null, return 0
+        if (root == null) {
+            return 0;
+        }
+
+        // Compute the result by recursively traversing the tree
+        int result = diffn(root, 1) + diffn(root, -1);
+        return Math.max(result, Math.max(longest_Consecutive(root.left), longest_Consecutive(root.right)));
+    }
+
+    // Helper method to compute the depth of the consecutive sequence path
+    private static int diffn(TreeNode tnode, int diff) {
+        // Base case: if the tree node is null, return 0
+        if (tnode == null) {
+            return 0;
+        }
+
+        // Initialize depths for left and right subtrees
+        int left_depth = 0, right_depth = 0;
+
+        // Check if there exists a consecutive sequence path in left and right subtrees
+        if (tnode.left != null && tnode.val - tnode.left.val == diff) {
+            left_depth = diffn(tnode.left, diff) + 1;
+        }
+        if (tnode.right != null && tnode.val - tnode.right.val == diff) {
+            right_depth = diffn(tnode.right, diff) + 1;
+        }
+
+        // Return the maximum depth among left and right consecutive sequence paths
+        return Math.max(left_depth, right_depth);
+    }
+}
+```
 ### 185. Write a Java program to check if two strings are isomorphic or not.
 Expected Output:
 
 Is abca and zbxz are Isomorphic? true
 
+```java
+// Importing necessary Java utilities
+import java.util.*;
+
+// Main class Solution
+public class Solution {
+    // Main method
+    public static void main(String[] args) {
+        // Declaring and initializing two strings
+        String str1 = "abca";
+        String str2 = "zbxz";
+		
+		// Printing if the two strings are isomorphic or not
+        System.out.println("Is " + str1 + " and " + str2 + " are Isomorphic? " + is_Isomorphic(str1, str2));
+    }
+
+    // Method to check if two strings are isomorphic
+    public static boolean is_Isomorphic(String str1, String str2) {
+        // Check for invalid inputs or unequal lengths of strings
+        if (str1 == null || str2 == null || str1.length() != str2.length())
+            return false;
+        
+        // Creating a HashMap to store character mappings
+        Map<Character, Character> map = new HashMap<>();
+        
+        // Loop through each character in the strings
+        for (int i = 0; i < str1.length(); i++) {
+            char char_str1 = str1.charAt(i), char_str2 = str2.charAt(i);
+            
+            // If the mapping for str1 character already exists
+            if (map.containsKey(char_str1)) {
+                // Check if the mapping matches with the corresponding character in str2
+                if (map.get(char_str1) != char_str2)
+                    return false;
+            } else {
+                // If no mapping for str1 character exists, check if str2 character is already mapped to another str1 character
+                if (map.containsValue(char_str2))
+                    return false;
+                
+                // Create a new mapping for str1 character to str2 character
+                map.put(char_str1, char_str2);
+            }
+        }
+        
+        // If no discrepancies found, return true (strings are isomorphic)
+        return true;
+    }
+}
+```
 
 ### 186. Write a Java program to check if a number is a strobogrammatic number. The number is represented as a string.
 
@@ -1741,6 +1988,49 @@ Expected Output:
 
 Is 9006 is Strobogrammatic? true
 
+```java
+// Importing necessary Java utilities
+import java.util.*;
+// Main class 
+public class Main {
+    // Main method
+    public static void main(String[] args) {
+        // Declaring and initializing a string
+        String n = "9006";
+        // Printing if the string is Strobogrammatic or not
+        System.out.println("Is " + n + " is Strobogrammatic? " + is_Strobogrammatic(n));
+    }
+    // Method to check if the given string is Strobogrammatic
+    public static boolean is_Strobogrammatic(String n) {
+        // Check for null or empty string
+        if (n == null || n.length() == 0) {
+            return true;
+        }
+        // Create a HashMap to store Strobogrammatic pairs
+        Map<Character, Character> map = new HashMap<>();
+        map.put('0', '0');
+        map.put('1', '1');
+        map.put('8', '8');
+        map.put('6', '9');
+        map.put('9', '6');
+        // Use two pointers to traverse the string from both ends
+        int left = 0;
+        int right = n.length() - 1;
+        // Continue until the left pointer is less than or equal to the right pointer
+        while (left <= right) {
+            // Check if the characters at the current positions are valid Strobogrammatic pairs
+            if (!map.containsKey(n.charAt(right)) || n.charAt(left) != map.get(n.charAt(right))) {
+                return false;
+            }
+            // Move the pointers towards the center
+            left++;
+            right--;
+        }
+        // If the loop completes, the string is Strobogrammatic
+        return true;
+    }
+}
+```
 
 ### 187. Write a Java program to find the index of the first non-repeating character in a given string.
 
@@ -1748,7 +2038,40 @@ Expected Output:
 
 Index of first non-repeating character in 'google' is: 4
 
-
+```java
+// Importing necessary Java utilities
+import java.util.*;
+// Main class Solution
+public class Main {
+    // Main method
+    public static void main(String[] args) {
+        // Declaring and initializing a string
+        String str1 = "google";
+        // Printing the index of the first non-repeating character in the given string
+        System.out.println("Index of first non-repeating character in '" + str1 + "' is: " + first_unique_character(str1));
+    }
+    // Method to find the index of the first non-repeating character in the given string
+    public static int first_unique_character(String str1) {
+        // Creating a HashMap to store character frequencies
+        HashMap<Character, Integer> map = new HashMap<>();
+        // Iterating through the string to count character occurrences and store in the map
+        for (int i = 0; i < str1.length(); ++i) {
+            char chr = str1.charAt(i);
+            // Incrementing the count if character already exists, else adding the character with count 1
+            map.put(chr, map.containsKey(chr) ? map.get(chr) + 1 : 1);
+        }
+        // Iterating through the string to find the first non-repeating character
+        for (int i = 0; i < str1.length(); ++i) {
+            if (map.get(str1.charAt(i)) < 2) {
+                // Returning the index of the first non-repeating character
+                return i;
+            }
+        }
+        // If no non-repeating character found, returning -1
+        return -1;
+    }
+}
+```
 ### 188. Write a Java program to find all the start indices of a given string's anagrams in another given string.
 
 Expected Output:
@@ -1756,6 +2079,75 @@ Expected Output:
 Original String: zyxwyxyxzwxyz
 Starting anagram indices of xyz: [0, 6, 10]
 
+```java
+// Importing necessary Java utilities
+import java.util.*;
+// Main class
+public class Main {
+    // Main method
+    public static void main(String[] args) {
+        // Declaring and initializing two strings
+        String str1 = "zyxwyxyxzwxyz";
+        String str2 = "xyz";
+        // Printing the original strings
+        System.out.println("Original String: " + str1);
+        System.out.println("Starting anagram indices of " + str2 + ": " + find_Anagrams(str1, str2));
+    }
+    // Method to find the starting indices of anagrams of str2 in str1
+    public static List<Integer> find_Anagrams(String str1, String str2) {
+        // Creating a list to store starting indices of anagrams
+        List<Integer> list = new ArrayList<>();
+        // Check if str1 is smaller than str2 or str2 is empty
+        if (str1.length() < str2.length() || str2.length() < 1) {
+            return list;
+        }
+        // If str1 is the same as str2, add 0 as the starting index
+        if (str1.equals(str2)) {
+            list.add(0);
+            return list;
+        }
+        // Creating a HashMap to store character frequencies in str2
+        HashMap<Character, Integer> map = new HashMap<>();
+        for (char c : str2.toCharArray()) {
+            if (map.containsKey(c)) {
+                map.put(c, map.get(c) + 1);
+            } else {
+                map.put(c, 1);
+            }
+        }
+        // Variables to track lengths and count of correct characters
+        int str2_length = str2.length();
+        int current_length = 0;
+        int correct_chars = 0;
+        // Looping through str1 to find anagrams of str2
+        for (int i = 0; i < str1.length(); ++i) {
+            current_length++;
+            if (map.containsKey(str1.charAt(i))) {
+                int ctr = map.get(str1.charAt(i));
+                if (ctr > 0) {
+                    correct_chars++;
+                }
+                map.put(str1.charAt(i), ctr - 1);
+            }
+            if (current_length == str2_length) {
+                int begin_pos = i - str2_length + 1;
+                if (correct_chars == str2_length) {
+                    list.add(begin_pos);
+                }
+                if (map.containsKey(str1.charAt(begin_pos))) {
+                    int ctr = map.get(str1.charAt(begin_pos));
+                    if (ctr >= 0) {
+                        correct_chars--;
+                    }
+                    map.put(str1.charAt(begin_pos), ctr + 1);
+                }
+                current_length--;
+            }
+        }
+        return list;
+    }
+}
+```
 
 ### 189. Write a Java program to two non-negative integers num1 and num2 represented as strings, return the sum of num1 and num2.
 
@@ -1763,14 +2155,117 @@ Expected Output:
 
 '123' + '456' = 579
 
+```java
+// Importing necessary Java utilities
+import java.util.*;
 
+// Main class Solution
+public class Solution {
+    // Main method
+    public static void main(String[] args) {
+        // Declaring and initializing two strings representing numbers
+        String n1 = "123";
+        String n2 = "456";
+        
+        // Printing the addition of two strings representing numbers
+        System.out.println("'" + n1 + "'" + " + " + "'" + n2 + "'" + " = " + addStrings(n1, n2));
+    }
+    
+    // Method to add two strings representing numbers
+    public static String addStrings(String n1, String n2) {
+        // Convert input strings to integer arrays
+        int[] x = str_num(n1);
+        int[] y = str_num(n2);
+        
+        // Initialize an array to store the sum, considering carry
+        int[] sum = new int[Math.max(x.length, y.length) + 1];
+        int z = 0;
+        int index = sum.length - 1;
+        int i = 0;
+        int j = 0;
+        
+        // Iterate through both integer arrays to calculate the sum
+        while (index >= 0) {
+            if (i < x.length) {
+                z += x[i++];
+            }
+            if (j < y.length) {
+                z += y[j++];
+            }
+            sum[index--] = z % 10;
+            z /= 10; // store the carry
+        }
+        
+        // Construct the sum string from the array
+        StringBuilder sb = new StringBuilder(sum.length);
+        for (i = (sum[0] == 0 ? 1 : 0); i < sum.length; ++i) {
+            sb.append(sum[i]);
+        }
+        return sb.toString();
+    }
+
+    // Helper method to convert a string of digits to an integer array
+    private static int[] str_num(String num) {
+        char[] digits = num.toCharArray();
+        int[] number = new int[digits.length];
+        int index = number.length - 1;
+        for (char digit : digits) {
+            number[index--] = digit - '0'; // Convert character to integer and store in the array
+        }
+        return number;
+    }
+}
+```
 ### 190. Write a Java program to find the missing string from two given strings.
 
 Expected Output:
 
 Missing string: [Solution]
 
+```java
+// Importing necessary Java utilities
+import java.util.*;
 
+// Main class Solution
+public class Solution {
+    // Main method
+    public static void main(String[] args) {
+        // Declaring and initializing two strings
+        String str1 = "Java Programming Exercises, Practice, Solution";
+        String str2 = "Java Programming Exercises, Practice,";
+        
+        // Printing the missing words in the string
+        System.out.println("Missing string: " + Arrays.toString(missing_Words(str1, str2)));
+    }
+
+    // Method to find missing words in the given strings
+    public static String[] missing_Words(String t, String s) {
+        // Splitting the strings into arrays using space as delimiter
+        String[] s1 = t.split(" ");
+        String[] s2 = s.split(" ");
+        
+        // Calculating the number of missing words
+        int sz = s1.length - s2.length;
+        String[] missing_str = new String[sz];
+        int c = 0;
+        
+        // Looping through the first array to find missing words
+        for (int i = 0; i < s1.length; i++) {
+            int flag = 0;
+            // Checking if the word is present in the second array
+            for (int j = 0; j < s2.length; j++) {
+                if (s1[i].equals(s2[j]))
+                    flag = 1;
+            }
+            // If word is not found in the second array, add it to missing string array
+            if (flag == 0) {
+                missing_str[c++] = s1[i];
+            }
+        }
+        return missing_str; // Return the array containing missing words
+    }
+}
+```
 ### 191. Write a Java program to test whether there are two integers x and y such that x^2 + y^2 is equal to a given positive number.
 
 Expected Output:
@@ -1779,12 +2274,120 @@ Input a positive integer:  25
 Is 25 sum of two square numbers? true
 
 
+```java
+import java.util.*;
+
+// Main class for the solution
+public class Solution {  
+
+    // Main method to execute the solution
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);	
+        
+        // Prompt the user to input a positive integer
+        System.out.print("Input a positive integer: ");
+        
+        // Read the user input as an integer
+        int n = in.nextInt(); 
+
+        // Check if the input is a positive integer
+        if (n > 0) {
+            // Display the result of the sum_of_square_numbers function
+            System.out.print("Is " + n + " sum of two square numbers? " + sum_of_square_numbers(n));
+        }  		
+    }
+
+    // Function to check if a number is the sum of two square numbers
+    public static boolean sum_of_square_numbers(int n) {
+        // Initialize two pointers, left_num and right_num
+        int left_num = 0, right_num = (int) Math.sqrt(n);
+
+        // Iterate until the left_num pointer is less than or equal to the right_num pointer
+        while (left_num <= right_num) {
+            // Check if the sum of squares of left_num and right_num is equal to n
+            if (left_num * left_num + right_num * right_num == n) {
+                return true;
+            } else if (left_num * left_num + right_num * right_num < n) {
+                // Increment left_num if the current sum is less than n
+                left_num++;
+            } else {
+                // Decrement right_num if the current sum is greater than n
+                right_num--;
+            }
+        }
+
+        // If no pair of square numbers sum up to n, return false
+        return false;
+    }
+}
+```
 ### 192. Write a Java program to rearrange the alphabets in the order followed by the sum of digits in a given string containing uppercase alphabets and integer digits (from 0 to 9).
 
 Expected Output:
 
 ADEHNS23
 
+
+```java
+// Import necessary Java utility and language packages
+import java.util.*;
+import java.lang.*;
+
+// Main class for the solution
+public class Solution {
+    // Constant representing the maximum number of characters
+    static final int MAX_CHAR = 20;
+
+    // Main method to execute the solution
+    public static void main(String args[]) {
+        // Input string with alphanumeric characters
+        String str1 = "AND456HSE8";
+        
+        // Print the result of the arrange_String_nums function
+        System.out.println(arrange_String_nums(str1));
+    }
+
+    // Function to arrange uppercase characters and sum of numbers in the given string
+    static String arrange_String_nums(String str1) {
+        // Array to count the occurrences of each uppercase character
+        int char_count[] = new int[MAX_CHAR];
+
+        // Variable to store the sum of numeric characters
+        int sum_num = 0;
+
+        // Iterate through the characters in the input string
+        for (int i = 0; i < str1.length(); i++) {
+            // Check if the character is uppercase and update the char_count array
+            if (Character.isUpperCase(str1.charAt(i)))
+                char_count[str1.charAt(i) - 'A']++;
+            else
+                // Accumulate the numeric characters for sum
+                sum_num = sum_num + (str1.charAt(i) - '0');
+        }
+
+        // Initialize a string to store the rearranged characters
+        String rarr_part = "";
+
+        // Iterate through the characters using their ASCII values
+        for (int i = 0; i < MAX_CHAR; i++) {
+            // Convert ASCII value to corresponding character
+            char ch = (char)('A' + i);
+
+            // Append the characters to the result string based on their occurrences
+            while (char_count[i]-- != 0)
+                rarr_part = rarr_part + ch;
+        }
+
+        // If the sum of numeric characters is greater than 0, append it to the result string
+        if (sum_num > 0)
+            rarr_part = rarr_part + sum_num;
+
+        // Return the rearranged string
+        return rarr_part;
+    }
+}
+```
 
 ### 193. Write a Java program that accepts an integer and sums the elements from all possible subsets of a set formed by the first n natural numbers.
 
@@ -1793,7 +2396,32 @@ Expected Output:
 Input a positive integer:  25
 Sum of subsets of n is : 1157627904
 
+```java
+// Import Scanner class from java.util package for user input
+import java.util.Scanner;
 
+// Main class for the solution
+public class Solution {
+
+    // Main method to execute the solution
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+
+        // Prompt the user to input a positive integer
+        System.out.print("Input a positive integer: ");
+
+        // Read the user input as an integer
+        int n = in.nextInt();
+
+        // Calculate the sum of subsets using a mathematical formula
+        int result = (n * (n + 1) / 2) * (1 << (n - 1));
+
+        // Display the result of the sum of subsets
+        System.out.print("Sum of subsets of n is : " + result);
+    }
+}
+```
 ### 194. Write a Java program to determine the all positions of a given number in a given matrix. If the number is not found print ("Number not found!").
 
 Expected Output:
@@ -1804,6 +2432,60 @@ Expected Output:
 
 (2,1)
 
+```java
+// Main class for the solution
+public class Solution {
+
+    // Main method to execute the solution
+    public static void main(String[] args) {
+        // Initialize the target number
+        int num = 3;
+
+        // Initialize a 2D matrix
+        int matrix[][] = {
+            {2, 5, 3},
+            {3, 2, 1},
+            {1, 3, 5}
+        };
+
+        // Get the number of rows in the matrix
+        int r = matrix.length;
+
+        // Get the number of columns in the matrix
+        int c = matrix[0].length - 1;
+
+        // Initialize variables for matrix traversal
+        int m = 0, n = 0;
+
+        // Boolean flag to check if the number is found in the matrix
+        Boolean flag = false;
+
+        // Iterate through the rows of the matrix
+        while (m < r) {
+            // Iterate through the columns of the matrix
+            while (n <= c) {
+                // Check if the current element is equal to the target number
+                if (matrix[m][n] == num) {
+                    // Display the coordinates of the found number
+                    System.out.print("\n(" + m + "," + n + ")\n");
+                    // Set the flag to true indicating the number is found
+                    flag = true;
+                }
+                // Move to the next column
+                n++;
+            }
+
+            // Move to the next row and reset column index
+            m++;
+            n = 0;
+        }
+
+        // Display a message if the number is not found in the matrix
+        if (flag == false)
+            System.out.print("Number not found!");
+    }
+}
+```
 
 ### 195. Write a Java program to check if three given side lengths (integers) can make a triangle or not.
 
@@ -1814,6 +2496,44 @@ Input side2:  6
 Input side3:  8
 Is the said sides form a triangle: true 
 
+```java
+// Import Scanner class from java.util package for user input
+import java.util.*;
+
+// Main class for the solution
+public class Solution {
+
+    // Main method to execute the solution
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+
+        // Prompt the user to input the first side of the triangle
+        System.out.print("Input side1: ");
+        // Read the user input as an integer
+        int s1 = in.nextInt();
+
+        // Prompt the user to input the second side of the triangle
+        System.out.print("Input side2: ");
+        // Read the user input as an integer
+        int s2 = in.nextInt();
+
+        // Prompt the user to input the third side of the triangle
+        System.out.print("Input side3: ");
+        // Read the user input as an integer
+        int s3 = in.nextInt();
+
+        // Display the result of the isValidTriangle function
+        System.out.print("Is the said sides form a triangle: " + isValidTriangle(s1, s2, s3));
+    }
+
+    // Function to check if the given sides form a valid triangle
+    public static boolean isValidTriangle(int a, int b, int c) {
+        // Check the triangle inequality theorem to determine validity
+        return (a + b > c && b + c > a && c + a > b);
+    }
+}
+```
 
 ### 196. rite a Java program to create a spiral array of n * n sizes from a given integer n.
 
@@ -1827,6 +2547,87 @@ Spiral array becomes:
 14 23 22 21 8
 13 12 11 10 9
 
+```java
+// Import Scanner class from java.util package for user input
+import java.util.*;
+
+// Main class for the solution
+public class Solution {       
+    // Main method to execute the solution
+    public static void main(String[] args) {
+		// Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);	
+        
+        // Prompt the user to input a number
+        System.out.print("Input a number: ");
+        
+        // Read the user input as an integer
+        int n = in.nextInt(); 
+        
+        // Generate a spiral array using the spiral_Array function
+        int[][] result = spiral_Array(n);
+		
+		// Display the generated spiral array
+		System.out.print("Spiral array becomes:\n");
+		for(int i = 0; i < result.length; i++) {
+            for(int j = 0; j < result[i].length; j++) {
+                System.out.print(result[i][j]);
+                if(j < result[i].length - 1) System.out.print(" ");
+            }
+            System.out.println();
+        }
+	}
+
+    // Function to generate a spiral array of size n x n
+    public static int[][] spiral_Array(int n) {
+        // Initialize a 2D array to store the spiral array
+        int[][] temp = new int[n][n];
+        
+        // Arrays to represent movement in x and y directions
+        int[] dx = new int[]{0, 1, 0, -1};
+        int[] dy = new int[]{1, 0, -1, 0};
+        
+        // Variables for current position (x, y) and direction (d)
+        int x, y, d;
+        
+        // Variables for iteration
+        int i, j, nx, ny;        
+        
+        // Initialize the array with -1 values
+        for (i = 0; i < n; ++i) {
+            for (j = 0; j < n; ++j) {
+                temp[i][j] = -1; 
+            }
+        }        
+        
+        // Initialize starting position and direction
+        x = 0;
+        y = 0;
+        d = 0;
+        
+        // Fill the array with spiral order values
+        for (i = 1; i <= n * n; ++i) {
+            temp[x][y] = i;  
+            nx = x + dx[d];
+            ny = y + dy[d];
+            
+            // Check boundaries and visited positions
+            if (nx < 0 || nx >= n || ny < 0 || ny >= n || temp[nx][ny] != -1) {
+                d = (d + 1) % 4;  // Change direction if boundary or visited
+                nx = x + dx[d];
+                ny = y + dy[d];
+            }         
+            
+            // Update current position
+            x = nx;
+            y = ny;
+        }        
+        
+        // Return the generated spiral array
+        return temp;
+    }
+}
+```
 
 ### 197. Write a Java program to test if a given number (positive integer) is a perfect square or not.
 
@@ -1835,7 +2636,50 @@ Expected Output:
 Input a positive integer:  6
 Is the said number perfect square? false 
 
+```java
+// Import Scanner class from java.util package for user input
+import java.util.*;
 
+// Main class for the solution
+public class Solution {
+    // Main method to execute the solution
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+
+        // Prompt the user to input a positive integer
+        System.out.print("Input a positive integer: ");
+
+        // Read the user input as an integer
+        int n = in.nextInt();
+
+        // Display the result of the is_Perfect_Square function
+        System.out.print("Is the said number perfect square? " + is_Perfect_Square(n));
+    }
+
+    // Function to check if a given number is a perfect square
+    public static boolean is_Perfect_Square(int n) {
+        // Extract the last digit of the number
+        int x = n % 10;
+
+        // Check if the last digit is 2, 3, 7, or 8 (numbers whose squares end with these digits)
+        if (x == 2 || x == 3 || x == 7 || x == 8) {
+            return false;
+        }
+
+        // Iterate from 0 to half of the input number plus 1
+        for (int i = 0; i <= n / 2 + 1; i++) {
+            // Check if the square of the current iteration is equal to the input number
+            if ((long) i * i == n) {
+                return true;
+            }
+        }
+
+        // If no perfect square is found, return false
+        return false;
+    }
+}
+```
 ### 198. Write a Java program to calculate the position of a given prime number.
 
 Expected Output:
@@ -1843,7 +2687,58 @@ Expected Output:
 Input a positive integer:  15
 Position of the said Prime number: 6
 
+```java
+// Import Scanner class from java.util package for user input
+import java.util.*;
 
+// Main class for the solution
+public class Solution {
+    // Main method to execute the solution
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+
+        // Prompt the user to input a prime number
+        System.out.print("Input a prime number: ");
+
+        // Read the user input as an integer
+        int n = in.nextInt();
+
+        // Display the position of the given prime number using the kth_Prime function
+        System.out.print("Position of the said Prime number: " + kth_Prime(n));
+    }
+
+    // Function to find the position of a given prime number in the sequence of primes
+    public static int kth_Prime(int n) {
+        // Array to store prime numbers, initialized with the first prime number (2)
+        int[] prime_num = new int[10000];
+        int num = 3;  // Starting from the next number after 2
+        int i = 0, index = 0;  // Variables for iteration and index tracking
+        prime_num[0] = 2;  // Initialize the first prime number in the array
+
+        // Continue finding primes until reaching the input number
+        while (num <= n) {
+            // Iterate through the existing primes to check if num is divisible
+            for (i = 0; i <= index; i++) {
+                if (num % prime_num[i] == 0) {
+                    break;
+                }
+            }
+
+            // If num is not divisible by any existing primes, add it to the array
+            if (i > index) {
+                prime_num[++index] = num;
+            }
+
+            // Move on to the next number
+            num++;
+        }
+
+        // Return the position of the input prime number in the sequence
+        return index + 1;
+    }
+}
+```
 ### 199. Write a Java program to check if a string follows a given pattern.
 
 Example pattern:
@@ -1856,6 +2751,66 @@ Expected Output:
 
 Is the string and pattern matched? false
 
+```java
+// Import Scanner and Map classes from java.util package for user input and data storage
+import java.util.*;
+
+// Main class for the solution
+public class Solution {
+    // Main method to execute the solution
+    public static void main(String[] args) {
+        // Sample input strings for testing word pattern matching
+        String str = "red black black red";
+        // String str = "red red red red"; 
+        String pattern = "xyxx";
+        // String pattern = "xxxx";
+        
+        // Display the result of the word_Pattern_Match function
+        System.out.print("Is the string and pattern matched? " + word_Pattern_Match(pattern, str));
+    }
+
+    // Function to check if a given string follows a given word pattern
+    public static boolean word_Pattern_Match(String pattern, String str) {
+        // Convert the pattern string to an array of characters
+        char[] word_pattern = pattern.toCharArray();
+        
+        // Split the input string into an array of words using space as a delimiter
+        String[] words = str.split(" ");
+
+        // Create a HashMap to store the mapping between characters and words
+        Map map = new HashMap<>();
+        
+        // Create a HashSet to check for duplicate mappings
+        Set set = new HashSet<>();
+
+        // Iterate through the characters in the pattern
+        for (int i = 0; i < word_pattern.length; i++) {
+            // Check if the character is already mapped
+            if (map.containsKey(word_pattern[i])) {
+                // Check if the mapped word is different from the current word in the array
+                if (!map.get(word_pattern[i]).equals(words[i])) {
+                    return false;
+                }
+                continue;
+            }
+
+            // Check if the current word is already mapped to another character
+            if (set.contains(words[i])) {
+                return false;
+            }
+            
+            // Add the mapping between the character and the current word to the HashMap
+            map.put(word_pattern[i], words[i]);
+            
+            // Add the current word to the HashSet to mark it as used
+            set.add(words[i]);
+        }
+
+        // If all conditions are satisfied, return true
+        return true;
+    }
+}
+```
 
 ### 200. Write a Java program to remove duplicate letters and arrange them in lexicographical order from a given string containing only lowercase letters.
 
@@ -1866,6 +2821,57 @@ Expected Output:
 Original string: zxywooxz
 After removing duplicate characters: xywoz
 
+```java
+// Import Scanner class from java.util package for user input
+import java.util.*;
+// Main class for the solution
+public class Main {
+    // Main method to execute the solution
+    public static void main(String[] args) {
+        // Sample input string for testing duplicate letter removal
+        String str = "zxywooxz";
+        // Display the original string
+        System.out.print("Original string: " + str);
+        // Display the result after removing duplicate characters and arranging in lexicographical order
+        System.out.print("\nAfter removing duplicate characters and arranging in lexicographical order: " + removeDuplicateLetters(str));
+    }
+    // Function to remove duplicate letters from the given string and arrange in lexicographical order
+    public static String removeDuplicateLetters(String s) {
+        // Array to track whether a letter is already in the result
+        boolean[] inResult = new boolean[26];
+        // Array to count the occurrences of each lowercase letter
+        int[] count = new int[26];
+        // Stack to store the characters
+        Stack<Character> stack = new Stack<>();
+        // Count the occurrences of each letter in the input string
+        for (char c : s.toCharArray()) {
+            count[c - 'a']++;
+        }
+        // Iterate through the characters in the input string
+        for (char c : s.toCharArray()) {
+            // Decrement the count of the current character in the occurrences array
+            count[c - 'a']--;
+            // If the character is already in the result, skip
+            if (inResult[c - 'a']) continue;
+            // Pop characters from the stack while conditions are met
+            while (!stack.isEmpty() && c < stack.peek() && count[stack.peek() - 'a'] > 0) {
+                inResult[stack.pop() - 'a'] = false;
+            }
+            // Push the current character onto the stack
+            stack.push(c);
+            inResult[c - 'a'] = true;
+        }
+        // Sort the characters in the stack
+        Collections.sort(stack);
+        // Build the result string from the characters in the stack
+        StringBuilder result = new StringBuilder();
+        for (char c : stack) {
+            result.append(c);
+        }
+        return result.toString();
+    }
+}
+```
 
 ### 201. Write a Java program to divide a given array of integers into given k non-empty subsets whose sums are all equal. Return true if all sums are equal otherwise return false.
 
@@ -1879,6 +2885,75 @@ Original Array: [1, 3, 3, 5, 6, 6]
 Target of subsets: 4
 After removing duplicate characters: true
 
+```java
+// Import Arrays and other utility classes from java.util package
+import java.util.Arrays;
+
+// Main class for the solution
+public class Solution {
+    // Main method to execute the solution
+    public static void main(String[] args) {
+        // Sample input array and target value for testing subset partitioning
+        int[] nums = {1, 3, 3, 5, 6, 6};
+        int target = 4;
+
+        // Display the original array
+        System.out.print("Original Array: " + Arrays.toString(nums));
+
+        // Display the target value for subsets
+        System.out.print("\nTarget of subsets: " + target);
+
+        // Display the result after removing duplicate characters using partition_k_subsets function
+        System.out.print("\nAfter removing duplicate characters: " + partition_k_subsets(nums, target));
+    }
+
+    // Function to recursively search for valid subsets with a specific sum
+    static boolean search_subset(int used, int n, boolean[] flag, int[] nums, int target) {
+        // Base case: all elements used, subset found
+        if (n == 0) {
+            return true;
+        }
+
+        // Check if the current subset has not been considered before
+        if (!flag[used]) {
+            // Mark the current subset as visited
+            flag[used] = true;
+
+            // Calculate the remaining sum needed for the subset
+            int remain_num = (n - 1) % target + 1;
+
+            // Iterate through the elements in the array
+            for (int i = 0; i < nums.length; i++) {
+                // Check if the current element is not used in the subset and its value is less than or equal to the remaining sum
+                if ((((used >> i) & 1) == 0) && nums[i] <= remain_num) {
+                    // Recursively search for the subset with the updated parameters
+                    if (search_subset(used | (1 << i), n - nums[i], flag, nums, target)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    // Function to partition an array into k subsets with equal sum
+    public static boolean partition_k_subsets(int[] nums, int k) {
+        // Calculate the total sum of the elements in the array
+        int sum = Arrays.stream(nums).sum();
+
+        // Check if the sum is not divisible by k, return false
+        if (sum % k > 0) {
+            return false;
+        }
+
+        // Create a boolean array to track visited subsets
+        boolean[] flag = new boolean[1 << nums.length];
+
+        // Call the recursive search_subset function to check for valid subsets
+        return search_subset(0, sum, flag, nums, sum / k);
+    }
+}
+```
 
 ### 202. Write a Java program to find the total number of continuous subarrays in a given array of integers whose sum equals an integer.
 
@@ -1888,6 +2963,45 @@ Original Array: [4, 2, 3, 3, 7, 2, 4]
 Value of k: 6
 Total number of continuous subarrays: 3
 
+```java
+// Import utility classes from java.util package
+import java.util.*;
+// Main class
+public class Main {
+    // Main method to execute the solution
+    public static void main(String[] args) {
+        // Sample input array and value of k for counting continuous subarrays
+        int[] nums = {4, 2, 3, 3, 7, 2, 4};
+        int k = 6;
+        // Display the original array
+        System.out.print("Original Array: " + Arrays.toString(nums));
+        // Display the value of k
+        System.out.print("\nValue of k: " + k);
+        // Display the total number of continuous subarrays whose sum equals k
+        System.out.print("\nTotal number of continuous subarrays: " + max_SubArray(nums, k));
+    }
+    // Function to find the total number of continuous subarrays whose sum equals k
+    public static int max_SubArray(int[] nums, int k) {
+        int ctr = 0; // Counter for total subarrays found
+        int sum = 0; // Variable to track current sum
+        Map<Integer, Integer> map = new HashMap<>(); // HashMap to store prefix sums and their counts
+        // Initialize the map with a sum of 0 and count 1 (base case)
+        map.put(0, 1);
+        // Iterate through the input array
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i]; // Update the current sum
+            // Check if there exists a prefix sum at (sum - k), increment counter if found
+            if (map.containsKey(sum - k)) {
+                ctr += map.get(sum - k);
+            }
+            // Update the count of the current sum in the map
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
+        }
+        // Return the total count of continuous subarrays whose sum equals k
+        return ctr;
+    }
+}
+```
 
 ### 203. Write a Java program to find the contiguous subarray of given length k which has the maximum average value of a given array of integers. Display the maximum average value.
 
@@ -1897,6 +3011,42 @@ Original Array: [4, 2, 3, 3, 7, 2, 4]
 Value of k: 3
 Maximum average value: 4.333333333333333
 
+```java
+import java.util.*;
+// Main class named "Main"
+public class Main {
+    // Main method, the entry point of the program
+    public static void main(String[] args) {		
+        // Sample input array and value of k for finding maximum average
+        int[] nums = {4, 2, 3, 3, 7, 2, 4};
+        int k = 3;
+        // Display the original array
+        System.out.print("Original Array: " + Arrays.toString(nums));
+        // Display the value of k
+        System.out.print("\nValue of k: " + k);
+        // Display the maximum average value
+        System.out.print("\nMaximum average value: " + find_max_average(nums, k));
+    }
+    // Function to find the maximum average of subarrays of length k
+    public static double find_max_average(int[] nums, int k) {
+        int sum = 0;
+        // Calculate the initial sum of the first k elements
+        for (int i = 0; i < k; i++) {
+            sum += nums[i];
+        }
+        int max_val = sum;
+        // Iterate through the array to find the maximum average
+        for (int i = k; i < nums.length; i++) {
+            // Update the sum by removing the leftmost element and adding the current element
+            sum = sum - nums[i - k] + nums[i];
+            // Update the maximum value if the current sum is greater
+            max_val = Math.max(max_val, sum);
+        }
+        // Return the maximum average value
+        return (double) max_val / k;
+    }
+}
+```
 
 ### 204. Write a Java program to compute xn % y where x, y and n are all 32-bit integers.
 
@@ -1907,7 +3057,43 @@ Input n :  35
 Input y :  45
 x^n % y = 5.0
 
+```java
+// Import Scanner class from java.util package for user input
+import java.util.*;
 
+// Main class for the solution
+public class Main {
+    // Main method to execute the solution
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+
+        // Prompt the user to input x
+        System.out.print("Input x : ");
+        // Read the user input as an integer
+        int x = in.nextInt();
+
+        // Prompt the user to input n
+        System.out.print("Input n : ");
+        // Read the user input as an integer
+        int n = in.nextInt();
+
+        // Prompt the user to input y
+        System.out.print("Input y : ");
+        // Read the user input as an integer
+        int y = in.nextInt();
+
+        // Calculate the result of x raised to the power of n
+        double result = Math.pow(x, n);
+
+        // Calculate the remainder when result is divided by y
+        double result1 = result % y;
+
+        // Display the result of (x^n % y)
+        System.out.println("x^n % y = " + result1);
+    }
+}
+```
 ### 205. Write a Java program to check whether an integer is a power of 2 or not using O(1) time.
 
 Note: O(1) means that it takes a constant time, like 12 nanoseconds, or two minutes no matter the amount of data in the set.
@@ -1918,7 +3104,45 @@ Expected Output:
 Input a number :  25
 false
 
+```java
+import java.util.*;
 
+public class Main {
+    public static void main(String[] args) {
+        // Initialize a boolean variable
+        boolean b = true;
+
+        // Create a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+
+        // Prompt the user to input a number
+        System.out.print("Input a number: ");
+        int num = in.nextInt();
+
+        // Start a block of code
+        {
+            // Continue looping until num becomes 1
+            while (num != 1) {
+                // Check if num is odd
+                if (num % 2 != 0) {
+                    // Toggle the boolean variable
+                    b = !b;
+
+                    // Print the current value of the boolean variable and exit the program
+                    System.out.print(b);
+                    System.exit(0);
+                }
+
+                // Divide num by 2
+                num = num / 2;
+            }
+
+            // Print the final value of the boolean variable
+            System.out.print(b);
+        }
+    }
+}
+```
 ### 206. From Wikipedia,
 A cyclic redundancy check (CRC) is an error-detecting code commonly used in digital networks and storage devices to detect accidental changes to raw data. Blocks of data entering these systems get a short check value attached, based on the remainder of a polynomial division of their contents. On retrieval, the calculation is repeated and, in the event the check values do not match, corrective action can be taken against data corruption. CRCs can be used for error correction.
 Example:
@@ -1928,6 +3152,56 @@ Input:
 Input a string:  The quick brown fox
 crc32 checksum of the string: b74574de
 
+```java
+// Importing required classes from the java.util package
+import java.util.Scanner;
+import java.util.BitSet;
+
+// Defining a class named "solution"
+public class solution {
+
+    // Method to convert a byte array to CRC32 checksum
+    public static int convert_crc32(byte[] data) {
+        // Creating a BitSet to represent the bits of the input byte array
+        BitSet bitSet = BitSet.valueOf(data);
+
+        // Initializing CRC32 to 0xFFFFFFFF
+        int crc32 = 0xFFFFFFFF; 
+
+        // Looping through each bit in the BitSet
+        for (int i = 0; i < data.length * 8; i++) {
+            // Checking if the MSB of CRC32 and the current bit in BitSet are different
+            if (((crc32 >>> 31) & 1) != (bitSet.get(i) ? 1 : 0))
+                // If different, performing XOR with the polynomial 0x04C11DB7
+                crc32 = (crc32 << 1) ^ 0x04C11DB7;  
+            else
+                // If same, shifting CRC32 to the left
+                crc32 = (crc32 << 1);
+        }
+
+        // Reversing the bits of CRC32
+        crc32 = Integer.reverse(crc32);  
+
+        // Returning the final CRC32 checksum by performing XOR with 0xFFFFFFFF
+        return crc32 ^ 0xFFFFFFFF;  
+    }
+    
+    // Main method, the entry point of the program
+    public static void main(String[] args) {
+        // Creating a Scanner object for user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompting the user to input a string
+        System.out.print("Input a string: ");
+
+        // Reading the input string from the user
+        String str1 = scanner.nextLine();
+
+        // Calling the convert_crc32 method and printing the CRC32 checksum in hexadecimal format
+        System.out.println("crc32 checksum of the string: " + Integer.toHexString(convert_crc32(str1.getBytes())));		
+    }           
+}
+```
 
 ### 207. Write a Java program to merge two sorted (ascending) linked lists in ascending order.
 
@@ -1941,7 +3215,120 @@ Input numbers of 2nd linked list in ascending order:  4 5 6
 
 Merged list: 1 2 3 4 5 6 
 
+```java
+// Importing the java.util package to use LinkedList, Scanner, ArrayList, and List
+import java.util.*;
 
+// Defining the Main class
+class Main {
+    // Main method, the entry point of the program
+    public static void main(String[] args) {
+        // Creating the 1st linked list
+        LinkedList list1 = new LinkedList<>();
+
+        // Creating a Scanner object for user input
+        Scanner input = new Scanner(System.in);
+
+        // Prompting the user to input the number of elements for the 1st linked list
+        System.out.print("How many elements do you want to add in the 1st linked list?: ");
+
+        // Reading the number of elements from the user
+        int num = input.nextInt();
+
+        // Prompting the user to input numbers for the 1st linked list in ascending order
+        System.out.print("Input numbers of the 1st linked list in ascending order: ");
+
+        // Looping to add elements to the 1st linked list
+        for (int i = 0; i < num; i++) {
+            // Reading each element and adding it to the 1st linked list
+            int element = input.nextInt();
+            list1.add(element);
+        }
+        System.out.println();
+
+        // Converting the 1st linked list to ArrayList
+        List<Integer> list1_1 = new ArrayList<Integer>(list1);
+        Object[] list1_1_1 = list1_1.toArray();
+        int[] list1_1_1_1 = new int[list1_1_1.length];
+        for (int i = 0; i < list1_1_1.length; i++)
+            list1_1_1_1[i] = (int) list1_1_1[i];
+
+        // Creating the 2nd linked list
+        LinkedList<Integer> list2 = new LinkedList<>();
+
+        // Prompting the user to input the number of elements for the 2nd linked list
+        System.out.print("How many elements do you want to add in the 2nd linked list?: ");
+
+        // Reading the number of elements from the user
+        int num1 = input.nextInt();
+
+        // Prompting the user to input numbers for the 2nd linked list in ascending order
+        System.out.print("Input numbers of the 2nd linked list in ascending order: ");
+
+        // Looping to add elements to the 2nd linked list
+        for (int i = 0; i < num1; i++) {
+            // Reading each element and adding it to the 2nd linked list
+            int element = input.nextInt();
+            list2.add(element);
+        }
+        System.out.println();
+
+        // Converting the 2nd linked list to ArrayList
+        List<Integer> list2_2 = new ArrayList<Integer>(list2);
+        Object[] list2_2_2 = list2_2.toArray();
+        int[] list2_2_2_2 = new int[list2_2_2.length];
+        for (int i = 0; i < list2_2_2.length; i++)
+            list2_2_2_2[i] = (int) list2_2_2[i];
+
+        // Merging the two lists using the merge method
+        int[] mergedArray = merge(list1_1_1_1, list2_2_2_2);
+
+        // Printing the merged list
+        System.out.print("Merged list: ");
+        for (int i = 0; i < mergedArray.length; i++) {
+            System.out.print(mergedArray[i] + " ");
+        }
+    }
+
+    // Method to merge two sorted arrays
+    public static int[] merge(int[] list1_1_1_1, int[] list2_2_2_2) {
+        // Creating an array to store the merged list
+        int[] listMerged = new int[list1_1_1_1.length + list2_2_2_2.length];
+
+        // Initializing indices for both lists and the merged list
+        int i = 0, j = 0, k = 0;
+
+        // Merging the two lists
+        while (i < list1_1_1_1.length && j < list2_2_2_2.length) {
+            if (list1_1_1_1[i] < list2_2_2_2[j]) {
+                listMerged[k] = list1_1_1_1[i];
+                i++;
+            } else {
+                listMerged[k] = list2_2_2_2[j];
+                j++;
+            }
+            k++;
+        }
+
+        // Copying the remaining elements of list1_1_1_1, if any
+        while (i < list1_1_1_1.length) {
+            listMerged[k] = list1_1_1_1[i];
+            i++;
+            k++;
+        }
+
+        // Copying the remaining elements of list2_2_2_2, if any
+        while (j < list2_2_2_2.length) {
+            listMerged[k] = list2_2_2_2[j];
+            j++;
+            k++;
+        }
+
+        // Returning the merged list
+        return listMerged;
+    }
+}
+```
 ### 208. Write a Java program to create a basic string compression method using repeated character counts.
 
 Input string: aaaabbbbcccccddddeeee
@@ -1953,7 +3340,72 @@ Enter a string (you can include space as well)
 The compressed string along with the counts of repeated characters is:
 a4b4c5d4e4
 
+```java
+import java.util.Scanner; 
 
+public class StringCompression {
+
+    public static void main(String[] args) {
+        // Create an instance of the StringCompression class
+        StringCompression str = new StringCompression();
+        
+        String s1, s2; 
+        Scanner in = new Scanner(System.in);
+        
+        // Prompt the user to enter a string (including spaces)
+        System.out.println("Enter a string (you can include space as well)"); 
+        s1 = in.nextLine(); 
+        
+        // Trim all the spaces from the string using replaceAll method
+        s2 = s1.replaceAll("\\s", "");
+        
+        // Call the Compression method to compress the string
+        str.Compression(s2);
+    }
+ 
+    // Create a Java Method Compression to compress the string
+    public static String Compression(String s) {
+        int count = 1;
+        StringBuilder sb = new StringBuilder();
+
+        // Below for loop counts all characters of the string apart from the last one
+        // The last character won't get appended by the StringBuilder here as it 
+        // does not enter the for loop once the length completes the count
+        for (int i = 1; i < s.length() - 1; i++) {
+            if (s.charAt(i) == s.charAt(i - 1)) {
+                count++;
+            } else {
+                sb.append(s.charAt(i - 1));
+                sb.append(count);
+                count = 1;
+            }
+        }
+        
+        // Count the last character of the string
+        if (s.length() > 1) {
+            // Compare the last two characters of the string
+            if (s.charAt(s.length() - 1) == s.charAt(s.length() - 2)) {
+                count++;
+            } else {
+                sb.append(s.charAt(s.length() - 2));
+                sb.append(count);
+                count = 1;
+            }
+            sb.append(s.charAt(s.length() - 1));
+            sb.append(count);
+        }
+        
+        // Convert the StringBuilder to a string
+        s = sb.toString();
+        
+        // Print the compressed string along with the counts of repeated characters
+        System.out.println("The compressed string along with the counts of repeated characters is:" + "\n" + s);
+        
+        // Return the compressed string
+        return s;
+    }
+}
+```
 ### 209. Write a Java program to find all unique combinations from a collection of candidate numbers. The sum of the numbers will equal a given target number.
 
 Input number of elements of the array:
@@ -1969,6 +3421,88 @@ Enter target sum:
 A solution set is:
 { 6 7 8 }
 
+```java
+import java.util.*;
+
+class Main {
+    
+    // Method to insert values into a Map with key as a generic type and value as a List of generic type
+    private static <K, V> void insert(Map<K, List<V>> hashMap, K key, V value) {
+        // If the key is not present in the map, create a new entry with an empty ArrayList
+        if (!hashMap.containsKey(key)) {
+            hashMap.put(key, new ArrayList<>());
+        }
+        // Add the value to the list corresponding to the key
+        hashMap.get(key).add(value);
+    }
+
+    // Method to print subsets of an array from index i to j
+    public static void Subsets(int[] A, int i, int j) {
+        System.out.print("{ ");
+        for (int k = i; k <= j; k++) {
+            System.out.print(A[k] + " ");
+        }
+        System.out.println("}");
+    }
+
+    // Method to find subsets with a given sum in the array
+    public static void Subsets(int[] A, int sum) {
+        // Create a HashMap to store the cumulative sum and corresponding indices
+        Map<Integer, List<Integer>> hashMap = new HashMap<>();
+        // Insert an initial entry with key 0 and value -1 (sum_so_far - sum = 0 - sum)
+        insert(hashMap, 0, -1);
+
+        int sum_so_far = 0;
+        for (int index = 0; index < A.length; index++) {
+            // Update the cumulative sum
+            sum_so_far += A[index];
+
+            // If the HashMap contains the key (cumulative sum - sum), print subsets
+            if (hashMap.containsKey(sum_so_far - sum)) {
+                List<Integer> list = hashMap.get(sum_so_far - sum);
+                for (Integer value : list) {
+                    Subsets(A, value + 1, index);
+                }
+            }
+
+            // Insert the current cumulative sum and index into the HashMap
+            insert(hashMap, sum_so_far, index);
+        }
+    }
+
+    public static void main(String[] args) {
+        // Scanner for user input
+        Scanner s = new Scanner(System.in);
+
+        // Prompt for the number of elements in the array
+        System.out.println("Input number of elements of the array: ");
+        int n = s.nextInt();
+
+        // Prompt for entering array elements in number format
+        System.out.println("Input number format: 2 3 4 5: ");
+        int arr[] = new int[n];
+
+        // Prompt for entering array elements
+        System.out.println("Enter elements:");
+        for (int i = 0; i < n; i++)
+            arr[i] = s.nextInt();
+
+        // Prompt for entering the target sum
+        System.out.println("Enter target sum:");
+        int sum = s.nextInt();
+
+        // Create a copy of the original array
+        int A[] = Arrays.copyOf(arr, arr.length);
+
+        // Print the solution set (subsets with the given sum)
+        System.out.println("A solution set is:");
+        Subsets(A, sum);
+
+        // Exit the program
+        System.exit(0);
+    }
+}
+```
 
 ### 210. Write a Java program to match any single character (use ?) or any sequence of characters (use *) including empty. The matching should cover the entire input string.
 
@@ -1980,7 +3514,73 @@ Enter a pattern
  b*
 Yes
 
+```java
+import java.util.*;
 
+public class PatternMatching {
+    
+    // Method for wildcard pattern matching
+    static boolean pattern_match(String string, String pattern) {
+        // i measures the length of the string
+        int i = 0;
+        // j measures the length of the pattern
+        int j = 0;
+        int star_index = -1;
+        int i_index = -1;
+
+        while (i < string.length()) {
+            // If '?' matches the ith character of the string or if the jth character of the
+            // pattern matches the ith character of the string. e.g. (a & ?), (ab & ab)
+            if (j < pattern.length() && (pattern.charAt(j) == '?' || pattern.charAt(j) == string.charAt(i))) {
+                ++i;
+                ++j;
+            } 
+            // Counts '*' characters of the pattern when the count of the string is not
+            // completed yet. e.g. (a & ***), (abb & ab****)
+            else if (j < pattern.length() && pattern.charAt(j) == '*') {
+                star_index = j;
+                i_index = i;
+                j++;
+            } 
+            // Counts the characters of the string which are left out once a '*' of the pattern 
+            // gets counted e.g. (xayb & *a*b), (a & ***), (abcd & ab*), (aa & ?**)
+            else if (star_index != -1) {
+                j = star_index + 1;
+                i = i_index + 1;
+                i_index++;
+            } 
+            // If the characters of the string and pattern don't match
+            // e.g. (xy & ab), (abxy & ab)
+            else {
+                return false;
+            }
+        }
+
+        // Counts the '*' characters of the pattern when the characters before the '*' characters
+        // of the pattern completely match the string and both are of the same length
+        // (apart from the '*' characters of the pattern)
+        // e.g. (ab and ab**), (aa and ??**)
+        while (j < pattern.length() && pattern.charAt(j) == '*') {
+            ++j;
+        } 
+
+        return j == pattern.length();
+    }
+
+    public static void main(String args[]) { 
+        String str, pat;
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter a string");
+        str = in.nextLine();
+        System.out.println("Enter a pattern");
+        pat = in.nextLine();
+        if (pattern_match(str, pat))
+            System.out.println("Yes"); 
+        else
+            System.out.println("No");
+    }  
+}
+```
 ### 211. Write a Java program to find the heights of the top three buildings in descending order from eight given buildings.
 
 Input:
