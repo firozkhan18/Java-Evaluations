@@ -15,7 +15,7 @@ Write a Java program to create a class called "Person" with a name and age attri
 Sample Solution:
 
 Java Code:
-
+```java
  // Define the Person class
 public class Person {
     // Declare a private variable to store the name of the person
@@ -55,9 +55,9 @@ public class Person {
         this.age = age;
     }
 }
-
+```
 The above class has two private attributes: name and age, and a constructor that initializes these attributes with the values passed as arguments. It also has a getter method to access the attributes.
-
+```java
 // Define the Main class
 public class Main {
     // Define the main method which is the entry point of the program
@@ -83,7 +83,8 @@ public class Main {
         // Print the updated name and age of person2 to the console
         System.out.println(person2.getName() + " is now " + person2.getAge() + " years old.");
     }
-} 
+}
+```
 In the above example, we create two instances of the "Person" class, set their attributes with the constructor, and print their name and age using the getter methods. We also modify the attributes using the setter methods and print the updated values.
 
 Sample Output:
@@ -102,7 +103,7 @@ Write a Java program to create a class called " Dog" with a name and breed attri
 Sample Solution:
 
 Java Code:
-
+```java
 // Define the Dog class
 public class Dog {
     // Declare a private variable to store the name of the dog
@@ -142,9 +143,9 @@ public class Dog {
         this.breed = breed;
     }
 } 
-
+```
 The above class has two private attributes: ‘name’ and ‘breed’, and a constructor that initializes these attributes with the values passed as arguments. It also has getter and setter methods to access and modify these attributes.
-
+```java
 // Define the Main class
 public class Main {
     // Define the main method which is the entry point of the program
@@ -171,7 +172,8 @@ public class Main {
         // Print the updated name and breed of dog2 to the console
         System.out.println(dog2.getName() + " is now a " + dog2.getBreed() + ".");
     }
-} 
+}
+```
 In the above example code, we create two instances of the " Dog" class, set their attributes through the constructor, and print their name and breed using the getter methods. We also modify the attributes using the setter methods and print the updated values.
 
 Sample Output:
@@ -190,7 +192,7 @@ Write a Java program to create a class called "Rectangle" with width and height 
 Sample Solution:
 
 Java Code:
-
+```java
 // Define the Rectangle class
 public class Rectangle {
     // Declare a private variable to store the width of the rectangle
@@ -242,9 +244,9 @@ public class Rectangle {
         return 2 * (width + height);
     }
 }
-
+```
 The above class has two private attributes: 'width' and 'height', a constructor that initializes these attributes with the values passed as arguments, and getter and setter methods to access and modify these attributes. It also has two methods 'getArea()' and 'getPerimeter() ' to calculate the area and perimeter of the rectangle.
-
+```java
 // Define the Main class
 public class Main {
     // Define the main method which is the entry point of the program
@@ -267,7 +269,8 @@ public class Main {
         // Print the updated perimeter of the rectangle to the console
         System.out.println("The perimeter of the rectangle is now " + rectangle.getPerimeter());
     }
-} 
+}
+```
 In the Main() function we create an instance of the "Rectangle" class with a width of 7 and a height of 12, and call its methods to calculate the area and perimeter. We then modify the width and height using the setter methods and print the updated rectangle area and perimeter.
 
 Sample Output:
@@ -285,7 +288,7 @@ Write a Java program to create a class called "Circle" with a radius attribute. 
 Sample Solution:
 
 Java Code:
-
+```java
 // Define the Circle class
 public class Circle {
     // Declare a private variable to store the radius of the circle
@@ -321,9 +324,9 @@ public class Circle {
         return 2 * Math.PI * radius;
     }
 } 
-
+```
 The above "Circle" class has a private attribute 'radius', a constructor that initializes this attribute with the value passed as an argument, and getter and setter methods to access and modify this attribute. It also calculates circle area and circumference using methods.
-
+```java
 // Define the Main class
 public class Main {
     // Define the main method which is the entry point of the program
@@ -350,6 +353,7 @@ public class Main {
         System.out.println("The circumference of the circle is now " + circle.getCircumference());
     }
 }
+```
 In the above main() function, we create an instance of the "Circle" class with a radius of 5, and call its methods to calculate the area and circumference. We then modify the radius using the setter method and print the updated area and circumference.
 
 Sample Output:
@@ -369,7 +373,7 @@ Write a Java program to create a class called "Book" with attributes for title, 
 Sample Solution:
 
 Java Code:
-
+```java
 //Book.java
 // Import the ArrayList class from the java.util package
 import java.util.ArrayList;
@@ -449,9 +453,9 @@ public class Book {
         return bookCollection;
     }
 }
-
+```
 The above class has three private attributes: title, author and ISBN. It has a constructor that initializes these attributes with the values passed as arguments, and getter and setter methods to access and modify these attributes. It also has static methods to add and remove books from a collection, and a static method to get the book collection.
-
+```java
 //Main.java
 // Import the ArrayList class from the java.util package
 import java.util.ArrayList;
@@ -498,6 +502,7 @@ public class Main {
         }
     }
 }
+```
 In this example code, we create two instances of the "Book" class and add them to the collection with the ‘addBook’ method. We then print the title, author, and ISBN of each book in the collection using a for loop. We also remove book1 from the collection using the ‘removeBook’ method and print the updated collection.
 
 Sample Output:
@@ -517,7 +522,7 @@ Write a Java program to create a class called "Employee" with a name, job title,
 Sample Solution:
 
 Java Code:
-
+```java
 //Employee.java
 // Define the Employee class
 public class Employee {
@@ -590,9 +595,9 @@ public class Employee {
         System.out.println("Salary: " + salary);
     }
 }
-
+```
 The above class has three private attributes: name, jobTitle, and salary. It has a constructor that initializes these attributes with the values passed as arguments. It also has getter and setter methods to access and modify these attributes. In addition, it provides methods for raising salaries by a certain percentage and printing employee information.
-
+```java
 // Main.java
 // Define the Main class
 public class Main {
@@ -628,6 +633,7 @@ public class Main {
         employee2.printEmployeeDetails();
     }
 }
+```
 In the above example code, we create two instances of the "Employee" class and print their details using the ’printEmployeeDetails()’ method. We then raise their salary using the ‘raiseSalary()’ method and print the updated details of the employees.
 
 Sample Output:
@@ -659,7 +665,7 @@ Write a Java program to create a class called "Bank" with a collection of accoun
 Sample Solution:
 
 Java Code:
-
+```java
 // Account.java
 // Define the Account class
 public class Account {
@@ -734,9 +740,9 @@ public class Account {
         return "Name: " + name + ", Account Number: " + accountNumber + ", Balance: " + balance;
     }
 }
-
+```
 The above class has three private attributes: name, accountNumber and balance. There are several methods to deposit, withdraw, maintain balance in an individual account, print account details and more.
-
+```java
 // Bank.java
 // Import the ArrayList class from the Java Collections Framework
 import java.util.ArrayList;
@@ -782,9 +788,10 @@ public class Bank {
     // Return the accounts ArrayList
     return accounts;
   }
-} 
+}
+```
 The above class has a private accounts attribute, a constructor that initializes this attribute as an empty array list. It also has methods to add and remove accounts from the collection, and to deposit and withdraw money from an account.
-
+```java
 // Main.java
 // Import the ArrayList class from the Java Collections Framework
 import java.util.ArrayList;
@@ -836,7 +843,8 @@ public class Main {
     // Print the updated account information for account3
     System.out.println(account3.getAccountInfo());
   }
-} 
+}
+```
 In the above example code, we create an instance of the "Bank" class and three instances of the "Account" class, and add them to the collection through the ‘addAccount’ method. We then print the account information for each account in the collection using a for loop. We also deposit 1000 into account1 using the ‘depositMoney’ method, and withdraw 5000 from account3 using the ‘withdrawMoney’ method. We also print the updated account information. Account2 has no transaction.
 
 Sample Output:
@@ -859,7 +867,7 @@ Write a Java program to create class called "TrafficLight" with attributes for c
 Sample Solution:
 
 Java Code:
-
+```java
 //TrafficLight.java
 // Define the TrafficLight class
 public class TrafficLight {
@@ -909,9 +917,9 @@ public class TrafficLight {
     this.duration = duration;
   }
 }
-
+```
 The above class has two private attributes: ‘color’ and ‘duration’. A constructor initializes these attributes with the values passed as arguments, and getter and setter methods to access and modify these attributes. It also has methods to change the ‘color’, and to check if the  light is red or green.
-
+```java
 //Main.java
 // Define the Main class
 public class Main {
@@ -944,6 +952,7 @@ public class Main {
     System.out.println("The light duration is now: " + light.getDuration());
   }
 }
+```
 In the above example code, we create an instance of the "TrafficLight" class with the color "red" and a duration of 30 seconds. We then print whether the  light is red or green using the “isRed” and “isGreen” methods. We change the  light color to "green" through the “changeColor” method, and display whether the light is now green. We also print the light duration using the “getDuration” method, and change the duration to 60 seconds with the “setDuration” method.
 
 Sample Output:
@@ -961,7 +970,7 @@ Write a Java program to create a class called "Employee" with a name, salary, an
 Sample Solution:
 
 Java Code:
-
+```java
 // Employee.java
 // Import the LocalDate class from the java.time package
 import java.time.LocalDate;
@@ -1047,12 +1056,12 @@ public class Employee {
     System.out.println("Hire Date: " + hireDate);
   }
 }
-
+```
 In the above Employee class, there are three private attributes: name, salary, and hireDate, a constructor that initializes these attributes with the values passed as arguments, and getter and setter methods to access and modify these attributes.
 
 
 There is a method “getYearsOfService()” to calculate years of service between the hire date and the current date, and returns the number of years as an integer value.
-
+```java
 // Main.java
 // Import the LocalDate class from the java.time package
 import java.time.LocalDate;
@@ -1091,6 +1100,7 @@ public class Main {
     System.out.println("Years of Service: " + employee3.getYearsOfService());
   }
 }
+```
 In the above main() function, we create three instances of the "Employee" class, and print their name, salary, hire date, and years of service using the appropriate methods.
 
 Sample Output:
@@ -1117,7 +1127,7 @@ Write a Java program to create a class called "Student" with a name, grade, and 
 Sample Solution:
 
 Java Code:
-
+```java
  // Student.java
 // Import the ArrayList class from the Java Collections Framework
 import java.util.ArrayList;
@@ -1185,9 +1195,9 @@ public class Student {
     System.out.println("Grade: " + grade);
   }
 }
-
+```
 The above "Student" class has three private attributes: 'name', 'grade', and 'courses'. The 'name' and 'grade' attributes are initialized in the constructor with the values passed as arguments. The 'courses' attribute is initialized as an empty array list. There are getter methods for the 'name', 'grade', and 'courses' attributes. There are also methods to add and remove courses from the 'courses' attribute.
-
+```java
 // Main.java
 
 // Define the Main class
@@ -1257,6 +1267,7 @@ public class Main {
     System.out.println(student1.getName() + "'s courses: " + student1.getCourses());
   }
 }
+```
 The above Main class creates three instances of the Student class, adds courses to their courses list using the “addCourse()” method, and prints out the list of courses for each student using the “getCourses()” method. It then removes a course for student1 using the ‘removeCourse()’ method, and prints out the updated list of courses for student1.
 
 Sample Output:
@@ -1284,7 +1295,7 @@ Write a Java program to create a class called " Library" with a collection of bo
 Sample Solution:
 
 Java Code:
-
+```java
 // Book.java
 // Define the Book class
 public class Book {
@@ -1325,9 +1336,9 @@ public class Book {
     this.author = author;
   }
 } 
-
+```
 The above class has two private attributes, "title" and "author". It has a constructor that takes two arguments, the title and author of the book, and initializes the corresponding attributes. It also has getter and setter methods to access and modify the title and author attributes.
-
+```java
 // Library.java
 // Import the ArrayList class from the java.util package
 import java.util.ArrayList;
@@ -1361,9 +1372,9 @@ public class Library {
     return books;
   }
 }
-
+```
 The above " Library" class has a private books attribute, which is an ArrayList of Book objects. The  Library constructor initializes this attribute as an empty list. The "addBook()" method adds a Book object to the books list, while the “removeBook()” method removes a Book object from the list. The “getBooks()” method returns the books list.
-
+```java
 // Main.java
 
 // Define the Main class
@@ -1403,7 +1414,8 @@ public class Main {
       System.out.println(book.getTitle() + " by " + book.getAuthor());
     }
   }
-} 
+}
+```
 In the above class, we create an instance of the  Library class and add two Book objects to the collection using the “addBook()” method. We then display the books in the  library using the “displayBooks()” method. We remove one of the books using the “removeBook()” method and display the updated collection of books in the  library.
 
 Sample Output:
@@ -1426,7 +1438,7 @@ Write a Java program to create a class called "Airplane" with a flight number, d
 Sample Solution:
 
 Java Code:
-
+```java
 // Airplane.java
 // Import the LocalTime class from the java.time package
 import java.time.LocalTime;
@@ -1516,9 +1528,9 @@ public class Airplane {
     }
   }
 } 
-
+```
 The above class represents an airplane with a flight number, destination, and scheduled departure time. It has getter and setter methods for these attributes. The class also two methods "delay()" and "checkStatus()" to delay the flight and check its status. The "delay()" method takes an integer value representing the number of minutes the flight will be delayed and updates the scheduled departure time accordingly. By using “checkStatus()” method, you can determine whether the flight has been delayed or is on time.
-
+```java
 // Import the LocalTime class from the java.time package
 import java.time.LocalTime;
 
@@ -1554,6 +1566,7 @@ public class Main {
     flight3.checkStatus();
   }
 }
+```
 In the main() function, we create three "Airplane" objects and set flight numbers, destinations and scheduled departure times. It then calls the "checkStatus()" method to display the initial flight status of each flight. The program then delays flight1 and flight2 by calling the "delay()" method on these objects, and then calls the "checkStatus()" method again to display the updated flight status of each flight.
 
 Sample Output:
@@ -1575,7 +1588,7 @@ Write a Java program to create a class called "Inventory" with a collection of p
 Sample Solution:
 
 Java Code:
-
+```java
 // Product.java
 // Define the Product class
 public class Product {
@@ -1616,9 +1629,9 @@ public class Product {
     this.quantity = quantity;
   }
 }
-
+```
 In the above code, we create a class called "Product" with two private attributes, "name" and "quantity". We also create a constructor to initialize these attributes and getter and setter methods to access and modify them.
-
+```java
 // Inventory.java
 // Import the ArrayList class from the java.util package
 import java.util.ArrayList;
@@ -1658,8 +1671,9 @@ public class Inventory {
     }
   }
 }
+```
 Here we create a class called "Inventory" with a private attribute "products", which is an ArrayList of Product objects. We also create a constructor to initialize this attribute as an empty list and methods to add and remove products from the list. Additionally, we create a method called "checkLowInventory()" to check for low inventory levels in the products list.
-
+```java
 // Main.java
 // Define the Main class
 public class Main {
@@ -1700,6 +1714,7 @@ public class Main {
     inventory.checkLowInventory();
   }
 }
+```
 In the "Main" class, we create an instance of the Inventory class and add three Product objects to the list. We then call the "checkLowInventory()" method to check for low inventory levels. Next, we remove one of the products from the list and call the "checkLowInventory()" method again to see if there are any other low inventory levels.
 
 Sample Output:
@@ -1722,7 +1737,7 @@ Write a Java program to create a class called "School" with attributes for stude
 Sample Solution:
 
 Java Code:
-
+```java
 // School.java
 // Import the ArrayList class from the java.util package
 import java.util.ArrayList;
@@ -1800,9 +1815,9 @@ public class School {
     return classes;
   }
 }
-
+```
 The above "School" class represents a school with students, teachers, and classes. It has three ArrayList attributes to store Student, Teacher, and SchoolClass objects. The constructor initializes these ArrayLists as empty lists. It has methods to add and remove students, teachers, and classes from their respective ArrayLists. It also has getter methods to access ArrayLists of students, teachers, and classes.
-
+```java
 // Student.java
 // Define the Student class
 public class Student {
@@ -1842,9 +1857,10 @@ public class Student {
     // Assign the age parameter to the age field
     this.age = age;
   }
-} 
+}
+```
 The "Student" class represents a student with a name and an age. It has a constructor that takes two arguments, name and age, and initializes the corresponding attributes. It also has getter and setter methods to access and modify name and age attributes.
-
+```java
 // Teacher.class
 // Define the Teacher class
 public class Teacher {
@@ -1885,8 +1901,9 @@ public class Teacher {
     this.subject = subject;
   }
 }
+```
 The Teacher class represents a teacher in a school. It has two private attributes: name (teacher's name) and subject (Subject the teacher teaches). The class has a constructor that takes two arguments, the teacher's name and subject, and initializes the corresponding attributes. It also has getter and setter methods to access and modify the name and subject attributes.
-
+```java
 // SchoolClass.java
 // Import the ArrayList class from the java.util package
 import java.util.ArrayList;
@@ -1952,11 +1969,12 @@ public class SchoolClass {
     students.remove(student);
   }
 }
+```
 The SchoolClass class represents a class in a school. It has a private attribute className to store the name of the class and another private attribute teacher of type Teacher to store the teacher of the class. It also has a private attribute students of type ArrayList to store the students enrolled in the class. The constructor takes two arguments: className and teacher, and initializes these attributes.
 
 
 The class has getter and setter methods for className and teacher. It also has methods addStudent and removeStudent to add and remove a student from the students list. The getStudents method returns the list of students in the class.
-
+```java
 //Main.java
 // Import the ArrayList class from the java.util package
 import java.util.ArrayList;
@@ -2056,6 +2074,7 @@ public class Main {
     System.out.println("Number of classes: " + school.getClasses().size());
   }
 }
+```
 The "Main" class is the program entry point. It creates objects of the "School", "Student", "Teacher", and "SchoolClass" classes to demonstrate the school system's functionality. It adds students, teachers, and classes to the school object using its respective methods. It then retrieves and prints information about the number of students, teachers, and classes in the school. It also prints the details of each class, including the name of the class, the teacher's name, and the number of students in each class. Finally, it removes one student, one teacher, and one class from the school and prints updated information about the school.
 
 Sample Output:
@@ -2092,7 +2111,7 @@ Write a Java program to create a class called "MusicLibrary" with a collection o
 Sample Solution:
 
 Java Code:
-
+```java
 // MusicLibrary.java
 // Import the ArrayList class from the Java utility package
 import java.util.ArrayList;
@@ -2151,9 +2170,9 @@ public class MusicLibrary {
         System.out.println("Now playing: " + songs.get(index).getTitle() + " by " + songs.get(index).getArtist());
     }
 }
-
+```
 The above “MusicLibrary” class represents a  library of songs. It uses an ArrayList to store the songs, and provides methods to add and remove songs from the  library. It also has a method to get a list of all the songs in the library, and a method to play a random song from the library.
-
+```java
 // Song.java
 // Define the Song class
 public class Song {
@@ -2188,8 +2207,9 @@ public class Song {
         this.artist = artist;  // Set the artist field to the provided artist
     }
 }
+```
 The “Song” class represents a song in a  music  library. It has two private instance variables, the title and the artist, and a constructor that takes these two variables as parameters. The class also provides getters and setters for the title and artist variables, allowing the client code to access and modify the song information.
-
+```java
 // Main.java
 // Import the ArrayList class from the Java utility package
 import java.util.ArrayList;
@@ -2231,6 +2251,7 @@ public class Main {
         library.playRandomSong();
     }
 }
+```
 The Main class creates an instance of MusicLibrary and adds several Song objects to it. It then retrieves and prints out the list of all songs in the  library. Finally, it calls the playRandomSong() method of the MusicLibrary object three times to play a random song each time, printing out the details of the played song.
 
 Sample Output:
@@ -2262,7 +2283,7 @@ An abstract method is a method that is declared without an implementation (witho
 Sample Solution:
 
 Java Code:
-
+```java
 //Shape.java
 // Define the Shape class as an abstract class
 public abstract class Shape {
@@ -2275,9 +2296,9 @@ public abstract class Shape {
     // This method must be implemented by any subclass of Shape
     public abstract double getPerimeter();
 } 
-
+```
 The above "Shape" class is an abstract class that defines the basic properties and behaviours of a geometric shape. It contains two abstract methods, "getArea()" and "getPerimeter()", which are to be implemented by its subclasses. Since the class is abstract, it cannot be instantiated on its own, but it provides a framework for other classes to extend and implement its methods.
-
+```java
 //Rectangle.java
 // Define the Rectangle class, which extends the Shape class
 public class Rectangle extends Shape {
@@ -2302,8 +2323,9 @@ public class Rectangle extends Shape {
         return 2 * (length + width); // Calculate the perimeter using the formula 2 * (length + width)
     }
 }
+```
 The above code represents a class called ‘Rectangle’ that extends the ‘Shape’ abstract class. The ‘Rectangle’ class has two instance variables, ‘length’ and ‘width’, and a constructor that initializes these variables. It also has methods to calculate the area and perimeter of a rectangle using the ‘getArea()’ and ‘getPerimeter()’ methods respectively. The ‘getArea()’ method returns the product of the length and width variables while the ‘getPerimeter()’ method returns twice the sum of the length and width variables.
-
+```java
 // Circle.java
 
 // Define the Circle class, which extends the Shape class
@@ -2327,8 +2349,9 @@ public class Circle extends Shape {
         return 2 * Math.PI * radius; // Calculate the perimeter using the formula 2 * π * radius
     }
 }
+```
 The "Circle" class is a subclass of the abstract "Shape" class. It has a private instance variable for the radius of the circle. It implements abstract methods for calculating the area and perimeter of the circle. The area is calculated by multiplying the square of the radius by pi. The perimeter is calculated by multiplying the radius by twice pi value.
-
+```java
 // Triangle.java
 
 // Define the Triangle class, which extends the Shape class
@@ -2357,8 +2380,9 @@ public class Triangle extends Shape {
         return side1 + side2 + side3; // Calculate the perimeter by summing the sides
     }
 }
+```
 The "Triangle" class is a subclass of the "Shape" abstract class that represents a triangle shape. It has three instance variables to store the length of its three sides. It has a constructor that takes these three sides as parameters. The class provides implementations of the abstract methods "getArea()" and "getPerimeter()" to calculate the area and perimeter of the triangle based on its three sides using standard formulas.
-
+```java
 // Define the Main class
 public class Main {
     
@@ -2393,6 +2417,7 @@ public class Main {
         System.out.println("Perimeter: " + triangle.getPerimeter());
     }
 }
+```
 The Main class creates instances of different shape objects including a rectangle, circle, and triangle. It then calls methods to calculate the area and perimeter of each shape and displays the results in the console.
 
 Sample Output:
@@ -2418,7 +2443,7 @@ Write a Java program to create a class called "Movie" with attributes for title,
 Sample Solution:
 
 Java Code:
-
+```java
 // Movie.java
 
 // Import the ArrayList class from the Java utility package
@@ -2466,9 +2491,9 @@ public class Movie {
         return this.actors; // Return the list of actors
     }
 }
-
+```
 The above Java class has instance variables for the movie's title, director, actors, and reviews. The class constructor takes in the movie's title, director, and actors as parameters, and initializes the instance variables. The class also has methods to add a review to the movie's reviews list. It can retrieve the reviews list, and the movie's title, director, and actors. The reviews list is an ArrayList of Review objects, created outside of this class. These objects are added to the reviews list using the addReview() method.
-
+```java
 // Review.java
 
 // Define the Review class
@@ -2500,9 +2525,10 @@ class Review {
     public double getRating() {
         return rating; // Return the value of the rating field
     }
-} 
+}
+```
 The Review class represents a movie review, with attributes such as the review text, the reviewer's name, and the rating given to the movie. It has a constructor that takes these attributes as parameters and sets them as instance variables. The class also has three getter methods to retrieve review text, reviewer name, and rating.
-
+```java
 // Main.java
 // Import the ArrayList and Arrays classes from the Java utility package
 import java.util.ArrayList;
@@ -2553,6 +2579,7 @@ public class Main {
     }
   }
 }
+```
 The Main class is the entry point for the program. It creates two Movie objects: movie1 and movie2. It also creates five Review objects: review1, review2, review3, review4, and review5.
 
 
@@ -2583,7 +2610,7 @@ Write a Java program to create a class called "Restaurant" with attributes for m
 Sample Solution:
 
 Java Code:
-
+```java
 // Restaurant.java
 // Import the ArrayList class
 import java.util.ArrayList;
@@ -2698,9 +2725,9 @@ public class Restaurant {
     return numRatings > 0 ? totalRating / numRatings : 0.0;
   }
 }
-
+```
 The above Java class defines a restaurant with menu items, prices, and ratings. It has a constructor that initializes three ArrayLists for the menu items, prices, and ratings. It also has methods to add and remove items from the menu and add ratings for each item. The class also includes a method to calculate the average rating for a given menu item. It also includes a method to display the current menu.
-
+```java
 // Main.java
 // Define the Main class
 public class Main {
@@ -2756,6 +2783,7 @@ public class Main {
     restaurant.displayMenu();
   }
 }
+```
 The Main class contains the main function that creates an object of the Restaurant class and calls its methods to add, remove, and display menu items, as well as add ratings and calculate average ratings for those items.
 
 Sample Output:
@@ -2778,7 +2806,7 @@ Write a Java program to create a class with methods to search for flights and ho
 Sample Solution:
 
 Java Code:
-
+```java
 // TravelApp.java
 // Import the ArrayList class
 import java.util.ArrayList;
@@ -2874,9 +2902,9 @@ public class TravelApp {
     return rand.nextInt(900000) + 100000;
   }
 } 
-
+```
 The above Java class is used for searching and booking flights and hotels, as well as cancelling reservations. It contains methods to search for flights and hotels based on specific criteria, book flights and hotels by creating new Flight and Hotel objects, cancel reservations by confirmation number, and generate a random confirmation number using the Random class in Java. It also contains private instance variables to store ArrayLists of Flight and Hotel objects that represent the current reservations.
-
+```java
 // Flight.java
 // Define the Flight class
 public class Flight {
@@ -2959,9 +2987,10 @@ public class Flight {
     public void setConfirmationNumber(int confirmationNumber) {
         this.confirmationNumber = confirmationNumber;
     }
-} 
+}
+```
 The above “Flight” class represents a flight. It has flight number, passenger name, origin, destination, date, number of passengers, price, and confirmation number. It has a constructor to create a Flight object and getters and setters to access and modify the object's properties. The confirmation number is set after a flight is booked to identify a reservation.
-
+```java
 // Hotel.java
 // Define the Hotel class
 public class Hotel {
@@ -3045,8 +3074,9 @@ public class Hotel {
     this.confirmationNumber = confirmationNumber;
   }
 }
+```
 The above “Hotel” class represents a hotel, with an ID, a name, a location, a check-in date, a check-out date, a number of guests, a price, and a confirmation number. It contains a constructor that initializes these properties, as well as getter and setter methods for each property. The confirmation number is randomly generated and set through the setter method.
-
+```java
 // Main.java
 // Define the Main class
 public class Main {
@@ -3067,7 +3097,8 @@ public class Main {
     // Cancel the reservation with confirmation number 12345670
     app.cancelReservation(12345670);
   }
-} 
+}
+```
 In the main() method of the above class, an instance of the “TravelApp” class is created. Several methods of the “TravelApp” class are called to perform various tasks related to travel. These tasks include searching for flights and hotels, booking flights and hotels, and cancelling reservations.
 
 
@@ -3092,7 +3123,7 @@ Write a Java program to create a class called "BankAccount" with attributes for 
 Sample Solution:
 
 Java Code:
-
+```java
 BankAccount.java
 
 // Define the BankAccount class
@@ -3149,7 +3180,7 @@ public class BankAccount {
         return accountHolderName;
     }
 }
-
+```
 The above Java code defines a BankAccount class with three attributes: accountNumber, accountHolderName, and balance. It includes a constructor to initialize these attributes when an object of this class is created. The class also provides methods to:
 
 Deposit money (deposit): Adds a specified amount to the balance if the amount is positive.
@@ -3157,6 +3188,7 @@ Withdraw money (withdraw): Subtracts a specified amount from the balance if the 
 Check balance (checkBalance): Returns the current balance.
 Get account number (getAccountNumber): Returns the account number.
 Get the account holder's name (getAccountHolderName): Returns the account holder's name.
+```java
 SavingsAccount.java
 
 // Define the SavingsAccount subclass that extends BankAccount
@@ -3192,12 +3224,14 @@ class SavingsAccount extends BankAccount {
         }
     }
 }
+```
 The above Java code defines a SavingsAccount class that extends the BankAccount class, inheriting its attributes and methods. The SavingsAccount class adds a new attribute, interestRate, which represents the interest rate for the savings account. The class includes:
 
 Constructor: Initializes the SavingsAccount object with the account number, account holder's name, initial balance, and interest rate by calling the superclass (BankAccount) constructor for the common attributes.
 Method to apply interest (applyInterest): Calculates interest based on the current balance and interest rate, then deposits interest into the account.
 Getter method for interest rate (getInterestRate): Returns the current interest rate.
 Setter method for interest rate (setInterestRate): Updates the interest rate if the provided rate is positive, ensuring it is a valid interest rate.
+```java
 Main.java
 
 // Main class to test the BankAccount and SavingsAccount classes
@@ -3216,6 +3250,7 @@ public class Main {
         System.out.println("Savings account balance: " + savings.checkBalance()); // Check balance
     }
 }
+```
 The above Java code defines a Main class with a main method to test the BankAccount and SavingsAccount classes. The main method demonstrates the creation and usage of these classes:
 
 Create a BankAccount object: An instance of BankAccount is created with the account number "123456789", account holder's name "Henri Lionel", and an initial balance of 1000.0. The current balance is printed.
@@ -3238,39 +3273,1741 @@ Savings account balance: 2100.0
 
 ### 21. Write a Java program to create a class called "Vehicle" with attributes for make, model, and year. Create subclasses "Car" and "Truck" that add specific attributes like trunk size for cars and payload capacity for trucks. Implement a method to display vehicle details in each subclass.
 
+Write a Java program to create a class called "Vehicle" with attributes for make, model, and year. Create subclasses "Car" and "Truck" that add specific attributes like trunk size for cars and payload capacity for trucks. Implement a method to display vehicle details in each subclass.
 
+Sample Solution:
+
+Java Code:
+```java
+Vehicle.java
+
+// Define the Vehicle class
+public class Vehicle {
+
+    // Attribute for make of the vehicle
+    private String make;
+    
+    // Attribute for model of the vehicle
+    private String model;
+    
+    // Attribute for year of the vehicle
+    private int year;
+
+    // Constructor to initialize Vehicle object
+    public Vehicle(String make, String model, int year) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+    }
+
+    // Method to display vehicle details
+    public void displayDetails() {
+        System.out.println("Vehicle Details:");
+        System.out.println("Make: " + make);
+        System.out.println("Model: " + model);
+        System.out.println("Year: " + year);
+    }
+
+    // Getter method for make
+    public String getMake() {
+        return make;
+    }
+
+    // Getter method for model
+    public String getModel() {
+        return model;
+    }
+
+    // Getter method for year
+    public int getYear() {
+        return year;
+    }
+}
+```
+The above Java code defines a Vehicle class with attributes for the make, model, and year of the vehicle. It includes:
+
+Attributes: Private fields for make, model, and year.
+Constructor: A constructor that initializes these attributes.
+Method to display details (displayDetails): Prints the vehicle's make, model, and year.
+Getter methods: getMake(), getModel(), and getYear() methods return the values of the make, model, and year attributes, respectively.
+This class provides a basic blueprint for a vehicle with methods to access and display its details.
+```java
+Car.java
+
+// Define the Car subclass that extends Vehicle
+class Car extends Vehicle {
+
+    // Attribute for trunk size of the car
+    private double trunkSize;
+
+    // Constructor to initialize Car object
+    public Car(String make, String model, int year, double trunkSize) {
+        super(make, model, year); // Call the constructor of the superclass
+        this.trunkSize = trunkSize;
+    }
+
+    // Override the displayDetails method to include trunk size
+    @Override
+    public void displayDetails() {
+        super.displayDetails(); // Call the superclass method
+        System.out.println("Trunk Size: " + trunkSize + " cubic feet");
+    }
+
+    // Getter method for trunk size
+    public double getTrunkSize() {
+        return trunkSize;
+    }
+
+    // Setter method for trunk size
+    public void setTrunkSize(double trunkSize) {
+        if (trunkSize > 0) {
+            this.trunkSize = trunkSize;
+        } else {
+            System.out.println("Trunk size must be positive.");
+        }
+    }
+}
+```
+This Java code defines a 'Car' subclass that extends the Vehicle class, adding an additional attribute and behavior specific to cars:
+
+Attribute: trunkSize to store the size of the car's trunk in cubic feet.
+Constructor: Initializes the 'Car' object with make, model, year, and trunk size. It calls the constructor of the Vehicle superclass to initialize the common attributes.
+Method to display details (displayDetails): Overrides the displayDetails method from the Vehicle class to include the trunk size. It first calls the superclass method to display common vehicle details, then adds the trunk size.
+Getter and Setter methods: getTrunkSize() returns the trunk size, and setTrunkSize() updates the trunk size if the value is positive.
+This subclass enhances the Vehicle class by adding a specific feature for cars and overriding the method to display complete car details.
+```java
+Truck.java
+
+// Define the Truck subclass that extends Vehicle
+class Truck extends Vehicle {
+
+    // Attribute for payload capacity of the truck
+    private double payloadCapacity;
+
+    // Constructor to initialize Truck object
+    public Truck(String make, String model, int year, double payloadCapacity) {
+        super(make, model, year); // Call the constructor of the superclass
+        this.payloadCapacity = payloadCapacity;
+    }
+
+    // Override the displayDetails method to include payload capacity
+    @Override
+    public void displayDetails() {
+        super.displayDetails(); // Call the superclass method
+        System.out.println("Payload Capacity: " + payloadCapacity + " tons");
+    }
+
+    // Getter method for payload capacity
+    public double getPayloadCapacity() {
+        return payloadCapacity;
+    }
+
+    // Setter method for payload capacity
+    public void setPayloadCapacity(double payloadCapacity) {
+        if (payloadCapacity > 0) {
+            this.payloadCapacity = payloadCapacity;
+        } else {
+            System.out.println("Payload capacity must be positive.");
+        }
+    }
+}
+```
+The above Java code defines a 'Truck' subclass that extends the Vehicle class, adding an attribute specific to trucks:
+
+Attribute: payloadCapacity to store the truck's payload capacity in tons.
+Constructor: Initializes the Truck object with make, model, year, and payload capacity. It calls the constructor of the Vehicle superclass to initialize the common attributes.
+Method to display details (displayDetails): Overrides the displayDetails method from the Vehicle class to include the payload capacity. It first calls the superclass method to display common vehicle details, then adds the payload capacity.
+Getter and Setter methods: getPayloadCapacity() returns the payload capacity, and setPayloadCapacity() updates the payload capacity if the value is positive.
+This subclass extends the Vehicle class by adding a specific feature for trucks and overriding the method to display complete truck details.
+```java
+Main.java
+
+// Main class to test the Vehicle, Car, and Truck classes
+public class Main {
+    public static void main(String[] args) {
+        // Create a Car object
+        Car car = new Car("Suzuki", "Swift", 2015, 15.1);
+        car.displayDetails(); // Display car details
+
+        // Create a Truck object
+        Truck truck = new Truck("Ford", "F-150", 2016, 3.5);
+        truck.displayDetails(); // Display truck details
+    }
+}
+```
+The above Java code defines a Main class with a main method used to test the Vehicle, Car, and Truck classes:
+
+Car Object Creation: An instance of the Car class is created with the make "Suzuki", model "Swift", year 2015, and trunk size 15.1 cubic feet. The displayDetails method is called to print the details of the car.
+Truck Object Creation: An instance of the Truck class is created with the make "Ford", model "F-150", year 2016, and payload capacity 3.5 tons. The displayDetails method is called to print the details of the truck.
+This code tests the functionality of the Vehicle, Car, and Truck classes by creating instances of each and displaying their details.
+
+Sample Output:
+
+Vehicle Details:
+Make: Suzuki
+Model: Swift
+Year: 2015
+Trunk Size: 15.1 cubic feet
+Vehicle Details:
+Make: Ford
+Model: F-150
+Year: 2016
+Payload Capacity: 3.5 tons
 
 ### 22. Write a Java program to create a class called "Customer" with attributes for name, email, and purchase history. Implement methods to add purchases to the history and calculate total expenditure. Create a subclass "LoyalCustomer" that adds a discount rate attribute and a method to apply the discount.
 
+Write a Java program to create a class called "Customer" with attributes for name, email, and purchase history. Implement methods to add purchases to the history and calculate total expenditure. Create a subclass "LoyalCustomer" that adds a discount rate attribute and a method to apply the discount.
 
+Sample Solution:
+
+Java Code:
+```java
+Customer.java
+
+// Define the Customer class
+// Import necessary classes
+import java.util.ArrayList;
+import java.util.List;
+public class Customer {
+    // Attributes for the customer's name, email, and purchase history
+    private String name;
+    private String email;
+    private List<Double> purchaseHistory;
+
+    // Constructor to initialize the customer's name and email
+    public Customer(String name, String email) {
+        this.name = name;
+        this.email = email;
+        this.purchaseHistory = new ArrayList<>();  // Initialize purchase history as an empty list
+    }
+
+    // Method to add a purchase to the purchase history
+    public void addPurchase(double amount) {
+        purchaseHistory.add(amount);
+    }
+
+    // Method to calculate the total expenditure
+    public double calculateTotalExpenditure() {
+        double total = 0;
+        // Loop through each purchase and sum up the amounts
+        for (double purchase : purchaseHistory) {
+            total += purchase;
+        }
+        return total;
+    }
+
+    // Getters for the name and email attributes
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    // Getter for the purchase history
+    public List<Double> getPurchaseHistory() {
+        return purchaseHistory;
+    }
+}
+```
+
+Explanation:
+
+Customer Class:
+
+The Customer class has attributes for customer name, email, and purchase history.
+The constructor initializes with the name, email, and an empty purchase history.
+"addPurchase()" method adds a purchase amount to the purchase history.
+"calculateTotalExpenditure()" method calculates the total amount spent by summing up the purchase history.
+Getters provide access to the customer's name, email, and purchase history.
+```java
+LoyalCustomer.java
+
+// Define the LoyalCustomer subclass that extends the Customer class
+// Import necessary classes
+import java.util.ArrayList;
+import java.util.List;
+class LoyalCustomer extends Customer {
+    // Attribute for the discount rate
+    private double discountRate;
+
+    // Constructor to initialize the LoyalCustomer with name, email, and discount rate
+    public LoyalCustomer(String name, String email, double discountRate) {
+        super(name, email);  // Call the superclass constructor
+        this.discountRate = discountRate;
+    }
+
+    // Method to apply the discount to a given amount
+    public double applyDiscount(double amount) {
+        return amount - (amount * discountRate / 100);
+    }
+
+    // Override the addPurchase method to apply the discount before adding the purchase
+    @Override
+    public void addPurchase(double amount) {
+        double discountedAmount = applyDiscount(amount);
+        super.addPurchase(discountedAmount);  // Call the superclass method to add the discounted amount
+    }
+
+    // Getter for the discount rate
+    public double getDiscountRate() {
+        return discountRate;
+    }
+
+    // Setter for the discount rate
+    public void setDiscountRate(double discountRate) {
+        this.discountRate = discountRate;
+    }
+}
+```
+Explanation:
+
+LoyalCustomer Subclass:
+
+The LoyalCustomer class extends the Customer class and adds a discountRate attribute.
+The constructor initializes the LoyalCustomer with a discount rate, in addition to the attributes inherited from Customer.
+"applyDiscount()" method calculates the discounted amount.
+"addPurchase()" method overrides the superclass method to apply the discount before adding the purchase.
+Getter and setter methods provide access to the discount rate.
+```java
+Main.java
+
+// Main class to test the Customer and LoyalCustomer classes
+// Import necessary classes
+import java.util.ArrayList;
+import java.util.List;
+public class Main {
+    public static void main(String[] args) {
+        // Create a regular customer
+        Customer customer1 = new Customer("Talisha Dion", "talisha@example.com");
+        customer1.addPurchase(200);
+        customer1.addPurchase(300);
+        System.out.println("Total expenditure for " + customer1.getName() + ": " + customer1.calculateTotalExpenditure());
+
+        // Create a loyal customer with a discount rate
+        LoyalCustomer loyalCustomer = new LoyalCustomer("Fulchard Sofya", "fulchard@example.com", 10); // 10% discount
+        loyalCustomer.addPurchase(200);
+        loyalCustomer.addPurchase(300);
+        System.out.println("Total expenditure for " + loyalCustomer.getName() + " after discount: " + loyalCustomer.calculateTotalExpenditure());
+    }
+}
+```
+Explanation:
+
+Main Class:
+
+The Main class contains the main method to test the functionality.
+It creates instances of Customer and LoyalCustomer, adds purchases, and prints their total expenditure.
+Output:
+
+Total expenditure for Talisha Dion: 500.0
+Total expenditure for Fulchard Sofya after discount: 450.0
 
 ### 23. Write a Java program to create a class called "Course" with attributes for course name, instructor, and credits. Create a subclass "OnlineCourse" that adds attributes for platform and duration. Implement methods to display course details and check if the course is eligible for a certificate based on duration.
 
+Write a Java program to create a class called "Course" with attributes for course name, instructor, and credits. Create a subclass "OnlineCourse" that adds attributes for platform and duration. Implement methods to display course details and check if the course is eligible for a certificate based on duration.
 
+Sample Solution:
+
+Java Code:
+```java
+Course.java
+
+// Define the Course class
+public class Course {
+    // Attributes for the course name, instructor, and credits
+    private String courseName;
+    private String instructor;
+    private int credits;
+
+    // Constructor to initialize the Course object
+    public Course(String courseName, String instructor, int credits) {
+        this.courseName = courseName;
+        this.instructor = instructor;
+        this.credits = credits;
+    }
+
+    // Method to display course details
+    public void displayCourseDetails() {
+        System.out.println("Course Name: " + courseName);
+        System.out.println("Instructor: " + instructor);
+        System.out.println("Credits: " + credits);
+    }
+
+    // Getter for course name
+    public String getCourseName() {
+        return courseName;
+    }
+
+    // Getter for instructor
+    public String getInstructor() {
+        return instructor;
+    }
+
+    // Getter for credits
+    public int getCredits() {
+        return credits;
+    }
+}
+```
+Explanation:
+
+Course Class:
+
+Attributes: courseName, instructor, and credits.
+Constructor: Initializes the attributes.
+displayCourseDetails(): Prints the course details.
+Getters: Methods to get the values of the attributes.
+```java
+OnlineCourse.java
+
+// Define the OnlineCourse subclass that extends the Course class
+class OnlineCourse extends Course {
+    // Additional attributes for the platform and duration
+    private String platform;
+    private int duration; // duration in hours
+
+    // Constructor to initialize the OnlineCourse object
+    public OnlineCourse(String courseName, String instructor, int credits, String platform, int duration) {
+        super(courseName, instructor, credits); // Call the superclass constructor
+        this.platform = platform;
+        this.duration = duration;
+    }
+
+    // Method to display course details, including platform and duration
+    @Override
+    public void displayCourseDetails() {
+        super.displayCourseDetails(); // Call the superclass method to display common details
+        System.out.println("Platform: " + platform);
+        System.out.println("Duration: " + duration + " hours");
+    }
+
+    // Method to check if the course is eligible for a certificate based on duration
+    public boolean isEligibleForCertificate() {
+        // Assume that a course is eligible for a certificate if its duration is at least 10 hours
+        return duration >= 10;
+    }
+
+    // Getter for platform
+    public String getPlatform() {
+        return platform;
+    }
+
+    // Getter for duration
+    public int getDuration() {
+        return duration;
+    }
+}
+```
+Explanation:
+
+OnlineCourse Class:
+
+Extends Course.
+Additional Attributes: platform and duration.
+Constructor: Initializes the attributes, calling the superclass constructor for the common attributes.
+displayCourseDetails(): Overridden to include additional details specific to online courses.
+isEligibleForCertificate(): Checks if the course duration is at least 10 hours to be eligible for a certificate.
+Getters: Methods to get the values of the additional attributes.
+```java
+Main.java
+
+// Main class to test the Course and OnlineCourse classes
+public class Main {
+    public static void main(String[] args) {
+        // Create a Course object
+        Course course = new Course("Java Programming", "Dr. Timaios Pliny", 4);
+        course.displayCourseDetails();
+        System.out.println();
+
+        // Create an OnlineCourse object
+        OnlineCourse onlineCourse = new OnlineCourse("Advanced Java", "Prof. Isacco Lyuba", 4, "Google", 10);
+        onlineCourse.displayCourseDetails();
+        System.out.println("Eligible for Certificate: " + onlineCourse.isEligibleForCertificate());
+    }
+}
+```
+Explanation:
+
+Main Class:
+
+Creates instances of Course and OnlineCourse and demonstrates the usage of their methods.
+Output:
+
+Course Name: Java Programming
+Instructor: Dr. Timaios Pliny
+Credits: 4
+
+Course Name: Advanced Java
+Instructor: Prof. Isacco Lyuba
+Credits: 4
+Platform:  Google
+Duration: 10 hours
+Eligible for Certificate: true
 
 ### 24. Write a Java program to create a class called "ElectronicsProduct" with attributes for product ID, name, and price. Implement methods to apply a discount and calculate the final price. Create a subclass " WashingMachine" that adds a warranty period attribute and a method to extend the warranty.
 
+Write a Java program to create a class called "ElectronicsProduct" with attributes for product ID, name, and price. Implement methods to apply a discount and calculate the final price. Create a subclass " WashingMachine" that adds a warranty period attribute and a method to extend the warranty.
 
+Sample Solution:
+
+Java Code:
+```java
+ElectronicsProduct.java
+
+// Define the ElectronicsProduct class
+public class ElectronicsProduct {
+    // Attributes for the product ID, name, and price
+    private String productId;
+    private String name;
+    private double price;
+
+    // Constructor to initialize the ElectronicsProduct object
+    public ElectronicsProduct(String productId, String name, double price) {
+        this.productId = productId;
+        this.name = name;
+        this.price = price;
+    }
+
+    // Method to apply a discount to the product price
+    public void applyDiscount(double discountPercentage) {
+        // Calculate the discount amount
+        double discountAmount = price * discountPercentage / 100;
+        // Subtract the discount amount from the original price
+        price -= discountAmount;
+    }
+
+    // Method to calculate the final price after discount
+    public double getFinalPrice() {
+        // Return the current price which may have been discounted
+        return price;
+    }
+
+    // Getter for product ID
+    public String getProductId() {
+        return productId;
+    }
+
+    // Getter for name
+    public String getName() {
+        return name;
+    }
+
+    // Getter for price
+    public double getPrice() {
+        return price;
+    }
+}
+```
+Explanation:
+
+ElectronicsProduct Class:
+
+Attributes: productId, name, and price.
+Constructor: Initializes the attributes.
+applyDiscount(double discountPercentage): Applies a discount to the product price.
+getFinalPrice(): Returns the final price after the discount.
+Getters: Methods to get the values of the attributes.
+```java
+WashingMachine.java
+
+// Define the WashingMachine subclass that extends ElectronicsProduct
+class WashingMachine extends ElectronicsProduct {
+    // Additional attribute for the warranty period
+    private int warrantyPeriod; // in months
+
+    // Constructor to initialize the WashingMachine object
+    public WashingMachine(String productId, String name, double price, int warrantyPeriod) {
+        // Call the superclass constructor to initialize common attributes
+        super(productId, name, price);
+        this.warrantyPeriod = warrantyPeriod;
+    }
+
+    // Method to extend the warranty period
+    public void extendWarranty(int additionalMonths) {
+        // Add the additional months to the current warranty period
+        warrantyPeriod += additionalMonths;
+    }
+
+    // Getter for warranty period
+    public int getWarrantyPeriod() {
+        return warrantyPeriod;
+    }
+
+    // Override the display method to include warranty period
+    @Override
+    public void applyDiscount(double discountPercentage) {
+        // Call the superclass method to apply the discount
+        super.applyDiscount(discountPercentage);
+        // Display a message indicating the discount was applied
+        System.out.println("Discount applied to Washing Machine: " + getName());
+    }
+}
+```
+Explanation:
+
+WashingMachine Class:
+
+Extends ElectronicsProduct.
+Additional Attribute: warrantyPeriod.
+Constructor: Initializes the attributes, calling the superclass constructor for the common attributes.
+extendWarranty(int additionalMonths): Extends the warranty period by the given
+```java
+Main.java
+
+// Main class to test the ElectronicsProduct and WashingMachine classes
+public class Main {
+    public static void main(String[] args) {
+        // Create an ElectronicsProduct object
+        ElectronicsProduct product = new ElectronicsProduct("WM123", "Washing Machine", 1.00);
+        // Apply a discount and display the final price
+        product.applyDiscount(10);
+        System.out.println("Product ID: " + product.getProductId());
+        System.out.println("Name: " + product.getName());
+        System.out.println("Price after discount: $" + product.getFinalPrice());
+        System.out.println();
+
+        // Create a WashingMachine object
+        WashingMachine washingMachine = new WashingMachine("W456", "Front Load Washing Machine", 800.00, 24);
+        // Apply a discount and display the final price
+        washingMachine.applyDiscount(15);
+        System.out.println("Product ID: " + washingMachine.getProductId());
+        System.out.println("Name: " + washingMachine.getName());
+        System.out.println("Price after discount: $" + washingMachine.getFinalPrice());
+        // Display the warranty period
+        System.out.println("Warranty period: " + washingMachine.getWarrantyPeriod() + " months");
+
+        // Extend the warranty period and display the new warranty period
+        washingMachine.extendWarranty(12);
+        System.out.println("Warranty period after extension: " + washingMachine.getWarrantyPeriod() + " months");
+    }
+}
+```
+Explanation:
+
+Main Class:
+
+Creates instances of ElectronicsProduct and WashingMachine and demonstrates the usage of their methods.
+Output:
+
+Product ID: WM123
+Name: Washing Machine
+Price after discount: $900.0
+
+Discount applied to Washing Machine: Front Load Washing Machine
+Product ID: W456
+Name: Front Load Washing Machine
+Price after discount: $680.0
+Warranty period: 24 months
+Warranty period after extension: 36 months
 
 ### 25. Write a Java program to create a class called "Building" with attributes for address, number of floors, and total area. Create subclasses "ResidentialBuilding" and "CommercialBuilding" that add specific attributes like number of apartments for residential and office space for commercial buildings. Implement a method to calculate the total rent for each subclass.
 
+Write a Java program to create a class called "Building" with attributes for address, number of floors, and total area. Create subclasses "ResidentialBuilding" and "CommercialBuilding" that add specific attributes like number of apartments for residential and office space for commercial buildings. Implement a method to calculate the total rent for each subclass.
 
+Sample Solution:
+
+Java Code:
+```java
+Building.java
+
+// Import necessary packages
+import java.util.ArrayList;
+import java.util.List;
+
+// Define the Building class
+class Building {
+    // Attributes for the Building class
+    String address;
+    int numberOfFloors;
+    double totalArea;
+
+    // Constructor for the Building class
+    public Building(String address, int numberOfFloors, double totalArea) {
+        this.address = address;
+        this.numberOfFloors = numberOfFloors;
+        this.totalArea = totalArea;
+    }
+
+    // Method to display basic information about the building
+    public void displayInfo() {
+        System.out.println("Address: " + address);
+        System.out.println("Number of Floors: " + numberOfFloors);
+        System.out.println("Total Area: " + totalArea + " sq meters");
+    }
+}
+```
+Explanation:
+
+The above Java code defines a "Building class" with three attributes: address, numberOfFloors, and totalArea. It includes a constructor to initialize these attributes and a method displayInfo() to print the building's information. The import statements at the top are prepared for possible use of ArrayList and List classes, although they are not utilized in the provided code segment.
+```java
+ResidentialBuilding.java
+
+// Define the ResidentialBuilding class that extends Building
+class ResidentialBuilding extends Building {
+    // Additional attribute for ResidentialBuilding
+    int numberOfApartments;
+    double rentPerApartment;
+
+    // Constructor for the ResidentialBuilding class
+    public ResidentialBuilding(String address, int numberOfFloors, double totalArea, int numberOfApartments, double rentPerApartment) {
+        super(address, numberOfFloors, totalArea); // Call the constructor of the superclass
+        this.numberOfApartments = numberOfApartments;
+        this.rentPerApartment = rentPerApartment;
+    }
+
+    // Method to calculate total rent for ResidentialBuilding
+    public double calculateTotalRent() {
+        return numberOfApartments * rentPerApartment;
+    }
+
+    // Override the displayInfo method to include additional details
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Number of Apartments: " + numberOfApartments);
+        System.out.println("Rent per Apartment: $" + rentPerApartment);
+        System.out.println("Total Rent: $" + calculateTotalRent());
+    }
+}
+```
+Explanation:
+
+The above Java code defines a "ResidentialBuilding class" that extends the Building class. It adds two additional attributes: numberOfApartments and rentPerApartment. The constructor initializes these attributes along with those inherited from Building. The method calculateTotalRent() computes the total rent based on the number of apartments and the rent per apartment. The displayInfo() method is overridden to include details specific to residential buildings, in addition to the information from the "Building class".
+```java
+CommercialBuilding.java
+
+// Define the CommercialBuilding class that extends Building
+class CommercialBuilding extends Building {
+    // Additional attribute for CommercialBuilding
+    double officeSpace; // in square meters
+    double rentPerSquareMeter;
+
+    // Constructor for the CommercialBuilding class
+    public CommercialBuilding(String address, int numberOfFloors, double totalArea, double officeSpace, double rentPerSquareMeter) {
+        super(address, numberOfFloors, totalArea); // Call the constructor of the superclass
+        this.officeSpace = officeSpace;
+        this.rentPerSquareMeter = rentPerSquareMeter;
+    }
+
+    // Method to calculate total rent for CommercialBuilding
+    public double calculateTotalRent() {
+        return officeSpace * rentPerSquareMeter;
+    }
+
+    // Override the displayInfo method to include additional details
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Office Space: " + officeSpace + " sq meters");
+        System.out.println("Rent per Square Meter: $" + rentPerSquareMeter);
+        System.out.println("Total Rent: $" + calculateTotalRent());
+    }
+}
+```
+Explanation:
+
+The above Java code defines a "CommercialBuilding class" that extends the Building class. It adds two additional attributes: officeSpace (in square meters) and rentPerSquareMeter. The constructor initializes these attributes along with those inherited from Building. The method calculateTotalRent() computes the total rent based on the office space and rent per square meter. The displayInfo() method is overridden to include details specific to commercial buildings, in addition to the information from the Building class.
+```java
+Main.java
+
+// Main class to test the Building, ResidentialBuilding, and CommercialBuilding classes
+public class Main {
+    public static void main(String[] args) {
+        // Create an instance of ResidentialBuilding
+        ResidentialBuilding residentialBuilding = new ResidentialBuilding("99 ABC Street.", 10, 2500.0, 20, 1000.0);
+
+        // Create an instance of CommercialBuilding
+        CommercialBuilding commercialBuilding = new CommercialBuilding("100 PQR Business Avenue.", 15, 4500.0, 3000.0, 20.0);
+
+        // Display information about the residential building
+        System.out.println("Residential Building Info:");
+        residentialBuilding.displayInfo();
+
+        // Display information about the commercial building
+        System.out.println("\nCommercial Building Info:");
+        commercialBuilding.displayInfo();
+    }
+}
+```
+Explanation:
+
+The above Java code defines the Main class to test the "Building", "ResidentialBuilding", and "CommercialBuilding" classes. In the main method, it performs the following actions:
+
+Creates an instance of ResidentialBuilding with specified attributes.
+Creates an instance of CommercialBuilding with specified attributes.
+Prints information about the residential building using the displayInfo() method.
+Prints information about the commercial building using the displayInfo() method.
+The code demonstrates how to instantiate and utilize the "ResidentialBuilding" and "CommercialBuilding" classes.
+
+Output:
+
+Residential Building Info:
+Address: 99 ABC Street.
+Number of Floors: 10
+Total Area: 2500.0 sq meters
+Number of Apartments: 20
+Rent per Apartment: $1000.0
+Total Rent: $20000.0
+
+Commercial Building Info:
+Address: 100 PQR Business Avenue.
+Number of Floors: 15
+Total Area: 4500.0 sq meters
+Office Space: 3000.0 sq meters
+Rent per Square Meter: $20.0
+Total Rent: $60000.0
 
 ### 26. Write a Java program to create a class called "Event" with attributes for event name, date, and location. Create subclasses "Seminar" and "MusicalPerformance" that add specific attributes like number of speakers for seminars and performer list for concerts. Implement methods to display event details and check for conflicts in the event schedule.
 
+Write a Java program to create a class called "Event" with attributes for event name, date, and location. Create subclasses "Seminar" and "MusicalPerformance" that add specific attributes like number of speakers for seminars and performer list for concerts. Implement methods to display event details and check for conflicts in the event schedule.
+
+Sample Solution:
+
+Java Code:
+```java
+Event.java
+
+import java.util.Date;
+
+// Define the Event class
+class Event {
+    String eventName;
+    Date date;
+    String location;
+
+    public Event(String eventName, Date date, String location) {
+        this.eventName = eventName;
+        this.date = date;
+        this.location = location;
+    }
+
+    public void displayDetails() {
+        System.out.println("Event Name: " + eventName);
+        System.out.println("Date: " + date);
+        System.out.println("Location: " + location);
+    }
+
+    public boolean isConflict(Event otherEvent) {
+        return this.date.equals(otherEvent.date) && this.location.equals(otherEvent.location);
+    }
+}
+```
+Explanation:
+
+Import statement: Imports the Date class from java.util.
+Class definition: Defines the Event class.
+Attributes: Declares three attributes: eventName (String), date (Date), and location (String).
+Constructor: Initializes the eventName, date, and location attributes.
+displayDetails() method: Prints the event's name, date, and location.
+isConflict() method: Checks if the current event conflicts with another event by comparing their dates and locations.
+```java
+Seminar.java
+
+import java.util.Date;
+import java.util.List;
+// Define the Seminar class that extends Event
+class Seminar extends Event {
+    int numberOfSpeakers;
+
+    public Seminar(String eventName, Date date, String location, int numberOfSpeakers) {
+        super(eventName, date, location);
+        this.numberOfSpeakers = numberOfSpeakers;
+    }
+
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Number of Speakers: " + numberOfSpeakers);
+    }
+}
+```
+Explanation:
+
+Import statements: Imports the 'Date' and 'List' classes from java.util.
+Class definition: Defines the Seminar class, which extends the Event class.
+Additional attribute: Declares 'numberOfSpeakers' (int) specific to the Seminar class.
+Constructor: Initializes eventName, date, location (inherited from Event), and numberOfSpeakers.
+Override displayDetails() method: Calls the displayDetails() method of the Event class and adds the number of speakers to the output.
+```java
+MusicalPerformance.java
+
+import java.util.List;
+import java.util.Date;
+// Define the MusicalPerformance class that extends Event
+class MusicalPerformance extends Event {
+    List performers;
+
+    public MusicalPerformance(String eventName, Date date, String location, List performers) {
+        super(eventName, date, location);
+        this.performers = performers;
+    }
+
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Performers: " + String.join(", ", performers));
+    }
+}
+```
+Explanation:
+
+Import statements: Imports the 'List' and 'Date' classes from java.util.
+Class definition: Defines the MusicalPerformance class, which extends the Event class.
+Additional attribute: Declares performers (List of Strings) specific to the MusicalPerformance class.
+Constructor: Initializes eventName, date, location (inherited from Event), and performers.
+Override displayDetails() method: Calls the displayDetails() method of the Event class and adds the list of performers to the output, formatted as a comma-separated string using String.join().
+```java
+Main.java
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+// Main class to test the Event, Seminar, and MusicalPerformance classes
+public class Main {
+    public static void main(String[] args) {
+        
+		// Create different dates to avoid conflict
+		// Create a date for testing
+        Date date = new Date();
+
+        // Create an instance of Seminar
+        Seminar seminar = new Seminar("Space Conference", date, "Convention Center", 5);
+
+        // Create an instance of MusicalPerformance
+        List performers = new ArrayList<>();
+        performers.add("Band A");
+        performers.add("Band B");
+        MusicalPerformance concert = new MusicalPerformance("Winter Fest", date, "Convention Center", performers);
+
+        // Display details of the seminar
+        System.out.println("Seminar Details:");
+        seminar.displayDetails();
+
+        // Display details of the musical performance
+        System.out.println("\nMusical Performance Details:");
+        concert.displayDetails();
+
+        // Check for scheduling conflict
+        if (seminar.isConflict(concert)) {
+            System.out.println("\nConflict detected: Both events are scheduled at the same time and location.");
+        } else {
+            System.out.println("\nNo conflict: Events are scheduled at different times or locations.");
+        }
+    }
+}
+```
+Explanation:
+
+Import statements: Import the 'ArrayList', 'Date', and 'List' classes from java.util.
+Main class definition: Defines the Main class to test the Event, Seminar, and 'MusicalPerformance' classes.
+main method: Contains the main logic for testing.
+Import statements: Import the 'ArrayList', 'Date', and 'List' classes from java.util.
+Create a date instance: Initializes a Date object for testing.
+Create an instance of Seminar: Instantiates a Seminar object with specific attributes.
+Create an instance of MusicalPerformance:
+Import statements: Import the 'ArrayList', 'Date', and 'List' classes from java.util.
+Initializes a list of performers.
+Instantiates a MusicalPerformance object with specific attributes.
+Display details of the seminar: Calls the 'displayDetails()' method on the seminar object.
+Display details of the musical performance: Calls the 'displayDetails()' method on the concert object.
+Check for scheduling conflict: Uses the isConflict() method to determine if the seminar and concert are scheduled at the same time and location, and prints an appropriate message based on the result.
+Output:
+
+Seminar Details:
+Event Name: Space Conference
+Date: Sat Jun 08 08:05:33 IST 2024
+Location: Convention Center
+Number of Speakers: 5
+
+Musical Performance Details:
+Event Name: Winter Fest
+Date: Sat Jun 08 08:05:33 IST 2024
+Location: Convention Center
+Performers: Band A, Band B
+Conflict detected: Both events are scheduled at the same time and location.
 
 
 ### 27. Write a Java program to create a class called "CustomerOrder" with attributes for order ID, customer, and order date. Create a subclass "OnlineOrder" that adds attributes for delivery address and tracking number. Implement methods to calculate delivery time based on the address and update the tracking status.
 
+Write a Java program to create a class called "CustomerOrder" with attributes for order ID, customer, and order date. Create a subclass "OnlineOrder" that adds attributes for delivery address and tracking number. Implement methods to calculate delivery time based on the address and update the tracking status.
 
+Sample Solution:
+
+Java Code:
+```java
+CustomerOrder.java
+
+// Import necessary classes for date handling
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+// Define the CustomerOrder class
+public class CustomerOrder {
+    // Attributes for order ID, customer, and order date
+    private String orderId;
+    private String customer;
+    private LocalDate orderDate;
+
+    // Constructor to initialize the CustomerOrder object
+    public CustomerOrder(String orderId, String customer, LocalDate orderDate) {
+        this.orderId = orderId;
+        this.customer = customer;
+        this.orderDate = orderDate;
+    }
+
+    // Getter for order ID
+    public String getOrderId() {
+        return orderId;
+    }
+
+    // Getter for customer
+    public String getCustomer() {
+        return customer;
+    }
+
+    // Getter for order date
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
+
+    // Method to display order details
+    public void displayOrderDetails() {
+        System.out.println("Order ID: " + orderId);
+        System.out.println("Customer: " + customer);
+        System.out.println("Order Date: " + orderDate);
+    }
+}
+```
+Explanation:
+
+CustomerOrder Class:
+
+Attributes: orderId, customer, and orderDate.
+Constructor: Initializes the attributes.
+Methods:
+displayOrderDetails(): Displays the order details.
+Getters: getOrderId(), getCustomer(), getOrderDate().
+```java
+OnlineOrder.java
+
+// Import necessary classes for date handling
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+// Define the OnlineOrder subclass that extends CustomerOrder
+class OnlineOrder extends CustomerOrder {
+    // Additional attributes for delivery address and tracking number
+    private String deliveryAddress;
+    private String trackingNumber;
+
+    // Constructor to initialize the OnlineOrder object
+    public OnlineOrder(String orderId, String customer, LocalDate orderDate, String deliveryAddress, String trackingNumber) {
+        // Call the superclass constructor to initialize common attributes
+        super(orderId, customer, orderDate);
+        this.deliveryAddress = deliveryAddress;
+        this.trackingNumber = trackingNumber;
+    }
+
+    // Getter for delivery address
+    public String getDeliveryAddress() {
+        return deliveryAddress;
+    }
+
+    // Getter for tracking number
+    public String getTrackingNumber() {
+        return trackingNumber;
+    }
+
+    // Method to calculate delivery time based on the address (dummy logic for demonstration)
+    public int calculateDeliveryTime() {
+        // Dummy logic: Assuming delivery time is based on the length of the address string
+        return deliveryAddress.length() % 10 + 1; // Just a placeholder logic
+    }
+
+    // Method to update the tracking status (dummy logic for demonstration)
+    public void updateTrackingStatus(String newStatus) {
+        // Dummy logic: Print the updated tracking status
+        System.out.println("Tracking Number: " + trackingNumber + " - Status: " + newStatus);
+    }
+
+    // Override the displayOrderDetails method to include additional details
+    @Override
+    public void displayOrderDetails() {
+        // Call the superclass method to display common details
+        super.displayOrderDetails();
+        // Display additional details for online order
+        System.out.println("Delivery Address: " + deliveryAddress);
+        System.out.println("Tracking Number: " + trackingNumber);
+    }
+}
+```
+Explanation:
+
+OnlineOrder Subclass:
+
+Extends CustomerOrder.
+Additional Attributes: deliveryAddress and trackingNumber.
+Constructor: Initializes the attributes, calling the superclass constructor for the common attributes.
+Methods:
+calculateDeliveryTime(): Dummy logic to calculate delivery time based on the address.
+updateTrackingStatus(String newStatus): Dummy logic to update the tracking status.
+Overrides displayOrderDetails() to include additional details for online orders.
+Getters: getDeliveryAddress(), getTrackingNumber().
+```java
+Main.java
+
+// Import necessary classes for date handling
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+// Main class to test the CustomerOrder and OnlineOrder classes
+public class Main {
+    public static void main(String[] args) {
+        // Create a CustomerOrder object
+        CustomerOrder order = new CustomerOrder("ORD023", "Asih Wanjiku", LocalDate.now());
+        // Display the order details
+        order.displayOrderDetails();
+        System.out.println();
+
+        // Create an OnlineOrder object
+        OnlineOrder onlineOrder = new OnlineOrder("ORD034", "Kai Biserka", LocalDate.now(), "123 ABC Street, Springfield", "STR455");
+        // Display the online order details
+        onlineOrder.displayOrderDetails();
+        // Calculate and display the delivery time
+        int deliveryTime = onlineOrder.calculateDeliveryTime();
+        System.out.println("Estimated Delivery Time: " + deliveryTime + " days");
+        // Update and display the tracking status
+        onlineOrder.updateTrackingStatus("In Transit");
+    }
+}
+```
+Explanation:
+
+Main Method:
+public static void main(String[] args): The entry point of the program.
+Creating a CustomerOrder Object:
+CustomerOrder order = new CustomerOrder("ORD023", "Asih Wanjiku", LocalDate.now());: Creates a CustomerOrder object with order ID "ORD023", customer name "Asih Wanjiku", and the current date.
+Displaying CustomerOrder Details:
+order.displayOrderDetails();: Calls the method to display details of the CustomerOrder object.
+System.out.println();: Prints an empty line for separation.
+Creating an OnlineOrder Object:
+OnlineOrder onlineOrder = new OnlineOrder("ORD034", "Kai Biserka", LocalDate.now(), "123 ABC Street, Springfield", "STR455");: Creates an OnlineOrder object with order ID "ORD034", customer name "Kai Biserka", current date, delivery address "123 ABC Street, Springfield", and tracking number "STR455".
+Displaying OnlineOrder Details:
+onlineOrder.displayOrderDetails();: Calls the method to display details of the OnlineOrder object.
+Calculating and Displaying Delivery Time:
+int deliveryTime = onlineOrder.calculateDeliveryTime();: Calls the method to calculate the delivery time based on the delivery address.
+System.out.println("Estimated Delivery Time: " + deliveryTime + " days");: Prints the estimated delivery time.
+Updating and Displaying Tracking Status:
+onlineOrder.updateTrackingStatus("In Transit");: Calls the method to update the tracking status to "In Transit".
+Output:
+
+Order ID: ORD023
+Customer: Asih Wanjiku
+Order Date: 2024-06-10
+
+Order ID: ORD034
+Customer: Kai Biserka
+Order Date: 2024-06-10
+Delivery Address: 123 ABC Street, Springfield
+Tracking Number: STR455
+Estimated Delivery Time: 8 days
+Tracking Number: STR455 - Status: In Transit
 
 ### 28. Write a Java program to create a class called "Reservation" with attributes for reservation ID, customer name, and date. Create subclasses "ResortReservation" and "RailwayReservation" that add specific attributes like room number for hotels and seat number for flights. Implement methods to check reservation status and modify reservation details.
 
+Write a Java program to create a class called "Reservation" with attributes for reservation ID, customer name, and date. Create subclasses "ResortReservation" and "RailwayReservation" that add specific attributes like room number for hotels and seat number for flights. Implement methods to check reservation status and modify reservation details.
 
+Sample Solution:
+
+Java Code:
+```java
+Reservation.java
+
+// Import necessary classes for date handling
+import java.time.LocalDate;
+
+// Define the Reservation class
+public class Reservation {
+    // Attributes for reservation ID, customer name, and date
+    private String reservationId;
+    private String customerName;
+    private LocalDate date;
+
+    // Constructor to initialize the Reservation object
+    public Reservation(String reservationId, String customerName, LocalDate date) {
+        this.reservationId = reservationId;
+        this.customerName = customerName;
+        this.date = date;
+    }
+
+    // Method to check reservation status
+    public void checkReservationStatus() {
+        System.out.println("Reservation ID: " + reservationId);
+        System.out.println("Customer Name: " + customerName);
+        System.out.println("Date: " + date);
+        System.out.println("Status: Confirmed");
+    }
+
+    // Method to modify reservation details
+    public void modifyReservation(String newCustomerName, LocalDate newDate) {
+        this.customerName = newCustomerName;
+        this.date = newDate;
+        System.out.println("Reservation modified successfully.");
+    }
+
+    // Getters for the attributes
+    public String getReservationId() {
+        return reservationId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+}
+```
+Explanation:
+
+Define the Reservation class: The Reservation class represents a generic reservation.
+Attributes for reservation ID, customer name, and date:
+private String reservationId: Stores the reservation ID.
+private String customerName: Stores the customer's name.
+private LocalDate date: Stores the reservation date.
+Constructor to initialize the Reservation object: Initializes the reservationId, customerName, and date attributes with the provided values.
+Method to check reservation status:
+public void checkReservationStatus(): Prints the reservation ID, customer name, date, and a status message ("Confirmed") to the console.
+Method to modify reservation details:
+public void modifyReservation(String newCustomerName, LocalDate newDate): Updates the customerName and date attributes with the new values provided and prints a confirmation message to the console.
+Getters for the attributes:
+public String getReservationId(): Returns the reservation ID.
+public String getCustomerName(): Returns the customer's name.
+public LocalDate getDate(): Returns the reservation date.
+```java
+ResortReservation.java
+
+// Import necessary classes for date handling
+import java.time.LocalDate;
+// Define the ResortReservation subclass that extends Reservation
+public class ResortReservation extends Reservation {
+    // Additional attribute for the room number
+    private int roomNumber;
+
+    // Constructor to initialize the ResortReservation object
+    public ResortReservation(String reservationId, String customerName, LocalDate date, int roomNumber) {
+        super(reservationId, customerName, date); // Call the superclass constructor
+        this.roomNumber = roomNumber;
+    }
+
+    // Method to check reservation status including room number
+    @Override
+    public void checkReservationStatus() {
+        super.checkReservationStatus(); // Call the superclass method
+        System.out.println("Room Number: " + roomNumber);
+    }
+
+    // Method to modify reservation details including room number
+    public void modifyReservation(String newCustomerName, LocalDate newDate, int newRoomNumber) {
+        super.modifyReservation(newCustomerName, newDate); // Call the superclass method
+        this.roomNumber = newRoomNumber;
+        System.out.println("Room Number updated successfully.");
+    }
+
+    // Getter for the room number
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+}
+```
+Explanation:
+
+Define the ResortReservation subclass that extends Reservation: The ResortReservation class is defined as a subclass of Reservation, inheriting its attributes and methods.
+Additional attribute for the room number:
+private int roomNumber: Stores the room number specific to resort reservations.
+Constructor to initialize the ResortReservation object:
+Initializes the reservationId, customerName, and date attributes by calling the superclass (Reservation) constructor.
+Initializes the roomNumber attribute with the provided value.
+Method to check reservation status including room number:
+@Override: Indicates that this method overrides the checkReservationStatus method from the Reservation class.
+public void checkReservationStatus(): Calls the superclass method to print the reservation details and then prints the room number.
+Method to modify reservation details including room number:
+public void modifyReservation(String newCustomerName, LocalDate newDate, int newRoomNumber): Updates the customerName and date attributes by calling the superclass method and updates the roomNumber attribute with the new value. Prints a confirmation message for the room number update.
+Getter for the room number:
+public int getRoomNumber(): Returns the room number.
+```java
+RailwayReservation.java
+
+// Import necessary classes for date handling
+import java.time.LocalDate;
+// Define the RailwayReservation subclass that extends Reservation
+public class RailwayReservation extends Reservation {
+    // Additional attribute for the seat number
+    private int seatNumber;
+
+    // Constructor to initialize the RailwayReservation object
+    public RailwayReservation(String reservationId, String customerName, LocalDate date, int seatNumber) {
+        super(reservationId, customerName, date); // Call the superclass constructor
+        this.seatNumber = seatNumber;
+    }
+
+    // Method to check reservation status including seat number
+    @Override
+    public void checkReservationStatus() {
+        super.checkReservationStatus(); // Call the superclass method
+        System.out.println("Seat Number: " + seatNumber);
+    }
+
+    // Method to modify reservation details including seat number
+    public void modifyReservation(String newCustomerName, LocalDate newDate, int newSeatNumber) {
+        super.modifyReservation(newCustomerName, newDate); // Call the superclass method
+        this.seatNumber = newSeatNumber;
+        System.out.println("Seat Number updated successfully.");
+    }
+
+    // Getter for the seat number
+    public int getSeatNumber() {
+        return seatNumber;
+    }
+}
+```
+Explanation:
+
+Define the RailwayReservation subclass that extends Reservation: The RailwayReservation class is defined as a subclass of Reservation, inheriting its attributes and methods.
+Additional attribute for the seat number:
+private int seatNumber: Defines an attribute to store the seat number specific to railway reservations.
+Constructor to initialize the RailwayReservation object:
+Calls the superclass (Reservation) constructor to initialize reservationId, customerName, and date.
+Initializes the seatNumber attribute with the provided value.
+Method to check reservation status including seat number:
+@Override: Indicates this method overrides the checkReservationStatus method from the Reservation class.
+Calls the superclass method to print the general reservation details and then prints the seat number.
+Method to modify reservation details including seat number:
+Updates customerName and date by calling the superclass method.
+Updates the seatNumber attribute with the new value and prints a confirmation message for the seat number update.
+Getter for the seat number:
+public int getSeatNumber(): Returns the seat number attribute.
+```java
+Main.java
+
+// Import necessary classes for date handling
+import java.time.LocalDate;
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a ResortReservation object
+        ResortReservation resortReservation = new ResortReservation("RSV001", "Celestino Aspasia", LocalDate.now(), 101);
+        // Display the resort reservation details and status
+        resortReservation.checkReservationStatus();
+        System.out.println();
+        
+        // Modify the resort reservation details
+        resortReservation.modifyReservation("Celestino Aspasia", LocalDate.of(2024, 6, 15), 102);
+        resortReservation.checkReservationStatus();
+        System.out.println();
+
+        // Create a RailwayReservation object
+        RailwayReservation railwayReservation = new RailwayReservation("RSV002", "John Paul Pythios", LocalDate.now(), 22);
+        // Display the railway reservation details and status
+        railwayReservation.checkReservationStatus();
+        System.out.println();
+        
+        // Modify the railway reservation details
+        railwayReservation.modifyReservation("Bob Smith", LocalDate.of(2024, 6, 20), 23);
+        railwayReservation.checkReservationStatus();
+    }
+}
+```
+Explanation:
+
+Define the Main class:
+Contains the main method to test the functionality of ResortReservation and RailwayReservation.
+Create a ResortReservation object:
+Initializes a ResortReservation object with reservation ID "RSV001", customer name "Celestino Aspasia", current date, and room number 101.
+Display the resort reservation details and status:
+Calls checkReservationStatus to display the reservation details including room number.
+Modify the resort reservation details:
+Calls modifyReservation to update the customer name, date to June 15, 2024, and room number to 102.
+Displays the updated reservation details and status by calling checkReservationStatus again.
+Create a RailwayReservation object:
+Initializes a RailwayReservation object with reservation ID "RSV002", customer name "John Paul Pythios", current date, and seat number 22.
+Display the railway reservation details and status:
+Calls checkReservationStatus to display the reservation details including seat number.
+Modify the railway reservation details:
+Calls modifyReservation to update the customer name to "Bob Smith", date to June 20, 2024, and seat number to 23.
+Displays the updated reservation details and status by calling checkReservationStatus again.
+Output:
+
+Reservation ID: RSV001
+Customer Name: Celestino Aspasia
+Date: 2021-06-10
+Status: Confirmed
+Room Number: 101
+
+Reservation modified successfully.
+Room Number updated successfully.
+Reservation ID: RSV001
+Customer Name: Celestino Aspasia
+Date: 2021-06-15
+Status: Confirmed
+Room Number: 102
+
+Reservation ID: RSV002
+Customer Name: John Paul Pythios
+Date: 2021-06-10
+Status: Confirmed
+Seat Number: 22
+
+Reservation modified successfully.
+Seat Number updated successfully.
+Reservation ID: RSV002
+Customer Name: Bob Smith
+Date: 2021-06-20
+Status: Confirmed
+Seat Number: 23
 
 ### 29. Write a Java program to create a class called "Pet" with attributes for name, species, and age. Create subclasses "Dog" and "Bird" that add specific attributes like favorite toy for dogs and wing span for birds. Implement methods to display pet details and calculate the pet's age in human years.
 
+Write a Java program to create a class called " Pet" with attributes for name, species, and age. Create subclasses " Dog" and "Bird" that add specific attributes like favorite toy for  dogs and wing span for birds. Implement methods to display  pet details and calculate the  pet's age in human years.
 
+Sample Solution:
+
+Java Code:
+```java
+Pet.java
+
+// Define the Pet class
+class Pet {
+    // Attributes for the Pet class
+    String name;
+    String species;
+    int age;
+
+    // Constructor for the Pet class
+    public Pet(String name, String species, int age) {
+        this.name = name;
+        this.species = species;
+        this.age = age;
+    }
+
+    // Method to display pet details
+    public void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Species: " + species);
+        System.out.println("Age: " + age + " years");
+    }
+
+    // Method to calculate pet's age in human years
+    public int calculateHumanAge() {
+        if (species.equals("Dog")) {
+            return age * 7;
+        } else {
+            // Assuming bird's age in human years is the same as actual age
+            return age;
+        }
+    }
+}
+```
+Explanation:
+
+Class definition: Defines the  Pet class.
+Attributes: Declares three attributes: name (String), species (String), and age (int).
+Constructor: Initializes the name, species, and age attributes with provided values.
+displayDetails() method: Prints the  pet's name, species, and age to the console.
+calculateHumanAge() method:
+Check if the species is " Dog".
+If true, returns the  pet's age multiplied by 7 ( dog's age in human years).
+Otherwise, returns the actual age (assuming birds' age in human years is the same as their actual age).
+```java
+Dog.java
+
+// Define the Dog class that extends Pet
+class Dog extends Pet {
+    // Additional attribute for Dog
+    String favoriteToy;
+
+    // Constructor for the Dog class
+    public Dog(String name, int age, String favoriteToy) {
+        super(name, "Dog", age); // Call the constructor of the superclass
+        this.favoriteToy = favoriteToy;
+    }
+
+    // Override the displayDetails method to include favorite toy
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Favorite Toy: " + favoriteToy);
+    }
+}
+```
+Explanation:
+
+Class definition: Defines the  Dog class, which extends the  Pet class.
+Additional attribute: Declares favoriteToy (String) specific to the  Dog class.
+Constructor:
+Initializes the name, age, and favoriteToy attributes.
+Override displayDetails() method:
+Calls the displayDetails() method of the Pet class.
+Adds a line to print the dog's favorite toy.
+```java
+Bird.java
+
+// Define the Bird class that extends Pet
+class Bird extends Pet {
+    // Additional attribute for Bird
+    double wingSpan;
+
+    // Constructor for the Bird class
+    public Bird(String name, int age, double wingSpan) {
+        super(name, "Bird", age); // Call the constructor of the superclass
+        this.wingSpan = wingSpan;
+    }
+
+    // Override the displayDetails method to include wing span
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Wing Span: " + wingSpan + " meters");
+    }
+}
+```
+Explanation:
+
+Class definition: Defines the Bird class, which extends the  Pet class.
+Additional attribute: Declares wingSpan (double) specific to the Bird class.
+Constructor:
+Initializes the name, age, and wingSpan attributes.
+Calls the superclass constructor with name, "Bird" (as species), and age.
+Override displayDetails() method:
+Calls the displayDetails() method of the  Pet class.
+Add a line to print the bird's wing span in meters.
+```java
+Main.java
+
+// Main class to test the Pet, Dog, and Bird classes
+public class Main {
+    public static void main(String[] args) {
+        // Create an instance of Dog
+        Dog dog = new Dog("Cooper", 3, "Ball");
+
+        // Create an instance of Bird
+        Bird bird = new Bird("Pelican", 2, 0.5);
+
+        // Display details of the dog
+        System.out.println("Dog Details:");
+        dog.displayDetails();
+        System.out.println("Dog's age in human years: " + dog.calculateHumanAge());
+
+        // Display details of the bird
+        System.out.println("\nBird Details:");
+        bird.displayDetails();
+        System.out.println("Bird's age in human years: " + bird.calculateHumanAge());
+    }
+}
+```
+Explanation:
+
+Class definition: Defines the Main class to test the  Pet,  Dog, and Bird classes.
+main method: Contains the main logic for testing.
+Create an instance of  Dog: Instantiates a Dog object named "Cooper" with age 3 and favorite toy "Ball".
+Create an instance of Bird: Instantiates a Bird object named "Pelican" with age 2 and a wing span of 0.5 meters.
+Display details of the  dog:
+Prints "Dog Details:" to the console.
+Calls dog.displayDetails() to print the dog's details.
+Calls dog.calculateHumanAge() to print the dog's age in human years.
+Display details of the bird:
+Prints "\nBird Details:" to the console.
+Calls bird.displayDetails() to print the bird's details.
+Calls bird.calculateHumanAge() to print the bird's age in human years.
+Output:
+
+Dog Details:
+Name: Cooper
+Species: Dog
+Age: 3 years
+Favorite Toy: Ball
+Dog's age in human years: 21
+
+Bird Details:
+Name: Pelican
+Species: Bird
+Age: 2 years
+Wing Span: 0.5 meters
+Bird's age in human years: 2
 
 ### 30. Write a Java program to create a class called "GymMembership" with attributes for member name, membership type, and duration. Create a subclass "PremiumMembership" that adds attributes for personal trainer availability and spa access. Implement methods to calculate membership fees and check for special offers based on membership type.
 
+Write a Java program to create a class called "GymMembership" with attributes for member name, membership type, and duration. Create a subclass "PremiumMembership" that adds attributes for personal trainer availability and spa access. Implement methods to calculate membership fees and check for special offers based on membership type.
+
+Sample Solution:
+
+Java Code:
+```java
+GymMembership.java
+
+// Define the GymMembership class
+class GymMembership {
+    // Attributes for GymMembership
+    String memberName;
+    String membershipType;
+    int duration; // in months
+
+    // Constructor for GymMembership
+    public GymMembership(String memberName, String membershipType, int duration) {
+        this.memberName = memberName;
+        this.membershipType = membershipType;
+        this.duration = duration;
+    }
+
+    // Method to calculate membership fees
+    public double calculateFees() {
+        double baseFee = 50.0; // Base fee per month
+        return baseFee * duration;
+    }
+
+    // Method to check for special offers
+    public String checkSpecialOffers() {
+        if (membershipType.equalsIgnoreCase("annual")) {
+            return "10% discount on annual membership.";
+        } else {
+            return "No special offers available.";
+        }
+    }
+
+    // Method to display membership details
+    public void displayDetails() {
+        System.out.println("Member Name: " + memberName);
+        System.out.println("Membership Type: " + membershipType);
+        System.out.println("Duration: " + duration + " months");
+        System.out.println("Membership Fees: $" + calculateFees());
+        System.out.println("Special Offers: " + checkSpecialOffers());
+    }
+}
+```
+Explanation:
+
+Class definition: Defines the GymMembership class.
+Attributes: Declares three attributes: memberName (String), membershipType (String), and duration (int, in months).
+Constructor: Initializes the memberName, membershipType, and duration attributes with provided values.
+calculateFees() method:
+Sets a base fee of $50.0 per month.
+Returns the total fee by multiplying the base fee with the duration in months.
+checkSpecialOffers() method:
+Checks if the membership type is "annual".
+Returns a 10% discount message if the membership type is annual.
+Returns a message indicating no special offers for other membership types.
+displayDetails() method:
+Prints the member's name, membership type, and duration.
+Calls calculateFees() to print the total membership fees.
+Calls checkSpecialOffers() to print any applicable special offers.
+```java
+PremiumMembership.java
+
+// Define the PremiumMembership class that extends GymMembership
+class PremiumMembership extends GymMembership {
+    // Additional attributes for PremiumMembership
+    boolean personalTrainerAvailable;
+    boolean spaAccess;
+
+    // Constructor for PremiumMembership
+    public PremiumMembership(String memberName, String membershipType, int duration, boolean personalTrainerAvailable, boolean spaAccess) {
+        super(memberName, membershipType, duration);
+        this.personalTrainerAvailable = personalTrainerAvailable;
+        this.spaAccess = spaAccess;
+    }
+
+    // Override the calculateFees method to include additional costs
+    @Override
+    public double calculateFees() {
+        double baseFee = super.calculateFees();
+        double additionalFee = 0.0;
+
+        if (personalTrainerAvailable) {
+            additionalFee += 30.0 * duration; // Additional fee per month for personal trainer
+        }
+        if (spaAccess) {
+            additionalFee += 20.0 * duration; // Additional fee per month for spa access
+        }
+        return baseFee + additionalFee;
+    }
+
+    // Override the displayDetails method to include premium details
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Personal Trainer Available: " + (personalTrainerAvailable ? "Yes" : "No"));
+        System.out.println("Spa Access: " + (spaAccess ? "Yes" : "No"));
+    }
+}
+```
+Explanation:
+
+Class definition: Defines the PremiumMembership class, which extends GymMembership.
+Additional attributes: Declares two attributes: personalTrainerAvailable (boolean) and spaAccess (boolean).
+Constructor:
+Calls the superclass (GymMembership) constructor to initialize memberName, membershipType, and duration.
+Initializes personalTrainerAvailable and spaAccess attributes with provided values.
+Override calculateFees() method:
+Calls the superclass method super.calculateFees() to get the base fee.
+Adds additional fees if personalTrainerAvailable and spaAccess are true.
+Returns the total fee, which includes the base fee and any additional fees.
+Override displayDetails() method:
+Calls the superclass method super.displayDetails() to display base details.
+Adds lines to print whether a personal trainer is available and whether spa access is available.
+```java
+Main.java
+
+// Main class to test the GymMembership and PremiumMembership classes
+public class Main {
+    public static void main(String[] args) {
+        // Create an instance of GymMembership
+        GymMembership basicMember = new GymMembership("Njeri Inka", "Monthly", 6);
+
+        // Create an instance of PremiumMembership
+        PremiumMembership premiumMember = new PremiumMembership("Willy Diantha", "Annual", 12, true, true);
+
+        // Display details of the basic membership
+        System.out.println("Basic Membership Details:");
+        basicMember.displayDetails();
+
+        // Display details of the premium membership
+        System.out.println("\nPremium Membership Details:");
+        premiumMember.displayDetails();
+    }
+}
+```
+Explanation:
+
+Class definition: Defines the Main class to test GymMembership and PremiumMembership classes.
+main method: Entry point of the program.
+Create an instance of GymMembership:
+Instantiates a GymMembership object named basicMember.
+Initializes with memberName as "Njeri Inka", membershipType as "Monthly", and duration as 6 months.
+Create an instance of PremiumMembership:
+Instantiates a PremiumMembership object named premiumMember.
+Initializes with memberName as "Willy Diantha", membershipType as "Annual", duration as 12 months, personalTrainerAvailable as true, and spaAccess as true.
+Display details of the basic membership:
+Prints "Basic Membership Details:" to the console.
+Calls basicMember.displayDetails() to print the details of the basic membership.
+Display details of the premium membership:
+Prints "\nPremium Membership Details:" to the console.
+Calls premiumMember.displayDetails() to print the details of the premium membership.
+Output:
+
+Basic Membership Details:
+Member Name: Njeri Inka
+Membership Type: Monthly
+Duration: 6 months
+Membership Fees: $300.0
+Special Offers: No special offers available.
+
+Premium Membership Details:
+Member Name: Willy Diantha
+Membership Type: Annual
+Duration: 12 months
+Membership Fees: $1200.0
+Special Offers: 10% discount on annual membership.
+Personal Trainer Available: Yes
+Spa Access: Yes
