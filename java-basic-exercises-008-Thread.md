@@ -1,6 +1,5 @@
 # Java Exercises Thread
 
-https://www.w3resource.com/java-exercises/thread/index.php
 In computer science, a thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler, which is typically a part of the  operating system. The implementation of threads and  processes differs between  operating systems.
 
 A thread is a thread of execution in a program. The  Java Virtual Machine allows an application to have multiple threads of execution running concurrently.
