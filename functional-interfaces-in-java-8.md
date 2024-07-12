@@ -68,7 +68,7 @@ class Student
 }
 ```
 Let listOfStudents be the list of 10 students.
-
+```java
 List<Student> listOfStudents = new ArrayList<Student>();
          
 listOfStudents.add(new Student(111, "John", 81.0, "Mathematics"));         
@@ -81,7 +81,7 @@ listOfStudents.add(new Student(777, "Richards", 72.6, "Banking"));
 listOfStudents.add(new Student(888, "Sunil", 86.7, "History"));         
 listOfStudents.add(new Student(999, "Jordan", 58.6, "Finance"));         
 listOfStudents.add(new Student(101010, "Chris", 89.8, "Computers"));
-
+```
 Let’s see how to use 4 important functional interfaces – Predicate, Consumer, Function and Supplier using above listOfStudents.
 
 a) Predicate – Tests an object
@@ -93,7 +93,7 @@ For example,
 Imagine an operation where you want only a list of “Mathematics” students from the above listOfStudents. Let’s see how to do it using Predicate.
 
 Lambda expression implementing Predicate : Checking specialization of a Student
-
+```java
 Predicate<Student> mathematicsPredicate = (Student student) -> student.getSpecialization().equals("Mathematics");
          
 List<Student> mathematicsStudents = new ArrayList<Student>();
@@ -105,6 +105,7 @@ for (Student student : listOfStudents)
         mathematicsStudents.add(student);
     }
 }
+```
 b) Consumer – Consumes an object
 
 Consumer represents an operation which takes an argument and returns nothing. Use this functional interface If you want to compose a lambda expression which performs some operations on an object.
@@ -112,7 +113,7 @@ Consumer represents an operation which takes an argument and returns nothing. Us
 For example, displaying all students with their percentage.
 
 Lambda expression implementing Consumer : Displaying all students with their percentage
-
+```java
 Consumer<Student> percentageConsumer = (Student student) -> {
         System.out.println(student.getName()+" : "+student.getPercentage());
     };
@@ -121,6 +122,7 @@ for (Student student : listOfStudents)
 {
     percentageConsumer.accept(student);
 }
+```
 c) Function – Applies to an object
 
 Function represents an operation which takes an argument of type T and returns a result of type R. Use this functional interface if you want to extract some data from an existing data.
@@ -128,7 +130,7 @@ Function represents an operation which takes an argument of type T and returns a
 For example, extracting only the names from listOfStudents.
 
 Lambda expression implementing Function : Extracting only the names of all students
-
+```java
 Function<Student, String> nameFunction = (Student Student) -> Student.getName();
          
 List<String> studentNames = new ArrayList<String>();
@@ -137,46 +139,40 @@ for (Student student : listOfStudents)
 {
     studentNames.add(nameFunction.apply(student));
 }
+```
 d) Supplier – Supplies the objects
 
 Supplier represents an operation which takes no argument and returns the results of type R. Use this functional interface when you want to create new objects.
 
-###Lambda expression implementing Supplier : Creating a new Student
+### Lambda expression implementing Supplier : Creating a new Student
 
-
+```java
 Supplier<Student> studentSupplier = () -> new Student(111111, "New Student", 92.9, "Java 8");
          
 listOfStudents.add(studentSupplier.get());
+```
 5) Functional Interfaces Supporting Primitive Type
 Java 8 has also introduced functional interfaces which support primitive types. For example IntPredicate, DoublePredicate, LongConsumer etc… (See above table).
 
 If an input or output is a primitive type then using these functional interfaces will enhance the performance of your code. For example, if input to a Predicate is primitive type int then using intPredicate instead of Predicate will remove unnecessary boxing of input.
 
 
-|-----------------------|---------------------|-------------------------------------------------------------------------|
-| Functional interface  | Function descriptor | Primitive specializations 												| |-----------------------|---------------------|-------------------------------------------------------------------------| 
-| Predicate<T> 			| T -> boolean 		  | IntPredicate, LongPredicate, DoublePredicate 							|
-|-----------------------|---------------------|-------------------------------------------------------------------------| 
-| Consumer<T> 			| T -> void 		  | IntConsumer, LongConsumer, DoubleConsumer 								|
-|-----------------------|---------------------|-------------------------------------------------------------------------| 
-| Function<T, R> 		| T -> R 			  | IntFunction<R>, IntToDoubleFunction, IntToLongFunction,					| 
-|						|					  | LongFunction<R>, LongToDoubleFunction, LongToIntFunction, 				|
-|						|					  | DoubleFunction<R>, ToIntFunction<T>, ToDoubleFunction<T>, 				|
-|						|					  | ToLongFunction<T> 														|
-|-----------------------|---------------------|-------------------------------------------------------------------------| 
-| Supplier<T> 			| () -> T 			  | BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier 				|
-|-----------------------|---------------------|-------------------------------------------------------------------------| 
-| UnaryOperator<T> 		| T -> T 			  | IntUnaryOperator, LongUnaryOperator, DoubleUnaryOperator 				|
-|-----------------------|---------------------|-------------------------------------------------------------------------| 
-| BinaryOperator<T> 	| (T, T) -> T 		  | IntBinaryOperator, LongBinaryOperator, DoubleBinaryOperator 			|
-|-----------------------|---------------------|-------------------------------------------------------------------------| 
-| BiPredicate<L, R> 	| (L, R) -> boolean   | 															  			|
-|-----------------------|---------------------|-------------------------------------------------------------------------|
-| BiConsumer<T, U> 		| (T, U) -> void 	  | ObjIntConsumer<T>, ObjLongConsumer<T>, ObjDoubleConsumer<T> 			|
-|-----------------------|---------------------|-------------------------------------------------------------------------| 
-| BiFunction<T, U, R> 	| (T, U) -> R 		  | ToIntBiFunction<T, U>, ToLongBiFunction<T, U>, ToDoubleBiFunction<T, U> |
-|-----------------------|---------------------|-------------------------------------------------------------------------|
 
+| Functional interface  | Function descriptor | Primitive specializations |
+|-----------------------|---------------------|--------------------------------------------------------| 
+| Predicate<T> 	| T -> boolean 	| IntPredicate, LongPredicate, DoublePredicate | 
+| Consumer<T> | T -> void | IntConsumer, LongConsumer, DoubleConsumer| 
+| Function<T, R> | T -> R | IntFunction<R>, IntToDoubleFunction, IntToLongFunction,| 
+| LongFunction<R>, LongToDoubleFunction, LongToIntFunction, | DoubleFunction<R>, ToIntFunction<T>, ToDoubleFunction<T>, |		
+| ToLongFunction<T> |
+|-----------------------|---------------------|-------------------------------------------------------------------------| 
+| Supplier<T> 			| () -> T 			  | BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier 				| 
+| UnaryOperator<T> 		| T -> T 			  | IntUnaryOperator, LongUnaryOperator, DoubleUnaryOperator 				| 
+| BinaryOperator<T> 	| (T, T) -> T 		  | IntBinaryOperator, LongBinaryOperator, DoubleBinaryOperator 			|
+ 
+| BiPredicate<L, R> 	| (L, R) -> boolean   | 															  			|
+| BiConsumer<T, U> 		| (T, U) -> void 	  | ObjIntConsumer<T>, ObjLongConsumer<T>, ObjDoubleConsumer<T> 			| 
+| BiFunction<T, U, R> 	| (T, U) -> R 		  | ToIntBiFunction<T, U>, ToLongBiFunction<T, U>, ToDoubleBiFunction<T, U> |
 |||||<p>IntToLongFunction</p><p>IntToDoubleFunction</p><p>LongToDoubleFunction</p><p>LongTolIntFunction</p><p>DoubleToIntFunction</p><p>DoubleToLongFunction</p>|
 | :- | :- | :- | :- | :- |
 |<p>Supplier</p><p>T get()</p>|<p>Represents</p><p>operation</p><p>nothing but</p><p>result of type</p>|<p>an Use this interface</p><p>which takes\_ || you want to</p><p>returnsa objects.</p><p>T.</p>|<p>when</p><p>create new</p>|<p>BooleanSupplier</p><p>IntSupplier</p><p>LongSupplier</p><p>DoubleSupplier</p>|
@@ -190,7 +186,7 @@ If an input or output is a primitive type then using these functional interfaces
 type.
 
 
-#Using functional interfaces:
+# Using functional interfaces:
 A functional interface specifies exactly one abstract method.
 Functional interfaces are useful because the signature of the abstract method can describe the signature of a lambda expression. 
 The signature of the abstract method of a functional interface is called a function descriptor. 
@@ -200,14 +196,14 @@ There are several functional interfaces already available in the Java API such a
 The Java library designers for Java 8 have helped you by introducing several new functional interfaces inside the java.util.function package. 
 We describe the interfaces Predicate, Consumer, and Function.
 
-#Predicate
+# Predicate
 The java.util.function.Predicate<T> interface defines an abstract method named test that accepts an object of generic type T and returns a boolean. 
 It’s exactly the same one that you created earlier, but is available out of the box! You might want to use this interface when you need to represent a boolean expression that uses an object of type T. 
 
 For example, you can define a lambda that accepts String objects, as shown in the following listing.
 
 
-###Working with a Predicate
+### Working with a Predicate
 
 @FunctionalInterface
 public interface Predicate<T>{
@@ -229,7 +225,7 @@ List<String> nonEmpty = filter(listOfStrings, nonEmptyStringPredicate);
 
 If you look up the Javadoc specification of the Predicate interface, you may notice additional methods such as and and or.
 
-###What about @FunctionalInterface?
+### What about @FunctionalInterface?
 
 If you explore the new Java API, you’ll notice that functional interfaces are annotated with @FunctionalInterface This annotation is used to indicate that the interface is intended to be a functional interface. The compiler will return a meaningful error if you define an interface using the @FunctionalInterface annotation and it isn’t a functional interface. 
 
@@ -239,7 +235,7 @@ Note that the @FunctionalInterface annotation isn’t mandatory, but it’s good
 
 You can think of it like the @Override notation to indicate that a method is overridden.
 
-#Consumer
+# Consumer
 
 The java.util.function.Consumer<T> interface defines an abstract method named accept that takes an object of generic type T and returns no result (void). 
 You might use this interface when you need to access an object of type T and perform some operations on it. 
@@ -247,7 +243,7 @@ You might use this interface when you need to access an object of type T and per
 For example, you can use it to create a method forEach, which takes a list of Integers and applies an operation on each element of that list. 
 In the following listing you use this forEach method combined with a lambda to print all the elements of the list.
 
-###Working with a Consumer
+### Working with a Consumer
 
 @FunctionalInterface
 public interface Consumer<T>{
@@ -265,14 +261,14 @@ forEach(
 		(Integer i) -> System.out.println(i)
 	   );
 
-#Function
+# Function
 The java.util.function.Function<T, R> interface defines an abstract method named apply that takes an object of generic type T as input and returns an object of generic type R. 
 
 You might use this interface when you need to define a lambda that maps information from an input object to an output (for example, extracting the weight of an apple or mapping a string to its length). 
 
 In the listing that follows we show how you can use it to create a method map to transform a list of Strings into a list of Integers containing the length of each String.
 
-###Working with a Function
+### Working with a Function
 
 @FunctionalInterface
 public interface Function<T, R>{
