@@ -204,7 +204,7 @@ For example, you can define a lambda that accepts String objects, as shown in th
 
 
 ### Working with a Predicate
-
+```java
 @FunctionalInterface
 public interface Predicate<T>{
 	boolean test(T t);
@@ -222,7 +222,7 @@ public static <T> List<T> filter(List<T> list, Predicate<T> p) {
 Predicate<String> nonEmptyStringPredicate = (String s) -> !s.isEmpty();
 
 List<String> nonEmpty = filter(listOfStrings, nonEmptyStringPredicate);
-
+```
 If you look up the Javadoc specification of the Predicate interface, you may notice additional methods such as and and or.
 
 ### What about @FunctionalInterface?
@@ -244,7 +244,7 @@ For example, you can use it to create a method forEach, which takes a list of In
 In the following listing you use this forEach method combined with a lambda to print all the elements of the list.
 
 ### Working with a Consumer
-
+```java
 @FunctionalInterface
 public interface Consumer<T>{
 	void accept(T t);
@@ -260,7 +260,7 @@ forEach(
 		Arrays.asList(1,2,3,4,5), 
 		(Integer i) -> System.out.println(i)
 	   );
-
+```
 # Function
 The java.util.function.Function<T, R> interface defines an abstract method named apply that takes an object of generic type T as input and returns an object of generic type R. 
 
@@ -269,7 +269,7 @@ You might use this interface when you need to define a lambda that maps informat
 In the listing that follows we show how you can use it to create a method map to transform a list of Strings into a list of Integers containing the length of each String.
 
 ### Working with a Function
-
+```java
 @FunctionalInterface
 public interface Function<T, R>{
 	R apply(T t);
@@ -285,3 +285,4 @@ public static <T, R> List<R> map(List<T> list, Function<T, R> f) {
 List<Integer> l = map(
 						Arrays.asList("lambdas","in","action"), (String s) -> s.length()
 					 );
+```
