@@ -1,6 +1,52 @@
 # Java Exercises Array
 
 https://www.w3resource.com/java-exercises/array/index.php
+
+Arrays in Java, conceptually, are no different than in other programming languages.
+
+Arrays are contiguous memory locations storing only one type of item in a sequence.
+Arrays provide index-based access i.e. the first element of the array is stored at the 0th index, 2nd element is stored on 1st index and so on.
+Note that, in Java, arrays are also objects that inherit the Object class, and implement the Serializable as well as Cloneable interfaces.
+We can store all kinds of primitive values or objects in an array.
+Java supports single dimentional or multi-dimentional arrays, both. 
+The java.util.Arrays class provides many useful static methods to work with arrays and perform common operations on them.
+
+### 1. Array Basics
+- Intro to Java Arrays
+- Initialize an Array
+- Reverse an Array
+- Comparing Two Arrays
+- ArrayStoreException
+- Printing an Array
+- Printing 2D Array
+### 2. Array Operations
+- Concatenate Two Arrays in Java
+- Splitting an Array
+- Joining Array Items with Seperator
+- Resizing an Array
+- Removing Items from Array
+- Remove Duplicates from Array
+- Union of Two Arrays
+- Intersection of Two Arrays
+### 3. Searching and Sorting
+- How to Check is Array Contains an Item
+- Find Top N items in Array
+- Find Sum and Average of Array
+- Find Max/Min in Array
+- Sorting an Array
+- Checking if array is already sorted?
+### 4. Conversions
+- Array of Primitives to Array to objects
+- Convert between Array and List
+- Convert between Stream and Array
+- Java String to String Array
+- Convert String[] to Integer[]
+### 5. Advance Topics
+- Java Array Clone
+- Java Array Copy
+- Java Array Deep Copy
+- Java Copy Array Range
+
 ### 1. Write a Java program to sort a numeric array and a string array.
 
 
