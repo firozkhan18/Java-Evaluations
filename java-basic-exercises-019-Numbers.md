@@ -253,7 +253,9 @@ Infinity
 
 
 ### 21. Write a Java program to find any number between 1 and n that can be expressed as the sum of two cubes in two (or more) different ways.
-//http://introcs.cs.princeton.edu/java/13flow/Ramanujan.java.html
+
+http://introcs.cs.princeton.edu/java/13flow/Ramanujan.java.html
+
 Here are some examples of Ramanujan numbers :
 1729 = 1^3 + 12^3 = 9^3 + 10^3
 * 10000
