@@ -19,10 +19,10 @@ All Java 8 functional interfaces are organised in java.util.function package. Ea
 
 Below table shows the list of all Java 8 functional interfaces along with their abstract method, which operation they represent and when to use them?
 
-###Java 8 functional interfaces
+### Java 8 functional interfaces
 4) How To Use Java 8 Functional Interfaces In Real Time?
 Let’s define Student class like below. We will be using this class in the subsequent examples.
-
+```java
 class Student
 {
     int id;
@@ -66,6 +66,7 @@ class Student
         return id+"-"+name+"-"+percentage+"-"+specialization;
     }
 }
+```
 Let listOfStudents be the list of 10 students.
 
 List<Student> listOfStudents = new ArrayList<Student>();
