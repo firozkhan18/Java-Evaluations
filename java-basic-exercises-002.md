@@ -3597,6 +3597,34 @@ Heights of the top three buildings:
 25
 24
 
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating a Scanner object for user input
+        Scanner sc = new Scanner(System.in);
+
+        // Array to store the heights of eight buildings
+        int[] t = new int[8];
+
+        // Prompting the user to input the heights of eight buildings
+        System.out.println("Input the heights of eight buildings:");
+        for (int i = 0; i < 8; i++) {
+            t[i] = sc.nextInt();
+        }
+
+        // Sorting the array of building heights in ascending order
+        Arrays.sort(t);
+
+        // Displaying the heights of the top three buildings in descending order
+        System.out.println("\nHeights of the top three buildings:");
+        for (int i = 7; i >= 5; i--) {
+            System.out.println(t[i]);
+        }
+    }
+}
+```
 
 ### 212. Write a Java program to compute the digit number of the sum of two given integers.
 
@@ -3611,7 +3639,39 @@ Input two integers(a b):
 Digit number of sum of said two integers:
 2
 
+```java
+import java.util.*;
 
+public class Main {
+    public static void main(String[] args) {
+        // Prompting the user to input two integers (a and b)
+        System.out.println("Input two integers(a b):");
+
+        // Creating a Scanner object for user input
+        Scanner stdIn = new Scanner(System.in);
+
+        // Reading the values of integers a and b from user input
+        int a = stdIn.nextInt();
+        int b = stdIn.nextInt();
+
+        // Calculating the sum of integers a and b
+        int sum = a + b;
+
+        // Initializing a variable to count the number of digits in the sum
+        int count = 0;
+
+        // Counting the number of digits in the sum using a while loop
+        while (sum != 0) {
+            sum /= 10;
+            ++count;
+        }
+
+        // Displaying the digit number of the sum of the two integers
+        System.out.println("Digit number of sum of said two integers:");
+        System.out.println(count);
+    }
+}
+```
 ### 213. Write a Java program to check whether three given lengths (integers) of three sides form a right triangle. Print "Yes" if the given sides form a right triangle otherwise print "No".
 
 Input:
@@ -3625,6 +3685,54 @@ Input three integers(sides of a triangle)
 If the given sides form a right triangle?
 No
 
+```java
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Scanner;
+
+class Main {
+    // Creating a Scanner object for user input
+    Scanner sc = new Scanner(System.in);
+
+    // Method to execute the main functionality
+    public void run() {
+        // Prompting the user to input three integers (sides of a triangle)
+        System.out.println("Input three integers(sides of a triangle)");
+
+        // Reading three integers and storing them in an array
+        int[] int_num = new int[]{
+            sc.nextInt(), sc.nextInt(), sc.nextInt()
+        };
+
+        // Sorting the array of integers in ascending order
+        Arrays.sort(int_num);
+
+        // Checking if the given sides form a right triangle
+        System.out.println("If the given sides form a right triangle?");
+        ln((int_num[2] * int_num[2] == int_num[0] * int_num[0] + int_num[1] * int_num[1]) ? "Yes" : "No");
+    }
+
+    // Main method to create an instance of the class and run the program
+    public static void main(String[] args) {
+        new Main().run();
+    }
+
+    // Method for printing without a newline
+    public static void pr(Object o) {
+        System.out.print(o);
+    }
+
+    // Method for printing with a newline
+    public static void ln(Object o) {
+        System.out.println(o);
+    }
+
+    // Method for printing an empty line
+    public static void ln() {
+        System.out.println();
+    }
+}
+```
 
 ### 214. Write a Java program which solve the equation:
 ax+by=c
@@ -3642,6 +3750,48 @@ Input the value of a, b, c, d, e, f:
  5 6 8 9 7 4
 -1.684 2.737
 
+```java
+import java.math.BigDecimal;
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        // Creating a Scanner object for user input
+        Scanner sc = new Scanner(System.in);
+        // Creating ArrayDeque to store Double values for x and y
+        ArrayDeque<Double>x = new ArrayDeque<>();
+        ArrayDeque<Double> y = new ArrayDeque<>();
+        // Prompting the user to input the values of a, b, c, d, e, f
+        System.out.println("Input the value of a, b, c, d, e, f:");
+        // Reading values for coefficients a, b, c, d, e, f
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        int d = sc.nextInt();
+        int e = sc.nextInt();
+        int f = sc.nextInt();
+        // Calculating values for variables s and t
+        double t = (double) (d * c - a * f) / (d * b - a * e);
+        double s = (double) (c - t * b) / a;
+        // Pushing the calculated values of x and y into the respective Deques
+        x.push(s);
+        y.push(t);
+        // Getting the size of the Deques
+        int num = x.size();
+        // Iterating through the Deques to print the results with rounded values
+        for (int i = 0; i < num; i++) {
+            BigDecimal bdx = new BigDecimal(x.pollLast());
+            BigDecimal bdy = new BigDecimal(y.pollLast());
+            BigDecimal ansx = bdx.setScale(4, BigDecimal.ROUND_HALF_UP);
+            BigDecimal ansy = bdy.setScale(4, BigDecimal.ROUND_HALF_UP);
+            // Printing the rounded values of x and y
+            System.out.printf("%.3f", ansx.doubleValue());
+            System.out.print(" ");
+            System.out.printf("%.3f", ansy.doubleValue());
+            System.out.println();
+        }
+    }
+}
+```
 
 ### 215. Write a Java program to compute the debt amount in n months. Monthly, the loan adds 4% interest to the $100,000 borrowed and rounds it to the nearest 1,000.
 
@@ -3657,7 +3807,43 @@ Input number of months:
 Amount of debt: 
 129000
 
+```java
+import java.util.Scanner;
 
+public class Main {
+    public static void main(String[] args) {
+        // Creating a Scanner object for user input
+        Scanner s = new Scanner(System.in);
+
+        // Prompting the user to input the number of months
+        System.out.println("Input number of months:");
+
+        // Reading the number of months from the user
+        int n = s.nextInt();
+
+        // Initializing the principal amount (initial debt) to 100,000
+        double c = 100000;
+
+        // Looping through each month to calculate the debt amount
+        for (int i = 0; i < n; i++) {
+            // Calculating the new debt amount after adding 4% interest
+            c += c * 0.04;
+
+            // Checking if the debt amount is not a multiple of 1000
+            if (c % 1000 != 0) {
+                // Reducing the debt amount to the nearest multiple of 1000
+                c -= c % 1000;
+                // Adding 1000 to the debt amount
+                c += 1000;
+            }
+        }
+
+        // Printing the final debt amount without decimal places
+        System.out.println("\nAmount of debt: ");
+        System.out.printf("%.0f\n", c);
+    }
+}
+```
 ### 216. Write a Java program which reads an integer n and finds the number of combinations of a,b,c and d (0 ≤ a,b,c,d ≤ 9) where (a + b + c + d) equals n.
 
 Input:
@@ -3672,6 +3858,53 @@ Input the number(n):
 Number of combinations of a, b, c and d :
 56
 
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // Prompting the user to input the number (n)
+        System.out.println("Input the number(n):");
+
+        // Creating a Scanner object for user input
+        Scanner s = new Scanner(System.in);
+
+        // Reading the input number (n) from the user
+        int c = s.nextInt();
+
+        // Calling the check method to find the number of combinations
+        int ans = check(c);
+
+        // Displaying the number of combinations of a, b, c, and d
+        System.out.println("Number of combinations of a, b, c, and d :");
+        System.out.println(ans);
+    }
+
+    // Method to check the number of combinations
+    static int check(int c) {
+        // Initializing a counter for combinations
+        int ctr = 0;
+
+        // Nested loops to iterate through all possible combinations of a, b, c, and d
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                for (int k = 0; k < 10; k++) {
+                    for (int l = 0; l < 10; l++) {
+                        // Checking if the sum of a, b, c, and d equals the input number (n)
+                        if (i + j + k + l == c) {
+                            // Incrementing the counter for valid combinations
+                            ctr++;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Returning the total number of combinations
+        return ctr;
+    }
+}
+```
 
 ### 217. Write a Java program to print the number of prime numbers less than or equal to a given integer.
 
@@ -3686,6 +3919,55 @@ Input the number(n):
 Number of prime numbers which are less than or equal to n.:
 202
 
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // Prompting the user to input the number (n)
+        System.out.println("Input the number(n):");
+
+        // Creating a Scanner object for user input
+        Scanner s = new Scanner(System.in);
+
+        // Reading the input number (n) from the user
+        int c = s.nextInt();
+
+        // Calling the check method to find the number of prime numbers
+        int ans = check(c);
+
+        // Displaying the number of prime numbers which are less than or equal to n
+        System.out.println("Number of prime numbers which are less than or equal to n:");
+        System.out.println(ans);
+    }
+
+    // Method to check the number of prime numbers
+    static int check(int c) {
+        // Creating a boolean array to mark numbers as prime or not
+        boolean[] prime = new boolean[c + 1];
+
+        // Initializing a counter for prime numbers
+        int count = 0;
+
+        // Loop to mark non-prime numbers in the array
+        for (int i = 2; i <= Math.sqrt(c); i++) {
+            for (int j = i + i; j <= c; j += i) {
+                prime[j] = true;
+            }
+        }
+
+        // Counting the number of prime numbers
+        for (int i = 2; i <= c; i++) {
+            if (!prime[i]) {
+                count++;
+            }
+        }
+
+        // Returning the total number of prime numbers
+        return count;
+    }
+}
+```
 
 ### 218. Write a Java program to compute the radius and central coordinates (x, y) of a circle constructed from three given points on the plane surface.
 
@@ -3701,7 +3983,53 @@ Input x1, y1, x2, y2, x3, y3 separated by a single space:
 Radius and the central coordinate:
 1.821 (5.786 7.643)                     
 
+```java
+// Importing necessary classes for input/output operations
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
 
+// Main class named "Main"
+class Main {
+    // Main method with IOException in case of input error
+    public static void main(String[] args) throws IOException {
+        // Creating BufferedReader for efficient reading of input
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        // Prompting the user to input coordinates x1, y1, x2, y2, x3, y3 separated by a single space
+        System.out.println("Input x1, y1, x2, y2, x3, y3 separated by a single space:");
+
+        // Reading the input line and splitting it into an array of strings
+        String[] input = br.readLine().split(" ");
+
+        // Parsing the input strings into double values
+        double x1 = Double.parseDouble(input[0]);
+        double y1 = Double.parseDouble(input[1]);
+        double x2 = Double.parseDouble(input[2]);
+        double y2 = Double.parseDouble(input[3]);
+        double x3 = Double.parseDouble(input[4]);
+        double y3 = Double.parseDouble(input[5]);
+
+        // Calculating intermediate values for further computations
+        double A = x2 - x1;
+        double B = y2 - y1;
+        double p = (y2 * y2 - y1 * y1 + x2 * x2 - x1 * x1) / 2;
+        double C = x3 - x1;
+        double D = y3 - y1;
+        double q = (y3 * y3 - y1 * y1 + x3 * x3 - x1 * x1) / 2;
+
+        // Calculating the coordinates of the center (X, Y) and the radius (r) of the circle
+        double X = (D * p - B * q) / (A * D - B * C);
+        double Y = (A * q - C * p) / (A * D - B * C);
+
+        double r = Math.sqrt(Math.pow(X - x1, 2.0) + Math.pow(Y - y1, 2.0));
+
+        // Displaying the radius and the central coordinate of the circle
+        System.out.println("\nRadius and the central coordinate:");
+        System.out.printf("%.3f (%.3f %.3f)", r, X, Y);
+    }
+}
+```
 ### 219. Write a Java program to check if a point (x, y) is in a triangle or not. A triangle is formed by three points.
 
 Input:
@@ -3724,7 +4052,78 @@ Input (xp, yp)
 6
 The point is outside the triangle.                    
 
+```java
+// Importing the necessary Java utility package
+import java.util.*;
 
+// Main class named "Main"
+public class Main { 
+    // Method to calculate the outer product of vectors (x1, y1) and (x2, y2) with respect to point (x, y)
+    private double outer_product(double x, double y, double x1, double y1, double x2, double y2){
+        // Shifting vectors to be relative to the point (x, y)
+        x1 = x1 - x;
+        y1 = y1 - y;
+        x2 = x2 - x;
+        y2 = y2 - y;
+
+        // Calculating the cross product (outer product) of the two vectors
+        double s = x1 * y2 - y1 * x2;
+        return s;
+    } 
+
+    // Method to input coordinates and determine if a point is inside a triangle
+    public void point(){
+        // Creating a Scanner object for input
+        Scanner sc = new Scanner(System.in);
+
+        // Arrays to store coordinates of the triangle vertices (x, y)
+        double [] x = new double[3];
+        double [] y = new double[3];
+
+        // Prompting the user to input the coordinates of the three vertices of the triangle
+        System.out.println("Input (x1, y1)");            
+        x[0] = sc.nextDouble();
+        y[0] = sc.nextDouble();
+
+        System.out.println("Input (x2, y2)");            
+        x[1] = sc.nextDouble();
+        y[1] = sc.nextDouble();
+
+        System.out.println("Input (x3, y3)");            
+        x[2] = sc.nextDouble();
+        y[2] = sc.nextDouble();
+
+        // Prompting the user to input the coordinates of the point (xp, yp)
+        System.out.println("Input (xp, yp)");            
+        double xp = sc.nextDouble();
+        double yp = sc.nextDouble();
+
+        // Array to store the results of the outer product calculations for each edge of the triangle
+        boolean [] ans = new boolean[3];
+
+        // Calculating the outer product for each edge and determining if the point is inside the triangle
+        for(int i=0; i < 3; i++){
+            ans[i] = outer_product(xp, yp, x[i], y[i], x[(i+1)%3], y[(i+1)%3]) > 0.0;
+        }
+
+        // Checking if all outer products have the same sign, indicating the point is inside the triangle
+        if(ans[0] == ans[1] && ans[1] == ans[2]){
+            // The point is inside the triangle
+            // Additional processing, if needed, can be added here
+        }
+        else{
+            // The point is outside the triangle
+            System.out.println("The point is outside the triangle.");
+        }
+    }
+
+    // Main method to create an object of the class and invoke the point method
+    public static void main(String[] args) {
+        Main obj = new Main();
+        obj.point();
+    }
+}
+```
 ### 220. Write a Java program to compute and print the sum of two given integers (more than or equal to zero). If the given integers or the sum have more than 80 digits, print "overflow".
 
 Input:
@@ -3738,6 +4137,56 @@ Input two integers:
 Sum of the said two integers:
 71                   
 
+```java
+// Importing necessary Java libraries
+import java.math.BigInteger;
+import java.util.Scanner;
+
+// Main class named "Main"
+public class Main {
+    // Main method to execute the program
+    public static void main(String args[]) {
+        // Creating a Scanner object for input
+        Scanner sc = new Scanner(System.in);
+
+        // Prompting the user to input two integers
+        System.out.println("Input two integers:");
+
+        // Declaring and initializing two strings to store user input
+        String s1 = new String();
+        String s2 = new String();
+
+        // Reading the first integer as a string
+        s1 = sc.nextLine();
+
+        // Reading the second integer as a string
+        s2 = sc.nextLine();
+
+        // Creating BigInteger objects from the input strings
+        BigInteger b1 = new BigInteger(s1);
+        BigInteger b2 = new BigInteger(s2);
+
+        // Creating a BigInteger object to store the result of addition
+        BigInteger result = new BigInteger("0");
+
+        // Adding the two input BigIntegers and storing the result
+        result = result.add(b1);
+        result = result.add(b2);
+
+        // Converting the result to a string
+        String s3 = "" + result;
+
+        // Displaying the sum of the two integers
+        System.out.println("\nSum of the said two integers:");
+
+        // Checking for overflow by comparing the lengths of the input and result strings
+        if (s1.length() > 80 || s2.length() > 80 || s3.length() > 80)
+            System.out.println("Overflow");
+        else
+            System.out.println(result);
+    }
+}
+```
 
 ### 221. Write a Java program that accepts six numbers as input and sorts them in descending order.
 
@@ -3752,7 +4201,62 @@ Expected Output:
 After sorting the said integers:
 9 8 7 6 4 2                   
 
+```java
+// Importing necessary Java libraries for input and exception handling
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
 
+// Main class named "Main"
+public class Main {
+    // Main method to execute the program
+    public static void main(String[] args) throws IOException {
+        // Creating a BufferedReader object for efficient reading of input
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        // Prompting the user to input six integers
+        System.out.println("Input six integers:");
+
+        // Reading the input line and splitting it into an array of strings
+        String[] input = br.readLine().split(" ", 6);
+
+        // Declaring an array to store the six integers
+        int[] data = new int[6];
+
+        // Parsing each string in the input array and storing it as an integer in the data array
+        for (int i = 0; i < 6; i++) {
+            data[i] = Integer.parseInt(input[i]);
+        }
+
+        // Sorting the integers in descending order using the Bubble Sort algorithm
+        for (int j = 0; j < 5; j++) {
+            for (int i = 5; i > j; i--) {
+                if (data[i - 1] < data[i]) {
+                    // Swapping elements if they are in the wrong order
+                    int swp = data[i];
+                    data[i] = data[i - 1];
+                    data[i - 1] = swp;
+                }
+            }
+        }
+
+        // Creating a StringBuilder to build the output string efficiently
+        StringBuilder sb = new StringBuilder();
+
+        // Appending each sorted integer followed by a space to the StringBuilder
+        for (int i : data) {
+            sb.append(i);
+            sb.append(" ");
+        }
+
+        // Displaying the result after sorting the integers
+        System.out.println("After sorting the said integers:");
+
+        // Printing the final output string after removing the trailing space
+        System.out.println(sb.substring(0, sb.length() - 1));
+    }
+}
+```
 ### 222. Write a Java program to test whether two lines PQ and RS are parallel. The four points are P(x1, y1), Q(x2, y2), R(x3, y3), and S(x4, y4).
 
 Input:
@@ -3772,6 +4276,47 @@ Input S(x4,y4),separated by a space.
  5 6
 Two lines are not parallel.             
 
+```java
+// Importing necessary Java utilities for input
+import java.util.*;
+
+// Main class named "Main"
+class Main {
+    // Main method to execute the program
+    public static void main(String args[]){
+        // Creating a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+
+        // Prompting the user to input coordinates for point P(x1, y1)
+		System.out.println("Input P(x1, y1), separated by a space.");
+        double x1 = in.nextDouble(), y1 = in.nextDouble();
+
+        // Prompting the user to input coordinates for point Q(x2, y2)
+		System.out.println("Input Q(x2, y2), separated by a space.");
+        double x2 = in.nextDouble(), y2 = in.nextDouble();
+
+        // Prompting the user to input coordinates for point R(x3, y3)
+		System.out.println("Input R(x3, y3), separated by a space.");
+        double x3 = in.nextDouble(), y3 = in.nextDouble();
+
+        // Prompting the user to input coordinates for point S(x4, y4)
+		System.out.println("Input S(x4, y4), separated by a space.");
+        double x4 = in.nextDouble(), y4 = in.nextDouble();
+
+        // Calculating differences between coordinates to represent vectors
+        double p1 = x2 - x1, p2 = y2 - y1, q1 = x4 - x3, q2 = y4 - y3,
+        r1 = x3 - x1, r2 = y3 - y1, s1 = x4 - x1, s2 = y4 - y1;
+
+        // Checking if the cross product of vectors P-Q and R-S is close to zero
+        if(Math.abs(p1*q2 - p2*q1) < 1e-9)
+            // Output if the cross product is close to zero, indicating parallel lines
+            System.out.println("Two lines are parallel.");
+        else
+            // Output if the cross product is not close to zero, indicating non-parallel lines
+            System.out.println("Two lines are not parallel.");
+    }
+}
+```
 
 ### 223. Write a Java program to find the maximum sum of a contiguous subsequence from a given sequence of numbers a1, a2, a3, ... an. A subsequence of one element is also a continuous subsequence.
 
@@ -3790,6 +4335,46 @@ Input the integers:
 Maximum sum of the said contiguous subsequence:
 229             
 
+```java
+// Importing necessary Java utilities for input
+import java.util.*;
+
+// Main class named "Main"
+public class Main {
+    // Main method to execute the program
+	public static void main(String [] args) {
+		// Creating a Scanner object for user input
+		Scanner s = new Scanner(System.in);
+
+		// Prompting the user to specify the number of integers to input
+		System.out.println("How many integers would you like to input?");
+		int n = s.nextInt();
+
+		// Initializing variables for the maximum sum and the current accumulation
+		int ans = -100000;
+		int acc = 0;
+
+		// Prompting the user to input the integers
+		System.out.println("Input the integers:");
+
+		// Looping through each input integer to find the maximum contiguous subsequence sum
+		for (int i = 0; i < n; i++) {
+			// Accumulating the current integer
+			acc += s.nextInt();
+
+			// Updating the maximum sum using Math.max function
+			ans = Math.max(ans, acc);
+
+			// Resetting the accumulation to 0 if it becomes negative
+			if (acc < 0) acc = 0;
+		}
+
+		// Outputting the maximum sum of the contiguous subsequence
+		System.out.println("Maximum sum of the said contiguous subsequence:");
+		System.out.println(ans);
+	}
+}
+```
 
 ### 224. There are two circles C1 with radius r1, central coordinate (x1, y1) and C2 with radius r2 and central coordinate (x2, y2).
 Write a Java program to test the followings -
@@ -3810,6 +4395,40 @@ Input x2, y2, r2: (numbers are separated by a space)
  8 9 5 4
 C1 and C2  do not overlap      
 
+```java
+// Importing the Scanner class for user input
+import java.util.Scanner;
+
+// Main class named "Main"
+public class Main {
+    // Main method to execute the program
+	public static void main(String arg[]) {
+		// Creating a Scanner object for user input
+		Scanner in = new Scanner(System.in);
+
+		// Prompting the user to input x1, y1, and r1 for the first circle
+		System.out.println("Input x1, y1, r1: (numbers are separated by a space)");
+		double x1 = in.nextDouble(), y1 = in.nextDouble(), r1 = in.nextDouble();
+
+		// Prompting the user to input x2, y2, and r2 for the second circle
+		System.out.println("Input x2, y2, r2: (numbers are separated by a space)");
+		double x2 = in.nextDouble(), y2 = in.nextDouble(), r2 = in.nextDouble();
+
+		// Calculating the distance between the centers of the two circles
+		double l = Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+
+		// Checking the relationship between the circles based on their radii and distance
+		if (l > r1 + r2)
+			System.out.println("Circumference of C1 and C2 intersect");
+		else if (r1 > l + r2)
+			System.out.println("C2 is in C1");
+		else if (r2 > l + r1)
+			System.out.println("C1 is in C2");
+		else
+			System.out.println("C1 and C2 do not overlap");
+	}
+}
+```
 
 ### 225. Write a Java program that reads a date (from 2004/1/1 to 2004/12/31) and prints the day of the date. Jan. 1, 2004, was Thursday. Note that 2004 is a leap year.
 
@@ -3822,7 +4441,56 @@ Input date (1-31)
 Name of the date: 
 Wednesday
 
+```java
+// Importing the Scanner class for user input
+import java.util.*;
 
+// Main class named "Main"
+class Main {
+
+    // Array to store the number of days in each month
+    static int days[] = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    // Array to store the names of the days
+    static String name[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+
+    // Main method to execute the program
+    public static void main(String args[]) {
+        // Creating a Scanner object for user input
+        Scanner in = new Scanner(System.in);
+
+        // Prompting the user to input month and date (0 0 to exit)
+        System.out.println("Input month and date (0 0 to exit)");
+
+        // Infinite loop for continuous input until 0 0 is entered
+        for (;;) {
+            // Reading the input values for month and date
+            int m = in.nextInt(), d = in.nextInt();
+
+            // Checking for the exit condition
+            if (m == 0 && d == 0) break;
+
+            // Calling the solve method and printing the result
+            System.out.println(solve(m, d));
+        }
+    }
+
+    // Method to determine the day of the week based on the given month and date
+    static String solve(int month, int date) {
+        // Setting the initial day to Wednesday (index 3 in the 'name' array)
+        int cur = 3;
+
+        // Calculating the day index for the given month and date
+        for (int i = 0; i < month - 1; i++) {
+            cur += days[i];
+        }
+        cur += date - 1;
+
+        // Returning the name of the day based on the calculated index
+        return name[cur % 7];
+    }
+}
+```
 ### 226. Write a Java program to print mode values from a given sequence of integers. The mode value is the element that occurs most frequently. If there are several mode values, print them in ascending order.
 
 Input:
@@ -3846,6 +4514,65 @@ Mode value(s)in ascending order:
 35
 45
 
+```java
+/ Importing the Scanner class for user input
+import java.util.Scanner;
+
+// Main class named "Main"
+public class Main {
+
+    // Main method to execute the program
+    public static void main(String[] args) {
+        // Creating a Scanner object for user input
+        Scanner input = new Scanner(System.in);
+
+        // Array to store the count of occurrences for each integer (0-99)
+        int cnt[] = new int[100];
+        
+        // Variable to track the current index in the loop
+        int i;
+
+        // Prompting the user to input the number of integers
+        System.out.println("How many integers would you like to input (Max. 100)?");
+        
+        // Reading the input value for the number of integers
+        int x = input.nextInt();
+        
+        // Prompting the user to input the integers
+        System.out.println("Input the integers:");
+
+        // Loop to process user input and update the count array
+        for (i = 0; i < x; i++) {
+            // Reading the next integer from the input
+            int n = input.nextInt();
+            
+            // Updating the count array based on the input integer
+            cnt[--n]++;
+        }
+
+        // Variable to store the maximum count
+        int max = 0;
+
+        // Loop to find the maximum count in the count array
+        for (int n : cnt) {
+            if (max < n) {
+                max = n;
+            }
+        }
+
+        // Prompting the user with the mode value(s) in ascending order
+        System.out.println("Mode value(s) in ascending order:");
+
+        // Loop to find and print the mode value(s)
+        for (i = 0; i < cnt.length; i++) {
+            if (cnt[i] == max) {
+                // Printing the mode value (adding 1 to get the original value)
+                System.out.println(i + 1);
+            }
+        }
+    }
+}
+```
 
 ### 227. Write a Java program that reads a text (only alphabetical characters and spaces) and prints two words. The first one is the word which is frequently used in the text. The second one is the word with the most letters.
 Note: A word is a sequence of letters which is separated by the spaces.
@@ -3861,7 +4588,59 @@ Input a text in a line:
 Most frequent text and the word which has the maximum number of letters:
 your participation.
 
+```java
+// Importing the Scanner class for user input
+import java.util.Scanner;
 
+// Main class named "Main"
+class Main {
+    
+    // Main method to execute the program
+    public static void main(String args[]) {
+        // Creating a Scanner object for user input
+        Scanner sc = new Scanner(System.in);
+
+        // Reading a line of text and splitting it into an array of strings
+        String strs[] = sc.nextLine().split(" ");
+        
+        // Variables to track the maximum length and frequency
+        int max_Length = 0;
+        int indexL = 0;
+        int max_Frequency = 0;
+        int indexF = 0;
+
+        // Prompting the user to input a text in a line
+        System.out.println("Input a text in a line:");
+
+        // Loop to iterate through the array of strings
+        for (int i = 0; i < strs.length; i++) {
+            // Checking and updating the maximum length
+            if (max_Length < strs[i].length()) {
+                indexL = i;
+                max_Length = strs[i].length();
+            }
+
+            // Counting the frequency of the current string
+            int ctr = 0;
+            for (int j = i; j < strs.length; j++) {
+                if (strs[i].equals(strs[j])) {
+                    ctr++;
+                }
+            }
+
+            // Checking and updating the maximum frequency
+            if (max_Frequency < ctr) {
+                indexF = i;
+                max_Frequency = ctr;
+            }
+        }
+
+        // Prompting the user with the most frequent text and the word with the maximum number of letters
+        System.out.println("Most frequent text and the word which has the maximum number of letters:");
+        System.out.println(strs[indexF] + " " + strs[indexL]);
+    }
+}
+```
 ### 228. Write a Java program that reads n digits (given) chosen from 0 to 9 and prints the number of combinations where the sum of the digits equals another given number (s). Do not use the same digits in a combination.
 For example, the combinations where n = 3 and s = 6 are as follows:
 1 + 2 + 3 = 6
@@ -3879,6 +4658,59 @@ Input number of combinations and sum (separated by a space in a line):
 Number of combinations:
 3
 
+```java
+// Importing the Scanner class for user input
+import java.util.*;
+
+// Main class named "Main"
+public class Main {
+    
+    // Main method to execute the program
+    public static void main(String[] args) {
+        // Creating a Scanner object for user input
+        Scanner stdIn = new Scanner(System.in);
+
+        // Prompting the user to input the number of combinations and sum (separated by a space in a line)
+        System.out.println("Input number of combinations and sum (separated by a space in a line):");
+
+        // Reading the number of combinations (n) and the sum (s) from the user
+        int n = stdIn.nextInt();
+        int s = stdIn.nextInt();
+
+        // Calling the comnum method to calculate the number of combinations
+        int c1 = comnum(0, n, s, 0);
+
+        // Prompting the user with the number of combinations
+        System.out.println("Number of combinations:");
+        System.out.println(c1);
+    }
+
+    // Recursive method to calculate the number of combinations
+    public static int comnum(int i, int n, int s, int p) {
+        // Base case: If the sum (p) matches the target sum (s) and no more elements (n) are left
+        if (s == p && n == 0) {
+            return 1;
+        }
+
+        // Base case: If all elements are considered (i reaches 10), return 0
+        if (i >= 10) {
+            return 0;
+        }
+
+        // Base case: If the sum (p) exceeds the target sum (s), return 0
+        if (p > s) {
+            return 0;
+        }
+
+        // Recursive calls for including and excluding the current element
+        int c1 = comnum(i + 1, n - 1, s, p + i);
+        int c2 = comnum(i + 1, n, s, p);
+
+        // Returning the sum of combinations from both recursive calls
+        return c1 + c2;
+    }
+}
+```
 
 ### 229. Write a Java program that reads the two adjoining sides and the diagonal of a parallelogram. It will check whether the parallelogram is a rectangle or a rhombus.
 According to Wikipedia-
@@ -3897,6 +4729,48 @@ Input two adjoined sides and the diagonal of a parallelogram (comma separated):
 8,8,8
 This is a rhombus.
 
+```java
+// Importing the Scanner class for user input
+import java.util.*;
+
+// Main class named "Main"
+public class Main {
+ 	
+    // Main method to execute the program
+    public static void main(String[] args) {
+        // Creating a Scanner object for user input
+        Scanner sc = new Scanner(System.in);
+        
+        // Initializing variables to count occurrences
+        int count_1 = 0, count_2 = 0;
+        
+        // Prompting the user to input two adjoined sides and the diagonal of a parallelogram (comma separated)
+        System.out.println("Input two adjoined sides and the diagonal of a parallelogram (comma separated):");
+        
+        // Reading the input line and splitting it using commas
+        String[] s = sc.nextLine().split(",");
+        
+        // Parsing the string values to integers
+        int len1 = Integer.parseInt(s[0]);
+        int len2 = Integer.parseInt(s[1]);
+        int len3 = Integer.parseInt(s[2]);
+        
+        // Checking if the parallelogram is a rectangle based on the Pythagorean theorem
+        if (len3 * len3 == len1 * len1 + len2 * len2)
+            count_1++;
+        
+        // Checking if the parallelogram is a rhombus based on equal sides
+        if (len1 == len2)
+            count_2++;
+        
+        // Outputting the result based on the counts
+        if (count_1 > 0)
+            System.out.println("This is a rectangle.");
+        if (count_2 > 0)
+            System.out.println("This is a rhombus.");
+    }
+}
+```
 
 ### 230. Write a Java program to replace a string "python" with "java" and "java" with "python" in a given string.
 
@@ -3913,7 +4787,41 @@ python is more propular than java
 New string:
 java is more propular than python
 
+```java
+// Importing necessary classes for input/output operations
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
+// Main class named "Main"
+class Main {
+    
+    // Main method to execute the program
+    public static void main(String[] args) throws IOException {
+        // Creating BufferedReader object to read input from the user
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        // Prompting the user to input a string
+        System.out.println("Input the string:");
+        
+        // Reading the input string
+        String str1 = br.readLine();
+ 
+        // Replacing occurrences of "java" with "py_thon"
+        str1 = str1.replaceAll("java", "py_thon");
+        
+        // Replacing occurrences of "python" with "java"
+        str1 = str1.replaceAll("python", "java");
+        
+        // Replacing occurrences of "py_thon" with "python"
+        str1 = str1.replaceAll("py_thon", "python");
+        
+        // Outputting the new string
+        System.out.println("New string:");
+        System.out.println(str1);
+    }
+}
+```
 ### 231. Write a Java program to find the difference between the largest integer and the smallest integer. These integers are created by 8 numbers from 0 to 9. The number that can be rearranged starts with 0 as in 00135668.
 
 Input:
@@ -3929,6 +4837,53 @@ Input an integer created by 8 numbers from 0 to 9:
 Difference between the largest and the smallest integer from the given integer:
 75308643
 
+```java
+// Importing necessary classes for input/output operations and array manipulation
+import java.util.*;
+
+// Main class named "Main"
+public class Main {
+    
+    // Main method to execute the program
+    public static void main(String[] args) {
+        // Creating Scanner object to read input from the user
+        Scanner sc = new Scanner(System.in);
+        
+        // Prompting the user to input an integer created by 8 numbers from 0 to 9
+        System.out.println("Input an integer created by 8 numbers from 0 to 9:");
+        
+        // Reading the input string
+        String s = sc.next();
+        
+        // Initializing an array to store individual digits of the input integer
+        int[] num = new int[8];
+        
+        // Extracting each digit from the input string and storing it in the array
+        for (int i = 0; i < 8; i++) {
+            num[i] = Integer.valueOf(s.substring(i, i + 1));
+        }
+        
+        // Sorting the array in ascending order
+        Arrays.sort(num);
+        
+        // Initializing variables to calculate the smallest and largest integers
+        int a = 0;
+        int b = 0;
+        int c = 1;
+        
+        // Calculating the smallest and largest integers from the sorted array
+        for (int i = 0; i < 8; i++) {
+            a += num[i] * c;
+            b += num[7 - i] * c;
+            c *= 10;
+        }
+        
+        // Outputting the difference between the largest and smallest integers
+        System.out.println("Difference between the largest and the smallest integer from the given integer:");
+        System.out.println(a - b);
+    }
+}
+```
 
 ### 232. Write a Java program to compute the sum of the first n prime numbers.
 
@@ -3943,7 +4898,57 @@ Input a number (n<=10000) to compute the sum:
 Sum of first 100 prime numbers:
 24133
 
+```java
+// Importing necessary classes for input/output operations and mathematical functions
+import java.util.*;
 
+// Main class named "Main"
+public class Main {
+    
+    // Main method to execute the program, throws IOException
+    public static void main(String[] args) throws java.io.IOException {
+        // Creating Scanner object to read input from the user
+        Scanner scan = new Scanner(System.in);
+
+        // Initializing variables to count prime numbers and calculate their sum
+        int count = 0;
+        int sum = 0;
+
+        // Prompting the user to input a number (n<=10000) to compute the sum
+        System.out.println("Input a number (n<=10000) to compute the sum:");
+
+        // Reading the input number
+        int n = scan.nextInt();
+
+        // Looping through numbers to find prime numbers and calculate their sum
+        for (int i = 2;; i++) {
+            if (prime(i)) {
+                count++;
+                sum += i;
+                // Breaking the loop when the required number of prime numbers is reached
+                if (count == n) break;
+            }
+        }
+
+        // Outputting the sum of the first n prime numbers
+        System.out.println("Sum of first " + n + " prime numbers:");
+        System.out.println(sum);
+    }
+
+    // Method to check if a number is prime
+    public static boolean prime(int n) {
+        // If n is 1, it is not prime
+        if (n == 1) return false;
+
+        // Checking for factors up to the square root of n
+        for (int i = 2; i <= Math.sqrt(n); i++)
+            if (n % i == 0) return false;
+
+        // If no factors are found, n is prime
+        return true;
+    }
+}
+```
 ### 233. Write a Java program that accepts an even number (n should be greater than or equal to 4 and less than or equal to 50,000, a Goldbach number) from the user and creates combinations that express the given number as a sum of two prime numbers. Print the number of combinations.
 
 Goldbach number: A Goldbach number is a positive even integer that can be expressed as the sum of two odd primes.[4] Since four is the only even number greater than two that requires the even prime 2 in order to be written as the sum of two primes, another form of the statement of Goldbach's conjecture is that all even integers greater than 4 are Goldbach numbers.
@@ -3961,6 +4966,82 @@ Input an even number: 100
 
 Number of combinations: 6
 
+```java
+// Importing necessary classes for input/output operations
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+// Main class named "Main"
+public class Main {
+
+    // Main method to execute the program, throws NumberFormatException and IOException
+    public static void main(String[] args) throws NumberFormatException, IOException {
+
+        // Creating BufferedReader and StringBuilder objects for efficient input and output
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder builder = new StringBuilder();
+
+        // Setting the maximum value for calculations
+        int max = 50000;
+
+        // Prompting the user to input an even number
+        System.out.print("Input an even number: ");
+
+        // Creating a boolean array to store information about prime numbers
+        boolean[] primes = new boolean[max + 1];
+
+        // Initializing count variable to count prime numbers
+        int count = 1;
+
+        // Looping through odd numbers to find prime numbers using the Sieve of Eratosthenes algorithm
+        for (int i = 3; i <= max; i += 2) {
+            if (!primes[i]) {
+                count++;
+                // Marking multiples of the current prime number as non-prime
+                if (i <= Math.sqrt(max)) {
+                    for (int j = i; j <= max / i; j += 2) {
+                        primes[(int) (i * j)] = true;
+                    }
+                }
+            }
+        }
+
+        // Creating an array to store prime numbers
+        int[] prime = new int[count];
+        prime[0] = 2;
+        int count2 = 1;
+
+        // Filling the prime array with prime numbers
+        for (int i = 3; i <= max; i += 2) {
+            if (!primes[i]) {
+                prime[count2] = i;
+                count2++;
+            }
+        }
+
+        // Creating an array to store the count of combinations for each sum of two prime numbers
+        int[] g = new int[max + 1];
+
+        // Calculating the count of combinations for each sum of two prime numbers
+        for (int i = 0; i <= prime.length; i++) {
+            for (int j = i; j < prime.length && prime[i] + prime[j] <= max; j++) {
+                g[prime[i] + prime[j]]++;
+            }
+        }
+
+        // Reading the input value for which we want to find the count of combinations
+        int n = Integer.parseInt(reader.readLine());
+
+        // Appending the count of combinations to the StringBuilder
+        builder.append(g[n]).append('\n');
+
+        // Outputting the number of combinations
+        System.out.print("\nNumber of combinations: ");
+        System.out.print(builder);
+    }
+}
+```
 
 ### 234. If you draw a straight line on a plane, the plane is divided into two regions. For example, if you draw two straight lines in parallel, you get three areas. If you draw vertically from one to the other you get 4 areas.
 
@@ -3976,7 +5057,29 @@ Input number of straight lines:
 Number of regions:
 16
 
+```java
+// Importing the necessary package for Scanner class
+import java.util.*;
 
+// Main class named "Main"
+public class Main { 
+    // Main method to execute the program
+    public static void main(String[] args){ 
+        // Creating a Scanner object to read input from the console
+        Scanner scan = new Scanner(System.in);
+
+        // Prompting the user to input the number of straight lines
+        System.out.println("Input number of straight lines:");
+
+        // Reading the input value for the number of straight lines
+        int n = scan.nextInt();
+
+        // Outputting the number of regions based on the given formula
+        System.out.println("Number of regions:");
+        System.out.println((n * (n + 1) >> 1) + 1);
+    }
+}
+```
 ### 235. There are four different points on a plane: P(xp, yp), Q(xq, yq), R(xr, yr) and S(xs, ys). Write a Java program to test whether AB and CD are orthogonal or not.
 
 Input:
@@ -3988,7 +5091,45 @@ Input xp, yp, xq, yq, xr, yr, xs, ys:
 3.5 4.5 2.5 -1.5 3.5 1.0 0.0 4.5
 Two lines are not orthogonal.
 
+```java
+// Importing the necessary package for Scanner class
+import java.util.*;
 
+// Importing the static Math class for using static methods
+import static java.lang.Math.*;
+
+// Main class named "Main"
+class Main{
+  // Main method to execute the program
+  public static void main(String args[]){
+	  // Prompting the user to input coordinates
+	  System.out.println("Input xp, yp, xq, yq, xr, yr, xs, ys:");
+
+      // Creating a Scanner object to read input from the console
+      Scanner scan = new Scanner(System.in);
+
+      // Arrays to store x and y coordinates
+      double x[] = new double[4];
+      double y[] = new double[4];
+
+      // Reading input for coordinates
+      for(int i=0;i<4;i++){
+        x[i] = scan.nextDouble();
+        y[i] = scan.nextDouble();
+      }
+
+      // Calculating the product of differences for x and y coordinates
+      double a = (x[0] - x[1]) * (x[2] - x[3]);
+      double b = (y[0] - y[1]) * (y[2] - y[3]);
+
+      // Checking if the sum of products is zero to determine orthogonality
+      if((float)a + (float)b == 0) 
+		  System.out.println("Two lines are orthogonal.");
+      else 
+		  System.out.println("Two lines are not orthogonal.");
+    }
+}
+```
 ### 236. Write a Java program to sum all numerical values (positive integers) embedded in a sentence.
 
 Input:
@@ -4002,6 +5143,53 @@ Input some text and numeric values:
 Sum of the numeric values:
 15
 
+```java
+// Importing the Scanner class from java.util package
+import java.util.Scanner;
+
+// Main class named "Main"
+public class Main
+{
+    // Main method to execute the program
+    public static void main(String arg[])
+    {
+        // Creating a Scanner object to read input from the console
+        Scanner in = new Scanner(System.in);
+
+        // Initializing variables to store the count and temporary numeric value
+        int count = 0;
+        String tmp = "0";
+
+        // Prompting the user to input some text and numeric values
+		System.out.println("Input some text and numeric values:");
+
+        // Converting the input string to a character array
+        char ch[] = in.nextLine().toCharArray();
+
+        // Looping through each character in the array
+        for(int i = 0; i < ch.length; i++)
+        {
+            // Checking if the current character is a digit
+            while(i < ch.length && (Character.isDigit(ch[i])))
+            {
+                // Concatenating digits to form a temporary numeric value
+                tmp += ch[i];
+                i++;
+            }
+
+            // Adding the numeric value to the count
+            count += Integer.valueOf(tmp);
+
+            // Resetting the temporary numeric value
+            tmp = "0";
+        }
+
+        // Displaying the sum of the numeric values
+		System.out.println("\nSum of the numeric values:");
+        System.out.println(count);
+    }
+}
+```
 
 ### 237. There are 10 vertical and horizontal squares on a plane. Each square is painted in blue and green. Blue represents the sea, and green represents the land. When two green squares are in contact with the top and bottom, or right and left, they are ground. The area created by only one green square is called an "island". For example, the figure below shows five islands.
 Write a Java program to read the mass data and find the number of islands. .
@@ -4026,7 +5214,77 @@ Input 10 rows of 10 numbers representing green squares (island) as 1 and blue sq
 Number of islands:
 5
 
+```java
+// Importing the Scanner class from java.util package
+import java.util.Scanner;
 
+// Main class named "test"
+public class test {
+
+    // 2D array to represent the map
+    public static boolean[][] map;
+
+    // Array representing possible moves: down, right, up, left
+    public static int[][] move = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+
+    // Recursive method to perform depth-first search (DFS) on the map
+    public static void fds(int i, int j){
+        // Marking the current cell as visited
+        map[i][j] = false;
+
+        // Checking neighbors in all four directions
+        for(int k = 0; k < 4; k++){
+            int i2 = i + move[k][0];
+            int j2 = j + move[k][1];
+
+            // Recursively applying DFS to unvisited neighbors within the map boundaries
+            if(0 <= i2 && i2 < 10 && 0 <= j2 && j2 < 10 && map[i2][j2]){
+                fds(i2, j2);
+            }
+        }
+    }
+
+    // Main method to execute the program
+    public static void main(String[] args) {
+        // Prompting the user to input 10 rows of 10 numbers representing the map
+        System.out.println("Input 10 rows of 10 numbers representing green squares (island) as 1 and blue squares (sea) as zeros");
+
+        // Creating a Scanner object to read input from the console
+        Scanner sc = new Scanner(System.in);
+
+        // Initializing the map array
+        map = new boolean[10][10];
+
+        // Reading input to populate the map
+        for(int i = 0; i < 10; i++){
+            char[] s = sc.next().toCharArray();
+            for(int j = 0; j < 10; j++){
+                // Converting characters to boolean values (1 as true, 0 as false)
+                map[i][j] = s[j] == '1';
+            }
+        }
+
+        // Variable to store the number of islands
+        int x = 0;
+
+        // Iterating through each cell on the map
+        for(int i = 0; i < 10; i++){
+            for(int j = 0; j < 10; j++){
+                // If the cell represents an island and is not visited, perform DFS
+                if(map[i][j]){
+                    fds(i, j);
+                    // Incrementing the island count
+                    x++;
+                }
+            }
+        }
+
+        // Displaying the number of islands
+        System.out.println("Number of islands:");
+        System.out.println(x);
+    }
+}
+```
 ### 238. When characters are consecutive in a string, it is possible to shorten it by replacing them with a certain rule. For example, the character string YYYYY, if it is expressed as # 5 Y, it is compressed by one character.
 Write a Java program to restore the original string by entering the compressed string with this rule. However, the # character does not appear in the restored character string.
 Note: The original sentences are uppercase letters, lowercase letters, numbers, symbols, less than 100 letters, and consecutive letters are not more than 9 letters.
@@ -4041,6 +5299,43 @@ Input the text:
 XY#6Z1#4023
 XYZZZZZZ1000023
 
+```java
+// Importing the Scanner class from java.util package
+import java.util.*;
+
+// Main class named "Main"
+public class Main {
+    public static void main(String[] args) {
+        // Creating a Scanner object to read input from the console
+        Scanner stdIn = new Scanner(System.in);
+
+        // Prompting the user to input the text
+        System.out.println("Input the text:");
+
+        // Reading the input string
+        String str = stdIn.next();
+
+        // Iterating through each character in the input string
+        for (int i = 0; i < str.length(); ++i) {
+            // Checking if the current character is '#'
+            if (str.charAt(i) == '#') {
+                // Repeating the next character by the specified number of times
+                for (int j = 0; j < (str.charAt(i + 1) - '0'); ++j) {
+                    // Printing the repeated character
+                    System.out.print(str.charAt(i + 2));
+                }
+                // Skipping the processed characters (the count and the repeated character)
+                i += 2;
+            } else {
+                // Printing the current character as it is
+                System.out.print(str.charAt(i));
+            }
+        }
+        // Printing a new line after processing the input string
+        System.out.println();
+    }
+}
+```
 
 ### 239. A search engine giant such as Google accepts thousands of web pages from around the world and categorizes them, creating a huge database of information. Search engines also analyze search keywords entered by the user and create database queries based on those keywords. In both cases, complicated processing is carried out to realize efficient retrieval, but the basics are all about cutting out words from sentences.
 Write a Java program to cut out words of 3 to 6 characters length from a given sentence not more than 1024 characters.
@@ -4057,7 +5352,49 @@ The quick brown fox
 3 to 6 characters length of words:
 The quick brown fox
 
+```java
+// Importing the Scanner class from java.util package
+import java.util.Scanner;
 
+// Main class named "Main"
+public class Main {
+    public static void main(String[] args) {
+        // Creating a Scanner object to read input from the console
+        Scanner sc = new Scanner(System.in);
+
+        // Prompting the user to input a sentence (max 1024 characters)
+        System.out.println("Input a sentence (1024 characters max.)");
+
+        // Reading the input sentence, removing commas and periods, and splitting into words
+        String[] str = ((sc.nextLine()).replace(",", "").replace(".", "")).split(" ");
+
+        // Initializing a flag to control space between words in the output
+        int flag = 0;
+
+        // Prompting the user about the following output
+        System.out.println("\n3 to 6 characters length of words:");
+
+        // Iterating through each word in the array
+        for (String s : str) {
+            // Calculating the length of the current word
+            int l = s.length();
+
+            // Checking if the length is between 3 and 6 (inclusive)
+            if (l >= 3 && l <= 6) {
+                // Checking if a space should be printed before the current word
+                if (flag == 1) {
+                    System.out.print(" ");
+                }
+                // Printing the current word
+                System.out.print(s);
+
+                // Updating the flag to indicate that a word has been printed
+                flag = 1;
+            }
+        }
+    }
+}
+```
 ### 240. As shown in Figure 1, arrange integers (0 to 99) as narrow hilltops. When reading such data from top to bottom, following the next rule represents a huge amount of data.
 Write a Java program that computes the maximum value of the sum of the passing integers.
 
@@ -4080,7 +5417,62 @@ Input the numbers (ctrl+c to exit):
 Maximum value of the sum of integers passing according to the rule on one line.
 64
 
-
+```java
+// Importing required Java classes
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+// Main class named "Main"
+public class Main {
+    // Main method, the entry point of the program
+    public static void main(String[] args) {
+        // Prompting the user to input numbers (Ctrl+C to exit)
+        System.out.println("Input the numbers (Ctrl+C to exit):");
+        // Creating a Scanner object to read input from the console
+        Scanner sc = new Scanner(System.in);
+        // Creating a List to store input lines as strings
+        List<String> l = new ArrayList<>(); // Specify the type of List as String
+        // Reading input until the user exits (Ctrl+C)
+        while(sc.hasNext()) {
+            l.add(sc.next());
+        }
+        // Getting the number of input lines
+        int n = l.size();
+        // Creating a 2D array 'a' to store parsed integers from input lines
+        int[][] a = new int[n][];
+        // Parsing input lines and populating the 2D array 'a'
+        for(int i = 0; i < n; i++) {
+            String[] s = l.get(i).split(",");
+            int k = s.length;
+            a[i] = new int[k];
+            for(int j = 0; j < k; j++) {
+                a[i][j] = Integer.parseInt(s[j]);
+            }
+        }
+        // Initializing an array 'sd' with the first element of the first row of 'a'
+        int[] sd = {a[0][0]};
+        // Dynamic programming approach to find the maximum sum
+        for(int i = 1; i < n; i++) {
+            int[] tmp = new int[a[i].length];
+            for(int j = 0; j < tmp.length; j++) {
+                if(i <= n / 2) {
+                    if(j == 0) tmp[j] = sd[j] + a[i][j];
+                    else if(j == tmp.length - 1) tmp[j] = sd[j - 1] + a[i][j];
+                    else tmp[j] = Math.max(sd[j - 1] + a[i][j], sd[j] + a[i][j]);
+                }
+                else {
+                    tmp[j] = Math.max(sd[j] + a[i][j], sd[j + 1] + a[i][j]);
+                }
+            }
+            sd = tmp;
+        }
+        // Prompting the user with the result
+        System.out.println("Maximum value of the sum of integers passing according to the rule on one line.");
+        // Printing the final result
+        System.out.println(sd[0]);
+    }
+}
+```
 ### 241. Write a Java program to find the number of combinations that satisfy p + q + r + s = n where n is a given number <= 4000 and p, q, r, s range from 0 to 1000.
 
 Sample Output:
@@ -4090,6 +5482,51 @@ Input a positive integer:
 Number of combinations of a,b,c,d:
 2731135
 
+```java
+// Importing the necessary Java utility package
+import java.util.*;
+
+// Main class named "Main"
+public class Main {
+   
+    // Main method, the entry point of the program
+    public static void main(String[] args) {
+        
+        // Creating a Scanner object to read input from the console
+        Scanner sc = new Scanner(System.in);
+
+        // Prompting the user to input a positive integer
+        System.out.println("Input a positive integer:");
+
+        // Initializing arrays to store temporary and final results
+        int[] temp = new int[2001];
+        int[] ans = new int[4001];
+
+        // Nested loops to calculate combinations and populate the 'temp' array
+        for (int i = 0; i <= 1000; i++) {
+            for (int j = 0; j <= 1000; j++) {
+                temp[i + j]++;
+            }
+        }
+
+        // Nested loops to calculate combinations and populate the 'ans' array
+        for (int i = 0; i <= 2000; i++) {
+            for (int j = 0; j <= 2000; j++) {
+                ans[i + j] += temp[i] * temp[j];
+            }
+        }
+
+        // Reading a positive integer from the user
+        int n = sc.nextInt();
+
+        // Prompting the user with the result
+        System.out.println("Number of combinations of a, b, c, d:");
+
+        // Printing the final result
+        System.out.println(ans[n]);
+    }
+}
+```
 
 ### 242. Your task is to develop a small piece of spreadsheet software. Write a Java program that adds up the columns and rows of a given table as shown in the specified figure:
 
@@ -4106,6 +5543,66 @@ Result:
    61   68   47   59  235
   208  229  172  202  811
 
+```java
+// Importing the necessary Java utility package
+import java.util.*;
+
+// Main class named "Main"
+public class Main {
+
+    // Main method, the entry point of the program
+    public static void main(String[] args) {
+
+        // Creating a Scanner object to read input from the console
+        Scanner sc = new Scanner(System.in);
+
+        // Prompting the user to input the number of rows/columns (0 to exit)
+        System.out.println("Input number of rows/columns (0 to exit)");
+
+        // Continuous loop to handle multiple inputs until 0 is entered
+        while (true) {
+
+            // Reading an integer from the user
+            int n = sc.nextInt();
+
+            // Checking if the entered value is 0, and breaking the loop if true
+            if (n == 0) break;
+
+            // Creating a 2D array 'map' with dimensions (n+1) x (n+1)
+            int[][] map = new int[n + 1][n + 1];
+
+            // Nested loops to populate the 'map' array with user inputs and calculate row sums
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    map[i][j] = sc.nextInt();
+                    map[i][n] += map[i][j];
+                }
+                map[n][n] += map[i][n];
+            }
+
+            // Nested loops to calculate column sums
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    map[n][i] += map[j][i];
+                }
+            }
+
+            // Printing the result header
+            System.out.println("Result:");
+
+            // Nested loops to print the final 'map' array
+            for (int i = 0; i < n + 1; i++) {
+                for (int j = 0; j < n + 1; j++) {
+                    // Formatting and printing each element of the array
+                    System.out.printf("%5d", map[i][j]);
+                }
+                // Moving to the next line after each row is printed
+                System.out.println();
+            }
+        }
+    }
+}
+```
 
 ### 243. Write a Java program that reads a list of pairs of a word and a page number. It prints the words and a list of page numbers.
 
@@ -4120,7 +5617,84 @@ apple
 banana
 6
 
-
+```java
+import java.util.PriorityQueue;
+import java.util.Scanner;
+public class Main {
+    // Nested static class named "Dic" implementing Comparable interface
+    static class Dic implements Comparable<Dic> {
+        String moji; // Instance variable to store a word
+        int page;    // Instance variable to store a page number
+        // Constructor to initialize the instance variables
+        Dic(String moji, int page) {
+            this.moji = moji;
+            this.page = page;
+        }
+        // Overriding the compareTo method to define the natural ordering of Dic objects
+        public int compareTo(Dic d) {
+            // Comparing based on the word, then on the page number if words are equal
+            if (this.moji.equals(d.moji)) {
+                return this.page - d.page;
+            } else {
+                return this.moji.compareTo(d.moji);
+            }
+        }
+    }
+    // Main method, the entry point of the program
+    public static void main(String[] args) {
+        // Using try-with-resources to automatically close the Scanner
+        try (Scanner sc = new Scanner(System.in)) {
+            // Creating a PriorityQueue to store Dic objects
+            PriorityQueue<Dic> pq = new PriorityQueue<>();
+            // Prompting the user to input pairs of a word and a page number
+            System.out.println("Input pairs of a word and a page number (type 'exit' to end input):");
+            // Loop to read input until there are no more lines
+            while (sc.hasNextLine()) {
+                // Reading a line of input and splitting it into word and page number
+                String str = sc.nextLine();
+                // Check for the sentinel value to exit the loop
+                if (str.equals("exit")) {
+                    break;
+                }
+                // Splitting the input line into an array of tokens
+                String[] token = str.split(" ");
+                // Extracting the word and page number from the tokens
+                String s = token[0];
+                int n = Integer.parseInt(token[1]);
+                // Adding a new Dic object to the PriorityQueue
+                pq.add(new Dic(s, n));
+            }
+            // Initializing a variable to store the previous word
+            String pre = "";
+            // Printing the header for the output
+            System.out.println("\nWord and page number in alphabetical order:");
+            // Loop to process and print the PriorityQueue
+            while (!pq.isEmpty()) {
+                // Polling the head of the PriorityQueue (smallest Dic object)
+                Dic dic = pq.poll();
+                // Checking if the current word is the same as the previous one
+                if (dic.moji.equals(pre)) {
+                    // Printing the page number without a newline and a space
+                    System.out.print(" " + dic.page);
+                } else if (pre.equals("")) {
+                    // Printing the word and the page number without a newline
+                    System.out.println(dic.moji);
+                    System.out.print(dic.page);
+                } else {
+                    // Printing a newline, the word, and the page number without a newline
+                    System.out.println();
+                    System.out.println(dic.moji);
+                    System.out.print(dic.page);
+                }
+                // Updating the previous word
+                pre = dic.moji;
+            }
+            // Printing a newline at the end of the output
+            System.out.println();
+        }
+    }
+}
+```
 ### 244. Write a Java program that accepts a string from the user and checks whether it is correct or not.
 
 The conditions for getting the "correct answer" are:
@@ -4133,6 +5707,89 @@ Input a string:
  XYZ
 Correct format..
 
+```java
+ // Importing necessary classes
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
+// Defining a class named "Main"
+public class Main {
+     
+    // Static nested class "Dic" representing a pair of word and page number
+    static class Dic implements Comparable{
+        // Instance variables to store word and page number
+        String moji;
+        int page;
+        
+        // Parameterized constructor to initialize word and page number
+        Dic(String moji, int page){
+            this.moji=moji;
+            this.page=page;
+        }
+
+        // Implementation of the compareTo method to define the natural order of Dic objects
+        public int compareTo(Dic d) {
+            if(this.moji.equals(d.moji)) {
+                return this.page-d.page;
+            }
+            else {
+                return this.moji.compareTo(d.moji);
+            }
+        }
+    }
+     
+    // Main method, the entry point of the program
+    public static void main(String[] args) {
+        // Using the try-with-resources statement to automatically close the Scanner
+        try(Scanner sc = new Scanner(System.in)){
+            // Creating a PriorityQueue to store Dic objects
+            PriorityQueue pq=new PriorityQueue<>();
+            
+            // Prompting the user to input pairs of a word and a page number
+			System.out.println("Input pairs of a word and a page number:");
+            
+            // Reading input until there is no more input
+            while(sc.hasNextLine()) {
+                // Reading a line and splitting it into word and page number
+                String str=sc.nextLine();
+                String[] token=str.split(" ");
+                String s=token[0];
+                int n=Integer.parseInt(token[1]);
+                
+                // Creating a new Dic object and adding it to the PriorityQueue
+                pq.add(new Dic(s, n));
+            }
+            
+            // Initializing a variable to store the previous word
+            String pre="";
+
+            // Printing the word and page number in alphabetical order
+            System.out.println("\nWord and page number in alphabetical order:"); 
+            while(!pq.isEmpty()) {
+                // Polling the smallest Dic object from the PriorityQueue
+                Dic dic=pq.poll();
+
+                // Checking if the current word is the same as the previous one
+                if(dic.moji.equals(pre)) {
+                    System.out.print(" "+dic.page);
+                }
+                else if(pre.equals("")) {
+                    System.out.println(dic.moji);
+                    System.out.print(dic.page);
+                }
+                else {
+                    System.out.println();
+                    System.out.println(dic.moji);
+                    System.out.print(dic.page);
+                }
+                // Updating the previous word
+                pre=dic.moji;
+            }
+            System.out.println();
+        }
+    }
+}
+```
 
 ### 245. Write a Java program that accepts students' names, ids, and marks and displays their highest and lowest scores.
 
@@ -4149,7 +5806,83 @@ name, ID of the highest score and the lowest score:
 Johnson v3
 Peter v2
 
+```java
+// Importing the Scanner class to read input from the user
+import java.util.Scanner;
 
+// Defining the Student class to represent student information
+class Student {
+    // Instance variables to store student name, ID, and score
+    String name;
+    String stu_id;
+    int score;
+
+    // Default constructor with default values
+    public Student() {
+        this(" ", " ", 0);
+    }
+
+    // Parameterized constructor to initialize instance variables with given values
+    public Student(String initName, String initId, int initScore) {
+        name = initName;
+        stu_id = initId;
+        score = initScore;
+    }
+}
+
+// Main class named "Main"
+public class Main {
+    // Main method, the entry point of the program
+    public static void main(String[] args) {
+        // Creating a Scanner object to read input from the user
+        Scanner in = new Scanner(System.in);
+
+        // Prompting the user to input the number of students
+        System.out.println("Input number of students:");
+
+        // Reading the number of students from the user and trimming excess whitespaces
+        int n = Integer.parseInt(in.nextLine().trim());
+
+        // Prompting the user to input Student Name, ID, Score
+        System.out.println("Input Student Name, ID, Score:");
+
+        // Creating Student objects to store information about the students
+        Student stu = new Student();
+        Student max = new Student();
+        Student min = new Student(" ", " ", 100);
+
+        // Loop to read information about each student
+        for (int i = 0; i < n; i++) {
+            // Reading student name, ID, and score from the user
+            stu.name = in.next();
+            stu.stu_id = in.next();
+            stu.score = in.nextInt();
+
+            // Checking if the current student has the highest score
+            if (max.score < stu.score) {
+                max.name = stu.name;
+                max.stu_id = stu.stu_id;
+                max.score = stu.score;
+            }
+
+            // Checking if the current student has the lowest score
+            if (min.score > stu.score) {
+                min.name = stu.name;
+                min.stu_id = stu.stu_id;
+                min.score = stu.score;
+            }
+        }
+
+        // Printing the name and ID of the highest score and the lowest score students
+        System.out.println("name, ID of the highest score and the lowest score:");
+        System.out.println(max.name + " " + max.stu_id);
+        System.out.println(min.name + " " + min.stu_id);
+
+        // Closing the Scanner to release system resources
+        in.close();
+    }
+}
+```
 ### 246. Let us use the letter H to mean "hundred", the letter T to mean "ten" and “1, 2, . . . n” to represent the one digit n (<10). Using the given format, write a Java program that converts 3 digits positive numbers. For example, 234 should be output as BBSSS1234 because it has 2 "hundreds", 3 "ten", and 4 ones.
 
 The student name and id are all strings of no more than 10 characters. The score is an integer between 0 and 100.
@@ -4166,7 +5899,48 @@ Input a positive number(max three digits):
 Result:
 HHTTT12345
 
+```java
+// Importing Scanner class for user input
+import java.util.Scanner;
 
+// Defining a class named "Main"
+public class Main {
+    
+    // Main method, the entry point of the program
+    public static void main(String[] args) {
+        // Creating a Scanner object for reading user input
+        Scanner in = new Scanner(System.in);
+        
+        // Prompting the user to input a positive number with a maximum of three digits
+		System.out.println("Input a positive number(max three digits):");
+        
+        // Reading an integer, formatting it as a three-digit string, and converting it to a character array
+        char[] num = String.format("%03d", in.nextInt()).toCharArray();
+        
+        // Creating a StringBuilder object to build the result string
+        StringBuilder tm = new StringBuilder();
+        
+        // Appending "H" to the StringBuilder based on the hundreds digit of the input number
+        for (int i = 0; i < num[0] - '0'; i++) {
+            tm.append("H");
+        }
+        
+        // Appending "T" to the StringBuilder based on the tens digit of the input number
+        for (int i = 0; i < num[1] - '0'; i++) {
+            tm.append("T");
+        }
+        
+        // Appending numbers from 1 to the units digit to the StringBuilder
+        for (int i = 0; i < num[2] - '0'; i++) {
+            tm.append(i + 1);
+        }
+        
+        // Printing the result
+		System.out.println("Result:");		
+        System.out.println(tm.toString());
+    }
+}
+```
 ### 247. Write a Java program that accepts three integers and checks whether the sum of the first two integers is greater than the third integer. Three integers are in the interval [-231, 231 ].
 
 Input:
@@ -4175,6 +5949,34 @@ Input three integers (a,b,c):
 Check whether (a + b) is greater than c?
 true
 
+```java
+// Importing Scanner class for user input
+import java.util.Scanner;
+
+// Defining a class named "Main"
+public class Main {
+    
+    // Main method, the entry point of the program
+    public static void main(String[] args) {
+        // Creating a Scanner object for reading user input
+        Scanner in = new Scanner(System.in);
+        
+        // Prompting the user to input three integers (a, b, c)
+        System.out.println("Input three integers (a, b, c):");
+        
+        // Reading long integers a, b, and c from the user
+        long a = in.nextLong();
+        long b = in.nextLong();
+        long c = in.nextLong();
+        
+        // Prompting the user with a message
+		System.out.println("Check whether (a + b) is greater than c?");
+        
+        // Checking and printing whether the sum of a and b is greater than c
+        System.out.println(a + b > c);
+    }
+}
+```
 
 ### 248. From Wikipedia, An abecedarium (or abecedary) is an inscription consisting of the letters of an alphabet, almost always listed in order. Typically, abecedaria (or abecedaries) are practice exercises.
 Write a Java program to check if each letter of a given word (Abecadrian word) is less than the one before it.
@@ -4183,7 +5985,47 @@ Input:
 Input a word:  ABCD
 Is Abecadrian word? true
 
+```java
+ // Importing necessary classes from the java.util package
+import java.util.*;
 
+// Defining a class named "solution"
+public class solution {
+
+    // Method to check if a word is an abecedarian word
+    public static boolean is_abecedarian_word(String word) {
+        // Finding the index of the last character in the word
+        int index = word.length() - 1;
+
+        // Looping through the characters of the word
+        for (int i = 0; i < index; i++) {
+            // Comparing the current character with the next one
+            if (word.charAt(i) <= word.charAt(i + 1)) {
+                // If the current character is less than or equal to the next one, continue
+            } else {
+                // If the current character is greater than the next one, return false
+                return false;
+            }
+        }
+        // If the loop completes without returning false, return true
+        return true;
+    }
+
+    // Main method, the entry point of the program
+    public static void main(String[] args) {
+        // Creating a Scanner object for user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompting the user to input a word
+        System.out.print("Input a word: ");
+        // Reading the input word from the user
+        String word1 = scanner.nextLine();
+
+        // Printing whether the input word is an abecedarian word
+        System.out.println("Is Abecedarian word? " + is_abecedarian_word(word1));
+    }
+}
+```
 ### 249. From Wikipedia,
 The Hamming weight of a string is the number of symbols that are different from the zero-symbol of the alphabet used. It is thus equivalent to the Hamming distance from the all-zero string of the same length. For the most typical case, a string of bits, this is the number of 1's in the string, or the digit sum of the binary representation of a given number and the ℓ₁ norm of a bit vector. In this binary case, it is also called the population count, popcount, sideways sum, or bit summation.
 Example:
@@ -4197,3 +6039,45 @@ Write a Java program to count the number of set bits in a 32-bit integer.
 Input:
 Input a number:  1427
 6
+
+```java
+// Importing the Scanner class from the java.util package to read user input
+import java.util.Scanner;
+
+// Defining a class named "solution"
+public class solution {
+
+    // Method to count the number of set bits (1s) in the binary representation of a number
+    static int count_Set_Bits(int num) {
+        int ctr = 0;
+
+        // Looping until the number becomes zero
+        while (num != 0) {
+            // Using bitwise AND operation to clear the rightmost set bit and incrementing the counter
+            num = num & (num - 1);
+            ctr++;
+        }
+
+        // Returning the count of set bits
+        return ctr;
+    }
+
+    // Main method, the entry point of the program
+    public static void main(String args[]) {
+        // Creating a Scanner object for user input
+        Scanner sc = new Scanner(System.in);
+
+        // Prompting the user to input a number
+        System.out.print("Input a number: ");
+
+        // Reading the input number from the user
+        int num = sc.nextInt();
+
+        // Calling the count_Set_Bits method and printing the result
+        System.out.println(count_Set_Bits(num));
+
+        // Closing the Scanner to avoid resource leaks
+        sc.close();
+    }
+}
+```
