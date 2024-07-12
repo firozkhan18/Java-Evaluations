@@ -1,5 +1,3 @@
-https://www.w3resource.com/java-exercises/basic/index1.php
-
 ### 151. Write a Java program to find the value of a specified expression.
 a) 101 + 0) / 3
 b) 3.0e-6 * 10000000.1
