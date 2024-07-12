@@ -323,7 +323,48 @@ Expected Output
 Input a number: 5                                                       
 It is a Palindrome number. 
 
+Write a Java program to check if a number is a palindrome or not.
 
+In number system a palindromic number is a number that is the same when written forwards or backwards, i.e., of the form.
+The first few palindromic numbers are therefore are 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33, 44, 55, 66, 77, 88, 99, 101, 111, …
+
+Test Data
+Input a number: 5
+
+Pictorial Presentation:
+
+Java: Check if a number is palindrome or not.
+Sample Solution:
+
+Java Code:
+```java
+import java.util.Scanner;
+public class Example24  {
+
+    public static void main(String args[])
+    {
+	 Scanner in = new Scanner(System.in);
+     System.out.print("Input a number: ");
+     int n = in.nextInt();
+     int sum = 0, r;
+	 int temp = n;    
+     while(n>0)
+	   {    
+        r = n % 10;   
+        sum = (sum*10)+r;    
+        n = n/10;    
+       }    
+      if(temp==sum)    
+        System.out.println("It is a Palindrome number.");    
+      else    
+        System.out.println("Not a palindrome");    
+     }  
+}
+```
+Sample Output:
+
+Input a number: 5                                                                                             
+It is a Palindrome number.
 ### 25. Write a Java program to print the first 15 numbers of the Pell series.
 In  mathematics, the Pell numbers are an infinite sequence of integers. The sequence of Pell numbers starts with 0 and 1, and then each Pell number is the sum of twice the previous Pell number and the Pell number before that.:
 thus, 70 is the companion to 29, and 70 = 2 × 29 + 12 = 58 + 12.
@@ -362,6 +403,40 @@ Expected Output
 Input an integer:  153
 Is Armstrong number? true
 
+Write a Java program to check whether a number is an Armstrong Number or not.
+
+Armstrong (Michael F. Armstrong) number is a number that is equal to the sum of cubes of its digits. For example 0, 1, 153, 370, 371 and 407 are the Armstrong numbers
+
+Sample Solution:
+
+Java Code:
+```java
+import java.util.*;
+public class solution {	
+ public static boolean is_Amstrong(int n) {
+        int remainder, sum = 0, temp = 0;
+        temp = n;
+        while (n > 0) {
+            remainder = n % 10;
+            sum = sum + (remainder * remainder * remainder);
+            n = n / 10;
+        }
+        return sum == temp;
+    }  
+
+   public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Input an integer: ");
+		String input = scanner.nextLine();
+		int number = Integer.parseInt(input); 
+		System.out.println("Is Armstrong number? "+is_Amstrong(number));		
+		}
+ }
+```
+Sample Output:
+
+Input an integer:  153
+Is Armstrong number? true
 
 ### 29. Write a Java program to check whether a number is a Luck number or not.
 Expected Output
