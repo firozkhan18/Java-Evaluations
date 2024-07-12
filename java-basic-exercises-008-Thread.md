@@ -584,8 +584,8 @@ public class Web_Crawler {
 }
 ```
 Sample Output:
-
- Crawling: https://www.wikipedia.org
+```
+Crawling: https://www.wikipedia.org
 Crawling: https://example.com
 Processing: Wikipedia
 Crawling: https://en.wikipedia.org/
@@ -618,6 +618,7 @@ Crawling: https://en.wikipedia.org/wiki/Help:Contents
 Processing: Help:Contents - Wikipedia
 Crawling: https://en.wikipedia.org/wiki/Help:Introduction
 Processing: Help:Introduction - Wikipedia
+```
 Pictorial Presentation:
 
 Java thread Programming - Simultaneous Website Crawling
