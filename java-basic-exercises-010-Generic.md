@@ -1,6 +1,5 @@
 # Java Exercises Generic
 
-https://www.w3resource.com/java-exercises/generic/index.php
 Generic Methods:
 
 Generic methods are methods that introduce their own type parameters. This is similar to declaring a generic type, but the type parameter's scope is limited to the method where it is declared. Static and non-static generic methods are allowed, as well as generic class constructors.
