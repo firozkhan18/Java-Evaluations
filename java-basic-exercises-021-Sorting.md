@@ -1,7 +1,5 @@
 # Java Exercises Sorting
 
-https://www.w3resource.com/java-exercises/sorting/index.php
-
 ### 1. Write a Java program to sort an array of given integers using the Quick sort algorithm.
 Quick sort is a comparison sort, meaning it can sort items of any type for which a "less-than" relation (formally, a total order) is defined.
 
