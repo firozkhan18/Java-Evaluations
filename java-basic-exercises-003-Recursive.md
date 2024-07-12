@@ -1,6 +1,5 @@
 # Java Exercises Recursive
 
-https://www.w3resource.com/java-exercises/recursive/index.php
 ### 1. Write a Java recursive method to calculate the factorial of a given positive integer.
 
 ```java
