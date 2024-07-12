@@ -1,8 +1,8 @@
-#Java 8 Functional Interfaces – When & How To Use Them?
+# Java 8 Functional Interfaces – When & How To Use Them?
 
 Functional interfaces, lambda expressions and Stream API – these three features of Java 8 has turned Java programming into new style of programming called functional-style programming. Java is still an object-oriented programming language, but from Java 8, with the introduction of new features, most of the programming is done keeping functions in mind rather than objects. In this article, we will see Java 8 functional interfaces, @FunctionalInterface annotation, java.util.function package and how to use new Java 8 functional interfaces to compose lambda expressions with some simple examples.
 
-##Java 8 Functional Interfaces
+## Java 8 Functional Interfaces
 1) Definition
 Functional interfaces are the interfaces which has exactly one abstract method. They may have any number of default methods but must have only one abstract method. Functional interfaces provide only one functionality to implement.
 
