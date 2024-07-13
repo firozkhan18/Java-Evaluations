@@ -285,7 +285,7 @@ Functional interfaces are new additions in Java 8. As a rule, a functional inter
 Apart from one abstract method, a functional interface can also have the following methods that do not count for defining it as a functional interface.
 
 - [Default methods](#java-default-methods)
-- [Static methods](#java-static)
+- [Static methods](#java-static-methods)
 - [Static methods](#java-static-variable-method-block-class-and-import-statement)
   
 Public methods inherited from the Object class
@@ -476,8 +476,9 @@ Rules for this conflict resolution are as follows:
 	//or 
 	Moveable.super.move();
 ```
+## Java Static Methods
 
-## Java Static – Variable, Method, Block, Class and Import Statement
+### Java Static – Variable, Method, Block, Class and Import Statement
 
 Static keyword in java can be applied on variables, methods, blocks, import and inner classes. In this tutorial, we will learn the effect of using static keyword in these places with examples.
 
