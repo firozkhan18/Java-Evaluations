@@ -1,3 +1,5 @@
+[Back To - Java Exercises Collection](java-basic-exercises-020-Collection.md)
+
 # TreeMap:
 
 In Java, TreeMap is an implementation of the SortedMap interface provided by the Java Collections Framework. It's part of the java.util package.
