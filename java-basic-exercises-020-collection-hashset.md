@@ -1,3 +1,5 @@
+[Back To - Java Exercises Collection](java-basic-exercises-020-Collection.md)
+
 # HashSet:
 
 In Java, HashSet is an implementation of the Set interface provided by the Java Collections Framework. It's part of the java.util package.
