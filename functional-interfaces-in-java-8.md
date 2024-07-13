@@ -173,7 +173,7 @@ If an input or output is a primitive type then using these functional interfaces
 | BiFunction<T, U, R> 	| (T, U) -> R | ToIntBiFunction<T, U>, ToLongBiFunction<T, U>, ToDoubleBiFunction<T, U> |
 |||||<p>IntToLongFunction</p><p>IntToDoubleFunction</p><p>LongToDoubleFunction</p><p>LongTolIntFunction</p><p>DoubleToIntFunction</p><p>DoubleToLongFunction</p>|
 | :- | :- | :- | :- | :- |
-|<p>Supplier</p><p>T get()</p>||<p>Represents</p><p>operation</p><p>nothing but</p><p>result of type</p><p>an Use this interface</p><p>which takes you want to</p><p>returns a objects.</p><p>T.</p><p>when</p><p>create new</p><p>BooleanSupplier</p><p>IntSupplier</p><p>LongSupplier</p><p>DoubleSupplier</p>|
+|<p>Supplier</p><p>T get()</p>||<p>Represents operation nothing but result of type an Use this interface which takes you want to</p> returns a objects. <p>T.</p><p>when create new <p>BooleanSupplier</p><p>IntSupplier</p><p>LongSupplier</p><p>DoubleSupplier</p>|
 |<p>BiPredicate</p><p>boolean test(T t, U</p><p>u)</p>||<p>Represents</p><p>of two</p><p>a predicate Use this interface</p><p>arguments. you want to</p><p>boolean</p><p>two arguments.</p><p>when</p><p>evaluate a</p><p>expression of</p>|
 |BiConsumer| |Representsan Use this interface when ObjlntConsumer operation that accepts you want to perform ObjLongConsumer
 |void accept(T t, U u) |||<p>two arguments</p><p>returns</p>|<p>and some</p><p>nothing. objects.</p>|operationsontwo\_ |||ObjDoubleConsumer|
