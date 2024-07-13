@@ -162,24 +162,20 @@ If an input or output is a primitive type then using these functional interfaces
 |-----------------------|---------------------|--------------------------------------------------------| 
 | Predicate<T> 	| T -> boolean 	| IntPredicate, LongPredicate, DoublePredicate | 
 | Consumer<T> | T -> void | IntConsumer, LongConsumer, DoubleConsumer| 
-| Function<T, R> | T -> R | IntFunction<R>, IntToDoubleFunction, IntToLongFunction,| 
-||| LongFunction<R>, LongToDoubleFunction, LongToIntFunction, | DoubleFunction<R>, ToIntFunction<T>, ToDoubleFunction<T>, |		
-||| ToLongFunction<T> |
-| Supplier<T>| () -> T | BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier | 
-| UnaryOperator<T>| T -> T | IntUnaryOperator, LongUnaryOperator, DoubleUnaryOperator | 
-| BinaryOperator<T>| (T, T) -> T | IntBinaryOperator, LongBinaryOperator, DoubleBinaryOperator|
+| Function<T, R> | T -> R | IntFunction<R>,<p> IntToDoubleFunction, </p><p>IntToLongFunction,</p><p>LongFunction<R>,</p><p>  LongToDoubleFunction, </p><p> LongToIntFunction,</p><p>DoubleFunction<R>, </p><p> ToIntFunction<T>, </p><p> ToDoubleFunction<T>,</p><p>ToLongFunction<T> </p>|
+| Supplier<T>| () -> T | BooleanSupplier, <p>IntSupplier,</p><p> LongSupplier, DoubleSupplier</p> | 
+| UnaryOperator<T>| T -> T | IntUnaryOperator, <p>LongUnaryOperator,</p><p> DoubleUnaryOperator</p> | 
+| BinaryOperator<T>| (T, T) -> T | IntBinaryOperator, <p>LongBinaryOperator,</p><p> DoubleBinaryOperator</p>|
 | BiPredicate<L, R> | (L, R) -> boolean | |
-| BiConsumer<T, U> | (T, U) -> void | ObjIntConsumer<T>, ObjLongConsumer<T>, ObjDoubleConsumer<T> | 
-| BiFunction<T, U, R> 	| (T, U) -> R | ToIntBiFunction<T, U>, ToLongBiFunction<T, U>, ToDoubleBiFunction<T, U> |
-|||||<p>IntToLongFunction</p><p>IntToDoubleFunction</p><p>LongToDoubleFunction</p><p>LongTolIntFunction</p><p>DoubleToIntFunction</p><p>DoubleToLongFunction</p>|
+| BiConsumer<T, U> | (T, U) -> void | ObjIntConsumer<T>, <p>ObjLongConsumer<T>,</p><p> ObjDoubleConsumer<T> </p>| 
+| BiFunction<T, U, R> 	| (T, U) -> R | ToIntBiFunction<T, U>, <p>ToLongBiFunction<T, U>, </p><p>ToDoubleBiFunction<T, U> </p><p>IntToLongFunction</p><p>IntToDoubleFunction</p><p>LongToDoubleFunction</p><p>LongTolIntFunction</p><p>DoubleToIntFunction</p><p>DoubleToLongFunction</p>|
 | :- | :- | :- | :- | :- |
 |Supplier <p>T get()</p>|Represents an operation that returns a result of type T. Use this interface when you want to create a new object.|BooleanSupplier<p>IntSupplier</p><p>LongSupplier</p><p>DoubleSupplier</p>|
 |BiPredicate <p>boolean test(T t, U u)</p>|Represents a predicate with two arguments. Use this interface when you want to evaluate an expression with two arguments.||
 |BiConsumer <p>void accept(T t, U u)</p>|Represents an operation that accepts two arguments and does some operation on them. Use this interface when you want to perform operations on two objects.||
 |BiFunction <p>R apply(T t, U u)</p>|Represents an operation with two arguments that produces a result. Use this interface when you want to extract a result from two existing objects.|ToIntBiFunction<p>ToLongBiFunction</p><p>ToDoubleBiFunction</p>|
 |UnaryOperator (extends Function)|Same as Function but the argument and result are of the same type.|IntUnaryOperator<p>LongUnaryOperator<p><p>DoubleUnaryOperator<p>|
-|BinaryOperator (extends BiFunction) |Same as BiFunction but the argument and result are of the same type.|IntBinaryOperator
-<p>LongBinaryOperator</p><p> DoubleBinaryOperator</p>|
+|BinaryOperator (extends BiFunction) |Same as BiFunction but the argument and result are of the same type.|IntBinaryOperator<p>LongBinaryOperator</p><p> DoubleBinaryOperator</p>|
 
 # Using functional interfaces:
 A functional interface specifies exactly one abstract method.
