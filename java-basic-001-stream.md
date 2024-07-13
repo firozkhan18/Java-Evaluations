@@ -7,36 +7,21 @@ Streams are lazily operated, opposite to collections that must store all the val
 This page lists down the published tutorials on this blog related to Stream API and its related concepts.
 
 ### 1. Stream Basics
-- Introduction to Streams API
-- Java 9 Stream API Improvements
-- Creating Streams
-- Functional Interfaces
-- Generic Functional Interfaces
-- Primitive Type Streams
-- Using ‘if-else’ Conditions with Streams
-- Creating Infinite Streams
-- Stream of Random Numbers
-- Boxed Streams
-- Stream of Dates
-- Remove/Update Elements From List using Stream
-- Iterate with Indices
-- [Solved] “Stream has already been operated upon or closed” Exception
-
-  
-https://howtodoinjava.com/java/stream/java-streams-by-examples Introduction to Streams API
-https://howtodoinjava.com/java9/stream-api-improvements Java 9 Stream API Improvements
-https://howtodoinjava.com/java/stream/create-streams Creating Streams
-https://howtodoinjava.com/java/stream/functional-interface-tutorial Functional Interfaces
-https://howtodoinjava.com/java/stream/generic-functional-interfaces Generic Functional Interfaces
-https://howtodoinjava.com/java/stream/primitive-type-streams Primitive Type Streams
-https://howtodoinjava.com/java8/stream-if-else-logic Using ‘if-else’ Conditions with Streams
-https://howtodoinjava.com/java8/java-infinite-stream Creating Infinite Streams
-https://howtodoinjava.com/java8/stream-random-numbers-range Stream of Random Numbers
-https://howtodoinjava.com/java8/java8-boxed-intstream Boxed Streams
-https://howtodoinjava.com/java9/stream-dates-datesuntil Stream of Dates
-https://howtodoinjava.com/java/stream/remove-update-stream-elements Remove/Update Elements From List using Stream
-https://howtodoinjava.com/java/stream/iterate-over-stream-with-indices Iterate with Indices
-https://howtodoinjava.com/java/stream/stream-has-already-been-operated-upon-or-closed [Solved] “Stream has already been operated upon or closed” Exception
+- [Introduction to Streams API](https://howtodoinjava.com/java/stream/java-streams-by-examples)
+- [Java 11 – Files readString() API](https://howtodoinjava.com/java11/files-readstring-read-file-to-string/)
+- [Java 9 Stream API Improvements](https://howtodoinjava.com/java9/stream-api-improvements)
+- [Creating Streams](https://howtodoinjava.com/java/stream/create-streams)
+- [Functional Interfaces](https://howtodoinjava.com/java/stream/functional-interface-tutorial)
+- [Generic Functional Interfaces](https://howtodoinjava.com/java/stream/generic-functional-interfaces)
+- [Primitive Type Streams](https://howtodoinjava.com/java/stream/primitive-type-streams)
+- [Using ‘if-else’ Conditions with Streams](https://howtodoinjava.com/java8/stream-if-else-logic)
+- [Creating Infinite Streams](https://howtodoinjava.com/java8/java-infinite-stream)
+- [Stream of Random Numbers](https://howtodoinjava.com/java8/stream-random-numbers-range)
+- [Boxed Streams](https://howtodoinjava.com/java8/java8-boxed-intstream)
+- [Stream of Dates](https://howtodoinjava.com/java9/stream-dates-datesuntil)
+- [Remove/Update Elements From List using Stream](https://howtodoinjava.com/java/stream/remove-update-stream-elements)
+- [Iterate with Indices](https://howtodoinjava.com/java/stream/iterate-over-stream-with-indices)
+- [Stream has already been operated upon or closed Exception](https://howtodoinjava.com/java/stream/stream-has-already-been-operated-upon-or-closed)
 
 ### 2. Stream Searching, Filtering and Sorting
 - Getting Distinct Stream Items by Comparing Multiple Fields
