@@ -1,4 +1,4 @@
-[Back To - Java Exercises Collection](java-basic-exercises-020-Collection.md)
+[Go Back To - Java Exercises Collection](java-basic-exercises-020-Collection.md)
 
 # PriorityQueue:
 
