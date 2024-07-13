@@ -11,7 +11,6 @@ The java.util.Arrays class provides many useful static methods to work with arra
 
 1\. Array Basics
 ----------------
-*   [Intro to Java Arrays](https://howtodoinjava.com/java/array/initializing-array/)
 *   [Initialize an Array](https://howtodoinjava.com/java/array/initializing-array/)
 *   [Reverse an Array](https://howtodoinjava.com/java/array/reverse-an-array/)
 *   [Comparing Two Arrays](https://howtodoinjava.com/java/array/checking-arrays-are-equal/)
@@ -57,6 +56,7 @@ The java.util.Arrays class provides many useful static methods to work with arra
 *   [Java Array Deep Copy](https://howtodoinjava.com/java/array/java-array-deep-copy-example/)
 *   [Java Copy Array Range](https://howtodoinjava.com/java/array/copy-array-range/)
 
+# Java Exercises Array Pragramming
 
 ### 1. Write a Java program to sort a numeric array and a string array.
 ```java
