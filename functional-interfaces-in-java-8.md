@@ -3,18 +3,18 @@
 Functional interfaces, lambda expressions and Stream API – these three features of Java 8 has turned Java programming into new style of programming called functional-style programming. Java is still an object-oriented programming language, but from Java 8, with the introduction of new features, most of the programming is done keeping functions in mind rather than objects. In this article, we will see Java 8 functional interfaces, @FunctionalInterface annotation, java.util.function package and how to use new Java 8 functional interfaces to compose lambda expressions with some simple examples.
 
 ## Java 8 Functional Interfaces
-1) Definition
+### 1) Definition
 Functional interfaces are the interfaces which has exactly one abstract method. They may have any number of default methods but must have only one abstract method. Functional interfaces provide only one functionality to implement.
 
 There were functional interfaces exist before Java 8. It is not like that they are the whole new concept introduced only in Java 8. Runnable, ActionListener, Callable and Comaprator are some old functional interfaces which exist even before Java 8.
 
 The new set of functional interfaces are introduced in Java 8 to make programmer’s job easy while writing lambda expressions. Your lambda expression must implement any one of these functional interfaces. These new functional interfaces are organised under java.util.function package.
 
-2) @FunctionalInterface Annotation
+### 2) @FunctionalInterface Annotation
 @FunctionalInterface annotation is introduced in Java 8 to represent functional interfaces. Although, it is not compulsory to write functional interface using this annotation. But, if you are using @FunctionalInterface annotation then your interface should contain only one abstract method. If you try to write more than one abstract method, compiler will show the error.
 
 
-3) java.util.function package
+### 3) java.util.function package
 All Java 8 functional interfaces are organised in java.util.function package. Each functional interface in this package represents an operation that can be performed by the lambda expression.
 
 Below table shows the list of all Java 8 functional interfaces along with their abstract method, which operation they represent and when to use them?
@@ -84,7 +84,7 @@ listOfStudents.add(new Student(101010, "Chris", 89.8, "Computers"));
 ```
 Let’s see how to use 4 important functional interfaces – Predicate, Consumer, Function and Supplier using above listOfStudents.
 
-a) Predicate – Tests an object
+### a) Predicate – Tests an object
 
 Predicate represents an operation which takes an argument T and returns a boolean. Use this functional interface, if you want to define a lambda expression which performs some test on an argument and returns true or false depending upon outcome of the test.
 
@@ -106,7 +106,7 @@ for (Student student : listOfStudents)
     }
 }
 ```
-b) Consumer – Consumes an object
+### b) Consumer – Consumes an object
 
 Consumer represents an operation which takes an argument and returns nothing. Use this functional interface If you want to compose a lambda expression which performs some operations on an object.
 
@@ -123,7 +123,7 @@ for (Student student : listOfStudents)
     percentageConsumer.accept(student);
 }
 ```
-c) Function – Applies to an object
+### c) Function – Applies to an object
 
 Function represents an operation which takes an argument of type T and returns a result of type R. Use this functional interface if you want to extract some data from an existing data.
 
@@ -272,22 +272,22 @@ List<Integer> l = map(Arrays.asList("lambdas","in","action"), (String s) -> s.le
 ```
 
 
-Functional Interfaces in Java
+## Functional Interfaces in Java
 
 Java Streams
 Functional Interface, Java 8 Stream
 Introduced in Java 8, a functional interface is simply an interface that has exactly one abstract method. Learn more about functional interfaces in this tutorial.
 
-1. What is a Functional Interface?
-1.1. Only one abstract method is allowed
+### 1. What is a Functional Interface?
+### 1.1. Only one abstract method is allowed
 Functional interfaces are new additions in Java 8. As a rule, a functional interface can contain exactly one abstract method. These functional interfaces are also called Single Abstract Method interfaces (SAM Interfaces).
 
 Apart from one abstract method, a functional interface can also have the following methods that do not count for defining it as a functional interface.
 
-Default methods
-Static methods
+- Default methods
+- Static methods
 Public methods inherited from the Object class
-1.2. Implemented by Lambda Expressions
+### 1.2. Implemented by Lambda Expressions
 In Java, lambda expressions can be used to represent an instance of a functional interface. For example, Comparator interface is a functional interface.
 
 @FunctionalInterface
@@ -307,7 +307,7 @@ Comparator<Employee> compareById = Comparator.comparing(e -> e.getId());
 
 Comparator<Employee> compareByFirstName = Comparator.comparing(e -> e.getFirstName());
 
-2. @FunctionalInterface Annotation
+### 2. @FunctionalInterface Annotation
 Java 8 introduced the annotation @FunctionalInterface to mark an interface as a functional interface. The primary use of this annotation is for compiler-level errors when the interface violates the contracts of precisely one abstract method.
 
 Note that using the annotation @FunctionalInterface is optional.
@@ -341,7 +341,7 @@ multiple non-overriding abstract methods found in interface MyFirstFunctionalInt
 Functional-Interface-Error
 Read More : Generic Functional Interfaces
 
-3. Functional Interfaces in JDK
+### 3. Functional Interfaces in JDK
 The following is a list of Java’s most commonly used functional interfaces.
 
 Runnable: contains only the run() method.
@@ -355,7 +355,7 @@ BiConsumer: a consumer with two arguments.
 Supplier: a supplier that returns a value.
 Function<T, R>:  takes an argument of type T and returns a result of type R.
 BiFunction<T, U, R>: takes two arguments of types T and U and returns a result of type R.
-4. Demo
+### 4. Demo
 Let’s see a quick example of creating and using functional interfaces in Java.
 
 We are using a functional interface Function to create the formula for mathematical squares.
@@ -366,7 +366,363 @@ The Function interface has one abstract method apply() that we have implemented 
 
 System.out.println( square.apply(5) );  //Prints 25
 
-5. Conclusion
+### 5. Conclusion
 In this tutorial, we learned to create and manage functional interfaces in Java. We learned that a functional interface has only one abstract method and they can be implemented by the lambda expressions.
 
 We also saw the JDK provided existing functional interfaces, and finally how to create an use a functional interface.
+
+
+### Java Default Methods Tutorial
+
+Let’s move on the discussion and talk about another related feature i.e. default methods. Well, this is truly revolutionary for java developers. Till java 7, we have learned a lot of things about interfaces and all those things have been in our mind whenever we wrote code or designed the applications. Some of these concepts are going to change drastically from java 8, after introduction of default methods.
+
+I will discuss following points in this post:
+
+- What are default methods in java 8?
+- Why default methods were needed in java 8?
+- How conflicts are resolved while calling default methods?
+
+### What are default methods in java 8?
+
+Default methods enable you to add new functionality to the interfaces of your libraries and ensure binary compatibility with code written for older versions of those interfaces.
+As name implies, default methods in java 8 are simply default. If you do not override them, they are the methods which will be invoked by caller classes. They are defined in interfaces.
+
+Let’s understand with an example:
+```java
+public interface Moveable {
+    default void move(){
+        System.out.println("I am moving");
+    }
+}
+```
+Moveable interface defines a method move(); and provided a default implementation as well. If any class implements this interface then it need not to implement it’s own version of move() method. It can directly call instance.move();
+```java
+public class Animal implements Moveable{
+    public static void main(String[] args){
+        Animal tiger = new Animal();
+        tiger.move();
+    }
+}
+```
+Output: I am moving
+
+And if class willingly wants to customize the behavior then it can provide it’s own custom implementation and override the method. Now it’s own custom method will be called.
+```java
+public class Animal implements Moveable{
+    
+    public void move(){
+        System.out.println("I am running");
+    }
+    
+    public static void main(String[] args){
+        Animal tiger = new Animal();
+        tiger.move();
+    }
+}
+```
+Output: I am running
+This is not all done here. Best part comes as following benefits:
+
+**Static default methods**: You can define static default methods in interface which will be available to all instances of class which implement this interface. This makes it easier for you to organize helper methods in your libraries; you can keep static methods specific to an interface in the same interface rather than in a separate class. This enables you to define methods out of your class and yet share with all child classes.
+They provide you an highly desired capability of adding a capability to number of classes without even touching their code. Simply add a default method in interface which they all implement.
+
+### Why default methods were needed in java 8?
+
+This is a good candidate for your next interview question. Simplest answer is to enable the functionality of lambda expression in java. Lambda expression are essentially of type of functional interface. To support lambda expressions seamlessly, all core classes have to be modified. But these core classes like java.util.List are implemented not only in JDK classes, but also in thousands of client code as well. Any incompatible change in core classes will back fire for sure and will not be accepted at all.
+
+Default methods break this deadlock and allow adding support for functional interface in core classes. Let’s see an example. Below is a method which has been added to java.lang.Iterable.
+```java
+default void forEach(Consumer<? super T> action) {
+	Objects.requireNonNull(action);
+	for (T t : this) {
+		action.accept(t);
+	}
+}
+```
+Before java 8, if you had to iterate on a java collection then your would get an iterator instance and call it’s next method until hasNext() returns false. This is common code and have been used thousands of time in day to day programming by us. Syntax is also always same. So can we make it compact so that it takes only single line of code and still do the job for us as before. Above function does that.
+
+Now to iterate and perform some simple operation on every item in list, all you need to do is:
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Animal implements Moveable{
+    public static void main(String[] args){
+        List<Animal> list = new ArrayList();
+        list.add(new Animal());
+        list.add(new Animal());
+        list.add(new Animal());
+        
+        //Iterator code reduced to one line
+        list.forEach((Moveable p) -> p.move());
+    }
+}
+```
+So here, an additional method has been added to List without breaking any custom implementations of it. It has been very desired feature in java since long. Now it’s with us.
+
+### How conflicts are resolved while calling default methods?
+
+So far so good. We have got all basics well. Now move to complicated things. In java, a class can implement N number of interface. Additionally, a interface can also extend another interface as well. An if any default method is declared in two such interfaces which are implemented by single class. then obviously class will get confused which method to call.
+
+Rules for this conflict resolution are as follows:
+
+1) Most preferred are the overridden methods in classes. They will be matched and called if found before matching anything.
+2) The method with the same signature in the “most specific default-providing interface” is selected. This means if class Animal implements two interfaces i.e. Moveable and Walkable such that Walkable extends Moveable. Then Walkable is here most specific interface and default method will be chosen from here if method signature is matched.
+3) If Moveable and Walkable are independent interfaces then a serious conflict condition happen, and compiler will complain then it is unable to decide. The you have to help compiler by providing extra info that from which interface the default method should be called. e.g.
+```java
+	Walkable.super.move();
+	//or 
+	Moveable.super.move();
+```
+
+## Java Static – Variable, Method, Block, Class and Import Statement
+
+Static keyword in java can be applied on variables, methods, blocks, import and inner classes. In this tutorial, we will learn the effect of using static keyword in these places with examples.
+
+Table of Contents
+
+- 1. Static Variable
+- 2. Static Method
+- 3. Static Import Statement
+- 4. Static Block
+- 5. Static Class
+- 6. Summary
+
+### 1. Static Variable
+To declare a variable static, use static keyword in variable declaration. static variable syntax is:
+
+ACCESS_MODIFER static DATA_TYPE VARNAME;
+For example, a public static variable of Integer type is declared in this way.
+
+public static Integer staticVar;
+The most important thing about static variables is that they belong to class level. What it means is that there can be only one copy of variable in runtime.
+
+When you define a static variable in class definition, each instance of class will have access to that single copy. Separate instances of class will not have their own local copy, like they have for non-static variables.
+```java
+public class JavaStaticExample 
+{
+  public static void main(String[] args) 
+  {
+    DataObject objOne = new DataObject();
+    objOne.staticVar = 10;
+    objOne.nonStaticVar = 20;
+     
+    DataObject objTwo = new DataObject();
+     
+    System.out.println(objTwo.staticVar);   //10
+    System.out.println(objTwo.nonStaticVar);  //null
+     
+    DataObject.staticVar = 30;  //Direct Access
+     
+    System.out.println(objOne.staticVar);   //30
+    System.out.println(objTwo.staticVar);   //30
+  }
+}
+ 
+class DataObject {
+  public static Integer staticVar;
+  public Integer nonStaticVar;
+}
+``` 
+Output:
+ 
+10
+null
+30
+30
+Notice how we changed the value to 30, and both objects now see the updated value which is 30.
+
+Another thing you should have noticed that how we are able to access static variable with its classname i.e. DataObject.staticVar. We don’t need to create any instance to access static variables. It clearly shows that static variables belong to class scope.
+
+
+### 2. Static Method
+To declare a static method, use static keyword in method declaration. Static method syntax is:
+
+ACCESS_MODIFER static RETURN_TYPE METHOD_NAME;
+For example, a public static variable of Integer type is declared in this way.
+```java
+public static Integer staticVar;
+ 
+public static Integer getStaticVar(){
+ 
+  return staticVar;
+}
+```
+Few things to remember.
+
+You can access only static variables inside static methods. If you try to access any non-static variable, the compiler error will be generated with message “Cannot make a static reference to the non-static field nonStaticVar“.
+Static methods can be accessed via it’s class reference, and there is no need to create an instance of class. Though you can access using instance reference as well but it will have not any difference in comparison to access via class reference.
+Static methods also belong to class level scope.
+```java
+public class JavaStaticExample 
+{
+  public static void main(String[] args) 
+  {
+    DataObject.staticVar = 30;  //Direct Access
+     
+    Integer value1 = DataObject.getStaticVar(); //access with class reference
+ 
+    DataObject objOne = new DataObject();
+    Integer value2 = objOne.getStaticVar();   //access with instance reference
+     
+    System.out.println(value1);
+    System.out.println(value2);
+  }
+}
+ 
+class DataObject 
+{
+  public Integer nonStaticVar;
+  public static Integer staticVar;  //static variable
+   
+  public static Integer getStaticVar(){
+    return staticVar;
+  }
+}
+``` 
+Output:
+ 
+30
+30
+
+### 3. Static Import Statement
+The normal import declaration imports classes from packages, so that they can be used without package reference. Similarly the static import declaration imports static members from classes and allowing them to be used without class reference.
+
+A static import statement also comes in two flavors: single-static import and static-import-on-demand. A single-static import declaration imports one static member from a type. A static-import-on-demand declaration imports all static members of a type.
+```java
+//Single-static-import declaration:
+  
+import static <<package name>>.<<type name>>.<<static member name>>;
+  
+//Static-import-on-demand declaration:
+  
+import static <<package name>>.<<type name>>.*;
+For example, System.out is
+
+//Static import statement
+import static java.lang.System.out;
+ 
+public class JavaStaticExample 
+{
+  public static void main(String[] args) 
+  {
+    DataObject.staticVar = 30;  
+ 
+    out.println(DataObject.staticVar);  //Static import statement example
+  }
+}
+class DataObject 
+{
+  public static Integer staticVar;  //static variable
+}
+``` 
+Output:
+ 
+30
+Read More: Static Import Statements in Java
+
+
+### 4. Static Block
+Static blocks are portion of class initialization code, which are wrapped with static keyword.
+```java
+public class Main {
+      
+    //static initializer
+    static {
+        System.out.println("Inside static initializer");
+    }   
+}
+Static blocks are executed when the class is loaded in the memory. A class can have multiple static blocks and these will be executed in the same sequence in which they appear in class definition.
+
+import static java.lang.System.out;
+ 
+class DataObject 
+{
+  public Integer nonStaticVar;
+  public static Integer staticVar;  //static variable
+   
+  //It will be executed first
+  static {
+    staticVar = 40;
+    //nonStaticVar = 20;  //Not possible to access non-static members
+  }
+   
+  //It will be executed second
+  static {
+    out.println(staticVar);
+  }
+}
+``` 
+Output:
+ 
+40
+
+### 5. Static Class
+In Java, you can have a static class as inner class. Just like other static members, nested classed belong with class scope so the inner static class can be accessed without having an object of outer class.
+```java
+public class JavaStaticExample 
+{
+  public static void main(String[] args) 
+  {
+    //Static inner class example
+    System.out.println( DataObject.StaticInnerClas.innerStaticVar );
+  }
+}
+class DataObject 
+{
+  public Integer nonStaticVar;
+  public static Integer staticVar;  //static variable
+   
+  static class StaticInnerClas {
+    Integer innerNonStaticVar = 60; 
+    static Integer innerStaticVar = 70;   //static variable inside inner class
+  }
+}
+```
+Please note that an static inner class cannot access the non-static members of outer class. It can access only static members from outer class.
+```java
+public class JavaStaticExample 
+{
+  public static void main(String[] args) 
+  {
+    //Static inner class example
+    DataObject.StaticInnerClas.accessOuterClass();
+  }
+}
+class DataObject 
+{
+  public Integer nonStaticVar;
+  public static Integer staticVar;  //static variable
+     
+  static {
+    staticVar = 40;
+    //nonStaticVar = 20;  //Not possible to access non-static members
+  }
+ 
+  public static Integer getStaticVar(){
+    return staticVar;
+  }
+   
+  static class StaticInnerClas 
+  { 
+    public static void accessOuterClass()
+    {
+      System.out.println(DataObject.staticVar);   //static variable of outer class
+      System.out.println(DataObject.getStaticVar());  //static method of outer class
+    }
+  }
+}
+``` 
+Output:
+ 
+40
+
+### 6. Summary
+Let’s summarize everything about static keyword usage in Java.
+
+Static members belong to class. No need to create class instance to access static members.
+Static members (variables and methods) can be accessed inside static methods and static blocks only.
+Non-static members cannot be accessed inside static methods, blocks and inner classes.
+A class can have multiple static blocks and they will be executed in order they appear in class definition.
+A class can be static only if its declared as inner class inside outer class.
+Static imports can be used to import all static members from a class. These members can be referred without any class reference.
