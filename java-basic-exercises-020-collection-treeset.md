@@ -1,3 +1,5 @@
+[Back To - Java Exercises Collection](java-basic-exercises-020-Collection.md)
+
 # TreeSet:
 
 In Java, TreeSet is an implementation of the SortedSet interface provided by the Java Collections Framework. It's part of the java.util package.
