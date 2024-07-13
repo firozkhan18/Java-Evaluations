@@ -106,8 +106,7 @@ String concatenate(List<?> list) {
 System.out.println(concatenate(strings));
 System.out.println(concatenate(friends));
 ```
-
-chapter10-1-string_joiner.md
+- [StringJoiner](chapter10-1-string_joiner.md)
 
 ### Concatenation with a Stream
 If you use a `Stream` and the collector `joining`, it will use a `StringJoiner` internally.
