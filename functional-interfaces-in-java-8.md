@@ -286,6 +286,7 @@ Apart from one abstract method, a functional interface can also have the followi
 
 - [Default methods](#java-default-methods)
 - [Static methods](#java-static)
+- [Static methods](#java-static-variable-method-block-class-and-import-statement)
   
 Public methods inherited from the Object class
 ### 1.2. Implemented by Lambda Expressions
