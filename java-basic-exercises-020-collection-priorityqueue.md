@@ -1,3 +1,5 @@
+[Back To - Java Exercises Collection](java-basic-exercises-020-Collection.md)
+
 # PriorityQueue:
 
 In Java, PriorityQueue is an implementation of the Queue interface provided by the Java Collections Framework. It's part of the java.util package.
