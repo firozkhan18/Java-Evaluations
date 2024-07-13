@@ -8,7 +8,7 @@ List of Java Collection Exercises :
 - [LinkedList Exercises](java-basic-exercises-020-collection-linkedlist.md)
 - [HashSet Exercises](java-basic-exercises-020-collection-hashset.md)
 - [TreeSet Exercises](java-basic-exercises-020-collection-treeset.md)
-- [PriorityQueue Exercises](java-basic-exercises-020-Collection-priorityqueue.md)
+- [PriorityQueue Exercises](java-basic-exercises-020-collection-priorityqueue.md)
 - [HashMap Exercises](java-basic-exercises-020-collection-hashmap.md)
 - [TreeMap Exercises](java-basic-exercises-020-collection-treemap.md)
 
