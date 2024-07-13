@@ -481,12 +481,12 @@ Static keyword in java can be applied on variables, methods, blocks, import and 
 
 Table of Contents
 
-- 1. [Static Variable](#static-variable)
-- 2. [Static Method](#static-method)
-- 3. [Static Import Statement](#static-import)
-- 4. [Static Block](#static-block)
-- 5. [Static Class](#static-class)
-- 6. [Summary](#summary)
+- [1. Static Variable](#1-static-variable)
+- [2. Static Method](#2-static-method)
+- [3. Static Import Statement](#3-static-import)
+- [4. Static Block](#4-static-block)
+- [5. Static Class](#5-static-class)
+- [6. Summary](#6-summary)
 
 ### 1. Static Variable
 To declare a variable static, use static keyword in variable declaration. static variable syntax is:
