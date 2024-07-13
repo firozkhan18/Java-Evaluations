@@ -1,6 +1,5 @@
-![image](https://github.com/user-attachments/assets/3bec5c72-783d-4f93-9eef-9c04d60de258)# Java Exercises Method
+# Java Exercises Method
 
-https://www.w3resource.com/java-exercises/method/index.php
 ### 1. Write a Java method to find the smallest number among three numbers.
 Test Data:
 Input the first number: 25
