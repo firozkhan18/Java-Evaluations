@@ -163,16 +163,14 @@ If an input or output is a primitive type then using these functional interfaces
 | Predicate<T> 	| T -> boolean 	| IntPredicate, LongPredicate, DoublePredicate | 
 | Consumer<T> | T -> void | IntConsumer, LongConsumer, DoubleConsumer| 
 | Function<T, R> | T -> R | IntFunction<R>, IntToDoubleFunction, IntToLongFunction,| 
-| LongFunction<R>, LongToDoubleFunction, LongToIntFunction, | DoubleFunction<R>, ToIntFunction<T>, ToDoubleFunction<T>, |		
-| ToLongFunction<T> |
-|-----------------------|---------------------|-------------------------------------------------------------------------| 
-| Supplier<T> 			| () -> T 			  | BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier 				| 
-| UnaryOperator<T> 		| T -> T 			  | IntUnaryOperator, LongUnaryOperator, DoubleUnaryOperator 				| 
-| BinaryOperator<T> 	| (T, T) -> T 		  | IntBinaryOperator, LongBinaryOperator, DoubleBinaryOperator 			|
- 
-| BiPredicate<L, R> 	| (L, R) -> boolean   | 															  			|
-| BiConsumer<T, U> 		| (T, U) -> void 	  | ObjIntConsumer<T>, ObjLongConsumer<T>, ObjDoubleConsumer<T> 			| 
-| BiFunction<T, U, R> 	| (T, U) -> R 		  | ToIntBiFunction<T, U>, ToLongBiFunction<T, U>, ToDoubleBiFunction<T, U> |
+||| LongFunction<R>, LongToDoubleFunction, LongToIntFunction, | DoubleFunction<R>, ToIntFunction<T>, ToDoubleFunction<T>, |		
+||| ToLongFunction<T> |
+| Supplier<T>| () -> T | BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier | 
+| UnaryOperator<T>| T -> T | IntUnaryOperator, LongUnaryOperator, DoubleUnaryOperator | 
+| BinaryOperator<T>| (T, T) -> T | IntBinaryOperator, LongBinaryOperator, DoubleBinaryOperator|
+| BiPredicate<L, R> | (L, R) -> boolean | |
+| BiConsumer<T, U> | (T, U) -> void | ObjIntConsumer<T>, ObjLongConsumer<T>, ObjDoubleConsumer<T> | 
+| BiFunction<T, U, R> 	| (T, U) -> R | ToIntBiFunction<T, U>, ToLongBiFunction<T, U>, ToDoubleBiFunction<T, U> |
 |||||<p>IntToLongFunction</p><p>IntToDoubleFunction</p><p>LongToDoubleFunction</p><p>LongTolIntFunction</p><p>DoubleToIntFunction</p><p>DoubleToLongFunction</p>|
 | :- | :- | :- | :- | :- |
 |<p>Supplier</p><p>T get()</p>|<p>Represents</p><p>operation</p><p>nothing but</p><p>result of type</p>|<p>an Use this interface</p><p>which takes\_ || you want to</p><p>returnsa objects.</p><p>T.</p>|<p>when</p><p>create new</p>|<p>BooleanSupplier</p><p>IntSupplier</p><p>LongSupplier</p><p>DoubleSupplier</p>|
@@ -249,17 +247,12 @@ In the following listing you use this forEach method combined with a lambda to p
 public interface Consumer<T>{
 	void accept(T t);
 }
-
 public static <T> void forEach(List<T> list, Consumer<T> c) {
 	for(T i: list){
 		c.accept(i);
 	}
 }
-
-forEach(
-		Arrays.asList(1,2,3,4,5), 
-		(Integer i) -> System.out.println(i)
-	   );
+forEach(Arrays.asList(1,2,3,4,5), (Integer i) -> System.out.println(i));
 ```
 # Function
 The java.util.function.Function<T, R> interface defines an abstract method named apply that takes an object of generic type T as input and returns an object of generic type R. 
@@ -277,12 +270,110 @@ public interface Function<T, R>{
 public static <T, R> List<R> map(List<T> list, Function<T, R> f) {
 	List<R> results = new ArrayList<>();
 	for(T s: list){
-			results.add(f.apply(s));
+		results.add(f.apply(s));
 	}
 	return results;
 }
 
-List<Integer> l = map(
-						Arrays.asList("lambdas","in","action"), (String s) -> s.length()
-					 );
+List<Integer> l = map(Arrays.asList("lambdas","in","action"), (String s) -> s.length());
 ```
+
+
+Functional Interfaces in Java
+
+Java Streams
+Functional Interface, Java 8 Stream
+Introduced in Java 8, a functional interface is simply an interface that has exactly one abstract method. Learn more about functional interfaces in this tutorial.
+
+1. What is a Functional Interface?
+1.1. Only one abstract method is allowed
+Functional interfaces are new additions in Java 8. As a rule, a functional interface can contain exactly one abstract method. These functional interfaces are also called Single Abstract Method interfaces (SAM Interfaces).
+
+Apart from one abstract method, a functional interface can also have the following methods that do not count for defining it as a functional interface.
+
+Default methods
+Static methods
+Public methods inherited from the Object class
+1.2. Implemented by Lambda Expressions
+In Java, lambda expressions can be used to represent an instance of a functional interface. For example, Comparator interface is a functional interface.
+
+@FunctionalInterface
+public interface Comparator<T> {
+	int compare(T o1, T o2);
+	boolean equals(Object obj);
+
+	//and multiple default methods...
+}
+
+Comparator interface has only two abstract methods compare() and equals(). But equals() has been inherited from the Object class, so it is not counted. Other than these two methods, all other methods are default methods. So Comparator is qualified to be declared as a functional interface.
+
+Java program to implement Comparator using a lambda expression.
+
+//Compare by Id
+Comparator<Employee> compareById = Comparator.comparing(e -> e.getId());
+
+Comparator<Employee> compareByFirstName = Comparator.comparing(e -> e.getFirstName());
+
+2. @FunctionalInterface Annotation
+Java 8 introduced the annotation @FunctionalInterface to mark an interface as a functional interface. The primary use of this annotation is for compiler-level errors when the interface violates the contracts of precisely one abstract method.
+
+Note that using the annotation @FunctionalInterface is optional.
+
+If the interface has one abstract method and does not have @FunctionalInterface annotation, the interface is still a functional interface, and it can be the target type for lambda expressions.
+
+The presence of the annotation protects us from inadvertently changing a functional interface into a non-functional interface, as the compiler will catch it.
+
+Let’s build our first functional interface. Note that methods in an interface are, by default, abstract.
+
+@FunctionalInterface
+public interface MyFirstFunctionalInterface 
+{
+    public void firstWork();
+}
+
+Let’s try to add another abstract method:
+
+@FunctionalInterface
+public interface MyFirstFunctionalInterface 
+{
+    public void firstWork();
+    public void doSomeMoreWork();   //error
+}
+
+The above code will result in a compiler error:
+
+Unexpected @FunctionalInterface annotation
+@FunctionalInterface ^ MyFirstFunctionalInterface is not a functional interface
+multiple non-overriding abstract methods found in interface MyFirstFunctionalInterface
+Functional-Interface-Error
+Read More : Generic Functional Interfaces
+
+3. Functional Interfaces in JDK
+The following is a list of Java’s most commonly used functional interfaces.
+
+Runnable: contains only the run() method.
+Comparable: contains only the compareTo() method.
+ActionListener: contains only the actionPerformed() method.
+Callable: contains only the call() method.
+Predicate: a boolean-valued function that takes an argument and returns true or false.
+BiPredicate: a predicate with two arguments.
+Consumer: an operation that takes an argument, operates on it, and returns no result.
+BiConsumer: a consumer with two arguments.
+Supplier: a supplier that returns a value.
+Function<T, R>:  takes an argument of type T and returns a result of type R.
+BiFunction<T, U, R>: takes two arguments of types T and U and returns a result of type R.
+4. Demo
+Let’s see a quick example of creating and using functional interfaces in Java.
+
+We are using a functional interface Function to create the formula for mathematical squares.
+
+Function<Integer, Integer> square = x -> x * x;
+
+The Function interface has one abstract method apply() that we have implemented above. we can execute the above method as follows:
+
+System.out.println( square.apply(5) );  //Prints 25
+
+5. Conclusion
+In this tutorial, we learned to create and manage functional interfaces in Java. We learned that a functional interface has only one abstract method and they can be implemented by the lambda expressions.
+
+We also saw the JDK provided existing functional interfaces, and finally how to create an use a functional interface.
