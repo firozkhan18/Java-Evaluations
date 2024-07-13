@@ -173,14 +173,14 @@ If an input or output is a primitive type then using these functional interfaces
 | BiFunction<T, U, R> 	| (T, U) -> R | ToIntBiFunction<T, U>, ToLongBiFunction<T, U>, ToDoubleBiFunction<T, U> |
 |||||<p>IntToLongFunction</p><p>IntToDoubleFunction</p><p>LongToDoubleFunction</p><p>LongTolIntFunction</p><p>DoubleToIntFunction</p><p>DoubleToLongFunction</p>|
 | :- | :- | :- | :- | :- |
-|<p>Supplier</p><p>T get()</p>||<p>Represents operation nothing but result of type an Use this interface which takes you want to</p> returns a objects. <p>T.</p><p>when create new <p>BooleanSupplier</p><p>IntSupplier</p><p>LongSupplier</p><p>DoubleSupplier</p>|
-|<p>BiPredicate</p><p>boolean test(T t, U</p><p>u)</p>||<p>Represents</p><p>of two</p><p>a predicate Use this interface</p><p>arguments. you want to</p><p>boolean</p><p>two arguments.</p><p>when</p><p>evaluate a</p><p>expression of</p>|
-|BiConsumer| |Representsan Use this interface when ObjlntConsumer operation that accepts you want to perform ObjLongConsumer
-|void accept(T t, U u) |||<p>two arguments</p><p>returns</p>|<p>and some</p><p>nothing. objects.</p>|operationsontwo\_ |||ObjDoubleConsumer|
-|<p>BiFunction</p><p>R apply(T t, U u)</p>|<p>Represents</p><p>operation</p><p>two arguments</p><p>produces a</p>|<p>an Use this interface</p><p>which takes || you want to</p><p>and data from two</p><p>result. objects.</p>|<p>when</p><p>extract result</p><p>existing</p>|<p>TolntBiFunction</p><p>|| ToLongBiFunction</p><p>ToDoubleBiFunction</p>|
-|<p>UnaryOperator</p><p>(extends Function)</p>|<p>Same as</p><p>argument</p><p>should be</p><p>type.</p>|<p>Function but Same as</p><p>and result</p><p>of same</p>|Function.|<p>IntUnaryOperator</p><p>LongUnaryOperatot</p><p>DoubleUnaryOperator</p>|
-|<p>Binary Operator</p><p>(extends BiFunction) ||</p>|<p>Same as</p><p>argument</p><p>should be</p>|<p>BiFunction but || Same as</p><p>and result</p><p>of same</p>|BiFunction.|<p>IntBinaryOperator</p><p>LongBinaryOperator</p><p>DoubleBinaryOperator</p>|
-type.
+|<p>Supplier</p><p>T get()</p>||<p>Represents operation nothing but result of type an Use this interface which takes you want to</p> returns a objects. T. when create new <p>BooleanSupplier</p><p>IntSupplier</p><p>LongSupplier</p><p>DoubleSupplier</p>|
+|<p>BiPredicate</p><p>boolean test(T t, U</p><p>u)</p>||Represents of two a predicate Use this interface arguments. you want to boolean two arguments.when evaluate a expression of|
+|BiConsumer </p><p>void accept(T t, U u)</p>| |Representsan Use this interface when ObjlntConsumer operation that accepts you want to perform ObjLongConsumer two arguments returns and some nothing. objects.operations on two ObjDoubleConsumer|
+|<p>BiFunction</p><p>R apply(T t, U u)</p>|<p>Represents operation two arguments produces a an Use this interface which takes you want to and data from two result. objects. when extract result existing <p>TolntBiFunction</p><p>ToLongBiFunction</p><p> ToDoubleBiFunction</p>|
+|<p>UnaryOperator</p><p>(extends Function)</p>|Same as argument should be type.  Function but Same as and result of same |
+|Function.|<p>IntUnaryOperator</p><p>LongUnaryOperatot</p><p>DoubleUnaryOperator</p>|
+|<p>Binary Operator</p><p>(extends BiFunction) |Same as argument should be <p>BiFunction but Same as and result of same BiFunction.<p>IntBinaryOperator</p><p>LongBinaryOperator</p><p>DoubleBinaryOperator</p>
+type.|
 
 
 # Using functional interfaces:
