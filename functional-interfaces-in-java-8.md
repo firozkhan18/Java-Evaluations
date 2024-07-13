@@ -284,8 +284,9 @@ Functional interfaces are new additions in Java 8. As a rule, a functional inter
 
 Apart from one abstract method, a functional interface can also have the following methods that do not count for defining it as a functional interface.
 
-- Default methods
-- Static methods
+- [Default methods](#java-default-methods)
+- [Static methods](#java-static)
+  
 Public methods inherited from the Object class
 ### 1.2. Implemented by Lambda Expressions
 In Java, lambda expressions can be used to represent an instance of a functional interface. For example, Comparator interface is a functional interface.
@@ -372,7 +373,7 @@ In this tutorial, we learned to create and manage functional interfaces in Java.
 We also saw the JDK provided existing functional interfaces, and finally how to create an use a functional interface.
 
 
-### Java Default Methods Tutorial
+### Java Default Methods
 
 Let’s move on the discussion and talk about another related feature i.e. default methods. Well, this is truly revolutionary for java developers. Till java 7, we have learned a lot of things about interfaces and all those things have been in our mind whenever we wrote code or designed the applications. Some of these concepts are going to change drastically from java 8, after introduction of default methods.
 
