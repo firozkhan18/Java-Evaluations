@@ -1,7 +1,5 @@
 # Java Exercises Collection
 
-https://www.w3resource.com/java-exercises/collection/index.php
-
 Java Collection refers to a  framework provided by Java to store and manipulate groups of objects. It offers a set of interfaces (like List, Set, Queue, etc.) and classes (like ArrayList, HashSet, PriorityQueue, etc.) that provide different ways to organize and work with collections of elements. This  framework simplifies common operations such as adding, removing, and accessing elements. It offers a wide range of data structures to suit various programming needs.
 
 List of Java Collection Exercises :
