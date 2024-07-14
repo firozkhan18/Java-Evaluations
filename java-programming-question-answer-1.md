@@ -414,468 +414,9 @@ public class DecimalToBinary {
 }
 ```
 </details>
+
 <details>
-<summary><b>23. Check if a given string is a valid palindrome or not:</b></summary>
-
-```java
-import java.util.Scanner;
-
-public class CheckPalindrome {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter a string: ");
-        String str = input.nextLine();
-        
-        String reversed = new StringBuilder(str).reverse().toString();
-        
-        if (str.equals(reversed)) {
-            System.out.println("The string is a palindrome.");
-        } else {
-            System.out.println("The string is not a palindrome.");
-        }
-    }
-}
-```
-</details>
-<details>
-<summary><b>24. Find the frequency of each element in an array:</b></summary>
-
-```java
-import java.util.*;
-
-public class ElementFrequency {
-    public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 2, 5, 3, 6};
-
-        Map<Integer, Integer> freqMap = new HashMap<>();
-        for (int num : arr) {
-            freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
-        }
-
-        for (Map.Entry<Integer, Integer> entry : freqMap.entrySet()) {
-            System.out.println("Element: " + entry.getKey() + ", Frequency: " + entry.getValue());
-        }
-    }
-}
-```
-</details>
-<details>
-<summary><b>25. Find the maximum subarray sum in an array:</b></summary>
-
-```java
-public class MaxSubarraySum {
-    public static void main(String[] args) {
-        int[] arr = {1, -3, 2, 1, -1};
-
-        int maxSum = Integer.MIN_VALUE;
-        int currentSum = 0;
-
-        for (int num : arr) {
-            currentSum = Math.max(num, currentSum + num);
-            maxSum = Math.max(maxSum, currentSum);
-        }
-
-        System.out.println("Maximum subarray sum: " + maxSum);
-    }
-}
-```
-</details>
-<details>
-<summary><b>26. Binary to Decimal Conversion Program:</b></summary>
-
-```java
-import java.util.Scanner;
-
-public class BinaryToDecimal {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter a binary number: ");
-        String binary = input.next();
-        int decimal = Integer.parseInt(binary, 2);
-        System.out.println("Decimal equivalent: " + decimal);
-    }
-}
-```
-</details>
-<details>
-<summary><b>27. Factorial using Recursion Program:</b></summary>
-
-```java
-public class Factorial {
-    public static void main(String[] args) {
-        int num = 5; // Number whose factorial is to be found
-        long factorial = fact(num);
-        System.out.println("Factorial of " + num + " is: " + factorial);
-    }
-    
-    public static long fact(int n) {
-        if (n == 0) {
-            return 1;
-        } else {
-            return n * fact(n-1);
-        }
-    }
-}
-```
-</details>
-<details>
-<summary><b>28. Perfect Number Program:</b></summary>
-
-```java
-public class PerfectNumber {
-    public static void main(String[] args) {
-        int num = 28; // Number to check
-        
-        int sum = 0;
-        for (int i = 1; i < num; i++) {
-            if (num % i == 0) {
-                sum += i;
-            }
-        }
-        
-        if (sum == num) {
-            System.out.println(num + " is a perfect number.");
-        } else {
-            System.out.println(num + " is not a perfect number.");
-        }
-    }
-}
-```
-</details>
-<details>
-<summary><b>29. Common Elements in Arrays Program:</b></summary>
-
-```java
-import java.util.HashSet;
-import java.util.Set;
-
-public class CommonElements {
-    public static void main(String[] args) {
-        int[] arr1 = {1, 2, 3, 4, 5};
-        int[] arr2 = {3, 4, 5, 6, 7};
-        
-        Set<Integer> set = new HashSet<>();
-        for (int num : arr1) {
-            set.add(num);
-        }
-        
-        System.out.print("Common elements: ");
-        for (int num : arr2) {
-            if (set.contains(num)) {
-                System.out.print(num + " ");
-            }
-        }
-    }
-}
-```
-</details>
-<details>
-<summary><b>30. Reverse of a Number Program:</b></summary>
-
-```java
-public class ReverseNumber {
-    public static void main(String[] args) {
-        int num = 12345; // Number to reverse
-        int reversed = 0;
-        
-        while (num != 0) {
-            int digit = num % 10;
-            reversed = reversed * 10 + digit;
-            num /= 10;
-        }
-        
-        System.out.println("Reversed number: " + reversed);
-    }
-}
-```
-</details>
-<details>
-<summary><b>31. Program to check if a given number is an Armstrong number:</b></summary>
-
-```java
-import java.util.Scanner;
-
-public class ArmstrongNumber {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter a number: ");
-        int number = input.nextInt();
-        int originalNumber, remainder, result = 0;
-
-        originalNumber = number;
-
-        while (originalNumber != 0) {
-            remainder = originalNumber % 10;
-            result += Math.pow(remainder, String.valueOf(number).length());
-            originalNumber /= 10;
-        }
-
-        if (result == number) {
-            System.out.println(number + " is an Armstrong number.");
-        } else {
-            System.out.println(number + " is not an Armstrong number.");
-        }
-    }
-}
-```
-</details>
-<details>
-<summary><b>32. Program to find the missing number in a given array of integers:</b></summary>
-
-```java
-import java.util.Arrays;
-
-public class MissingNumber {
-    public static void main(String[] args) {
-        int[] arr = {1, 2, 4, 5, 6};
-
-        int n = arr.length + 1;
-        int total = n * (n + 1) / 2;
-        int sum = Arrays.stream(arr).sum();
-
-        System.out.println("Missing number is: " + (total - sum));
-    }
-}
-```
-</details>
-<details>
-<summary><b>33. Program to implement a binary search algorithm:</b></summary>
-
-```java
-public class BinarySearch {
-    public static int binarySearch(int[] arr, int key) {
-        int left = 0;
-        int right = arr.length - 1;
-
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-
-            if (arr[mid] == key) {
-                return mid;
-            }
-
-            if (arr[mid] < key) {
-                left = mid + 1;
-            } else {
-                right = mid - 1;
-            }
-        }
-
-        return -1;
-    }
-
-    public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        int key = 7;
-
-        int index = binarySearch(arr, key);
-
-        if (index != -1) {
-            System.out.println("Element found at index " + index);
-        } else {
-            System.out.println("Element not found");
-        }
-    }
-}
-```
-</details>
-<details>
-<summary><b>34. Program to find the least common multiple (LCM) of two numbers:</b></summary>
-
-```java
-public class LCM {
-    public static int findLCM(int a, int b) {
-        int max = Math.max(a, b);
-        int lcm = max;
-
-        while (true) {
-            if (lcm % a == 0 && lcm % b == 0) {
-                return lcm;
-            }
-            lcm += max;
-        }
-    }
-
-    public static void main(String[] args) {
-        int a = 12;
-        int b = 18;
-
-        System.out.println("LCM of " + a + " and " + b + " is: " + findLCM(a, b));
-    }
-}
-```
-</details>
-<details>
-<summary><b>35. Program to check if a string is a valid email address:</b></summary>
-
-```java
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-public class EmailValidator {
-    public static boolean isValidEmail(String email) {
-        String regex = "^(.+)@(.+)$";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
-    }
-
-    public static void main(String[] args) {
-        String email = "example@gmail.com";
-
-        if (isValidEmail(email)) {
-            System.out.println("Valid email address");
-        } else {
-            System.out.println("Invalid email address");
-        }
-    }
-}
-```
-</details>
-<details>
-<summary><b>36. Program to find the length of the longest consecutive sequence of a given array:</b></summary>
-
-```java
-import java.util.HashSet;
-
-public class LongestConsecutiveSequence {
-    public static int longestConsecutive(int[] nums) {
-        HashSet<Integer> set = new HashSet<>();
-        for (int num : nums) {
-            set.add(num);
-        }
-
-        int maxLength = 0;
-        for (int num : nums) {
-            int length = 1;
-            int current = num;
-            while (set.contains(current + 1)) {
-                current++;
-                length++;
-            }
-            maxLength = Math.max(maxLength, length);
-        }
-
-        return maxLength;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {100, 4, 200, 1, 3, 2};
-
-        System.out.println("Length of longest consecutive sequence is: " + longestConsecutive(nums));
-    }
-}
-```
-</details>
-<details>
-<summary><b>37. Program to find the roots of a quadratic equation:</b></summary>
-
-```java
-import java.util.Scanner;
-
-public class QuadraticEquation {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter the coefficients of the quadratic equation (a, b, c):");
-        double a = input.nextDouble();
-        double b = input.nextDouble();
-        double c = input.nextDouble();
-
-        double discriminant = b * b - 4 * a * c;
-
-        if (discriminant > 0) {
-            double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
-            double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
-            System.out.println("Roots are real and different: " + root1 + " and " + root2);
-        } else if (discriminant == 0) {
-            double root = -b / (2 * a);
-            System.out.println("Roots are real and same: " + root);
-        } else {
-            double realPart = -b / (2 * a);
-            double imaginaryPart = Math.sqrt(-discriminant) / (2 * a);
-            System.out.println("Roots are complex and different: " + realPart + " + " + imaginaryPart + "i and " + realPart + " - " + imaginaryPart + "i");
-        }
-    }
-}
-```
-</details>
-<details>
-<summary><b>38. Program to find the area of a circle:</b></summary>
-
-```java
-import java.util.Scanner;
-
-public class CircleArea {
-    public static void main(String[] args) {
-        final double PI = 3.14159;
-        
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter the radius of the circle: ");
-        double radius = input.nextDouble();
-        
-        double area = PI * radius * radius;
-        
-        System.out.println("Area of the circle is: " + area);
-    }
-}
-```
-</details>
-<details>
-<summary><b>39. Program to find the smallest element in an array:</b></summary>
-
-```java
-public class SmallestElementInArray {
-    public static int findSmallestElement(int[] arr) {
-        int smallest = arr[0];
-        
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] < smallest) {
-                smallest = arr[i];
-            }
-        }
-        
-        return smallest;
-    }
-    
-    public static void main(String[] args) {
-        int[] arr = {10, 5, 8, 3, 6};
-        
-        System.out.println("Smallest element in the array is: " + findSmallestElement(arr));
-    }
-}
-```
-</details>
-<details>
-<summary><b>40. Program to check if a given number is a palindrome:</b></summary>
-
-```java
-import java.util.Scanner;
-
-public class PalindromeNumber {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter a number: ");
-        int number = input.nextInt();
-        int originalNumber = number;
-        int reversedNumber = 0;
-
-        while (originalNumber != 0) {
-            int remainder = originalNumber % 10;
-            reversedNumber = reversedNumber * 10 + remainder;
-            originalNumber /= 10;
-        }
-
-        if (number == reversedNumber) {
-            System.out.println(number + " is a palindrome.");
-        } else {
-            System.out.println(number + " is not a palindrome.");
-        }
-    }
-}
-```
-</details>
-<details>
-<summary><b>11. Program to find the second largest element in an array:</b></summary>
+<summary><b>23. Program to find the second largest element in an array:</b></summary>
 
 ```java
 public class SecondLargestElement {
@@ -899,7 +440,7 @@ public class SecondLargestElement {
 ```
 </details>
 <details>
-<summary><b>12. Program to check if two strings are anagrams of each other:</b></summary>
+<summary><b>24. Program to check if two strings are anagrams of each other:</b></summary>
 
 ```java
 import java.util.Arrays;
@@ -933,7 +474,7 @@ public class AnagramCheck {
 ```
 </details>
 <details>
-<summary><b>13. Program to find the Fibonacci series up to a given number:</b></summary>
+<summary><b>25. Program to find the Fibonacci series up to a given number:</b></summary>
 
 ```java
 public class FibonacciSeries {
@@ -959,7 +500,7 @@ public class FibonacciSeries {
 ```
 </details>
 <details>
-<summary><b>14. Program to find the number of words in a string:</b></summary>
+<summary><b>26. Program to find the number of words in a string:</b></summary>
 
 ```java
 public class WordCount {
@@ -976,7 +517,7 @@ public class WordCount {
 ```
 </details>
 <details>
-<summary><b>15. Program to find the sum of digits of a number:</b></summary>
+<summary><b>27. Program to find the sum of digits of a number:</b></summary>
 
 ```java
 public class SumOfDigits {
@@ -999,7 +540,7 @@ public class SumOfDigits {
 ```
 </details>
 <details>
-<summary><b>16. Program to concatenate two strings:</b></summary>
+<summary><b>28. Program to concatenate two strings:</b></summary>
 
 ```java
 public class ConcatenateStrings {
@@ -1016,7 +557,7 @@ public class ConcatenateStrings {
 ```
 </details>
 <details>
-<summary><b>17. Program to find the index of a given element in an array:</b></summary>
+<summary><b>29. Program to find the index of a given element in an array:</b></summary>
 
 ```java
 public class ElementIndex {
@@ -1039,7 +580,7 @@ public class ElementIndex {
 ```
 </details>
 <details>
-<summary><b>18. Program to find the GCD of two numbers:</b></summary>
+<summary><b>30. Program to find the GCD of two numbers:</b></summary>
 
 ```java
 public class GCD {
@@ -1060,7 +601,7 @@ public class GCD {
 ```
 </details>
 <details>
-<summary><b>19. Program to find the intersection of two arrays:</b></summary>
+<summary><b>31. Program to find the intersection of two arrays:</b></summary>
 
 ```java
 import java.util.HashSet;
@@ -1093,7 +634,7 @@ public class IntersectionOfArrays {
 ```
 </details>
 <details>
-<summary><b>20. Program to find the power of a number using recursion:</b></summary>
+<summary><b>32. Program to find the power of a number using recursion:</b></summary>
 
 ```java
 public class PowerOfNumber {
@@ -1114,7 +655,7 @@ public class PowerOfNumber {
 ```
 </details>
 <details>
-<summary><b>21. Remove duplicates from an array</b></summary>
+<summary><b>33. Remove duplicates from an array</b></summary>
 
 ```java
 import java.util.Arrays;
@@ -1141,7 +682,7 @@ public class RemoveDuplicatesFromArray {
 ```
 </details>
 <details>
-<summary><b>22. Find the smallest element in an array</b></summary>
+<summary><b>34. Find the smallest element in an array</b></summary>
 
 ```java
 public class SmallestElementInArray {
@@ -1161,7 +702,7 @@ public class SmallestElementInArray {
 ```
 </details>
 <details>
-<summary><b>23. Check if a given string is a valid palindrome or not</b></summary>
+<summary><b>35. Check if a given string is a valid palindrome or not</b></summary>
 
 ```java
 public class ValidPalindrome {
@@ -1186,7 +727,7 @@ public class ValidPalindrome {
 ```
 </details>
 <details>
-<summary><b>24. Find the product of two matrices</b></summary>
+<summary><b>36. Find the product of two matrices</b></summary>
 
 ```java
 public class MatrixMultiplication {
@@ -1215,7 +756,7 @@ public class MatrixMultiplication {
 ```
 </details>
 <details>
-<summary><b>25. Reverse a linked list</b></summary>
+<summary><b>37. Reverse a linked list</b></summary>
 
 ```java
 class Node {
@@ -1271,7 +812,7 @@ public class ReverseLinkedList {
 ```
 </details>
 <details>
-<summary><b>26. Find the missing number in an array of consecutive numbers</b></summary>
+<summary><b>38. Find the missing number in an array of consecutive numbers</b></summary>
 
 ```java
 public class MissingNumberInArray {
@@ -1292,7 +833,7 @@ public class MissingNumberInArray {
 ```
 </details>
 <details>
-<summary><b>27. Check if a number is a perfect number</b></summary>
+<summary><b>39. Check if a number is a perfect number</b></summary>
 
 ```java
 public class PerfectNumber {
@@ -1316,7 +857,7 @@ public class PerfectNumber {
 ```
 </details>
 <details>
-<summary><b>28. Find the median of an array</b></summary>
+<summary><b>40. Find the median of an array</b></summary>
 
 ```java
 import java.util.Arrays;
