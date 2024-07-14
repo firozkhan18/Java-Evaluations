@@ -620,6 +620,236 @@ public class LCM {
 ```
 </details>
 
+<details>
+<summary><b>31. Maximum Subarray Sum Program:</b></summary>
+
+```java
+public class MaxSubarraySum {
+    public static int maxSubArraySum(int[] nums) {
+        int maxSum = nums[0];
+        int currentSum = nums[0];
+        
+        for (int i = 1; i < nums.length; i++) {
+            currentSum = Math.max(nums[i], currentSum + nums[i]);
+            maxSum = Math.max(maxSum, currentSum);
+        }
+        
+        return maxSum;
+    }
+    
+    public static void main(String[] args) {
+        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        System.out.println("Maximum Subarray Sum: " + maxSubArraySum(nums));
+    }
+}
+```
+</details>
+<details>
+<summary><b>32. Binary Search Algorithm Program:</b></summary>
+
+```java
+public class BinarySearch {
+    public static int binarySearch(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+        
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        
+        return -1;
+    }
+    
+    public static void main(String[] args) {
+        int[] nums = {1, 3, 5, 7, 9, 11, 13, 15};
+        int target = 7;
+        int result = binarySearch(nums, target);
+        
+        if (result != -1) {
+            System.out.println("Element found at index: " + result);
+        } else {
+            System.out.println("Element not found");
+        }
+    }
+}
+```
+</details>
+<details>
+<summary><b>33. Factorial using Recursion Program:</b></summary>
+
+
+```java
+public class Factorial {
+    public static int factorial(int n) {
+        if (n == 0) {
+            return 1;
+        } else {
+            return n * factorial(n - 1);
+        }
+    }
+    
+    public static void main(String[] args) {
+        int number = 5;
+        System.out.println("Factorial of " + number + " is: " + factorial(number));
+    }
+}
+```
+</details>
+<details>
+<summary><b>34. Remove Element from Array Program:</b></summary>
+
+
+```java
+import java.util.Arrays;
+
+public class RemoveElementFromArray {
+    public static int[] removeElement(int[] arr, int element) {
+        return Arrays.stream(arr).filter(num -> num != element).toArray();
+    }
+    
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int element = 3;
+        
+        int[] newArr = removeElement(arr, element);
+        System.out.println("Array after removing element: " + Arrays.toString(newArr));
+    }
+}
+```
+</details>
+<details>
+<summary><b>35. Sum of Series Program:</b></summary>
+
+```java
+public class SumOfSeries {
+    public static int sumOfSeries(int n) {
+        int sum = 0;
+        
+        for (int i = 1; i <= n; i++) {
+            sum += i;
+        }
+        
+        return sum;
+    }
+    
+    public static void main(String[] args) {
+        int n = 5;
+        System.out.println("Sum of series up to " + n + " is: " + sumOfSeries(n));
+    }
+}
+```
+</details>
+<details>
+<summary><b>36. Count Occurrences of Character in a String Program:</b></summary>
+
+```java
+public class CountCharacterOccurrences {
+    public static int countCharacterOccurrences(String str, char c) {
+        int count = 0;
+        
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == c) {
+                count++;
+            }
+        }
+        
+        return count;
+    }
+    
+    public static void main(String[] args) {
+        String str = "hello world";
+        char c = 'o';
+        System.out.println("Number of occurrences of '" + c + "': " + countCharacterOccurrences(str, c));
+    }
+}
+```
+</details>
+<details>
+<summary><b>37. Count Words in a Sentence Program:</b></summary>
+
+```java
+public class CountWordsInSentence {
+    public static int countWords(String sentence) {
+        String[] words = sentence.split("\\s+");
+        return words.length;
+    }
+    
+    public static void main(String[] args) {
+        String sentence = "This is a sample sentence.";
+        System.out.println("Number of words in the sentence: " + countWords(sentence));
+    }
+}
+```
+</details>
+<details>
+<summary><b>38. Area of Circle Program:</b></summary>
+
+```java
+public class AreaOfCircle {
+    public static double calculateArea(double radius) {
+        return Math.PI * radius * radius;
+    }
+    
+    public static void main(String[] args) {
+        double radius = 5.0;
+        System.out.println("Area of circle with radius " + radius + " is: " + calculateArea(radius));
+    }
+}
+```
+</details>
+<details>
+<summary><b>39. Bubble Sort Program:</b></summary>
+
+```java
+import java.util.Arrays;
+
+public class BubbleSort {
+    public static void bubbleSort(int[] nums) {
+        int n = nums.length;
+        
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    int temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
+                }
+            }
+        }
+    }
+    
+    public static void main(String[] args) {
+        int[] nums = {3, 1, 4, 1, 5, 9, 2, 6};
+        
+        bubbleSort(nums);
+        System.out.println("Sorted array: " + Arrays.toString(nums));
+    }
+}
+```
+</details>
+<details>
+<summary><b>40. Decimal to Binary Conversion Program:</b></summary>
+
+```java
+public class DecimalToBinary {
+    public static String decimalToBinary(int decimal) {
+        return Integer.toBinaryString(decimal);
+    }
+    
+    public static void main(String[] args) {
+        int decimal = 15;
+        System.out.println("Binary representation of " + decimal + " is: " + decimalToBinary(decimal));
+    }
+}
+```
+</details>
 
 <details>
 <summary><b>30. Check if a given string is a valid palindrome or not:</b></summary>
@@ -1395,236 +1625,7 @@ public class RemoveDuplicatesFromArray {
 ```
 </details>
 
-<details>
-<summary><b>31. Maximum Subarray Sum Program:</b></summary>
 
-```java
-public class MaxSubarraySum {
-    public static int maxSubArraySum(int[] nums) {
-        int maxSum = nums[0];
-        int currentSum = nums[0];
-        
-        for (int i = 1; i < nums.length; i++) {
-            currentSum = Math.max(nums[i], currentSum + nums[i]);
-            maxSum = Math.max(maxSum, currentSum);
-        }
-        
-        return maxSum;
-    }
-    
-    public static void main(String[] args) {
-        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        System.out.println("Maximum Subarray Sum: " + maxSubArraySum(nums));
-    }
-}
-```
-</details>
-<details>
-<summary><b>32. Binary Search Algorithm Program:</b></summary>
-
-```java
-public class BinarySearch {
-    public static int binarySearch(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length - 1;
-        
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] == target) {
-                return mid;
-            } else if (nums[mid] < target) {
-                left = mid + 1;
-            } else {
-                right = mid - 1;
-            }
-        }
-        
-        return -1;
-    }
-    
-    public static void main(String[] args) {
-        int[] nums = {1, 3, 5, 7, 9, 11, 13, 15};
-        int target = 7;
-        int result = binarySearch(nums, target);
-        
-        if (result != -1) {
-            System.out.println("Element found at index: " + result);
-        } else {
-            System.out.println("Element not found");
-        }
-    }
-}
-```
-</details>
-<details>
-<summary><b>33. Factorial using Recursion Program:</b></summary>
-
-
-```java
-public class Factorial {
-    public static int factorial(int n) {
-        if (n == 0) {
-            return 1;
-        } else {
-            return n * factorial(n - 1);
-        }
-    }
-    
-    public static void main(String[] args) {
-        int number = 5;
-        System.out.println("Factorial of " + number + " is: " + factorial(number));
-    }
-}
-```
-</details>
-<details>
-<summary><b>34. Remove Element from Array Program:</b></summary>
-
-
-```java
-import java.util.Arrays;
-
-public class RemoveElementFromArray {
-    public static int[] removeElement(int[] arr, int element) {
-        return Arrays.stream(arr).filter(num -> num != element).toArray();
-    }
-    
-    public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5};
-        int element = 3;
-        
-        int[] newArr = removeElement(arr, element);
-        System.out.println("Array after removing element: " + Arrays.toString(newArr));
-    }
-}
-```
-</details>
-<details>
-<summary><b>35. Sum of Series Program:</b></summary>
-
-```java
-public class SumOfSeries {
-    public static int sumOfSeries(int n) {
-        int sum = 0;
-        
-        for (int i = 1; i <= n; i++) {
-            sum += i;
-        }
-        
-        return sum;
-    }
-    
-    public static void main(String[] args) {
-        int n = 5;
-        System.out.println("Sum of series up to " + n + " is: " + sumOfSeries(n));
-    }
-}
-```
-</details>
-<details>
-<summary><b>36. Count Occurrences of Character in a String Program:</b></summary>
-
-```java
-public class CountCharacterOccurrences {
-    public static int countCharacterOccurrences(String str, char c) {
-        int count = 0;
-        
-        for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) == c) {
-                count++;
-            }
-        }
-        
-        return count;
-    }
-    
-    public static void main(String[] args) {
-        String str = "hello world";
-        char c = 'o';
-        System.out.println("Number of occurrences of '" + c + "': " + countCharacterOccurrences(str, c));
-    }
-}
-```
-</details>
-<details>
-<summary><b>37. Count Words in a Sentence Program:</b></summary>
-
-```java
-public class CountWordsInSentence {
-    public static int countWords(String sentence) {
-        String[] words = sentence.split("\\s+");
-        return words.length;
-    }
-    
-    public static void main(String[] args) {
-        String sentence = "This is a sample sentence.";
-        System.out.println("Number of words in the sentence: " + countWords(sentence));
-    }
-}
-```
-</details>
-<details>
-<summary><b>38. Area of Circle Program:</b></summary>
-
-```java
-public class AreaOfCircle {
-    public static double calculateArea(double radius) {
-        return Math.PI * radius * radius;
-    }
-    
-    public static void main(String[] args) {
-        double radius = 5.0;
-        System.out.println("Area of circle with radius " + radius + " is: " + calculateArea(radius));
-    }
-}
-```
-</details>
-<details>
-<summary><b>39. Bubble Sort Program:</b></summary>
-
-```java
-import java.util.Arrays;
-
-public class BubbleSort {
-    public static void bubbleSort(int[] nums) {
-        int n = nums.length;
-        
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    int temp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = temp;
-                }
-            }
-        }
-    }
-    
-    public static void main(String[] args) {
-        int[] nums = {3, 1, 4, 1, 5, 9, 2, 6};
-        
-        bubbleSort(nums);
-        System.out.println("Sorted array: " + Arrays.toString(nums));
-    }
-}
-```
-</details>
-<details>
-<summary><b>40. Decimal to Binary Conversion Program:</b></summary>
-
-```java
-public class DecimalToBinary {
-    public static String decimalToBinary(int decimal) {
-        return Integer.toBinaryString(decimal);
-    }
-    
-    public static void main(String[] args) {
-        int decimal = 15;
-        System.out.println("Binary representation of " + decimal + " is: " + decimalToBinary(decimal));
-    }
-}
-```
-</details>
 <details>
 <summary><b>41. Write a program to find the first non-repeated character in a string.</b></summary>
 
