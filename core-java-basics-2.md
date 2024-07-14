@@ -53,13 +53,14 @@ It is used to develop rich internet applications. It uses a light-weight user in
 The primary objective of Java programming language creation was to make it portable, simple and secure programming language. Apart from this, there are also some excellent features which play an important role in the popularity of this language. The features of Java are also known as java buzzwords.
 A list of most important features of Java language is given below.
 
-- [001 - Simple]
-  
+<details><summary><b>[001 - Simple]</b></summary>
+
 Java is very easy to learn, and its syntax is simple, clean and easy to understand. According to Sun, Java language is a simple programming language because:
-	o Java syntax is based on C++ (so easier for programmers to learn it after C++).
-	o Java has removed many complicated and rarely-used features, for example, explicit pointers, operator overloading, etc.
-	o There is no need to remove unreferenced objects because there is an Automatic Garbage Collection in Java.
+- Java syntax is based on C++ (so easier for programmers to learn it after C++).
+- Java has removed many complicated and rarely-used features, for example, explicit pointers, operator overloading, etc.
+- There is no need to remove unreferenced objects because there is an Automatic Garbage Collection in Java.
   
+</details>  
 - [002 - Object-oriented]
   
 Java is an object-oriented programming language. Everything in Java is an object. Object-oriented means we organize our software as a combination of different types of objects that incorporates both data and behavior.
