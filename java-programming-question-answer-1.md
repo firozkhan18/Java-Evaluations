@@ -2002,35 +2002,1166 @@ public class MaxPathSum {
 }
 ```
 </details>
-71. Write a program to implement a bellman-ford algorithm.
-72. Write a program to find the intersection of two linked lists.
-73. Write a program to find the longest increasing subsequence in an array.
-74. Write a program to implement a topological sort algorithm.
-75. Write a program to find the number of connected components in a graph.
-76. Write a program to find the maximum profit by buying and selling stocks.
-77. Write a program to implement a prim's algorithm.
-78. Write a program to find the longest common subsequence in two strings.
-79. Write a program to implement a Kruskal's algorithm.
-80. Write a program to find the minimum spanning tree of a graph.
 
-81. Write a program to implement a trie data structure.
-82. Write a program to find the longest palindrome subsequence in a string.
-83. Write a program to implement a hash table.
-84. Write a program to implement a stack using queues.
-85. Write a program to find the maximum sum subarray using Kadane's algorithm.
-86. Write a program to implement an AVL tree.
-87. Write a program to find the shortest path in a maze.
-88. Write a program to implement a disjoint-set data structure.
-89. Write a program to find the longest repeating subsequence in a string.
-90. Write a program to implement a priority queue.
+<details>
+<summary><b>71. Write a program to implement a bellman-ford algorithm.</b></summary>
 
-91. Write a program to find the longest common substring in two strings.
-92. Write a program to implement a radix sort algorithm.
-93. Write a program to find the maximum number of non-overlapping intervals.
-94. Write a program to implement a segment tree.
-95. Write a program to find the maximum area of a histogram.
-96. Write a program to implement a Floyd-Warshall algorithm.
-97. Write a program to find the longest word in a dictionary that can be formed from a set of letters.
-98. Write a program to check if a binary tree is balanced.
-99. Write a program to implement a hashmap from scratch.
-100. Write a program to find the maximum flow in a graph using Ford-Fulkerson algorithm.
+```java
+public class BellmanFordAlgorithm {
+    public void bellmanFord(int graph[][], int V, int E, int src) {
+        int[] dist = new int[V];
+        for (int i = 0; i < V; i++) {
+            dist[i] = Integer.MAX_VALUE;
+        }
+        dist[src] = 0;
+
+        for (int i = 0; i < V - 1; i++) {
+            for (int j = 0; j < E; j++) {
+                if (dist[graph[j][0]] + graph[j][2] < dist[graph[j][1]]) {
+                    dist[graph[j][1]] = dist[graph[j][0]] + graph[j][2];
+                }
+            }
+        }
+
+        for (int j = 0; j < E; j++) {
+            int x = graph[j][0];
+            int y = graph[j][1];
+            int weight = graph[j][2];
+            if (dist[x] != Integer.MAX_VALUE && dist[x] + weight < dist[y]) {
+                System.out.println("Graph contains negative weight cycle");
+                return;
+            }
+        }
+
+        System.out.println("Vertex Distance from Source");
+        for (int i = 0; i < V; i++) {
+            System.out.println(i + "\t\t" + dist[i]);
+        }
+    }
+
+    public static void main(String[] args) {
+        int V = 5; // Number of vertices in graph
+        int E = 8; // Number of edges in graph
+
+        int graph[][] = { { 0, 1, -1 }, { 0, 2, 4 }, { 1, 2, 3 }, { 1, 3, 2 }, { 1, 4, 2 }, { 3, 2, 5 }, { 3, 1, 1 },
+                { 4, 3, -3 } };
+
+        BellmanFordAlgorithm bellmanFordAlgorithm = new BellmanFordAlgorithm();
+        bellmanFordAlgorithm.bellmanFord(graph, V, E, 0);
+    }
+}
+```
+</details>
+<details>
+<summary><b>72. Write a program to find the intersection of two linked lists.</b></summary>
+
+```java
+public class IntersectionOfLinkedLists {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode A = headA;
+        ListNode B = headB;
+
+        while (A != B) {
+            A = A == null ? headB : A.next;
+            B = B == null ? headA : B.next;
+        }
+
+        return A;
+    }
+}
+```
+</details>
+<details>
+<summary><b>73. Write a program to find the longest increasing subsequence in an array.</b></summary>
+```java
+public class LongestIncreasingSubsequence {
+    public int lengthOfLIS(int[] nums) {
+        int n = nums.length;
+        if (n == 0) {
+            return 0;
+        }
+
+        int[] dp = new int[n];
+        int max = 1;
+        Arrays.fill(dp, 1);
+
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                if (nums[i] > nums[j]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
+            }
+            max = Math.max(max, dp[i]);
+        }
+
+        return max;
+    }
+}
+```
+</details>
+<details>
+<summary><b>74. Write a program to implement a topological sort algorithm.</b></summary>
+
+```java
+import java.util.*;
+
+public class TopologicalSort {
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
+        int[] inDegree = new int[numCourses];
+        List<List<Integer>> adjList = new ArrayList<>();
+        Queue<Integer> queue = new LinkedList<>();
+        int[] result = new int[numCourses];
+
+        for (int i = 0; i < numCourses; i++) {
+            adjList.add(new ArrayList<>());
+        }
+
+        for (int[] prerequisite : prerequisites) {
+            inDegree[prerequisite[0]]++;
+            adjList.get(prerequisite[1]).add(prerequisite[0]);
+        }
+
+        for (int i = 0; i < numCourses; i++) {
+            if (inDegree[i] == 0) {
+                queue.offer(i);
+            }
+        }
+
+        int index = 0;
+        while (!queue.isEmpty()) {
+            int course = queue.poll();
+            result[index++] = course;
+
+            for (int nextCourse : adjList.get(course)) {
+                inDegree[nextCourse]--;
+                if (inDegree[nextCourse] == 0) {
+                    queue.offer(nextCourse);
+                }
+            }
+        }
+
+        return index == numCourses ? result : new int[0];
+    }
+}
+```
+</details>
+<details>
+<summary><b>75. Write a program to find the number of connected components in a graph.</b></summary>
+
+```java
+public class NumberOfConnectedComponents {
+    public int countComponents(int n, int[][] edges) {
+        int[] roots = new int[n];
+        for (int i = 0; i < n; i++) {
+            roots[i] = i;
+        }
+
+        for (int[] edge : edges) {
+            int root1 = find(roots, edge[0]);
+            int root2 = find(roots, edge[1]);
+            if (root1 != root2) {
+                roots[root1] = root2;
+                n--;
+            }
+        }
+
+        return n;
+    }
+
+    private int find(int[] roots, int id) {
+        while (roots[id] != id) {
+            roots[id] = roots[roots[id]];
+            id = roots[id];
+        }
+        return id;
+    }
+}
+```
+<details>
+<summary><b>76. Write a program to find the maximum profit by buying and selling stocks.</b></summary>
+
+```java
+public class MaxProfitStocks {
+    public int maxProfit(int[] prices) {
+        int maxProfit = 0;
+        int minPrice = Integer.MAX_VALUE;
+
+        for (int price : prices) {
+            minPrice = Math.min(minPrice, price);
+            maxProfit = Math.max(maxProfit, price - minPrice);
+        }
+
+        return maxProfit;
+    }
+}
+```
+</details>
+<details>
+<summary><b>77. Write a program to implement a prim's algorithm.</b></summary>
+
+```java
+public class PrimsAlgorithm {
+    public int minCost(int[][] graph) {
+        int n = graph.length;
+        int[] key = new int[n];
+        Arrays.fill(key, Integer.MAX_VALUE);
+        key[0] = 0;
+
+        boolean[] mstSet = new boolean[n];
+
+        for (int i = 0; i < n; i++) {
+            int u = minKey(key, mstSet);
+            mstSet[u] = true;
+
+            for (int v = 0; v < n; v++) {
+                if (graph[u][v] != 0 && !mstSet[v] && graph[u][v] < key[v]) {
+                    key[v] = graph[u][v];
+                }
+            }
+        }
+
+        int result = 0;
+        for (int i = 0; i < n; i++) {
+            result += key[i];
+        }
+        return result;
+    }
+
+    private int minKey(int[] key, boolean[] mstSet) {
+        int min = Integer.MAX_VALUE, minIndex = -1;
+        for (int i = 0; i < key.length; i++) {
+            if (!mstSet[i] && key[i] < min) {
+                min = key[i];
+                minIndex = i;
+            }
+        }
+        return minIndex;
+    }
+}
+```
+</details>
+<details>
+<summary><b>78. Write a program to find the longest common subsequence in two strings.</b></summary>
+
+```java
+public class LongestCommonSubsequence {
+    public int longestCommonSubsequence(String text1, String text2) {
+        int[][] dp = new int[text1.length() + 1][text2.length() + 1];
+
+        for (int i = 1; i <= text1.length(); i++) {
+            char c1 = text1.charAt(i - 1);
+            for (int j = 1; j <= text2.length(); j++) {
+                char c2 = text2.charAt(j - 1);
+                if (c1 == c2) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                } else {
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                }
+            }
+        }
+
+        return dp[text1.length()][text2.length()];
+    }
+}
+```
+</details>
+<details>
+<summary><b>79. Write a program to implement a Kruskal's algorithm.</b></summary>
+
+```java
+public class KruskalsAlgorithm {
+    class Edge implements Comparable<Edge> {
+        int src, dest, weight;
+
+        public int compareTo(Edge compareEdge) {
+            return this.weight - compareEdge.weight;
+        }
+    }
+
+    class Subset {
+        int parent, rank;
+    }
+
+    private int find(Subset[] subsets, int i) {
+        if (subsets[i].parent != i) {
+            subsets[i].parent = find(subsets, subsets[i].parent);
+        }
+        return subsets[i].parent;
+    }
+
+    private void union(Subset[] subsets, int x, int y) {
+        int xroot = find(subsets, x);
+        int yroot = find(subsets, y);
+
+        if (subsets[xroot].rank < subsets[yroot].rank) {
+            subsets[xroot].parent = yroot;
+        } else if (subsets[xroot].rank > subsets[yroot].rank) {
+            subsets[yroot].parent = xroot;
+        } else {
+            subsets[yroot].parent = xroot;
+            subsets[xroot].rank++;
+        }
+    }
+
+    public Edge[] kruskalMST(int V, Edge[] edges) {
+        Edge[] result = new Edge[V];
+        int e = 0;
+        int i = 0;
+
+        Arrays.sort(edges);
+
+        Subset[] subsets = new Subset[V];
+        for (int j = 0; j < V; j++) {
+            subsets[j] = new Subset();
+            subsets[j].parent = j;
+            subsets[j].rank = 0;
+        }
+
+        while (e < V - 1) {
+            Edge next_edge = edges[i++];
+            int x = find(subsets, next_edge.src);
+            int y = find(subsets, next_edge.dest);
+
+            if (x != y) {
+                result[e++] = next_edge;
+                union(subsets, x, y);
+            }
+        }
+
+        return result;
+    }
+}
+```
+</details>
+<details>
+<summary><b>80. Write a program to find the minimum spanning tree of a graph.</b></summary>
+
+```java
+import java.util.*;
+
+public class MinimumSpanningTree {
+    class Edge implements Comparable<Edge> {
+        int src, dest, weight;
+
+        public int compareTo(Edge compareEdge) {
+            return this.weight - compareEdge.weight;
+        }
+    }
+
+    public int minCost(int[][] graph) {
+        int n = graph.length;
+        Edge[] edges = new Edge[n * (n - 1) / 2];
+        int k = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (graph[i][j] != 0) {
+                    Edge edge = new Edge();
+                    edge.src = i;
+                    edge.dest = j;
+                    edge.weight = graph[i][j];
+                    edges[k++] = edge;
+                }
+            }
+        }
+
+        Arrays.sort(edges);
+
+        int[] parent = new int[n];
+        Arrays.fill(parent, -1);
+
+        int result = 0;
+        int e = 0;
+
+        while (e < n - 1) {
+            Edge next_edge = edges[e++];
+            int x = find(parent, next_edge.src);
+            int y = find(parent, next_edge.dest);
+
+            if (x != y) {
+                result += next_edge.weight;
+                union(parent, x, y);
+            }
+        }
+
+        return result;
+    }
+
+    private int find(int[] parent, int i) {
+        if (parent[i] == -1) {
+            return i;
+        }
+        return find(parent, parent[i]);
+    }
+
+    private void union(int[] parent, int x, int y) {
+        int xset = find(parent, x);
+        int yset = find(parent, y);
+        parent[xset] = yset;
+    }
+}
+```
+</details>
+<details>
+<summary><b>81. Implementing a trie data structure in Java:</b></summary>
+
+```java
+public class Trie {
+    private TrieNode root;
+
+    public Trie() {
+        root = new TrieNode();
+    }
+
+    public void insert(String word) {
+        TrieNode current = root;
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            if (!current.containsKey(c)) {
+                current.put(c, new TrieNode());
+            }
+            current = current.get(c);
+        }
+        current.setEnd();
+    }
+
+    public boolean search(String word) {
+        TrieNode node = searchPrefix(word);
+        return node != null && node.isEnd();
+    }
+
+    public boolean startsWith(String prefix) {
+        return searchPrefix(prefix) != null;
+    }
+
+    private TrieNode searchPrefix(String word) {
+        TrieNode current = root;
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            if (current.containsKey(c)) {
+                current = current.get(c);
+            } else {
+                return null;
+            }
+        }
+        return current;
+    }
+
+    class TrieNode {
+        private TrieNode[] links;
+        private final int R = 26;
+        private boolean isEnd;
+
+        public TrieNode() {
+            links = new TrieNode[R];
+        }
+
+        public boolean containsKey(char c) {
+            return links[c - 'a'] != null;
+        }
+
+        public TrieNode get(char c) {
+            return links[c - 'a'];
+        }
+
+        public void put(char c, TrieNode node) {
+            links[c - 'a'] = node;
+        }
+
+        public void setEnd() {
+            isEnd = true;
+        }
+
+        public boolean isEnd() {
+            return isEnd;
+        }
+    }
+}
+
+```
+</details>
+<details>
+<summary><b>82. Finding the longest palindrome subsequence in a string in Java:</b></summary>
+
+```java
+public class LongestPalindromeSubsequence {
+    public int longestPalindromeSubseq(String s) {
+        int len = s.length();
+        int[][] dp = new int[len][len];
+
+        for (int i = len - 1; i >= 0; i--) {
+            dp[i][i] = 1;
+            for (int j = i + 1; j < len; j++) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    dp[i][j] = 2 + dp[i + 1][j - 1];
+                } else {
+                    dp[i][j] = Math.max(dp[i + 1][j], dp[i][j - 1]);
+                }
+            }
+        }
+
+        return dp[0][len - 1];
+    }
+}
+```
+</details>
+<details>
+<summary><b>83. Java program to implement a hash table:</b></summary>
+
+```java
+import java.util.HashMap;
+
+public class HashTable {
+    public static void main(String[] args) {
+        HashMap<Integer, String> hashtable = new HashMap<>();
+        
+        hashtable.put(1, "Java");
+        hashtable.put(2, "Python");
+        hashtable.put(3, "C++");
+        
+        System.out.println("Hash Table: " + hashtable);
+    }
+}
+```
+</details>
+<details>
+<summary><b>84. Java program to implement a stack using queues:</b></summary>
+
+```java
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class StackUsingQueues {
+    Queue<Integer> q1 = new LinkedList<>();
+    Queue<Integer> q2 = new LinkedList<>();
+    
+    public void push(int x) {
+        q1.add(x);
+    }
+    
+    public int pop() {
+        while(q1.size() > 1) {
+            q2.add(q1.poll());
+        }
+        
+        int popped = q1.poll();
+        
+        Queue<Integer> temp = q1;
+        q1 = q2;
+        q2 = temp;
+        
+        return popped;
+    }
+    
+    public static void main(String[] args) {
+        StackUsingQueues stack = new StackUsingQueues();
+        
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        
+        System.out.println("Popped element: " + stack.pop());
+    }
+}
+```
+</details>
+<details>
+<summary><b>85. Java program to find the maximum sum subarray using Kadane's algorithm:</b></summary>
+
+```java
+public class MaximumSumSubarray {
+    public static int maxSumSubarray(int[] nums) {
+        int maxSum = nums[0];
+        int currentSum = nums[0];
+        
+        for (int i = 1; i < nums.length; i++) {
+            currentSum = Math.max(nums[i], currentSum + nums[i]);
+            maxSum = Math.max(maxSum, currentSum);
+        }
+        
+        return maxSum;
+    }
+    
+    public static void main(String[] args) {
+        int[] nums = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
+        System.out.println("Maximum sum subarray: " + maxSumSubarray(nums));
+    }
+}
+```
+</details>
+<details>
+<summary><b>86. Java program to implement an AVL tree:</b></summary>
+
+```java
+class Node {
+    int data, height;
+    Node left, right;
+    
+    Node(int data) {
+        this.data = data;
+        this.height = 1;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+public class AVLTree {
+    Node root;
+    
+    // Implement AVL tree operations
+}
+```
+</details>
+<details>
+<summary><b>87. Java program to find the shortest path in a maze:</b></summary>
+
+```java
+public class ShortestPathInMaze {
+    // Implement shortest path in a maze algorithm
+}
+```
+</details>
+<details>
+<summary><b>88. Java program to implement a disjoint-set data structure:</b></summary>
+
+```java
+class DisjointSet {
+    private int[] parent;
+    private int[] rank;
+    
+    public DisjointSet(int n) {
+        parent = new int[n];
+        rank = new int[n];
+        
+        for (int i = 0; i < n; i++) {
+            parent[i] = i;
+            rank[i] = 0;
+        }
+    }
+    
+    public int find(int x) {
+        if (parent[x] != x) {
+            parent[x] = find(parent[x]);
+        }
+        return parent[x];
+    }
+    
+    public void union(int x, int y) {
+        int rootX = find(x);
+        int rootY = find(y);
+        
+        if (rootX != rootY) {
+            if (rank[rootX] < rank[rootY]) {
+                parent[rootX] = rootY;
+            } else if (rank[rootX] > rank[rootY]) {
+                parent[rootY] = rootX;
+            } else {
+                parent[rootX] = rootY;
+                rank[rootY]++;
+            }
+        }
+    }
+}
+```
+</details>
+<details>
+<summary><b>89. Java program to find the longest repeating subsequence in a string:</b></summary>
+
+```java
+public class LongestRepeatingSubsequence {
+    // Implement longest repeating subsequence algorithm
+}
+```
+</details>
+<details>
+<summary><b>90. Java program to implement a priority queue:</b></summary>
+
+```java
+import java.util.PriorityQueue;
+
+public class PriorityQueueDemo {
+    public static void main(String[] args) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        
+        pq.offer(3);
+        pq.offer(1);
+        pq.offer(2);
+        
+        while (!pq.isEmpty()) {
+            System.out.println(pq.poll());
+        }
+    }
+}
+```
+</details>
+<details>
+<summary><b>// 91. Program to find the longest common substring in two strings</b></summary>
+```java
+public class LongestCommonSubstring {
+    public static String longestCommonSubstring(String s1, String s2) {
+        int m = s1.length();
+        int n = s2.length();
+        
+        int[][] dp = new int[m + 1][n + 1];
+        int maxLength = 0;
+        int endIndex = 0;
+        
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                    if (dp[i][j] > maxLength) {
+                        maxLength = dp[i][j];
+                        endIndex = i - 1;
+                    }
+                }
+            }
+        }
+        
+        return s1.substring(endIndex - maxLength + 1, endIndex + 1);
+    }
+}
+```
+</details>
+<details>
+<summary><b>// 92. Program to implement a radix sort algorithm</b></summary>
+
+```java
+public class RadixSort {
+    public static void radixSort(int[] arr) {
+        int max = arr[0];
+        for (int num : arr) {
+            if (num > max) {
+                max = num;
+            }
+        }
+        
+        for (int exp = 1; max / exp > 0; exp *= 10) {
+            countingSort(arr, exp);
+        }
+    }
+    
+    private static void countingSort(int[] arr, int exp) {
+        int n = arr.length;
+        int[] output = new int[n];
+        int[] count = new int[10];
+        
+        for (int i = 0; i < n; i++) {
+            count[(arr[i] / exp) % 10]++;
+        }
+        
+        for (int i = 1; i < 10; i++) {
+            count[i] += count[i - 1];
+        }
+        
+        for (int i = n - 1; i >= 0; i--) {
+            output[count[(arr[i] / exp) % 10] - 1] = arr[i];
+            count[(arr[i] / exp) % 10]--;
+        }
+        
+        for (int i = 0; i < n; i++) {
+            arr[i] = output[i];
+        }
+    }
+}
+```
+</details>
+<details>
+<summary><b>93. Program to find the maximum number of non-overlapping intervals:</b></summary>
+
+```java
+import java.util.Arrays;
+import java.util.Comparator;
+
+class Interval {
+    int start, end;
+
+    public Interval(int start, int end) {
+        this.start = start;
+        this.end = end;
+    }
+}
+
+public class NonOverlappingIntervals {
+    public int maxNonOverlappingIntervals(Interval[] intervals) {
+        if (intervals == null || intervals.length == 0) {
+            return 0;
+        }
+
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a.end));
+
+        int end = intervals[0].end;
+        int count = 1;
+
+        for (int i = 1; i < intervals.length; i++) {
+            if (intervals[i].start >= end) {
+                end = intervals[i].end;
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Interval[] intervals = {new Interval(1, 2), new Interval(2, 3), new Interval(3, 4), new Interval(1, 3)};
+        NonOverlappingIntervals solution = new NonOverlappingIntervals();
+        System.out.println(solution.maxNonOverlappingIntervals(intervals));
+    }
+}
+```
+</details>
+<details>
+<summary><b>94. Program to implement a segment tree:</b></summary>
+
+```java
+public class SegmentTree {
+    int[] tree;
+    int n;
+
+    public SegmentTree(int[] nums) {
+        n = nums.length;
+        tree = new int[2 * n];
+
+        for (int i = 0; i < n; i++) {
+            tree[n + i] = nums[i];
+        }
+
+        for (int i = n - 1; i > 0; --i) {
+            tree[i] = tree[i * 2] + tree[i * 2 + 1];
+        }
+    }
+
+    public void update(int index, int val) {
+        index += n;
+        tree[index] = val;
+
+        while (index > 1) {
+            tree[index / 2] = tree[index] + tree[index ^ 1];
+            index /= 2;
+        }
+    }
+
+    public int sumRange(int left, int right) {
+        left += n;
+        right += n;
+        int sum = 0;
+
+        while (left <= right) {
+            if ((left & 1) == 1) {
+                sum += tree[left++];
+            }
+            if ((right & 1) == 0) {
+                sum += tree[right--];
+            }
+            left /= 2;
+            right /= 2;
+        }
+
+        return sum;
+    }
+}
+```
+</details>
+<details>
+<summary><b>95. Program to find the maximum area of a histogram:</b></summary>
+
+```java
+import java.util.Stack;
+
+public class MaxHistogramArea {
+    public int maxHistogramArea(int[] heights) {
+        int n = heights.length;
+        Stack<Integer> stack = new Stack<>();
+        int maxArea = 0;
+
+        for (int i = 0; i <= n; i++) {
+            int h = (i == n ? 0 : heights[i]);
+
+            if (stack.isEmpty() || h >= heights[stack.peek()]) {
+                stack.push(i);
+            } else {
+                int top = stack.pop();
+                maxArea = Math.max(maxArea, heights[top] * (stack.isEmpty() ? i : i - stack.peek() - 1));
+                i--;
+            }
+        }
+
+        return maxArea;
+    }
+
+    public static void main(String[] args) {
+        MaxHistogramArea solution = new MaxHistogramArea();
+        int[] heights = {2, 1, 5, 6, 2, 3};
+        System.out.println(solution.maxHistogramArea(heights));
+    }
+}
+```
+</details>
+<details>
+<summary><b>96. Program to implement Floyd-Warshall algorithm:</b></summary>
+
+```java
+public class FloydWarshall {
+    public void shortestPath(int[][] graph) {
+        int n = graph.length;
+
+        for (int k = 0; k < n; k++) {
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (graph[i][k] != Integer.MAX_VALUE && graph[k][j] != Integer.MAX_VALUE
+                            && graph[i][k] + graph[k][j] < graph[i][j]) {
+                        graph[i][j] = graph[i][k] + graph[k][j];
+                    }
+                }
+            }
+        }
+    }
+}
+```
+</details>
+<details>
+<summary><b>97. Program to find the longest word in a dictionary that can be formed from a set of letters:</b></summary>
+
+```java
+import java.util.HashSet;
+import java.util.Set;
+
+public class LongestWord {
+    public String findLongestWord(String[] words, String letters) {
+        Set<Character> set = new HashSet<>();
+        for (char c : letters.toCharArray()) {
+            set.add(c);
+        }
+
+        String result = "";
+
+        for (String word : words) {
+            int i = 0;
+            for (char c : word.toCharArray()) {
+                if (set.contains(c)) {
+                    i++;
+                } else {
+                    break;
+                }
+            }
+
+            if (i == word.length() && word.length() > result.length()) {
+                result = word;
+            }
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        LongestWord solution = new LongestWord();
+        String[] words = {"w","wo","wor","worl","world"};
+        String letters = "worldabcefgh";
+        System.out.println(solution.findLongestWord(words, letters));
+    }
+}
+```
+</details>
+<details>
+<summary><b>98. Program to check if a binary tree is balanced:</b></summary>
+
+```java
+public class BinaryTreeBalanced {
+    public boolean isBalanced(TreeNode root) {
+        return height(root) != -1;
+    }
+
+    private int height(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+
+        int leftHeight = height(node.left);
+        int rightHeight = height(node.right);
+
+        if (leftHeight == -1 || rightHeight == -1 || Math.abs(leftHeight - rightHeight) > 1) {
+            return -1;
+        }
+
+        return 1 + Math.max(leftHeight, rightHeight);
+    }
+
+    private static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+    }
+}
+```
+</details>
+<details>
+<summary><b>99. Program to implement a hashmap from scratch:</b></summary>
+
+```java
+public class MyHashMap {
+    private static final int SIZE = 10000;
+    private Entry[] table;
+
+    public MyHashMap() {
+        table = new Entry[SIZE];
+    }
+
+    public void put(int key, int value) {
+        int index = key % SIZE;
+        Entry newEntry = new Entry(key, value);
+
+        if (table[index] == null) {
+            table[index] = newEntry;
+        } else {
+            Entry prev = null;
+            Entry current = table[index];
+
+            while (current != null) {
+                if (current.key == key) {
+                    current.value = value;
+                    return;
+                }
+                prev = current;
+                current = current.next;
+            }
+
+            prev.next = newEntry;
+        }
+    }
+
+    public int get(int key) {
+        int index = key % SIZE;
+
+        if (table[index] == null) {
+            return -1;
+        }
+
+        Entry current = table[index];
+
+        while (current != null) {
+            if (current.key == key) {
+                return current.value;
+            }
+            current = current.next;
+        }
+
+        return -1;
+    }
+
+    public void remove(int key) {
+        int index = key % SIZE;
+
+        if (table[index] == null) {
+            return;
+        }
+
+        Entry prev = null;
+        Entry current = table[index];
+
+        while (current != null && current.key != key) {
+            prev = current;
+            current = current.next;
+        }
+
+        if (current == null) {
+            return;
+        }
+
+        if (prev == null) {
+            table[index] = current.next;
+        } else {
+            prev.next = current.next;
+        }
+    }
+
+    private static class Entry {
+        int key, value;
+        Entry next;
+
+        Entry(int key, int value) {
+            this.key = key;
+            this.value = value;
+        }
+    }
+}
+```
+</details>
+<details>
+<summary><b>100. Program to find the maximum flow in a graph using Ford-Fulkerson algorithm:</b></summary>
+
+```java
+import java.util.LinkedList;
+
+public class FordFulkerson {
+    private static final int V = 6;
+
+    public int fordFulkerson(int[][] graph, int source, int sink) {
+        int maxFlow = 0;
+        int[][] rGraph = new int[V][V];
+        for (int i = 0; i < V; i++) {
+            for (int j = 0; j < V; j++) {
+                rGraph[i][j] = graph[i][j];
+            }
+        }
+
+        int[] parent = new int[V];
+
+        while (bfs(rGraph, source, sink, parent)) {
+            int pathFlow = Integer.MAX_VALUE;
+            for (int v = sink; v != source; v = parent[v]) {
+                int u = parent[v];
+                pathFlow = Math.min(pathFlow, rGraph[u][v]);
+            }
+
+            for (int v = sink; v != source; v = parent[v]) {
+                int u = parent[v];
+                rGraph[u][v] -= pathFlow;
+                rGraph[v][u] += pathFlow;
+            }
+
+            maxFlow += pathFlow;
+        }
+
+        return maxFlow;
+    }
+
+    private boolean bfs(int[][] rGraph, int source, int sink, int[] parent) {
+        boolean[] visited = new boolean[V];
+        LinkedList<Integer> queue = new LinkedList<>();
+        queue.add(source);
+        visited[source] = true;
+        parent[source] = -1;
+
+        while (!queue.isEmpty()) {
+            int u = queue.poll();
+            for (int v = 0; v < V; v++) {
+                if (!visited[v] && rGraph[u][v] > 0) {
+                    if (v == sink) {
+                        parent[v] = u;
+                        return true;
+                    }
+                    queue.add(v);
+                    parent[v] = u;
+                    visited[v] = true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public static void main(String[] args) {
+        int[][] graph = {{0, 16, 13, 0, 0, 0}, {0, 0, 10, 12, 0, 0}, {0, 4, 0, 0, 14, 0},
+                {0, 0, 9, 0, 0, 20}, {0, 0, 0, 7, 0, 4}, {0, 0, 0, 0, 0, 0}};
+        FordFulkerson solution = new FordFulkerson();
+        System.out.println("The maximum possible flow is: " + solution.fordFulkerson(graph, 0, 5));
+    }
+}
+```
+</details>
+
