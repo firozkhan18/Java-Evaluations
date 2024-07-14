@@ -15,7 +15,7 @@ Key features and characteristics of ArrayList:
 - Iterable: ArrayList implements the Iterable interface, which means it can be easily traversed using iterators or enhanced for loops.
 - Not Synchronized: This class is roughly equivalent to Vector, except it is unsynchronized.
 
-- [ArrayList Exercises](java-basic-exercises-020-collection-arraylist.md)
+[ArrayList Exercises](java-basic-exercises-020-collection-arraylist.md)
 </details>
 	
 <details>
@@ -31,7 +31,7 @@ Key features and characteristics of LinkedList:
 - Performance Advantage: Manipulating elements in a LinkedList tends to be faster compared to ArrayList due to its employment of a doubly linked list structure, eliminating the need for bit shifting in memory operations.
 - Optimal Use Cases: LinkedList is ideal for scenarios where frequent addition and removal of items occurs at the beginning or middle of the list, and where random access to elements is not essential.
 
-- [LinkedList Exercises](java-basic-exercises-020-collection-linkedlist.md)
+[LinkedList Exercises](java-basic-exercises-020-collection-linkedlist.md)
 </details>
 
 <details>
@@ -50,7 +50,7 @@ Unique Element Constraint: HashSet enforces uniqueness among its elements, ensur
 - Default Capacity and Load Factor: By default, HashSet initializes with a capacity of 16 and a load factor of 0.75, which can be adjusted as needed to optimize performance and memory usage.
 - Hash Table Data Structure: HashSet utilizes the hash table data structure internally to manage its elements efficiently, supporting rapid access and modification operations.
 
-- [HashSet Exercises](java-basic-exercises-020-collection-hashset.md)
+[HashSet Exercises](java-basic-exercises-020-collection-hashset.md)
 </details>
 
 <details>
@@ -65,7 +65,7 @@ Here are the key features and characteristics of TreeSet:
 - Ascending Order Sorting: Elements within a TreeSet are automatically sorted in ascending order according to their natural ordering or a custom comparator.
 - Lack of Thread Safety: TreeSet is not inherently thread-safe, meaning it does not provide built-in mechanisms to handle concurrent access by multiple threads. External synchronization is required for thread safety.
 
-- [TreeSet Exercises](java-basic-exercises-020-collection-treeset.md)
+[TreeSet Exercises](java-basic-exercises-020-collection-treeset.md)
 </details>
 
 <details>
@@ -83,7 +83,7 @@ Here are the key features and characteristics of PriorityQueue:
 - Performance: Offers logarithmic time complexity for insertion and removal operations.
 - Usage: Commonly used in algorithms requiring prioritized element processing, like graph algorithms and scheduling.
 
-- [PriorityQueue Exercises](java-basic-exercises-020-collection-priorityqueue.md)
+[PriorityQueue Exercises](java-basic-exercises-020-collection-priorityqueue.md)
 </details>
 
 <details>
@@ -102,7 +102,7 @@ Here are the key features and characteristics of HashMap:
 - Good Performance: Offers constant-time performance for most operations.
 - Iteration Order: The order of iteration is not guaranteed.
 
-- [HashMap Exercises](java-basic-exercises-020-collection-hashmap.md)
+[HashMap Exercises](java-basic-exercises-020-collection-hashmap.md)
 </details>
 
 <details>
@@ -122,7 +122,7 @@ Here are the key features and characteristics of TreeMap:
 - Performance: Offers guaranteed logarithmic time complexity for most operations.
 - Navigable Map Operations: Provides additional operations for navigating elements based on their order.
 
-- [TreeMap Exercises](java-basic-exercises-020-collection-treemap.md)
+[TreeMap Exercises](java-basic-exercises-020-collection-treemap.md)
 </details>
 
 <details> 
