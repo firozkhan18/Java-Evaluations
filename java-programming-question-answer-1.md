@@ -369,7 +369,34 @@ public class PowerOfNumber {
 }
 ```
 </details>
+<details>
+<summary><b>21. Remove duplicate elements from an array:</b></summary>
 
+```java
+import java.util.*;
+
+public class RemoveDuplicates {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8};
+
+        List<Integer> list = new ArrayList<>();
+        for (int num : arr) {
+            if (!list.contains(num)) {
+                list.add(num);
+            }
+        }
+
+        int[] uniqueArr = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            uniqueArr[i] = list.get(i);
+        }
+
+        System.out.println("Original Array: " + Arrays.toString(arr));
+        System.out.println("Array with duplicates removed: " + Arrays.toString(uniqueArr));
+    }
+}
+```
+</details>
 <details>
 <summary><b>22. Find the smallest element in an array</b></summary>
 
@@ -416,7 +443,7 @@ public class ValidPalindrome {
 ```
 </details>
 <details>
-<summary><b>35. Find the product of two matrices</b></summary>
+<summary><b>24 Find the product of two matrices</b></summary>
 
 ```java
 public class MatrixMultiplication {
@@ -445,7 +472,7 @@ public class MatrixMultiplication {
 ```
 </details>
 <details>
-<summary><b>24 Reverse a linked list</b></summary>
+<summary><b>25 Reverse a linked list</b></summary>
 
 ```java
 class Node {
@@ -501,7 +528,7 @@ public class ReverseLinkedList {
 ```
 </details>
 <details>
-<summary><b>25. Find the missing number in an array of consecutive numbers</b></summary>
+<summary><b>26. Find the missing number in an array of consecutive numbers</b></summary>
 
 ```java
 public class MissingNumberInArray {
@@ -522,7 +549,7 @@ public class MissingNumberInArray {
 ```
 </details>
 <details>
-<summary><b>26. Check if a number is a perfect number</b></summary>
+<summary><b>27. Check if a number is a perfect number</b></summary>
 
 ```java
 public class PerfectNumber {
@@ -546,7 +573,7 @@ public class PerfectNumber {
 ```
 </details>
 <details>
-<summary><b>27. Find the median of an array</b></summary>
+<summary><b>28. Find the median of an array</b></summary>
 
 ```java
 import java.util.Arrays;
@@ -569,7 +596,7 @@ public class MedianOfArray {
 ```
 </details>
 <details>
-<summary><b>28. Check if a string contains only digits</b></summary>
+<summary><b>29. Check if a string contains only digits</b></summary>
 
 ```java
 public class OnlyDigitsInString {
@@ -594,7 +621,7 @@ public class OnlyDigitsInString {
 ```
 </details>
 <details>
-<summary><b>29. Find the LCM of two numbers</b></summary>
+<summary><b>30. Find the LCM of two numbers</b></summary>
 
 ```java
 public class LCM {
@@ -850,7 +877,7 @@ public class DecimalToBinary {
 }
 ```
 </details>
-
+==========================================
 <details>
 <summary><b>30. Check if a given string is a valid palindrome or not:</b></summary>
 
@@ -1330,34 +1357,7 @@ public class DecimalToBinary {
 ```
 </details>
 
-<details>
-<summary><b>21. Remove duplicate elements from an array:</b></summary>
 
-```java
-import java.util.*;
-
-public class RemoveDuplicates {
-    public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8};
-
-        List<Integer> list = new ArrayList<>();
-        for (int num : arr) {
-            if (!list.contains(num)) {
-                list.add(num);
-            }
-        }
-
-        int[] uniqueArr = new int[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            uniqueArr[i] = list.get(i);
-        }
-
-        System.out.println("Original Array: " + Arrays.toString(arr));
-        System.out.println("Array with duplicates removed: " + Arrays.toString(uniqueArr));
-    }
-}
-```
-</details>
 <details>
 <summary><b>22. Program to find the second largest element in an array:</b></summary>
 
