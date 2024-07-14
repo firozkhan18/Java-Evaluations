@@ -19,9 +19,7 @@ Key features and characteristics of ArrayList:
 </details>
 	
 <details>
-<summary>LinkedList</summary>
-
-### LinkedList:
+<summary><b>LinkedList</b></summary>
 
 In Java, LinkedList is another implementation of the List interface provided by the Java Collections  Framework. It's part of the java.util package. Unlike ArrayList, which is backed by an array, LinkedList is implemented as a doubly-linked list.
 
@@ -37,9 +35,7 @@ Key features and characteristics of LinkedList:
 </details>
 
 <details>
-<summary>HashSet</summary>
-
-### HashSet:
+<summary><b>HashSet</b></summary>
 
 In Java, HashSet is an implementation of the Set interface provided by the Java Collections  Framework. It's part of the java.util package.
 
@@ -58,10 +54,8 @@ Unique Element Constraint: HashSet enforces uniqueness among its elements, ensur
 </details>
 
 <details>
-<summary>TreeSet</summary>
+<summary><b>TreeSet</b></summary>
 	
-### TreeSet:
-
 In Java, TreeSet is an implementation of the SortedSet interface provided by the Java Collections  Framework. It's part of the java.util package.
 
 Here are the key features and characteristics of TreeSet:
@@ -75,10 +69,8 @@ Here are the key features and characteristics of TreeSet:
 </details>
 
 <details>
-<summary>PriorityQueue</summary>
+<summary><b>PriorityQueue</b></summary>
 	
-### PriorityQueue:
-
 In Java, PriorityQueue is an implementation of the Queue interface provided by the Java Collections  Framework. It's part of the java.util package.
 
 Here are the key features and characteristics of PriorityQueue:
@@ -95,10 +87,8 @@ Here are the key features and characteristics of PriorityQueue:
 </details>
 
 <details>
-<summary>HashMap</summary>
+<summary><b>HashMap</b></summary>
 	
-### HashMap:
-
 In Java, HashMap is an implementation of the Map interface provided by the Java Collections  Framework. It's part of the java.util package.
 
 Here are the key features and characteristics of HashMap:
@@ -116,10 +106,8 @@ Here are the key features and characteristics of HashMap:
 </details>
 
 <details>
-<summary>TreeMap</summary>
+<summary><b>TreeMap</b></summary>
 	
-### TreeMap:
-
 In Java, TreeMap is an implementation of the SortedMap interface provided by the Java Collections  Framework. It's part of the java.util package.
 
 Here are the key features and characteristics of TreeMap:
