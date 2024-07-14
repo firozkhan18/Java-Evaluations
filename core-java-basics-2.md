@@ -1616,135 +1616,19 @@ The default modifier is more restrictive than protected. That is why, there is a
 <details><summary><b>[049 - Access Control]</b></summary>
 </details>
 <details><summary><b>[050 - Methods in Java]</b></summary>
-</details>
-<details><summary><b>[051 - Using Command-Line Arguments]</b></summary>
-</details>
-<details><summary><b>[052 - Instance Variable Hiding]</b></summary>
-</details>
-<details><summary><b>[053 - The Scope and Lifetime of Variables]</b></summary>
-</details>
-<details><summary><b>[054 - Constructors in Java]</b></summary>
-</details>
-<details><summary><b>[055 - What is the purpose of a default constructor?]</b></summary>
-</details>
-<details><summary><b>[056 - Why use the parameterized constructor?]</b></summary>
-</details>
-<details><summary><b>[057 - Difference between constructor and method in Java]</b></summary>
-</details>
-<details><summary><b>[058 - Does constructor return any value?]</b></summary>
-</details>
-<details><summary><b>[059 - Can constructor perform other tasks instead of initialization?]</b></summary>
-</details>
-<details><summary><b>[060 - Is there Constructor class in Java?]</b></summary>
-</details>
-<details><summary><b>[001 - What is the purpose of Constructor class?]</b></summary>
-</details>
-<details><summary><b>[002 - this keyword in java]</b></summary>
-</details>
-<details><summary><b>[003 - Garbage Collection]</b></summary>
-</details>
-<details><summary><b>[004 - Finalize() method]</b></summary>
-</details>
-<details><summary><b>[005 - Memory Management]</b></summary>
-</details>
-<details><summary><b>[006 - Method Overloading in Java]</b></summary>
-</details>
-<details><summary><b>[007 - Can we overload java main() method?]</b></summary>
-</details>
-<details><summary><b>[008 - Why Method Overloading is not possible by changing the return type of method only?]</b></summary>
-</details>
-<details><summary><b>[009 - Method Overloading and Type Promotion]</b></summary>
-</details>
-<details><summary><b>[010 - Recursion in Java]</b></summary>
-</details>
-<details><summary><b>[011 - Method Overriding in Java]</b></summary>
-</details>
-<details><summary><b>[012 - Can we override static method?]</b></summary>
-</details>
-<details><summary><b>[013 - Why can we not override static method?]</b></summary>
-</details>
-<details><summary><b>[014 - Can we override java main method?]</b></summary>
-</details>
-<details><summary><b>[015 - Difference between method Overloading and Method Overriding in java]</b></summary>
-</details>
-<details><summary><b>[016 - Usage of Java Method Overriding]</b></summary>
-</details>
-<details><summary><b>[017 - Dynamic Method Dispatch]</b></summary>
-</details>
-<details><summary><b>[018 - Static Binding and Dynamic Binding]</b></summary>
-</details>
-<details><summary><b>[019 - Java static keyword]</b></summary>
-</details>
-<details><summary><b>[020 - Why is the Java main method static?]</b></summary>
-</details>
-<details><summary><b>[025 - Final Keyword in Java]</b></summary>
-</details>
-<details><summary><b>[025 - Is final method inherited?]</b></summary>
-</details>
-<details><summary><b>[025 - What is blank or uninitialized final variable?]</b></summary>
-</details>
-<details><summary><b>[025 - What is final parameter?]</b></summary>
-</details>
-<details><summary><b>[025 - Can we declare a constructor final?]</b></summary>
-</details>
-<details><summary><b>[025 - Super Keyword in Java]</b></summary>
-</details>
-<details><summary><b>[025 - Method Overriding]</b></summary>
-</details>
-<details><summary><b>[025 - Abstract class in Java]</b></summary>
-</details>
-<details><summary><b>[025 - Abstract Method in Java]</b></summary>
-</details>
-<details><summary><b>[025 - Interface in Java]</b></summary>
-</details>
-<details><summary><b>[025 - Why use Java interface?]</b></summary>
-</details>
-<details><summary><b>[025 - Java 8 Interface Improvement]</b></summary>
-</details>
-<details><summary><b>[025 - Internal addition by the compiler]</b></summary>
-</details>
-<details><summary><b>[025 - Multiple inheritance is not supported through class in java, but it is possible by an interface, why?]</b></summary>
-</details>
-<details><summary><b>[025 - Java 8 Default Method in Interface]</b></summary>
-</details>
-<details><summary><b>[025 - Java 8 Static Method in Interface]</b></summary>
-</details>
-<details><summary><b>[025 - What is marker or tagged interface?]</b></summary>
-</details>
-<details><summary><b>[025 - Can we define a class inside the interface?]</b></summary>
-</details>
-<details><summary><b>[025 - Difference between abstract class and interface]</b></summary>
-</details>
-<details><summary><b>[005 - Java instanceof]</b></summary>
-</details>
-<details><summary><b>[006 - Downcasting]</b></summary>
-</details>
-<details><summary><b>[007 - Covariant Return Type]</b></summary>
-</details>
-<details><summary><b>[008 - How is Covariant return types implemented?]</b></summary>
-</details>
-<details><summary><b>[009 - Why use instance initializer block?]</b></summary>
-</details>
-<details><summary><b>[010 - What is invoked first, instance initializer block or constructor?]</b></summary>
-</details>
-<details><summary><b>[011 - Java Package]</b></summary>
-</details>
-<details><summary><b>[012 - Subpackage in java]</b></summary>
-</details>
-<details><summary><b>[013 - How to send the class file to another directory or drive?]</b></summary>
-</details>
-<details><summary><b>[014 - How to put two public classes in a package?]</b></summary>
-</details>
-<details><summary><b>[015 - What is static import feature of Java5?]</b></summary>
 
 #### Methods in Java
 A function (i.e. Method) is self-contained block of statements that performs a coherent task of some kind.
+
 Function (i.e. Method) is a subprogram sometimes which returns a value. If the method does not return a value, its return type must be void. The name of the method is specified by name. This can be any legal identifier other than those already used by other items within the current scope. 
 
 The parameter-list is a sequence of type and identifier pairs separated by commas. Parameters are essentially variables that receive the value of the arguments passed to the method when it is called. If the method has no parameters, then the parameter list will be empty.
+
 - Returning a Value
 There are two important things to understand about returning values:
+
 • The type of data returned by a method must be compatible with the return type specified by the method. 
+
 For example, if the return type of some method is boolean, you could not return an integer.
 
 public int method() {
@@ -1759,13 +1643,21 @@ public int method() {
 int a=10;
 return a;
 }
+
 #### Difference between parameters and argument:
+
 A parameter is a variable defined by a method that receives a value when the method is called. For example in a square (i), i is a parameter.
+
 An argument is a value that is passed to method when the method is invoked. For example in a square (100), 100 is an argument.
+
 In Java, a method is like a function which is used to expose the behavior of an object.
 Advantage of Method
 o	Code Reusability
 o	Code Optimization
+
+</details>
+<details><summary><b>[051 - Using Command-Line Arguments]</b></summary>
+
 #### Using Command-Line Arguments
 Sometimes you will want to pass information into a program when you run it. This is accomplished by passing command-line arguments to main( ). A command-line argument is the information that directly follows the program’s name on the command line when it is executed. To access the command-line arguments inside a Java program is quite easy—We can store as strings in a String array passed to the args parameter of main( ). The first command-line argument is stored at args[0], the second at args[1], and so on. For example, the following program displays all of the command-line arguments that it is called with:
 
@@ -1789,6 +1681,9 @@ args[4]: 100
 args[5]: -1
 
 REMEMBER All command-line arguments are passed as strings. You must convert numeric values to their internal forms manually,
+</details>
+<details><summary><b>[052 - Instance Variable Hiding]</b></summary>
+
 #### Instance Variable Hiding
 It is illegal in Java to declare two local variables with the same name inside the same or enclosing scopes. Interestingly, you can have local variables, including formal parameters to methods, which overlap with the names of the class’ instance variables. However, when a local variable has the same name as an instance variable, the local variable hides the instance variable.
 
@@ -1800,6 +1695,8 @@ this.width = width;
 this.height = height;
 this.depth = depth;
 }
+</details>
+<details><summary><b>[053 - The Scope and Lifetime of Variables]</b></summary>
 
 #### The Scope and Lifetime of Variables
 Java allows variables to be declared within any block. A block is begun with an opening curly brace and ended by a closing curly brace. A block defines a scope. Thus, each time you start a new block, you are creating a new scope. A scope determines what objects are visible to other parts of your program. It also determines the lifetime of those objects.
@@ -1813,6 +1710,8 @@ The scope defined by a method begins with its opening curly brace. However, if t
 As a general rule, variables declared inside a scope are not visible (that is, accessible) to code that is defined outside that scope. Thus, when you declare a variable within a scope, you are localizing that variable and protecting it from unauthorized access and/or modification. Indeed, the scope rules provide the foundation for encapsulation.
 
 Scopes can be nested. For example, each time you create a block of code, you are creating a new, nested scope. When this occurs, the outer scope encloses the inner scope. This means that objects declared in the outer scope will be visible to code within the inner scope. However, the reverse is not true. Objects declared within the inner scope will not be visible outside it.
+</details>
+<details><summary><b>[054 - Constructors in Java]</b></summary>
 
 #### Constructors in Java
 Java allows objects to initialize themselves when they are created. This automatic initialization is performed through the use of a constructor.
@@ -1863,7 +1762,8 @@ Test it Now
 Output:
 Bike is created
 Rule: If there is no constructor in a class, compiler automatically creates a default constructor.
- 
+<details><summary><b>[055 - What is the purpose of a default constructor?]</b></summary>
+
 #### Q) What is the purpose of a default constructor?
 The default constructor is used to provide the default values to the object like 0, null, etc., depending on the type.
 Example of default constructor that displays the default values
@@ -1922,6 +1822,9 @@ Output:
 111 Karan
 222 Aryan
 ________________________________________
+</details>
+<details><summary><b>[056 - Why use the parameterized constructor?]</b></summary>
+
 #### Constructor Overloading in Java
 In Java, a constructor is just like a method but without return type. It can also be overloaded like Java methods.
 Constructor overloading in Java is a technique of having more than one constructor with different parameter lists. They are arranged in a way that each constructor performs a different task. They are differentiated by the compiler by the number of parameters in the list and their types.
@@ -1956,6 +1859,10 @@ Output:
 111 Karan 0
 222 Aryan 25
 ________________________________________
+
+</details>
+<details><summary><b>[057 - Difference between constructor and method in Java]</b></summary>
+
 #### Difference between constructor and method in Java
 There are many differences between constructors and methods. They are given below.
 Java Constructor	Java Method
@@ -1964,7 +1871,6 @@ A constructor must not have a return type.	A method must have a return type.
 The constructor is invoked implicitly.	The method is invoked explicitly.
 The Java compiler provides a default constructor if you don't have any constructor in a class.	The method is not provided by the compiler in any case.
 The constructor name must be same as the class name.	The method name may or may not be same as the class name.
-
  
 #### Java Copy Constructor
 There is no copy constructor in Java. However, we can copy the values from one object to another like copy constructor in C++.
@@ -1973,6 +1879,7 @@ o	By constructor
 o	By assigning the values of one object into another
 o	By clone() method of Object class
 In this example, we are going to copy the values of one object into another using Java constructor.
+```java
 1.	//Java program to initialize the values from one object to another object.  
 2.	class Student6{  
 3.	    int id;  
@@ -1995,7 +1902,8 @@ In this example, we are going to copy the values of one object into another usin
 20.	    s1.display();  
 21.	    s2.display();  
 22.	   }  
-23.	}  
+23.	}
+```
 Test it Now
 Output:
 111 Karan
@@ -2003,6 +1911,7 @@ Output:
 ________________________________________
 - Copying values without constructor
 We can copy the values of one object into another by assigning the objects values to another object. In this case, there is no need to create the constructor.
+```java
 1.	class Student7{  
 2.	    int id;  
 3.	    String name;  
@@ -2021,26 +1930,39 @@ We can copy the values of one object into another by assigning the objects value
 16.	    s1.display();  
 17.	    s2.display();  
 18.	   }  
-19.	}  
+19.	}
+``` 
 Test it Now
 Output:
 111 Karan
 111 Karan
-________________________________________
+   	
+</details>
+<details><summary><b>[058 - Does constructor return any value?]</b></summary>
+
 #### Q) Does constructor return any value?
 Yes, it is the current class instance (You cannot use return type yet it returns a value).
-________________________________________
+
+</details>
+<details><summary><b>[059 - Can constructor perform other tasks instead of initialization?]</b></summary>
+	
 #### Can constructor perform other tasks instead of initialization?
 Yes, like object creation, starting a thread, calling a method, etc. You can perform any operation in the constructor as you perform in the method.
-________________________________________
+</details>
+<details><summary><b>[060 - Is there Constructor class in Java?]</b></summary>
+	
 #### Is there Constructor class in Java?
 Yes.
-________________________________________
+</details>
+<details><summary><b>[001 - What is the purpose of Constructor class?]</b></summary>
+	
 #### What is the purpose of Constructor class?
 Java provides a Constructor class which can be used to get the internal information of a constructor in the class. It is found in the java.lang.reflect package.
+</details> 
+</details>
+<details><summary><b>[002 - this keyword in java]</b></summary>
 
-
-#### this keyword in java
+ #### this keyword in java
 Current object can be referenced in the body of the instance method by keyword this.
 
 Sometimes a method will need to refer to the object that invoked it. To allow this java defines this keyword.
@@ -2333,11 +2255,17 @@ Test it Now
 Output:
 A5@22b3ea59
 A5@22b3ea59
+</details>
+<details><summary><b>[003 - Garbage Collection]</b></summary>
 
 #### Garbage Collection
 Since objects are dynamically allocated by using the new operator, you might be wondering how such objects are destroyed and their memory released for later reallocation. In some languages, such as C++, dynamically allocated objects must be manually released by use of a delete operator. Java takes a different approach; it handles deallocation for you automatically. The technique that accomplishes this is called garbage collection. 
 
 It works like this: when no references to an object exist, that object is assumed to be no longer needed, and the memory occupied by the object can be reclaimed. There is no explicit need to destroy objects as in C++. Garbage collection only occurs sporadically (if at all) during the execution of your program. It will not occur simply because one or more objects exist that are no longer used.
+
+
+</details>
+<details><summary><b>[004 - Finalize() method]</b></summary>
 
 #### Finalize() method
 
@@ -2358,10 +2286,16 @@ Here, the keyword protected is a specifier that prevents access to finalize( ) b
 
 When all references to an object are dropped, the object no longer required and become eligible for garbage collection. Before an object is garbage collected the runtime system is calls its finalize() method to release system resources such as open file or open socket before the object is collected.
 
+
+</details>
+<details><summary><b>[005 - Memory Management]</b></summary>
+
 #### Memory Management
 Although Java provides automatic garbage collection, sometimes you will want to know how large the object heap is and how much of it is left. You can use this information, for example, to check your code for efficiency or to approximate how many more objects of a certain type can be instantiated. To obtain these values, use the totalMemory( ) and freeMemory( ) methods.
 
 Java’s garbage collector runs periodically to recycle unused objects. However, sometimes you will want to collect discarded objects prior to the collector’s next appointed rounds. You can run the garbage collector on demand by calling the gc( ) method. A good thing to try is to call gc( ) and then call freeMemory( ) to get a baseline memory usage. Next, execute your code and call freeMemory( ) again to see how much memory it is allocating.
+</details>
+<details><summary><b>[006 - Method Overloading in Java]</b></summary>
 
 #### Method Overloading in Java
 Method overloading is one of java’s most exciting and useful feature. 
@@ -2412,7 +2346,14 @@ Test it Now
 Output:
 22
 24.9
-________________________________________
+</details>
+<details><summary><b>[007 - Can we overload java main() method?]</b></summary>
+
+
+</details>
+<details><summary><b>[008 - Why Method Overloading is not possible by changing the return type of method only?]</b>
+</summary>
+
 #### Q) Why Method Overloading is not possible by changing the return type of method only?
 In java, method overloading is not possible by changing the return type of the method only because of ambiguity. Let's see how ambiguity may occur:
 1.	class Adder{  
@@ -2438,6 +2379,9 @@ Yes, by method overloading. You can have any number of main methods in a class b
 Test it Now
 Output:
 main with String[]
+</details>
+<details><summary><b>[009 - Method Overloading and Type Promotion]</b></summary>
+
 #### Method Overloading and Type Promotion
 One type is promoted to another implicitly if no matching datatype is found. Let's understand the concept by the figure given below:
  
@@ -2457,8 +2401,8 @@ Example of Method Overloading with TypePromotion
 Test it Now
 Output:40
        60
-________________________________________
-Example of Method Overloading with Type Promotion if matching found
+
+#### Example of Method Overloading with Type Promotion if matching found
 If there are matching type arguments in the method, type promotion is not performed.
 1.	class OverloadingCalculation2{  
 2.	  void sum(int a,int b){System.out.println("int arg method invoked");}  
@@ -2487,19 +2431,21 @@ Output:Compile Time Error
        
 One type is not de-promoted implicitly for example double cannot be depromoted to any type implicitly.
 
-
-Argument Passing
+#### Argument Passing
 
 There are two ways that a computer language can pass an argument to a subroutine.
 
-The first way is call-by-value. 
+- The first way is call-by-value. 
 
 This approach copies the value of an argument into the formal parameter of the subroutine. Therefore, changes made to the parameter of the subroutine have no effect on the argument. 
 
-The second way an argument can be passed is call-by-reference.
+- The second way an argument can be passed is call-by-reference.
 
 In this approach, a reference to an argument (not the value of the argument) is passed to the parameter. Inside the subroutine, this reference is used to access the actual argument specified in the call. This means that changes made to the parameter will affect the argument used to call the subroutine.
-#### Recursion
+</details>
+<details><summary><b>[010 - Recursion in Java]</b></summary>
+
+ #### Recursion
 Java supports recursion. Recursion is the process of defining something in terms of itself. As it relates to Java programming, recursion is the attribute that allows a method to call itself.
 A method that calls itself is said to be recursive.
 
@@ -2528,10 +2474,10 @@ The output from this program is shown here:
 Factorial of 3 is 6
 Factorial of 4 is 24
 Factorial of 5 is 120
+</details>
+<details><summary><b>[011 - Method Overriding in Java]</b></summary>
 
-
-
-#### Method Overriding in Java
+ #### Method Overriding in Java
 When a method in a subclass has the same name and type signature as a method in its superclass, then the method in the subclass is said to override the method in the superclass. 
 When an overridden method is called from within a subclass, it will always refer to the version of that method defined by the subclass. The version of the method defined by the superclass will be hidden.
 Method overriding forms the basis for one of Java’s most powerful concepts: dynamic method dispatch. Dynamic method dispatch is the mechanism by which a call to an overridden method is resolved at run time, rather than compile time.
@@ -2586,8 +2532,10 @@ Inside C’s callme method
 This program creates one superclass called A and two subclasses of it, called B and C.
 
 Subclasses B and C override callme( ) declared in A. Inside the main( ) method, objects of type A, B, and C are declared. Also, a reference of type A, called r, is declared. The program then in turn assigns a reference to each type of object to r and uses that reference to invoke callme( ). As the output shows, the version of callme( ) executed is determined by the type of object being referred to at the time of the call. Had it been determined by the type of the reference variable, r, you would see three calls to A’s callme( ) method. 
+</details>
+<details><summary><b>[012 - Can we override static method?]</b></summary>
 
-#### Why Overridden Methods?
+ #### Why Overridden Methods?
 
 The superclass provides all elements that a subclass can use directly. It also defines those methods that the derived class must implement on its own. This allows the subclass the flexibility to define its own methods, yet still enforces a consistent interface.
 
@@ -2684,23 +2632,34 @@ Output:
 SBI Rate of Interest: 8
 ICICI Rate of Interest: 7
 AXIS Rate of Interest: 9
+
 #### Can we override static method?
 No, a static method cannot be overridden. It can be proved by runtime polymorphism, so we will learn it later.
-________________________________________
+
+<details><summary><b>[013 - Why can we not override static method?]</b></summary>
+
 #### Why can we not override static method?
 It is because the static method is bound with class whereas instance method is bound with an object. Static belongs to the class area, and an instance belongs to the heap area.
-________________________________________
+
+</details>
+<details><summary><b>[014 - Can we override java main method?]</b></summary>
+
 #### Can we override java main method?
 No, because the main is a static method.
-________________________________________
+
+</details>
+<details><summary><b>[015 - Difference between method Overloading and Method Overriding in java]</b></summary>
+
 #### Difference between method Overloading and Method Overriding in java
 Click me for the difference between method overloading and overriding
-________________________________________
-More topics on Method Overriding (Not For Beginners)
-Method Overriding with Access Modifier
-Let's see the concept of method overriding with access modifier.
-Exception Handling with Method Overriding
-Let's see the concept of method overriding with exception handling.
+
+</details>
+</details>
+<details><summary><b>[016 - Usage of Java Method Overriding]</b></summary>
+
+
+</details>
+<details><summary><b>[017 - Dynamic Method Dispatch]</b></summary>
 
 #### Dynamic Method Dispatch
 Method overriding forms the basis for one of Java’s most powerful concepts: dynamic method dispatch. Dynamic method dispatch is the mechanism by which a call to an overridden method is resolved at run time, rather than compile time.
@@ -2763,8 +2722,10 @@ The superclass provides all elements that a subclass can use directly. It also d
 
 Thus, by combining inheritance with overridden methods, a superclass can define the general form of the methods that will be used by all of its subclasses.
 
+</details>
+<details><summary><b>[018 - Static Binding and Dynamic Binding]</b></summary>
 
-#### Static Binding and Dynamic Binding
+ #### Static Binding and Dynamic Binding
  
 Connecting a method call to the method body is known as binding.
 There are two types of binding
@@ -2827,46 +2788,10 @@ Output:dog is eating...
 In the above example object type cannot be determined by the compiler, 
 because the instance of Dog is also an instance of Animal.So compiler doesn't know its type, 
 only its base type.
+</details>
+<details><summary><b>[019 - Java static keyword]</b></summary>
 
-#### Type Conversion and Casting
-If you have previous programming experience, then you already know that it is fairly
-common to assign a value of one type to a variable of another type. 
-If the two types are compatible, then Java will perform the conversion automatically. 
-For example, it is always possible to assign an int value to a long variable. 
-However, not all types are compatible, and thus, not all type conversions are implicitly allowed. 
-For instance, there is no automatic conversion defined from double to byte. 
-Fortunately, it is still possible to obtain a conversion between incompatible types. 
-To do so, you must use a cast, which performs an explicit conversion between incompatible types. 
-
-#### Java’s Automatic Conversions
-When one type of data is assigned to another type of variable, an automatic type 
-conversion will take place 
-if the following two conditions are met:
-• The two types are compatible.
-• The destination type is larger than the source type.
-When these two conditions are met, a widening conversion takes place. For example, 
-the int type is always large enough to hold all valid byte values, 
-so no explicit cast statement is required.
-
-For widening conversions, the numeric types, including integer and floating-point types, 
-are compatible with each other. 
-However, there are no automatic conversions from the numeric types to char or boolean. 
-Also, char and boolean are not compatible with each other. 
-
-Java also performs an automatic type conversion when storing a literal integer constant into 
-variables of type byte, short, long, or char.
-
-Casting Incompatible Types
-Although the automatic type conversions are helpful, they will not fulfill all needs.
-For example, what if you want to assign an int value to a byte variable? 
-This conversion will not be performed automatically, because a byte is smaller than an int. 
-This kind of conversion is sometimes called a narrowing conversion, since you are explicitly 
-making the value narrower so that it will fit into the target type.
-To create a conversion between two incompatible types, you must use a cast. 
-A cast is simply an explicit type conversion. 
-It has this general form:
-(target-type) value
-Java static keyword
+#### Java static keyword
 1.	Static variable
 2.	Program of the counter without static variable
 3.	Program of the counter with static variable
@@ -3054,7 +2979,9 @@ Another example of a static method that performs a normal calculation
 12.	}  
 Test it Now
 Output:125
+
 Restrictions for the static method
+
 There are two main restrictions for the static method. They are:
 1.	The static method can not use non static data member or call non-static method directly.
 2.	this and super cannot be used in static context.
@@ -3067,10 +2994,13 @@ There are two main restrictions for the static method. They are:
 7.	}        
 Test it Now
 Output:Compile Time Error
-________________________________________
+
+<details><summary><b>[020 - Why is the Java main method static?]</b></summary>
+
 #### Q) Why is the Java main method static?
 Ans) It is because the object is not required to call a static method. If it were a non-static method, JVM creates an object first then call main() method that will lead the problem of extra memory allocation.
-________________________________________
+</details>
+
 3) Java static block
 o	Is used to initialize the static data member.
 o	It is executed before the main method at the time of classloading.
@@ -3101,6 +3031,8 @@ Error: Main method not found in class A3, please define the main method as:
    public static void main(String[] args)
 or a JavaFX application class must extend javafx.application.Application
 
+</details>
+<details><summary><b>[025 - Final Keyword in Java]</b></summary>
 
 #### Final Keyword In Java
 1.	Final variable
@@ -3111,20 +3043,26 @@ or a JavaFX application class must extend javafx.application.Application
 6.	Static blank final variable
 7.	Final parameter
 8.	Can you declare a final constructor
+
 A final variable of a primitive datatypes cannot change its value once it has been initialized.
 A final variable of a reference types cannot change its value once it has been initialized, but the state of the object it denotes can still be changed.
 
 The final modifier can be used with the variable and the methods when a variable is declared as final it acts as a constants and its contents cannot be modified.
+
 A method is declared final by attaching the method definition with the final modifier in the beginning. It may so happen that you want method to retain its original definition or speaking otherwise, you do not want a method final the method is prevented from being overridden in its subsequent class.
+
 The final keyword in java is used to restrict the user. The java final keyword can be used in many context. Final can be:
 1.	variable
 2.	method
 3.	class
+
 The final keyword can be applied with the variables, a final variable that have no value it is called blank final variable or uninitialized final variable. It can be initialized in the constructor only. The blank final variable can be static also which will be initialized in the static block only. We will have detailed learning of these. Let's first learn the basics of final keyword.
  
-1) Java final variable
+- 1) Java final variable
 If you make any variable as final, you cannot change the value of final variable(It will be constant).
+
 Example of final variable
+
 There is a final variable speedlimit, we are going to change the value of this variable, but It can't be changed because final variable once assigned a value can never be changed.
 1.	class Bike9{  
 2.	 final int speedlimit=90;//final variable  
@@ -3138,8 +3076,8 @@ There is a final variable speedlimit, we are going to change the value of this v
 10.	}//end of class  
 Test it Now
 Output:Compile Time Error
-________________________________________
-2) Java final method
+
+- 2) Java final method
 If you make any method as final, you cannot override it.
 Example of final method
 1.	class Bike{  
@@ -3156,8 +3094,8 @@ Example of final method
 12.	}  
 Test it Now
 Output:Compile Time Error
-________________________________________
-3) Java final class
+
+- 3) Java final class
 If you make any class as final, you cannot extend it.
 Example of final class
 1.	final class Bike{}  
@@ -3172,7 +3110,9 @@ Example of final class
 10.	}  
 Test it Now
 Output:Compile Time Error
-________________________________________
+
+<details><summary><b>[025 - Is final method inherited?]</b></summary>
+
 Q) Is final method inherited?
 Ans) Yes, final method is inherited but you cannot override it. For Example:
 1.	class Bike{  
@@ -3185,11 +3125,16 @@ Ans) Yes, final method is inherited but you cannot override it. For Example:
 8.	}  
 Test it Now
 Output:running...
-________________________________________
+
+</details>
+<details><summary><b>[025 - What is blank or uninitialized final variable?]</b></summary>
+
 Q) What is blank or uninitialized final variable?
 A final variable that is not initialized at the time of declaration is known as blank final variable.
 If you want to create a variable that is initialized at the time of creating object and once initialized may not be changed, it is useful. For example PAN CARD number of an employee.
+
 It can be initialized only in constructor.
+
 Example of blank final variable
 1.	class Student{  
 2.	int id;  
@@ -3197,6 +3142,9 @@ Example of blank final variable
 4.	final String PAN_CARD_NUMBER;  
 5.	...  
 6.	}  
+</details>
+
+
 Q) Can we initialize blank final variable?
 Yes, but only in constructor. For example:
 1.	class Bike10{  
@@ -3213,7 +3161,7 @@ Yes, but only in constructor. For example:
 12.	}  
 Test it Now
 Output: 70
-________________________________________
+
 static blank final variable
 A static final variable that is not initialized at the time of declaration is known as static blank final variable. It can be initialized only in static block.
 Example of static blank final variable
@@ -3224,7 +3172,7 @@ Example of static blank final variable
 5.	    System.out.println(A.data);  
 6.	 }  
 7.	}  
-________________________________________
+<details><summary><b>[025 - What is final parameter?]</b></summary>
 Q) What is final parameter?
 If you declare any parameter as final, you cannot change the value of it.
 1.	class Bike11{  
@@ -3240,107 +3188,14 @@ If you declare any parameter as final, you cannot change the value of it.
 Test it Now
 Output: Compile Time Error
 ________________________________________
+</details>
+<details><summary><b>[025 - Can we declare a constructor final?]</b></summary>
+
 Q) Can we declare a constructor final?
 No, because constructor is never inherited.
-
-#### The transient and volatile Modifiers
-Java defines two interesting type modifiers: transient and volatile. These modifiers are used to handle somewhat specialized situations.
-When an instance variable is declared as transient, then its value need not persist when an object is stored. For example:
-class T {
-transient int a; // will not persist
-int b; // will persist
-}
-Here, if an object of type T is written to a persistent storage area, the contents of a would not be saved, but the contents of b would.
-
-The volatile modifier tells the compiler that the variable modified by volatile can be changed unexpectedly by other parts of your program. One of these situations involves multithreaded programs. In a multithreaded program, sometimes two or more threads share the same variable. For efficiency considerations, each thread can keep its own, private copy of such a shared variable. The real (or master) copy of the variable is updated at various times, such as when a synchronized method is entered. While this approach works fine, it may be inefficient at times. In some cases, all that really matters is that the master copy of a variable always reflects its current state. To ensure this, simply specify the variable as volatile, which tells the compiler that it must always use the master copy of a volatile variable (or, at least, always keep any private copies up-to-date with the master copy, and vice versa). Also, accesses to the master variable must be executed in the precise order in which they are executed on any private copy.
-
-#### Native Methods
-Although it is rare, occasionally you may want to call a subroutine that is written in a language other than Java. Typically, such a subroutine exists as executable code for the CPU and environment in which you are working—that is, native code. For example, you may want to call a native code subroutine to achieve faster execution time. Or, you may want to use a specialized, third-party library, such as a statistical package. However, because Java programs are compiled to bytecode, which is then interpreted (or compiled on-the-fly) by the Java run-time system, it would seem impossible to call a native code subroutine from within your Java program. Fortunately, this conclusion is false. 
-
-Java provides the native keyword, which is used to declare native code methods. Once declared, these methods can be called from inside your Java program just as you call any other Java method.
-
-To declare a native method, precede the method with the native modifier, but do not define anybody for the method. For example:
-
-public native int meth() ;
-
-- Problems with Native Methods
-Native methods seem to offer great promise, because they enable you to gain access to an existing base of library routines, and they offer the possibility of faster run-time execution. But native methods also introduce two significant problems:
-• Potential security risk Because a native method executes actual machine code, it can gain access to any part of the host system. That is, native code is not confined to the Java execution environment. This could allow a virus infection, for example. For this reason, applets cannot use native methods. Also, the loading of DLLs can be restricted, and their loading is subject to the approval of the security manager.
-• Loss of portability Because the native code is contained in a DLL, it must be present on the machine that is executing the Java program. Further, because each native method is CPU- and operating system–dependent, each DLL is inherently non portable. Thus, a Java application that uses native methods will be able to run only on a machine for which a compatible DLL has been installed.
-
-#### assert
-Another relatively new addition to Java is the keyword assert. It is used during program development to create an assertion, which is a condition that should be true during the execution of the program. For example, you might have a method that should always return a positive integer value. You might test this by asserting that the return value is greater than zero using an assert statement. At run time, if the condition actually is true, no other action takes place. However, if the condition is false, then an AssertionError is thrown. Assertions are often used during testing to verify that some expected condition is actually met. They are not usually used for released code.
-The assert keyword has two forms. The first is shown here:
-assert condition;
-Here, condition is an expression that must evaluate to a Boolean result. If the result is true, then the assertion is true and no other action takes place. If the condition is false, then the assertion fails and a default AssertionError object is thrown.
-The second form of assert is shown here:
-assert condition : expr;
-In this version, expr is a value that is passed to the AssertionError constructor. This value is converted to its string format and displayed if an assertion fails. Typically, you will specify a string for expr, but any non-void expression is allowed as long as it defines a reasonable string conversion.
-
-#### Varargs: Variable-Length Arguments
-
-Beginning with JDK 5, Java has included a feature that simplifies the creation of methods that need to take a variable number of arguments. This feature is called varargs and it is short for variable-length arguments. A method that takes a variable number of arguments is called a variable-arity method, or simply a varargs method.
-Situations that require that a variable number of arguments be passed to a method are not unusual. For example, a method that opens an Internet connection might take a user name, password, filename, protocol, and so on, but supply defaults if some of this information is not provided. In this situation, it would be convenient to pass only the arguments to which the defaults did not apply. Another example is the printf( ) method that is part of Java’s I/O library.It takes a variable number of arguments, which it formats and then outputs.
-
-Prior to JDK 5, variable-length arguments could be handled two ways, neither of which was particularly pleasing. First, if the maximum number of arguments was small and known, then you could create overloaded versions of the method, one for each way the method could be called. Although this works and is suitable for some cases, it applies to only a narrow class of situations.
-In cases where the maximum number of potential arguments was larger, or unknowable, a second approach was used in which the arguments were put into an array, and then the array was passed to the method. This approach is illustrated by the following program:
-// Use an array to pass a variable number of
-// arguments to a method. This is the old-style
-// approach to variable-length arguments.
-class PassArray {
-static void vaTest(int v[]) {
-System.out.print("Number of args: " + v.length +
-" Contents: ");
-for(int x : v)
-System.out.print(x + " ");
-
-System.out.println();
-}
-public static void main(String args[])
-{
-// Notice how an array must be created to
-// hold the arguments.
-int n1[] = { 10 };
-int n2[] = { 1, 2, 3 };
-int n3[] = { };
-vaTest(n1); // 1 arg
-vaTest(n2); // 3 args
-vaTest(n3); // no args
-}
-}
-The output from the program is shown here:
-Number of args: 1 Contents: 10
-Number of args: 3 Contents: 1 2 3
-Number of args: 0 Contents:
-In the program, the method vaTest( ) is passed its arguments through the array v. This old-style approach to variable-length arguments does enable vaTest( ) to take an arbitrary number of arguments. However, it requires that these arguments be manually packaged into an array prior to calling vaTest( ). Not only is it tedious to construct an array each time vaTest( ) is called, it is potentially error-prone. The varargs feature offers a simpler, better option.
-A variable-length argument is specified by three periods (...). For example, here is how vaTest( ) is written using a vararg:
-static void vaTest(int ... v) {
-This syntax tells the compiler that vaTest( ) can be called with zero or more arguments. As a result, v is implicitly declared as an array of type int[ ]. Thus, inside vaTest( ), v is accessed using the normal array syntax. Here is the preceding program rewritten using a vararg:
-// Demonstrate variable-length arguments.
-class VarArgs {
-// vaTest() now uses a vararg.
-static void vaTest(int ... v) {
-System.out.print("Number of args: " + v.length +
-" Contents: ");
-for(int x : v)
-System.out.print(x + " ");
-System.out.println();
-}
-public static void main(String args[])
-{
-// Notice how vaTest() can be called with a
-// variable number of arguments.
-vaTest(10); // 1 arg
-vaTest(1, 2, 3); // 3 args
-vaTest(); // no args
-}
-}
-The output from the program is the same as the original version.
-There are two important things to notice about this program. First, as explained, inside vaTest( ), v is operated on as an array. This is because v is an array. The ... syntax simply tells the compiler that a variable number of arguments will be used, and that these arguments will be stored in the array referred to by v. 
-Second, in main( ), vaTest( ) is called with different numbers of arguments, including no arguments at all. The arguments are automatically put in an array and passed to v. In the case of no arguments, the length of the array is zero.
-A method can have “normal” parameters along with a variable-length parameter. However, the variable-length parameter must be the last parameter declared by the method. For example, this method declaration is perfectly acceptable:
-int doIt(int a, int b, double c, int ... vals) {}
-
+</details>
+</details>
+<details><summary><b>[025 - Super Keyword in Java]</b></summary>
 
 #### Super Keyword in Java
 There will be times when you will want to create a superclass that keeps the details of its implementation to itself (that is, that keeps its data members private).
@@ -3490,12 +3345,18 @@ Output:
 1 ankit 45000
 
 
+
+</details>
+<details><summary><b>[025 - Method Overriding]</b></summary>
+
 #### Method Overriding
 When a method in a subclass has the same name and type signature as a method in its superclass, then the method in the subclass is said to override the method in the superclass. 
 
 When an overridden method is called from within a subclass, it will always refer to the version of that method defined by the subclass. The version of the method defined by the superclass will be hidden.
+</details>
+<details><summary><b>[025 - Abstract class in Java]</b></summary>
 
-#### Abstract class in Java
+ #### Abstract class in Java
 
 An abstract class is a class designed with implementation gaps for subclasses to fill in and is deliberately incomplete.
 You can require that certain methods be overridden by subclasses by specifying the abstract type modifier. These methods are sometimes referred to as subclasser responsibility because they have no implementation specified in the superclass. Thus, a subclass must override them—it cannot simply use the version defined in the superclass. 
@@ -3510,7 +3371,7 @@ Any class that contains one or more abstract methods must also be declared abstr
 In an abstract class method have partially implementation.
 A class which is declared with the abstract keyword is known as an abstract class in Java. It can have abstract and non-abstract methods (method with the body).
 Before learning the Java abstract class, let's understand the abstraction in Java first.
-________________________________________
+
 #### Abstract class in Java
 A class which is declared as abstract is known as an abstract class. It can have abstract and non-abstract methods. It needs to be extended and its method implemented. It cannot be instantiated.
 Points to Remember
@@ -3522,14 +3383,18 @@ o	It can have final methods which will force the subclass not to change the body
  
 Example of abstract class
 1.	abstract class A{}  
-________________________________________
-Abstract Method in Java
+
+<details><summary><b>[025 - Abstract Method in Java]</b></summary>
+
+#### Abstract Method in Java
 A method which is declared as abstract and does not have implementation is known as an abstract method.
 Example of abstract method
 1.	abstract void printStatus();//no method body and abstract  
-________________________________________
+
 Example of Abstract class that has an abstract method
+
 In this example, Bike is an abstract class that contains only one abstract method run. Its implementation is provided by the Honda class.
+
 1.	abstract class Bike{  
 2.	  abstract void run();  
 3.	}  
@@ -3542,12 +3407,16 @@ In this example, Bike is an abstract class that contains only one abstract metho
 10.	}  
 Test it Now
 running safely
-________________________________________
+</details>
+
 - Understanding the real scenario of Abstract class
+  
 In this example, Shape is the abstract class, and its implementation is provided by the Rectangle and Circle classes.
 Mostly, we don't know about the implementation class (which is hidden to the end user), and an object of the implementation class is provided by the factory method.
+
 A factory method is a method that returns the instance of the class. We will learn about the factory method later.
 In this example, if you create the instance of Rectangle class, draw() method of Rectangle class will be invoked.
+
 File: TestAbstraction1.java
 1.	abstract class Shape{  
 2.	abstract void draw();  
@@ -3568,7 +3437,7 @@ File: TestAbstraction1.java
 17.	}  
 Test it Now
 drawing circle
-________________________________________
+
 Another example of Abstract class in java
 File: TestBank.java
 1.	abstract class Bank{    
@@ -3592,8 +3461,9 @@ File: TestBank.java
 Test it Now
 Rate of Interest is: 7 %
 Rate of Interest is: 8 %
-________________________________________
-Abstract class having constructor, data member and methods
+
+- Abstract class having constructor, data member and methods
+
 An abstract class can have a data member, abstract method, method body (non-abstract method), constructor, and even main() method.
 File: TestAbstraction2.java
 1.	//Example of an abstract class that has abstract and non-abstract methods  
@@ -3618,18 +3488,22 @@ Test it Now
        bike is created
        running safely..
        gear changed
-________________________________________
+
 Rule: If there is an abstract method in a class, that class must be abstract.
 1.	class Bike12{  
 2.	abstract void run();  
 3.	}  
 Test it Now
 compile time error
+
 Rule: If you are extending an abstract class that has an abstract method, you must either provide the implementation of the method or make this class abstract.
-________________________________________
-Another real scenario of abstract class
+
+- Another real scenario of abstract class
+  
 The abstract class can also be used to provide some implementation of the interface. In such case, the end user may not be forced to override all the methods of the interface.
+
 Note: If you are beginner to java, learn interface first and skip this example.
+
 1.	interface A{  
 2.	void a();  
 3.	void b();  
@@ -3660,6 +3534,8 @@ Output:I am a
        I am b
        I am c
        I am d
+</details>
+<details><summary><b>[025 - Interface in Java]</b></summary>
 
 #### Interface in Java
 1.	Interface
@@ -3668,7 +3544,6 @@ Output:I am a
 4.	Why multiple inheritance is supported in Interface while it is not supported in case of class.
 5.	Marker Interface
 6.	Nested Interface
-
 
 Using the keyword interface, you can fully abstract a class’ interface from its implementation.
 
@@ -3681,14 +3556,25 @@ By providing the interface keyword, Java allows you to fully utilize the “one 
 Interfaces are designed to support dynamic method resolution at run time. Normally, in order for a method to be called from one class to another, both classes need to be present at compile time so the Java compiler can check to ensure that the method signatures are compatible.
 
 NOTE:  Interfaces add most of the functionality that is required for many applications that would normally resort to using multiple inheritance in a language such as C++.
+
 An interface in Java is a blueprint of a class. It has static constants and abstract methods.
+
 The interface in Java is a mechanism to achieve abstraction. There can be only abstract methods in the Java interface, not method body. It is used to achieve abstraction and multiple inheritance in Java.
+
 In other words, you can say that interfaces can have abstract methods and variables. It cannot have a method body.
+
 Java Interface also represents the IS-A relationship.
+
 It cannot be instantiated just like the abstract class.
+
 Since Java 8, we can have default and static methods in an interface.
+
 Since Java 9, we can have private methods in an interface.
-Why use Java interface?
+
+</details>
+<details><summary><b>[025 - Why use Java interface?]</b></summary>
+
+ ### Why use Java interface?
 There are mainly three reasons to use interface. They are given below.
 o	It is used to achieve abstraction.
 o	By interface, we can support the functionality of multiple inheritance.
@@ -3703,17 +3589,10 @@ Syntax:
 4.	    // declare methods that abstract   
 5.	    // by default.  
 6.	}  
-#### Java 8 Interface Improvement
-Since Java 8, interface can have default and static methods which is discussed later.
-Internal addition by the compiler
-The Java compiler adds public and abstract keywords before the interface method. Moreover, it adds public, static and final keywords before data members.
-In other words, Interface fields are public, static and final by default, and the methods are public and abstract.
- 
-________________________________________
+
 #### The relationship between classes and interfaces
 As shown in the figure given below, a class extends another class, an interface extends another interface, but a class implements an interface.
- 
-________________________________________
+
 Java Interface Example
 In this example, the Printable interface has only one method, and its implementation is provided in the A6 class.
 1.	interface printable{  
@@ -3730,8 +3609,11 @@ In this example, the Printable interface has only one method, and its implementa
 Test it Now
 Output:
 Hello
+
 Java Interface Example: Drawable
+
 In this example, the Drawable interface has only one method. Its implementation is provided by Rectangle and Circle classes. In a real scenario, an interface is defined by someone else, but its implementation is provided by different implementation providers. Moreover, it is used by someone else. The implementation part is hidden by the user who uses the interface.
+
 File: TestInterface1.java
 1.	//Interface declaration: by first user  
 2.	interface Drawable{  
@@ -3753,8 +3635,11 @@ File: TestInterface1.java
 Test it Now
 Output:
 drawing circle
+
 Java Interface Example: Bank
+
 Let's see another example of java interface which provides the implementation of Bank interface.
+
 File: TestInterface2.java
 1.	interface Bank{  
 2.	float rateOfInterest();  
@@ -3773,7 +3658,7 @@ File: TestInterface2.java
 Test it Now
 Output:
 ROI: 9.15
-________________________________________
+
 #### Multiple inheritance in Java by interface
 If a class implements multiple interfaces, or an interface extends multiple interfaces, it is known as multiple inheritance.
  
@@ -3796,6 +3681,19 @@ If a class implements multiple interfaces, or an interface extends multiple inte
 Test it Now
 Output:Hello
        Welcome
+</details>
+<details><summary><b>[025 - Java 8 Interface Improvement]</b></summary>
+
+#### Java 8 Interface Improvement
+Since Java 8, interface can have default and static methods which is discussed later.
+Internal addition by the compiler
+The Java compiler adds public and abstract keywords before the interface method. Moreover, it adds public, static and final keywords before data members.
+In other words, Interface fields are public, static and final by default, and the methods are public and abstract.
+</details>
+<details><summary><b>[025 - Internal addition by the compiler]</b></summary>
+</details>
+<details><summary><b>[025 - Multiple inheritance is not supported through class in java, but it is possible by an interface, why?]</b></summary>
+
 #### Q) Multiple inheritance is not supported through class in java, but it is possible by an interface, why?
 As we have explained in the inheritance chapter, multiple inheritance is not supported in the case of class because of ambiguity. However, it is supported in case of an interface because there is no ambiguity. It is because its implementation is provided by the implementation class. For example:
 1.	interface Printable{  
@@ -3815,9 +3713,11 @@ As we have explained in the inheritance chapter, multiple inheritance is not sup
 Test it Now
 Output:
 Hello
+
 As you can see in the above example, Printable and Showable interface have same methods but its implementation is provided by class TestTnterface1, so there is no ambiguity.
-________________________________________
+
 Interface inheritance
+
 A class implements an interface, but one interface extends another interface.
 1.	interface Printable{  
 2.	void print();  
@@ -3839,6 +3739,9 @@ Test it Now
 Output:
 Hello
 Welcome
+</details>
+<details><summary><b>[025 - Java 8 Default Method in Interface]</b></summary>
+
 #### Java 8 Default Method in Interface
 Since Java 8, we can have method body in interface. But we need to make it default method. Let's see an example:
 File: TestInterfaceDefault.java
@@ -3859,6 +3762,9 @@ Test it Now
 Output:
 drawing rectangle
 default method
+</details>
+<details><summary><b>[025 - Java 8 Static Method in Interface]</b></summary>
+
 #### Java 8 Static Method in Interface
 Since Java 8, we can have static method in interface. Let's see an example:
 File: TestInterfaceStatic.java
@@ -3880,7 +3786,10 @@ Test it Now
 Output:
 drawing rectangle
 27
-#### Q) What is marker or tagged interface?
+</details>
+<details><summary><b>[025 - What is marker or tagged interface?]</b></summary>
+
+ #### Q) What is marker or tagged interface?
 An interface which has no member is known as a marker or tagged interface, for example, Serializable, Cloneable, Remote, etc. They are used to provide some essential information to the JVM so that JVM may perform some useful operation.
 1.	//How Serializable interface is written?  
 2.	public interface Serializable{  
@@ -3896,8 +3805,11 @@ Note: An interface can have another interface which is known as a nested interfa
 6.	}  
 #### Java Nested Interface
 An interface i.e. declared within another interface or class is known as nested interface. The nested interfaces are used to group related interfaces so that they can be easy to maintain. The nested interface must be referred by the outer interface or class. It can't be accessed directly.
+
 Points to remember for nested interfaces
+
 There are given some points that should be remembered by the java programmer.
+
 o	Nested interface must be public if it is declared inside the interface but it can have any access modifier if declared within the class.
 o	Nested interfaces are declared static implicitely.
 Syntax of nested interface which is declared within the interface
@@ -3907,15 +3819,18 @@ Syntax of nested interface which is declared within the interface
 4.	  ...  
 5.	 }  
 6.	}   
+
 Syntax of nested interface which is declared within the class
+
 1.	class class_name{  
 2.	 ...  
 3.	 interface nested_interface_name{  
 4.	  ...  
 5.	 }  
 6.	}   
-________________________________________
+
 Example of nested interface which is declared within the interface
+
 In this example, we are going to learn how to declare the nested interface and how we can access it.
 1.	interface Showable{  
 2.	  void show();  
@@ -3937,15 +3852,17 @@ Output:hello nested interface
 
 As you can see in the above example, we are acessing the Message interface by its outer interface Showable because it cannot be accessed directly. It is just like almirah inside the room, we cannot access the almirah directly because we must enter the room first. In collection frameword, sun microsystem has provided a nested interface Entry. Entry is the subinterface of Map i.e. accessed by Map.Entry.
 
-________________________________________
 Internal code generated by the java compiler for nested interface Message
+
 The java compiler internally creates public and static interface as displayed below:.
+
 1.	public static interface Showable$Message  
 2.	{  
 3.	  public abstract void msg();  
 4.	}  
-________________________________________
+
 Example of nested interface which is declared within the class
+
 Let's see how can we define an interface inside the class and how can we access it.
 1.	class A{  
 2.	  interface Message{  
@@ -3963,13 +3880,19 @@ Let's see how can we define an interface inside the class and how can we access 
 14.	}  
 Test it Now
 Output:hello nested interface
+
+</details>
+<details><summary><b>[025 - Can we define a class inside the interface?]</b></summary>
+	
 #### Can we define a class inside the interface?
 Yes, If we define a class inside the interface, java compiler creates a static nested class. Let's see how can we define a class within the interface:
 1.	interface M{  
 2.	  class A{}  
 3.	}  
+</details>
+<details><summary><b>[025 - Difference between abstract class and interface]</b></summary>
 
-#### Difference between abstract class and interface
+ #### Difference between abstract class and interface
 Abstract class and interface both are used to achieve abstraction where we can declare the abstract methods. Abstract class and interface both can't be instantiated.
 But there are many differences between abstract class and interface that are given below.
 Abstract class	Interface
@@ -4031,8 +3954,10 @@ Output:
        I am c
        I am d
 
-________________________________________
-#### Java instanceof
+</details>
+<details><summary><b>[005 - Java instanceof]</b></summary>
+
+ #### Java instanceof
 1.	java instanceof
 2.	Example of instanceof operator
 3.	Applying the instanceof operator with a variable the have null value
@@ -4074,7 +3999,8 @@ If we apply instanceof operator with a variable that have null value, it returns
 6.	}  
 Test it Now
 Output:false
-________________________________________
+<details><summary><b>[006 - Downcasting]</b></summary>
+
 - Downcasting with java instanceof operator
 When Subclass type refers to the object of Parent class, it is known as downcasting. If we perform it directly, compiler gives Compilation error. If you perform it by typecasting, ClassCastException is thrown at runtime. But if we use instanceof operator, downcasting is possible.
 1.	Dog d=new Animal();//Compilation error  
@@ -4120,7 +4046,8 @@ Output:ok downcasting performed
 Let's take closer look at this, actual object that is referred by a, is an object of Dog class. So if we downcast it, it is fine. But what will happen if we write:
 1.	Animal a=new Animal();  
 2.	Dog.method(a);  
-3.	//Now ClassCastException but not in case of instanceof operator  
+3.	//Now ClassCastException but not in case of instanceof operator
+</details>
 - Understanding Real use of instanceof in java
 Let's see the real use of instanceof keyword by the example given below.
 1.	interface Printable{}  
@@ -4154,6 +4081,9 @@ Let's see the real use of instanceof keyword by the example given below.
 29.	}  
 Test it Now
 Output: b method
+</details>
+
+<details><summary><b>[007 - Covariant Return Type]</b></summary>
 
 #### Covariant Return Type
 The covariant return type specifies that the return type may vary in the same direction as the subclass.
@@ -4176,11 +4106,16 @@ Simple example of Covariant Return Type
 Test it Now
 Output:welcome to covariant return type
 As you can see in the above example, the return type of the get() method of A class is A but the return type of the get() method of B class is B. Both methods have different return type but it is method overriding. This is known as covariant return type.
-How is Covariant return types implemented?
+
+</details>
+<details><summary><b>[008 - How is Covariant return types implemented?]</b></summary>
+
+#### How is Covariant return types implemented?
 Java doesn't allow the return type based overloading but JVM always allows return type based overloading. JVM uses full signature of a method for lookup/resolution. Full signature means it includes return type in addition to argument types. i.e., a class can have two or more methods differing only by return type. javac uses this fact to implement covariant return types.
+</details>
+<details><summary><b>[009 - Why use instance initializer block?]</b></summary>
 
-
-#### Instance initializer block
+ #### Instance initializer block
 1.	Instance initializer block
 2.	Example of Instance initializer block
 3.	What is invoked firstly instance initializer block or constructor?
@@ -4219,7 +4154,8 @@ There are three places in java where you can perform operations:
 1.	method
 2.	constructor
 3.	block
-________________________________________
+<details><summary><b>[010 - What is invoked first, instance initializer block or constructor?]</b></summary>
+
 #### What is invoked first, instance initializer block or constructor?
 1.	class Bike8{  
 2.	    int speed;  
@@ -4241,7 +4177,7 @@ Output:instance initializer block invoked
 
 In the above example, it seems that instance initializer block is firstly invoked but NO. Instance intializer block is invoked at the time of object creation. The java compiler copies the instance initializer block in the constructor after the first statement super(). So firstly, constructor is invoked. Let's understand it by the figure given below:
 Note: The java compiler copies the code of instance initializer block in every constructor.
- 
+</details>
 - Rules for instance initializer block :
 There are mainly three rules for the instance initializer block. They are as follows:
 1.	The instance initializer block is created when instance of the class is created.
@@ -4302,8 +4238,11 @@ Output:parent class constructor invoked
        parent class constructor invoked
        instance initializer block is invoked
        child class constructor invoked 10
+</details>
 
-#### Java Package
+<details><summary><b>[011 - Java Package]</b></summary>
+
+ #### Java Package
 1.	Java Package
 2.	Example of package
 3.	Accessing package
@@ -4419,10 +4358,11 @@ Example of package by import fully qualified name
 Output:Hello
 Note: If you import a package, subpackages will not be imported.
 If you import a package, all the classes and interface of that package will be imported excluding the classes and interfaces of the subpackages. Hence, you need to import the subpackage as well.
-________________________________________
+
 Note: Sequence of the program must be package then import then class.
- 
-________________________________________
+</details>
+<details><summary><b>[012 - Subpackage in java]</b></summary>
+
 #### Subpackage in java
 Package inside the package is called the subpackage. It should be created to categorize the package further.
 Let's take an example, Sun Microsystem has definded a package named java that contains many classes like System, String, Reader, Writer, Socket etc. These classes represent a particular group e.g. Reader and Writer classes are for Input/Output operation, Socket and ServerSocket classes are for networking etc and so on. So, Sun has subcategorized the java package into subpackages such as lang, net, io etc. and put the Input/Output related classes in io package, Server and ServerSocket classes in net packages and so on.
@@ -4437,7 +4377,7 @@ Example of Subpackage
 To Compile: javac -d . Simple.java
 To Run: java com.javatpoint.core.Simple
 Output:Hello subpackage
-________________________________________
+
 How to send the class file to another directory or drive?
 There is a scenario, I want to put the class file of A.java source file in classes folder of c: drive. For example:
  
@@ -4460,7 +4400,7 @@ The -classpath switch can be used with javac and java tool.
 To run this program from e:\source directory, you can use -classpath switch of java that tells where to look for class file. For example:
 e:\sources> java -classpath c:\classes mypack.Simple
 Output:Welcome to package
-________________________________________
+
 Ways to load the class files or jar files
 There are two ways to load the class files temporary and permanent.
 o	Temporary
@@ -4469,14 +4409,20 @@ o	By -classpath switch
 o	Permanent
 o	By setting the classpath in the environment variables
 o	By creating the jar file, that contains all the class files, and copying the jar file in the jre/lib/ext folder.
-________________________________________
+
 Rule: There can be only one public class in a java source file and it must be saved by the public class name.
 1.	//save as C.java otherwise Compilte Time Error  
 2.	  
 3.	class A{}  
 4.	class B{}  
 5.	public class C{}  
-________________________________________
+</details>
+<details><summary><b>[013 - How to send the class file to another directory or drive?]</b></summary>
+
+ 
+</details>
+<details><summary><b>[014 - How to put two public classes in a package?]</b></summary>
+	
 #### How to put two public classes in a package?
 If you want to put two public classes in a package, have two java source files containing one public class, but keep the package name same. For example:
 1.	//save as A.java  
@@ -4486,10 +4432,163 @@ If you want to put two public classes in a package, have two java source files c
 1.	//save as B.java  
 2.	  
 3.	package javatpoint;  
-4.	public class B{}  
-________________________________________
+4.	public class B{} 
+</details>
+<details><summary><b>[015 - What is static import feature of Java5?]</b></summary>
 #### What is static import feature of Java5?
 Click Static Import feature of Java5.
+</details>
+
+
+#### Type Conversion and Casting
+If you have previous programming experience, then you already know that it is fairly
+common to assign a value of one type to a variable of another type. 
+If the two types are compatible, then Java will perform the conversion automatically. 
+For example, it is always possible to assign an int value to a long variable. 
+However, not all types are compatible, and thus, not all type conversions are implicitly allowed. 
+For instance, there is no automatic conversion defined from double to byte. 
+Fortunately, it is still possible to obtain a conversion between incompatible types. 
+To do so, you must use a cast, which performs an explicit conversion between incompatible types. 
+
+#### Java’s Automatic Conversions
+When one type of data is assigned to another type of variable, an automatic type 
+conversion will take place 
+if the following two conditions are met:
+• The two types are compatible.
+• The destination type is larger than the source type.
+When these two conditions are met, a widening conversion takes place. For example, 
+the int type is always large enough to hold all valid byte values, 
+so no explicit cast statement is required.
+
+For widening conversions, the numeric types, including integer and floating-point types, 
+are compatible with each other. 
+However, there are no automatic conversions from the numeric types to char or boolean. 
+Also, char and boolean are not compatible with each other. 
+
+Java also performs an automatic type conversion when storing a literal integer constant into 
+variables of type byte, short, long, or char.
+
+Casting Incompatible Types
+Although the automatic type conversions are helpful, they will not fulfill all needs.
+For example, what if you want to assign an int value to a byte variable? 
+This conversion will not be performed automatically, because a byte is smaller than an int. 
+This kind of conversion is sometimes called a narrowing conversion, since you are explicitly 
+making the value narrower so that it will fit into the target type.
+To create a conversion between two incompatible types, you must use a cast. 
+A cast is simply an explicit type conversion. 
+It has this general form:
+(target-type) value
+
+#### The transient and volatile Modifiers
+Java defines two interesting type modifiers: transient and volatile. These modifiers are used to handle somewhat specialized situations.
+When an instance variable is declared as transient, then its value need not persist when an object is stored. For example:
+class T {
+transient int a; // will not persist
+int b; // will persist
+}
+Here, if an object of type T is written to a persistent storage area, the contents of a would not be saved, but the contents of b would.
+
+The volatile modifier tells the compiler that the variable modified by volatile can be changed unexpectedly by other parts of your program. One of these situations involves multithreaded programs. In a multithreaded program, sometimes two or more threads share the same variable. For efficiency considerations, each thread can keep its own, private copy of such a shared variable. The real (or master) copy of the variable is updated at various times, such as when a synchronized method is entered. While this approach works fine, it may be inefficient at times. In some cases, all that really matters is that the master copy of a variable always reflects its current state. To ensure this, simply specify the variable as volatile, which tells the compiler that it must always use the master copy of a volatile variable (or, at least, always keep any private copies up-to-date with the master copy, and vice versa). Also, accesses to the master variable must be executed in the precise order in which they are executed on any private copy.
+
+#### Native Methods
+Although it is rare, occasionally you may want to call a subroutine that is written in a language other than Java. Typically, such a subroutine exists as executable code for the CPU and environment in which you are working—that is, native code. For example, you may want to call a native code subroutine to achieve faster execution time. Or, you may want to use a specialized, third-party library, such as a statistical package. However, because Java programs are compiled to bytecode, which is then interpreted (or compiled on-the-fly) by the Java run-time system, it would seem impossible to call a native code subroutine from within your Java program. Fortunately, this conclusion is false. 
+
+Java provides the native keyword, which is used to declare native code methods. Once declared, these methods can be called from inside your Java program just as you call any other Java method.
+
+To declare a native method, precede the method with the native modifier, but do not define anybody for the method. For example:
+
+public native int meth() ;
+
+- Problems with Native Methods
+Native methods seem to offer great promise, because they enable you to gain access to an existing base of library routines, and they offer the possibility of faster run-time execution. But native methods also introduce two significant problems:
+• Potential security risk Because a native method executes actual machine code, it can gain access to any part of the host system. That is, native code is not confined to the Java execution environment. This could allow a virus infection, for example. For this reason, applets cannot use native methods. Also, the loading of DLLs can be restricted, and their loading is subject to the approval of the security manager.
+• Loss of portability Because the native code is contained in a DLL, it must be present on the machine that is executing the Java program. Further, because each native method is CPU- and operating system–dependent, each DLL is inherently non portable. Thus, a Java application that uses native methods will be able to run only on a machine for which a compatible DLL has been installed.
+
+#### assert
+Another relatively new addition to Java is the keyword assert. It is used during program development to create an assertion, which is a condition that should be true during the execution of the program. For example, you might have a method that should always return a positive integer value. You might test this by asserting that the return value is greater than zero using an assert statement. At run time, if the condition actually is true, no other action takes place. However, if the condition is false, then an AssertionError is thrown. Assertions are often used during testing to verify that some expected condition is actually met. They are not usually used for released code.
+The assert keyword has two forms. The first is shown here:
+assert condition;
+Here, condition is an expression that must evaluate to a Boolean result. If the result is true, then the assertion is true and no other action takes place. If the condition is false, then the assertion fails and a default AssertionError object is thrown.
+The second form of assert is shown here:
+assert condition : expr;
+In this version, expr is a value that is passed to the AssertionError constructor. This value is converted to its string format and displayed if an assertion fails. Typically, you will specify a string for expr, but any non-void expression is allowed as long as it defines a reasonable string conversion.
+
+#### Varargs: Variable-Length Arguments
+
+Beginning with JDK 5, Java has included a feature that simplifies the creation of methods that need to take a variable number of arguments. This feature is called varargs and it is short for variable-length arguments. A method that takes a variable number of arguments is called a variable-arity method, or simply a varargs method.
+Situations that require that a variable number of arguments be passed to a method are not unusual. For example, a method that opens an Internet connection might take a user name, password, filename, protocol, and so on, but supply defaults if some of this information is not provided. In this situation, it would be convenient to pass only the arguments to which the defaults did not apply. Another example is the printf( ) method that is part of Java’s I/O library.It takes a variable number of arguments, which it formats and then outputs.
+
+Prior to JDK 5, variable-length arguments could be handled two ways, neither of which was particularly pleasing. First, if the maximum number of arguments was small and known, then you could create overloaded versions of the method, one for each way the method could be called. Although this works and is suitable for some cases, it applies to only a narrow class of situations.
+In cases where the maximum number of potential arguments was larger, or unknowable, a second approach was used in which the arguments were put into an array, and then the array was passed to the method. This approach is illustrated by the following program:
+// Use an array to pass a variable number of
+// arguments to a method. This is the old-style
+// approach to variable-length arguments.
+class PassArray {
+static void vaTest(int v[]) {
+System.out.print("Number of args: " + v.length +
+" Contents: ");
+for(int x : v)
+System.out.print(x + " ");
+
+System.out.println();
+}
+public static void main(String args[])
+{
+// Notice how an array must be created to
+// hold the arguments.
+int n1[] = { 10 };
+int n2[] = { 1, 2, 3 };
+int n3[] = { };
+vaTest(n1); // 1 arg
+vaTest(n2); // 3 args
+vaTest(n3); // no args
+}
+}
+The output from the program is shown here:
+Number of args: 1 Contents: 10
+Number of args: 3 Contents: 1 2 3
+Number of args: 0 Contents:
+In the program, the method vaTest( ) is passed its arguments through the array v. This old-style approach to variable-length arguments does enable vaTest( ) to take an arbitrary number of arguments. However, it requires that these arguments be manually packaged into an array prior to calling vaTest( ). Not only is it tedious to construct an array each time vaTest( ) is called, it is potentially error-prone. The varargs feature offers a simpler, better option.
+A variable-length argument is specified by three periods (...). For example, here is how vaTest( ) is written using a vararg:
+static void vaTest(int ... v) {
+This syntax tells the compiler that vaTest( ) can be called with zero or more arguments. As a result, v is implicitly declared as an array of type int[ ]. Thus, inside vaTest( ), v is accessed using the normal array syntax. Here is the preceding program rewritten using a vararg:
+// Demonstrate variable-length arguments.
+class VarArgs {
+// vaTest() now uses a vararg.
+static void vaTest(int ... v) {
+System.out.print("Number of args: " + v.length +
+" Contents: ");
+for(int x : v)
+System.out.print(x + " ");
+System.out.println();
+}
+public static void main(String args[])
+{
+// Notice how vaTest() can be called with a
+// variable number of arguments.
+vaTest(10); // 1 arg
+vaTest(1, 2, 3); // 3 args
+vaTest(); // no args
+}
+}
+The output from the program is the same as the original version.
+There are two important things to notice about this program. First, as explained, inside vaTest( ), v is operated on as an array. This is because v is an array. The ... syntax simply tells the compiler that a variable number of arguments will be used, and that these arguments will be stored in the array referred to by v. 
+Second, in main( ), vaTest( ) is called with different numbers of arguments, including no arguments at all. The arguments are automatically put in an array and passed to v. In the case of no arguments, the length of the array is zero.
+A method can have “normal” parameters along with a variable-length parameter. However, the variable-length parameter must be the last parameter declared by the method. For example, this method declaration is perfectly acceptable:
+int doIt(int a, int b, double c, int ... vals) {}
+
+
+
+
+
+
+
+
+
+
+________________________________________
+
+
 
 
 #### Java Thread 
@@ -5969,7 +6068,6 @@ public class StatelessFactorizer implements Servlet
 }
 The transient state for a particular computation exists solely in local variables that are stored on the thread’s stack and are accessible only to the executing thread. One thread accessing a StatelessFactorizer cannot influence the result of another thread accessing the same StatelessFactorizer; because the two threads do not share state, it is as if they were accessing different instances. Since the actions of a thread accessing a stateless object cannot affect the correctness of operations in other threads, stateless objects are thread-safe.
 That’s all for this small but important concept around What is Thread Safety?
-
 
 #### Java ThreadLocal Variables – When and How to Use?
 
