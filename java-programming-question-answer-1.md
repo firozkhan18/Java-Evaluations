@@ -398,25 +398,7 @@ public class RemoveDuplicates {
 ```
 </details>
 <details>
-<summary><b>22. Convert a decimal number to binary:</b></summary>
-
-```java
-import java.util.Scanner;
-
-public class DecimalToBinary {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter a decimal number: ");
-        int decimal = input.nextInt();
-        
-        System.out.println("Binary representation: " + Integer.toBinaryString(decimal));
-    }
-}
-```
-</details>
-
-<details>
-<summary><b>23. Program to find the second largest element in an array:</b></summary>
+<summary><b>22. Program to find the second largest element in an array:</b></summary>
 
 ```java
 public class SecondLargestElement {
@@ -440,7 +422,7 @@ public class SecondLargestElement {
 ```
 </details>
 <details>
-<summary><b>24. Program to check if two strings are anagrams of each other:</b></summary>
+<summary><b>23. Program to check if two strings are anagrams of each other:</b></summary>
 
 ```java
 import java.util.Arrays;
@@ -474,7 +456,7 @@ public class AnagramCheck {
 ```
 </details>
 <details>
-<summary><b>25. Program to find the Fibonacci series up to a given number:</b></summary>
+<summary><b>24. Program to find the Fibonacci series up to a given number:</b></summary>
 
 ```java
 public class FibonacciSeries {
@@ -500,7 +482,7 @@ public class FibonacciSeries {
 ```
 </details>
 <details>
-<summary><b>26. Program to find the number of words in a string:</b></summary>
+<summary><b>25. Program to find the number of words in a string:</b></summary>
 
 ```java
 public class WordCount {
@@ -517,7 +499,7 @@ public class WordCount {
 ```
 </details>
 <details>
-<summary><b>27. Program to find the sum of digits of a number:</b></summary>
+<summary><b>26. Program to find the sum of digits of a number:</b></summary>
 
 ```java
 public class SumOfDigits {
@@ -540,7 +522,7 @@ public class SumOfDigits {
 ```
 </details>
 <details>
-<summary><b>28. Program to concatenate two strings:</b></summary>
+<summary><b>27. Program to concatenate two strings:</b></summary>
 
 ```java
 public class ConcatenateStrings {
@@ -557,7 +539,7 @@ public class ConcatenateStrings {
 ```
 </details>
 <details>
-<summary><b>29. Program to find the index of a given element in an array:</b></summary>
+<summary><b>28. Program to find the index of a given element in an array:</b></summary>
 
 ```java
 public class ElementIndex {
@@ -580,7 +562,7 @@ public class ElementIndex {
 ```
 </details>
 <details>
-<summary><b>30. Program to find the GCD of two numbers:</b></summary>
+<summary><b>29. Program to find the GCD of two numbers:</b></summary>
 
 ```java
 public class GCD {
@@ -601,7 +583,7 @@ public class GCD {
 ```
 </details>
 <details>
-<summary><b>31. Program to find the intersection of two arrays:</b></summary>
+<summary><b>30. Program to find the intersection of two arrays:</b></summary>
 
 ```java
 import java.util.HashSet;
@@ -634,7 +616,7 @@ public class IntersectionOfArrays {
 ```
 </details>
 <details>
-<summary><b>32. Program to find the power of a number using recursion:</b></summary>
+<summary><b>31. Program to find the power of a number using recursion:</b></summary>
 
 ```java
 public class PowerOfNumber {
@@ -655,7 +637,7 @@ public class PowerOfNumber {
 ```
 </details>
 <details>
-<summary><b>33. Remove duplicates from an array</b></summary>
+<summary><b>32. Remove duplicates from an array</b></summary>
 
 ```java
 import java.util.Arrays;
@@ -682,7 +664,7 @@ public class RemoveDuplicatesFromArray {
 ```
 </details>
 <details>
-<summary><b>34. Find the smallest element in an array</b></summary>
+<summary><b>33. Find the smallest element in an array</b></summary>
 
 ```java
 public class SmallestElementInArray {
@@ -702,7 +684,7 @@ public class SmallestElementInArray {
 ```
 </details>
 <details>
-<summary><b>35. Check if a given string is a valid palindrome or not</b></summary>
+<summary><b>34. Check if a given string is a valid palindrome or not</b></summary>
 
 ```java
 public class ValidPalindrome {
@@ -727,7 +709,7 @@ public class ValidPalindrome {
 ```
 </details>
 <details>
-<summary><b>36. Find the product of two matrices</b></summary>
+<summary><b>35. Find the product of two matrices</b></summary>
 
 ```java
 public class MatrixMultiplication {
@@ -756,7 +738,7 @@ public class MatrixMultiplication {
 ```
 </details>
 <details>
-<summary><b>37. Reverse a linked list</b></summary>
+<summary><b>36. Reverse a linked list</b></summary>
 
 ```java
 class Node {
@@ -812,7 +794,7 @@ public class ReverseLinkedList {
 ```
 </details>
 <details>
-<summary><b>38. Find the missing number in an array of consecutive numbers</b></summary>
+<summary><b>37. Find the missing number in an array of consecutive numbers</b></summary>
 
 ```java
 public class MissingNumberInArray {
@@ -833,7 +815,7 @@ public class MissingNumberInArray {
 ```
 </details>
 <details>
-<summary><b>39. Check if a number is a perfect number</b></summary>
+<summary><b>38. Check if a number is a perfect number</b></summary>
 
 ```java
 public class PerfectNumber {
@@ -857,7 +839,7 @@ public class PerfectNumber {
 ```
 </details>
 <details>
-<summary><b>40. Find the median of an array</b></summary>
+<summary><b>39. Find the median of an array</b></summary>
 
 ```java
 import java.util.Arrays;
