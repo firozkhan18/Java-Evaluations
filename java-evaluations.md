@@ -1,10 +1,33 @@
 # Java Exercises Collection
 
 ## Java Collection
-<details>
+
 Java Collection refers to a  framework provided by Java to store and manipulate groups of objects. It offers a set of interfaces (like List, Set, Queue, etc.) and classes (like ArrayList, HashSet, PriorityQueue, etc.) that provide different ways to organize and work with collections of elements. This  framework simplifies common operations such as adding, removing, and accessing elements. It offers a wide range of data structures to suit various programming needs.
+<details>
  
-<summary>List of Java Collection Exercises :</summary>
+<summary>List of Java Collection Exercises1 :</summary>
+
+  ### List of Java Collection Exercises :
+  - [ArrayList Exercises](java-basic-exercises-020-collection-arraylist.md)
+  - [LinkedList Exercises](java-basic-exercises-020-collection-linkedlist.md)
+  - [HashSet Exercises](java-basic-exercises-020-collection-hashset.md)
+  - [TreeSet Exercises](java-basic-exercises-020-collection-treeset.md)
+  - [PriorityQueue Exercises](java-basic-exercises-020-collection-priorityqueue.md)
+  - [HashMap Exercises](java-basic-exercises-020-collection-hashmap.md)
+  - [TreeMap Exercises](java-basic-exercises-020-collection-treemap.md)
+
+<summary>List of Java Collection Exercises2 :</summary>
+
+  ### List of Java Collection Exercises :
+  - [ArrayList Exercises](java-basic-exercises-020-collection-arraylist.md)
+  - [LinkedList Exercises](java-basic-exercises-020-collection-linkedlist.md)
+  - [HashSet Exercises](java-basic-exercises-020-collection-hashset.md)
+  - [TreeSet Exercises](java-basic-exercises-020-collection-treeset.md)
+  - [PriorityQueue Exercises](java-basic-exercises-020-collection-priorityqueue.md)
+  - [HashMap Exercises](java-basic-exercises-020-collection-hashmap.md)
+  - [TreeMap Exercises](java-basic-exercises-020-collection-treemap.md)
+
+<summary>List of Java Collection Exercises3 :</summary>
 
   ### List of Java Collection Exercises :
   - [ArrayList Exercises](java-basic-exercises-020-collection-arraylist.md)
