@@ -109,7 +109,7 @@
 100. Write a program to find the maximum flow in a graph using Ford-Fulkerson algorithm.
 
 <details>
-<summary><b>1. // Program to find the sum of all elements in an array</b></summary>
+<summary><b>1. Program to find the sum of all elements in an array</b></summary>
 
 ```java
 public class SumOfArrayElements {
@@ -125,7 +125,7 @@ public class SumOfArrayElements {
 ```
 </details>
 <details>
-<summary><b>2. // Program to check if a given number is prime or not</b></summary>
+<summary><b>2. Program to check if a given number is prime or not</b></summary>
 
 ```java
 public class CheckPrimeNumber {
@@ -148,7 +148,7 @@ public class CheckPrimeNumber {
 ```
 </details>
 <details>
-<summary><b>3. // Program to reverse a string</b></summary>
+<summary><b>3. Program to reverse a string</b></summary>
 
 ```java
 public class ReverseString {
@@ -164,7 +164,7 @@ public class ReverseString {
 ```
 </details>
 <details>
-<summary><b>4. // Program to find the factorial of a number</b></summary>
+<summary><b>4. Program to find the factorial of a number</b></summary>
 
 ```java
 public class Factorial {
@@ -180,7 +180,7 @@ public class Factorial {
 ```
 </details>
 <details>
-<summary><b>5. // Program to implement a stack in Java</b></summary>
+<summary><b>5. Program to implement a stack in Java</b></summary>
 
 ```java
 import java.util.Stack;
@@ -200,7 +200,7 @@ public class StackExample {
 ```
 </details>
 <details>
-<summary><b>6. // Program to sort an array in ascending order</b></summary>
+<summary><b>6. Program to sort an array in ascending order</b></summary>
 
 ```java
 import java.util.Arrays;
@@ -215,7 +215,7 @@ public class SortArray {
 ```
 </details>
 <details>
-<summary><b>7. // Program to check if a string is a palindrome</b></summary>
+<summary><b>7. Program to check if a string is a palindrome</b></summary>
 
 ```java
 public class PalindromeCheck {
@@ -232,7 +232,7 @@ public class PalindromeCheck {
 ```
 </details>
 <details>
-<summary><b>8. // Program to find the largest element in an array</b></summary>
+<summary><b>8. Program to find the largest element in an array</b></summary>
 
 ```java
 public class LargestElement {
@@ -250,7 +250,7 @@ public class LargestElement {
 ```
 </details>
 <details>
-<summary><b>9. // Program to implement a queue in Java</b></summary>
+<summary><b>9. Program to implement a queue in Java</b></summary>
 
 ```java
 import java.util.LinkedList;
@@ -271,7 +271,7 @@ public class QueueExample {
 ```
 </details>
 <details>
-<summary><b>10. // Program to count the number of vowels in a string</b></summary>
+<summary><b>10. Program to count the number of vowels in a string</b></summary>
 
 ```java
 public class VowelCount {
@@ -289,7 +289,7 @@ public class VowelCount {
 ```
 </details>
 <details>
-<summary><b>11. // Program to find the second largest element in an array</b></summary>
+<summary><b>11. Program to find the second largest element in an array</b></summary>
 
 ```java
 import java.util.Arrays;
@@ -304,7 +304,7 @@ public class SecondLargestElement {
 ```
 </details>
 <details>
-<summary><b>12. // Program to check if two strings are anagrams of each other</b></summary>
+<summary><b>12. Program to check if two strings are anagrams of each other</b></summary>
 
 ```java
 import java.util.Arrays;
@@ -328,7 +328,7 @@ public class AnagramCheck {
 ```
 </details>
 <details>
-<summary><b>13. // Program to find the Fibonacci series up to a given number</b></summary>
+<summary><b>13. Program to find the Fibonacci series up to a given number</b></summary>
 
 ```java
 public class FibonacciSeries {
@@ -347,7 +347,7 @@ public class FibonacciSeries {
 ```
 </details>
 <details>
-<summary><b>14. // Program to find the number of words in a string</b></summary>
+<summary><b>14. Program to find the number of words in a string</b></summary>
 
 ```java
 public class WordCount {
@@ -360,7 +360,7 @@ public class WordCount {
 ```
 </details>
 <details>
-<summary><b>15. // Program to find the sum of digits of a number</b></summary>
+<summary><b>15. Program to find the sum of digits of a number</b></summary>
 
 ```java
 public class SumOfDigits {
@@ -377,7 +377,7 @@ public class SumOfDigits {
 ```
 </details>
 <details>
-<summary><b>16. // Program to concatenate two strings</b></summary>
+<summary><b>16. Program to concatenate two strings</b></summary>
 
 ```java
 public class StringConcatenation {
@@ -391,7 +391,7 @@ public class StringConcatenation {
 ```
 </details>
 <details>
-<summary><b>17. // Program to find the index of a given element in an array</b></summary>
+<summary><b>17. Program to find the index of a given element in an array</b></summary>
 
 ```java
 public class ElementIndex {
@@ -411,7 +411,7 @@ public class ElementIndex {
 ```
 </details>
 <details>
-<summary><b>18. // Program to find the GCD of two numbers</b></summary>
+<summary><b>18. Program to find the GCD of two numbers</b></summary>
 
 ```java
 public class GCD {
@@ -434,7 +434,7 @@ public class GCD {
 ```
 </details>
 <details>
-<summary><b>19. // Program to find the intersection of two arrays</b></summary>
+<summary><b>19. Program to find the intersection of two arrays</b></summary>
 
 ```java
 import java.util.HashSet;
@@ -458,7 +458,7 @@ public class ArrayIntersection {
 ```
 </details>
 <details>
-<summary><b>20. // Program to find the power of a number using recursion</b></summary>
+<summary><b>20. Program to find the power of a number using recursion</b></summary>
 
 ```java
 public class PowerOfNumber {
