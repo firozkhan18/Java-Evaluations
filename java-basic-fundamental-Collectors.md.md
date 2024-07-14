@@ -1,14 +1,14 @@
-# Java 8 Collectors Tutorial
+# Java 8 Collectors
 
-Java 8 Collectors tutorial mainly consist of three things – Stream.collect() method, Collector interface and Collectors class. 
+Java 8 Collectors mainly consist of three things – Stream.collect() method, Collector interface and Collectors class. 
 
-collect() method is a terminal operation in Stream interface.
+- collect() method is a terminal operation in Stream interface.
 
-Collector is an interface in java.util.stream package. 
+- Collector is an interface in java.util.stream package. 
 
-Collectors class, also a member of java.util.stream package, is an utility class containing many static methods which perform some common reduction operations. 
+- Collectors class, also a member of java.util.stream package, is an utility class containing many static methods which perform some common reduction operations. 
 
-Let’s discuss them one by one.
+Let’s go through them one by one.
 
 ### 1) Stream.collect() Method
 collect() method is a terminal operation in Stream interface.
