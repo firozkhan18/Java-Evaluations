@@ -4,7 +4,7 @@ A Stream in Java can be defined as a sequence of elements from a source, such as
 
 Streams are lazily operated, opposite to collections that must store all the values before it starts processing. Stream is conceptually a pipeline, in which elements are computed on demand.
 
-This page lists down the published tutorials on this blog related to Stream API and its related concepts.
+This page lists down the related to Stream API and its related concepts.
 
 <details>
 <summary><b>1. Stream Basics</b></summary>
