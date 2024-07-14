@@ -177,8 +177,6 @@ The process oriented model can be thought of as code acting on data. Procedural 
 To manage increasing complexity the second approach called object oriented programing was conceived.
 Object oriented programing organizes a program around its data (that is objects) and a set of well-defined interfaces to that data. An object oriented program can be characterized as data controlling access to code.
 
-
-</details>
 <details>
 <summary><b>[006 - Advantage of OOPs over Procedure-oriented programming language]</b></summary>
 
@@ -194,6 +192,7 @@ Figure: Data Representation in Object-Oriented Programming
 <details><summary><b>[007 - What is the difference between an object-oriented programming language and object-based programming language?]</b></summary>
 
 Object-based programming language follows all the features of OOPs except Inheritance. JavaScript and VBScript are examples of object-based programming languages.
+</details>
 </details>
 <details><summary><b>[021 - OOPs (Object-Oriented Programming System)]</b></summary>
  
