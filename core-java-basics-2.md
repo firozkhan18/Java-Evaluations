@@ -165,191 +165,9 @@ Once the runtime package exist for a given systems only java program can run on 
 When the JIT is part of the JVM it compiles bytecode into executable code in real time on a piece by piece demand basis. It is important to understand that it is not possible to compile an entire java program into executable code all at once, because java performs various runtime checks that can be done only at runtime instead the JIT compiles code as it needed during execution.
 </details>
 </details>
-<details><summary><b>[018 - Two Paradigm]</b></summary>
-</details>
-<details>
-<summary><b>[019 - Advantage of OOPs over Procedure-oriented programming language]</b></summary>
-</details>
-<details><summary><b>[020 - What is the difference between an object-oriented programming language and object-based programming language?]</b></summary>
-</details>
-<details><summary><b>[021 - OOPs (Object-Oriented Programming System)]</b></summary>
-</details>
-<details><summary><b>[022 - Class]</b></summary>
-</details>
-<details><summary><b>[023 - Instance variable in Java]</b></summary>
-</details>
-<details><summary><b>[024 - Object]</b></summary>
-</details>
-<details><summary><b>[026 - new keyword in Java]</b></summary>
-</details>
-<details><summary><b>[027 - 3 Ways to initializing object]</b></summary>
-</details>
-<details><summary><b>[028 - What are the different ways to create an object in Java?]</b></summary>
-</details>
-<details><summary><b>[029 - Anonymous Objects]</b></summary>
-</details>
-<details><summary><b>[030 - Creating multiple objects by one type only]</b></summary>
-</details>
-<details><summary><b>[031 - Encapsulation in Java]</b></summary>
-</details>
-<details><summary><b>[032 - Polymorphism in Java]</b></summary>
-</details>
-<details><summary><b>[033 - Runtime Polymorphism in Java]</b></summary>
-</details>
-<details><summary><b>[034 - Upcasting]</b></summary>
-</details>
-<details><summary><b>[035 - Inheritance in java]</b></summary>
-</details>
-<details><summary><b>[036 - Why use inheritance in java]</b></summary>
-</details>
-<details><summary><b>[037 - Types of inheritance in java]</b></summary>
-</details>
-<details><summary><b>[038 - Why multiple inheritance is not supported in java?]</b></summary>
-</details>
-<details><summary><b>[039 - Abstraction in Java]</b></summary>
-</details>
-<details><summary><b>[040 - Ways to achieve Abstraction]</b></summary>
-</details>
-<details><summary><b>[041 - Aggregation in Java]</b></summary>
-</details>
-<details><summary><b>[042 - Why use Aggregation?]</b></summary>
-</details>
-<details><summary><b>[043 - When use Aggregation?]</b></summary>
-</details>
-<details><summary><b>[044 - Coupling]</b></summary>
-</details>
-<details><summary><b>[045 - Cohesion]</b></summary>
-</details>
-<details><summary><b>[046 - Association]</b></summary>
-</details>
-<details><summary><b>[047 - Composition]</b></summary>
-</details>
-<details><summary><b>[048 - Access Modifiers in Java]</b></summary>
-</details>
-<details><summary><b>[049 - Access Control]</b></summary>
-</details>
-<details><summary><b>[050 - Methods in Java]</b></summary>
-</details>
-<details><summary><b>[051 - Using Command-Line Arguments]</b></summary>
-</details>
-<details><summary><b>[052 - Instance Variable Hiding]</b></summary>
-</details>
-<details><summary><b>[053 - The Scope and Lifetime of Variables]</b></summary>
-</details>
-<details><summary><b>[054 - Constructors in Java]</b></summary>
-</details>
-<details><summary><b>[055 - What is the purpose of a default constructor?]</b></summary>
-</details>
-<details><summary><b>[056 - Why use the parameterized constructor?]</b></summary>
-</details>
-<details><summary><b>[057 - Difference between constructor and method in Java]</b></summary>
-</details>
-<details><summary><b>[058 - Does constructor return any value?]</b></summary>
-</details>
-<details><summary><b>[059 - Can constructor perform other tasks instead of initialization?]</b></summary>
-</details>
-<details><summary><b>[060 - Is there Constructor class in Java?]</b></summary>
-</details>
-<details><summary><b>[001 - What is the purpose of Constructor class?]</b></summary>
-</details>
-<details><summary><b>[002 - this keyword in java]</b></summary>
-</details>
-<details><summary><b>[003 - Garbage Collection]</b></summary>
-</details>
-<details><summary><b>[004 - Finalize() method]</b></summary>
-</details>
-<details><summary><b>[005 - Memory Management]</b></summary>
-</details>
-<details><summary><b>[006 - Method Overloading in Java]</b></summary>
-</details>
-<details><summary><b>[007 - Can we overload java main() method?]</b></summary>
-</details>
-<details><summary><b>[008 - Why Method Overloading is not possible by changing the return type of method only?]</b></summary>
-</details>
-<details><summary><b>[009 - Method Overloading and Type Promotion]</b></summary>
-</details>
-<details><summary><b>[010 - Recursion in Java]</b></summary>
-</details>
-<details><summary><b>[011 - Method Overriding in Java]</b></summary>
-</details>
-<details><summary><b>[012 - Can we override static method?]</b></summary>
-</details>
-<details><summary><b>[013 - Why can we not override static method?]</b></summary>
-</details>
-<details><summary><b>[014 - Can we override java main method?]</b></summary>
-</details>
-<details><summary><b>[015 - Difference between method Overloading and Method Overriding in java]</b></summary>
-</details>
-<details><summary><b>[016 - Usage of Java Method Overriding]</b></summary>
-</details>
-<details><summary><b>[017 - Dynamic Method Dispatch]</b></summary>
-</details>
-<details><summary><b>[018 - Static Binding and Dynamic Binding]</b></summary>
-</details>
-<details><summary><b>[019 - Java static keyword]</b></summary>
-</details>
-<details><summary><b>[020 - Why is the Java main method static?]</b></summary>
-</details>
-<details><summary><b>[025 - Final Keyword in Java]</b></summary>
-</details>
-<details><summary><b>[025 - Is final method inherited?]</b></summary>
-</details>
-<details><summary><b>[025 - What is blank or uninitialized final variable?]</b></summary>
-</details>
-<details><summary><b>[025 - What is final parameter?]</b></summary>
-</details>
-<details><summary><b>[025 - Can we declare a constructor final?]</b></summary>
-</details>
-<details><summary><b>[025 - Super Keyword in Java]</b></summary>
-</details>
-<details><summary><b>[025 - Method Overriding]</b></summary>
-</details>
-<details><summary><b>[025 - Abstract class in Java]</b></summary>
-</details>
-<details><summary><b>[025 - Abstract Method in Java]</b></summary>
-</details>
-<details><summary><b>[025 - Interface in Java]</b></summary>
-</details>
-<details><summary><b>[025 - Why use Java interface?]</b></summary>
-</details>
-<details><summary><b>[025 - Java 8 Interface Improvement]</b></summary>
-</details>
-<details><summary><b>[025 - Internal addition by the compiler]</b></summary>
-</details>
-<details><summary><b>[025 - Multiple inheritance is not supported through class in java, but it is possible by an interface, why?]</b></summary>
-</details>
-<details><summary><b>[025 - Java 8 Default Method in Interface]</b></summary>
-</details>
-<details><summary><b>[025 - Java 8 Static Method in Interface]</b></summary>
-</details>
-<details><summary><b>[025 - What is marker or tagged interface?]</b></summary>
-</details>
-<details><summary><b>[025 - Can we define a class inside the interface?]</b></summary>
-</details>
-<details><summary><b>[025 - Difference between abstract class and interface]</b></summary>
-</details>
-<details><summary><b>[005 - Java instanceof]</b></summary>
-</details>
-<details><summary><b>[006 - Downcasting]</b></summary>
-</details>
-<details><summary><b>[007 - Covariant Return Type]</b></summary>
-</details>
-<details><summary><b>[008 - How is Covariant return types implemented?]</b></summary>
-</details>
-<details><summary><b>[009 - Why use instance initializer block?]</b></summary>
-</details>
-<details><summary><b>[010 - What is invoked first, instance initializer block or constructor?]</b></summary>
-</details>
-<details><summary><b>[011 - Java Package]</b></summary>
-</details>
-<details><summary><b>[012 - Subpackage in java]</b></summary>
-</details>
-<details><summary><b>[013 - How to send the class file to another directory or drive?]</b></summary>
-</details>
-<details><summary><b>[014 - How to put two public classes in a package?]</b></summary>
-</details>
-<details><summary><b>[015 - What is static import feature of Java5?]</b></summary>
-#### Two Paradigm
+<details><summary><b>[005 - Two Paradigm]</b></summary>
+
+ #### Two Paradigm
 1.	Process Oriented Model
 2.	Object Oriented Programming Model
 All computer programs consists of two elements: code and data. Program can be conceptually organized around its code or around its data. 
@@ -359,58 +177,83 @@ The process oriented model can be thought of as code acting on data. Procedural 
 To manage increasing complexity the second approach called object oriented programing was conceived.
 Object oriented programing organizes a program around its data (that is objects) and a set of well-defined interfaces to that data. An object oriented program can be characterized as data controlling access to code.
 
-- Advantage of OOPs over Procedure-oriented programming language
+
+</details>
+<details>
+<summary><b>[006 - Advantage of OOPs over Procedure-oriented programming language]</b></summary>
+
+#### What is the difference between an object-oriented programming language and object-based programming language?
+
+#### Advantage of OOPs over Procedure-oriented programming language
 1) OOPs makes development and maintenance easier, whereas, in a procedure-oriented programming language, it is not easy to manage if code grows as project size increases.
 2) OOPs provides data hiding, whereas, in a procedure-oriented programming language, global data can be accessed from anywhere.
  
 Figure: Data Representation in Procedure-Oriented Programming
 
- 
 Figure: Data Representation in Object-Oriented Programming
 3) OOPs provides the ability to simulate real-world event much more effectively. We can provide the solution of real word problem if we are using the Object-Oriented Programming language.
-________________________________________
-#### What is the difference between an object-oriented programming language and object-based programming language?
+</details>
+<details><summary><b>[007 - What is the difference between an object-oriented programming language and object-based programming language?]</b></summary>
+
 Object-based programming language follows all the features of OOPs except Inheritance. JavaScript and VBScript are examples of object-based programming languages.
+</details>
+<details><summary><b>[021 - OOPs (Object-Oriented Programming System)]</b></summary>
+ 
 #### OOPs (Object-Oriented Programming System)
 Object means a real-world entity such as a pen, chair, table, computer, watch, etc. Object-Oriented Programming is a methodology or paradigm to design a program using classes and objects. It simplifies software development and maintenance by providing some concepts:
-o	Object
-o	Class
-o	Inheritance
-o	Polymorphism
-o	Abstraction
-o	Encapsulation
+- Object
+- Class
+- Inheritance
+- Polymorphism
+- Abstraction
+- Encapsulation
 Apart from these concepts, there are some other terms which are used in Object-Oriented design:
-o	Coupling
-o	Cohesion
-o	Association
-o	Aggregation
-o	Composition
+- Coupling
+- Cohesion
+- Association
+- Aggregation
+- Composition
+</details>
+<details><summary><b>[022 - Class]</b></summary>
+
 #### Class
+
 Class is user defined templates. It defines a new datatypes.
+
 We just mentioned that object contains data and code to manipulate that data. The entire set of data and code of an object can be made a user defined datatypes with the help of a class. Once class has been defined we can create any number of object is associated with the data of type class with which they are created.
+
 A class is thus a collection of object of dissimilar types. The data or variables defined within the class are called instance variables. The code contained within method. Collectively the method and variables defined within a class are called member of the class.
+
 Class is a combination of different datatypes which is used to create an object. Class is a templates of object. An object is an instance of class. In fact an object are variable of the type class. 
 Collection of objects is called class. It is a logical entity.
+
 A class can also be defined as a blueprint from which you can create an individual object. Class doesn't consume any space.
+
 A class is a group of objects which have common properties. It is a template or blueprint from which objects are created. It is a logical entity. It can't be physical.
+
 A class in Java can contain:
-o	Fields
-o	Methods
-o	Constructors
-o	Blocks
-o	Nested class and interface
+- Fields
+- Methods
+- Constructors
+- Blocks
+- Nested class and interface
  
 Syntax to declare a class:
+```java
 1.	class <class_name>{  
 2.	    field;  
 3.	    method;  
-4.	}  
+4.	}
+```
+</details>
+<details><summary><b>[023 - Instance variable in Java]</b></summary>
 
-________________________________________
 #### Instance variable in Java
 A variable which is created inside the class but outside the method is known as an instance variable. Instance variable doesn't get memory at compile time. It gets memory at runtime when an object or instance is created. That is why it is known as an instance variable.
-________________________________________
-#### Object
+</details>
+<details><summary><b>[024 - Object]</b></summary>
+
+ #### Object
 The data or variables defined within a class are called instance variable. The code is contained within methods collectively, the methods and variables defined within a class are called member of the class.
 An Object can be defined as an instance of a class. An object contains an address and takes up some space in memory. Objects can communicate without knowing the details of each other's data or code. The only necessary thing is the type of message accepted and the type of response returned by the objects.
 - Declaring Objects
@@ -438,11 +281,13 @@ o	An object is a runtime entity.
 o	The object is an entity which has state and behavior.
 o	The object is an instance of a class.
 
-________________________________________
+</details>
+<details><summary><b>[026 - new keyword in Java]</b></summary>
+
 #### new keyword in Java
 The new keyword is used to allocate memory at runtime. All objects get memory in Heap memory area.
-________________________________________
-Object and Class Example: main within the class
+
+ Object and Class Example: main within the class
 In this example, we have created a Student class which has two data members id and name. We are creating the object of the Student class by new keyword and printing the object's value.
 Here, we are creating a main() method inside the class.
 File: Student.java
@@ -488,6 +333,9 @@ Test it Now
 Output:
 0 
 null
+</details>
+<details><summary><b>[027 - 3 Ways to initializing object]</b></summary>
+
 #### 3 Ways to initializing object
 There are 3 ways to initialize object in Java.
 1.	By reference variable
@@ -625,7 +473,10 @@ File: TestRectangle1.java
 Test it Now
 Output:
 55 
-45     
+45    
+</details>
+<details><summary><b>[028 - What are the different ways to create an object in Java?]</b></summary>
+
 #### What are the different ways to create an object in Java?
 There are many ways to create an object in java. They are:
 o	By new keyword
@@ -634,6 +485,9 @@ o	By clone() method
 o	By deserialization
 o	By factory method etc.
 We will learn these ways to create object later.
+</details>
+<details><summary><b>[029 - Anonymous Objects]</b></summary>
+
  
 #### Anonymous Objects
 Anonymous simply means nameless. An object which has no reference is known as an anonymous object. It can be used at the time of object creation only.
@@ -659,7 +513,11 @@ Let's see the full example of an anonymous object in Java.
 12.	}  
 Output:
 Factorial is 120
-Creating multiple objects by one type only
+</details>
+<details><summary><b>[030 - Creating multiple objects by one type only]</b></summary>
+	
+#### Creating multiple objects by one type only
+
 We can create multiple objects by one type only as we do in case of primitives.
 Initialization of primitive variables:
 1.	int a=10, b=20;  
@@ -744,13 +602,15 @@ Balance is: 1000.0
 Balance is: 41000.0
 15000.0 withdrawn
 Balance is: 26000.0
+</details>
 
-________________________________________
 #### The Three OOP’s principles:
 1.	Encapsulation
 2.	Inheritance
 3.	Polymorphism
-#### Encapsulation in Java
+<details><summary><b>[031 - Encapsulation in Java]</b></summary>
+
+ #### Encapsulation in Java
 Encapsulation is mechanism that binds together code and data it manipulate and keep both safe from outside interference and misuse. One way to think about encapsulation is a protective wrapper that prevents code and data from being arbitrary accessed by the other code defined outside the wrapper. Access to the code and data inside the wrapper is tightly control through a well-defined interface.
 An object has properties and behavior that are encapsulated inside the object. The service is offers to its client comprises its contract, only the contract defined by the object is available to the clients. The implementation of its properties and behaviors is not concern of the clients. Encapsulation helps make clear the distinction between an objects contract and implementation. This has major consequences for program development. This implementation of an object can change without implications for the client. Encapsulation also reduces complexity as the internals of an object are hidden from the clients who cannot influence (i.e. effect or impact) its implementation.
 A java class is the example of encapsulation. Java bean is the fully encapsulated class because all the data members are private here.
@@ -880,7 +740,10 @@ File: TestAccount.java
 Test it Now
 Output:
 7560504000 Sonoo Jaiswal sonoojaiswal@javatpoint.com 500000.0
-#### Polymorphism in Java
+</details>
+<details><summary><b>[032 - Polymorphism in Java]</b></summary>
+
+ #### Polymorphism in Java
 Polymorphism is another important concept. Polymorphism, a Greek terms means the ability to take more than one form. An operation may exhibits different behavior in different instance. The behavior depends upon the type of the objects used in the operation. Concept of polymorphism is often expressed by the phrase “one interface multiple methods”.
 Polymorphism allows a reference to denote object of different types at different times during execution. A super type reference exhibits polymorphic behavior since it can denote object of its subtype.
 Example of polymorphism is:
@@ -892,7 +755,9 @@ Another example can be to speak something; for example, a cat speaks meow, dog b
 Polymorphism in Java is a concept by which we can perform a single action in different ways. Polymorphism is derived from 2 Greek words: poly and morphs. The word "poly" means many and "morphs" means forms. So polymorphism means many forms.
 There are two types of polymorphism in Java: compile-time polymorphism and runtime polymorphism. We can perform polymorphism in java by method overloading and method overriding.
 If you overload a static method in Java, it is the example of compile time polymorphism. Here, we will focus on runtime polymorphism in java.
-________________________________________
+</details>
+<details><summary><b>[033 - Runtime Polymorphism in Java]</b></summary>
+
 #### Runtime Polymorphism in Java
 Runtime polymorphism or Dynamic Method Dispatch is a process in which a call to an overridden method is resolved at runtime rather than compile-time.
 Method overriding forms the basis for one of Java’s most powerful concepts: dynamic method dispatch. Dynamic method dispatch is the mechanism by which a call to an overridden method is resolved at run time, rather than compile time.
@@ -948,7 +813,7 @@ This program creates one superclass called A and two subclasses of it, called B 
 
 Subclasses B and C override callme( ) declared in A. Inside the main( ) method, objects of type A, B, and C are declared. Also, a reference of type A, called r, is declared. The program then in turn assigns a reference to each type of object to r and uses that reference to invoke callme( ). As the output shows, the version of callme( ) executed is determined by the type of object being referred to at the time of the call. Had it been determined by the type of the reference variable, r, you would see three calls to A’s callme( ) method. 
 
-#### Why Overridden Methods?
+ #### Why Overridden Methods?
 
 The superclass provides all elements that a subclass can use directly. It also defines those methods that the derived class must implement on its own. This allows the subclass the flexibility to define its own methods, yet still enforces a consistent interface.
 
@@ -971,7 +836,7 @@ B IS-A A
 B IS-A I
 B IS-A Object
 Since Object is the root class of all classes in Java, so we can write B IS-A Object.
-________________________________________
+
 #### Example of Java Runtime Polymorphism
 In this example, we are creating two classes Bike and Splendor. Splendor class extends Bike class and overrides its run() method. We are calling the run method by the reference variable of Parent class. Since it refers to the subclass object and subclass method overrides the Parent class method, the subclass method is invoked at runtime.
 Since method invocation is determined by the JVM not compiler, it is known as runtime polymorphism.
@@ -1137,22 +1002,35 @@ Test it Now
 Output:
 Dog is eating
 Since, BabyDog is not overriding the eat() method, so eat() method of Dog class is invoked.
+</details>
+<details><summary><b>[034 - Upcasting]</b></summary>
+</details>
+<details><summary><b>[035 - Inheritance in java]</b></summary>
 
 #### Inheritance in java
 Inheritance is the process by which one object acquires the properties of another objects. This is important because it supports the concept of hierarchical classification.
+
 In OOP’s the concept of inheritance provides the idea of reusability. This means that we can add additional features to an existing class without modifying it. This is possible by deriving a new class from an existing one.
 The new class will have the combined features of both the class.
+
 In terminology of java, a class that is inherited is called a superclass. The class does the inheriting is called subclass.
 Therefore, a subclass is specialized version of a superclass. It traits all of the instance variable and methods defined by the superclass and adds its own unique elements.
+
 Java does not support multiple inheritance. In java, to inherit a class, you simply incorporate the definition of one class into another by using the extends keyword.
+
 When one object acquires all the properties and behaviors of a parent object, it is known as inheritance. It provides code reusability. It is used to achieve runtime polymorphism.
  
-
 Inheritance is one of the corner stones of object-oriented programming because it allows the creation of hierarchical classifications. Using inheritance, you can create a general class that defines traits common to a set of related items. This class can then be inherited by other, more specific classes, each adding those things that are unique to it. In the terminology of Java, a class that is inherited is called a superclass. The class that does the inheriting is called a subclass. Therefore, a subclass is a specialized version of a superclass. It inherits all of the instance variables and methods defined by the superclass and adds its own, unique elements.
+
 Inheritance in Java is a mechanism in which one object acquires all the properties and behaviors of a parent object. It is an important part of OOPs (Object Oriented programming system).
+
 The idea behind inheritance in Java is that you can create new classes that are built upon existing classes. When you inherit from an existing class, you can reuse methods and fields of the parent class. Moreover, you can add new methods and fields in your current class also.
+
 Inheritance represents the IS-A relationship which is also known as a parent-child relationship.
-#### Why use inheritance in java
+</details>
+<details><summary><b>[036 - Why use inheritance in java]</b></summary>
+
+ #### Why use inheritance in java
 o	For Method Overriding (so runtime polymorphism can be achieved).
 o	For Code Reusability.
 Terms used in Inheritance
@@ -1168,7 +1046,7 @@ The syntax of Java Inheritance
 The extends keyword indicates that you are making a new class that derives from an existing class. The meaning of "extends" is to increase the functionality.
 In the terminology of Java, a class which is inherited is called a parent or superclass, and the new class is called child or subclass.
 ________________________________________
-Java Inheritance Example
+- Java Inheritance Example
  
 As displayed in the above figure, Programmer is the subclass and Employee is the superclass. The relationship between the two classes is Programmer IS-A Employee. It means that Programmer is a type of Employee.
 1.	class Employee{  
@@ -1182,11 +1060,13 @@ As displayed in the above figure, Programmer is the subclass and Employee is the
 9.	   System.out.println("Bonus of Programmer is:"+p.bonus);  
 10.	}  
 11.	}  
-Test it Now
- Programmer salary is:40000.0
- Bonus of programmer is:10000
+> Test it Now
+> Programmer salary is:40000.0
+> Bonus of programmer is:10000
 In the above example, Programmer object can access the field of own class as well as of Employee class i.e. code reusability.
-________________________________________
+</details>
+<details><summary><b>[037 - Types of inheritance in java]</b></summary>
+
 #### Types of inheritance in java
 On the basis of class, there can be three types of inheritance in java: single, multilevel and hierarchical.
 In java programming, multiple and hybrid inheritance is supported through interface only. We will learn about interfaces later.
@@ -1258,7 +1138,9 @@ File: TestInheritance3.java
 Output:
 meowing...
 eating...
-________________________________________
+</details>
+<details><summary><b>[038 - Why multiple inheritance is not supported in java?]</b></summary>
+
 #### Q) Why multiple inheritance is not supported in java?
 To reduce the complexity and simplify the language, multiple inheritance is not supported in java.
 Consider a scenario where A, B, and C are three classes. The C class inherits A and B classes. If A and B classes have the same method and you call it from child class object, there will be ambiguity to call the method of A or B class.
@@ -1278,9 +1160,10 @@ Since compile-time errors are better than runtime errors, Java renders compile-t
 13.	}  
 Test it Now
  Compile Time Error
+</details>
+<details><summary><b>[039 - Abstraction in Java]</b></summary>
 
-
-#### Abstraction in Java
+ #### Abstraction in Java
 Abstraction refers to the act of representing essential features without including the background details or explanation. An essential feature of object oriented programing is abstraction.
 A powerful way to manage abstraction is through the use of hierarchical classification. This allows you to layer the semantic of complex system breaking them into more manageable piece. The data from a traditional process oriented program can be transformed by abstraction into its component objects.
 A sequence of process steps can become a collection of messages between these objects thus each of these objects describes own unique behavior. You can treat these objects as concrete entities that responds to messages telling them to do something. This is the essence of object oriented programing.
@@ -1293,10 +1176,16 @@ Another way, it shows only essential things to the user and hides the internal d
 Hiding internal details and showing functionality is known as abstraction. For example phone call, we don't know the internal processing.
 In Java, we use abstract class and interface to achieve abstraction.
 Abstraction lets you focus on what the object does instead of how it does it.
+</details>
+<details><summary><b>[040 - Ways to achieve Abstraction]</b></summary>
+	
 #### Ways to achieve Abstraction
 There are two ways to achieve abstraction in java
 1.	Abstract class (0 to 100%)
 2.	Interface (100%)
+</details>
+<details><summary><b>[041 - Aggregation in Java]</b></summary>
+
 #### Aggregation in Java
 Aggregation is a way to achieve Association. Aggregation represents the relationship where one object contains other objects as a part of its state. It represents the weak relationship between objects. It is also termed as a has-a relationship in Java. Like, inheritance represents the is-a relationship. It is another way to reuse objects.
 If a class have an entity reference, it is known as Aggregation. Aggregation represents HAS-A relationship.
@@ -1308,6 +1197,9 @@ Consider a situation, Employee object contains many informations such as id, nam
 5.	...  
 6.	}  
 In such case, Employee has an entity reference address, so relationship is Employee HAS-A address.
+</details>
+<details><summary><b>[042 - Why use Aggregation?]</b></summary>
+
 #### Why use Aggregation?
 o	For Code Reusability.
 ________________________________________
@@ -1340,7 +1232,9 @@ In this example, we have created the reference of Operation class in the Circle 
 24.	}  
 Test it Now
 Output:78.5
-      
+</details>
+<details><summary><b>[043 - When use Aggregation?]</b></summary>
+
 #### When use Aggregation?
 o	Code reuse is also best achieved by aggregation when there is no is-a relationship.
 o	Inheritance should be used only if the relationship is-a is maintained throughout the lifetime of the objects involved; otherwise, aggregation is the best choice.
@@ -1391,13 +1285,20 @@ Test it Now
 Output:111 varun
        gzb UP india
        112 arun
-       gno UP india      
-
+       gno UP india  
+</details>
+<details><summary><b>[044 - Coupling]</b></summary>
 
 #### Coupling
 Coupling refers to the knowledge or information or dependency of another class. It arises when classes are aware of each other. If a class has the details information of another class, there is strong coupling. In Java, we use private, protected, and public modifiers to display the visibility level of a class, method, and field. You can use interfaces for the weaker coupling because there is no concrete implementation.
+</details>
+<details><summary><b>[045 - Cohesion]</b></summary>
+
 #### Cohesion
 Cohesion refers to the level of a component which performs a single well-defined task. A single well-defined task is done by a highly cohesive method. The weakly cohesive method will split the task into separate parts. The java.io package is a highly cohesive package because it has I/O related classes and interface. However, the java.util package is a weakly cohesive package because it has unrelated classes and interfaces.
+</details>
+<details><summary><b>[046 - Association]</b></summary>
+
 #### Association
 Association represents the relationship between the objects. Here, one object can be associated with one object or many objects. There can be four types of association between the objects:
 o	One to One
@@ -1406,8 +1307,14 @@ o	Many to One, and
 o	Many to Many
 Let's understand the relationship with real-time examples. For example, One country can have one prime minister (one to one), and a prime minister can have many ministers (one to many). Also, many MP's can have one prime minister (many to one), and many ministers can have many departments (many to many).
 Association can be undirectional or bidirectional.
+</details>
+<details><summary><b>[047 - Composition]</b></summary>
+
 #### Composition
 The composition is also a way to achieve Association. The composition represents the relationship where one object contains other objects as a part of its state. There is a strong relationship between the containing object and the dependent object. It is the state where containing objects do not have an independent existence. If you delete the parent object, all the child objects will be deleted automatically.
+</details>
+<details><summary><b>[048 - Access Modifiers in Java]</b></summary>
+
 #### Access Modifiers in Java
 Access Control
 Encapsulation links data with the code that manipulates it. However, encapsulation provides another important attribute: access control. Through encapsulation, you can control what parts of a program can access the members of a class. By controlling access, you can prevent misuse. For example, allowing access to data only through a well-defined set of methods, you can prevent the misuse of that data.
@@ -1416,8 +1323,11 @@ How a member can be accessed is determined by the access specifier that modifies
 
 Java’s access specifiers are public, private, and protected. Java also defines a default access level. 
 There are two types of modifiers in Java: access modifiers and non-access modifiers.
+
 The access modifiers in Java specifies the accessibility or scope of a field, method, constructor, or class. We can change the access level of fields, constructors, methods, and class by applying the access modifier on it.
+
 There are four types of Java access modifiers:
+
 1.	Private: The access level of a private modifier is only within the class. It cannot be accessed from outside the class.
 When a member of a class is specified as private, then that member can only be accessed by other members of its class.
 2.	Default: The access level of a default modifier is only within the package. It cannot be accessed from outside the package. If you do not specify any access level, it will be the default.
@@ -1428,12 +1338,14 @@ When a member of a class is modified by the public specifier, then that member c
 There are many non-access modifiers, such as static, abstract, synchronized, native, volatile, transient, etc. 
 ________________________________________
 Understanding Java Access Modifiers
+
 Let’s understand the access modifiers in Java by a simple table.
-Access Modifier	within class	within package	outside package by subclass only	outside package
-Private	Y	N	N	N
-Default	Y	Y	N	N
-Protected	Y	Y	Y	N
-Public	Y	Y	Y	Y
+|Access Modifier|within class|within package|outside package by subclass only|outside package|
+|---------------|-------|-------|-------|-------|
+|Private	|Y	|N	|N	|N	|
+|Default	|Y	|Y	|N	|N	|
+|Protected	|Y	|Y	|Y	|N	|
+|Public		|Y	|Y	|Y	|Y	|
 ________________________________________
 1) Private
 The private access modifier is accessible only within the class.
@@ -1543,6 +1455,131 @@ If you are overriding any method, overridden method (i.e. declared in subclass) 
 10.	   }  
 11.	}  
 The default modifier is more restrictive than protected. That is why, there is a compile-time error.
+
+</details>
+<details><summary><b>[049 - Access Control]</b></summary>
+</details>
+<details><summary><b>[050 - Methods in Java]</b></summary>
+</details>
+<details><summary><b>[051 - Using Command-Line Arguments]</b></summary>
+</details>
+<details><summary><b>[052 - Instance Variable Hiding]</b></summary>
+</details>
+<details><summary><b>[053 - The Scope and Lifetime of Variables]</b></summary>
+</details>
+<details><summary><b>[054 - Constructors in Java]</b></summary>
+</details>
+<details><summary><b>[055 - What is the purpose of a default constructor?]</b></summary>
+</details>
+<details><summary><b>[056 - Why use the parameterized constructor?]</b></summary>
+</details>
+<details><summary><b>[057 - Difference between constructor and method in Java]</b></summary>
+</details>
+<details><summary><b>[058 - Does constructor return any value?]</b></summary>
+</details>
+<details><summary><b>[059 - Can constructor perform other tasks instead of initialization?]</b></summary>
+</details>
+<details><summary><b>[060 - Is there Constructor class in Java?]</b></summary>
+</details>
+<details><summary><b>[001 - What is the purpose of Constructor class?]</b></summary>
+</details>
+<details><summary><b>[002 - this keyword in java]</b></summary>
+</details>
+<details><summary><b>[003 - Garbage Collection]</b></summary>
+</details>
+<details><summary><b>[004 - Finalize() method]</b></summary>
+</details>
+<details><summary><b>[005 - Memory Management]</b></summary>
+</details>
+<details><summary><b>[006 - Method Overloading in Java]</b></summary>
+</details>
+<details><summary><b>[007 - Can we overload java main() method?]</b></summary>
+</details>
+<details><summary><b>[008 - Why Method Overloading is not possible by changing the return type of method only?]</b></summary>
+</details>
+<details><summary><b>[009 - Method Overloading and Type Promotion]</b></summary>
+</details>
+<details><summary><b>[010 - Recursion in Java]</b></summary>
+</details>
+<details><summary><b>[011 - Method Overriding in Java]</b></summary>
+</details>
+<details><summary><b>[012 - Can we override static method?]</b></summary>
+</details>
+<details><summary><b>[013 - Why can we not override static method?]</b></summary>
+</details>
+<details><summary><b>[014 - Can we override java main method?]</b></summary>
+</details>
+<details><summary><b>[015 - Difference between method Overloading and Method Overriding in java]</b></summary>
+</details>
+<details><summary><b>[016 - Usage of Java Method Overriding]</b></summary>
+</details>
+<details><summary><b>[017 - Dynamic Method Dispatch]</b></summary>
+</details>
+<details><summary><b>[018 - Static Binding and Dynamic Binding]</b></summary>
+</details>
+<details><summary><b>[019 - Java static keyword]</b></summary>
+</details>
+<details><summary><b>[020 - Why is the Java main method static?]</b></summary>
+</details>
+<details><summary><b>[025 - Final Keyword in Java]</b></summary>
+</details>
+<details><summary><b>[025 - Is final method inherited?]</b></summary>
+</details>
+<details><summary><b>[025 - What is blank or uninitialized final variable?]</b></summary>
+</details>
+<details><summary><b>[025 - What is final parameter?]</b></summary>
+</details>
+<details><summary><b>[025 - Can we declare a constructor final?]</b></summary>
+</details>
+<details><summary><b>[025 - Super Keyword in Java]</b></summary>
+</details>
+<details><summary><b>[025 - Method Overriding]</b></summary>
+</details>
+<details><summary><b>[025 - Abstract class in Java]</b></summary>
+</details>
+<details><summary><b>[025 - Abstract Method in Java]</b></summary>
+</details>
+<details><summary><b>[025 - Interface in Java]</b></summary>
+</details>
+<details><summary><b>[025 - Why use Java interface?]</b></summary>
+</details>
+<details><summary><b>[025 - Java 8 Interface Improvement]</b></summary>
+</details>
+<details><summary><b>[025 - Internal addition by the compiler]</b></summary>
+</details>
+<details><summary><b>[025 - Multiple inheritance is not supported through class in java, but it is possible by an interface, why?]</b></summary>
+</details>
+<details><summary><b>[025 - Java 8 Default Method in Interface]</b></summary>
+</details>
+<details><summary><b>[025 - Java 8 Static Method in Interface]</b></summary>
+</details>
+<details><summary><b>[025 - What is marker or tagged interface?]</b></summary>
+</details>
+<details><summary><b>[025 - Can we define a class inside the interface?]</b></summary>
+</details>
+<details><summary><b>[025 - Difference between abstract class and interface]</b></summary>
+</details>
+<details><summary><b>[005 - Java instanceof]</b></summary>
+</details>
+<details><summary><b>[006 - Downcasting]</b></summary>
+</details>
+<details><summary><b>[007 - Covariant Return Type]</b></summary>
+</details>
+<details><summary><b>[008 - How is Covariant return types implemented?]</b></summary>
+</details>
+<details><summary><b>[009 - Why use instance initializer block?]</b></summary>
+</details>
+<details><summary><b>[010 - What is invoked first, instance initializer block or constructor?]</b></summary>
+</details>
+<details><summary><b>[011 - Java Package]</b></summary>
+</details>
+<details><summary><b>[012 - Subpackage in java]</b></summary>
+</details>
+<details><summary><b>[013 - How to send the class file to another directory or drive?]</b></summary>
+</details>
+<details><summary><b>[014 - How to put two public classes in a package?]</b></summary>
+</details>
+<details><summary><b>[015 - What is static import feature of Java5?]</b></summary>
 
 #### Methods in Java
 A function (i.e. Method) is self-contained block of statements that performs a coherent task of some kind.
