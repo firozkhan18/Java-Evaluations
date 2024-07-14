@@ -1,4 +1,6 @@
-### 1. Java program to find the sum of all elements in an array:
+
+<details>
+<summary><b> 1. Java program to find the sum of all elements in an array:</b></summary>
 ```java
 public class SumOfArrayElements {
     public static void main(String[] args) {
@@ -14,7 +16,9 @@ public class SumOfArrayElements {
 }
 ```
 
-### 2. Java program to find the largest element in an array:
+</details>
+<details>
+<summary><b> 2. Java program to find the largest element in an array:</b></summary>
 ```java
 public class LargestElement {
     public static void main(String[] args) {
@@ -32,7 +36,9 @@ public class LargestElement {
 }
 ```
 
-### 3. Java program to find the second largest element in an array:
+</details>
+<details>
+<summary><b> 3. Java program to find the second largest element in an array:</b></summary>
 ```java
 public class SecondLargestElement {
     public static void main(String[] args) {
@@ -54,7 +60,9 @@ public class SecondLargestElement {
 }
 ```
 
-### 4. Java program to find the smallest element in an array:
+</details>
+<details>
+<summary><b> 4. Java program to find the smallest element in an array:</b></summary>
 ```java
 public class SmallestElement {
     public static void main(String[] args) {
@@ -72,7 +80,9 @@ public class SmallestElement {
 }
 ```
 
-### 5. Java program to find the second smallest element in an array:
+</details>
+<details>
+<summary><b> 5. Java program to find the second smallest element in an array:</b></summary>
 
 ```java
 public class SecondSmallestElement {
@@ -95,7 +105,9 @@ public class SecondSmallestElement {
 }
 ```
 
-### 6. Java program to reverse an array:
+</details>
+<details>
+<summary><b> 6. Java program to reverse an array:</b></summary>
 ```java
 public class ReverseArray {
     public static void main(String[] args) {
@@ -116,7 +128,9 @@ public class ReverseArray {
 }
 ```
 
-### 7. Java program to check if an array is sorted in ascending order:
+</details>
+<details>
+<summary><b> 7. Java program to check if an array is sorted in ascending order:</b></summary>
 ```java
 public class ArrayAscendingOrder {
     public static void main(String[] args) {
@@ -139,7 +153,9 @@ public class ArrayAscendingOrder {
 }
 ```
 
-### 8. Java program to check if an array is sorted in descending order:
+</details>
+<details>
+<summary><b> 8. Java program to check if an array is sorted in descending order:</b></summary>
 ```java
 public class ArrayDescendingOrder {
     public static void main(String[] args) {
@@ -162,7 +178,9 @@ public class ArrayDescendingOrder {
 }
 ```
 
-### 9. Java program to remove duplicate elements from an array:
+</details>
+<details>
+<summary><b> 9. Java program to remove duplicate elements from an array:</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.LinkedHashSet;
@@ -188,7 +206,9 @@ public class RemoveDuplicates {
 }
 ```
 
-### 10. Java program to find the frequency of each element in an array:
+</details>
+<details>
+<summary><b> 10. Java program to find the frequency of each element in an array:</b></summary>
 ```java
 import java.util.HashMap;
 
@@ -209,7 +229,9 @@ public class FrequencyOfElements {
 ```
 ## Using Lambda:
 
-### 1. Finding the sum of all elements in an array:
+</details>
+<details>
+<summary><b> 1. Finding the sum of all elements in an array:</b></summary>
 
 ```java
 int[] array = {1, 2, 3, 4, 5};
@@ -219,7 +241,9 @@ int sum = Arrays.stream(array).sum();
 System.out.println("Sum of all elements in the array: " + sum);
 ```
 
-### 2. Finding the largest element in an array:
+</details>
+<details>
+<summary><b> 2. Finding the largest element in an array:</b></summary>
 
 ```java
 int[] array = {1, 2, 3, 4, 5};
@@ -229,7 +253,9 @@ int max = Arrays.stream(array).max().getAsInt();
 System.out.println("Largest element in the array: " + max);
 ```
 
-### 3. Finding the second largest element in an array:
+</details>
+<details>
+<summary><b> 3. Finding the second largest element in an array:</b></summary>
 
 ```java
 int[] array = {1, 3, 4, 2, 5};
@@ -245,7 +271,9 @@ int secondLargest = Arrays.stream(array)
 System.out.println("Second largest element in the array: " + secondLargest);
 ```
 
-### 4. Finding the smallest element in an array:
+</details>
+<details>
+<summary><b> 4. Finding the smallest element in an array:</b></summary>
 
 ```java
 int[] array = {5, 2, 3, 1, 4};
@@ -255,7 +283,9 @@ int min = Arrays.stream(array).min().getAsInt();
 System.out.println("Smallest element in the array: " + min);
 ```
 
-### 5. Finding the second smallest element in an array:
+</details>
+<details>
+<summary><b> 5. Finding the second smallest element in an array:</b></summary>
 
 ```java
 int[] array = {5, 3, 1, 4, 2};
@@ -271,7 +301,9 @@ int secondSmallest = Arrays.stream(array)
 System.out.println("Second smallest element in the array: " + secondSmallest);
 ```
 
-### 6. Reversing an array:
+</details>
+<details>
+<summary><b> 6. Reversing an array:</b></summary>
 
 ```java
 int[] array = {1, 2, 3, 4, 5};
@@ -283,7 +315,9 @@ int[] reversedArray = IntStream.rangeClosed(1, array.length)
 System.out.println("Reversed array: " + Arrays.toString(reversedArray));
 ```
 
-### 7. Checking if an array is sorted in ascending order:
+</details>
+<details>
+<summary><b> 7. Checking if an array is sorted in ascending order:</b></summary>
 
 ```java
 int[] array = {1, 2, 3, 4, 5};
@@ -297,7 +331,9 @@ boolean isSorted = Arrays.stream(array)
 System.out.println("Is the array sorted in ascending order? " + isSorted);
 ```
 
-### 8. Checking if an array is sorted in descending order:
+</details>
+<details>
+<summary><b> 8. Checking if an array is sorted in descending order:</b></summary>
 
 ```java
 int[] array = {5, 4, 3, 2, 1};
@@ -311,7 +347,9 @@ boolean isSorted = Arrays.stream(array)
 System.out.println("Is the array sorted in descending order? " + isSorted);
 ```
 
-### 9. Removing duplicate elements from an array:
+</details>
+<details>
+<summary><b> 9. Removing duplicate elements from an array:</b></summary>
 
 ```java
 int[] array = {1, 2, 2, 3, 4, 4, 5};
@@ -323,7 +361,9 @@ int[] uniqueArray = Arrays.stream(array)
 System.out.println("Array with duplicates removed: " + Arrays.toString(uniqueArray));
 ```
 
-### 10. Finding the frequency of each element in an array:
+</details>
+<details>
+<summary><b> 10. Finding the frequency of each element in an array:</b></summary>
 
 ```java
 int[] array = {1, 2, 2, 3, 3, 3, 4, 4, 4, 4};
@@ -334,3 +374,4 @@ Map<Integer, Long> frequencyMap = Arrays.stream(array)
 
 System.out.println("Frequency of each element in the array: " + frequencyMap);
 ```
+</details>
