@@ -1,9 +1,24 @@
 
-## 1. Example
+## Java Examples
 <details>
-  <summary>Click me</summary>
+  <summary>Collection</summary>
 
-  ### Heading
+  ### Collections
+  1. Foo
+  2. Bar
+     * Baz
+     * Qux
+ ### Collection
+  1. Foo
+  2. Bar
+     * Baz
+     * Qux
+</details>
+
+<details>
+  <summary>Streams</summary>
+
+  ### Streams
   1. Foo
   2. Bar
      * Baz
