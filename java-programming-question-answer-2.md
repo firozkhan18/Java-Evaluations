@@ -235,9 +235,9 @@ public class FrequencyOfElements {
     }
 }
 ```
-## Using Lambda:
-
 </details>
+
+## Using Lambda:
 <details>
 <summary><b> 1. Finding the sum of all elements in an array:</b></summary>
 
