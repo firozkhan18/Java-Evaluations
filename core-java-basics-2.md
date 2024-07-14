@@ -207,7 +207,9 @@ Object means a real-world entity such as a pen, chair, table, computer, watch, e
 - Polymorphism
 - Abstraction
 - Encapsulation
+  
 Apart from these concepts, there are some other terms which are used in Object-Oriented design:
+
 - Coupling
 - Cohesion
 - Association
@@ -232,6 +234,7 @@ A class can also be defined as a blueprint from which you can create an individu
 A class is a group of objects which have common properties. It is a template or blueprint from which objects are created. It is a logical entity. It can't be physical.
 
 A class in Java can contain:
+
 - Fields
 - Methods
 - Constructors
@@ -266,6 +269,7 @@ Second, you must acquire an actual, physical copy of the object and assign it to
 The distinction between a class and an object. A class creates a new data type that can be used to create objects. That is, a class creates a logical framework that defines the relationship between its members. When you declare an object of a class, you are creating an instance of that class. Thus, a class is a logical construct. An object has physical reality. (That is, an object occupies space in memory.)
 
 Example: A dog is an object because it has states like color, name, breed, etc. as well as behaviors like wagging the tail, barking, eating, etc.
+
 An entity that has state and behavior is known as an object e.g., chair, bike, marker, pen, table, keyboard, car, etc. It can be physical or logical (tangible and intangible). The example of an intangible object is the banking system.
    
 - An object has three characteristics:
@@ -274,7 +278,9 @@ o	Behavior: represents the behavior (functionality) of an object such as deposit
 o	Identity: An object identity is typically implemented via a unique ID. The value of the ID is not visible to the external user. However, it is used internally by the JVM to identify each object uniquely.
  
 For Example, Pen is an object. Its name is Reynolds; color is white, known as its state. It is used to write, so writing is its behavior.
+
 An object is an instance of a class. A class is a template or blueprint from which objects are created. So, an object is the instance (result) of a class.
+
 - Object Definitions:
 o	An object is a real-world entity.
 o	An object is a runtime entity.
@@ -1306,13 +1312,13 @@ In Java, we use abstract class and interface to achieve abstraction.
 
 Abstraction lets you focus on what the object does instead of how it does it.
 
-</details>
 <details><summary><b>[040 - Ways to achieve Abstraction]</b></summary>
 	
 #### Ways to achieve Abstraction
 There are two ways to achieve abstraction in java
 1.	Abstract class (0 to 100%)
 2.	Interface (100%)
+</details>
 </details>
 <details><summary><b>[041 - Aggregation in Java]</b></summary>
 
