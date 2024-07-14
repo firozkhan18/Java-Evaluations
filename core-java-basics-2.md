@@ -32,7 +32,9 @@ An application that runs on the server side and creates a dynamic page is called
 An application that is distributed in nature, such as banking applications, etc. is called enterprise application. It has advantages of the high-level security, load balancing, and clustering. In Java, EJB is used for creating enterprise applications.
 4) Mobile Application
 An application which is created for mobile devices is called a mobile application. Currently, Android and Java ME are used for creating mobile applications.
-</details><details><summary><b>[003 - Java Platforms / Editions]</b></summary>
+</details>
+
+<details><summary><b>[003 - Java Platforms / Editions]</b></summary>
 
 ### Java Platforms / Editions
 
@@ -46,7 +48,9 @@ It is an enterprise platform which is mainly used to develop web and enterprise 
 It is a micro platform which is mainly used to develop mobile applications.
 4) JavaFX
 It is used to develop rich internet applications. It uses a light-weight user interface API.
-</details><details><summary><b>[004 - Features of Java]</b></summary>
+</details>
+
+<details><summary><b>[004 - Features of Java]</b></summary>
 
 ### Features of Java:
 
@@ -159,7 +163,7 @@ Once the runtime package exist for a given systems only java program can run on 
 <details><summary><b>[014 - Interpretation JIT (Just in Time)]</b></summary>
 
 When the JIT is part of the JVM it compiles bytecode into executable code in real time on a piece by piece demand basis. It is important to understand that it is not possible to compile an entire java program into executable code all at once, because java performs various runtime checks that can be done only at runtime instead the JIT compiles code as it needed during execution.
-
+</details>
 </details>
 <details><summary><b>[018 - Two Paradigm]</b></summary>
 </details>
