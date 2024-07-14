@@ -17,16 +17,16 @@ Note : 0 and 1 are not prime numbers.
 Prime Number Programs In Java :
 Below is the list of some of the prime number programs in java.
 
-### 1) Write a java program to check whether given number is prime or not?
-### 2) Write a java program to find initial 10 or 20 or 30 …… n) prime numbers?
-### 3) Write a java program to find out 20 (or 30 or 40 …… n) prime numbers after 100 ( or after any given number)?
-### 4) Write a java program to find out all prime numbers between two given numbers?
-### 5) Write a java program to find the sum of initial ‘n‘ prime numbers?
-### 6) Write a java program to find sum of all prime numbers between two given numbers?
-### 7) Write a java program to print prime numbers between two given numbers in the reverse order?
-### 8) Write a java program to find the twin prime numbers?
-### 9) Write a java program to print twin prime numbers between two given numbers?
-### 10) Write a java program to print a prime number which comes after three non-prime numbers?
+- 1) Write a java program to check whether given number is prime or not?
+- 2) Write a java program to find initial 10 or 20 or 30 …… n) prime numbers?
+- 3) Write a java program to find out 20 (or 30 or 40 …… n) prime numbers after 100 ( or after any given number)?
+- 4) Write a java program to find out all prime numbers between two given numbers?
+- 5) Write a java program to find the sum of initial ‘n‘ prime numbers?
+- 6) Write a java program to find sum of all prime numbers between two given numbers?
+- 7) Write a java program to print prime numbers between two given numbers in the reverse order?
+- 8) Write a java program to find the twin prime numbers?
+- 9) Write a java program to print twin prime numbers between two given numbers?
+- 10) Write a java program to print a prime number which comes after three non-prime numbers?
 
 ## prime number programs in java
 
