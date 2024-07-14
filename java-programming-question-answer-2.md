@@ -16,6 +16,16 @@ public class SumOfArrayElements {
     }
 }
 ```
+
+- Using Lambda:
+
+```java
+int[] array = {1, 2, 3, 4, 5};
+
+int sum = Arrays.stream(array).sum();
+
+System.out.println("Sum of all elements in the array: " + sum);
+```
 </details>
 <details>
 <summary><b> 2. Java program to find the largest element in an array:</b></summary>
@@ -36,7 +46,16 @@ public class LargestElement {
     }
 }
 ```
+- Using Lambda:
 
+
+```java
+int[] array = {1, 2, 3, 4, 5};
+
+int max = Arrays.stream(array).max().getAsInt();
+
+System.out.println("Largest element in the array: " + max);
+```
 </details>
 <details>
 <summary><b> 3. Java program to find the second largest element in an array:</b></summary>
@@ -62,6 +81,21 @@ public class SecondLargestElement {
 }
 ```
 
+- Using Lambda:
+
+```java
+int[] array = {1, 3, 4, 2, 5};
+
+int secondLargest = Arrays.stream(array)
+        .boxed()
+        .sorted(Collections.reverseOrder())
+        .distinct()
+        .skip(1)
+        .findFirst()
+        .get();
+
+System.out.println("Second largest element in the array: " + secondLargest);
+```
 </details>
 <details>
 <summary><b> 4. Java program to find the smallest element in an array:</b></summary>
@@ -82,7 +116,15 @@ public class SmallestElement {
     }
 }
 ```
+- Using Lambda:
 
+```java
+int[] array = {5, 2, 3, 1, 4};
+
+int min = Arrays.stream(array).min().getAsInt();
+
+System.out.println("Smallest element in the array: " + min);
+```
 </details>
 <details>
 <summary><b> 5. Java program to find the second smallest element in an array:</b></summary>
@@ -107,7 +149,21 @@ public class SecondSmallestElement {
     }
 }
 ```
+- Using Lambda:
 
+```java
+int[] array = {5, 3, 1, 4, 2};
+
+int secondSmallest = Arrays.stream(array)
+        .boxed()
+        .sorted()
+        .distinct()
+        .skip(1)
+        .findFirst()
+        .get();
+
+System.out.println("Second smallest element in the array: " + secondSmallest);
+```
 </details>
 <details>
 <summary><b> 6. Java program to reverse an array:</b></summary>
@@ -131,7 +187,17 @@ public class ReverseArray {
     }
 }
 ```
+- Using Lambda:
 
+```java
+int[] array = {1, 2, 3, 4, 5};
+
+int[] reversedArray = IntStream.rangeClosed(1, array.length)
+        .map(i -> array[array.length - i])
+        .toArray();
+
+System.out.println("Reversed array: " + Arrays.toString(reversedArray));
+```
 </details>
 <details>
 <summary><b> 7. Java program to check if an array is sorted in ascending order:</b></summary>
@@ -157,7 +223,19 @@ public class ArrayAscendingOrder {
     }
 }
 ```
+- Using Lambda:
 
+```java
+int[] array = {1, 2, 3, 4, 5};
+
+boolean isSorted = Arrays.stream(array)
+        .sorted()
+        .boxed()
+        .collect(Collectors.toList())
+        .equals(Arrays.stream(array).boxed().collect(Collectors.toList()));
+
+System.out.println("Is the array sorted in ascending order? " + isSorted);
+```
 </details>
 <details>
 <summary><b> 8. Java program to check if an array is sorted in descending order:</b></summary>
@@ -183,7 +261,19 @@ public class ArrayDescendingOrder {
     }
 }
 ```
+- Using Lambda:
 
+```java
+int[] array = {5, 4, 3, 2, 1};
+
+boolean isSorted = Arrays.stream(array)
+        .sorted(Collections.reverseOrder())
+        .boxed()
+        .collect(Collectors.toList())
+        .equals(Arrays.stream(array).boxed().collect(Collectors.toList()));
+
+System.out.println("Is the array sorted in descending order? " + isSorted);
+```
 </details>
 <details>
 <summary><b> 9. Java program to remove duplicate elements from an array:</b></summary>
@@ -212,7 +302,17 @@ public class RemoveDuplicates {
     }
 }
 ```
+- Using Lambda:
 
+```java
+int[] array = {1, 2, 2, 3, 4, 4, 5};
+
+int[] uniqueArray = Arrays.stream(array)
+        .distinct()
+        .toArray();
+
+System.out.println("Array with duplicates removed: " + Arrays.toString(uniqueArray));
+```
 </details>
 <details>
 <summary><b> 10. Java program to find the frequency of each element in an array:</b></summary>
@@ -235,143 +335,7 @@ public class FrequencyOfElements {
     }
 }
 ```
-</details>
-
-## Using Lambda:
-<details>
-<summary><b> 1. Finding the sum of all elements in an array:</b></summary>
-
-```java
-int[] array = {1, 2, 3, 4, 5};
-
-int sum = Arrays.stream(array).sum();
-
-System.out.println("Sum of all elements in the array: " + sum);
-```
-
-</details>
-<details>
-<summary><b> 2. Finding the largest element in an array:</b></summary>
-
-```java
-int[] array = {1, 2, 3, 4, 5};
-
-int max = Arrays.stream(array).max().getAsInt();
-
-System.out.println("Largest element in the array: " + max);
-```
-
-</details>
-<details>
-<summary><b> 3. Finding the second largest element in an array:</b></summary>
-
-```java
-int[] array = {1, 3, 4, 2, 5};
-
-int secondLargest = Arrays.stream(array)
-        .boxed()
-        .sorted(Collections.reverseOrder())
-        .distinct()
-        .skip(1)
-        .findFirst()
-        .get();
-
-System.out.println("Second largest element in the array: " + secondLargest);
-```
-
-</details>
-<details>
-<summary><b> 4. Finding the smallest element in an array:</b></summary>
-
-```java
-int[] array = {5, 2, 3, 1, 4};
-
-int min = Arrays.stream(array).min().getAsInt();
-
-System.out.println("Smallest element in the array: " + min);
-```
-
-</details>
-<details>
-<summary><b> 5. Finding the second smallest element in an array:</b></summary>
-
-```java
-int[] array = {5, 3, 1, 4, 2};
-
-int secondSmallest = Arrays.stream(array)
-        .boxed()
-        .sorted()
-        .distinct()
-        .skip(1)
-        .findFirst()
-        .get();
-
-System.out.println("Second smallest element in the array: " + secondSmallest);
-```
-
-</details>
-<details>
-<summary><b> 6. Reversing an array:</b></summary>
-
-```java
-int[] array = {1, 2, 3, 4, 5};
-
-int[] reversedArray = IntStream.rangeClosed(1, array.length)
-        .map(i -> array[array.length - i])
-        .toArray();
-
-System.out.println("Reversed array: " + Arrays.toString(reversedArray));
-```
-
-</details>
-<details>
-<summary><b> 7. Checking if an array is sorted in ascending order:</b></summary>
-
-```java
-int[] array = {1, 2, 3, 4, 5};
-
-boolean isSorted = Arrays.stream(array)
-        .sorted()
-        .boxed()
-        .collect(Collectors.toList())
-        .equals(Arrays.stream(array).boxed().collect(Collectors.toList()));
-
-System.out.println("Is the array sorted in ascending order? " + isSorted);
-```
-
-</details>
-<details>
-<summary><b> 8. Checking if an array is sorted in descending order:</b></summary>
-
-```java
-int[] array = {5, 4, 3, 2, 1};
-
-boolean isSorted = Arrays.stream(array)
-        .sorted(Collections.reverseOrder())
-        .boxed()
-        .collect(Collectors.toList())
-        .equals(Arrays.stream(array).boxed().collect(Collectors.toList()));
-
-System.out.println("Is the array sorted in descending order? " + isSorted);
-```
-
-</details>
-<details>
-<summary><b> 9. Removing duplicate elements from an array:</b></summary>
-
-```java
-int[] array = {1, 2, 2, 3, 4, 4, 5};
-
-int[] uniqueArray = Arrays.stream(array)
-        .distinct()
-        .toArray();
-
-System.out.println("Array with duplicates removed: " + Arrays.toString(uniqueArray));
-```
-
-</details>
-<details>
-<summary><b> 10. Finding the frequency of each element in an array:</b></summary>
+- Using Lambda:
 
 ```java
 int[] array = {1, 2, 2, 3, 3, 3, 4, 4, 4, 4};
