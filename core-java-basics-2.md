@@ -1031,8 +1031,6 @@ Java Runtime Polymorphism Example: Animal
 > eating rat...
 > eating meat...
 
-</details>
-
 <details><summary><b>[033 - Java Runtime Polymorphism with Data Member]</b></summary>
 	
 #### Java Runtime Polymorphism with Data Member
@@ -1107,7 +1105,7 @@ Try for Output
 > Dog is eating
 Since, BabyDog is not overriding the eat() method, so eat() method of Dog class is invoked.
 </details>
-
+</details>
 </details>
 <details><summary><b>[034 - Upcasting]</b></summary>
 </details>
