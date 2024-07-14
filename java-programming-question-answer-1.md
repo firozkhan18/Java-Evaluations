@@ -2101,6 +2101,7 @@ public class LongestIncreasingSubsequence {
 </details>
 <details>
 <summary><b>74. Write a program to implement a topological sort algorithm.</b></summary>
+
 ```java
 import java.util.*;
 
@@ -2178,6 +2179,7 @@ public class NumberOfConnectedComponents {
 </details>
 <details>
 <summary><b>76. Write a program to find the maximum profit by buying and selling stocks.</b></summary>
+
 ```java
 public class MaxProfitStocks {
     public int maxProfit(int[] prices) {
