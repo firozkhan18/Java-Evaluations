@@ -167,7 +167,7 @@ When the JIT is part of the JVM it compiles bytecode into executable code in rea
 </details>
 <details><summary><b>[005 - Two Paradigm]</b></summary>
 
- #### Two Paradigm
+#### Two Paradigm
 1.	Process Oriented Model
 2.	Object Oriented Programming Model
 All computer programs consists of two elements: code and data. Program can be conceptually organized around its code or around its data. 
@@ -253,7 +253,7 @@ A variable which is created inside the class but outside the method is known as 
 </details>
 <details><summary><b>[024 - Object]</b></summary>
 
- #### Object
+#### Object
 The data or variables defined within a class are called instance variable. The code is contained within methods collectively, the methods and variables defined within a class are called member of the class.
 An Object can be defined as an instance of a class. An object contains an address and takes up some space in memory. Objects can communicate without knowing the details of each other's data or code. The only necessary thing is the type of message accepted and the type of response returned by the objects.
 - Declaring Objects
@@ -287,9 +287,13 @@ o	The object is an instance of a class.
 #### new keyword in Java
 The new keyword is used to allocate memory at runtime. All objects get memory in Heap memory area.
 
- Object and Class Example: main within the class
+Object and Class Example: main within the class
+
 In this example, we have created a Student class which has two data members id and name. We are creating the object of the Student class by new keyword and printing the object's value.
+
 Here, we are creating a main() method inside the class.
+
+```java
 File: Student.java
 1.	//Java Program to illustrate how to define a class and fields  
 2.	//Defining a Student class.  
@@ -305,14 +309,19 @@ File: Student.java
 12.	  System.out.println(s1.id);//accessing member through reference variable  
 13.	  System.out.println(s1.name);  
 14.	 }  
-15.	}  
-Test it Now
-Output:
-0 
-null
+15.	}
+``` 
+> Test it Now
+> Output:
+> 0 
+> null
+
 Object and Class Example: main outside the class
+
 In real time development, we create classes and use it from another class. It is a better approach than previous one. Let's see a simple example, where we are having main() method in another class.
+
 We can have multiple classes in different Java files or single Java file. If you define multiple classes in a single Java source file, it is a good idea to save the file name with the class name which has main() method.
+```java
 File: TestStudent1.java
 1.	//Java Program to demonstrate having the main method in   
 2.	//another class  
@@ -328,11 +337,12 @@ File: TestStudent1.java
 12.	  System.out.println(s1.id);  
 13.	  System.out.println(s1.name);  
 14.	 }  
-15.	}  
-Test it Now
-Output:
-0 
-null
+15.	}
+```
+> Test it Now
+> Output:
+> 0 
+> null
 </details>
 <details><summary><b>[027 - 3 Ways to initializing object]</b></summary>
 
@@ -343,6 +353,7 @@ There are 3 ways to initialize object in Java.
 3.	By constructor
 1) Object and Class Example: Initialization through reference
 Initializing an object means storing data into the object. Let's see a simple example where we are going to initialize the object through a reference variable.
+```java
 File: TestStudent2.java
 1.	class Student{  
 2.	 int id;  
@@ -355,11 +366,13 @@ File: TestStudent2.java
 9.	  s1.name="Sonoo";  
 10.	  System.out.println(s1.id+" "+s1.name);//printing members with a white space  
 11.	 }  
-12.	}  
-Test it Now
-Output:
-101 Sonoo
+12.	}
+```
+> Test it Now
+> Output:
+> 101 Sonoo
 We can also create multiple objects and store information in it through reference variable.
+```java
 File: TestStudent3.java
 1.	class Student{  
 2.	 int id;  
@@ -379,13 +392,17 @@ File: TestStudent3.java
 16.	  System.out.println(s1.id+" "+s1.name);  
 17.	  System.out.println(s2.id+" "+s2.name);  
 18.	 }  
-19.	}  
-Test it Now
-Output:
-101 Sonoo
-102 Amit
+19.	}
+```
+> Test it Now
+> Output:
+> 101 Sonoo
+> 102 Amit
+
 2) Object and Class Example: Initialization through method
+
 In this example, we are creating the two objects of Student class and initializing the value to these objects by invoking the insertRecord method. Here, we are displaying the state (data) of the objects by invoking the displayInformation() method.
+```java
 File: TestStudent4.java
 1.	class Student{  
 2.	 int rollno;  
@@ -405,11 +422,12 @@ File: TestStudent4.java
 16.	  s1.displayInformation();  
 17.	  s2.displayInformation();  
 18.	 }  
-19.	}  
-Test it Now
-Output:
-111 Karan
-222 Aryan
+19.	}
+```
+> Test it Now
+> Output:
+> 111 Karan
+> 222 Aryan
  
 As you can see in the above figure, object gets the memory in heap memory area. The reference variable refers to the object allocated in the heap memory area. Here, s1 and s2 both are reference variables that refer to the objects allocated in memory.
 ________________________________________
@@ -418,6 +436,7 @@ We will learn about constructors in Java later.
 ________________________________________
 Object and Class Example: Employee
 Let's see an example where we are maintaining records of employees.
+```java
 File: TestEmployee.java
 1.	class Employee{  
 2.	    int id;  
@@ -442,14 +461,18 @@ File: TestEmployee.java
 21.	    e2.display();  
 22.	    e3.display();  
 23.	}  
-24.	}  
-Test it Now
-Output:
-101 ajeet 45000.0
-102 irfan 25000.0
-103 nakul 55000.0
+24.	}
+```
+> Test it Now
+> Output:
+> 101 ajeet 45000.0
+> 102 irfan 25000.0
+> 103 nakul 55000.0
+
 Object and Class Example: Rectangle
+
 There is given another example that maintains the records of Rectangle class.
+```java
 File: TestRectangle1.java
 1.	class Rectangle{  
 2.	 int length;  
@@ -469,11 +492,12 @@ File: TestRectangle1.java
 16.	  r1.calculateArea();  
 17.	  r2.calculateArea();  
 18.	}  
-19.	}  
-Test it Now
-Output:
-55 
-45    
+19.	}
+```
+> Test it Now
+> Output:
+> 55 
+> 45    
 </details>
 <details><summary><b>[028 - What are the different ways to create an object in Java?]</b></summary>
 
@@ -491,13 +515,17 @@ We will learn these ways to create object later.
 #### Anonymous Objects
 Anonymous simply means nameless. An object which has no reference is known as an anonymous object. It can be used at the time of object creation only.
 If you have to use an object only once, an anonymous object is a good approach. For example:
-1.	new Calculation();//anonymous object  
+> 1.	new Calculation();//anonymous object
+
 Calling method through a reference:
 1.	Calculation c=new Calculation();  
-2.	c.fact(5);  
+2.	c.fact(5);
+   
 Calling method through an anonymous object
-1.	new Calculation().fact(5);  
+1.	new Calculation().fact(5);
+   
 Let's see the full example of an anonymous object in Java.
+```java
 1.	class Calculation{  
 2.	 void fact(int  n){  
 3.	  int fact=1;  
@@ -509,20 +537,25 @@ Let's see the full example of an anonymous object in Java.
 9.	public static void main(String args[]){  
 10.	 new Calculation().fact(5);//calling method with anonymous object  
 11.	}  
-12.	}  
-Output:
-Factorial is 120
+12.	}
+```
+> Output:
+> Factorial is 120
 </details>
 <details><summary><b>[030 - Creating multiple objects by one type only]</b></summary>
 	
 #### Creating multiple objects by one type only
 
 We can create multiple objects by one type only as we do in case of primitives.
+
 Initialization of primitive variables:
-1.	int a=10, b=20;  
+1.	int a=10, b=20;
+
 Initialization of refernce variables:
-1.	Rectangle r1=new Rectangle(), r2=new Rectangle();//creating two objects  
+1.	Rectangle r1=new Rectangle(), r2=new Rectangle();//creating two objects
+
 Let's see the example:
+```java
 1.	//Java Program to illustrate the use of Rectangle class which  
 2.	//has length and width data members  
 3.	class Rectangle{  
@@ -542,12 +575,14 @@ Let's see the example:
 17.	  r1.calculateArea();  
 18.	  r2.calculateArea();  
 19.	}  
-20.	}  
-Test it Now
-Output:
-55 
-45     
+20.	}
+```
+> Test it Now
+> Output:
+> 55 
+> 45     
 Real World Example: Account
+```java
 File: TestAccount.java
 1.	//Java Program to demonstrate the working of a banking-system  
 2.	//where we deposit and withdraw amount from our account.  
@@ -592,17 +627,20 @@ File: TestAccount.java
 41.	a1.checkBalance();  
 42.	a1.withdraw(15000);  
 43.	a1.checkBalance();  
-44.	}}   
-Test it Now
-Output:
-832345 Ankit 1000.0
-Balance is: 1000.0
-40000.0 deposited
-Balance is: 41000.0
-15000.0 withdrawn
-Balance is: 26000.0
+44.	}
+}
+```
+> Test it Now
+> Output:
+> 832345 Ankit 1000.0
+> Balance is: 1000.0
+> 40000.0 deposited
+> Balance is: 41000.0
+> 15000.0 withdrawn
+> Balance is: 26000.0
 </details>
-
+<details><summary><b>[031 - The Three OOP’s principles]</b></summary>
+	
 #### The Three OOP’s principles:
 1.	Encapsulation
 2.	Inheritance
@@ -838,6 +876,7 @@ This program creates one superclass called A and two subclasses of it, called B 
 Subclasses B and C override callme( ) declared in A. Inside the main( ) method, objects of type A, B, and C are declared. Also, a reference of type A, called r, is declared. The program then in turn assigns a reference to each type of object to r and uses that reference to invoke callme( ). As the output shows, the version of callme( ) executed is determined by the type of object being referred to at the time of the call. Had it been determined by the type of the reference variable, r, you would see three calls to A’s callme( ) method. 
 
 </details>
+
 <details><summary><b>[033 - Why Overridden Methods]</b></summary>
 	
 #### Why Overridden Methods?
@@ -1017,6 +1056,7 @@ Rule: Runtime polymorphism can't be achieved by data members.
 > Output:
 > 90
 </details>
+
 <details><summary><b>[033 - Java Runtime Polymorphism with Multilevel Inheritance]</b></summary>
 	
 #### Java Runtime Polymorphism with Multilevel Inheritance
@@ -1067,6 +1107,7 @@ Try for Output
 > Dog is eating
 Since, BabyDog is not overriding the eat() method, so eat() method of Dog class is invoked.
 </details>
+
 </details>
 <details><summary><b>[034 - Upcasting]</b></summary>
 </details>
