@@ -268,7 +268,9 @@ System.out.println("Average Percentage : "+studentStats.getAverage());
 > //Output :
          
 > //Highest Percentage : 92.8
+> 
 > //Lowest Percentage : 71.5
+> 
 > //Average Percentage : 81.5
 
 ### 3.12) Collectors.groupingBy() :
@@ -283,10 +285,14 @@ System.out.println(studentsGroupedBySubject);
 ```         
 > //Output :
          
-> //{Economics=[Paul-11-Economics-78.9, Soumya-15-Economics-77.5], 
-> // Literature=[Xiano-14-Literature-71.5], 
-> // Computer Science=[Zevin-12-Computer Science-91.2, Nihira-17-Computer Science-84.6], 
-> // Mathematics=[Asif-16-Mathematics-89.4, Vijay-19-Mathematics-92.8], 
+> //{Economics=[Paul-11-Economics-78.9, Soumya-15-Economics-77.5],
+> 
+> // Literature=[Xiano-14-Literature-71.5],
+> 
+> // Computer Science=[Zevin-12-Computer Science-91.2, Nihira-17-Computer Science-84.6],
+> 
+> // Mathematics=[Asif-16-Mathematics-89.4, Vijay-19-Mathematics-92.8],
+> 
 > // History=[Harish-13-History-83.7, Mitshu-18-History-73.5, Harry-20-History-71.9]}
 
 ### 3.13) Collectors.partitioningBy() :
@@ -301,7 +307,8 @@ System.out.println(studentspartionedByPercentage);
 ```         
 > //Output :
          
-> // {false=[Paul-11-Economics-78.9, Xiano-14-Literature-71.5, Soumya-15-Economics-77.5, Mitshu-18-History-73.5, Harry-20-History-71.9], 
+> // {false=[Paul-11-Economics-78.9, Xiano-14-Literature-71.5, Soumya-15-Economics-77.5, Mitshu-18-History-73.5, Harry-20-History-71.9],
+> 
 > //  true=[Zevin-12-Computer Science-91.2, Harish-13-History-83.7, Asif-16-Mathematics-89.4, Nihira-17-Computer Science-84.6, Vijay-19-Mathematics-92.8]}
 
 ### 3.14) Collectors.collectingAndThen() :
