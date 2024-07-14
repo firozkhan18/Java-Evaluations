@@ -1,6 +1,7 @@
 
 <details>
 <summary><b> 1. Java program to find the sum of all elements in an array:</b></summary>
+    
 ```java
 public class SumOfArrayElements {
     public static void main(String[] args) {
@@ -15,10 +16,10 @@ public class SumOfArrayElements {
     }
 }
 ```
-
 </details>
 <details>
 <summary><b> 2. Java program to find the largest element in an array:</b></summary>
+    
 ```java
 public class LargestElement {
     public static void main(String[] args) {
@@ -39,6 +40,7 @@ public class LargestElement {
 </details>
 <details>
 <summary><b> 3. Java program to find the second largest element in an array:</b></summary>
+    
 ```java
 public class SecondLargestElement {
     public static void main(String[] args) {
@@ -63,6 +65,7 @@ public class SecondLargestElement {
 </details>
 <details>
 <summary><b> 4. Java program to find the smallest element in an array:</b></summary>
+    
 ```java
 public class SmallestElement {
     public static void main(String[] args) {
@@ -108,6 +111,7 @@ public class SecondSmallestElement {
 </details>
 <details>
 <summary><b> 6. Java program to reverse an array:</b></summary>
+    
 ```java
 public class ReverseArray {
     public static void main(String[] args) {
@@ -131,6 +135,7 @@ public class ReverseArray {
 </details>
 <details>
 <summary><b> 7. Java program to check if an array is sorted in ascending order:</b></summary>
+    
 ```java
 public class ArrayAscendingOrder {
     public static void main(String[] args) {
@@ -156,6 +161,7 @@ public class ArrayAscendingOrder {
 </details>
 <details>
 <summary><b> 8. Java program to check if an array is sorted in descending order:</b></summary>
+    
 ```java
 public class ArrayDescendingOrder {
     public static void main(String[] args) {
@@ -181,6 +187,7 @@ public class ArrayDescendingOrder {
 </details>
 <details>
 <summary><b> 9. Java program to remove duplicate elements from an array:</b></summary>
+    
 ```java
 import java.util.Arrays;
 import java.util.LinkedHashSet;
@@ -209,6 +216,7 @@ public class RemoveDuplicates {
 </details>
 <details>
 <summary><b> 10. Java program to find the frequency of each element in an array:</b></summary>
+    
 ```java
 import java.util.HashMap;
 
