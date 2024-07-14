@@ -3055,7 +3055,7 @@ public class LongestCommonSubsequence {
 }
 ```
 </details>
-<details> <summary><b> 79. Write a program to implement a Kruskal's algorithm.
+<details> <summary><b> 79. Write a program to implement a Kruskal's algorithm.</b></summary>
 
 ```java
 public class KruskalsAlgorithm {
