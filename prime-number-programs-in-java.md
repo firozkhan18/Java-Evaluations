@@ -1,4 +1,4 @@
-10 Prime Number Programs In Java
+# 10 Prime Number Programs In Java
 
 Prime number programs are one of the frequently asked java interview programs for freshers. 
 In this post, I have collected some of the important prime number programs in java and have tried to write the solution for them. I hope it will be helpful for you guys.
@@ -35,14 +35,13 @@ Below is the list of some of the prime number programs in java.
 
 9) Write a java program to print twin prime numbers between two given numbers?
 
-
 10) Write a java program to print a prime number which comes after three non-prime numbers?
 
-prime number programs in java
+## prime number programs in java
 
 Java Program To Check Given Number Is Prime Or Not :
 Program :
-
+```java
 import java.util.Scanner;
  
 public class PrimeNumberProgram 
@@ -95,6 +94,7 @@ public class PrimeNumberProgram
         sc.close();
     }
 }
+```
 Output :
 
 Enter a number :
@@ -107,7 +107,7 @@ Enter a number :
 
 Java Program To Find Initial 10 or 20 or 30 or 40 … n Prime Numbers :
 Program :
-
+```java
 import java.util.Scanner;
  
 public class PrimeNumberProgram 
@@ -171,6 +171,7 @@ public class PrimeNumberProgram
         sc.close();
     }
 }
+```
 Output :
 
 How many initial prime numbers you want?
@@ -189,7 +190,7 @@ Initial 10 Prime Numbers :
 
 Java Program To Find 10 or 20 or 30 …. n Prime Numbers After 100 (or after any given number) :
 Program :
-
+```java
 import java.util.Scanner;
  
 public class PrimeNumberProgram 
@@ -257,6 +258,7 @@ public class PrimeNumberProgram
         sc.close();
     }
 }
+```
 Output :
 
 How many prime numbers you want?
@@ -277,7 +279,7 @@ First 10 Prime Numbers after 100 :
 
 Java Program To Find Out All Prime Numbers Between Two Given Numbers :
 Program :
-
+```java
 import java.util.Scanner;
  
 public class PrimeNumberProgram 
@@ -333,6 +335,7 @@ public class PrimeNumberProgram
         sc.close();
     }
 }
+```
 Output :
 
 Enter the start value :
@@ -347,7 +350,7 @@ Prime numbers between 10 and 20 :
 
 Java Program To Find The Sum Of First n Prime Numbers :
 Program :
-
+```java
 import java.util.Scanner;
  
 public class PrimeNumberProgram 
@@ -419,6 +422,7 @@ public class PrimeNumberProgram
         sc.close();
     }
 }
+```
 Output :
 
 Enter the value for n :
@@ -439,7 +443,7 @@ Sum = 129
 
 Java Program To Find The Sum Of All Prime Numbers Between Two Given Numbers :
 Program :
-
+```java
 import java.util.Scanner;
  
 public class PrimeNumberProgram 
@@ -503,6 +507,7 @@ public class PrimeNumberProgram
         sc.close();
     }
 }
+```
 Output :
 
 Enter the start value :
@@ -524,7 +529,7 @@ The sum of all prime numbers between 50 and 100 :
 Sum = 732
 
 Java Program To Print Prime Numbers Between Two Given Numbers In The Reverse Order :
-
+```java
 import java.util.Scanner;
  
 public class PrimeNumberProgram 
@@ -580,6 +585,7 @@ public class PrimeNumberProgram
         sc.close();
     }
 }
+```
 Output :
 
 Enter the start value :
@@ -594,7 +600,7 @@ Prime numbers between 10 and 20 in reverse order :
 
 Java Program To Find The Twin Prime Numbers :
 Twin prime numbers are the prime numbers whose difference is 2. For example : (3, 5), (5, 7), (11, 13)…
-
+```java
 import java.util.Scanner;
  
 public class PrimeNumberProgram 
@@ -664,6 +670,7 @@ public class PrimeNumberProgram
         sc.close();
     }
 }
+```
 Output :
 
 Enter the value for n :
@@ -681,7 +688,7 @@ The first 10 twin prime numbers :
 (107, 109)
 
 Java Program To Find Twin Prime Numbers Between Two Given Numbers :
-
+```java
 import java.util.Scanner;
  
 public class PrimeNumberProgram 
@@ -743,6 +750,7 @@ public class PrimeNumberProgram
         sc.close();
     }
 }
+```
 Output :
 
 Enter the start value :
@@ -758,7 +766,7 @@ Twin prime numbers between 10 and 100 :
 (71, 73)
 
 Java Program To Print n Prime Numbers Which Comes After 3 non-prime numbers :
-
+```java
 import java.util.Scanner;
  
 public class PrimeNumberProgram 
@@ -828,6 +836,7 @@ public class PrimeNumberProgram
         sc.close();
     }
 }
+```
 Output :
 
 Enter the value for n :
