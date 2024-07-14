@@ -956,7 +956,7 @@ public class ImplementLinkedList {
 ```
 </details>
 <details>
-<summary><b>43. Write a program to find the transpose of a matrix.</summary>
+<summary><b>43. Write a program to find the transpose of a matrix.</b></summary>
 
 ```java
 public class FindMatrixTranspose {
