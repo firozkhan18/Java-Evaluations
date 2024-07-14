@@ -370,3 +370,252 @@ public class PowerOfNumber {
 ```
 </details>
 
+<details>
+<summary><b>33. Find the smallest element in an array</b></summary>
+
+```java
+public class SmallestElementInArray {
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 7, 1, 9, 2};
+        int smallest = Integer.MAX_VALUE;
+
+        for (int num : arr) {
+            if (num < smallest) {
+                smallest = num;
+            }
+        }
+
+        System.out.println("Smallest element in the array: " + smallest);
+    }
+}
+```
+</details>
+<details>
+<summary><b>34. Check if a given string is a valid palindrome or not</b></summary>
+
+```java
+public class ValidPalindrome {
+    public static void main(String[] args) {
+        String str = "madam";
+        boolean isPalindrome = true;
+
+        for (int i = 0; i < str.length() / 2; i++) {
+            if (str.charAt(i) != str.charAt(str.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        if (isPalindrome) {
+            System.out.println("The string is a valid palindrome.");
+        } else {
+            System.out.println("The string is not a valid palindrome.");
+        }
+    }
+}
+```
+</details>
+<details>
+<summary><b>35. Find the product of two matrices</b></summary>
+
+```java
+public class MatrixMultiplication {
+    public static void main(String[] args) {
+        int[][] matrix1 = {{1, 2}, {3, 4}};
+        int[][] matrix2 = {{5, 6}, {7, 8}};
+        int[][] product = new int[2][2];
+
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                for (int k = 0; k < 2; k++) {
+                    product[i][j] += matrix1[i][k] * matrix2[k][j];
+                }
+            }
+        }
+
+        System.out.println("Product of the two matrices:");
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                System.out.print(product[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+```
+</details>
+<details>
+<summary><b>36. Reverse a linked list</b></summary>
+
+```java
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+public class ReverseLinkedList {
+    public static Node reverseList(Node head) {
+        Node prev = null;
+        Node current = head;
+        Node next;
+
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        
+        return prev;
+    }
+
+    public static void printList(Node head) {
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Node head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = new Node(4);
+
+        System.out.println("Original linked list:");
+        printList(head);
+
+        head = reverseList(head);
+
+        System.out.println("Reversed linked list:");
+        printList(head);
+    }
+}
+```
+</details>
+<details>
+<summary><b>37. Find the missing number in an array of consecutive numbers</b></summary>
+
+```java
+public class MissingNumberInArray {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 4, 5, 6};
+        int n = arr.length + 1;
+        int totalSum = (n * (n + 1)) / 2;
+        int arrSum = 0;
+
+        for (int num : arr) {
+            arrSum += num;
+        }
+
+        int missingNumber = totalSum - arrSum;
+        System.out.println("Missing number in the array: " + missingNumber);
+    }
+}
+```
+</details>
+<details>
+<summary><b>38. Check if a number is a perfect number</b></summary>
+
+```java
+public class PerfectNumber {
+    public static void main(String[] args) {
+        int num = 28;
+        int sum = 0;
+
+        for (int i = 1; i <= num / 2; i++) {
+            if (num % i == 0) {
+                sum += i;
+            }
+        }
+
+        if (sum == num) {
+            System.out.println(num + " is a perfect number.");
+        } else {
+            System.out.println(num + " is not a perfect number.");
+        }
+    }
+}
+```
+</details>
+<details>
+<summary><b>39. Find the median of an array</b></summary>
+
+```java
+import java.util.Arrays;
+
+public class MedianOfArray {
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 9, 1, 7, 2};
+        Arrays.sort(arr);
+
+        double median;
+        if (arr.length % 2 == 0) {
+            median = (double) (arr[arr.length / 2 - 1] + arr[arr.length / 2]) / 2;
+        } else {
+            median = arr[arr.length / 2];
+        }
+
+        System.out.println("Median of the array: " + median);
+    }
+}
+```
+</details>
+<details>
+<summary><b>29. Check if a string contains only digits</b></summary>
+
+```java
+public class OnlyDigitsInString {
+    public static void main(String[] args) {
+        String str = "12345";
+        boolean onlyDigits = true;
+
+        for (int i = 0; i < str.length(); i++) {
+            if (!Character.isDigit(str.charAt(i))) {
+                onlyDigits = false;
+                break;
+            }
+        }
+
+        if (onlyDigits) {
+            System.out.println("The string contains only digits.");
+        } else {
+            System.out.println("The string does not contain only digits.");
+        }
+    }
+}
+```
+</details>
+<details>
+<summary><b>30. Find the LCM of two numbers</b></summary>
+
+```java
+public class LCM {
+    public static int findGCD(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return findGCD(b, a % b);
+    }
+
+    public static int findLCM(int a, int b) {
+        return (a * b) / findGCD(a, b);
+    }
+
+    public static void main(String[] args) {
+        int num1 = 12;
+        int num2 = 18;
+
+        int lcm = findLCM(num1, num2);
+        System.out.println("LCM of " + num1 + " and " + num2 + " is " + lcm);
+    }
+}
+```
+</details>
