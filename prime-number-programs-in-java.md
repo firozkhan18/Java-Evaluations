@@ -17,29 +17,20 @@ Note : 0 and 1 are not prime numbers.
 Prime Number Programs In Java :
 Below is the list of some of the prime number programs in java.
 
-1) Write a java program to check whether given number is prime or not?
-
-2) Write a java program to find initial 10 or 20 or 30 …… n) prime numbers?
-
-3) Write a java program to find out 20 (or 30 or 40 …… n) prime numbers after 100 ( or after any given number)?
-
-4) Write a java program to find out all prime numbers between two given numbers?
-
-5) Write a java program to find the sum of initial ‘n‘ prime numbers?
-
-6) Write a java program to find sum of all prime numbers between two given numbers?
-
-7) Write a java program to print prime numbers between two given numbers in the reverse order?
-
-8) Write a java program to find the twin prime numbers?
-
-9) Write a java program to print twin prime numbers between two given numbers?
-
-10) Write a java program to print a prime number which comes after three non-prime numbers?
+### 1) Write a java program to check whether given number is prime or not?
+### 2) Write a java program to find initial 10 or 20 or 30 …… n) prime numbers?
+### 3) Write a java program to find out 20 (or 30 or 40 …… n) prime numbers after 100 ( or after any given number)?
+### 4) Write a java program to find out all prime numbers between two given numbers?
+### 5) Write a java program to find the sum of initial ‘n‘ prime numbers?
+### 6) Write a java program to find sum of all prime numbers between two given numbers?
+### 7) Write a java program to print prime numbers between two given numbers in the reverse order?
+### 8) Write a java program to find the twin prime numbers?
+### 9) Write a java program to print twin prime numbers between two given numbers?
+### 10) Write a java program to print a prime number which comes after three non-prime numbers?
 
 ## prime number programs in java
 
-Java Program To Check Given Number Is Prime Or Not :
+### Java Program To Check Given Number Is Prime Or Not :
 Program :
 ```java
 import java.util.Scanner;
@@ -105,7 +96,7 @@ Enter a number :
 15
 15 is not a prime number.
 
-Java Program To Find Initial 10 or 20 or 30 or 40 … n Prime Numbers :
+### Java Program To Find Initial 10 or 20 or 30 or 40 … n Prime Numbers :
 Program :
 ```java
 import java.util.Scanner;
@@ -174,7 +165,7 @@ public class PrimeNumberProgram
 ```
 Output :
 
-How many initial prime numbers you want?
+### How many initial prime numbers you want?
 10
 Initial 10 Prime Numbers :
 2
@@ -188,7 +179,7 @@ Initial 10 Prime Numbers :
 23
 29
 
-Java Program To Find 10 or 20 or 30 …. n Prime Numbers After 100 (or after any given number) :
+### Java Program To Find 10 or 20 or 30 …. n Prime Numbers After 100 (or after any given number) :
 Program :
 ```java
 import java.util.Scanner;
@@ -261,7 +252,7 @@ public class PrimeNumberProgram
 ```
 Output :
 
-How many prime numbers you want?
+### How many prime numbers you want?
 10
 After which number?
 100
@@ -277,7 +268,7 @@ First 10 Prime Numbers after 100 :
 139
 149
 
-Java Program To Find Out All Prime Numbers Between Two Given Numbers :
+### Java Program To Find Out All Prime Numbers Between Two Given Numbers :
 Program :
 ```java
 import java.util.Scanner;
@@ -348,7 +339,7 @@ Prime numbers between 10 and 20 :
 17
 19
 
-Java Program To Find The Sum Of First n Prime Numbers :
+### Java Program To Find The Sum Of First n Prime Numbers :
 Program :
 ```java
 import java.util.Scanner;
@@ -441,7 +432,7 @@ The sum of first 10 Prime Numbers :
 =======
 Sum = 129
 
-Java Program To Find The Sum Of All Prime Numbers Between Two Given Numbers :
+### Java Program To Find The Sum Of All Prime Numbers Between Two Given Numbers :
 Program :
 ```java
 import java.util.Scanner;
@@ -528,7 +519,7 @@ The sum of all prime numbers between 50 and 100 :
 ==================
 Sum = 732
 
-Java Program To Print Prime Numbers Between Two Given Numbers In The Reverse Order :
+### Java Program To Print Prime Numbers Between Two Given Numbers In The Reverse Order :
 ```java
 import java.util.Scanner;
  
@@ -598,7 +589,7 @@ Prime numbers between 10 and 20 in reverse order :
 13
 11
 
-Java Program To Find The Twin Prime Numbers :
+### Java Program To Find The Twin Prime Numbers :
 Twin prime numbers are the prime numbers whose difference is 2. For example : (3, 5), (5, 7), (11, 13)…
 ```java
 import java.util.Scanner;
@@ -687,7 +678,7 @@ The first 10 twin prime numbers :
 (101, 103)
 (107, 109)
 
-Java Program To Find Twin Prime Numbers Between Two Given Numbers :
+### Java Program To Find Twin Prime Numbers Between Two Given Numbers :
 ```java
 import java.util.Scanner;
  
@@ -765,7 +756,7 @@ Twin prime numbers between 10 and 100 :
 (59, 61)
 (71, 73)
 
-Java Program To Print n Prime Numbers Which Comes After 3 non-prime numbers :
+### Java Program To Print n Prime Numbers Which Comes After 3 non-prime numbers :
 ```java
 import java.util.Scanner;
  
