@@ -91,85 +91,85 @@ Moreover most interface also have variant for primitive types
 import java.util.function.*;
 ```
 
-java.lang.Runnable is equivalent to () -> void
+- java.lang.Runnable is equivalent to () -> void
 ```java
 Runnable runnable = () -> { System.out.println("hello"); };
 runnable.run();
 ```
 
-Supplier<T> is equivalent to () -> T
+- Supplier<T> is equivalent to () -> T
 ```java
 Supplier<String> supplier = () -> "hello supplier";
 System.out.println(supplier.get());
 ```
 
-IntSupplier, LongSupplier and DoubleSupplier
+- IntSupplier, LongSupplier and DoubleSupplier
 ```java
 IntSupplier supplier = () -> 42;
 System.out.println(supplier.getAsInt());
 ```
 
-Consumer<T> is equivalent to (T) -> void
+- Consumer<T> is equivalent to (T) -> void
 ```java
 Consumer<String> consumer = message -> System.out.println(message);
 consumer.accept("hello consumer");
 ```
 
-IntConsumer, LongConsumer and DoubleConsumer
+- IntConsumer, LongConsumer and DoubleConsumer
 ```java
 DoubleConsumer consumer = message -> System.out.println(message);
 consumer.accept(42);
 ```
 
-Predicate<T> is equivalent to (T) -> boolean
+- Predicate<T> is equivalent to (T) -> boolean
 ```java
 Predicate<String> predicate = text -> text.length() < 5;
 System.out.println(predicate.test("hello predicate"));
 ```
 
-IntPredicate, LongPredicate and DoublePredicate
+- IntPredicate, LongPredicate and DoublePredicate
 ```java
 DoublePredicate isPositive = v -> v >= 0;
 System.out.println(isPositive.test(17.3));
 ```
 
-Function<T,U> is equivalent to (T) -> U
+- Function<T,U> is equivalent to (T) -> U
 ```java
 Function<String, String> fun = s -> "hello " + s;
 System.out.println(fun.apply("function"));
 ```
 
-IntFunction<T>, LongFunction<T> and DoubleFunction<T>
+- IntFunction<T>, LongFunction<T> and DoubleFunction<T>
 ```java
 IntFunction<String[]> arrayCreator = size -> new String[size];
 System.out.println(arrayCreator.apply(5).length);
 ```
 
-ToIntFunction<T>, ToLongFunction<T> and ToDoubleFunction<T>
+- ToIntFunction<T>, ToLongFunction<T> and ToDoubleFunction<T>
 ```java
 ToIntFunction<String> stringLength = s -> s.length();
 System.out.println(stringLength.applyAsInt("hello"));
 ```
 
-UnaryOperator<T> is equivalent to (T) -> T
+- UnaryOperator<T> is equivalent to (T) -> T
 ```java
 UnaryOperator<String> unaryOp =  s -> "hello " + s;
 System.out.println(unaryOp.apply("unary operator"));
 ```
 
-IntUnaryOperator, LongUnaryOperator and DoubleUnaryOperator
+- IntUnaryOperator, LongUnaryOperator and DoubleUnaryOperator
 ```java
 IntUnaryOperator unaryOp =  x -> - x;
 System.out.println(unaryOp.applyAsInt(7));
 ```
 
-BiPredicate is equivalent to (T, U) -> boolean
+- BiPredicate is equivalent to (T, U) -> boolean
 ```java
 BiPredicate<String, String> predicate = (s, prefix) -> s.startsWith(prefix);
 System.out.println(predicate.test("hello", "hell"));
 ```
 
-BiFunction<T,U,V> is equivalent to (T, U) -> V
+- BiFunction<T,U,V> is equivalent to (T, U) -> V
 ```java
 BiFunction<String, String, String> fun = (s1, s2) -> s1 + " " + s2;
 System.out.println(fun.apply("hello", "bi-function"));
@@ -181,13 +181,11 @@ BinaryOperator<String> binaryOp =  (s1, s2) -> s1 + " " + s2;
 System.out.println(binaryOp.apply("hello", "binary operator"));
 ```
 
-IntBinaryOperator, LongBinaryOperator and DoubleBinaryOperator
+- IntBinaryOperator, LongBinaryOperator and DoubleBinaryOperator
 ```java
 IntBinaryOperator binaryOp =  (a, b) -> a + b;
 System.out.println(binaryOp.applyAsInt(40, 2));
 ```
-
-
 
 ## Lambda
 Lambda syntax is similar to arrow part the switch syntax
@@ -219,7 +217,7 @@ System.out.println(op.applyAsDouble(2));
 ## Method references
 There are 5 kinds of method references
 
-1. a reference to an instance method
+### 1. a reference to an instance method
 
    Seeing an instance method as a function means you have to
    take the type of `this` into account, here `startsWith` as
@@ -229,7 +227,7 @@ BiPredicate<String,String> predicate = String::startsWith;
 System.out.println(predicate.test("hello", "hell"));
 ```
 
-2. a bound reference to an instance method
+### 2. a bound reference to an instance method
 
    The value of this is fixed so the parameter of the function
    are the same as the parameter of the instance method
@@ -239,7 +237,7 @@ IntSupplier supplier = text::length;
 System.out.println(supplier.getAsInt());
 ```
 
-3. a reference to a static method
+### 3. a reference to a static method
 
    No instance here, so the parameter of the function are the
    same as the parameter of the static method
@@ -248,7 +246,7 @@ ToIntFunction<String> function = Integer::parseInt;
 System.out.println(function.applyAsInt("42"));
 ```
 
-4. a reference to a new instance
+### 4. a reference to a new instance
 
    The parameter of the function are the same as the parameter of
    the constructor. The return type is the class of the constructor
@@ -258,7 +256,7 @@ Function<String, Person> factory = Person::new;
 System.out.println(factory.apply("John"));
 ```
 
-5. a reference to a new array
+### 5. a reference to a new array
 
    Same as above, the return type is the array.
 ```java
