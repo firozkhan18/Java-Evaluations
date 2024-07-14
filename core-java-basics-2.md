@@ -48,81 +48,117 @@ It is a micro platform which is mainly used to develop mobile applications.
 It is used to develop rich internet applications. It uses a light-weight user interface API.
 </details><details><summary><b>[004 - Features of Java]</b></summary>
 
-###Features of Java:
+### Features of Java:
 
 The primary objective of Java programming language creation was to make it portable, simple and secure programming language. Apart from this, there are also some excellent features which play an important role in the popularity of this language. The features of Java are also known as java buzzwords.
 A list of most important features of Java language is given below.
-	- [001 - Simple]
-	   Java is very easy to learn, and its syntax is simple, clean and easy to understand. According to Sun, Java language is a simple programming language because:
-		o Java syntax is based on C++ (so easier for programmers to learn it after C++).
-		o Java has removed many complicated and rarely-used features, for example, explicit pointers, operator overloading, etc.
-		o There is no need to remove unreferenced objects because there is an Automatic Garbage Collection in Java.
-	- [002 - Object-oriented]
-	   Java is an object-oriented programming language. Everything in Java is an object. Object-oriented means we organize our software as a combination of different types of objects that incorporates both data and behavior.
-	   Object-oriented programming (OOPs) is a methodology that simplifies software development and maintenance by providing some rules.
 
-	   Basic concepts of OOPs are:
-		1. Object
-		2. Class
-		3. Inheritance
-		4. Polymorphism
-		5. Abstraction
-		6. Encapsulation
-	- [003 - Platform Independent]
-		Java is platform independent because it is different from other languages like C, C++, etc. which are compiled into platform specific machines while Java is a write once, run anywhere language. A platform is the hardware or software environment in which a program runs.
-		There are two types of platforms software-based and hardware-based. Java provides a software-based platform.
-		The Java platform differs from most other platforms in the sense that it is a software-based platform that runs on the top of other hardware-based platforms. It has two components:
-		1. Runtime Environment
-		2. API(Application Programming Interface)
+- [001 - Simple]
+  
+Java is very easy to learn, and its syntax is simple, clean and easy to understand. According to Sun, Java language is a simple programming language because:
+	o Java syntax is based on C++ (so easier for programmers to learn it after C++).
+	o Java has removed many complicated and rarely-used features, for example, explicit pointers, operator overloading, etc.
+	o There is no need to remove unreferenced objects because there is an Automatic Garbage Collection in Java.
+  
+- [002 - Object-oriented]
+  
+Java is an object-oriented programming language. Everything in Java is an object. Object-oriented means we organize our software as a combination of different types of objects that incorporates both data and behavior.
+Object-oriented programming (OOPs) is a methodology that simplifies software development and maintenance by providing some rules.
+
+Basic concepts of OOPs are:
+	1. Object
+	2. Class
+	3. Inheritance
+	4. Polymorphism
+	5. Abstraction
+	6. Encapsulation
+   
+- [003 - Platform Independent]
+  
+Java is platform independent because it is different from other languages like C, C++, etc. which are compiled into platform specific machines while Java is a write once, run anywhere language. A platform is the hardware or software environment in which a program runs.
+There are two types of platforms software-based and hardware-based. Java provides a software-based platform.
+
+The Java platform differs from most other platforms in the sense that it is a software-based platform that runs on the top of other hardware-based platforms. 
+
+It has two components:
+
+	1. Runtime Environment
+	2. API(Application Programming Interface)
 		
-		Java code can be run on multiple platforms, for example, Windows, Linux, Sun Solaris, Mac/OS, etc. Java code is compiled by the compiler and converted into bytecode. This bytecode is a platform-independent code because it can be run on multiple platforms, i.e., Write Once and Run Anywhere (WORA).
+Java code can be run on multiple platforms, for example, Windows, Linux, Sun Solaris, Mac/OS, etc. Java code is compiled by the compiler and converted into bytecode. This bytecode is a platform-independent code because it can be run on multiple platforms, i.e., Write Once and Run Anywhere (WORA).
 
-	- [008 - Secured]
-		The fact that a java program is interpreted also helps to make it secure. Because execution of every java program is under the control of JVM. The JVM can contain the programs and prevent it from generating side effect outside of the system. As you will see, safety is also enhanced by certain restrictions that exist in java language.
-		When program is interpreted it generally runs substantially slower than it would run if compiled to executable code. The use of bytecode enables the java runtime system to execute program much faster than you might expect. 
-		Although java was designed for interpretation there is technically nothing about java that prevent on the fly compiled if bytecode into native code. Along this lines, sun supplies it’s just in time (JIT) compiler for bytecode which is include in the java 2 release. 
-		When you download the normal program you are risking of viral infection. Worries about infecting their system addition of virus another type of malicious program exist that must be guarded against java provides firewall between networked application and your computer.
+- [008 - Secured]
+   
+The fact that a java program is interpreted also helps to make it secure. Because execution of every java program is under the control of JVM. The JVM can contain the programs and prevent it from generating side effect outside of the system. As you will see, safety is also enhanced by certain restrictions that exist in java language.
+
+When program is interpreted it generally runs substantially slower than it would run if compiled to executable code. The use of bytecode enables the java runtime system to execute program much faster than you might expect.
+
+Although java was designed for interpretation there is technically nothing about java that prevent on the fly compiled if bytecode into native code. Along this lines, sun supplies it’s just in time (JIT) compiler for bytecode which is include in the java 2 release. 
+When you download the normal program you are risking of viral infection. Worries about infecting their system addition of virus another type of malicious program exist that must be guarded against java provides firewall between networked application and your computer.
 		
-		Java is best known for its security. With Java, we can develop virus-free systems. Java is secured because:
+Java is best known for its security. With Java, we can develop virus-free systems. Java is secured because:
 
-		o No explicit pointer
-		o Java Programs run inside a virtual machine sandbox
+	o No explicit pointer
+	o Java Programs run inside a virtual machine sandbox
+	
+	o Classloader: Classloader in Java is a part of the Java Runtime Environment (JRE) which is used to load Java classes into the Java Virtual Machine dynamically. It adds security by separating the package for the classes of the local file system from those that are imported from network sources.
+	o Bytecode Verifier: It checks the code fragments for illegal code that can violate access right to objects.
+	o Security Manager: It determines what resources a class can access such as reading and writing to the local disk.
+
+Java language provides these securities by default. Some security can also be provided by an application developer explicitly through SSL, JAAS, Cryptography, etc.
+
+- [004 - Robust]
+  
+Robust simply means strong. Java is robust because:
+	o It uses strong memory management.
+	o There is a lack of pointers that avoids security problems.
+	o There is automatic garbage collection in java which runs on the Java Virtual Machine to get rid of objects which are not being used by a Java application anymore.
+	o There are exception handling and the type checking mechanism in Java. All these points make Java robust.
  
-		o Classloader: Classloader in Java is a part of the Java Runtime Environment (JRE) which is used to load Java classes into the Java Virtual Machine dynamically. It adds security by separating the package for the classes of the local file system from those that are imported from network sources.
-		o Bytecode Verifier: It checks the code fragments for illegal code that can violate access right to objects.
-		o Security Manager: It determines what resources a class can access such as reading and writing to the local disk.
+- [005 - Architecture-neutral]
+  
+Java is architecture neutral because there are no implementation dependent features, for example, the size of primitive types is fixed.
+In C programming, int data type occupies 2 bytes of memory for 32-bit architecture and 4 bytes of memory for 64-bit architecture. However, it occupies 4 bytes of memory for both 32 and 64-bit architectures in Java.
 
-		Java language provides these securities by default. Some security can also be provided by an application developer explicitly through SSL, JAAS, Cryptography, etc.
+- [006 - Portable]
+  
+Remember, although the details of the java program were compiled to native code then different version of the same program would have to exist for each type of CPU connected to the internet. This is of course, not a feasible solution thus the interpretation of bytecode is the easiest way to create truly portable program.
 
-	- [004 - Robust]
-		Robust simply means strong. Java is robust because:
-		o It uses strong memory management.
-		o There is a lack of pointers that avoids security problems.
-		o There is automatic garbage collection in java which runs on the Java Virtual Machine to get rid of objects which are not being used by a Java application anymore.
-		o There are exception handling and the type checking mechanism in Java. All these points make Java robust.
-	- [005 - Architecture-neutral]
-		Java is architecture neutral because there are no implementation dependent features, for example, the size of primitive types is fixed.
-		In C programming, int data type occupies 2 bytes of memory for 32-bit architecture and 4 bytes of memory for 64-bit architecture. However, it occupies 4 bytes of memory for both 32 and 64-bit architectures in Java.
-	- [006 - Portable]
-		Remember, although the details of the java program were compiled to native code then different version of the same program would have to exist for each type of CPU connected to the internet. This is of course, not a feasible solution thus the interpretation of bytecode is the easiest way to create truly portable program.
-		Java is portable because it facilitates you to carry the Java bytecode to any platform. It doesn't require any implementation.
-	- [007 - High-performance]
-		Java is faster than other traditional interpreted programming languages because Java bytecode is "close" to native code. It is still a little bit slower than a compiled language (e.g., C++). Java is an interpreted language that is why it is slower than compiled languages, e.g., C, C++, etc.
-	- [008 - Distributed]
-		Java is distributed because it facilitates users to create distributed applications in Java. RMI and EJB are used for creating distributed applications. This feature of Java makes us able to access files by calling the methods from any machine on the internet.
-	- [009 - Multi-threaded]
-		A thread is like a separate program, executing concurrently. We can write Java programs that deal with many tasks at once by defining multiple threads. The main advantage of multi-threading is that it doesn't occupy memory for each thread. It shares a common memory area. Threads are important for multi-media, Web applications, etc.
-	- [010 - Dynamic]
-		Java is a dynamic language. It supports dynamic loading of classes. It means classes are loaded on demand. It also supports functions from its native languages, i.e., C and C++.
-		Java supports dynamic compilation and automatic memory management (garbage collection).
-	- [011 - Bytecode]
-		The key allows java to solve both the security and portability problem just describe is that the output of java compiler is not executable code. Rather, it is bytecode.
-		Bytecode is highly optimized set of instructions designed to be executed by the java runtime system, which is called the java virtual machine (JVM) that is, in its standard form, the JVM is an interpreter for bytecode.
-		As you know, C++ is compiled to be executable code in fact most modern language are designed to be compiled not interpreted mostly because of performance concerns. However the fact that java program is executed by the JVM helps solve the major problem associated with downloading programs over the internet. 
-		Translating a java program into bytecode helps makes it much easier to run a program in a wide variety of environments. The reason is straight forward: - Only the JVM need to be implemented for each platform.
-		Once the runtime package exist for a given systems only java program can run on it.
-	- [012 - Interpretation JIT (Just in Time)]
-		When the JIT is part of the JVM it compiles bytecode into executable code in real time on a piece by piece demand basis. It is important to understand that it is not possible to compile an entire java program into executable code all at once, because java performs various runtime checks that can be done only at runtime instead the JIT compiles code as it needed during execution.
+Java is portable because it facilitates you to carry the Java bytecode to any platform. It doesn't require any implementation.
+
+- [007 - High-performance]
+  
+Java is faster than other traditional interpreted programming languages because Java bytecode is "close" to native code. It is still a little bit slower than a compiled language (e.g., C++). Java is an interpreted language that is why it is slower than compiled languages, e.g., C, C++, etc.
+
+- [008 - Distributed]
+  
+Java is distributed because it facilitates users to create distributed applications in Java. RMI and EJB are used for creating distributed applications. This feature of Java makes us able to access files by calling the methods from any machine on the internet.
+
+- [009 - Multi-threaded]
+
+A thread is like a separate program, executing concurrently. We can write Java programs that deal with many tasks at once by defining multiple threads. The main advantage of multi-threading is that it doesn't occupy memory for each thread. It shares a common memory area. Threads are important for multi-media, Web applications, etc.
+
+- [010 - Dynamic]
+  
+Java is a dynamic language. It supports dynamic loading of classes. It means classes are loaded on demand. It also supports functions from its native languages, i.e., C and C++.
+Java supports dynamic compilation and automatic memory management (garbage collection).
+
+- [011 - Bytecode]
+
+The key allows java to solve both the security and portability problem just describe is that the output of java compiler is not executable code. Rather, it is bytecode.
+
+Bytecode is highly optimized set of instructions designed to be executed by the java runtime system, which is called the java virtual machine (JVM) that is, in its standard form, the JVM is an interpreter for bytecode.
+
+As you know, C++ is compiled to be executable code in fact most modern language are designed to be compiled not interpreted mostly because of performance concerns. However the fact that java program is executed by the JVM helps solve the major problem associated with downloading programs over the internet. 
+
+Translating a java program into bytecode helps makes it much easier to run a program in a wide variety of environments. The reason is straight forward: - Only the JVM need to be implemented for each platform.
+
+Once the runtime package exist for a given systems only java program can run on it.
+
+- [012 - Interpretation JIT (Just in Time)]
+
+When the JIT is part of the JVM it compiles bytecode into executable code in real time on a piece by piece demand basis. It is important to understand that it is not possible to compile an entire java program into executable code all at once, because java performs various runtime checks that can be done only at runtime instead the JIT compiles code as it needed during execution.
+
 </details>
 <details><summary><b>[018 - Two Paradigm]</b></summary>
 </details>
