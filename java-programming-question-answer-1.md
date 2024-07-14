@@ -2148,6 +2148,7 @@ public class TopologicalSort {
 </details>
 <details>
 <summary><b>75. Write a program to find the number of connected components in a graph.</b></summary>
+
 ```java
 public class NumberOfConnectedComponents {
     public int countComponents(int n, int[][] edges) {
@@ -2199,6 +2200,7 @@ public class MaxProfitStocks {
 </details>
 <details>
 <summary><b>77. Write a program to implement a prim's algorithm.</b></summary>
+
 ```java
 public class PrimsAlgorithm {
     public int minCost(int[][] graph) {
