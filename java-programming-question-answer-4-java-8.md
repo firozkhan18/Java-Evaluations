@@ -47,24 +47,24 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-————–
-Odd Numbers
-————–
-71
-21
-67
-95
-87
-————–
-Even Numbers
-————–
-18
-42
-32
-14
-56
+> ————–
+> Odd Numbers
+> ————–
+> 71
+> 21
+> 67
+> 95
+> 87
+> ————–
+> Even Numbers
+> ————–
+> 18
+> 42
+> 32
+> 14
+> 56
 </details>
 <details>
 <summary><b>  2) How do you remove duplicate elements from a list using Java 8 streams?</b></summary>
@@ -86,9 +86,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-[Java,  Python, C#, Kotlin]
+> [Java,  Python, C#, Kotlin]
 </details>
 <details>
 <summary><b>  3) How do you find frequency of each character in a string using Java 8 streams?</b></summary>
@@ -113,9 +113,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-{ =4, a=3, c=1, C=1, D=1, e=2, f=1, h=1, J=1, n=1, O=1, o=1, p=1, T=1, t=1, v=1, y=1}
+> { =4, a=3, c=1, C=1, D=1, e=2, f=1, h=1, J=1, n=1, O=1, o=1, p=1, T=1, t=1, v=1, y=1}
 </details>
 <details>
 <summary><b>  4) How do you find frequency of each element in an array or a list?</b></summary>
@@ -140,9 +140,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-{Pen=2, Stapler=1, Pencil=2, Note Book=2, Eraser=1}
+> {Pen=2, Stapler=1, Pencil=2, Note Book=2, Eraser=1}
 </details>
 <details>
 <summary><b>  5) How do you sort the given list of decimals in reverse order?</b></summary>
@@ -162,16 +162,16 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-71.85
-56.98
-42.89
-33.78
-23.58
-21.12
-17.13
-12.45
+> 71.85
+> 56.98
+> 42.89
+> 33.78
+> 23.58
+> 21.12
+> 17.13
+> 12.45
 
 </details>
 <details>
@@ -194,9 +194,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-[Facebook, Twitter, YouTube, WhatsApp, LinkedIn]
+> [Facebook, Twitter, YouTube, WhatsApp, LinkedIn]
 
 </details>
 <details>
@@ -216,11 +216,11 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-45
-15
-75
+> 45
+> 15
+> 75
 
 </details>
 <details>
@@ -247,10 +247,10 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-Maximum Element : 89
-Minimum Element : 12
+> Maximum Element : 89
+> Minimum Element : 12
 
 </details>
 <details>
@@ -274,9 +274,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-[1, 2, 3, 4, 5, 7, 8, 9]
+> [1, 2, 3, 4, 5, 7, 8, 9]
 
 </details>
 <details>
@@ -300,9 +300,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-[1, 2, 4, 5, 8, 9]
+> [1, 2, 4, 5, 8, 9]
 
 </details>
 <details>
@@ -341,20 +341,20 @@ listOfIntegers.stream().sorted(Comparator.reverseOrder()).limit(3).forEach(Syste
     }
 }
 ```
-Output :
+> Output :
 
-—————–
-Minimum 3 Numbers
-—————–
-12
-15
-24
-—————–
-Maximum 3 Numbers
-—————–
-89
-75
-56
+> —————–
+> Minimum 3 Numbers
+> —————–
+> 12
+> 15
+> 24
+> —————–
+> Maximum 3 Numbers
+> —————–
+> 89
+> 75
+> 56
 </details>
 <details>
 <summary><b> 12) Java 8 program to check if two strings are anagrams or not?</b></summary>
@@ -385,9 +385,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-Two strings are anagrams
+> Two strings are anagrams
 
 </details>
 <details>
@@ -409,9 +409,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-17
+> 17
 
 </details>
 <details>
@@ -434,9 +434,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-75
+> 75
 
 </details>
 <details>
@@ -457,16 +457,16 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-C
-C#
-C++
-Java
-HTML
-COBOL
- Python
-Kotlin
+> C
+> C#
+> C++
+> Java
+> HTML
+> COBOL
+> Python
+> Kotlin
 
 </details>
 <details>
@@ -491,10 +491,10 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-Sum = 347
-Average = 43.375
+> Sum = 347
+> Average = 43.375
 
 </details>
 <details>
@@ -516,11 +516,11 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-21
-34
-56
+> 21
+> 34
+> 56
 
 </details>
 <details>
@@ -544,9 +544,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-avaJ tpecnoC fO ehT yaD
+> avaJ tpecnoC fO ehT yaD
 
 </details>
 <details>
@@ -565,9 +565,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-55
+> 55
 
 </details>
 <details>
@@ -589,9 +589,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-[6, 9, 3, 7, 1, 5]
+> [6, 9, 3, 7, 1, 5]
 
 </details>
 <details>
@@ -608,18 +608,18 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-2
-4
-6
-8
-10
-12
-14
-16
-18
-20
+> 2
+> 4
+> 6
+> 8
+> 10
+> 12
+> 14
+> 16
+> 18
+> 20
 
 </details>
 <details>
@@ -650,10 +650,10 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-Most Frequent Element : Pen
-Count : 3
+> Most Frequent Element : Pen
+> Count : 3
 
 </details>
 <details>
@@ -682,9 +682,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-ROTATOR is a palindrome
+> ROTATOR is a palindrome
 
 </details>
 <details>
@@ -704,11 +704,11 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-2wo
-3hree
-5ive
+> 2wo
+> 3hree
+> 5ive
 
 </details>
 <details>
@@ -735,9 +735,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-[333, 222, 111]
+> [333, 222, 111]
 
 </details>
 <details>
@@ -766,9 +766,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-[a, c, t, e, o]
+> [a, c, t, e, o]
 
 </details>
 <details>
@@ -802,9 +802,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-a
+> a
 
 </details>
 <details>
@@ -838,9 +838,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-j
+> j
 
 </details>
 <details>
@@ -860,9 +860,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-0 1 1 2 3 5 8 13 21 34
+> 0 1 1 2 3 5 8 13 21 34
 
 </details>
 <details>
@@ -882,9 +882,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-1 3 5 7 9 11 13 15 17 19
+> 1 3 5 7 9 11 13 15 17 19
 
 </details>
 <details>
@@ -906,9 +906,9 @@ public class Java8Code
     }
 }
 ```
-Output :
+> Output :
 
-Six
+> Six
 
 </details>
 <details>
