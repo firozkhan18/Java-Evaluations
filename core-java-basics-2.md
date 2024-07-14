@@ -1,122 +1,14 @@
 # Table of content
-- [001 - What is Java](../lessons/069)
-- [002 - Types of Java Applications](../lessons/070)
-- [003 - Java Platforms / Editions](../lessons/071)
-- [004 - Features of Java](../lessons/072)
-	- [005 - Simple](../lessons/073)
-	- [006 - Object-oriented](../lessons/074)
-	- [007 - Platform Independent](../lessons/075)
-	- [008 - Secured](../lessons/076)
-	- [009 - Robust](../lessons/077)
-	- [010 - Architecture-neutral](../lessons/078)
-	- [011 - Portable](../lessons/079)
-	- [012 - High-performance](../lessons/080)
-	- [013 - Distributed](../lessons/081)
-	- [014 - Multi-threaded](../lessons/082)
-	- [015 - Dynamic](../lessons/083)
-	- [016 - Bytecode](../lessons/084)
-	- [017 - Interpretation JIT (Just in Time)](../lessons/085)
-- [018 - Two Paradigm](../lessons/086)
-- [019 - Advantage of OOPs over Procedure-oriented programming language](../lessons/087)
-- [020 - What is the difference between an object-oriented programming language and object-based programming language?](../lessons/088)
-- [021 - OOPs (Object-Oriented Programming System)](../lessons/069)
-- [022 - Class](../lessons/070)
-- [023 - Instance variable in Java](../lessons/071)
-- [024 - Object](../lessons/072)
-- [026 - new keyword in Java](../lessons/074)
-- [027 - 3 Ways to initializing object](../lessons/075)
-- [028 - What are the different ways to create an object in Java?](../lessons/076)
-- [029 - Anonymous Objects](../lessons/077)
-- [030 - Creating multiple objects by one type only](../lessons/078)
-- [031 - Encapsulation in Java](../lessons/079)
-- [032 - Polymorphism in Java](../lessons/080)
-- [033 - Runtime Polymorphism in Java](../lessons/081)
-- [034 - Upcasting](../lessons/082)
-- [035 - Inheritance in java](../lessons/083)
-- [036 - Why use inheritance in java](../lessons/084)
-- [037 - Types of inheritance in java](../lessons/085)
-- [038 - Why multiple inheritance is not supported in java?](../lessons/086)
-- [039 - Abstraction in Java](../lessons/087)
-- [040 - Ways to achieve Abstraction](../lessons/088)
-- [041 - Aggregation in Java](../lessons/069)
-- [042 - Why use Aggregation?](../lessons/070)
-- [043 - When use Aggregation?](../lessons/071)
-- [044 - Coupling](../lessons/072)
-- [045 - Cohesion](../lessons/073)
-- [046 - Association](../lessons/074)
-- [047 - Composition](../lessons/075)
-- [048 - Access Modifiers in Java](../lessons/076)
-- [049 - Access Control](../lessons/077)
-- [050 - Methods in Java](../lessons/078)
-- [051 - Using Command-Line Arguments](../lessons/079)
-- [052 - Instance Variable Hiding](../lessons/080)
-- [053 - The Scope and Lifetime of Variables](../lessons/081)
-- [054 - Constructors in Java](../lessons/082)
-- [055 - What is the purpose of a default constructor?](../lessons/083)
-- [056 - Why use the parameterized constructor?](../lessons/084)
-- [057 - Difference between constructor and method in Java](../lessons/085)
-- [058 - Does constructor return any value?](../lessons/086)
-- [059 - Can constructor perform other tasks instead of initialization?](../lessons/087)
-- [060 - Is there Constructor class in Java?](../lessons/088)
-- [001 - What is the purpose of Constructor class?](../lessons/069)
-- [002 - this keyword in java](../lessons/070)
-- [003 - Garbage Collection](../lessons/071)
-- [004 - Finalize() method](../lessons/072)
-- [005 - Memory Management](../lessons/073)
-- [006 - Method Overloading in Java](../lessons/074)
-- [007 - Can we overload java main() method?](../lessons/075)
-- [008 - Why Method Overloading is not possible by changing the return type of method only?](../lessons/076)
-- [009 - Method Overloading and Type Promotion](../lessons/077)
-- [010 - Recursion in Java](../lessons/078)
-- [011 - Method Overriding in Java](../lessons/079)
-- [012 - Can we override static method?](../lessons/080)
-- [013 - Why can we not override static method?](../lessons/081)
-- [014 - Can we override java main method?](../lessons/082)
-- [015 - Difference between method Overloading and Method Overriding in java](../lessons/083)
-- [016 - Usage of Java Method Overriding](../lessons/084)
-- [017 - Dynamic Method Dispatch](../lessons/085)
-- [018 - Static Binding and Dynamic Binding](../lessons/086)
-- [019 - Java static keyword](../lessons/087)
-- [020 - Why is the Java main method static?](../lessons/088)
-- [025 - Final Keyword in Java](../lessons/073)
-- [025 - Is final method inherited?](../lessons/073)
-- [025 - What is blank or uninitialized final variable?](../lessons/073)
-- [025 - What is final parameter?](../lessons/073)
-- [025 - Can we declare a constructor final?](../lessons/073)
-- [025 - Super Keyword in Java](../lessons/073)
-- [025 - Method Overriding](../lessons/073)
-- [025 - Abstract class in Java](../lessons/073)
-- [025 - Abstract Method in Java](../lessons/073)
-- [025 - Interface in Java](../lessons/073)
-- [025 - Why use Java interface?](../lessons/073)
-- [025 - Java 8 Interface Improvement](../lessons/073)
-- [025 - Internal addition by the compiler](../lessons/073)
-- [025 - Multiple inheritance is not supported through class in java, but it is possible by an interface, why?](../lessons/073)
-- [025 - Java 8 Default Method in Interface](../lessons/073)
-- [025 - Java 8 Static Method in Interface](../lessons/073)
-- [025 - What is marker or tagged interface?](../lessons/073)
-- [025 - Can we define a class inside the interface?](../lessons/073)
-- [025 - Difference between abstract class and interface](../lessons/073)
+<details><summary><b>[001 - What is Java]</b></summary>
 
-- [005 - Java instanceof](../lessons/073)
-- [006 - Downcasting](../lessons/074)
-- [007 - Covariant Return Type](../lessons/075)
-- [008 - How is Covariant return types implemented?](../lessons/076)
-- [009 - Why use instance initializer block?](../lessons/077)
-- [010 - What is invoked first, instance initializer block or constructor?](../lessons/078)
-- [011 - Java Package](../lessons/079)
-- [012 - Subpackage in java](../lessons/080)
-- [013 - How to send the class file to another directory or drive?](../lessons/081)
-- [014 - How to put two public classes in a package?](../lessons/082)
-- [015 - What is static import feature of Java5?](../lessons/083)
+### What is Java
 
-#### What is Java
 Java is an internet based object oriented programing language. Oriented programing language is a programing methodology that helps to organized complex program through the use of Inheritance, encapsulation and polymorphism. 
 Java derives much of its character from C and C++. This is by intent, the java designer knows that using the familiar syntax of C++ would make their language appealing to the legions of experienced C/C++ programmer.
 In addition to the surface similarities java shares some of the other attributes that helped make C and C++ successful.
-1.	Java was designed tested and refined by real working programmers. It is language grounded in the need and experience of the people who device it. Thus java is also a programmer’s language.
-2.	Java is a cohesive and logically consistent.
-3.	Except for those constraints imposed by the internet environment java gives you full control if your program reflect it. If your program poorly your program reflect that too.
+	1. Java was designed tested and refined by real working programmers. It is language grounded in the need and experience of the people who device it. Thus java is also a programmer’s language.
+	2. Java is a cohesive and logically consistent.
+	3. Except for those constraints imposed by the internet environment java gives you full control if your program reflect it. If your program poorly your program reflect that too.
 The internet helped catapult of java to the forefront of programing and java. In turn has had a profound effect on the internet. The reason for this is quite simple:
 Java expands the universe of objects that can be move about freely in cyberspace. In a network two very broad category of objects are transmitted between server and your personal computer.  
 Passive information and dynamic active program for example if you read your mail you are viewing passive data even when you download a programs code is still only passive data until you execute it.
@@ -126,7 +18,11 @@ Java is an object-oriented, class-based, concurrent, secured and general-purpose
 Java is a programming language and a platform. Java is a high level, robust, object-oriented and secure programming language.
 Java was developed by Sun Microsystems (which is now the subsidiary of Oracle) in the year 1995. James Gosling is known as the father of Java. Before Java, its name was Oak. Since Oak was already a registered company, so James Gosling and his team changed the Oak name to Java.
 Platform: Any hardware or software environment in which a program runs, is known as a platform. Since Java has a runtime environment (JRE) and API, it is called a platform.
-#### Types of Java Applications
+
+</details><details><summary><b>[002 - Types of Java Applications]</b></summary>
+
+### Types of Java Applications
+
 There are mainly 4 types of applications that can be created using Java programming:
 1) Standalone Application
 Standalone applications are also known as desktop applications or window-based applications. These are traditional software that we need to install on every machine. Examples of standalone application are Media player, antivirus, etc. AWT and Swing are used in Java for creating standalone applications.
@@ -136,8 +32,12 @@ An application that runs on the server side and creates a dynamic page is called
 An application that is distributed in nature, such as banking applications, etc. is called enterprise application. It has advantages of the high-level security, load balancing, and clustering. In Java, EJB is used for creating enterprise applications.
 4) Mobile Application
 An application which is created for mobile devices is called a mobile application. Currently, Android and Java ME are used for creating mobile applications.
-#### Java Platforms / Editions
+</details><details><summary><b>[003 - Java Platforms / Editions]</b></summary>
+
+### Java Platforms / Editions
+
 There are 4 platforms or editions of Java:
+
 1) Java SE (Java Standard Edition)
 It is a Java programming platform. It includes Java programming APIs such as java.lang, java.io, java.net, java.util, java.sql, java.math etc. It includes core topics like OOPs, String, Regex, Exception, Inner classes, Multithreading, I/O Stream, Networking, AWT, Swing, Reflection, Collection, etc.
 2) Java EE (Java Enterprise Edition)
@@ -146,96 +46,268 @@ It is an enterprise platform which is mainly used to develop web and enterprise 
 It is a micro platform which is mainly used to develop mobile applications.
 4) JavaFX
 It is used to develop rich internet applications. It uses a light-weight user interface API.
-#### Features of Java
+</details><details><summary><b>[004 - Features of Java]</b></summary>
+
+###Features of Java:
+
 The primary objective of Java programming language creation was to make it portable, simple and secure programming language. Apart from this, there are also some excellent features which play an important role in the popularity of this language. The features of Java are also known as java buzzwords.
 A list of most important features of Java language is given below.
-1.	Simple
-2.	Object-Oriented
-3.	Portable
-4.	Platform independent
-5.	Secured
-6.	Robust
-7.	Architecture neutral
-8.	Interpreted
-9.	High Performance
-10.	Multithreaded
-11.	Distributed
-12.	Dynamic
-- Simple
-Java is very easy to learn, and its syntax is simple, clean and easy to understand. According to Sun, Java language is a simple programming language because:
-o	Java syntax is based on C++ (so easier for programmers to learn it after C++).
-o	Java has removed many complicated and rarely-used features, for example, explicit pointers, operator overloading, etc.
-o	There is no need to remove unreferenced objects because there is an Automatic Garbage Collection in Java.
-________________________________________
-- Object-oriented
-Java is an object-oriented programming language. Everything in Java is an object. Object-oriented means we organize our software as a combination of different types of objects that incorporates both data and behavior.
-Object-oriented programming (OOPs) is a methodology that simplifies software development and maintenance by providing some rules.
-Basic concepts of OOPs are:
-1.	Object
-2.	Class
-3.	Inheritance
-4.	Polymorphism
-5.	Abstraction
-6.	Encapsulation
-- Platform Independent
- 
-Java is platform independent because it is different from other languages like C, C++, etc. which are compiled into platform specific machines while Java is a write once, run anywhere language. A platform is the hardware or software environment in which a program runs.
-There are two types of platforms software-based and hardware-based. Java provides a software-based platform.
-The Java platform differs from most other platforms in the sense that it is a software-based platform that runs on the top of other hardware-based platforms. It has two components:
-1.	Runtime Environment
-2.	API(Application Programming Interface)
-Java code can be run on multiple platforms, for example, Windows, Linux, Sun Solaris, Mac/OS, etc. Java code is compiled by the compiler and converted into bytecode. This bytecode is a platform-independent code because it can be run on multiple platforms, i.e., Write Once and Run Anywhere (WORA).
-________________________________________
-- Secured
+	- [001 - Simple]
+	   Java is very easy to learn, and its syntax is simple, clean and easy to understand. According to Sun, Java language is a simple programming language because:
+		o Java syntax is based on C++ (so easier for programmers to learn it after C++).
+		o Java has removed many complicated and rarely-used features, for example, explicit pointers, operator overloading, etc.
+		o There is no need to remove unreferenced objects because there is an Automatic Garbage Collection in Java.
+	- [002 - Object-oriented]
+	   Java is an object-oriented programming language. Everything in Java is an object. Object-oriented means we organize our software as a combination of different types of objects that incorporates both data and behavior.
+	   Object-oriented programming (OOPs) is a methodology that simplifies software development and maintenance by providing some rules.
 
-The fact that a java program is interpreted also helps to make it secure. Because execution of every java program is under the control of JVM. The JVM can contain the programs and prevent it from generating side effect outside of the system. As you will see, safety is also enhanced by certain restrictions that exist in java language.
-When program is interpreted it generally runs substantially slower than it would run if compiled to executable code. The use of bytecode enables the java runtime system to execute program much faster than you might expect. 
-Although java was designed for interpretation there is technically nothing about java that prevent on the fly compiled if bytecode into native code. Along this lines, sun supplies it’s just in time (JIT) compiler for bytecode which is include in the java 2 release. 
-When you download the normal program you are risking of viral infection. Worries about infecting their system addition of virus another type of malicious program exist that must be guarded against java provides firewall between networked application and your computer.
-Java is best known for its security. With Java, we can develop virus-free systems. Java is secured because:
-o	No explicit pointer
-o	Java Programs run inside a virtual machine sandbox
- 
-o	Classloader: Classloader in Java is a part of the Java Runtime Environment (JRE) which is used to load Java classes into the Java Virtual Machine dynamically. It adds security by separating the package for the classes of the local file system from those that are imported from network sources.
-o	Bytecode Verifier: It checks the code fragments for illegal code that can violate access right to objects.
-o	Security Manager: It determines what resources a class can access such as reading and writing to the local disk.
-Java language provides these securities by default. Some security can also be provided by an application developer explicitly through SSL, JAAS, Cryptography, etc.
-________________________________________
-- Robust
-Robust simply means strong. Java is robust because:
-o	It uses strong memory management.
-o	There is a lack of pointers that avoids security problems.
-o	There is automatic garbage collection in java which runs on the Java Virtual Machine to get rid of objects which are not being used by a Java application anymore.
-o	There are exception handling and the type checking mechanism in Java. All these points make Java robust.
-________________________________________
-- Architecture-neutral
-Java is architecture neutral because there are no implementation dependent features, for example, the size of primitive types is fixed.
-In C programming, int data type occupies 2 bytes of memory for 32-bit architecture and 4 bytes of memory for 64-bit architecture. However, it occupies 4 bytes of memory for both 32 and 64-bit architectures in Java.
-________________________________________
-- Portable
-Remember, although the details of the java program were compiled to native code then different version of the same program would have to exist for each type of CPU connected to the internet. This is of course, not a feasible solution thus the interpretation of bytecode is the easiest way to create truly portable program.
-Java is portable because it facilitates you to carry the Java bytecode to any platform. It doesn't require any implementation.
-________________________________________
-- High-performance
-Java is faster than other traditional interpreted programming languages because Java bytecode is "close" to native code. It is still a little bit slower than a compiled language (e.g., C++). Java is an interpreted language that is why it is slower than compiled languages, e.g., C, C++, etc.
-________________________________________
-- Distributed
-Java is distributed because it facilitates users to create distributed applications in Java. RMI and EJB are used for creating distributed applications. This feature of Java makes us able to access files by calling the methods from any machine on the internet.
-________________________________________
-- Multi-threaded
-A thread is like a separate program, executing concurrently. We can write Java programs that deal with many tasks at once by defining multiple threads. The main advantage of multi-threading is that it doesn't occupy memory for each thread. It shares a common memory area. Threads are important for multi-media, Web applications, etc.
-- Dynamic
-Java is a dynamic language. It supports dynamic loading of classes. It means classes are loaded on demand. It also supports functions from its native languages, i.e., C and C++.
-Java supports dynamic compilation and automatic memory management (garbage collection).
-- Bytecode
-The key allows java to solve both the security and portability problem just describe is that the output of java compiler is not executable code. Rather, it is bytecode.
-Bytecode is highly optimized set of instructions designed to be executed by the java runtime system, which is called the java virtual machine (JVM) that is, in its standard form, the JVM is an interpreter for bytecode.
-As you know, C++ is compiled to be executable code in fact most modern language are designed to be compiled not interpreted mostly because of performance concerns. However the fact that java program is executed by the JVM helps solve the major problem associated with downloading programs over the internet. 
-Translating a java program into bytecode helps makes it much easier to run a program in a wide variety of environments. The reason is straight forward: - Only the JVM need to be implemented for each platform.
-Once the runtime package exist for a given systems only java program can run on it.
-- Interpretation JIT (Just in Time)
+	   Basic concepts of OOPs are:
+		1. Object
+		2. Class
+		3. Inheritance
+		4. Polymorphism
+		5. Abstraction
+		6. Encapsulation
+	- [003 - Platform Independent]
+		Java is platform independent because it is different from other languages like C, C++, etc. which are compiled into platform specific machines while Java is a write once, run anywhere language. A platform is the hardware or software environment in which a program runs.
+		There are two types of platforms software-based and hardware-based. Java provides a software-based platform.
+		The Java platform differs from most other platforms in the sense that it is a software-based platform that runs on the top of other hardware-based platforms. It has two components:
+		1. Runtime Environment
+		2. API(Application Programming Interface)
+		
+		Java code can be run on multiple platforms, for example, Windows, Linux, Sun Solaris, Mac/OS, etc. Java code is compiled by the compiler and converted into bytecode. This bytecode is a platform-independent code because it can be run on multiple platforms, i.e., Write Once and Run Anywhere (WORA).
 
-When the JIT is part of the JVM it compiles bytecode into executable code in real time on a piece by piece demand basis. It is important to understand that it is not possible to compile an entire java program into executable code all at once, because java performs various runtime checks that can be done only at runtime instead the JIT compiles code as it needed during execution.
+	- [008 - Secured]
+		The fact that a java program is interpreted also helps to make it secure. Because execution of every java program is under the control of JVM. The JVM can contain the programs and prevent it from generating side effect outside of the system. As you will see, safety is also enhanced by certain restrictions that exist in java language.
+		When program is interpreted it generally runs substantially slower than it would run if compiled to executable code. The use of bytecode enables the java runtime system to execute program much faster than you might expect. 
+		Although java was designed for interpretation there is technically nothing about java that prevent on the fly compiled if bytecode into native code. Along this lines, sun supplies it’s just in time (JIT) compiler for bytecode which is include in the java 2 release. 
+		When you download the normal program you are risking of viral infection. Worries about infecting their system addition of virus another type of malicious program exist that must be guarded against java provides firewall between networked application and your computer.
+		
+		Java is best known for its security. With Java, we can develop virus-free systems. Java is secured because:
+
+		o No explicit pointer
+		o Java Programs run inside a virtual machine sandbox
+ 
+		o Classloader: Classloader in Java is a part of the Java Runtime Environment (JRE) which is used to load Java classes into the Java Virtual Machine dynamically. It adds security by separating the package for the classes of the local file system from those that are imported from network sources.
+		o Bytecode Verifier: It checks the code fragments for illegal code that can violate access right to objects.
+		o Security Manager: It determines what resources a class can access such as reading and writing to the local disk.
+
+		Java language provides these securities by default. Some security can also be provided by an application developer explicitly through SSL, JAAS, Cryptography, etc.
+
+	- [004 - Robust]
+		Robust simply means strong. Java is robust because:
+		o It uses strong memory management.
+		o There is a lack of pointers that avoids security problems.
+		o There is automatic garbage collection in java which runs on the Java Virtual Machine to get rid of objects which are not being used by a Java application anymore.
+		o There are exception handling and the type checking mechanism in Java. All these points make Java robust.
+	- [005 - Architecture-neutral]
+		Java is architecture neutral because there are no implementation dependent features, for example, the size of primitive types is fixed.
+		In C programming, int data type occupies 2 bytes of memory for 32-bit architecture and 4 bytes of memory for 64-bit architecture. However, it occupies 4 bytes of memory for both 32 and 64-bit architectures in Java.
+	- [006 - Portable]
+		Remember, although the details of the java program were compiled to native code then different version of the same program would have to exist for each type of CPU connected to the internet. This is of course, not a feasible solution thus the interpretation of bytecode is the easiest way to create truly portable program.
+		Java is portable because it facilitates you to carry the Java bytecode to any platform. It doesn't require any implementation.
+	- [007 - High-performance]
+		Java is faster than other traditional interpreted programming languages because Java bytecode is "close" to native code. It is still a little bit slower than a compiled language (e.g., C++). Java is an interpreted language that is why it is slower than compiled languages, e.g., C, C++, etc.
+	- [008 - Distributed]
+		Java is distributed because it facilitates users to create distributed applications in Java. RMI and EJB are used for creating distributed applications. This feature of Java makes us able to access files by calling the methods from any machine on the internet.
+	- [009 - Multi-threaded]
+		A thread is like a separate program, executing concurrently. We can write Java programs that deal with many tasks at once by defining multiple threads. The main advantage of multi-threading is that it doesn't occupy memory for each thread. It shares a common memory area. Threads are important for multi-media, Web applications, etc.
+	- [010 - Dynamic]
+		Java is a dynamic language. It supports dynamic loading of classes. It means classes are loaded on demand. It also supports functions from its native languages, i.e., C and C++.
+		Java supports dynamic compilation and automatic memory management (garbage collection).
+	- [011 - Bytecode]
+		The key allows java to solve both the security and portability problem just describe is that the output of java compiler is not executable code. Rather, it is bytecode.
+		Bytecode is highly optimized set of instructions designed to be executed by the java runtime system, which is called the java virtual machine (JVM) that is, in its standard form, the JVM is an interpreter for bytecode.
+		As you know, C++ is compiled to be executable code in fact most modern language are designed to be compiled not interpreted mostly because of performance concerns. However the fact that java program is executed by the JVM helps solve the major problem associated with downloading programs over the internet. 
+		Translating a java program into bytecode helps makes it much easier to run a program in a wide variety of environments. The reason is straight forward: - Only the JVM need to be implemented for each platform.
+		Once the runtime package exist for a given systems only java program can run on it.
+	- [012 - Interpretation JIT (Just in Time)]
+		When the JIT is part of the JVM it compiles bytecode into executable code in real time on a piece by piece demand basis. It is important to understand that it is not possible to compile an entire java program into executable code all at once, because java performs various runtime checks that can be done only at runtime instead the JIT compiles code as it needed during execution.
+</details>
+<details><summary><b>[018 - Two Paradigm]</b></summary>
+</details>
+<details>
+<summary><b>[019 - Advantage of OOPs over Procedure-oriented programming language]</b></summary>
+</details>
+<details><summary><b>[020 - What is the difference between an object-oriented programming language and object-based programming language?]</b></summary>
+</details>
+<details><summary><b>[021 - OOPs (Object-Oriented Programming System)]</b></summary>
+</details>
+<details><summary><b>[022 - Class]</b></summary>
+</details>
+<details><summary><b>[023 - Instance variable in Java]</b></summary>
+</details>
+<details><summary><b>[024 - Object]</b></summary>
+</details>
+<details><summary><b>[026 - new keyword in Java]</b></summary>
+</details>
+<details><summary><b>[027 - 3 Ways to initializing object]</b></summary>
+</details>
+<details><summary><b>[028 - What are the different ways to create an object in Java?]</b></summary>
+</details>
+<details><summary><b>[029 - Anonymous Objects]</b></summary>
+</details>
+<details><summary><b>[030 - Creating multiple objects by one type only]</b></summary>
+</details>
+<details><summary><b>[031 - Encapsulation in Java]</b></summary>
+</details>
+<details><summary><b>[032 - Polymorphism in Java]</b></summary>
+</details>
+<details><summary><b>[033 - Runtime Polymorphism in Java]</b></summary>
+</details>
+<details><summary><b>[034 - Upcasting]</b></summary>
+</details>
+<details><summary><b>[035 - Inheritance in java]</b></summary>
+</details>
+<details><summary><b>[036 - Why use inheritance in java]</b></summary>
+</details>
+<details><summary><b>[037 - Types of inheritance in java]</b></summary>
+</details>
+<details><summary><b>[038 - Why multiple inheritance is not supported in java?]</b></summary>
+</details>
+<details><summary><b>[039 - Abstraction in Java]</b></summary>
+</details>
+<details><summary><b>[040 - Ways to achieve Abstraction]</b></summary>
+</details>
+<details><summary><b>[041 - Aggregation in Java]</b></summary>
+</details>
+<details><summary><b>[042 - Why use Aggregation?]</b></summary>
+</details>
+<details><summary><b>[043 - When use Aggregation?]</b></summary>
+</details>
+<details><summary><b>[044 - Coupling]</b></summary>
+</details>
+<details><summary><b>[045 - Cohesion]</b></summary>
+</details>
+<details><summary><b>[046 - Association]</b></summary>
+</details>
+<details><summary><b>[047 - Composition]</b></summary>
+</details>
+<details><summary><b>[048 - Access Modifiers in Java]</b></summary>
+</details>
+<details><summary><b>[049 - Access Control]</b></summary>
+</details>
+<details><summary><b>[050 - Methods in Java]</b></summary>
+</details>
+<details><summary><b>[051 - Using Command-Line Arguments]</b></summary>
+</details>
+<details><summary><b>[052 - Instance Variable Hiding]</b></summary>
+</details>
+<details><summary><b>[053 - The Scope and Lifetime of Variables]</b></summary>
+</details>
+<details><summary><b>[054 - Constructors in Java]</b></summary>
+</details>
+<details><summary><b>[055 - What is the purpose of a default constructor?]</b></summary>
+</details>
+<details><summary><b>[056 - Why use the parameterized constructor?]</b></summary>
+</details>
+<details><summary><b>[057 - Difference between constructor and method in Java]</b></summary>
+</details>
+<details><summary><b>[058 - Does constructor return any value?]</b></summary>
+</details>
+<details><summary><b>[059 - Can constructor perform other tasks instead of initialization?]</b></summary>
+</details>
+<details><summary><b>[060 - Is there Constructor class in Java?]</b></summary>
+</details>
+<details><summary><b>[001 - What is the purpose of Constructor class?]</b></summary>
+</details>
+<details><summary><b>[002 - this keyword in java]</b></summary>
+</details>
+<details><summary><b>[003 - Garbage Collection]</b></summary>
+</details>
+<details><summary><b>[004 - Finalize() method]</b></summary>
+</details>
+<details><summary><b>[005 - Memory Management]</b></summary>
+</details>
+<details><summary><b>[006 - Method Overloading in Java]</b></summary>
+</details>
+<details><summary><b>[007 - Can we overload java main() method?]</b></summary>
+</details>
+<details><summary><b>[008 - Why Method Overloading is not possible by changing the return type of method only?]</b></summary>
+</details>
+<details><summary><b>[009 - Method Overloading and Type Promotion]</b></summary>
+</details>
+<details><summary><b>[010 - Recursion in Java]</b></summary>
+</details>
+<details><summary><b>[011 - Method Overriding in Java]</b></summary>
+</details>
+<details><summary><b>[012 - Can we override static method?]</b></summary>
+</details>
+<details><summary><b>[013 - Why can we not override static method?]</b></summary>
+</details>
+<details><summary><b>[014 - Can we override java main method?]</b></summary>
+</details>
+<details><summary><b>[015 - Difference between method Overloading and Method Overriding in java]</b></summary>
+</details>
+<details><summary><b>[016 - Usage of Java Method Overriding]</b></summary>
+</details>
+<details><summary><b>[017 - Dynamic Method Dispatch]</b></summary>
+</details>
+<details><summary><b>[018 - Static Binding and Dynamic Binding]</b></summary>
+</details>
+<details><summary><b>[019 - Java static keyword]</b></summary>
+</details>
+<details><summary><b>[020 - Why is the Java main method static?]</b></summary>
+</details>
+<details><summary><b>[025 - Final Keyword in Java]</b></summary>
+</details>
+<details><summary><b>[025 - Is final method inherited?]</b></summary>
+</details>
+<details><summary><b>[025 - What is blank or uninitialized final variable?]</b></summary>
+</details>
+<details><summary><b>[025 - What is final parameter?]</b></summary>
+</details>
+<details><summary><b>[025 - Can we declare a constructor final?]</b></summary>
+</details>
+<details><summary><b>[025 - Super Keyword in Java]</b></summary>
+</details>
+<details><summary><b>[025 - Method Overriding]</b></summary>
+</details>
+<details><summary><b>[025 - Abstract class in Java]</b></summary>
+</details>
+<details><summary><b>[025 - Abstract Method in Java]</b></summary>
+</details>
+<details><summary><b>[025 - Interface in Java]</b></summary>
+</details>
+<details><summary><b>[025 - Why use Java interface?]</b></summary>
+</details>
+<details><summary><b>[025 - Java 8 Interface Improvement]</b></summary>
+</details>
+<details><summary><b>[025 - Internal addition by the compiler]</b></summary>
+</details>
+<details><summary><b>[025 - Multiple inheritance is not supported through class in java, but it is possible by an interface, why?]</b></summary>
+</details>
+<details><summary><b>[025 - Java 8 Default Method in Interface]</b></summary>
+</details>
+<details><summary><b>[025 - Java 8 Static Method in Interface]</b></summary>
+</details>
+<details><summary><b>[025 - What is marker or tagged interface?]</b></summary>
+</details>
+<details><summary><b>[025 - Can we define a class inside the interface?]</b></summary>
+</details>
+<details><summary><b>[025 - Difference between abstract class and interface]</b></summary>
+</details>
+<details><summary><b>[005 - Java instanceof]</b></summary>
+</details>
+<details><summary><b>[006 - Downcasting]</b></summary>
+</details>
+<details><summary><b>[007 - Covariant Return Type]</b></summary>
+</details>
+<details><summary><b>[008 - How is Covariant return types implemented?]</b></summary>
+</details>
+<details><summary><b>[009 - Why use instance initializer block?]</b></summary>
+</details>
+<details><summary><b>[010 - What is invoked first, instance initializer block or constructor?]</b></summary>
+</details>
+<details><summary><b>[011 - Java Package]</b></summary>
+</details>
+<details><summary><b>[012 - Subpackage in java]</b></summary>
+</details>
+<details><summary><b>[013 - How to send the class file to another directory or drive?]</b></summary>
+</details>
+<details><summary><b>[014 - How to put two public classes in a package?]</b></summary>
+</details>
+<details><summary><b>[015 - What is static import feature of Java5?]</b></summary>
 #### Two Paradigm
 1.	Process Oriented Model
 2.	Object Oriented Programming Model
