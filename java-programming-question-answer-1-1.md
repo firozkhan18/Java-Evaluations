@@ -3444,7 +3444,7 @@ class DisjointSet {
 }
 ```
 </details>
-<details> <summary><b> 89. Java program to find the longest repeating subsequence in a string:</b</summary>
+<details> <summary><b> 89. Java program to find the longest repeating subsequence in a string:</b></summary>
 
 ```java
 public class LongestRepeatingSubsequence {
