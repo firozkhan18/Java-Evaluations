@@ -3,7 +3,7 @@
 Java Collection refers to a  framework provided by Java to store and manipulate groups of objects. It offers a set of interfaces (like List, Set, Queue, etc.) and classes (like ArrayList, HashSet, PriorityQueue, etc.) that provide different ways to organize and work with collections of elements. This  framework simplifies common operations such as adding, removing, and accessing elements. It offers a wide range of data structures to suit various programming needs.
 
 <details>
-<summary><b>ArrayList<b></summary>
+<summary>ArrayList</summary>
 	
 In Java, an ArrayList is a resizable array implementation of the List interface provided by the Java Collections  Framework. It's part of the java.util package. Unlike arrays, which have a fixed size, ArrayList can dynamically grow and shrink in size as elements are added or removed. This makes it a more flexible data structure for handling collections of objects.
 
@@ -116,7 +116,7 @@ Here are the key features and characteristics of HashMap:
 </details>
 
 <details>
-<summary><b>TreeMap</b>b></summary>
+<summary>TreeMap</summary>
 	
 ### TreeMap:
 
