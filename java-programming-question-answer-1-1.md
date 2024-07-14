@@ -477,8 +477,6 @@ public class PowerOfNumber {
 }
 ```
 </details>
-Here are the Java programs for the above tasks:
-
 <details>
 <summary><b> 21. Remove duplicate elements from an array:</b></summary>
     
@@ -1709,18 +1707,7 @@ public class DecimalToBinary {
 }
 ```
 </details>
-41. Write a program to find the first non-repeated character in a string.
-42. Write a program to implement a linked list.
-43. Write a program to find the transpose of a matrix.
-44. Write a program to find the average of an array.
-45. Write a program to find the sum of odd numbers in an array.
-46. Write a program to find the number of occurrences of a word in a string.
-47. Write a program to check if a number is an Armstrong number.
-48. Write a program to implement a selection sort algorithm.
-49. Write a program to find the maximum and minimum element in an array.
-50. Write a program to implement a merge sort algorithm.
-
-<details> <summary><b> 41. FindFirstNonRepeatedChar.java</b></summary>
+<details> <summary><b> 41. Write a program to find the first non-repeated character in a string.</b></summary>
 
 ```java
 public class FindFirstNonRepeatedChar {
@@ -1746,7 +1733,7 @@ public class FindFirstNonRepeatedChar {
 }
 ```
 </details>
-<details> <summary><b> 42. ImplementLinkedList.java</b></summary>
+<details> <summary><b> 42. Write a program to implement a linked list.</b></summary>
 
 ```java
 class Node {
@@ -1796,7 +1783,7 @@ public class ImplementLinkedList {
 }
 ```
 </details>
-<details> <summary><b> 43. FindMatrixTranspose.java</b></summary>
+<details> <summary><b> 43. Write a program to find the transpose of a matrix.</b></summary>
 
 ```java
 public class FindMatrixTranspose {
@@ -1826,7 +1813,7 @@ public class FindMatrixTranspose {
 }
 ```
 </details>
-<details> <summary><b> 44. FindAverageOfArray.java</b></summary>
+<details> <summary><b> 44. Write a program to find the average of an array.</b></summary>
 
 ```java
 public class FindAverageOfArray {
@@ -1847,7 +1834,7 @@ public class FindAverageOfArray {
 }
 ```
 </details>
-<details> <summary><b> 45. FindSumOfOddNumbers.java</b></summary>
+<details> <summary><b> 45. Write a program to find the sum of odd numbers in an array.</b></summary>
 
 ```java
 public class FindSumOfOddNumbers {
@@ -1870,7 +1857,7 @@ public class FindSumOfOddNumbers {
 }
 ```
 </details>
-<details> <summary><b> 46. WordOccurrencesInString.java</b></summary>
+<details> <summary><b> 46. Write a program to find the number of occurrences of a word in a string.</b></summary>
 
 ```java
 public class WordOccurrencesInString {
@@ -1895,7 +1882,7 @@ public class WordOccurrencesInString {
 }
 ```
 </details>
-<details> <summary><b> 47. ArmstrongNumberCheck.java</b></summary>
+<details> <summary><b> 47. Write a program to check if a number is an Armstrong number.</b></summary>
 
 ```java
 public class ArmstrongNumberCheck {
@@ -1923,7 +1910,7 @@ public class ArmstrongNumberCheck {
 }
 ```
 </details>
-<details> <summary><b> 48. SelectionSort.java</b></summary>
+<details> <summary><b> 48. Write a program to implement a selection sort algorithm.</b></summary>
 
 ```java
 public class SelectionSort {
@@ -1953,7 +1940,7 @@ public class SelectionSort {
 }
 ```
 </details>
-<details> <summary><b> 49. FindMaxMinInArray.java</b></summary>
+<details> <summary><b> 49. Write a program to find the maximum and minimum element in an array.</b></summary>
 
 ```java
 public class FindMaxMinInArray {
@@ -1981,7 +1968,7 @@ public class FindMaxMinInArray {
 }
 ```
 </details>
-<details> <summary><b> 50. MergeSort.java</b></summary>
+<details> <summary><b> 50. Write a program to implement a merge sort algorithm.</b></summary>
 
 ```java
 public class MergeSort {
@@ -2812,17 +2799,7 @@ public class MaxPathSum {
 }
 ```
 </details>
-71. Write a program to implement a bellman-ford algorithm.
-72. Write a program to find the intersection of two linked lists.
-73. Write a program to find the longest increasing subsequence in an array.
-74. Write a program to implement a topological sort algorithm.
-75. Write a program to find the number of connected components in a graph.
-76. Write a program to find the maximum profit by buying and selling stocks.
-77. Write a program to implement a prim's algorithm.
-78. Write a program to find the longest common subsequence in two strings.
-79. Write a program to implement a Kruskal's algorithm.
-80. Write a program to find the minimum spanning tree of a graph.
-71. Bellman-Ford Algorithm:
+<details> <summary><b> 71. Write a program to implement a bellman-ford algorithm.</b></summary>
 
 ```java
 public class BellmanFordAlgorithm {
@@ -2870,7 +2847,7 @@ public class BellmanFordAlgorithm {
 }
 ```
 </details>
-<details> <summary><b> 72. Intersection of Two Linked Lists:</b></summary>
+<details> <summary><b> 72. Write a program to find the intersection of two linked lists.</b></summary>
 
 ```java
 public class IntersectionOfLinkedLists {
@@ -2888,7 +2865,7 @@ public class IntersectionOfLinkedLists {
 }
 ```
 </details>
-<details> <summary><b> 73. Longest Increasing Subsequence:</b></summary>
+<details> <summary><b> 73. Write a program to find the longest increasing subsequence in an array.</b></summary>
 
 ```java
 public class LongestIncreasingSubsequence {
@@ -2916,7 +2893,7 @@ public class LongestIncreasingSubsequence {
 }
 ```
 </details>
-<details> <summary><b> 74. Topological Sort:</b></summary>
+<details> <summary><b> 74. Write a program to implement a topological sort algorithm.</b></summary>
 
 ```java
 import java.util.*;
@@ -2961,7 +2938,7 @@ public class TopologicalSort {
 }
 ```
 </details>
-<details> <summary><b> 75. Number of Connected Components in Graph:</b></summary>
+<details> <summary><b> 75. Write a program to find the number of connected components in a graph.</b></summary>
 
 ```java
 public class NumberOfConnectedComponents {
@@ -2993,7 +2970,7 @@ public class NumberOfConnectedComponents {
 }
 ```
 </details>
-<details> <summary><b> 76. Maximum Profit by Buying and Selling Stocks:</b></summary>
+<details> <summary><b> 76. Write a program to find the maximum profit by buying and selling stocks.</b></summary>
 
 ```java
 public class MaxProfitStocks {
@@ -3011,7 +2988,7 @@ public class MaxProfitStocks {
 }
 ```
 </details>
-<details> <summary><b> 77. Prim's Algorithm:</b></summary>
+<details> <summary><b> 77. Write a program to implement a prim's algorithm.</b></summary>
 
 ```java
 public class PrimsAlgorithm {
@@ -3054,7 +3031,7 @@ public class PrimsAlgorithm {
 }
 ```
 </details>
-<details> <summary><b> 78. Longest Common Subsequence:</b></summary>
+<details> <summary><b> 78. Write a program to find the longest common subsequence in two strings.</b></summary>
 
 ```java
 public class LongestCommonSubsequence {
@@ -3078,7 +3055,7 @@ public class LongestCommonSubsequence {
 }
 ```
 </details>
-<details> <summary><b> 79. Kruskal's Algorithm:
+<details> <summary><b> 79. Write a program to implement a Kruskal's algorithm.
 
 ```java
 public class KruskalsAlgorithm {
@@ -3145,7 +3122,7 @@ public class KruskalsAlgorithm {
 }
 ```
 </details>
-<details> <summary><b> 80. Minimum Spanning Tree:</b></summary>
+<details> <summary><b> 80. Write a program to find the minimum spanning tree of a graph.</b></summary>
 
 ```java
 import java.util.*;
@@ -3467,7 +3444,7 @@ class DisjointSet {
 }
 ```
 </details>
-<details> <summary><b> 89. Java program to find the longest repeating subsequence in a string:</b></summary>
+<details> <summary><b> 89. Java program to find the longest repeating subsequence in a string:</b</summary>
 
 ```java
 public class LongestRepeatingSubsequence {
