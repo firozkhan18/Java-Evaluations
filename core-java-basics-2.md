@@ -4435,6 +4435,7 @@ If you want to put two public classes in a package, have two java source files c
 4.	public class B{} 
 </details>
 <details><summary><b>[015 - What is static import feature of Java5?]</b></summary>
+	
 #### What is static import feature of Java5?
 Click Static Import feature of Java5.
 </details>
