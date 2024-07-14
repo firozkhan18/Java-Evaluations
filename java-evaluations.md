@@ -18,26 +18,6 @@
 </details>
 
 
-## 2. Code/Markdown
-````md
-<details>
-  <summary>Click me</summary>
-  
-  ### Heading
-  1. Foo
-  2. Bar
-     * Baz
-     * Qux
-
-  ### Some Javascript
-  ```js
-  function logSomething(something) {
-    console.log('Something', something);
-  }
-  ```
-</details>
-````
-
 ## Moving from Java 6 to Java 8
 
 ### Java 8
