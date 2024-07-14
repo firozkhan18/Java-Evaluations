@@ -1335,7 +1335,7 @@ Consider a situation, Employee object contains many informations such as id, nam
 6.	}
 ```
 In such case, Employee has an entity reference address, so relationship is Employee HAS-A address.
-</details>
+
 <details><summary><b>[042 - Why use Aggregation?]</b></summary>
 
 #### Why use Aggregation?
@@ -1430,6 +1430,7 @@ Emp.java
 >        112 arun
 >        gno UP india  
 </details>
+</details>
 <details><summary><b>[044 - Coupling]</b></summary>
 
 #### Coupling
@@ -1455,6 +1456,7 @@ Association can be undirectional or bidirectional.
 
 #### Composition
 The composition is also a way to achieve Association. The composition represents the relationship where one object contains other objects as a part of its state. There is a strong relationship between the containing object and the dependent object. It is the state where containing objects do not have an independent existence. If you delete the parent object, all the child objects will be deleted automatically.
+</details>
 </details>
 <details><summary><b>[048 - Access Modifiers in Java]</b></summary>
 
