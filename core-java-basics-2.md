@@ -182,8 +182,6 @@ Object oriented programing organizes a program around its data (that is objects)
 <details>
 <summary><b>[006 - Advantage of OOPs over Procedure-oriented programming language]</b></summary>
 
-#### What is the difference between an object-oriented programming language and object-based programming language?
-
 #### Advantage of OOPs over Procedure-oriented programming language
 1) OOPs makes development and maintenance easier, whereas, in a procedure-oriented programming language, it is not easy to manage if code grows as project size increases.
 2) OOPs provides data hiding, whereas, in a procedure-oriented programming language, global data can be accessed from anywhere.
