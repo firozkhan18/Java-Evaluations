@@ -2,6 +2,7 @@
 
 <details>
 <summary><b> 1) Given a list of integers, separate odd and even numbers?</b></summary>
+ 
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -86,7 +87,6 @@ public class Java8Code
 }
 ```
 Output :
-
 
 [Java,  Python, C#, Kotlin]
 </details>
