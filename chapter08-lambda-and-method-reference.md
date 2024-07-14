@@ -1,6 +1,5 @@
-if you have not read the previous chapter on interfaces, starts by it first
-
 # Lambda and Method reference 
+
 Java unlike JavaScript or Python, don't let you pass a method as argument of a method
 without ceremony
 
