@@ -1,6 +1,7 @@
 ## Java 8 Interview Coding Questions And Answers
 
-### 1) Given a list of integers, separate odd and even numbers?
+<details>
+<summary><b> 1) Given a list of integers, separate odd and even numbers?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -63,7 +64,9 @@ Even Numbers
 32
 14
 56
-### 2) How do you remove duplicate elements from a list using Java 8 streams?
+</details>
+<details>
+<summary><b>  2) How do you remove duplicate elements from a list using Java 8 streams?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -85,8 +88,9 @@ Output :
 
 
 [Java,  Python, C#, Kotlin]
-
-### 3) How do you find frequency of each character in a string using Java 8 streams?
+</details>
+<details>
+<summary><b>  3) How do you find frequency of each character in a string using Java 8 streams?</b></summary>
 ```java
 import java.util.Map;
 import java.util.function.Function;
@@ -110,8 +114,9 @@ public class Java8Code
 Output :
 
 { =4, a=3, c=1, C=1, D=1, e=2, f=1, h=1, J=1, n=1, O=1, o=1, p=1, T=1, t=1, v=1, y=1}
-
-### 4) How do you find frequency of each element in an array or a list?
+</details>
+<details>
+<summary><b>  4) How do you find frequency of each element in an array or a list?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -135,8 +140,9 @@ public class Java8Code
 Output :
 
 {Pen=2, Stapler=1, Pencil=2, Note Book=2, Eraser=1}
-
-### 5) How do you sort the given list of decimals in reverse order?
+</details>
+<details>
+<summary><b>  5) How do you sort the given list of decimals in reverse order?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.Comparator;
@@ -163,8 +169,9 @@ Output :
 17.13
 12.45
 
-
-### 6) Given a list of strings, join the strings with ‘[‘ as prefix, ‘]’ as suffix and ‘,’ as delimiter?
+</details>
+<details>
+<summary><b>  6) Given a list of strings, join the strings with ‘[‘ as prefix, ‘]’ as suffix and ‘,’ as delimiter?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -186,7 +193,9 @@ Output :
 
 [Facebook, Twitter, YouTube, WhatsApp, LinkedIn]
 
-### 7) From the given list of integers, print the numbers which are multiples of 5?
+</details>
+<details>
+<summary><b> 7) From the given list of integers, print the numbers which are multiples of 5?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -207,7 +216,9 @@ Output :
 15
 75
 
-### 8) Given a list of integers, find maximum and minimum of those numbers?
+</details>
+<details>
+<summary><b> 8) Given a list of integers, find maximum and minimum of those numbers?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.Comparator;
@@ -234,7 +245,9 @@ Output :
 Maximum Element : 89
 Minimum Element : 12
 
-### 9) How do you merge two unsorted arrays into single sorted array using Java 8 streams?
+</details>
+<details>
+<summary><b> 9) How do you merge two unsorted arrays into single sorted array using Java 8 streams?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.stream.IntStream;
@@ -257,7 +270,9 @@ Output :
 
 [1, 2, 3, 4, 5, 7, 8, 9]
 
-### 10) How do you merge two unsorted arrays into single sorted array without duplicates?
+</details>
+<details>
+<summary><b> 10) How do you merge two unsorted arrays into single sorted array without duplicates?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.stream.IntStream;
@@ -280,7 +295,9 @@ Output :
 
 [1, 2, 4, 5, 8, 9]
 
-### 11) How do you get three maximum numbers and three minimum numbers from the given list of integers?
+</details>
+<details>
+<summary><b> 11) How do you get three maximum numbers and three minimum numbers from the given list of integers?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.Comparator;
@@ -328,7 +345,9 @@ Maximum 3 Numbers
 89
 75
 56
-### 12) Java 8 program to check if two strings are anagrams or not?
+</details>
+<details>
+<summary><b> 12) Java 8 program to check if two strings are anagrams or not?</b></summary>
 ```java
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -359,7 +378,9 @@ Output :
 
 Two strings are anagrams
 
-### 13) Find sum of all digits of a number in Java 8?
+</details>
+<details>
+<summary><b> 13) Find sum of all digits of a number in Java 8?</b></summary>
 ```java
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -380,7 +401,9 @@ Output :
 
 17
 
-### 14) Find second largest number in an integer array?
+</details>
+<details>
+<summary><b> 14) Find second largest number in an integer array?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.Comparator;
@@ -402,7 +425,9 @@ Output :
 
 75
 
-### 15) Given a list of strings, sort them according to increasing order of their length?
+</details>
+<details>
+<summary><b> 15) Given a list of strings, sort them according to increasing order of their length?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.Comparator;
@@ -429,7 +454,9 @@ COBOL
  Python
 Kotlin
 
-### 16) Given an integer array, find sum and average of all elements?
+</details>
+<details>
+<summary><b> 16) Given an integer array, find sum and average of all elements?</b></summary>
 ```java
 import java.util.Arrays;
  
@@ -454,7 +481,9 @@ Output :
 Sum = 347
 Average = 43.375
 
-### 17) How do you find common elements between two arrays?
+</details>
+<details>
+<summary><b> 17) How do you find common elements between two arrays?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -477,7 +506,9 @@ Output :
 34
 56
 
-### 18) Reverse each word of a string using Java 8 streams?
+</details>
+<details>
+<summary><b> 18) Reverse each word of a string using Java 8 streams?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -500,7 +531,9 @@ Output :
 
 avaJ tpecnoC fO ehT yaD
 
-### 19) How do you find sum of first 10 natural numbers?
+</details>
+<details>
+<summary><b> 19) How do you find sum of first 10 natural numbers?</b></summary>
 ```java
 import java.util.stream.IntStream;
  
@@ -518,7 +551,9 @@ Output :
 
 55
 
-### 20) Reverse an integer array
+</details>
+<details>
+<summary><b> 20) Reverse an integer array</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.stream.IntStream;
@@ -539,7 +574,9 @@ Output :
 
 [6, 9, 3, 7, 1, 5]
 
-### 21) Print first 10 even numbers
+</details>
+<details>
+<summary><b> 21) Print first 10 even numbers</b></summary>
 ```java
 import java.util.stream.IntStream;
  
@@ -564,7 +601,9 @@ Output :
 18
 20
 
-### 22) How do you find the most repeated element in an array?
+</details>
+<details>
+<summary><b> 22) How do you find the most repeated element in an array?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -595,7 +634,9 @@ Output :
 Most Frequent Element : Pen
 Count : 3
 
-### 23) Palindrome program using Java 8 streams
+</details>
+<details>
+<summary><b> 23) Palindrome program using Java 8 streams</b></summary>
 ```java
 import java.util.stream.IntStream;
  
@@ -623,7 +664,9 @@ Output :
 
 ROTATOR is a palindrome
 
-### 24) Given a list of strings, find out those strings which start with a number?
+</details>
+<details>
+<summary><b> 24) Given a list of strings, find out those strings which start with a number?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -644,7 +687,9 @@ Output :
 3hree
 5ive
 
-### 25) How do you extract duplicate elements from an array?
+</details>
+<details>
+<summary><b> 25) How do you extract duplicate elements from an array?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.HashSet;
@@ -670,7 +715,9 @@ Output :
 
 [333, 222, 111]
 
-### 26) Print duplicate characters in a string?
+</details>
+<details>
+<summary><b> 26) Print duplicate characters in a string?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.HashSet;
@@ -698,7 +745,9 @@ Output :
 
 [a, c, t, e, o]
 
-### 27) Find first repeated character in a string?
+</details>
+<details>
+<summary><b> 27) Find first repeated character in a string?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -731,7 +780,9 @@ Output :
 
 a
 
-### 28) Find first non-repeated character in a string?
+</details>
+<details>
+<summary><b> 28) Find first non-repeated character in a string?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -764,7 +815,9 @@ Output :
 
 j
 
-### 29) Fibonacci series
+</details>
+<details>
+<summary><b> 29) Fibonacci series</b></summary>
 ```java
 import java.util.stream.Stream;
  
@@ -783,7 +836,9 @@ Output :
 
 0 1 1 2 3 5 8 13 21 34
 
-### 30) First 10 odd numbers
+</details>
+<details>
+<summary><b> 30) First 10 odd numbers
 ```java
 import java.util.stream.Stream;
  
@@ -802,7 +857,9 @@ Output :
 
 1 3 5 7 9 11 13 15 17 19
 
-### 31) How do you get last element of an array?
+</details>
+<details>
+<summary><b> 31) How do you get last element of an array?</b></summary>
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -823,7 +880,9 @@ Output :
 
 Six
 
-### 32) Find the age of a person in years if the birthday has given?
+</details>
+<details>
+<summary><b> 32) Find the age of a person in years if the birthday has given?</b></summary>
 ```java
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -839,3 +898,4 @@ public class Java8Code
     }
 }
 ```
+</details>
