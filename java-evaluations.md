@@ -30,7 +30,7 @@ Key features and characteristics of ArrayList:
 - Generics: ArrayList supports generics, which means it can hold elements of a specified type. This ensures type safety and avoids explicit type casting when retrieving elements from the list.
 - Iterable: ArrayList implements the Iterable interface, which means it can be easily traversed using iterators or enhanced for loops.
 - Not Synchronized: This class is roughly equivalent to Vector, except it is unsynchronized.
-<details>
+</details>
 	
 <details>
 <summary>LinkedList</summary>
@@ -46,7 +46,7 @@ Key features and characteristics of LinkedList:
 - List and Queue Operations: The LinkedList class can serve as both a list and a queue, as it implements both the List and Deque interfaces.
 - Performance Advantage: Manipulating elements in a LinkedList tends to be faster compared to ArrayList due to its employment of a doubly linked list structure, eliminating the need for bit shifting in memory operations.
 - Optimal Use Cases: LinkedList is ideal for scenarios where frequent addition and removal of items occurs at the beginning or middle of the list, and where random access to elements is not essential.
-<details>
+</details>
 
 <details>
 <summary>HashSet</summary>
@@ -65,7 +65,7 @@ Unique Element Constraint: HashSet enforces uniqueness among its elements, ensur
 - Primarily Suited for Search Operations: HashSet is particularly advantageous for search operations due to its constant-time complexity for basic operations, such as retrieval and verification of element existence.
 - Default Capacity and Load Factor: By default, HashSet initializes with a capacity of 16 and a load factor of 0.75, which can be adjusted as needed to optimize performance and memory usage.
 - Hash Table Data Structure: HashSet utilizes the hash table data structure internally to manage its elements efficiently, supporting rapid access and modification operations.
-<details>
+</details>
 
 <details>
 <summary>TreeSet</summary>
@@ -81,7 +81,7 @@ Here are the key features and characteristics of TreeSet:
 - Absence of Insertion Order Preservation: Unlike certain collection types, such as lists, TreeSet does not maintain the order in which elements are inserted.
 - Ascending Order Sorting: Elements within a TreeSet are automatically sorted in ascending order according to their natural ordering or a custom comparator.
 - Lack of Thread Safety: TreeSet is not inherently thread-safe, meaning it does not provide built-in mechanisms to handle concurrent access by multiple threads. External synchronization is required for thread safety.
-<details>
+</details>
 
 <details>
 <summary>PriorityQueue</summary>
@@ -99,7 +99,7 @@ Here are the key features and characteristics of PriorityQueue:
 - Not Synchronized: Requires external synchronization for thread safety.
 - Performance: Offers logarithmic time complexity for insertion and removal operations.
 - Usage: Commonly used in algorithms requiring prioritized element processing, like graph algorithms and scheduling.
-<details>
+</details>
 
 <details>
 <summary>HashMap</summary>
@@ -118,7 +118,7 @@ Here are the key features and characteristics of HashMap:
 - Not Synchronized: Not inherently thread-safe; external synchronization is needed for concurrent access.
 - Good Performance: Offers constant-time performance for most operations.
 - Iteration Order: The order of iteration is not guaranteed.
-<details>
+</details>
 
 <details>
 <summary>TreeMap</summary>
@@ -138,7 +138,7 @@ Here are the key features and characteristics of TreeMap:
 - Not Synchronized: Not inherently thread-safe; external synchronization needed for concurrent access.
 - Performance: Offers guaranteed logarithmic time complexity for most operations.
 - Navigable Map Operations: Provides additional operations for navigating elements based on their order.
-<details>
+</details>
 
 
 
