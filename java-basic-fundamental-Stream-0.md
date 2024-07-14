@@ -6,7 +6,9 @@ Streams are lazily operated, opposite to collections that must store all the val
 
 This page lists down the published tutorials on this blog related to Stream API and its related concepts.
 
-### 1. Stream Basics
+<details>
+<summary><b>1. Stream Basics</b></summary>
+  
 - [Introduction to Streams API](https://howtodoinjava.com/java/stream/java-streams-by-examples)
 - [Java 9 Stream API Improvements](https://howtodoinjava.com/java9/stream-api-improvements)
 - [Creating Streams](https://howtodoinjava.com/java/stream/create-streams)
@@ -21,8 +23,11 @@ This page lists down the published tutorials on this blog related to Stream API 
 - [Remove/Update Elements From List using Stream](https://howtodoinjava.com/java/stream/remove-update-stream-elements)
 - [Iterate with Indices](https://howtodoinjava.com/java/stream/iterate-over-stream-with-indices)
 - [Stream has already been operated upon or closed Exception](https://howtodoinjava.com/java/stream/stream-has-already-been-operated-upon-or-closed)
+</details>
 
-### 2. Stream Searching, Filtering and Sorting
+<details>
+<summary><b>2. Stream Searching, Filtering and Sorting</b></summary>
+  
 - [Getting Distinct Stream Items by Comparing Multiple Fields](https://howtodoinjava.com/java8/stream-distinct-by-multiple-fields)
 - [Getting the Last Item of a Stream](https://howtodoinjava.com/java8/java-stream-get-last-element)
 - [Get Object with Max Date From a List](https://howtodoinjava.com/java8/stream-get-object-with-max-date)
@@ -35,24 +40,37 @@ This page lists down the published tutorials on this blog related to Stream API 
 - [Finding Max and Min from List using Streams](https://howtodoinjava.com/java8/stream-max-min-examples)
 - [Java Stream count() Matches with filter()](https://howtodoinjava.com/java8/stream-count-elements-example)
 - [Filter a Map by List of Keys](https://howtodoinjava.com/java/stream/filter-map-by-list-of-keys)
+</details>
 
-### 3. Stream Collectors
+<details>
+<summary><b>3. Stream Collectors</b></summary>
+  
 - [Collecting Stream Items into List](https://howtodoinjava.com/java8/convert-stream-to-list)
 - [Collecting Stream Items into Map](https://howtodoinjava.com/java8/collect-stream-to-map)
 - [Collect a Java Stream to an Immutable Collection](https://howtodoinjava.com/java/collections/collect-stream-into-immutable-collection)
 - [Collectors groupingBy](https://howtodoinjava.com/java/stream/collectors-groupingby)
+</details>
 
-### 4. Stream Conversions
+<details>
+<summary><b>4. Stream Conversions</b></summary>
+  
 - [Converting Between Stream and Array](https://howtodoinjava.com/java/array/convert-between-stream-and-array)
 - [Convert Iterable or Iterator to Stream](https://howtodoinjava.com/java8/iterable-iterator-to-stream)
 - [Collecting Stream of Primitives into Collection or Array](https://howtodoinjava.com/java8/convert-intstream-collection-array)
+</details> 
 
-### 5. Stream Operations
+<details>
+<summary><b>5. Stream Operations</b></summary>
+  
 - [Append or Prepend Items to a Stream](https://howtodoinjava.com/java8/adding-items-to-stream)
 - [Merging Streams](https://howtodoinjava.com/java8/stream-concat-example)
 - [Java Stream reuse – Traverse stream multiple times?](https://howtodoinjava.com/java8/java-stream-reuse)
+</details>  
 
-### 6. Stream API and Methods
+
+<details>
+<summary><b>6. Stream API and Methods</b></summary>
+  
 - [Guide to IntStream in Java](https://howtodoinjava.com/java8/intstream-examples)
 - [Streams peek() API](https://howtodoinjava.com/java8/java-stream-peek-example)
 - [Difference Between map() and flatMap()](https://howtodoinjava.com/java8/stream-map-vs-flatmap)
@@ -77,7 +95,10 @@ This page lists down the published tutorials on this blog related to Stream API 
 - [Java Stream forEachOrdered()](https://howtodoinjava.com/java8/java-stream-foreachordered)
 - [Java Stream forEach()](https://howtodoinjava.com/java8/java-stream-foreach)
 - [Java Stream distinct()](https://howtodoinjava.com/java8/java-stream-distinct-examples)
+</details>  
 
-### 7. Advance Topics
+<details>
+<summary><b>7. Advance Topics</b></summary>
+  
 - [How To Debug Java Streams](https://howtodoinjava.com/java/stream/debugging-java-streams)
-
+</details>   
