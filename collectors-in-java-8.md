@@ -131,9 +131,9 @@ List<Student> top3Students = studentList.stream().sorted(Comparator.comparingDou
          
 System.out.println(top3Students);
 ```         
-//Output :
+> //Output :
          
-//[Vijay-19-Mathematics-92.8, Zevin-12-Computer Science-91.2, Asif-16-Mathematics-89.4]
+> //[Vijay-19-Mathematics-92.8, Zevin-12-Computer Science-91.2, Asif-16-Mathematics-89.4]
 
 ### 3.2) Collectors.toSet() :
 
@@ -145,7 +145,7 @@ Set<String> subjects = studentList.stream().map(Student::getSubject).collect(Col
          
 System.out.println(subjects);
 ```         
-//Output :
+> //Output :
          
 > //[Economics, Literature, Computer Science, Mathematics, History]
 
@@ -159,9 +159,9 @@ Map<String, Double> namePercentageMap = studentList.stream().collect(Collectors.
          
 System.out.println(namePercentageMap);
 ```         
-//Output :
+> //Output :
          
-//{Asif=89.4, Vijay=92.8, Zevin=91.2, Harry=71.9, Xiano=71.5, Nihira=84.6, Soumya=77.5, Mitshu=73.5, Harish=83.7, Paul=78.9}
+> //{Asif=89.4, Vijay=92.8, Zevin=91.2, Harry=71.9, Xiano=71.5, Nihira=84.6, Soumya=77.5, Mitshu=73.5, Harish=83.7, Paul=78.9}
 
 ### 3.4) Collectors.toCollection() :
 
@@ -173,9 +173,9 @@ LinkedList<Student> studentLinkedList = studentList.stream().limit(3).collect(Co
          
 System.out.println(studentLinkedList);
 ```         
-//Output :
+> //Output :
          
-//[Paul-11-Economics-78.9, Zevin-12-Computer Science-91.2, Harish-13-History-83.7]
+> //[Paul-11-Economics-78.9, Zevin-12-Computer Science-91.2, Harish-13-History-83.7]
 
 ### 3.5) Collectors.joining() :
 
@@ -187,9 +187,9 @@ String namesJoined = studentList.stream().map(Student::getName).collect(Collecto
          
 System.out.println(namesJoined);
 ```         
-//Output :
+> //Output :
          
-//Paul, Zevin, Harish, Xiano, Soumya, Asif, Nihira, Mitshu, Vijay, Harry
+> //Paul, Zevin, Harish, Xiano, Soumya, Asif, Nihira, Mitshu, Vijay, Harry
 
 ### 3.6) Collectors.counting() :
 
@@ -201,7 +201,7 @@ Long studentCount = studentList.stream().collect(Collectors.counting());
          
 System.out.println(studentCount);
 ```         
-//Output : 10
+> //Output : 10
 
 ### 3.7) Collectors.maxBy() :
 
@@ -213,7 +213,7 @@ Optional<Double> highPercentage = studentList.stream().map(Student::getPercentag
          
 System.out.println(highPercentage);
 ```         
-//Output : Optional[92.8]
+> //Output : Optional[92.8]
 
 ### 3.8) Collectors.minBy() :
 
@@ -225,7 +225,7 @@ Optional<Double> lowPercentage = studentList.stream().map(Student::getPercentage
          
 System.out.println(lowPercentage);
 ```         
-//Output : Optional[71.5]
+> //Output : Optional[71.5]
 
 ### 3.9) summingInt(), summingLong(), summingDouble()
 
@@ -237,7 +237,7 @@ Double sumOfPercentages = studentList.stream().collect(Collectors.summingDouble(
          
 System.out.println(sumOfPercentages);
 ```         
-//Output : 815.0
+> //Output : 815.0
 
 ### 3.10) averagingInt(), averagingLong(), averagingDouble()
 
@@ -249,7 +249,7 @@ Double averagePercentage = studentList.stream().collect(Collectors.averagingDoub
          
 System.out.println(averagePercentage);
 ```         
-//Output : 81.5
+> //Output : 81.5
 
 ### 3.11) summarizingInt(), summarizingLong(), summarizingDouble()
 
@@ -265,11 +265,11 @@ System.out.println("Lowest Percentage : "+studentStats.getMin());
          
 System.out.println("Average Percentage : "+studentStats.getAverage());
 ```         
-//Output :
+> //Output :
          
-//Highest Percentage : 92.8
-//Lowest Percentage : 71.5
-//Average Percentage : 81.5
+> //Highest Percentage : 92.8
+> //Lowest Percentage : 71.5
+> //Average Percentage : 81.5
 
 ### 3.12) Collectors.groupingBy() :
 
@@ -281,13 +281,13 @@ Map<String, List<Student>> studentsGroupedBySubject = studentList.stream().colle
          
 System.out.println(studentsGroupedBySubject);
 ```         
-//Output :
+> //Output :
          
-//{Economics=[Paul-11-Economics-78.9, Soumya-15-Economics-77.5], 
-// Literature=[Xiano-14-Literature-71.5], 
-// Computer Science=[Zevin-12-Computer Science-91.2, Nihira-17-Computer Science-84.6], 
-// Mathematics=[Asif-16-Mathematics-89.4, Vijay-19-Mathematics-92.8], 
-// History=[Harish-13-History-83.7, Mitshu-18-History-73.5, Harry-20-History-71.9]}
+> //{Economics=[Paul-11-Economics-78.9, Soumya-15-Economics-77.5], 
+> // Literature=[Xiano-14-Literature-71.5], 
+> // Computer Science=[Zevin-12-Computer Science-91.2, Nihira-17-Computer Science-84.6], 
+> // Mathematics=[Asif-16-Mathematics-89.4, Vijay-19-Mathematics-92.8], 
+> // History=[Harish-13-History-83.7, Mitshu-18-History-73.5, Harry-20-History-71.9]}
 
 ### 3.13) Collectors.partitioningBy() :
 
@@ -299,10 +299,10 @@ Map<Boolean, List<Student>> studentspartionedByPercentage = studentList.stream()
          
 System.out.println(studentspartionedByPercentage);
 ```         
-//Output :
+> //Output :
          
-// {false=[Paul-11-Economics-78.9, Xiano-14-Literature-71.5, Soumya-15-Economics-77.5, Mitshu-18-History-73.5, Harry-20-History-71.9], 
-//  true=[Zevin-12-Computer Science-91.2, Harish-13-History-83.7, Asif-16-Mathematics-89.4, Nihira-17-Computer Science-84.6, Vijay-19-Mathematics-92.8]}
+> // {false=[Paul-11-Economics-78.9, Xiano-14-Literature-71.5, Soumya-15-Economics-77.5, Mitshu-18-History-73.5, Harry-20-History-71.9], 
+> //  true=[Zevin-12-Computer Science-91.2, Harish-13-History-83.7, Asif-16-Mathematics-89.4, Nihira-17-Computer Science-84.6, Vijay-19-Mathematics-92.8]}
 
 ### 3.14) Collectors.collectingAndThen() :
 
@@ -314,6 +314,6 @@ List<Student> first3Students = studentList.stream().limit(3).collect(Collectors.
          
 System.out.println(first3Students);
 ```         
-//Output :
+> //Output :
          
-//[Paul-11-Economics-78.9, Zevin-12-Computer Science-91.2, Harish-13-History-83.7]
+> //[Paul-11-Economics-78.9, Zevin-12-Computer Science-91.2, Harish-13-History-83.7]
