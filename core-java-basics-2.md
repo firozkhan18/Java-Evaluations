@@ -488,7 +488,6 @@ We will learn these ways to create object later.
 </details>
 <details><summary><b>[029 - Anonymous Objects]</b></summary>
 
- 
 #### Anonymous Objects
 Anonymous simply means nameless. An object which has no reference is known as an anonymous object. It can be used at the time of object creation only.
 If you have to use an object only once, an anonymous object is a good approach. For example:
@@ -610,22 +609,31 @@ Balance is: 26000.0
 3.	Polymorphism
 <details><summary><b>[031 - Encapsulation in Java]</b></summary>
 
- #### Encapsulation in Java
+#### Encapsulation in Java
 Encapsulation is mechanism that binds together code and data it manipulate and keep both safe from outside interference and misuse. One way to think about encapsulation is a protective wrapper that prevents code and data from being arbitrary accessed by the other code defined outside the wrapper. Access to the code and data inside the wrapper is tightly control through a well-defined interface.
 An object has properties and behavior that are encapsulated inside the object. The service is offers to its client comprises its contract, only the contract defined by the object is available to the clients. The implementation of its properties and behaviors is not concern of the clients. Encapsulation helps make clear the distinction between an objects contract and implementation. This has major consequences for program development. This implementation of an object can change without implications for the client. Encapsulation also reduces complexity as the internals of an object are hidden from the clients who cannot influence (i.e. effect or impact) its implementation.
+
 A java class is the example of encapsulation. Java bean is the fully encapsulated class because all the data members are private here.
 Encapsulation in Java is a process of Binding (or wrapping) code and data together into a single unit, for example, a capsule, it is wrapped with different medicines.
  
 We can create a fully encapsulated class in Java by making all the data members of the class private. Now we can use setter and getter methods to set and get the data in it.
+
 The Java Bean class is the example of a fully encapsulated class.
-Advantage of Encapsulation in Java
+
+#### Advantage of Encapsulation in Java
+
 By providing only a setter or getter method, you can make the class read-only or write-only. In other words, you can skip the getter or setter methods.
+
 It provides you the control over the data. Suppose you want to set the value of id which should be greater than 100 only, you can write the logic inside the setter method. You can write the logic not to store the negative numbers in the setter methods.
 It is a way to achieve data hiding in Java because other class will not be able to access the data through the private data members.
 The encapsulate class is easy to test. So, it is better for unit testing.
+
 The standard IDE's are providing the facility to generate the getters and setters. So, it is easy and fast to create an encapsulated class in Java.
+
 Simple Example of Encapsulation in Java
+
 Let's see the simple example of encapsulation that has only one field with its setter and getter methods.
+```java
 File: Student.java
 1.	//A Java class which is a fully encapsulated class.  
 2.	//It has a private data member and getter and setter methods.  
@@ -654,12 +662,15 @@ File: Test.java
 9.	//getting value of the name member  
 10.	System.out.println(s.getName());  
 11.	}  
-12.	}  
-Compile By: javac -d . Test.java
-Run By: java com.javatpoint.Test
-Output:
-vijay
+12.	}
+```
+> Compile By: javac -d . Test.java
+> Run By: java com.javatpoint.Test
+> Output:
+> vijay
+
 Read-Only class
+```java
 1.	//A Java class which has only getter methods.  
 2.	public class Student{  
 3.	//private data member  
@@ -668,10 +679,13 @@ Read-Only class
 6.	public String getCollege(){  
 7.	return college;  
 8.	}  
-9.	}  
-Now, you can't change the value of the college data member which is "AKG".
-1.	s.setCollege("KITE");//will render compile time error  
+9.	}
+```
+> Now, you can't change the value of the college data member which is "AKG".
+> 1.	s.setCollege("KITE");//will render compile time error
+> 2.	
 Write-Only class
+```java
 1.	//A Java class which has only setter methods.  
 2.	public class Student{  
 3.	//private data member  
@@ -680,13 +694,17 @@ Write-Only class
 6.	public void setCollege(String college){  
 7.	this.college=college;  
 8.	}  
-9.	}  
-Now, you can't get the value of the college, you can only change the value of college data member.
-1.	System.out.println(s.getCollege());//Compile Time Error, because there is no such method  
-2.	System.out.println(s.college);//Compile Time Error, because the college data member is private.   
-3.	//So, it can't be accessed from outside the class  
+9.	}
+```
+> Now, you can't get the value of the college, you can only change the value of college data member.
+> 1.	System.out.println(s.getCollege());//Compile Time Error, because there is no such method  
+> 2.	System.out.println(s.college);//Compile Time Error, because the college data member is private.   
+> 3.	//So, it can't be accessed from outside the class  
+
 Another Example of Encapsulation in Java
+
 Let's see another example of encapsulation that has only four fields with its setter and getter methods.
+```java
 File: Account.java
 1.	//A Account class which is a fully encapsulated class.  
 2.	//It has a private data member and getter and setter methods.  
@@ -721,7 +739,9 @@ File: Account.java
 31.	    this.amount = amount;  
 32.	}  
 33.	  
-34.	}  
+34.	}
+```
+```java
 File: TestAccount.java
 1.	//A Java class to test the encapsulated class Account.  
 2.	public class TestEncapsulation {  
@@ -736,14 +756,16 @@ File: TestAccount.java
 11.	    //getting values through getter methods  
 12.	    System.out.println(acc.getAcc_no()+" "+acc.getName()+" "+acc.getEmail()+" "+acc.getAmount());  
 13.	}  
-14.	}  
-Test it Now
-Output:
-7560504000 Sonoo Jaiswal sonoojaiswal@javatpoint.com 500000.0
+14.	}
+```
+> Test it Now
+> Output:
+> 7560504000 Sonoo Jaiswal sonoojaiswal@javatpoint.com 500000.0
 </details>
+
 <details><summary><b>[032 - Polymorphism in Java]</b></summary>
 
- #### Polymorphism in Java
+#### Polymorphism in Java
 Polymorphism is another important concept. Polymorphism, a Greek terms means the ability to take more than one form. An operation may exhibits different behavior in different instance. The behavior depends upon the type of the objects used in the operation. Concept of polymorphism is often expressed by the phrase “one interface multiple methods”.
 Polymorphism allows a reference to denote object of different types at different times during execution. A super type reference exhibits polymorphic behavior since it can denote object of its subtype.
 Example of polymorphism is:
@@ -755,7 +777,7 @@ Another example can be to speak something; for example, a cat speaks meow, dog b
 Polymorphism in Java is a concept by which we can perform a single action in different ways. Polymorphism is derived from 2 Greek words: poly and morphs. The word "poly" means many and "morphs" means forms. So polymorphism means many forms.
 There are two types of polymorphism in Java: compile-time polymorphism and runtime polymorphism. We can perform polymorphism in java by method overloading and method overriding.
 If you overload a static method in Java, it is the example of compile time polymorphism. Here, we will focus on runtime polymorphism in java.
-</details>
+
 <details><summary><b>[033 - Runtime Polymorphism in Java]</b></summary>
 
 #### Runtime Polymorphism in Java
@@ -772,6 +794,7 @@ When an overridden method is called through a superclass reference, Java determi
 In other words, it is the type of the object being referred to (not the type of the reference variable) that determines which version of an overridden method will be executed. Therefore, if a superclass contains a method that is overridden by a subclass, then when different types of objects are referred to through a superclass reference variable, different versions of the method are executed.
 
 Here is an example that illustrates dynamic method dispatch:
+```java
 // Dynamic Method Dispatch
 class A {
 void callme() {
@@ -804,16 +827,20 @@ r = c; // r refers to a C object
 r.callme(); // calls C's version of callme
 }
 }
+```
 The output from the program is shown here:
-Inside A’s callme method
-Inside B’s callme method
-Inside C’s callme method
+> Inside A’s callme method
+> Inside B’s callme method
+> Inside C’s callme method
 
 This program creates one superclass called A and two subclasses of it, called B and C.
 
 Subclasses B and C override callme( ) declared in A. Inside the main( ) method, objects of type A, B, and C are declared. Also, a reference of type A, called r, is declared. The program then in turn assigns a reference to each type of object to r and uses that reference to invoke callme( ). As the output shows, the version of callme( ) executed is determined by the type of object being referred to at the time of the call. Had it been determined by the type of the reference variable, r, you would see three calls to A’s callme( ) method. 
 
- #### Why Overridden Methods?
+</details>
+<details><summary><b>[033 - Why Overridden Methods]</b></summary>
+	
+#### Why Overridden Methods?
 
 The superclass provides all elements that a subclass can use directly. It also defines those methods that the derived class must implement on its own. This allows the subclass the flexibility to define its own methods, yet still enforces a consistent interface.
 
@@ -821,25 +848,36 @@ Thus, by combining inheritance with overridden methods, a superclass can define 
 
 In this process, an overridden method is called through the reference variable of a superclass. The determination of the method to be called is based on the object being referred to by the reference variable.
 Let's first understand the upcasting before Runtime Polymorphism.
-Upcasting
+
+### Upcasting
+
 If the reference variable of Parent class refers to the object of Child class, it is known as upcasting. For example:
- 
+```java
 1.	class A{}  
 2.	class B extends A{}  
 1.	A a=new B();//upcasting  
 For upcasting, we can use the reference variable of class type or an interface type. For Example:
 1.	interface I{}  
 2.	class A{}  
-3.	class B extends A implements I{}  
-Here, the relationship of B class would be:
-B IS-A A
-B IS-A I
-B IS-A Object
-Since Object is the root class of all classes in Java, so we can write B IS-A Object.
+3.	class B extends A implements I{}
+```
+> Here, the relationship of B class would be:
+> B IS-A A
+> B IS-A I
+> B IS-A Object
+> Since Object is the root class of all classes in Java, so we can write B IS-A Object.
+
+</details>
+
+<details><summary><b>[033 - Example of Java Runtime Polymorphism]</b></summary>
 
 #### Example of Java Runtime Polymorphism
+
 In this example, we are creating two classes Bike and Splendor. Splendor class extends Bike class and overrides its run() method. We are calling the run method by the reference variable of Parent class. Since it refers to the subclass object and subclass method overrides the Parent class method, the subclass method is invoked at runtime.
+
 Since method invocation is determined by the JVM not compiler, it is known as runtime polymorphism.
+
+```java
 1.	class Bike{  
 2.	  void run(){System.out.println("running");}  
 3.	}  
@@ -850,14 +888,17 @@ Since method invocation is determined by the JVM not compiler, it is known as ru
 8.	    Bike b = new Splendor();//upcasting  
 9.	    b.run();  
 10.	  }  
-11.	}  
-Test it Now
-Output:
-running safely with 60km.
-Java Runtime Polymorphism Example: Bank
-Consider a scenario where Bank is a class that provides a method to get the rate of interest. However, the rate of interest may differ according to banks. For example, SBI, ICICI, and AXIS banks are providing 8.4%, 7.3%, and 9.7% rate of interest.
+11.	}
+```
+> Test it Now
+> Output:
+> running safely with 60km.
+> Java Runtime Polymorphism Example: Bank
+> Consider a scenario where Bank is a class that provides a method to get the rate of interest. However, the rate of interest may differ according to banks. For example, SBI, ICICI, and AXIS banks are providing 8.4%, 7.3%, and 9.7% rate of interest.
  
 Note: This example is also given in method overriding but there was no upcasting.
+
+```java
 1.	class Bank{  
 2.	float getRateOfInterest(){return 0;}  
 3.	}  
@@ -880,13 +921,16 @@ Note: This example is also given in method overriding but there was no upcasting
 20.	b=new AXIS();  
 21.	System.out.println("AXIS Rate of Interest: "+b.getRateOfInterest());  
 22.	}  
-23.	}  
-Test it Now
-Output:
-SBI Rate of Interest: 8.4
-ICICI Rate of Interest: 7.3
-AXIS Rate of Interest: 9.7
+23.	}
+```
+> Test it Now
+> Output:
+> SBI Rate of Interest: 8.4
+> ICICI Rate of Interest: 7.3
+> AXIS Rate of Interest: 9.7
+
 Java Runtime Polymorphism Example: Shape
+```java
 1.	class Shape{  
 2.	void draw(){System.out.println("drawing...");}  
 3.	}  
@@ -909,13 +953,15 @@ Java Runtime Polymorphism Example: Shape
 20.	s=new Triangle();  
 21.	s.draw();  
 22.	}  
-23.	}  
-Test it Now
-Output:
-drawing rectangle...
-drawing circle...
-drawing triangle...
+23.	}
+```
+> Test it Now
+> Output:
+> drawing rectangle...
+> drawing circle...
+> drawing triangle...
 Java Runtime Polymorphism Example: Animal
+```java
 1.	class Animal{  
 2.	void eat(){System.out.println("eating...");}  
 3.	}  
@@ -937,16 +983,25 @@ Java Runtime Polymorphism Example: Animal
 19.	a.eat();  
 20.	a=new Lion();  
 21.	a.eat();  
-22.	}}  
-Test it Now
-Output:
-eating bread...
-eating rat...
-eating meat...
+22.	}
+}
+```
+> Test it Now
+> Output:
+> eating bread...
+> eating rat...
+> eating meat...
+
+</details>
+
+<details><summary><b>[033 - Java Runtime Polymorphism with Data Member]</b></summary>
+	
 #### Java Runtime Polymorphism with Data Member
 A method is overridden, not the data members, so runtime polymorphism can't be achieved by data members.
 In the example given below, both the classes have a data member speedlimit. We are accessing the data member by the reference variable of Parent class which refers to the subclass object. Since we are accessing the data member which is not overridden, hence it will access the data member of the Parent class always.
+
 Rule: Runtime polymorphism can't be achieved by data members.
+```java
 1.	class Bike{  
 2.	 int speedlimit=90;  
 3.	}  
@@ -956,12 +1011,17 @@ Rule: Runtime polymorphism can't be achieved by data members.
 7.	 public static void main(String args[]){  
 8.	  Bike obj=new Honda3();  
 9.	  System.out.println(obj.speedlimit);//90  
-10.	}  
-Test it Now
-Output:
-90
+10.	}
+```
+> Test it Now
+> Output:
+> 90
+</details>
+<details><summary><b>[033 - Java Runtime Polymorphism with Multilevel Inheritance]</b></summary>
+	
 #### Java Runtime Polymorphism with Multilevel Inheritance
 Let's see the simple example of Runtime Polymorphism with multilevel inheritance.
+```java
 1.	class Animal{  
 2.	void eat(){System.out.println("eating");}  
 3.	}  
@@ -979,14 +1039,16 @@ Let's see the simple example of Runtime Polymorphism with multilevel inheritance
 15.	a2.eat();  
 16.	a3.eat();  
 17.	}  
-18.	}  
-Test it Now
-Output:
-eating
-eating fruits
-drinking Milk
+18.	}
+```
+> Test it Now
+> Output:
+> eating
+> eating fruits
+> drinking Milk
 ________________________________________
 Try for Output
+```java
 1.	class Animal{  
 2.	void eat(){System.out.println("animal is eating...");}  
 3.	}  
@@ -997,11 +1059,14 @@ Try for Output
 8.	public static void main(String args[]){  
 9.	Animal a=new BabyDog1();  
 10.	a.eat();  
-11.	}}  
-Test it Now
-Output:
-Dog is eating
+11.	}
+}
+```
+> Test it Now
+> Output:
+> Dog is eating
 Since, BabyDog is not overriding the eat() method, so eat() method of Dog class is invoked.
+</details>
 </details>
 <details><summary><b>[034 - Upcasting]</b></summary>
 </details>
@@ -1030,7 +1095,7 @@ Inheritance represents the IS-A relationship which is also known as a parent-chi
 </details>
 <details><summary><b>[036 - Why use inheritance in java]</b></summary>
 
- #### Why use inheritance in java
+#### Why use inheritance in java
 o	For Method Overriding (so runtime polymorphism can be achieved).
 o	For Code Reusability.
 Terms used in Inheritance
@@ -1039,16 +1104,20 @@ o	Sub Class/Child Class: Subclass is a class which inherits the other class. It 
 o	Super Class/Parent Class: Superclass is the class from where a subclass inherits the features. It is also called a base class or a parent class.
 o	Reusability: As the name specifies, reusability is a mechanism which facilitates you to reuse the fields and methods of the existing class when you create a new class. You can use the same fields and methods already defined in the previous class.
 The syntax of Java Inheritance
+```java
 1.	class Subclass-name extends Superclass-name  
 2.	{  
 3.	   //methods and fields  
-4.	}  
+4.	}
+```
 The extends keyword indicates that you are making a new class that derives from an existing class. The meaning of "extends" is to increase the functionality.
+
 In the terminology of Java, a class which is inherited is called a parent or superclass, and the new class is called child or subclass.
 ________________________________________
 - Java Inheritance Example
  
 As displayed in the above figure, Programmer is the subclass and Employee is the superclass. The relationship between the two classes is Programmer IS-A Employee. It means that Programmer is a type of Employee.
+```java
 1.	class Employee{  
 2.	 float salary=40000;  
 3.	}  
@@ -1059,7 +1128,8 @@ As displayed in the above figure, Programmer is the subclass and Employee is the
 8.	   System.out.println("Programmer salary is:"+p.salary);  
 9.	   System.out.println("Bonus of Programmer is:"+p.bonus);  
 10.	}  
-11.	}  
+11.	}
+```  
 > Test it Now
 > Programmer salary is:40000.0
 > Bonus of programmer is:10000
@@ -1077,6 +1147,7 @@ When one class inherits multiple classes, it is known as multiple inheritance. F
 ________________________________________
 - Single Inheritance Example
 When a class inherits another class, it is known as a single inheritance. In the example given below, Dog class inherits the Animal class, so there is the single inheritance.
+```java
 File: TestInheritance.java
 1.	class Animal{  
 2.	void eat(){System.out.println("eating...");}  
@@ -1089,12 +1160,15 @@ File: TestInheritance.java
 9.	Dog d=new Dog();  
 10.	d.bark();  
 11.	d.eat();  
-12.	}}  
-Output:
-barking...
-eating...
+12.	}
+}
+```
+> Output:
+> barking...
+> eating...
 - Multilevel Inheritance Example
 When there is a chain of inheritance, it is known as multilevel inheritance. As you can see in the example given below, BabyDog class inherits the Dog class which again inherits the Animal class, so there is a multilevel inheritance.
+```java
 File: TestInheritance2.java
 1.	class Animal{  
 2.	void eat(){System.out.println("eating...");}  
@@ -1111,13 +1185,16 @@ File: TestInheritance2.java
 13.	d.weep();  
 14.	d.bark();  
 15.	d.eat();  
-16.	}}  
-Output:
-weeping...
-barking...
-eating...
+16.	}
+}
+```
+> Output:
+> weeping...
+> barking...
+> eating...
 - Hierarchical Inheritance Example
 When two or more classes inherits a single class, it is known as hierarchical inheritance. In the example given below, Dog and Cat classes inherits the Animal class, so there is hierarchical inheritance.
+```java
 File: TestInheritance3.java
 1.	class Animal{  
 2.	void eat(){System.out.println("eating...");}  
@@ -1134,10 +1211,12 @@ File: TestInheritance3.java
 13.	c.meow();  
 14.	c.eat();  
 15.	//c.bark();//C.T.Error  
-16.	}}  
-Output:
-meowing...
-eating...
+16.	}
+}
+```
+> Output:
+> meowing...
+> eating...
 </details>
 <details><summary><b>[038 - Why multiple inheritance is not supported in java?]</b></summary>
 
@@ -1145,6 +1224,7 @@ eating...
 To reduce the complexity and simplify the language, multiple inheritance is not supported in java.
 Consider a scenario where A, B, and C are three classes. The C class inherits A and B classes. If A and B classes have the same method and you call it from child class object, there will be ambiguity to call the method of A or B class.
 Since compile-time errors are better than runtime errors, Java renders compile-time error if you inherit 2 classes. So whether you have same method or different, there will be compile time error.
+```java
 1.	class A{  
 2.	void msg(){System.out.println("Hello");}  
 3.	}  
@@ -1157,25 +1237,36 @@ Since compile-time errors are better than runtime errors, Java renders compile-t
 10.	   C obj=new C();  
 11.	   obj.msg();//Now which msg() method would be invoked?  
 12.	}  
-13.	}  
-Test it Now
- Compile Time Error
+13.	}
+```
+> Test it Now
+> Compile Time Error
 </details>
 <details><summary><b>[039 - Abstraction in Java]</b></summary>
 
- #### Abstraction in Java
+#### Abstraction in Java
 Abstraction refers to the act of representing essential features without including the background details or explanation. An essential feature of object oriented programing is abstraction.
+
 A powerful way to manage abstraction is through the use of hierarchical classification. This allows you to layer the semantic of complex system breaking them into more manageable piece. The data from a traditional process oriented program can be transformed by abstraction into its component objects.
+
 A sequence of process steps can become a collection of messages between these objects thus each of these objects describes own unique behavior. You can treat these objects as concrete entities that responds to messages telling them to do something. This is the essence of object oriented programing.
+
 For example, once you have well defined objects and clean reliable interfaces to those object you can gracefully decommission or replace part of an older system without fear.
+
 In other words, an abstraction denotes the essential properties and behaviors of an object that differentiate it from other objects.
 A class denotes a category of objects and act as a blueprint for creating such objects. A class models an abstraction defining the properties and behaviors for the objects representing the abstraction. An object exhibits the property of an object of a class are also called attributes and are defined by field in java. A field in a class definition is a variable which can store a value that represents a particular property. The behaviors of an object of a class also known as operation, and are defined using methods in java. Fields and method in a class definition are collectively called members.
+
 An important distribution is made between the contract and the implementation that class provides for its object. The contract defines what services and the implementation defines how these services are provided by the class. Clients (i.e. other objects) only need to know the contract of an object and not its implementation in order to avail themselves of the objects services. 
 Abstraction is a process of hiding the implementation details and showing only functionality to the user.
+
 Another way, it shows only essential things to the user and hides the internal details, for example, sending SMS where you type the text and send the message. You don't know the internal processing about the message delivery.
+
 Hiding internal details and showing functionality is known as abstraction. For example phone call, we don't know the internal processing.
+
 In Java, we use abstract class and interface to achieve abstraction.
+
 Abstraction lets you focus on what the object does instead of how it does it.
+
 </details>
 <details><summary><b>[040 - Ways to achieve Abstraction]</b></summary>
 	
@@ -1190,12 +1281,14 @@ There are two ways to achieve abstraction in java
 Aggregation is a way to achieve Association. Aggregation represents the relationship where one object contains other objects as a part of its state. It represents the weak relationship between objects. It is also termed as a has-a relationship in Java. Like, inheritance represents the is-a relationship. It is another way to reuse objects.
 If a class have an entity reference, it is known as Aggregation. Aggregation represents HAS-A relationship.
 Consider a situation, Employee object contains many informations such as id, name, emailId etc. It contains one more object named address, which contains its own informations such as city, state, country, zipcode etc. as given below.
+```java
 1.	class Employee{  
 2.	int id;  
 3.	String name;  
 4.	Address address;//Address is a class  
 5.	...  
-6.	}  
+6.	}
+```
 In such case, Employee has an entity reference address, so relationship is Employee HAS-A address.
 </details>
 <details><summary><b>[042 - Why use Aggregation?]</b></summary>
@@ -1206,6 +1299,7 @@ ________________________________________
 Simple Example of Aggregation
  
 In this example, we have created the reference of Operation class in the Circle class.
+```java
 1.	class Operation{  
 2.	 int square(int n){  
 3.	  return n*n;  
@@ -1229,9 +1323,10 @@ In this example, we have created the reference of Operation class in the Circle 
 21.	   double result=c.area(5);  
 22.	   System.out.println(result);  
 23.	 }  
-24.	}  
-Test it Now
-Output:78.5
+24.	}
+```
+> Test it Now
+> Output:78.5
 </details>
 <details><summary><b>[043 - When use Aggregation?]</b></summary>
 
@@ -1240,7 +1335,9 @@ o	Code reuse is also best achieved by aggregation when there is no is-a relation
 o	Inheritance should be used only if the relationship is-a is maintained throughout the lifetime of the objects involved; otherwise, aggregation is the best choice.
 ________________________________________
 Understanding meaningful example of Aggregation
+
 In this example, Employee has an object of Address, address object contains its own informations such as city, state, country etc. In such case relationship is Employee HAS-A address.
+```java
 Address.java
 1.	public class Address {  
 2.	String city,state,country;  
@@ -1280,12 +1377,13 @@ Emp.java
 25.	e2.display();  
 26.	      
 27.	}  
-28.	}  
-Test it Now
-Output:111 varun
-       gzb UP india
-       112 arun
-       gno UP india  
+28.	}
+```
+> Test it Now
+> Output:111 varun
+>        gzb UP india
+>        112 arun
+>        gno UP india  
 </details>
 <details><summary><b>[044 - Coupling]</b></summary>
 
@@ -1351,6 +1449,7 @@ ________________________________________
 The private access modifier is accessible only within the class.
 Simple example of private access modifier
 In this example, we have created two classes A and Simple. A class contains private data member and private method. We are accessing these private members from outside the class, so there is a compile-time error.
+```java
 1.	class A{  
 2.	private int data=40;  
 3.	private void msg(){System.out.println("Hello java");}  
@@ -1362,9 +1461,11 @@ In this example, we have created two classes A and Simple. A class contains priv
 9.	   System.out.println(obj.data);//Compile Time Error  
 10.	   obj.msg();//Compile Time Error  
 11.	   }  
-12.	}  
+12.	}
+```
 Role of Private Constructor
 If you make any class constructor private, you cannot create the instance of that class from outside the class. For example:
+```java
 1.	class A{  
 2.	private A(){}//private constructor  
 3.	void msg(){System.out.println("Hello java");}  
@@ -1373,13 +1474,17 @@ If you make any class constructor private, you cannot create the instance of tha
 6.	 public static void main(String args[]){  
 7.	   A obj=new A();//Compile Time Error  
 8.	 }  
-9.	}  
-Note: A class cannot be private or protected except nested class.
+9.	}
+```
+> Note: A class cannot be private or protected except nested class.
 ________________________________________
 2) Default
 If you don't use any modifier, it is treated as default by default. The default modifier is accessible only within package. It cannot be accessed from outside the package. It provides more accessibility than private. But, it is more restrictive than protected, and public.
+
 Example of default access modifier
+
 In this example, we have created two packages pack and mypack. We are accessing the A class from outside its package, since A class is not public, so it cannot be accessed from outside the package.
+```java
 1.	//save by A.java  
 2.	package pack;  
 3.	class A{  
@@ -1393,7 +1498,8 @@ In this example, we have created two packages pack and mypack. We are accessing 
 6.	   A obj = new A();//Compile Time Error  
 7.	   obj.msg();//Compile Time Error  
 8.	  }  
-9.	}  
+9.	}
+``` 
 In the above example, the scope of class A and its method msg() is default so it cannot be accessed from outside the package.
 ________________________________________
 3) Protected
@@ -1402,6 +1508,7 @@ The protected access modifier can be applied on the data member, method and cons
 It provides more accessibility than the default modifer.
 Example of protected access modifier
 In this example, we have created the two packages pack and mypack. The A class of pack package is public, so can be accessed from outside the package. But msg method of this package is declared as protected, so it can be accessed from outside the class only through inheritance.
+```java
 1.	//save by A.java  
 2.	package pack;  
 3.	public class A{  
@@ -1416,12 +1523,14 @@ In this example, we have created the two packages pack and mypack. The A class o
 7.	   B obj = new B();  
 8.	   obj.msg();  
 9.	  }  
-10.	}  
-Output:Hello
+10.	}
+```
+> Output:Hello
 ________________________________________
 4) Public
 The public access modifier is accessible everywhere. It has the widest scope among all other modifiers.
 Example of public access modifier
+```java
 1.	//save by A.java  
 2.	  
 3.	package pack;  
@@ -1438,11 +1547,13 @@ Example of public access modifier
 8.	   A obj = new A();  
 9.	   obj.msg();  
 10.	  }  
-11.	}  
-Output:Hello
+11.	}
+```
+> Output:Hello
 ________________________________________
 Java Access Modifiers with Method Overriding
 If you are overriding any method, overridden method (i.e. declared in subclass) must not be more restrictive.
+```java
 1.	class A{  
 2.	protected void msg(){System.out.println("Hello java");}  
 3.	}  
@@ -1453,7 +1564,8 @@ If you are overriding any method, overridden method (i.e. declared in subclass) 
 8.	   Simple obj=new Simple();  
 9.	   obj.msg();  
 10.	   }  
-11.	}  
+11.	}
+```
 The default modifier is more restrictive than protected. That is why, there is a compile-time error.
 
 </details>
