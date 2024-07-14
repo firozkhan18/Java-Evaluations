@@ -371,7 +371,7 @@ public class PowerOfNumber {
 </details>
 
 <details>
-<summary><b>33. Find the smallest element in an array</b></summary>
+<summary><b>22. Find the smallest element in an array</b></summary>
 
 ```java
 public class SmallestElementInArray {
@@ -391,7 +391,7 @@ public class SmallestElementInArray {
 ```
 </details>
 <details>
-<summary><b>34. Check if a given string is a valid palindrome or not</b></summary>
+<summary><b>23 Check if a given string is a valid palindrome or not</b></summary>
 
 ```java
 public class ValidPalindrome {
@@ -445,7 +445,7 @@ public class MatrixMultiplication {
 ```
 </details>
 <details>
-<summary><b>36. Reverse a linked list</b></summary>
+<summary><b>24 Reverse a linked list</b></summary>
 
 ```java
 class Node {
@@ -501,7 +501,7 @@ public class ReverseLinkedList {
 ```
 </details>
 <details>
-<summary><b>37. Find the missing number in an array of consecutive numbers</b></summary>
+<summary><b>25. Find the missing number in an array of consecutive numbers</b></summary>
 
 ```java
 public class MissingNumberInArray {
@@ -522,7 +522,7 @@ public class MissingNumberInArray {
 ```
 </details>
 <details>
-<summary><b>38. Check if a number is a perfect number</b></summary>
+<summary><b>26. Check if a number is a perfect number</b></summary>
 
 ```java
 public class PerfectNumber {
@@ -546,7 +546,7 @@ public class PerfectNumber {
 ```
 </details>
 <details>
-<summary><b>39. Find the median of an array</b></summary>
+<summary><b>27. Find the median of an array</b></summary>
 
 ```java
 import java.util.Arrays;
@@ -569,7 +569,7 @@ public class MedianOfArray {
 ```
 </details>
 <details>
-<summary><b>29. Check if a string contains only digits</b></summary>
+<summary><b>28. Check if a string contains only digits</b></summary>
 
 ```java
 public class OnlyDigitsInString {
@@ -594,7 +594,7 @@ public class OnlyDigitsInString {
 ```
 </details>
 <details>
-<summary><b>30. Find the LCM of two numbers</b></summary>
+<summary><b>29. Find the LCM of two numbers</b></summary>
 
 ```java
 public class LCM {
@@ -622,7 +622,7 @@ public class LCM {
 
 
 <details>
-<summary><b>23. Check if a given string is a valid palindrome or not:</b></summary>
+<summary><b>30. Check if a given string is a valid palindrome or not:</b></summary>
 
 ```java
 import java.util.Scanner;
@@ -645,7 +645,7 @@ public class CheckPalindrome {
 ```
 </details>
 <details>
-<summary><b>24. Find the frequency of each element in an array:</b></summary>
+<summary><b>31. Find the frequency of each element in an array:</b></summary>
 
 ```java
 import java.util.*;
@@ -667,7 +667,7 @@ public class ElementFrequency {
 ```
 </details>
 <details>
-<summary><b>25. Find the maximum subarray sum in an array:</b></summary>
+<summary><b>32. Find the maximum subarray sum in an array:</b></summary>
 
 ```java
 public class MaxSubarraySum {
@@ -688,7 +688,7 @@ public class MaxSubarraySum {
 ```
 </details>
 <details>
-<summary><b>26. Binary to Decimal Conversion Program:</b></summary>
+<summary><b>33. Binary to Decimal Conversion Program:</b></summary>
 
 ```java
 import java.util.Scanner;
@@ -705,7 +705,7 @@ public class BinaryToDecimal {
 ```
 </details>
 <details>
-<summary><b>27. Factorial using Recursion Program:</b></summary>
+<summary><b>34. Factorial using Recursion Program:</b></summary>
 
 ```java
 public class Factorial {
@@ -726,7 +726,7 @@ public class Factorial {
 ```
 </details>
 <details>
-<summary><b>28. Perfect Number Program:</b></summary>
+<summary><b>35. Perfect Number Program:</b></summary>
 
 ```java
 public class PerfectNumber {
@@ -750,7 +750,7 @@ public class PerfectNumber {
 ```
 </details>
 <details>
-<summary><b>29. Common Elements in Arrays Program:</b></summary>
+<summary><b>36. Common Elements in Arrays Program:</b></summary>
 
 ```java
 import java.util.HashSet;
@@ -777,7 +777,7 @@ public class CommonElements {
 ```
 </details>
 <details>
-<summary><b>30. Reverse of a Number Program:</b></summary>
+<summary><b>37. Reverse of a Number Program:</b></summary>
 
 ```java
 public class ReverseNumber {
@@ -797,7 +797,7 @@ public class ReverseNumber {
 ```
 </details>
 <details>
-<summary><b>31. Program to check if a given number is an Armstrong number:</b></summary>
+<summary><b>38. Program to check if a given number is an Armstrong number:</b></summary>
 
 ```java
 import java.util.Scanner;
@@ -827,7 +827,7 @@ public class ArmstrongNumber {
 ```
 </details>
 <details>
-<summary><b>32. Program to find the missing number in a given array of integers:</b></summary>
+<summary><b>39. Program to find the missing number in a given array of integers:</b></summary>
 
 ```java
 import java.util.Arrays;
@@ -887,7 +887,7 @@ public class BinarySearch {
 ```
 </details>
 <details>
-<summary><b>34. Program to find the least common multiple (LCM) of two numbers:</b></summary>
+<summary><b>40. Program to find the least common multiple (LCM) of two numbers:</b></summary>
 
 ```java
 public class LCM {
