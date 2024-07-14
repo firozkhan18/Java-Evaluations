@@ -2002,4 +2002,35 @@ public class MaxPathSum {
 }
 ```
 </details>
+71. Write a program to implement a bellman-ford algorithm.
+72. Write a program to find the intersection of two linked lists.
+73. Write a program to find the longest increasing subsequence in an array.
+74. Write a program to implement a topological sort algorithm.
+75. Write a program to find the number of connected components in a graph.
+76. Write a program to find the maximum profit by buying and selling stocks.
+77. Write a program to implement a prim's algorithm.
+78. Write a program to find the longest common subsequence in two strings.
+79. Write a program to implement a Kruskal's algorithm.
+80. Write a program to find the minimum spanning tree of a graph.
 
+81. Write a program to implement a trie data structure.
+82. Write a program to find the longest palindrome subsequence in a string.
+83. Write a program to implement a hash table.
+84. Write a program to implement a stack using queues.
+85. Write a program to find the maximum sum subarray using Kadane's algorithm.
+86. Write a program to implement an AVL tree.
+87. Write a program to find the shortest path in a maze.
+88. Write a program to implement a disjoint-set data structure.
+89. Write a program to find the longest repeating subsequence in a string.
+90. Write a program to implement a priority queue.
+
+91. Write a program to find the longest common substring in two strings.
+92. Write a program to implement a radix sort algorithm.
+93. Write a program to find the maximum number of non-overlapping intervals.
+94. Write a program to implement a segment tree.
+95. Write a program to find the maximum area of a histogram.
+96. Write a program to implement a Floyd-Warshall algorithm.
+97. Write a program to find the longest word in a dictionary that can be formed from a set of letters.
+98. Write a program to check if a binary tree is balanced.
+99. Write a program to implement a hashmap from scratch.
+100. Write a program to find the maximum flow in a graph using Ford-Fulkerson algorithm.
