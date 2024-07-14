@@ -251,7 +251,7 @@ System.out.println(averagePercentage);
 ```         
 //Output : 81.5
 
-3.11) summarizingInt(), summarizingLong(), summarizingDouble()
+### 3.11) summarizingInt(), summarizingLong(), summarizingDouble()
 
 These methods return a special class called Int/Long/ DoubleSummaryStatistics which contain statistical information like sum, max, min, average etc of input elements.
 
@@ -271,7 +271,7 @@ System.out.println("Average Percentage : "+studentStats.getAverage());
 //Lowest Percentage : 71.5
 //Average Percentage : 81.5
 
-3.12) Collectors.groupingBy() :
+### 3.12) Collectors.groupingBy() :
 
 This method groups the input elements according supplied classifier and returns the results in a Map.
 
@@ -289,7 +289,7 @@ System.out.println(studentsGroupedBySubject);
 // Mathematics=[Asif-16-Mathematics-89.4, Vijay-19-Mathematics-92.8], 
 // History=[Harish-13-History-83.7, Mitshu-18-History-73.5, Harry-20-History-71.9]}
 
-3.13) Collectors.partitioningBy() :
+### 3.13) Collectors.partitioningBy() :
 
 This method partitions the input elements according to supplied Predicate and returns a Map<Boolean, List<T>>. Under the true key, you will find elements which match given Predicate and under the false key, you will find the elements which doesn’t match given Predicate.
 
@@ -304,7 +304,7 @@ System.out.println(studentspartionedByPercentage);
 // {false=[Paul-11-Economics-78.9, Xiano-14-Literature-71.5, Soumya-15-Economics-77.5, Mitshu-18-History-73.5, Harry-20-History-71.9], 
 //  true=[Zevin-12-Computer Science-91.2, Harish-13-History-83.7, Asif-16-Mathematics-89.4, Nihira-17-Computer Science-84.6, Vijay-19-Mathematics-92.8]}
 
-3.14) Collectors.collectingAndThen() :
+### 3.14) Collectors.collectingAndThen() :
 
 This is a special method which lets you to perform one more action on the result after collecting the result.
 
