@@ -2073,6 +2073,7 @@ public class IntersectionOfLinkedLists {
 </details>
 <details>
 <summary><b>73. Write a program to find the longest increasing subsequence in an array.</b></summary>
+
 ```java
 public class LongestIncreasingSubsequence {
     public int lengthOfLIS(int[] nums) {
@@ -2768,6 +2769,7 @@ public class RadixSort {
 </details>
 <details>
 <summary><b>93. Program to find the maximum number of non-overlapping intervals:</b></summary>
+
 ```java
 import java.util.Arrays;
 import java.util.Comparator;
