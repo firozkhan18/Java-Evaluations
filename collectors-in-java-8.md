@@ -147,7 +147,7 @@ System.out.println(subjects);
 ```         
 //Output :
          
-//[Economics, Literature, Computer Science, Mathematics, History]
+> //[Economics, Literature, Computer Science, Mathematics, History]
 
 ### 3.3) Collectors.toMap() :
 
