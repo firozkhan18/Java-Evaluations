@@ -2101,7 +2101,6 @@ public class LongestIncreasingSubsequence {
 </details>
 <details>
 <summary><b>74. Write a program to implement a topological sort algorithm.</b></summary>
-
 ```java
 import java.util.*;
 
@@ -2147,7 +2146,6 @@ public class TopologicalSort {
 </details>
 <details>
 <summary><b>75. Write a program to find the number of connected components in a graph.</b></summary>
-
 ```java
 public class NumberOfConnectedComponents {
     public int countComponents(int n, int[][] edges) {
@@ -2177,9 +2175,9 @@ public class NumberOfConnectedComponents {
     }
 }
 ```
+</details>
 <details>
 <summary><b>76. Write a program to find the maximum profit by buying and selling stocks.</b></summary>
-
 ```java
 public class MaxProfitStocks {
     public int maxProfit(int[] prices) {
@@ -2198,7 +2196,6 @@ public class MaxProfitStocks {
 </details>
 <details>
 <summary><b>77. Write a program to implement a prim's algorithm.</b></summary>
-
 ```java
 public class PrimsAlgorithm {
     public int minCost(int[][] graph) {
