@@ -175,7 +175,7 @@ BiFunction<String, String, String> fun = (s1, s2) -> s1 + " " + s2;
 System.out.println(fun.apply("hello", "bi-function"));
 ```
 
-BinaryOperator<T> is equivalent to (T, T) -> T
+- BinaryOperator<T> is equivalent to (T, T) -> T
 ```java
 BinaryOperator<String> binaryOp =  (s1, s2) -> s1 + " " + s2;
 System.out.println(binaryOp.apply("hello", "binary operator"));
