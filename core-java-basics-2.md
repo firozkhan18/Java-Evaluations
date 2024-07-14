@@ -1107,8 +1107,6 @@ Since, BabyDog is not overriding the eat() method, so eat() method of Dog class 
 </details>
 </details>
 </details>
-<details><summary><b>[034 - Upcasting]</b></summary>
-</details>
 <details><summary><b>[035 - Inheritance in java]</b></summary>
 
 #### Inheritance in java
@@ -1131,7 +1129,7 @@ Inheritance in Java is a mechanism in which one object acquires all the properti
 The idea behind inheritance in Java is that you can create new classes that are built upon existing classes. When you inherit from an existing class, you can reuse methods and fields of the parent class. Moreover, you can add new methods and fields in your current class also.
 
 Inheritance represents the IS-A relationship which is also known as a parent-child relationship.
-</details>
+
 <details><summary><b>[036 - Why use inheritance in java]</b></summary>
 
 #### Why use inheritance in java
@@ -1257,6 +1255,7 @@ File: TestInheritance3.java
 > meowing...
 > eating...
 </details>
+
 <details><summary><b>[038 - Why multiple inheritance is not supported in java?]</b></summary>
 
 #### Q) Why multiple inheritance is not supported in java?
@@ -1280,6 +1279,7 @@ Since compile-time errors are better than runtime errors, Java renders compile-t
 ```
 > Test it Now
 > Compile Time Error
+</details>
 </details>
 <details><summary><b>[039 - Abstraction in Java]</b></summary>
 
