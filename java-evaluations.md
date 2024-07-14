@@ -18,7 +18,7 @@ Below are a list of important features of Java 7 and Java 8 versions you should 
 ### Java 7 Features
 Java 7It took 5 years from when Java SE 6 was released in December 2006 until Java SE 7 first release in July 2011. Java 7 main focus was at reducing language verbosity, making it easier for developers to write code.Through Project Coin a set of language enhancements were introduced. The most important features are:
 
-### Diamond “<>” Operator
+- Diamond “<>” Operator
 - Strings in switch Statement
 - Multi-catch similar exceptions
 - Automatic Resource Closing
