@@ -1038,6 +1038,7 @@ IntStream randStream = sRand.ints(5);
 randStream.forEach(System.out::println);
 ```
 </details>
+
 - [Boxed Streams](https://howtodoinjava.com/java8/java8-boxed-intstream)
 - [Stream of Dates](https://howtodoinjava.com/java9/stream-dates-datesuntil)
 - [Remove/Update Elements From List using Stream](https://howtodoinjava.com/java/stream/remove-update-stream-elements)
