@@ -1613,8 +1613,9 @@ If you are overriding any method, overridden method (i.e. declared in subclass) 
 ```
 The default modifier is more restrictive than protected. That is why, there is a compile-time error.
 
-</details>
+
 <details><summary><b>[21.1 - Access Control]</b></summary>
+</details>
 </details>
 <details><summary><b>[22 - Methods in Java]</b></summary>
 
