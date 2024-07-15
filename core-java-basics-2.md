@@ -6140,8 +6140,8 @@ When to use ThreadLocal?
 For example, consider you are working on a eCommerce application. You have a requirement to generate a unique transaction id for each and every customer request this controller process and you need to pass this transaction id to the business methods in manager/DAO classes for logging purpose. One solution could be passing this transaction id as a parameter to all the business methods. But this is not a good solution as the code is redundant and unnecessary.
 To solve that, here you can use ThreadLocal variable. You can generate a transaction id in controller OR any pre-processor interceptor; and set this transaction id in the ThreadLocal. After this, whatever the methods, that this controller calls, they all can access this transaction id from the threadlocal. Also note that application controller will be servicing more that one request at a time and since each request is processed in separate thread at framework level, the transaction id will be unique to each thread and will be accessible from all over the thread’s execution path. 
 
-</details>
-<details><summary><b>[70 - Inside ThreadLocal Class?]</b></summary>
+
+<details><summary><b>[69.1 - Inside ThreadLocal Class?]</b></summary>
 	
 #### Inside ThreadLocal Class?
 The Java Concurrency API provides a clean mechanism for thread-local variables using ThreadLocal class with a very good performance.
@@ -6154,7 +6154,7 @@ This class has following methods:
 4.	set(T value) : Sets the current thread’s copy of this thread-local variable to the specified value.
 
 </details>
-<details><summary><b>[71 - How to use ThreadLocal?]</b></summary>
+<details><summary><b>[69.2 - How to use ThreadLocal?]</b></summary>
 	
 #### How to use ThreadLocal?
 Below example uses two thread local variables i.e. threadId and startDate. Both have been defined as “private static” fields as recommended. ‘threadId‘ will be used to identify the thread which is currently running and ‘startDate‘ will be used to get the time when thread started it’s execution. Above information will be printed in console to verify that each thread has maintained it’s own copy of variables.
@@ -6220,7 +6220,7 @@ Most common use of thread local is when you have some object that is not thread-
 A good alternative to synchronization or threadlocal is to make the variable a local variable. Local variables are always thread safe. The only thing which may prevent you to do this is your application design constraints.
 
 In wabapp server, it may be keep a thread pool, so a ThreadLocal var should be removed before response to the client, since current thread may be reused by next request. Also, if you do not clean up when you’re done, any references it holds to classes loaded as part of a deployed webapp will remain in the permanent heap and will never get garbage collected.
-
+</details>
 </details>
 <details><summary><b>[72 - How to Use Locks in Java ]</b></summary>
 	
