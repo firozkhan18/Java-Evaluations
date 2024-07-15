@@ -6244,8 +6244,8 @@ lock.lock();
 lock.unlock();
 First a Lock is created. Then it’s lock() method is called. Now the Lock instance is locked. Any other thread calling lock() will be blocked until the thread that locked the lock calls unlock(). Finally unlock() is called, and the Lockis now unlocked so other threads can lock it.
 
-</details>
-<details><summary><b>[73 - Difference between Lock Interface and synchronized keyword]</b></summary>
+
+<details><summary><b>[72.1 - Difference between Lock Interface and synchronized keyword]</b></summary>
 	
 #### Difference between Lock Interface and synchronized keyword
 The main differences between a Lock and a synchronized block are:
@@ -6357,9 +6357,9 @@ Control concurrent access to multiple copies of a resource using Semaphore
 In previous tutorial, we learned about binary semaphore which can be used to control access to single copy of a resource using the counter value either 0 or 1. However, semaphores can also be used when you need to protect various copies of a resource that can be executed by more than one thread at the same time. In this example, we will learn how to use a semaphore to protect more than one copy of a resource.
 
 Let’s revisit semaphore concept before moving ahead.
-
 </details>
-<details><summary><b>[74 - How Semaphores Work?]</b></summary>
+</details>
+<details><summary><b>[73 - How Semaphores Work?]</b></summary>
 	
 #### How Semaphores Work?
 You can visualize a semaphore as counter which can be incremented or decremented. You initialize the semaphore with a number i.e. 5. Now this semaphore can be decremented maximum five times in a row until counter reaches to 0. Once counter is zero, you can increment it to maximum five times to make it 5. The counter value of semaphore MUST always be inside limit 0 >= n >= 5 (in our case).
@@ -6367,8 +6367,8 @@ Obviously, semaphores are more than just being counters. They are able to make t
 Talking in terms of multi-threading, when a thread wants to access one of shared resources (guarded by semaphore), first, it must acquire the semaphore. If the internal counter of the semaphore is greater than 0, the semaphore decrements the counter and allows access to the shared resource. Otherwise, if the counter of the semaphore is 0, the semaphore puts the thread to sleep until the counter is greater than 0. A value of 0 in the counter means all the shared resources are used by other threads, so the thread that wants to use one of them must wait until one is free.
 When a thread has finished the use of the shared resource, it must release the semaphore so that the other threads can access the shared resource. That operation increases the internal counter of the semaphore.
 
-</details>
-<details><summary><b>[75 - How to use semaphore?]</b></summary>
+
+<details><summary><b>[73.1 - How to use semaphore?]</b></summary>
 	
 #### How to use semaphore?
 To demonstrate the concept, we will be using semaphore for controlling 3 printers which can print multiples documents simultaneously.
@@ -6540,7 +6540,7 @@ Thread 5: The document has been printed
 In above example, the Semaphore object is created using 3 as the parameter of the constructor. The first three threads that call the acquire() method will get the access to printers while the rest will be blocked. When a thread finishes the critical section and releases the semaphore, another thread will acquire it.
 In the printJob() method, the thread gets the index of the printer assigned to print this job.
 That’s all for this simple yet important concept. Drop me your questions and comments if any.
-
+</details>
 </details>
 <details><summary><b>[76 - Concurrency vs. Parallelism]</b></summary>
 	
