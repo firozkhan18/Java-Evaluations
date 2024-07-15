@@ -2477,6 +2477,7 @@ The program output.
 In this Java tutorial, we learned to filter a HashMap by keys or values and collect the matching Entry instances into a submap. We also learned to collect the values in a List after filtering the Map keys against a List using Stream.filter() and forEach() APIs.
 
 </details>
+
 </details>
 
 <details>
@@ -2698,10 +2699,10 @@ TreeMap<Long, String> mapwithSortedKeys = stream
 
 ### 5. Conclusion
 This Java Stream tutorial discussed various ways to collect the stream items into a Map, or a Map of Lists. We saw the examples of each approach and their outputs for a better understanding of what each approach does to Stream items.
-- [Collect a Java Stream to an Immutable Collection](https://howtodoinjava.com/java/collections/collect-stream-into-immutable-collection)
+
 </details>
 <details>
-<summary><b>Filter a Map by List of Keys</b></summary>
+<summary><b>Collect a Java Stream to an Immutable Collection</b></summary>
 
 # Collecting Stream Elements into Immutable Collection
 
@@ -3199,10 +3200,222 @@ Similarly, use toArray() function of LongStream or DoubleStream as well.
 
 <details>
 <summary><b>5. Stream Operations</b></summary>
-  
-- [Append or Prepend Items to a Stream](https://howtodoinjava.com/java8/adding-items-to-stream)
-- [Merging Streams](https://howtodoinjava.com/java8/stream-concat-example)
-- [Java Stream reuse – Traverse stream multiple times?](https://howtodoinjava.com/java8/java-stream-reuse)
+
+<details>
+<summary><b>Append or Prepend Items to a Stream</b></summary>
+
+# Append or Prepend Items to a Stream
+
+Learn to add items to a Java Stream. Remember that a Stream is not a data structure or collection that can store values. To add items to an existing Stream, we need to :
+
+Create a new Stream with items to be added
+Concatenate with the first stream to get a merged stream.
+### 1. Concatenating Streams
+The Stream.concat(stream1, stream2) is used to merge two streams into one stream which consists of all the elements of both streams.
+
+The concat(s1, s2) method creates a lazily concatenated stream whose elements are all the elements of the s1 followed by all the elements of the s2.
+The resulting stream is ordered if both of the input streams are ordered.
+The resulting stream is parallel if either of the input streams is parallel.
+### 2. Examples of Adding Items
+#### 2.1. Appending Items
+To append items at the start of a Stream, create a new stream of items and pass the new Stream as the first method argument in the concat() method.
+
+Stream<Integer> stream = Stream.of(1, 2, 3, 4);
+         
+//Append 5 and 6 to the stream
+Stream<Integer> appenededStream = Stream.concat(stream, Stream.of(5, 6));
+ 
+//Verify Stream
+appenededStream.forEach(System.out::print); //Prints 123456
+
+#### 2.2. Prepending Items
+To prepend the items at the end of a Stream, create a new stream of the items and pass the new Stream as the second method argument in the concat() method.
+
+Stream<Integer> stream = Stream.of(1, 2, 3, 4);
+         
+//Prepend 0 to the stream
+Stream<Integer> prependedStream = Stream.concat(Stream.of(0), stream);
+ 
+//Verify Stream
+prependedStream.forEach(System.out::print); //Prints 01234
+
+### 3. Conclusion
+The Stream API provides lots of useful methods which can be used to solve many problems. In the above case, adding new objects to the Java stream has been demonstrated using the concat() API whose original purpose is to merge two streams.
+</details>  
+<details>
+<summary><b>Merging Streams</b></summary>
+
+# Java 8 Stream.concat(): How to Combine Streams?
+
+The Java 8 Stream.concat() method merges two streams into one stream. The combined stream consists of all the elements of both streams.
+
+If either of the streams is a parallel stream, the resulting stream will also be a parallel stream. Be careful when combining parallel and sequential streams because this may affect performance and behavior.
+
+The concat() method is useful in the following usecases:
+
+Combining results from different data sources.
+Merging multiple streams into one for unified processing.
+Concatenating static data with dynamically generated data.
+### 1. Stream concat() Method
+The concat() method is a static method in Stream class. Its method signature is:
+
+static <T> Stream<T> concat(Stream<? extends T> firstStream, Stream<? extends T> secondStream)
+
+It creates a lazily concatenated stream whose elements are all the elements of the firstStream followed by all the elements of the secondStream.
+The resulting stream is ordered if both of the input streams are ordered.
+The resulting stream is parallel if either of the input streams is parallel.
+When the resulting stream is closed, the close handlers for both input streams are invoked.
+### 2. Merge Two Streams using Stream.concat()
+Java example to merge two streams of numbers – to obtain a stream that contains numbers from both streams.
+
+Stream<Integer> firstStream = Stream.of(1, 2, 3);
+Stream<Integer> secondStream = Stream.of(4, 5, 6);
+ 
+Stream<Integer> resultingStream = Stream.concat(firstStream, secondStream);
+ 
+System.out.println( resultingStream.toList() );   
+
+Program Output.
+
+[1, 2, 3, 4, 5, 6]
+
+### 3. Combining Multiple Streams using Stream.concat()
+Java example to merge four streams of numbers – to obtain a stream that contains numbers from all streams. Notice we have made a static import to Stream.concat() function which makes the code readable.
+
+Stream<Integer> first = Stream.of(1, 2);
+Stream<Integer> second = Stream.of(3,4);
+Stream<Integer> third = Stream.of(5, 6);
+Stream<Integer> fourth = Stream.of(7,8);
+
+Stream<Integer> resultingStream = Stream.concat(first, concat(second, concat(third, fourth)));
+
+System.out.println( resultingStream.toList() );
+
+Program Output.
+
+[1, 2, 3, 4, 5, 6, 7, 8]
+
+### 4. Combining Streams without Duplicate Elements
+#### 4.1. Using distinct() with Primitives and Strings
+While merging two streams, we can use distinct() API and the resulting stream will contain only the unique elements.
+
+Stream<Integer> firstStream = Stream.of(1, 2, 3, 4, 5, 6);
+Stream<Integer> secondStream = Stream.of(4, 5, 6, 7, 8, 9);
+
+Stream<Integer> resultingStream = Stream.concat(firstStream, secondStream).distinct();
+
+System.out.println( resultingStream.toList() );
+
+Program Output.
+
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+#### 4.2. Custom Equality Check for User-defined Objects
+In case of merging streams of custom objects, we can drop the duplicate elements during stream iteration. We can use the distinctByKey() function created for java stream distinct by object property example.
+
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+ 
+public class Main 
+{
+  public static void main(String[] args) 
+  {
+    Stream<Employee> stream1 = getEmployeeListOne().stream();
+    Stream<Employee> stream2 = getEmployeeListTwo().stream();
+     
+    Stream<Employee> resultingStream = Stream.concat(stream1, stream2)
+        .filter(distinctByKey(Employee::getFirstName));
+     
+    System.out.println( resultingStream.collect(Collectors.toList()) );
+  }
+   
+  public static <T> Predicate<T> distinctByKey(Function<? super T, Object> keyExtractor)
+  {
+      Map<Object, Boolean> map = new ConcurrentHashMap<>();
+      return t -> map.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+  }
+ 
+  private static ArrayList<Employee> getEmployeeListOne() 
+  {
+    ArrayList<Employee> list = new ArrayList<>();
+    list.add( new Employee(1l, "Lokesh", "Gupta") );
+    list.add( new Employee(5l, "Brian", "Piper") );
+    list.add( new Employee(7l, "Charles", "Piper") );
+    list.add( new Employee(6l, "David", "Beckham") );
+        return list;
+  }
+   
+  private static ArrayList<Employee> getEmployeeListTwo() 
+  {
+    ArrayList<Employee> list = new ArrayList<>();
+    list.add( new Employee(2l, "Lokesh", "Gupta") );
+    list.add( new Employee(4l, "Brian", "Piper") );
+    list.add( new Employee(3l, "David", "Beckham") );
+        return list;
+  }
+}
+
+> Program Output.
+```
+[Employee [id=1, firstName=Lokesh, lastName=Gupta],
+Employee [id=5, firstName=Brian, lastName=Piper],
+Employee [id=7, firstName=Charles, lastName=Piper],
+Employee [id=6, firstName=David, lastName=Beckham]]
+```
+</details>  
+<details>
+<summary><b>Java Stream reuse – Traverse stream multiple times?</b></summary>
+
+# Java Stream Reuse – Consume Stream Multiple Times?
+
+One of the main features of Java Streams is that they are designed to be consumed only once. Once a terminal operation is performed on a stream, it is considered consumed and cannot be reused. But many times, we need to perform different operations on the same stream.
+
+So, is it possible to reuse streams in Java? Learn the alternative of Java stream reuse and how to handle situations where we need to consume a stream multiple times.
+
+### 1. Can we reuse the Stream? The answer is ‘NO’.
+Java streams, once consumed, can not be reused by default. As Java docs say clearly,
+
+“A stream should be operated on (invoking an intermediate or terminal stream operation) only once. This rules out, for example, “forked” streams, where the same source feeds two or more pipelines, or multiple traversals of the same stream. A stream implementation may throw IllegalStateException if it detects that the stream is being reused.“
+
+So the simple answer is: NO, we cannot reuse the streams or traverse the streams multiple times. Any attempt to do so will result in an error: “Stream has already been operated on or closed“.
+
+### 2. Why the Streams cannot be Reused?
+The streams are not reusable due to their internal structure and the nature of their operations, which are generally designed to be consumed and processed in a single pass.
+
+If we observe its internals, a Stream represents a sequence of elements supporting sequential and parallel aggregate operations. Conceptually, a stream can be thought of as a pipeline of computational steps. The intermediate steps process the elements and return a new Stream, whereas the terminal steps trigger the actual processing of the elements.
+
+In runtime, streams maintain the internal state during their execution. Once a terminal operation is performed, the internal state is consumed and the stream is considered closed. Allowing reuse would require additional mechanisms to reset the internal state and reinitialize the source which would complicate the design and reduce performance.
+
+### 2. Alternative to Reuse a Stream
+First of all, any implementation code that requires traversing the stream multiple times – isn’t efficient code and needs to be refactored.
+
+The only usecase where we might want to create a source and get stream multiple times is – unit testing. In that case, we can always use the stream() method to create a new stream.
+
+List<Integer> tokens = Arrays.asList(1, 2, 3, 4, 5);
+ 
+//first use
+Optional<Integer> result = tokens.stream().max(Integer::compareTo);
+System.out.println(result.get());
+ 
+//second use
+result = tokens.stream().min(Integer::compareTo);
+System.out.println(result.get());
+ 
+//third use
+long count = tokens.stream().count();
+System.out.println(count);
+
+> Program output.
+
+> 5
+> 1
+> 5
+</details>  
 </details>  
 
 
@@ -3237,6 +3450,84 @@ Similarly, use toArray() function of LongStream or DoubleStream as well.
 
 <details>
 <summary><b>7. Advance Topics</b></summary>
-  
-- [How To Debug Java Streams](https://howtodoinjava.com/java/stream/debugging-java-streams)
+
+<details>
+<summary><b>How To Debug Java Streams</b></summary>
+
+# How To Debug Java Streams
+
+Java Streams, added in Java 8, became popular very fast and are a powerful way to process collections of objects. A Stream is a sequence of objects from a source and supports chained methods to produce the desired result.
+
+Debugging Java streams can be challenging. In this post, we will learn to debug the streams as their elements are processed in the chained method calls.
+
+### 1. Why are Streams Hard to Debug?
+Java 8 Streams may sometimes be difficult to debug. This happens because they require us to insert additional breakpoints and thoroughly analyze each transformation inside the stream.
+
+For example, we have the Student class:
+
+public class Student {
+
+    private String name;
+    private String email;
+    private Double grade;
+    
+    //getters, setters, constructor, toString method
+}
+
+We can create a list of students:
+
+List<Student> students = List.of(
+    new Student("Alexandru","alex@gmail.com",5.6),
+    new Student("Emmanuela","emma@yahoo.com",7.2),
+    new Student("John","john@gmail.com",10.0),
+    new Student("Andrew","andrew",6.2),
+    new Student("Anna","anna@gmail.com",6.2)
+);
+
+Suppose, we want to get all the students in alphabetical order that have a valid email address and a passing grade. So we use the stream API operations:
+
+List<Student> newList = students.stream()
+    .filter(student -> student.getEmail().endsWith("@gmail.com"))
+    .filter(student -> student.getGrade() > 5.0)
+    .sorted(Comparator.comparing(Student::getName))
+    .collect(Collectors.toList());
+
+After running the program we get only one student. So we want to debug the stream to see how it filters the students.
+
+See Also: Guide to Java Stream API
+
+### 2. Debug using peek() API
+We can debug the stream using the peek() method to log the information about the data at every step. The peek() method returns a stream consisting of the elements of the source stream and performs the action requested by the client of each element.
+
+List<Student> newList = students.stream()
+    .filter(student -> student.getEmail().endsWith("@gmail.com"))
+    .peek(student -> System.out.println("Filtered 1 value:" + student))
+    .filter(student -> student.getGrade() > 5.0)
+    .peek(student -> System.out.println("Filtered 2 value:" + student))
+    .sorted(Comparator.comparing(Student::getName))
+    .collect(Collectors.toList());
+
+Notice the program output. We can see that peek() method clearly prints the elements of the stream in the pipeline after each call to filter() method. We can see that 3 students pass the first filter and only one passes the second one too.
+
+Filtered 1 value:Student{name="Alexandru", email="alex@gmail.com", grade=2.6}
+Filtered 1 value:Student{name="John", email="john@gmail.com", grade=10.0}
+Filtered 2 value:Student{name="John", email="john@gmail.com", grade=10.0}
+Filtered 1 value:Student{name="Anna", email="anna@gmail.com", grade=4.2}
+
+### 3. Debug using IntelliJ Stream Debugger
+The IntelliJ Stream Debugger is a hidden gem and is very easy to use. It allows you to visualize the stream. Let’s use this in our example.
+
+For the first step, we will set a breakpoint on the stream.
+
+
+Now we will run the program in debugging mode. The program will be suspended when the stream is created.
+
+
+
+And now we will press the button “Trace Current Stream Chain”. A new tab will open, and here we can see how the stream does filter the data.
+
+
+### 4. Conclusion
+Streams may be seen as difficult to debug. But here the special methods of the Streams API, as well as the special tools of the IDEs that we use daily, come to our aid.
+</details>   	
 </details>   
