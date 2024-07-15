@@ -1093,7 +1093,7 @@ Java 9 has introduced a new method LocalDate.datesUntil() that can give a stream
 
 This method has two overloaded forms:
 
-- startDate.datesUntil(endDate) : returns a sequential ordered stream of dates that starts from startDate (inclusive) and goes to - - --- endDate (exclusive) by an incremental step of 1 day.
+- startDate.datesUntil(endDate) : returns a sequential ordered stream of dates that starts from startDate (inclusive) and goes to endDate (exclusive) by an incremental step of 1 day.
 - startDate.datesUntil(endDate, period) : same as above with a configured incremental step period.
   
 > Stream<LocalDate> datesUntil(LocalDate end)
