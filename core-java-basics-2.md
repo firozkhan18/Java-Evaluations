@@ -4,19 +4,29 @@
 ### What is Java
 
 Java is an internet based object oriented programing language. Oriented programing language is a programing methodology that helps to organized complex program through the use of Inheritance, encapsulation and polymorphism. 
+
 Java derives much of its character from C and C++. This is by intent, the java designer knows that using the familiar syntax of C++ would make their language appealing to the legions of experienced C/C++ programmer.
+
 In addition to the surface similarities java shares some of the other attributes that helped make C and C++ successful.
+
 	1. Java was designed tested and refined by real working programmers. It is language grounded in the need and experience of the people who device it. Thus java is also a programmer’s language.
 	2. Java is a cohesive and logically consistent.
 	3. Except for those constraints imposed by the internet environment java gives you full control if your program reflect it. If your program poorly your program reflect that too.
+ 
 The internet helped catapult of java to the forefront of programing and java. In turn has had a profound effect on the internet. The reason for this is quite simple:
 Java expands the universe of objects that can be move about freely in cyberspace. In a network two very broad category of objects are transmitted between server and your personal computer.  
+
 Passive information and dynamic active program for example if you read your mail you are viewing passive data even when you download a programs code is still only passive data until you execute it.
+
 However a second type of object can be transmitted to your computer. A dynamic, self-executing programs, such a program is an active agent on a client computer yet is initiated by the server. For example, a program might be provided by the server to display properly the data that the server is sending.
 Note: Java is a case sensitive language. 
+
 Java is an object-oriented, class-based, concurrent, secured and general-purpose computer-programming language. It is a widely used robust technology.
+
 Java is a programming language and a platform. Java is a high level, robust, object-oriented and secure programming language.
+
 Java was developed by Sun Microsystems (which is now the subsidiary of Oracle) in the year 1995. James Gosling is known as the father of Java. Before Java, its name was Oak. Since Oak was already a registered company, so James Gosling and his team changed the Oak name to Java.
+
 Platform: Any hardware or software environment in which a program runs, is known as a platform. Since Java has a runtime environment (JRE) and API, it is called a platform.
 
 </details><details><summary><b>[2 - Types of Java Applications]</b></summary>
@@ -24,12 +34,16 @@ Platform: Any hardware or software environment in which a program runs, is known
 ### Types of Java Applications
 
 There are mainly 4 types of applications that can be created using Java programming:
+
 1) Standalone Application
 Standalone applications are also known as desktop applications or window-based applications. These are traditional software that we need to install on every machine. Examples of standalone application are Media player, antivirus, etc. AWT and Swing are used in Java for creating standalone applications.
+
 2) Web Application
 An application that runs on the server side and creates a dynamic page is called a web application. Currently, Servlet, JSP, Struts, Spring, Hibernate, JSF, etc. technologies are used for creating web applications in Java.
+
 3) Enterprise Application
 An application that is distributed in nature, such as banking applications, etc. is called enterprise application. It has advantages of the high-level security, load balancing, and clustering. In Java, EJB is used for creating enterprise applications.
+
 4) Mobile Application
 An application which is created for mobile devices is called a mobile application. Currently, Android and Java ME are used for creating mobile applications.
 </details>
@@ -41,12 +55,19 @@ An application which is created for mobile devices is called a mobile applicatio
 There are 4 platforms or editions of Java:
 
 1) Java SE (Java Standard Edition)
+
 It is a Java programming platform. It includes Java programming APIs such as java.lang, java.io, java.net, java.util, java.sql, java.math etc. It includes core topics like OOPs, String, Regex, Exception, Inner classes, Multithreading, I/O Stream, Networking, AWT, Swing, Reflection, Collection, etc.
+
 2) Java EE (Java Enterprise Edition)
+   
 It is an enterprise platform which is mainly used to develop web and enterprise applications. It is built on the top of the Java SE platform. It includes topics like Servlet, JSP, Web Services, EJB, JPA, etc.
+
 3) Java ME (Java Micro Edition)
+
 It is a micro platform which is mainly used to develop mobile applications.
+
 4) JavaFX
+   
 It is used to develop rich internet applications. It uses a light-weight user interface API.
 </details>
 
@@ -60,6 +81,7 @@ A list of most important features of Java language is given below.
 <details><summary><b>[4.1 - Simple]</b></summary>
 
 Java is very easy to learn, and its syntax is simple, clean and easy to understand. According to Sun, Java language is a simple programming language because:
+
 - Java syntax is based on C++ (so easier for programmers to learn it after C++).
 - Java has removed many complicated and rarely-used features, for example, explicit pointers, operator overloading, etc.
 - There is no need to remove unreferenced objects because there is an Automatic Garbage Collection in Java.
@@ -68,6 +90,7 @@ Java is very easy to learn, and its syntax is simple, clean and easy to understa
 <details><summary><b>[4.2 - Object-oriented]</b></summary>
 
 Java is an object-oriented programming language. Everything in Java is an object. Object-oriented means we organize our software as a combination of different types of objects that incorporates both data and behavior.
+
 Object-oriented programming (OOPs) is a methodology that simplifies software development and maintenance by providing some rules.
 
 Basic concepts of OOPs are:
@@ -81,6 +104,7 @@ Basic concepts of OOPs are:
 <details><summary><b>[4.3 - Platform Independent]</b></summary>
 
 Java is platform independent because it is different from other languages like C, C++, etc. which are compiled into platform specific machines while Java is a write once, run anywhere language. A platform is the hardware or software environment in which a program runs.
+
 There are two types of platforms software-based and hardware-based. Java provides a software-based platform.
 
 The Java platform differs from most other platforms in the sense that it is a software-based platform that runs on the top of other hardware-based platforms. 
@@ -99,6 +123,7 @@ The fact that a java program is interpreted also helps to make it secure. Becaus
 When program is interpreted it generally runs substantially slower than it would run if compiled to executable code. The use of bytecode enables the java runtime system to execute program much faster than you might expect.
 
 Although java was designed for interpretation there is technically nothing about java that prevent on the fly compiled if bytecode into native code. Along this lines, sun supplies it’s just in time (JIT) compiler for bytecode which is include in the java 2 release. 
+
 When you download the normal program you are risking of viral infection. Worries about infecting their system addition of virus another type of malicious program exist that must be guarded against java provides firewall between networked application and your computer.
 		
 Java is best known for its security. With Java, we can develop virus-free systems. Java is secured because:
@@ -107,7 +132,7 @@ Java is best known for its security. With Java, we can develop virus-free system
 - Java Programs run inside a virtual machine sandbox
 	
 - Classloader: Classloader in Java is a part of the Java Runtime Environment (JRE) which is used to load Java classes into the Java Virtual Machine dynamically. It adds security by separating the package for the classes of the local file system from those that are imported from network sources.
-- Bytecode Verifier: It checks the code fragments for illegal code that can violate access right to objects.
+- Bytecode Verifier: It checks the code fragments for illegal code that can violate access right to objects.  
 - Security Manager: It determines what resources a class can access such as reading and writing to the local disk.
 
 Java language provides these securities by default. Some security can also be provided by an application developer explicitly through SSL, JAAS, Cryptography, etc.
@@ -123,6 +148,7 @@ Robust simply means strong. Java is robust because:
 <details><summary><b>[4.6 - Architecture-neutral]</b></summary>   
   
 Java is architecture neutral because there are no implementation dependent features, for example, the size of primitive types is fixed.
+
 In C programming, int data type occupies 2 bytes of memory for 32-bit architecture and 4 bytes of memory for 64-bit architecture. However, it occupies 4 bytes of memory for both 32 and 64-bit architectures in Java.
 </details> 
 <details><summary><b>[4.7 - Portable]</b></summary>  
@@ -170,11 +196,16 @@ When the JIT is part of the JVM it compiles bytecode into executable code in rea
 #### Two Paradigm
 1.	Process Oriented Model
 2.	Object Oriented Programming Model
-All computer programs consists of two elements: code and data. Program can be conceptually organized around its code or around its data. 
+
+All computer programs consists of two elements: code and data. Program can be conceptually organized around its code or around its data.
+
 That is some programs are written around “what is happening” and others are written around “who is being affected”, these are the two paradigms that governs how program is constructed.
 The first way is called the process oriented model. This approach characterized a program as a series of linear steps (that is code). 
+
 The process oriented model can be thought of as code acting on data. Procedural language such as c employs this model to considerable success. Problem with this approaches appears as program grows larger and more complex.
+
 To manage increasing complexity the second approach called object oriented programing was conceived.
+
 Object oriented programing organizes a program around its data (that is objects) and a set of well-defined interfaces to that data. An object oriented program can be characterized as data controlling access to code.
 
 <details>
@@ -230,7 +261,7 @@ A class can also be defined as a blueprint from which you can create an individu
 
 A class is a group of objects which have common properties. It is a template or blueprint from which objects are created. It is a logical entity. It can't be physical.
 
-A class in Java can contain:
+#### A class in Java can contain:
 
 - Fields
 - Methods
@@ -255,7 +286,9 @@ A variable which is created inside the class but outside the method is known as 
 
 #### Object
 The data or variables defined within a class are called instance variable. The code is contained within methods collectively, the methods and variables defined within a class are called member of the class.
+
 An Object can be defined as an instance of a class. An object contains an address and takes up some space in memory. Objects can communicate without knowing the details of each other's data or code. The only necessary thing is the type of message accepted and the type of response returned by the objects.
+
 - Declaring Objects
 As just explained, when you create a class, you are creating a new data type. You can use this type to declare objects of that type. However, obtaining objects of a class is a two-step process. 
 
@@ -298,21 +331,21 @@ Here, we are creating a main() method inside the class.
 
 ```java
 File: Student.java
-1.	//Java Program to illustrate how to define a class and fields  
-2.	//Defining a Student class.  
-3.	class Student{  
-4.	 //defining fields  
-5.	 int id;//field or data member or instance variable  
-6.	 String name;  
-7.	 //creating main method inside the Student class  
-8.	 public static void main(String args[]){  
-9.	  //Creating an object or instance  
-10.	  Student s1=new Student();//creating an object of Student  
-11.	  //Printing values of the object  
-12.	  System.out.println(s1.id);//accessing member through reference variable  
-13.	  System.out.println(s1.name);  
-14.	 }  
-15.	}
+//Java Program to illustrate how to define a class and fields  
+//Defining a Student class.  
+class Student{  
+ //defining fields  
+ int id;//field or data member or instance variable  
+ String name;  
+ //creating main method inside the Student class  
+public static void main(String args[]){  
+  //Creating an object or instance  
+  Student s1=new Student();//creating an object of Student  
+  //Printing values of the object  
+  System.out.println(s1.id);//accessing member through reference variable  
+  System.out.println(s1.name);  
+ }  
+}
 ``` 
 > Test it Now
 > Output:
@@ -326,21 +359,21 @@ In real time development, we create classes and use it from another class. It is
 We can have multiple classes in different Java files or single Java file. If you define multiple classes in a single Java source file, it is a good idea to save the file name with the class name which has main() method.
 ```java
 File: TestStudent1.java
-1.	//Java Program to demonstrate having the main method in   
-2.	//another class  
-3.	//Creating Student class.  
-4.	class Student{  
-5.	 int id;  
-6.	 String name;  
-7.	}  
-8.	//Creating another class TestStudent1 which contains the main method  
-9.	class TestStudent1{  
-10.	 public static void main(String args[]){  
-11.	  Student s1=new Student();  
-12.	  System.out.println(s1.id);  
-13.	  System.out.println(s1.name);  
-14.	 }  
-15.	}
+//Java Program to demonstrate having the main method in   
+//another class  
+//Creating Student class.  
+class Student{  
+ int id;  
+ String name;  
+}  
+//Creating another class TestStudent1 which contains the main method  
+class TestStudent1{  
+ public static void main(String args[]){  
+  Student s1=new Student();  
+  System.out.println(s1.id);  
+  System.out.println(s1.name);  
+ }  
+}
 ```
 > Test it Now
 > Output:
@@ -354,22 +387,23 @@ There are 3 ways to initialize object in Java.
 1.	By reference variable
 2.	By method
 3.	By constructor
+
 1) Object and Class Example: Initialization through reference
 Initializing an object means storing data into the object. Let's see a simple example where we are going to initialize the object through a reference variable.
 ```java
 File: TestStudent2.java
-1.	class Student{  
-2.	 int id;  
-3.	 String name;  
-4.	}  
-5.	class TestStudent2{  
-6.	 public static void main(String args[]){  
-7.	  Student s1=new Student();  
-8.	  s1.id=101;  
-9.	  s1.name="Sonoo";  
-10.	  System.out.println(s1.id+" "+s1.name);//printing members with a white space  
-11.	 }  
-12.	}
+class Student{  
+ int id;  
+ String name;  
+}  
+class TestStudent2{  
+ public static void main(String args[]){  
+  Student s1=new Student();  
+  s1.id=101;  
+  s1.name="Sonoo";  
+  System.out.println(s1.id+" "+s1.name);//printing members with a white space  
+ }  
+}
 ```
 > Test it Now
 > Output:
@@ -377,25 +411,25 @@ File: TestStudent2.java
 We can also create multiple objects and store information in it through reference variable.
 ```java
 File: TestStudent3.java
-1.	class Student{  
-2.	 int id;  
-3.	 String name;  
-4.	}  
-5.	class TestStudent3{  
-6.	 public static void main(String args[]){  
-7.	  //Creating objects  
-8.	  Student s1=new Student();  
-9.	  Student s2=new Student();  
-10.	  //Initializing objects  
-11.	  s1.id=101;  
-12.	  s1.name="Sonoo";  
-13.	  s2.id=102;  
-14.	  s2.name="Amit";  
-15.	  //Printing data  
-16.	  System.out.println(s1.id+" "+s1.name);  
-17.	  System.out.println(s2.id+" "+s2.name);  
-18.	 }  
-19.	}
+class Student{  
+ int id;  
+ String name;  
+}  
+class TestStudent3{  
+ public static void main(String args[]){  
+  //Creating objects  
+  Student s1=new Student();  
+  Student s2=new Student();  
+//Initializing objects  
+  s1.id=101;  
+  s1.name="Sonoo";  
+  s2.id=102;  
+  s2.name="Amit";  
+  //Printing data  
+System.out.println(s1.id+" "+s1.name);  
+  System.out.println(s2.id+" "+s2.name);  
+ }  
+}
 ```
 > Test it Now
 > Output:
