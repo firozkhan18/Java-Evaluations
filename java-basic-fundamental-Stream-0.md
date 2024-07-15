@@ -730,8 +730,69 @@ Stream<Double> boxedStream2 =
     DoubleStream.of(1.0, 2.0, 3.0, 4.0, 5.0).boxed();
 ```
 </details>
+<details>
+<summary><b>Using ‘if-else’ Conditions with Streams</b></summary>
+	
+# Using ‘if-else’ Conditions with Java Streams
 
-- [Using ‘if-else’ Conditions with Streams](https://howtodoinjava.com/java8/stream-if-else-logic)
+Learn to use the if-else conditions logic using Java Stream API to filter the items from a collection based on certain conditions.
+
+### 1. The ‘if-else‘ Condition as Consumer Implementation
+The 'if-else' condition can be applied as a lambda expression in forEach() function in form of a Consumer action.
+
+Consumer is a functional interface whose functional method is ‘void accept(Object)‘. It represents an operation that accepts a single input argument and returns no result.
+
+In the given example, we are checking if a number is even then print a message, else print another message for an odd number.
+```java
+ArrayList<Integer> numberList 
+    = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6));
+
+Consumer<Integer> action = i -> {
+    if (i % 2 == 0) {
+        System.out.println("Even number :: " + i); //Or any other user action we want to do
+    } else {
+        System.out.println("Odd  number :: " + i);  //Or any other user action we want to do
+    }
+};
+
+numberList.stream()
+    .forEach(action);
+```
+We can perform any kind of operation on the stream items instead of just printing the items to the console, e.g. storing the items to two separate lists or passing the items to other method calls.
+We can write as many if-else statements as required.
+We can also write the pass the Consumer implementation as an inline lambda expression to the forEach() function.
+```java
+Arrays.asList(-1, 1, -2, 3, 4, -5, 6, 0).stream()
+    .forEach(
+        i -> {
+          if (i == 0) {
+            System.out.println("Number is 0");
+          } else if (i > 0) {
+            System.out.println("Positive Number");
+          } else {
+            System.out.println("Negative Number");
+          }
+        }
+    );
+```
+### 2. The ‘if' Condition with Predicates
+If we intend to apply only 'if' logic then we can pass the condition directly do the filter() function as a Predicate.
+
+In the given example, we are checking if a number is an even number then printing a message.
+```java
+ArrayList<Integer> numberList = new ArrayList<>(Arrays.asList(1,2,3,4,5,6));
+
+
+Predicate<Integer> isEven = i -> i % 2 == 0;
+         
+numberList.stream()
+    .filter(isEven)
+    .forEach(System.out::println);
+```
+Using one of the above given two methods, we can apply any combination of if-else conditions in Java 8 stream elements.
+
+</details>
+	
 - [Creating Infinite Streams](https://howtodoinjava.com/java8/java-infinite-stream)
 - [Stream of Random Numbers](https://howtodoinjava.com/java8/stream-random-numbers-range)
 - [Boxed Streams](https://howtodoinjava.com/java8/java8-boxed-intstream)
