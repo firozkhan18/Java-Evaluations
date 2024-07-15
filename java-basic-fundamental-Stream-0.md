@@ -1307,12 +1307,8 @@ Stream.of(employees).zipWithIndex()
       .forEach(System.out::println);
 ```
 </details>
-  
-- [Stream has already been operated upon or closed Exception](https://howtodoinjava.com/java/stream/stream-has-already-been-operated-upon-or-closed)
-
-
 <details>
-<summary><b>[Solved] “Stream has already been operated upon or closed” Exception</b></summary>
+<summary><b>Stream has already been operated upon or closed Exception</b></summary>
 	
 # [Solved] “Stream has already been operated upon or closed” Exception
 
@@ -1374,8 +1370,7 @@ List<Integer> oddNumbers = streamSupplier.get()
         .filter(integer -> integer % 2 == 1)
         .collect(Collectors.toList());
 ```
-</details>	
-
+</details>
 </details>
 
 <details>
