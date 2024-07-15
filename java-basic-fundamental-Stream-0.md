@@ -1131,8 +1131,69 @@ List<LocalDate> list = nextThreeDays
     .collect(Collectors.toList());
 ```
 </details>
+<details>
+<summary><b>Remove/Update Elements From List using Stream</b></summary>
 
-- [Remove/Update Elements From List using Stream](https://howtodoinjava.com/java/stream/remove-update-stream-elements)
+# Java – Remove/Update Elements From List using Stream
+
+Learn to remove and update elements of a Collection using Stream API in Java with examples. It is worth noting that each method shown below creates a new List, the original List is not modified after the processing.
+
+### 1. Removing Elements using Stream
+Removing the elements is very simple. We iterate over the Stream elements and filter out the elements that match a given Predicate passed to the Stream.filter() method.
+
+In the following example, we are only selecting the employees whose names start with the character “A“. All other elements are removed from the stream.
+```java
+List<Employee> list = List.of(
+    new Employee(1, "Alex", LocalDate.of(1990, 1, 2), 100d),
+    new Employee(2, "Alok", LocalDate.of(1992, 1, 2), 200d),
+    new Employee(3, "Brian", LocalDate.of(1994, 1, 2), 300d),
+    new Employee(4, "Charles", LocalDate.of(1996, 1, 2), 400d));
+
+List<Employee> modifiedList = list.stream()
+    .filter(e -> e.getName().startsWith("A"))
+    .collect(Collectors.toList());
+
+//Employees whose names start with "A"
+System.out.println(modifiedList);
+```
+The program output.
+```
+[
+	Employee [id=1, name=Alex, dateOfBirth=1990-01-02, salary=100.0], 
+	Employee [id=2, name=Alok, dateOfBirth=1992-01-02, salary=200.0]
+]
+```
+### 2. Updating Elements using Stream
+To update all elements or the matching elements from the Stream, we use the Stream.map() method and return a new Employee instance. All modified instances are collected into a new List.
+
+In the following example, we are updating the salary for all employees by 100. The modified elements are collected into newList.
+```java
+List<Employee> list = List.of(
+    new Employee(1, "Alex", LocalDate.of(1990, 1, 2), 100d),
+    new Employee(2, "Alok", LocalDate.of(1992, 1, 2), 200d),
+    new Employee(3, "Brian", LocalDate.of(1994, 1, 2), 300d),
+    new Employee(4, "Charles", LocalDate.of(1996, 1, 2), 400d));
+
+List<Employee> newList = list.stream()
+    .map(e -> {
+      e.setSalary(e.getSalary() + 100);
+      return e;
+    })
+    .collect(Collectors.toList());
+
+System.out.println(newList);
+```
+The program output.
+```
+[
+	Employee [id=1, name=Alex, dateOfBirth=1990-01-02, salary=200.0], 
+	Employee [id=2, name=Alok, dateOfBirth=1992-01-02, salary=300.0], 
+	Employee [id=3, name=Brian, dateOfBirth=1994-01-02, salary=400.0], 
+	Employee [id=4, name=Charles, dateOfBirth=1996-01-02, salary=500.0]
+]
+```
+</details>
+
 - [Iterate with Indices](https://howtodoinjava.com/java/stream/iterate-over-stream-with-indices)
 - [Stream has already been operated upon or closed Exception](https://howtodoinjava.com/java/stream/stream-has-already-been-operated-upon-or-closed)
 </details>
