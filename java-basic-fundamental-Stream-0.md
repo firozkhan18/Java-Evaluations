@@ -603,7 +603,7 @@ ArgumentsProcessor<Integer> intMultiplier = (i1, i2) -> i1 * i2;
 System.out.println(intMultiplier.process(4, 5));	//20
 ```
 </details>
-<details><summary><b>Generic Functional Interfaces</b></summary>
+<details><summary><b>Primitive Type Streams</b></summary>
 
 # Primitive Type Streams in Java
 
