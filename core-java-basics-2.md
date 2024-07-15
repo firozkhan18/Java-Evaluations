@@ -643,6 +643,7 @@ File: TestAccount.java
 > Balance is: 26000.0
 </details>
 </details>
+
 <details><summary><b>[11 - The Three OOP’s principles]</b></summary>
 	
 #### The Three OOP’s principles:
@@ -1109,9 +1110,13 @@ Try for Output
 > Dog is eating
 Since, BabyDog is not overriding the eat() method, so eat() method of Dog class is invoked.
 </details>
+
 </details>
+
 </details>
+
 </details>
+
 <details><summary><b>[14 - Inheritance in java]</b></summary>
 
 #### Inheritance in java
