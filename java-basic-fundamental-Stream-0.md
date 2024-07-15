@@ -1193,8 +1193,121 @@ The program output.
 ]
 ```
 </details>
+<details>
+<summary><b>Iterate with Indices</b></summary>
 
-- [Iterate with Indices](https://howtodoinjava.com/java/stream/iterate-over-stream-with-indices)
+# How to Iterate Over a Stream With Indices
+
+Unlike the Collection elements, Stream elements cannot be accessed through indices, but there are still workarounds to get indices of the elements. In this Java tutorial, we will learn such few ways to iterate over Stream with indices.
+
+### 1. Setup
+For demo purposes, we are using the following Employee class.
+```java
+public class Employee {
+
+    private String name;
+    private String email;
+    private int age;
+}
+```
+And we will also initialize an array of new employee objects which we will convert into a stream and then filter it according to indices:
+```java
+Employee[] employees = {
+    new Employee("Alexandru", "alexandru@gmail.com", 22),
+    new Employee("Emanuela", "ema@gmail.com", 20),
+    new Employee("George", "george@gmail.com", 32),
+    new Employee("John", "john123@gmail.com", 25),
+    new Employee("Liam", "liam123@gmail.com", 45),
+    new Employee("Noah", "noah@outlook.com", 30),
+    new Employee("Oliver", "oliver@yahoo.com", 47)
+};
+```
+### 2. Using Custom Logic
+For our first example, we will utilize the fact that our array elements can be accessed through indices. So, taking that in a sense, we will use the IntStream class to iterate over the numbers from 0 to the length of our array, filter them by the index, and map them with the corresponding Employee objects for the desired indices.
+
+We can also collect the Employee instances in a new List if such a requirement exists.
+```java
+IntStream.range(0, employees.length)
+        .filter(i -> i % 2 == 0)
+        .mapToObj(i -> employees[i])
+        .forEach(System.out::println);
+```
+We can also use an AtomicInteger to hold the index of the stream elements. Then, we will get a stream from array using the stream() function and map each element of the stream with an index using the map() method, where the index is brought from the AtomicInteger by incrementing every time with the help of getAndIncrement() function.
+```java	
+AtomicInteger index = new AtomicInteger();
+
+Arrays.stream(employees)
+        .map(i -> index.getAndIncrement())
+        .filter(i -> i % 2 == 0)
+        .map(i -> employees[i])
+        .forEach(System.out::println);
+```
+### 3. Using StreamUtils
+For this example, we will use StreamUtils class from the protonpack library.
+```pom
+<dependency>
+    <groupId>com.codepoetics</groupId>
+    <artifactId>protonpack</artifactId>
+    <version>1.16</version>
+</dependency>
+```
+Now we can use the zipWithIndex() function from the StreamUtils class. This function will take the elements and zip each value with its index to create a stream of indexed values. After calling the function, we will filter the elements by their index, map them to their value and print each element.
+```java
+StreamUtils.zipWithIndex(Arrays.stream(employees))
+      .filter(e -> e.getIndex() % 2 == 0)
+      .map(e -> e.getValue())
+      .forEach(System.out::println);
+```
+### 3. Using StreamEx
+Now we will use the EntryStream class from the StreamEx library.
+```pom
+<dependency>
+    <groupId>one.util</groupId>
+    <artifactId>streamex</artifactId>
+    <version>0.8.1</version>
+</dependency>
+```
+Now we can use the filterKeyValue() method to filter our values by their index. After that, we will take only the values and print them to the console.
+```java
+EntryStream.of(employees)
+    .filterKeyValue((index, name) -> index % 2 == 0)
+    .values()
+    .forEach(System.out::println);
+```
+### 4. Using Guava’s Streams
+Guava is a group of core Java libraries from Google that contains new collection classes (such as multimap and multiset) and more! It is widely utilized on most Java projects within Google and by many other companies.
+```pom
+<dependency>
+    <groupId>com.google.guava</groupId>
+    <artifactId>guava</artifactId>
+    <version>31.0.1-jre</version>
+</dependency>
+````
+We will use the mapWithIndex() function that returns a Stream that contains the results of applying the given function to the elements of the stream and their indexes in the stream. After applying the function, we will return null values for the odd indexes, and we will filter out them and print the result.
+```java
+Streams.mapWithIndex(Arrays.stream(employees),
+          (emp, index) -> index % 2 ==0 ? emp : null)
+  .filter(emp -> emp != null)
+  .forEach(System.out::println);	
+```
+### 5. Iteration using Vavre‘s Stream
+Vavr is a functional library for Java. It allows the reduction of the amount of code and increases the robustness.
+```pom
+<dependency>
+    <groupId>io.vavr</groupId>
+    <artifactId>vavr</artifactId>
+    <version>0.10.4</version>
+</dependency>
+```
+Now we can use the zipWithIndex() function that will traverse our stream and return a tuple that contains the value and the index of the value. Now we can easily filter out the elements based on the parity of the index and print it on the console.
+```java
+Stream.of(employees).zipWithIndex()
+      .filter(tuple -> tuple._2 % 2 == 0)
+      .map(tuple -> tuple._1)
+      .forEach(System.out::println);
+```
+</details>
+  
 - [Stream has already been operated upon or closed Exception](https://howtodoinjava.com/java/stream/stream-has-already-been-operated-upon-or-closed)
 </details>
 
