@@ -4439,6 +4439,7 @@ If you want to put two public classes in a package, have two java source files c
 #### What is static import feature of Java5?
 Click Static Import feature of Java5.
 </details>
+
 <details><summary><b>[015 - Java Thread]</b></summary>
 
 #### Java Thread
@@ -4468,6 +4469,7 @@ The value of a multithreaded environment is best understood in contrast to its c
 The benefit of Java’s multithreading is that the main loop/polling mechanism is eliminated. One thread can pause without stopping other parts of your program. For example, the idle time created when a thread reads data from a network or waits for user input can be utilized elsewhere. Multithreading allows animation loops to sleep for a second between each frame without causing the whole system to pause. When a thread blocks in a Java program, only the single thread that is blocked pauses. All other threads continue to run. 
 
 Threads exist in several states. A thread can be running. It can be ready to run as soon as it gets CPU time. A running thread can be suspended, which temporarily suspends its activity. A suspended thread can then be resumed, allowing it to pick up where it left off. A thread can be blocked when waiting for a resource. At any time, a thread can be terminated, which halts its execution immediately. Once terminated, a thread cannot be resumed.
+
 </details>
 <details><summary><b>[015 - Thread Priorities]</b></summary>
 	
@@ -5840,6 +5842,7 @@ class RejectedExecutionHandelerImpl implements RejectedExecutionHandler
 3.	In multi-threaded programs, make a habit of catching errors too, not just exceptions. Sometimes unexpected things happen and Java throws an error at you, apart from an exception.
 4.	Use a back-off switch, so if something goes wrong and is non-recoverable, you don’t escalate the situation by eagerly starting another loop. Instead, you need to wait until the situation goes back to normal and then start again.
 5.	Please note that the whole point of executors is to abstract away the specifics of execution, so ordering is not guaranteed unless explicitly stated.
+
 </details>
 </details>
 
