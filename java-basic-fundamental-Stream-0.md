@@ -3421,31 +3421,1921 @@ System.out.println(count);
 
 <details>
 <summary><b>6. Stream API and Methods</b></summary>
+	
+<details>
+<summary><b>Guide to IntStream in Java</b></summary>
+
+# Guide to IntStream in Java
+
+Java IntStream class is a specialization of Stream interface for int primitive. It represents a stream of primitive int-valued elements supporting sequential and parallel aggregate operations.
+
+IntStream is part of the java.util.stream package and implements AutoCloseable and BaseStream interfaces.
+
+### 1. Creating IntStream
+There are several ways of creating an IntStream.
+
+#### 1.1. With Specified Values
+This function returns a sequential ordered stream whose elements are the specified values.
+
+It comes in two versions i.e. single element stream and multiple values stream.
+
+- IntStream of(int t) – Returns stream containing a single specified element.
+- IntStream of(int... values) – Returns stream containing specified all elements.
+- IntStream.of(10); 		//10
+- IntStream.of(1, 2, 3); 	//1,2,3
+
+#### 1.2. Generating ints in Range
+The IntStream produced by range() methods is a sequential ordered stream of int values which is the equivalent sequence of increasing int values in a for-loop and value incremented by 1. This class supports two methods.
+
+- range(int start, int end) – Returns a sequential ordered int stream from startInclusive (inclusive) to endExclusive (exclusive) by an incremental step of 1.
+- rangeClosed(int start, int end) – Returns a sequential ordered int stream from startInclusive (inclusive) to endInclusive (inclusive) by an incremental step of 1.
+```java
+IntStream.range(1, 5);  	//1,2,3,4
+
+IntStream.rangeClosed(1, 5);  	//1,2,3,4,5
+```
+#### 1.3. Infinite Streams with Iteration
+The iterator() function is useful for creating infinite streams. Also, we can use this method to produce streams where values are increment by any other value than 1.
+
+Given example produces first 10 even numbers starting from 0.
+
+IntStream.iterate(0, i -> i + 2).limit(10);	
+
+//0,2,4,6,8,10,12,14,16,18
+
+#### 1.4. Infinite Streams with IntSupplier
+The generate() method looks a lot like iterator(), but differs by not calculating the int values by incrementing the previous value. Rather an IntSupplier is provided which is a functional interface is used to generate an infinite sequential unordered stream of int values.
+
+Following example create a stream of 10 random numbers and then print them in the console.
+```java
+IntStream stream = IntStream
+    .generate(() -> { return (int)(Math.random() * 10000); }); 
+
+stream.limit(10).forEach(System.out::println);
+```
+### 2. Iterating Over Values
+To loop through the elements, stream support the forEach() operation. To replace simple for-loop using IntStream, follow the same approach.
+```java
+IntStream.rangeClosed(0, 4)
+			.forEach( System.out::println );
+```
+### 3. Filtering the Values
+We can apply filtering on int values produced by the stream and use them in another function or collect them for further processing.
+
+For example, we can iterate over int values and filter/collect all prime numbers up to a certain limit.
+```java
+IntStream stream = IntStream.range(1, 100); 
+
+List<Integer> primes = stream.filter(ThisClass::isPrime)
+			.boxed()
+			.collect(Collectors.toList());
+
+public static boolean isPrime(int i)
+{
+    IntPredicate isDivisible = index -> i % index == 0;
+    return i > 1 && IntStream.range(2, i).noneMatch(isDivisible);
+}
+```
+### 4. Converting IntStream to Array
+Use IntStream.toArray() method to convert from the stream to int array.
+```java
+int[] intArray = IntStream.of(1, 2, 3, 4, 5).toArray();
+```
+### 5. Converting IntStream to List
+Collections in Java can not store the primitive values directly. They can store only instances/objects.
+
+Using boxed() method of IntStream, we can get a stream of wrapper objects which can be collected by Collectors methods.
+```java
+List<Integer> list = IntStream.of(1,2,3,4,5)
+            .boxed()
+            .collect(Collectors.toList());
+```
+</details>
+<details>
+<summary><b>Streams peek() API</b></summary>
+
+# Java Stream peek()
+
+Java Stream peek() method returns a new Stream consisting of all the elements from the original Stream after applying a given Consumer action.
+
+Note that the peek() method is an intermediate Stream operation so, to process the Stream elements through peek(), we must use a terminal operation. Using Stream.peek() without any terminal operation does nothing.
+
+### 1. Stream peek() Method
+#### 1.1. Usage
+According to Java docs, the purpose of peek() method is to support debugging when we want to see the elements as they flow through the Stream processing pipeline.
+
+We can call peek() method after every intermediate operation to see the effect of intermediate operation on the Stream elements.
+
+> Pseudo Code
+```java
+Stream<T> stream = createStream();
+
+stream.operationOne()
+	.peek()
+	.operationTwo()
+	.peek()
+	.terminalOperation();
+```
+#### 1.2. Method Syntax
+The peek() returns a new Stream consisting of elements from the original Stream.
+
+Here action is a non-interfering action to perform on the elements as they are consumed from the Stream. The result elements after performing the action are placed into the new Stream.
+
+> Syntax
+> Stream<T> peek(Consumer<? super T> action)
+
+#### 1.3. Description
+Stream peek() method is an intermediate operation.
+It returns a Stream consisting of the elements of current stream.
+It additionally perform the provided action on each element as elements.
+For parallel stream pipelines, the action may be called at whatever time and in whatever thread the element is made available by the upstream operation.
+If the action modifies shared state, it is itself responsible for providing the required synchronization.
+peek() exists mainly to support debugging, where we want to see the elements as they flow past a certain point in a pipeline.
+### 2. Stream peek() Examples
+#### 2.1. Using peek() Without Terminal Operation
+As mentioned above, Stream.peek() without any terminal operation does nothing.
+
+Stream.peek() without terminal operation
+```java
+List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+ 
+list.stream()
+  .peek( System.out::println );   //prints nothing
+```
+#### 2.2. Using peek() with Terminal Operation
+Java program to use peek() API to debug the Stream operations and log Stream elements as they are processed.
+
+Stream.peek() with terminal operation
+```java
+List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+     
+List<Integer> newList = list.stream()
+      .peek(System.out::println)
+      .collect(Collectors.toList());
+ 
+System.out.println(newList);
+```
+> Program output.
+
+> Output
+> 1
+> 2
+> 3
+> 4
+> 5
+> [1, 2, 3, 4, 5]
+
+#### 3. Conclusion
+Stream.peek() method can be useful in visualizing how the stream operations behave and understanding the implications and interactions of complex intermediate stream operations.
+
+</details> 
+<details>
+<summary><b>Difference Between map() and flatMap()</b></summary>
+	
+- [](https://howtodoinjava.com/java8/stream-map-vs-flatmap)
+</details> 
+<details>
+<summary><b>Stream findFirst() vs. findAny()</b></summary>
+	
+- [](https://howtodoinjava.com/java8/stream-findfirst-findany)
+</details> 
+<details>
+<summary><b>Java Stream findAny()</b></summary>
+	 
+- [](https://howtodoinjava.com/java8/stream-findany)
+</details> 
+<details>
+<summary><b>Java Stream findFirst()</b></summary>
+	 
+- [](https://howtodoinjava.com/java8/java-stream-findfirst)
+</details> 
+<details>
+<summary><b>Java Collectors teeing()</b></summary>
+
+# Collectors teeing() Examples
+
+The Collectors.teeing() is a new feature introduced in Java 12 as part of the Stream API enhancements. It allows two different collectors on a stream and then merges their results using a specified BiFunction.
+
+Let us learn when and how to use the Collectors.teeing() method.
+
+### 1. Purpose of teeing collector
+The Collectors.teeing() method is useful when we want to simultaneously process a stream in two different ways and then combine their results. If not using the teeing() method, we would have processed the stream two times, teeing() allows to process in a single statement.
+
+During stream processing, every element passed to the resulting collector is processed by both downstream collectors, then their results are merged using the specified merge function into the final result.
+
+Please note that teeing() function helps perform a certain task in a single step. We can surely perform the given task in two steps if we do not use the teeing() function. It’s just a helper function that helps in reducing the verbosity.
+
+### 2. Syntax
+The syntax is as follows:
+
+downstream1: The first collector.
+downstream2: The second collector.
+merger: A BiFunction to merge the results of the two collectors.
+/**
+* downstream1 - the first downstream collector
+* downstream2 - the second downstream collector
+* merger - the function which merges two results into the single one
+* returns - a Collector which aggregates the results of two supplied collectors.
+*/
+```java
+public static Collector teeing​ (Collector downstream1,
+						Collector downstream2,
+						BiFunction merger);
+```
+### 3. Using Collectors.teeing() to Find Max and Min
+In this Collectors.teeing() example, we have a list of employees. We want to find out employees with maximum and minimum salaries in a single step.
+
+The following Java program performs finding max and min operations, then collects both items in a Map.
+```java
+List<Employee> employeeList = List.of(
+    new Employee(1, "A", 100),
+    new Employee(2, "B", 200),
+    new Employee(3, "C", 300),
+    new Employee(4, "D", 400)); 
+
+HashMap<String, Employee> result = employeeList.stream().collect( 
+    Collectors.teeing(
+        Collectors.maxBy(Comparator.comparing(Employee::getSalary)),
+        Collectors.minBy(Comparator.comparing(Employee::getSalary)),
+        (e1, e2) -> {
+          HashMap<String, Employee> map = new HashMap();
+          map.put("MAX", e1.get());
+          map.put("MIN", e2.get());
+          return map;
+        }
+    ));
+
+System.out.println(result);
+```
+In the above example,
+
+Collectors.maxBy is the first collector.
+Collectors.minBy is the second collector.
+Merger function produces the HashMap.
+Program output.
+
+{
+	MIN=Employee [id=1, name=A, salary=100.0],
+	MAX=Employee [id=4, name=D, salary=400.0]
+}
+
+### 4. Using Collectors.teeing() to Filter and Count
+In this example, we will use the same set of employees. Here, we will find all employees with a salary greater than 200, and then we will also count the number of such employees.
+```java
+List<Employee> employeeList = List.of(
+  new Employee(1, "A", 100),
+  new Employee(2, "B", 200),
+  new Employee(3, "C", 300),
+  new Employee(4, "D", 400)); 
+
+HashMap<String, Object> result = employeeList.stream().collect( 
+  Collectors.teeing(
+      Collectors.filtering(e -> e.getSalary() > 200, Collectors.toList()),
+      Collectors.filtering(e -> e.getSalary() > 200, Collectors.counting()),
+      (list, count) -> {
+        HashMap<String, Object> map = new HashMap();
+        map.put("list", list);
+        map.put("count", count);
+        return map;
+      }
+  ));
+
+System.out.println(result);
+```
+Program output.
+
+{
+	count=2,
+	list=[Employee [id=3, name=C, salary=300.0], Employee [id=4, name=D, salary=400.0]]
+}
+
+### 5. Using Collectors.teeing() to Average and Sum
+Suppose we have a list of numbers and we want to calculate and print both the average and the sum of a list of integers.
+```java
+List<Integer> numbers = IntStream.rangeClosed(1, 10).boxed().toList();
+
+String result = numbers.stream().collect(
+    Collectors.teeing(
+        Collectors.averagingInt(Integer::intValue),
+        Collectors.summingInt(Integer::intValue),
+        (average, sum) -> String.format("Average: %.2f, Sum: %d", average, sum)
+    )
+);
+
+System.out.println(result);
+```
+### 6. Conclusion
+The above examples of Collectors.teeing() method are very simple and written for basic understanding. We need to use the function very specific to our own needs.
+
+Simply remember that when we need to perform stream operation twice and collect results in two different collectors, consider using teeing() method. It will not always fit in the usecase, but it may be useful when it fits in.
+
+</details> 
+<details>
+<summary><b>Java Stream concat()</b></summary>
+
+# Java 8 Stream.concat(): How to Combine Streams?
+
+The Java 8 Stream.concat() method merges two streams into one stream. The combined stream consists of all the elements of both streams.
+
+If either of the streams is a parallel stream, the resulting stream will also be a parallel stream. Be careful when combining parallel and sequential streams because this may affect performance and behavior.
+
+The concat() method is useful in the following usecases:
+
+Combining results from different data sources.
+Merging multiple streams into one for unified processing.
+Concatenating static data with dynamically generated data.
+### 1. Stream concat() Method
+The concat() method is a static method in Stream class. Its method signature is:
+
+> static <T> Stream<T> concat(Stream<? extends T> firstStream, Stream<? extends T> secondStream)
+
+It creates a lazily concatenated stream whose elements are all the elements of the firstStream followed by all the elements of the secondStream.
+The resulting stream is ordered if both of the input streams are ordered.
+The resulting stream is parallel if either of the input streams is parallel.
+When the resulting stream is closed, the close handlers for both input streams are invoked.
+### 2. Merge Two Streams using Stream.concat()
+Java example to merge two streams of numbers – to obtain a stream that contains numbers from both streams.
+```java
+Stream<Integer> firstStream = Stream.of(1, 2, 3);
+Stream<Integer> secondStream = Stream.of(4, 5, 6);
+ 
+Stream<Integer> resultingStream = Stream.concat(firstStream, secondStream);
+ 
+System.out.println( resultingStream.toList() );   
+```
+> Program Output.
+
+> [1, 2, 3, 4, 5, 6]
+
+### 3. Combining Multiple Streams using Stream.concat()
+Java example to merge four streams of numbers – to obtain a stream that contains numbers from all streams. Notice we have made a static import to Stream.concat() function which makes the code readable.
+```java
+Stream<Integer> first = Stream.of(1, 2);
+Stream<Integer> second = Stream.of(3,4);
+Stream<Integer> third = Stream.of(5, 6);
+Stream<Integer> fourth = Stream.of(7,8);
+
+Stream<Integer> resultingStream = Stream.concat(first, concat(second, concat(third, fourth)));
+
+System.out.println( resultingStream.toList() );
+```
+> Program Output.
+
+> [1, 2, 3, 4, 5, 6, 7, 8]
+
+### 4. Combining Streams without Duplicate Elements
+#### 4.1. Using distinct() with Primitives and Strings
+While merging two streams, we can use distinct() API and the resulting stream will contain only the unique elements.
+```java
+Stream<Integer> firstStream = Stream.of(1, 2, 3, 4, 5, 6);
+Stream<Integer> secondStream = Stream.of(4, 5, 6, 7, 8, 9);
+
+Stream<Integer> resultingStream = Stream.concat(firstStream, secondStream).distinct();
+
+System.out.println( resultingStream.toList() );
+```
+> Program Output.
+
+> [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+#### 4.2. Custom Equality Check for User-defined Objects
+In case of merging streams of custom objects, we can drop the duplicate elements during stream iteration. We can use the distinctByKey() function created for java stream distinct by object property example.
+```java
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+ 
+public class Main 
+{
+  public static void main(String[] args) 
+  {
+    Stream<Employee> stream1 = getEmployeeListOne().stream();
+    Stream<Employee> stream2 = getEmployeeListTwo().stream();
+     
+    Stream<Employee> resultingStream = Stream.concat(stream1, stream2)
+        .filter(distinctByKey(Employee::getFirstName));
+     
+    System.out.println( resultingStream.collect(Collectors.toList()) );
+  }
+   
+  public static <T> Predicate<T> distinctByKey(Function<? super T, Object> keyExtractor)
+  {
+      Map<Object, Boolean> map = new ConcurrentHashMap<>();
+      return t -> map.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+  }
+ 
+  private static ArrayList<Employee> getEmployeeListOne() 
+  {
+    ArrayList<Employee> list = new ArrayList<>();
+    list.add( new Employee(1l, "Lokesh", "Gupta") );
+    list.add( new Employee(5l, "Brian", "Piper") );
+    list.add( new Employee(7l, "Charles", "Piper") );
+    list.add( new Employee(6l, "David", "Beckham") );
+        return list;
+  }
+   
+  private static ArrayList<Employee> getEmployeeListTwo() 
+  {
+    ArrayList<Employee> list = new ArrayList<>();
+    list.add( new Employee(2l, "Lokesh", "Gupta") );
+    list.add( new Employee(4l, "Brian", "Piper") );
+    list.add( new Employee(3l, "David", "Beckham") );
+        return list;
+  }
+}
+```
+> Program Output.
+```
+[Employee [id=1, firstName=Lokesh, lastName=Gupta],
+Employee [id=5, firstName=Brian, lastName=Piper],
+Employee [id=7, firstName=Charles, lastName=Piper],
+Employee [id=6, firstName=David, lastName=Beckham]]
+```
+</details> 
+ <details>
+<summary><b>Java Stream toArray()</b></summary>
+
+# Java Stream toArray() Example
+
+Java 8 Stream.toArray() method is used to convert a stream into an array. In other words, toArray() accumulates the stream elements and returns them as an array.
+
+In this tutorial, we will see multiple examples for collecting the Stream elements into an array.
+
+### 1. Stream toArray() Method
+The toArray() method returns an array containing the elements of the given stream. This is a terminal operation. It has two main variations:
+
+> Object[] toArray()
+> <T> T[]  toArray(IntFunction<T[]> generator)
+
+The first method collects the elements of the stream into an array of Object.
+The second method uses a generator function to produce a new array of the desired type and the provided length.
+When working with parallel streams, the order of elements in the resulting array may not be predictable.
+
+### 2. Stream toArray() Example
+Example 1: Converting ‘Stream<String>‘ to ‘String[]‘
+In the given example, we are converting a stream to an array using using toArray() API. It uses the String[]::new generator function for creating a new array of type String. This is equivalent to writing a lambda expression that creates a new String array, such as ‘size -> new String[size]‘.
+```java
+Stream<String> tokenStream = Stream.of("A", "B", "C", "D");
+     
+String[] tokenArray = tokenStream.toArray(String[]::new);
+ 
+//Verification
+System.out.println( Arrays.toString(tokenArray) );  
+```
+Program output.
+
+[A, B, C, D]
+
+Example 2: Converting Infinite Stream to Array
+To convert an infinite stream into an array, we must limit the stream to a finite number of elements.
+
+Infinite Stream of Integers
+```java
+IntStream infiniteNumberStream = IntStream.iterate(1, i -> i+1);
+     
+int[] intArray = infiniteNumberStream.limit(10).toArray();  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+Infinite boxed stream of Integers
+IntStream infiniteNumberStream = IntStream.iterate(1, i -> i+1);
+ 
+Integer[] integerArray = infiniteNumberStream.limit(10)
+          .boxed()
+          .toArray(Integer[]::new);  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+Example 3: Stream, filter, and collect to an Array
+Sometimes we need to find specific items in the stream and then add only those elements to the array. Here, we can use Stream.filter() method to pass a predicate that will return only those elements that match the pre-condition.
+```java
+List<Employee> employeeList = new ArrayList<>(Arrays.asList(
+      new Employee(1, "A", 100),
+      new Employee(2, "B", 200),
+      new Employee(3, "C", 300),
+      new Employee(4, "D", 400),
+      new Employee(5, "E", 500),
+      new Employee(6, "F", 600)));
+
+Employee[] employeesArray = employeeList.stream()
+    .filter(e -> e.getSalary() < 400)
+    .toArray(Employee[]::new);
+
+System.out.println(Arrays.toString(employeesArray));
+```
+Program output.
+
+[Employee [id=1, name=A, salary=100.0],
+Employee [id=2, name=B, salary=200.0],
+Employee [id=3, name=C, salary=300.0]]
+
+### 3. Summary
+The Stream.toArray() method converts a stream into an array. The default toArray() returns an array of Object and the parameterized toArray(generator) returns an array of a specific type.
+
+Be careful with parallel streams and the result may not be predictable.
+</details> 
+<details>
+<summary><b>Java Stream noneMatch()</b></summary>
+
+# Java Stream noneMatch()
+
+Java Stream noneMatch() method is a short-circuiting terminal operation. The noneMatch() is used to check that Stream does not contain any element matching the provided Predicate.
+
+### 1. Stream noneMatch() Method
+#### 1.1. Syntax
+boolean noneMatch(Predicate<? super T> predicate)
+
+The noneMatch() returns:
+
+true – if no element in the stream matches the given predicate, or the stream is empty.
+false – if at least one element matches the given predicate.
+Here predicate a non-interfering and stateless predicate to apply to elements of the stream.
+
+It is short-circuiting operation. A terminal operation is short-circuiting if, when presented with infinite input, it may terminate in finite time.
+
+#### 1.2. Description
+The noneMatch() is a short-circuiting terminal operation.
+It returns whether no element of the stream match the provided predicate.
+It may not evaluate the predicate on all elements if not necessary for determining the result. The method returns true if no stream element matches the given predicate, else method returns false.
+If the stream is empty then true is returned and the predicate is not evaluated.
+It is pretty much opposite to method allMatch().
+2. Stream noneMatch() Example
+Java example of Stream.noneMatch() method to check if no element in the Stream contains any numeric/digit character.
+```java
+import java.util.stream.Stream;
+
+public class Main
+{
+	public static void main(String[] args)
+	{
+		Stream<String> stream = Stream.of("one", "two", "three", "four");
+
+		boolean match = stream.noneMatch( s -> s.contains("\\d+") );
+
+		System.out.println(match);		//true
+	}
+}
+```
+> Program output.
+
+> true
+
+#### 3. Conclusion
+Stream.noneMatch() method can be useful in certain cases where we need to run a check on all stream elements. For example, we can use noneMatch() function on a stream of Employee objects to validate that all employees are NOT below a certain age.
+</details> 
+<details>
+<summary><b>Java Stream allMatch()</b></summary>
+
+# Java Stream allMatch()
+
+Java Stream allMatch() is a short-circuiting terminal operation that is used to check if all the elements in the stream satisfy the provided predicate.
+
+### 1. Stream allMatch() Method
+#### 1.1. Syntax
+Syntax
+boolean allMatch(Predicate<? super T> predicate)
+
+Here predicate a non-interfering, stateless predicate to apply to all the elements of the stream.
+
+The allMatch() method returns always a true or false, based on the result of the evaluation.
+
+#### 1.2. Description
+It is a short-circuiting terminal operation.
+It returns whether all elements of this stream match the provided predicate.
+May not evaluate the predicate on all elements if not necessary for determining the result. Method returns true if all stream elements match the given predicate, else method returns false.
+If the stream is empty then true is returned and the predicate is not evaluated.
+The difference between allMatch() and anyMatch() is that anyMatch() returns true if any of the elements in a stream matches the given predicate. When using allMatch(), all the elements must match the given predicate.
+### 2. Stream allMatch() Examples
+Let us look at a few examples of allMatch() menthod to understand its usage.
+
+Example 1: Checking if Any Element Contains Numeric Characters
+In the given example, none of the strings in the Stream contain any numeric character. The allMatch() checks this condition in all the strings and finally returns true.
+
+Checking all elements in the stream
+```java
+Stream<String> stream = Stream.of("one", "two", "three", "four");
+
+Predicate<String> containsDigit = s -> s.contains("\\d+") == false;
+
+boolean match = stream.allMatch(containsDigit);
+
+System.out.println(match);	
+```
+> Program output.
+
+> Output
+> true
+
+Example 2: Stream.allMatch() with Multiple Conditions
+To satisfy multiple conditions, create a composed predicate with two or more simple predicates.
+
+In the given example, we have a list of Employee. We want to check if all the employees who are above the age of 50 – are earning above 40,000.
+
+In the list, the employee "B" is earning below 40k and his age is above 50, so the result is false.
+
+allMatch() with composed predicate
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+ 
+public class Main 
+{
+  public static void main(String[] args) 
+  {
+    Predicate<Employee> olderThan50 = e -> e.getAge() > 50;
+    Predicate<Employee> earningMoreThan40K = e -> e.getSalary() > 40_000;
+    Predicate<Employee> combinedCondition = olderThan50.and(earningMoreThan40K);
+     
+    boolean result = getEmployeeStream().allMatch(combinedCondition);
+    System.out.println(result);
+  }
+   
+  private static Stream<Employee> getEmployeeStream()
+  {
+    List<Employee> empList = new ArrayList<>();
+    empList.add(new Employee(1, "A", 46, 30000));
+    empList.add(new Employee(2, "B", 56, 30000));
+    empList.add(new Employee(3, "C", 42, 50000));
+    empList.add(new Employee(4, "D", 52, 50000));
+    empList.add(new Employee(5, "E", 32, 80000));
+    empList.add(new Employee(6, "F", 72, 80000));
+     
+    return empList.stream();
+  }
+}
+ 
+@Data
+@AllArgsConstructor
+class Employee 
+{
+  private long id;
+  private String name;
+  private int age;
+  private double salary;
+}
+```
+Program output.
+
+Output
+false
+
+### 3. Conclusion
+Stream.allMatch() method can be useful in certain cases where we need to run a check on all stream elements.
+
+For example, we can use allMatch() on a stream of Employee objects to validate if all employees are above a certain age.
+
+It is short-circuiting operation. A terminal operation is short-circuiting if, when presented with infinite input, it may terminate in finite time.
+</details> 
+<details>
+<summary><b>Java Stream anyMatch()</b></summary>
+
+# Java Stream anyMatch()
+
+Java Stream anyMatch(predicate) is a terminal short-circuit operation. It is used to check if the Stream contains at least one element that satisfies the given Predicate.
+
+### 1. Stream anyMatch() API
+#### 1.1. Syntax
+Here predicate a non-interfering, stateless Predicate to apply to elements of the stream.
+
+The anyMatch() method returns true if at least one element satisfies the condition provided by predicate, else false.
+
+Syntax
+boolean anyMatch(Predicate<? super T> predicate)
+
+#### 1.2. Description
+It is a short-circuiting terminal operation.
+It returns whether any elements of this stream match the provided predicate.
+May not evaluate the predicate on all elements if not necessary for determining the result. Method returns true as soon as first matching element is encountered.
+If the stream is empty then false is returned and the predicate is not evaluated.
+The difference between allMatch() and anyMatch() is that anyMatch() returns true if any of the elements in a stream matches the given predicate. When using allMatch(), all the elements must match the given predicate.
+#### 2. Stream anyMatch() Examples
+Example 1: Checking if Stream contains a Specific Element
+In this Java example, we are using the anyMatch() method to check if the stream contains the string "four".
+
+As we see that the stream contains the string, so the output of the example is true.
+
+Checking if Stream contains an element
+Stream<String> stream = Stream.of("one", "two", "three", "four");
+
+boolean match = stream.anyMatch(s -> s.contains("four"));
+
+System.out.println(match);
+
+Program output.
+
+Output
+true
+
+Example 2: Stream.anyMatch() with Multiple Predicates
+To satisfy multiple conditions, create a composed predicate with two or more simple predicates.
+
+In the given example, we have a list of Employee. We want to check if there is an employee who is above the age of 50 – is earning above 40,000.
+
+In the list, employees "D" and "F" are earning above 40k and their age is above 50, so the result is true.
+
+Stream anyMatch() with multiple conditions
+```java
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
+import lombok.AllArgsConstructor;https://howtodoinjava.com/wp-admin/tools.php
+import lombok.Data;
+ 
+public class Main 
+{
+  public static void main(String[] args) 
+  {
+    Predicate<Employee> olderThan50 = e -> e.getAge() > 50;
+    Predicate<Employee> earningMoreThan40K = e -> e.getSalary() > 40_000;
+    Predicate<Employee> combinedCondition = olderThan50.and(earningMoreThan40K);
+     
+    boolean result = getEmployeeStream().anyMatch(combinedCondition);
+    System.out.println(result);
+  }
+   
+  private static Stream<Employee> getEmployeeStream()
+  {
+    List<Employee> empList = new ArrayList<>();
+    empList.add(new Employee(1, "A", 46, 30000));
+    empList.add(new Employee(2, "B", 56, 30000));
+    empList.add(new Employee(3, "C", 42, 50000));
+    empList.add(new Employee(4, "D", 52, 50000));
+    empList.add(new Employee(5, "E", 32, 80000));
+    empList.add(new Employee(6, "F", 72, 80000));
+     
+    return empList.stream();
+  }
+}
+ 
+@Data
+@AllArgsConstructor
+class Employee 
+{
+  private long id;
+  private String name;
+  private int age;
+  private double salary;
+}
+```
+> Program output.
+
+> Output
+> true
+
+### 3. Difference between anyMatch() vs contains()
+Theoretically, there is no difference between anyMatch() and contains() when we want to check if an element exists in a List.
+
+In some cases, parallelism feature of Streams may bring an advantage for really large lists, but we should not casually use the Stream.parallel() every time assuming that it may make things faster.
+
+In fact, invoking parallel() may bring down the performance for small streams.
+
+### 4. Conclusion
+The anyMatch() method can be useful in certain cases where we need to check if there is at least one element in the stream.
+
+The shorter version list.contains() also does the same thing and can be used instead.
+</details> 
+<details>
+<summary><b>Java Stream skip()</b></summary>
+
+# Java Stream skip()
+
+Stream skip(n) method is used to skip the first 'n' elements from the given Stream.
+
+The skip() method returns a new Stream consisting of the remaining elements of the original Stream, after the specified n elements have been discarded in the encounter order.
+
+### 1. Stream skip() Method
+#### 1.1. Method Syntax
+> Syntax
+> Stream<T> skip(long n)
+
+The n is the number of leading elements to be discarded. It returns a new Stream consisting of elements picked from the original stream.
+
+The method may throw IllegalArgumentException if n is negative.
+
+#### 1.2. Description
+Stream skip() method is stateful intermediate operation. Stateful operations, such as distinct and sorted, may incorporate state from previously seen elements when processing new elements.
+Returns a stream consisting of the remaining elements of the stream after discarding the first n elements of the stream.
+If the stream contains fewer than n elements then an empty stream will be returned.
+Generally skip() is a cheap operation, it can be quite expensive on ordered parallel pipelines, especially for large values of n.
+Using an unordered stream source (such as generate(Supplier)) or removing the ordering constraint with BaseStream.unordered() may result in significant speedups of skip() in parallel pipelines.
+skip() skips the first n elements in the encounter order.
+#### 2. Stream skip() Example
+In this Java program, we are using the skip() method to skip the first 5 even numbers from an infinite stream of even numbers and then collect the next 10 even numbers into a new Stream.
+
+Skip 5 and then collect 10 numbers
+```java
+Stream<Integer> evenNumInfiniteStream = Stream.iterate(0, n -> n + 2);
+
+List<Integer> newList = evenNumInfiniteStream
+		.skip(5)
+		.limit(10)
+		.collect(Collectors.toList());
+		
+System.out.println(newList);
+```
+> Program output.
+
+> [10, 12, 14, 16, 18, 20, 22, 24, 26, 28]
+#### 3. Conclusion
+The Stream skip() method can be useful in certain cases where we need to get the elements from a Stream but first, we need to skip a few elements from the Stream.
+
+The fact, that skip() returns the elements in the encounter order, makes it very useful for normal business usecases as well.
+</details> 
+ <details>
+<summary><b>Java Stream limit()</b></summary>
+	 
+# Java Stream limit()
+
+Stream limit(n) is used to retrieve a number of elements from the Stream while the count must not be greater than n. The limit() method returns a new Stream consisting of the elements of the given stream, truncated to be no longer than maxSize in length.
+
+### 1. Stream limit() Method
+#### 1.1. Syntax
+Syntax
+Stream<T> limit(long maxSize)
+
+Here maxSize the number of elements the stream should be limited to; and the method return value is a new Stream consisting of elements picked from the original stream.
+
+#### 1.2. Description
+Stream.limit() method is short-circuiting intermediate operation. An intermediate operation is short-circuiting if, when presented with infinite input, it may produce a finite stream as a result. Please note that a terminal operation is short-circuiting if, when presented with infinite input, it may terminate in finite time.
+It returns a stream consisting of the maximum elements, no longer than given size in length, of current stream.
+Generally, limit() is cheap operation but may sometimes be expensive if maxSize has a large value and stream is parallely processed.
+Using an unordered stream source (such as generate(Supplier)) or removing the ordering constraint with BaseStream.unordered() may result in significant speedups of limit() in parallel pipelines.
+limit() returns the first n elements in the encounter order.
+### 2. Stream limit() Examples
+Example 1: Getting first 10 even numbers from an infinite stream of even numbers
+In the given below example, we are creating an infinite stream using iterate() method. Then we are taking the first 10 even numbers using the method limit(10).
+
+Finally, we are collecting the even numbers from the stream into a List using collect(Collectors.toList()) method.
+
+Collect first 10 even numbers
+```java
+Stream<Integer> evenNumInfiniteStream = Stream.iterate(0, n -> n + 2);
+
+List<Integer> newList = evenNumInfiniteStream.limit(10)
+                                .collect(Collectors.toList());
+
+System.out.println(newList);	
+```
+Program output.
+
+Output
+[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+
+### 3. Difference between skip() and limit()
+The limit(N) method returns first N elements in the encounter order of the Stream.
+The skip(N) discards the first N elements of the Stream.
+```java
+List<Integer> list = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    .skip(6)
+    .collect(Collectors.toList());
+
+System.out.println(newList);	//[7, 8, 9, 10]
+```
+### 4. Conclusion
+Java 8 Stream limit() method can be useful in certain cases where we need to get the elements from a stream and the count of elements will be determined at runtime.
+
+The fact, that it returns the elements in encounter order, makes it very useful for normal business usecases as well.
+</details> 
+ <details>
+<summary><b>Java Stream peek()</b></summary>
+
+# Java Stream peek()
+
+Java Stream peek() method returns a new Stream consisting of all the elements from the original Stream after applying a given Consumer action.
+
+Note that the peek() method is an intermediate Stream operation so, to process the Stream elements through peek(), we must use a terminal operation. Using Stream.peek() without any terminal operation does nothing.
+
+### 1. Stream peek() Method
+#### 1.1. Usage
+According to Java docs, the purpose of peek() method is to support debugging when we want to see the elements as they flow through the Stream processing pipeline.
+
+We can call peek() method after every intermediate operation to see the effect of intermediate operation on the Stream elements.
+
+> Pseudo Code
+```java
+Stream<T> stream = createStream();
+
+stream.operationOne()
+	.peek()
+	.operationTwo()
+	.peek()
+	.terminalOperation();
+```
+#### 1.2. Method Syntax
+The peek() returns a new Stream consisting of elements from the original Stream.
+
+Here action is a non-interfering action to perform on the elements as they are consumed from the Stream. The result elements after performing the action are placed into the new Stream.
+
+> Syntax
+> Stream<T> peek(Consumer<? super T> action)
+
+#### 1.3. Description
+Stream peek() method is an intermediate operation.
+It returns a Stream consisting of the elements of current stream.
+It additionally perform the provided action on each element as elements.
+For parallel stream pipelines, the action may be called at whatever time and in whatever thread the element is made available by the upstream operation.
+If the action modifies shared state, it is itself responsible for providing the required synchronization.
+peek() exists mainly to support debugging, where we want to see the elements as they flow past a certain point in a pipeline.
+### 2. Stream peek() Examples
+#### 2.1. Using peek() Without Terminal Operation
+As mentioned above, Stream.peek() without any terminal operation does nothing.
+```java
+Stream.peek() without terminal operation
+List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+ 
+list.stream()
+  .peek( System.out::println );   //prints nothing
+```
+#### 2.2. Using peek() with Terminal Operation
+Java program to use peek() API to debug the Stream operations and log Stream elements as they are processed.
+```java
+Stream.peek() with terminal operation
+List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+     
+List<Integer> newList = list.stream()
+      .peek(System.out::println)
+      .collect(Collectors.toList());
+ 
+System.out.println(newList);
+```
+> Program output.
+
+> Output
+> 1
+> 2
+> 3
+> 4
+> 5
+> [1, 2, 3, 4, 5]
+
+#### 3. Conclusion
+Stream.peek() method can be useful in visualizing how the stream operations behave and understanding the implications and interactions of complex intermediate stream operations.
+
+Though it is entirely possible to alter the inner state of elements in the Stream, it is never recommended and shall be avoided.
+</details> 
+ <details>
+<summary><b>Java Stream flatMap()</b></summary>
+
+# Java Stream flatMap()
+
+Java 8 Stream.flatMap() method is used to flatten a Stream of collections to a Stream of objects. During the flattening operation, the objects from all the collections in the original Stream are combined into a single collection
+
+> Stream<Collection<Item>> —-> flatMap() —-> Stream<Item>
+
+Quick Reference
+```java
+List<List<Integer>> listOfLists = Arrays.asList(
+  Arrays.asList(1, 2, 3),
+  Arrays.asList(4, 5),
+  Arrays.asList(6, 7, 8)
+);
+
+List<Integer> flattenedList = listOfLists.stream()
+  .flatMap(list -> list.stream())  // Flattening step
+  .toList();
+
+//Prints [1, 2, 3, 4, 5, 6, 7, 8]
+System.out.println("Flattened list: " + flattenedList);
+```
+### 1. What is Flattening?
+Imagine we have a bunch of boxes, and each box contains some items. Now, we want to take out all those items from the boxes and put them in a single box. That’s what flatMap() does with a stream. It takes objects from different collections in this stream A and puts all objects in a new Stream B.
+
+In layman’s terms, flattening is referred to as merging multiple collections/arrays into one. Consider the following example.
+
+In this example, we have an array of 3 arrays. After the flattening effect, we will have one result array with all the items from the 3 arrays.
+
+Flattening Example
+Before flattening 	: [[1, 2, 3], [4, 5], [6, 7, 8]]
+
+After flattening 	: [1, 2, 3, 4, 5, 6, 7, 8]
+
+In the following example, lines is a stream of lines in the file. Each line consists of multiple words. The words stream is a fattened version of all streams into a single stream – consisting of all the words in all the lines.
+
+Flattening example 2
+```java
+Path path = ...;  //File Path
+
+Stream<String> lines = Files.lines(path, StandardCharsets.UTF_8);
+
+Stream<String> words = lines.flatMap(line -> Stream.of(line.split(" +")));
+```
+### 2. Stream flatMap() Method
+#### 2.1. Method Syntax
+The stream flatMap() method has the following syntax.
+
+> Syntax
+> <R> Stream<R> flatMap(Function<? super T,? extends Stream<? extends R>> mapper)
+
+R represents the element type of the new stream.
+mapper is a non-interfering, stateless function to apply to each element which produces a stream of new values.
+The method returns a new stream of objects of type R.
+#### 2.2. Features
+The flatMap() is an intermediate operation and returns a new Stream.
+It returns a Stream consisting of the results of replacing each element of the given stream with the contents of a mapped stream produced by applying the provided mapping function to each element.
+The mapper function used for transformation in flatMap() is a stateless function and returns only a stream of new values.
+Each mapped Stream is closed after its contents have been placed into new Stream.
+flatMap() operation flattens the stream; opposite to map() operation which does not apply flattening.
+#### 3. Stream flatMap() Examples
+Example 1: Converting Nested Lists into a Single List
+Java 8 example of Stream.flatMap() function to get a single List containing all elements from a list of lists.
+
+This program uses flatMap() operation to convert List<List<Integer>> to List<Integer>.
+
+Merging Lists into a Single List
+```java
+List<Integer> list1 = Arrays.asList(1,2,3);
+List<Integer> list2 = Arrays.asList(4,5,6);
+List<Integer> list3 = Arrays.asList(7,8,9);
   
-- [Guide to IntStream in Java](https://howtodoinjava.com/java8/intstream-examples)
-- [Streams peek() API](https://howtodoinjava.com/java8/java-stream-peek-example)
-- [Difference Between map() and flatMap()](https://howtodoinjava.com/java8/stream-map-vs-flatmap)
-- [Stream findFirst() vs. findAny()](https://howtodoinjava.com/java8/stream-findfirst-findany)
-- [Java Stream findAny()](https://howtodoinjava.com/java8/stream-findany)
-- [Java Stream findFirst()](https://howtodoinjava.com/java8/java-stream-findfirst)
-- [Java Collectors teeing()](https://howtodoinjava.com/java12/collectors-teeing-example)
-- [Java Stream concat()](https://howtodoinjava.com/java8/stream-concat-example)
-- [Java Stream toArray()](https://howtodoinjava.com/java8/convert-stream-to-array)
-- [Java Stream noneMatch()](https://howtodoinjava.com/java8/stream-nonematch-example)
-- [Java Stream allMatch()](https://howtodoinjava.com/java8/stream-allmatch-example)
-- [Java Stream anyMatch()](https://howtodoinjava.com/java8/stream-anymatch-example)
-- [Java Stream skip()](https://howtodoinjava.com/java8/stream-skip-example)
-- [Java Stream limit()](https://howtodoinjava.com/java8/java-stream-limit-method-example)
-- [Java Stream peek()](https://howtodoinjava.com/java8/java-stream-peek-example)
-- [Java Stream flatMap()](https://howtodoinjava.com/java8/stream-flatmap-example)
-- [Java Stream map()](https://howtodoinjava.com/java8/stream-map-example)
-- [Java Stream min()](https://howtodoinjava.com/java8/java-stream-min)
-- [Java Stream max()](https://howtodoinjava.com/java8/java-stream-max)
-- [Java Stream sorted()](https://howtodoinjava.com/java8/stream-sorted-method)
-- [Java Stream filter()](https://howtodoinjava.com/java8/java-stream-filter-example)
-- [Java Stream forEachOrdered()](https://howtodoinjava.com/java8/java-stream-foreachordered)
-- [Java Stream forEach()](https://howtodoinjava.com/java8/java-stream-foreach)
-- [Java Stream distinct()](https://howtodoinjava.com/java8/java-stream-distinct-examples)
+List<List<Integer>> listOfLists = Arrays.asList(list1, list2, list3);
+ 
+List<Integer> listOfAllIntegers = listOfLists.stream()
+          .flatMap(x -> x.stream())
+          .collect(Collectors.toList());
+
+System.out.println(listOfAllIntegers);
+```
+Program output.
+
+Output
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+Example 2: Collecting Nested Arrays into a Single List
+Java 8 example of Stream.flatMap() function to get a single List containing all elements from an array of arrays.
+
+Merging Arrays into a Single List
+```java
+String[][] dataArray = new String[][]{{"a", "b"}, 
+		{"c", "d"}, {"e", "f"}, {"g", "h"}};
+         
+List<String> listOfAllChars = Arrays.stream(dataArray)
+              .flatMap(x -> Arrays.stream(x))
+              .collect(Collectors.toList());
+
+System.out.println(listOfAllChars);
+```
+> Program output.
+
+> Output
+> [a, b, c, d, e, f, g, h]
+
+### 4. Flattening with IntStream, LongStream and DoubleStream
+Stream interface has three more similar methods which produce IntStream, LongStream and DoubleStream respectively that are super helpful if the flattened stream consists only of numeric values such as long, int or doubles.
+
+Similar flatMap() Methods
+IntStream flatMapToInt(Function<? super T,? extends IntStream> mapper)
+LongStream flatMapToLong(Function<? super T,? extends LongStream> mapper)
+DoubleStream flatMapToDouble(Function<? super T,? extends DoubleStream> mapper)
+
+These classes provide convenient methods to perform mathematical operations on all the elements of the Stream, which is often required.
+
+Consider the following example. We have a list of the list of numbers, and we want the sum of all the numbers.
+```java
+List<List<Integer>> listOfLists = Arrays.asList(
+  Arrays.asList(1, 2, 3),
+  Arrays.asList(4, 5),
+  Arrays.asList(6, 7, 8)
+);
+
+int sum = listOfLists.stream()
+  .flatMap(list -> list.stream()) // Flatten the list of lists
+  .mapToInt(Integer::intValue) // Convert to IntStream
+  .sum(); // Calculate the sum
+
+System.out.println("Sum of all numbers: " + sum);  //36
+```
+</details> 
+ <details>
+<summary><b>Java Stream map()</b></summary>
+	 
+# Java Stream map()
+
+Java 8 Stream.map() operation transforms the elements of a stream from one type to another. After the map() operation completes, for each element of type X in the current Stream, a new object of type Y is created and put in the new Stream.
+
+Stream<ElementType> —> map() operation —> Stream<NewElementType>
+
+### 1. When do we use Stream.map() Operation?
+The map() operation is particularly useful for data manipulation and transformation tasks. Consider a few possible usecases to understand when map() can be applied:
+
+During database migration, we may want to transform data from the old schema to the new schema. Using map(), we can define the field mappings between entities to copy their values.
+Data cleansing can be done with map() when we read data from different sources and convert it to a standard format before processing it in a standard way.
+In the MVC pattern, we can use map() to copy JPA entity data into VO objects for rendering the user views.
+In the following example, we are using the map() to convert from Stream<PersonEntity> to Stream<PersonVO>
+
+### Quick Reference
+// Converting from Stream<PersonEntity> to Stream<PersonVO> and collecting into a new List
+```java
+List<PersonEntity> personEntityList = ...;  // A List of PersonEntity objects
+
+List<PersonVO> personVoList = personEntityList.stream()
+	.map(e -> createVoFromEntity(e))
+	.toList();   
+
+//The utility function called in the map operation
+public static PersonVO createVoFromEntity(PersonEntity entity) { ... }
+```
+### 2. Stream map() Method
+#### 2.1. Method Syntax
+The Stream map() method has the following syntax.
+
+Method Syntax
+> <R> Stream<R> map(Function<? super T,? extends R> mapper)
+
+R represents the element type of the new stream.
+mapper is a non-interfering, stateless function to apply to each element which produces a stream of new values.
+The method returns a new stream of objects of type R.
+#### 2.2. Description
+The map() is an intermediate operation. It returns a new Stream as return value.
+The map() operation takes a Function, which is called for each value in the input stream and produces one result value sent to the output stream.
+The mapper function used for transformation is a stateless function (does not store the information of previously processed objects) and returns only a single value.
+The map() method is used when we want to convert a Stream of X to Stream of Y.
+The mapped stream is closed after its contents have been placed into the new output stream.
+map() operation does not flatten the stream as flatMap() operation does.
+### 3. Stream map() Examples
+Let us see a few more examples to understand it even better.
+
+Example 1: Converting a Stream of Strings to a Stream of Integers
+In this example, we will convert a Stream<String> to Stream<Integer>. Here the mapper function Integer::valueOf() takes one string from the Stream at a time, and converts the String to an Integer.
+
+It then puts the Integer into another stream which is then collected using Collectors.toList().
+```java
+List<String> listOfStrings = Arrays.asList("1", "2", "3", "4", "5");
+ 
+List<Integer> listOfIntegers = listOfStrings.stream()
+        .map(Integer::valueOf)
+        .collect(Collectors.toList());
+ 
+System.out.println(listOfIntegers);
+```
+> Program output.
+
+> [1, 2, 3, 4, 5]
+
+Example 2: Finding all distinct salaries among all employees
+Java example to find all possible distinct salaries for a List of employees.
+```java
+List<Employee> employeesList = Arrays.asList(
+                                    new Employee(1, "Alex", 100),
+                                    new Employee(2, "Brian", 100),
+                                    new Employee(3, "Charles", 200),
+                                    new Employee(4, "David", 200),
+                                    new Employee(5, "Edward", 300),
+                                    new Employee(6, "Frank", 300)
+                                );
+  
+List<Double> distinctSalaries = employeesList.stream()
+                        .map( e -> e.getSalary() )
+                        .distinct()
+                        .collect(Collectors.toList());
+
+System.out.println(distinctSalaries);
+```
+Program output.
+
+[100.0, 200.0, 300.0]
+
+### 4. Stream of Integers, Longs or Doubles [Special Case]
+Stream interface has three more similar methods for numeric types and are often used to perform numerical calculations or conversions. These methods produce IntStream, LongStream and DoubleStream respectively.
+
+Similar methods
+> IntStream mapToInt(ToIntFunction<? super T> mapper)
+> LongStream mapToLong(ToLongFunction<? super T> mapper)
+> DoubleStream mapToDouble(ToDoubleFunction<? super T> mapper)
+
+The benefit of using these classes is that they provide convenient methods to process the stream elements and perform mathematical/aggregate operations without the overhead of boxing and unboxing.
+
+In the following example, we have a list of exam scores represented as strings, and we want to calculate the average score:
+```java
+List<String> scoresAsString = Arrays.asList("85", "92", "78", "90", "88");
+
+double averageScore = scoresAsString.stream()
+  .mapToInt(Integer::parseInt)	// Convert strings to integers using mapToInt()
+  .average()		// Calculate the average of the integers
+  .orElse(0.0);	// Use 0.0 if there are no scores
+
+System.out.println("Average score: " + averageScore);
+```
+</details> 
+ <details>
+<summary><b>Java Stream min()</b></summary>
+
+# Java Stream min()
+
+The Stream min() method is used to select the minimum/smallest element in the Stream according to the Comparator used for comparing the elements.
+
+The Comparator imposes a total ordering on the Stream elements which may not have a natural ordering.
+
+### 1. Stream min() Method
+#### 1.1. Method Syntax
+The method takes a non-interfering, stateless Comparator to compare elements of the stream.
+It returns an Optional describing the maximum element of the stream, or an empty Optional if the stream is empty.
+The min() method throws NullPointerException if the minimum element found is null.
+Method Syntax
+Optional<T> min(Comparator<? super T> comparator)
+
+#### 1.2. Description
+This is a terminal operation. So stream cannot be used after this method is executed.
+Returns the minimum/smallest element of this stream according to the provided Comparator.
+This is a special case of a stream reduction.
+The method argument shall be a non-interfering, stateless Comparator.
+The method returns an Optional describing the smallest element of this stream, or an empty Optional if the stream is empty.
+It may throw NullPointerException if the smallest element is null.
+### 2. Stream min() Examples
+Example 1: Finding Smallest Element with Lambda Expression
+Java example to find the minimum number from a stream of numbers using comparator as lambda expression.
+
+Select smallest element from stream
+List<Integer> list = Arrays.asList(2, 4, 1, 3, 7, 5, 9, 6, 8);
+
+Optional<Integer> minNumber = list.stream()
+            .min((i, j) -> i.compareTo(j));
+
+System.out.println(minNumber.get());
+
+Program output.
+
+Output
+1
+
+Example 2: Finding Smallest Element with Comparator
+Java example to find the minimum number from a stream of numbers using custom comparator.
+```java
+List<Integer> list = Arrays.asList(2, 4, 1, 3, 7, 5, 9, 6, 8);
+ 
+Comparator<Integer> minComparator = new Comparator<Integer>() {
+   
+  @Override
+  public int compare(Integer n1, Integer n2) {
+    return n1.compareTo(n2);
+  }
+};
+
+Optional<Integer> minNumber = list.stream()
+            .min(minComparator);
+
+System.out.println(minNumber.get());
+```
+Program output.
+
+> Output
+> 1
+</details> 
+ <details>
+<summary><b>Java Stream max()</b></summary>
+
+# Java Stream max()
+
+The Stream max() method is used to select the largest element in the Stream according to the Comparator used for comparing the elements.
+
+The Comparator imposes a total ordering on the Stream elements which may not have a natural ordering.
+
+### 1. Stream max() Method
+#### 1.1. Method Syntax
+The method takes a non-interfering and stateless Comparator to compare elements of the stream.
+It returns an Optional describing the maximum element of the stream, or an empty Optional if the stream is empty.
+The max() method throws NullPointerException if the maximum element found is null.
+Syntax
+Optional<T> max(Comparator<? super T> comparator)
+
+#### 1.2. Description
+The max() method is a terminal operation. So the Stream cannot be used after this method has been executed.
+It returns the maximum/largest element of this stream according to the provided Comparator.
+This is a special case of a stream reduction.
+The method argument shall be a non-interfering, stateless Comparator.
+The method returns an Optional describing the maximum element of this stream, or an empty Optional if the stream is empty.
+It may throw NullPointerException if the maximum element is null.
+#### 2. Java Stream max() Example
+Example 1: Largest element in the Stream with Lambda Expression
+Java example to find the largest number from a stream of numbers using comparator as lambda expression.
+
+Select largest element from stream
+List<Integer> list = Arrays.asList(2, 4, 1, 3, 7, 5, 9, 6, 8);
+
+Optional<Integer> maxNumber = list.stream()
+      .max((i, j) -> i.compareTo(j));
+
+System.out.println(maxNumber.get());
+
+Program output.
+
+9
+
+Example 2: Largest element in the Stream with Comparator
+Java example to find the largest number from a stream of numbers using custom comparator.
+```java
+List<Integer> list = Arrays.asList(2, 4, 1, 3, 7, 5, 9, 6, 8);
+ 
+Comparator<Integer> maxComparator = new Comparator<Integer>() {
+   
+  @Override
+  public int compare(Integer n1, Integer n2) {
+    return n1.compareTo(n2);
+  }
+};
+
+Optional<Integer> maxNumber = list.stream()
+      .max(maxComparator);
+
+System.out.println(maxNumber.get());
+```
+> Program output.
+> 9
+</details> 
+ <details>
+<summary><b>Java Stream sorted()</b></summary>
+
+# Java Stream sorted() Example with/without Comparator
+
+Since Java 8, the sorted() method is part of the Stream API and is used to sort the elements of a stream. By default, elements are sorted in the natural order, but we can apply for a custom order using a Comparator.
+
+#### Quick Reference
+```java
+//Default sorting
+List sortedList = unsortedList.stream().sorted().toList();
+
+//Custom Sorting
+Comparator comparator = ...;
+List sortedList = unsortedList.stream().sorted(comparator).toList();
+```
+### 1. Stream sort() is an Overloaded Method
+The Stream interface provides two methods for sorting the elements:
+
+sorted() – Provides the default sorting
+sorted(Comparator) – Sorting based on the provided comparator.
+#### 1.1. Stream sorted()
+Syntax
+Stream<T> sorted()
+
+sorted() is a stateful intermediate operation that returns a new Stream.
+It returns a stream consisting of the elements of this stream, sorted according to the natural order.
+If the elements of this stream are not Comparable, a java.lang.ClassCastException may be thrown when the terminal operation is executed.
+For ordered streams, the sort is stable.
+For unordered streams, no stability guarantees are made.
+#### 1.2. Stream sorted(comparator)
+Syntax
+Stream<T> sorted(Comparator<? super T> comparator)
+
+This is a stateful intermediate operation that returns a new stream.
+It returns a stream consisting of the elements of this stream, sorted according to the provided Comparator..
+For ordered streams, the sort is stable.
+For unordered streams, no stability guarantees are made.
+### 2. Stream sorted() Examples
+#### 2.1. Sorting Stream Elements in Natural Order
+In the given Java example, we are sorting a List of integers in the natural order and printing them into the standard output.
+
+List<Integer> list = Arrays.asList(2, 4, 1, 3, 7, 5, 9, 6, 8);
+
+List<Integer> sortedList = list.stream()
+      .sorted()
+      .collect(Collectors.toList());
+
+System.out.println(sortedList);
+
+Program output.
+
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+#### 2.2. Sorting Stream Elements in Reverse Order
+In the given Java example, we are sorting a stream of integers in reverse order using a Comparator.reverseOrder() and printing them into the standard output.
+```java
+List<Integer> list = Arrays.asList(2, 4, 1, 3, 7, 5, 9, 6, 8);
+
+List<Integer> sortedList = list.stream()
+        .sorted(Comparator.reverseOrder())
+        .collect(Collectors.toList());
+
+System.out.println(sortedList);
+```
+> Program output.
+> [9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+#### 2.3. Sort Stream Elements in Custom Order using Comparator
+In the given Java example, we are sorting a stream of integers using a custom Comparator.
+```java
+List<Integer> list = Arrays.asList(2, 4, 1, 3, 7, 5, 9, 6, 8);
+ 
+Comparator<Integer> reverseComparator = new Comparator<Integer>() {
+  @Override
+  public int compare(Integer i1, Integer i2) {
+    return i2.compareTo(i1);
+  }
+}; 
+
+List<Integer> sortedList = list.stream()
+      .sorted(reverseComparator)
+      .collect(Collectors.toList());
+
+System.out.println(sortedList);
+```
+> Program output.
+> [9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+#### 2.4. Stream Sorting using Lambda Expressions
+Java example to sort a stream of integers in reverse order using lambda expression to specify the comparison logic.
+
+We are rewriting the previous Comparator logic with an inline lambda expression.
+```java
+List<Integer> list = Arrays.asList(2, 4, 1, 3, 7, 5, 9, 6, 8);
+
+List<Integer> sortedList = list.stream()
+      .sorted( (i1, i2) -> i2.compareTo(i1) )
+      .collect(Collectors.toList());
+
+System.out.println(sortedList);
+```
+> Program output.
+> [9, 8, 7, 6, 5, 4, 3, 2, 1]
+</details> 
+ <details>
+<summary><b>Java Stream filter()</b></summary>
+
+# Java Stream filter()
+
+Learn to use Stream.filter(Predicate) method to traverse all the elements and filter all items which match a given condition through Predicate argument.
+
+### 1. Stream filter() Method
+The stream() method syntax is as follows:
+
+Syntax
+Stream<T> filter(Predicate<? super T> condition) 
+
+Predicate is a functional interface and represents the condition to filter out the non-matching elements from the Stream.
+
+filter() is a intermediate Stream operation.
+It returns a Stream consisting of the elements of the given stream that match the given predicate.
+The filter() argument should be stateless predicate which is applied to each element in the stream to determine if it should be included or not.
+Predicate is a functional interface. So, we can also pass lambda expression also.
+It returns a new Stream so we can use other operations applicable to any stream.
+### 2. Java Stream filter() Examples
+Recommended Reading
+The given examples use the predicates to write filter conditions. Read Java Predicates to learn how to write predicates for the different requirements.
+
+#### 2.1. Filtering a Stream using Lambda Expression
+In this example, we are iterating over a stream of numbers. We will find all even numbers from the Stream and print them into Console.
+
+The inline predicate ‘n -> n % 2 == 0‘ is a lambda expression.
+
+Find even numbers in stream
+```java
+import java.util.Arrays;
+import java.util.List;
+ 
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+ 
+        list.stream()
+            .filter(n -> n % 2 == 0)
+            .forEach(System.out::println);
+    }
+}
+```
+> Program output.
+
+> Output
+> 2
+> 4
+> 6
+> 8
+> 10
+
+#### 2.2. Filtering a Stream using Custom Predicate
+This example is a rewrite of the first example. It uses Predicate class in place of the lambda expression, though both are the same things.
+
+Note that we can write any condition inside the predicate, to match the business requirements.
+
+Find even numbers from Stream using Predicateream
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
+ 
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+         
+        Predicate<Integer> condition = new Predicate<Integer>() 
+        {
+            @Override
+            public boolean test(Integer n) {
+                if (n % 2 == 0) {
+                    return true;
+                }
+                return false;
+            }
+        };
+ 
+        list.stream().filter(condition).forEach(System.out::println);
+    }
+}
+```
+> Program output.
+> Output
+> 2
+> 4
+> 6
+> 8
+> 10
+
+#### 2.3. Filtering and Collecting into a List
+We can use the collect(Collectors.toList()) method to collect the Stream of filtered elements into a List.
+
+This example is again a rewrite of the first example. Here, we are collecting the even numbers into a List rather than printing them to the Console.
+
+Collecting filtered items into a List
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+ 
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+ 
+        List<Integer> evenNumbers = list.stream()
+                    .filter(n -> n % 2 == 0)
+                    .collect(Collectors.toList());
+         
+        System.out.println(evenNumbers);
+    }
+}
+```
+> Program output.
+> Output
+> [2, 4, 6, 8, 10]
+
+#### 2.4. Stream filter() and map() Example
+We can use the map() method to collect the stream elements and then convert each number to its square before collecting it to the List.
+
+Find even numbers in stream and collect the squares
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+ 
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+ 
+        List<Integer> evenNumbers = list.stream()
+                    .filter(n -> n % 2 == 0)
+                    .map(n -> n * n)
+                    .collect(Collectors.toList());
+         
+        System.out.println(evenNumbers);
+    }
+}
+```
+> Program output.
+> Output
+> [4, 16, 36, 64, 100]
+
+#### 2.5. Stream filter() with a method throwing Exception
+The methods used in predicates return a boolean value. These methods generally do simple value comparisons and do not throw any Exception.
+
+But, sometimes, we may need to deal with such methods which throw an exception and this method has to be used in the Predicate.
+
+To solve this problem, we must use try-catch statement to catch the checked exception. Then we have a choice to either handle the exception or rethrow as an unchecked exception.
+
+Given below is a code example to handle checked exceptions thrown from a method that has been used in a Predicate.
+```java
+List<Integer> evenNumbers = list.stream()
+    .filter(a -> {
+            try {
+                return a.someMethodThrowingCheckedException();
+            } catch (IOException e) {
+                throw new UncheckedException(e);
+            }
+        })
+    .collect(Collectors.toList());
+```
+</details> 
+ <details>
+<summary><b>Java Stream forEachOrdered()</b></summary>
+
+# Java Stream forEachOrdered()
+
+The Stream forEachOrdered() method is used to iterate over all the elements of the given Stream and to perform a Consumer action on each element of the Stream, in the encounter order of the Stream if the Stream has a defined encounter order.
+
+### 1. Stream forEachOrdered() Method
+#### 1.1. Method Syntax
+The forEachOrdered() method syntax is as follows:
+
+> Syntax
+> void forEachOrdered(Consumer<? super T> action)
+
+Here Consumer is a functional interface and action represents a non-interfering action to be performed on each element in the stream.
+
+#### 1.2. Description
+The forEachOrdered() method is a terminal operation. It means that it does not return an output of type Stream.
+After forEachOrdered() is performed, the stream pipeline is considered consumed, and can no longer be used.
+If we need to traverse the same data source again, we must return to the data source to get a new stream.
+Performs an action for each element of this stream, in the encounter order of the stream if the stream has a defined encounter order.
+Performing the action for one element happens-before performing the action for subsequent elements. But for any given element, the action may be performed in whatever Thread the library chooses.
+### 2. Stream forEach() vs forEachOrdered()
+The behavior of forEach() operation is explicitly non-deterministic. For parallel streams, forEach() operation does not guarantee to respect the encounter order of the Stream.
+
+While the forEachOrdered() operation respects the encounter order of the stream if the stream has a defined encounter order. This behavior is also true for parallel streams as well as sequential streams.
+
+We may lose the benefits of parallelism if we use forEachOrdered() with parallel Streams.
+
+Let us understand with a Java program that iterates over a Stream of Integers and verifies encounter order.
+```java
+List<Integer> list = Arrays.asList(2, 4, 6, 8, 10);
+ 
+list.stream().parallel().forEach( System.out::println );    //1
+ 
+list.stream().parallel().forEachOrdered( System.out::println ); //2
+```
+Now, lets compare the output of both statements
+
+//forEach()
+> 6
+> 10
+> 8
+> 4
+> 2
+ 
+//forEachOrdered()
+> 2
+> 4
+> 6
+> 8
+> 10
+
+### 3. Stream forEachOrdered() Examples
+Example 1: Java program to iterate over Stream of Integers and to print into the Console
+```java
+List<Integer> list = Arrays.asList(2, 4, 6, 8, 10); 
+ 
+list.stream()
+    .forEachOrdered( System.out::println );
+```
+> Program output.
+> 2
+> 4
+> 6
+> 8
+> 10
+
+Example 2: Java program to iterate over Stream of Integers in reverse order
+```java
+List<Integer> list = Arrays.asList(2, 4, 6, 8, 10); 
+ 
+list.stream()
+  .sorted(Comparator.reverseOrder())
+  .forEachOrdered(System.out::println);
+```
+> Program output.
+
+> 10
+> 8
+> 6
+> 4
+> 2
+</details> 
+ <details>
+<summary><b>Java Stream forEach()</b></summary>
+
+# Java Stream forEach()
+
+Java Stream forEach() method is used to iterate over all the elements of the given Stream and to perform an Consumer action on each element of the Stream.
+
+The forEach() is a more concise way to write the for-each loop statements.
+
+### 1. Stream forEach() Method
+#### 1.1. Method Syntax
+The forEach() method syntax is as follows:
+
+> Syntax
+> void forEach(Consumer<? super T> action)
+
+Consumer is a functional interface and action represents a non-interfering action to be performed on each element in the Stream. It accepts an input and returns no result.
+
+#### 1.2. Description
+The forEach() method is a terminal operation. It means that it does not return an output of type Stream.
+After forEach() is performed, the stream pipeline is considered consumed, and Stream can no longer be used.
+If we need to traverse the same data source again (the collection backing the Stream), we must return to the data source to get a new stream.
+For parallel streams, the forEach() operation does not guarantee the order of elements in the stream, as doing so would sacrifice the benefit of parallelism.
+If the provided Consumer action accesses the shared state between the Stream elements the action is responsible for providing the required synchronization.
+#### 2. Stream forEach() Examples
+Example 1: Traversing the elements of a Stream and printing them
+In this Java example, we are iterating over a Stream of Integers and printing all the integers to the standard output.
+
+Stream forEach() Example
+```java
+List<Integer> list = Arrays.asList(2, 4, 6, 8, 10); 
+Consumer<Integer> action = System.out::println;
+ 
+list.stream()
+    .forEach( action );
+```
+Note that we can write the above iteration using the enhanced for-loop as well.
+
+Same iteration Using enhanced for loop
+```java
+for (Integer i : list) {
+  System.out.println(i);
+}
+```
+Example 2: Traversing the elements in reverse order and printing them
+Java example to iterate over stream elements and print them in reverse order.
+
+Stream forEach() in Reverse Order
+```java
+List<Integer> list = Arrays.asList(2, 4, 6, 8, 10); 
+ 
+list.stream()
+    .sorted(Comparator.reverseOrder())
+    .forEach(System.out::println);
+```
+> Program output.
+
+> 10
+> 8
+> 6
+> 4
+> 2
+
+### 3. Conclusion
+In this tutorial, we learned to use the forEach() method to iterate through all the elements of a Stream.
+
+Though we can use the enhanced for-each loop for the iteration, the primary difference between the forEach() method and for-each loop is that the for-each loop is an external iterator, whereas the new forEach() method is an internal iterator.
+</details> 
+ <details>
+<summary><b>Java Stream distinct()</b></summary>
+
+# Java Stream distinct(): Get Unique Values from Stream
+
+Added in Java 8, the Stream.distinct() method returns a new Stream consisting of the distinct elements from the given Stream. The distinct() operation removes duplicate elements from a stream, ensuring that only unique elements are retained in the resulting stream.
+
+### Quick Reference
+> List<T> distinctItems = stream.distinct().toList();
+
+### 1. Stream.distinct() Method
+The distict() is one such stateful intermediate operation that uses the state from previously seen elements from the Stream while processing the new items.
+
+> Method Syntax
+> Stream<T> distinct()
+
+The distinct() returns the distinct elements from the given stream. For checking the equality of the stream elements, the equals() method is used.
+
+The distinct() guarantees the ordering for the streams backed by an ordered collection. The element appearing first in the encounter order is preserved for ordered streams.
+
+For unordered streams, no stability guarantees are made.
+### 2. Find Distinct Elements in a Stream of Strings or Primitives
+It is easy to find distinct items from a list of simple types such as String and wrapper classes. These classes implement the required equals() method, which compares the value stored in it.
+
+In the given example, we have List of strings and we want to find all distinct strings from the List. We will use Stream to iterate over all the String elements and collect the distinct String elements into another List using Stream.collect() terminal operation.
+
+Find all distinct strings
+```java
+Collection<String> list = Arrays.asList("A", "B", "C", "D", "A", "B", "C");
+ 
+List<String> distinctChars = list.stream()
+                        .distinct()
+                        .collect(Collectors.toList());    //[A, B, C, D]
+```
+### 3. Stream Distincts By Field or Property
+In real-world applications, we will be dealing with a stream of custom classes or complex types (representing some system entity).
+
+By default, all Java objects inherit the equals() method from Object class. The default equals() method compares the references for checking the equality of two instances. So, it is highly recommended to override the equals() method and define custom logic for object equality. If we do not override the equals() method in our custom type, then we may see strange behavior while finding the distinct elements from a Stream.
+
+#### 3.1. Override equals() to Define Object Equality
+Let’s create a Person class for our example. It has three fields: id, fname and lname. Two persons are equal if their ids are the same. Do not forget to override the equals() method otherwise, the object equality will not work as expected.
+
+Two Person are equal if their id is same
+```java
+public record Person(Integer id, String fname, String lname) {
+
+  @Override
+  public boolean equals(final Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    Person other = (Person) obj;
+    return Objects.equals(id, other.id);
+  }
+}
+```
+#### 3.2. Demo
+Let’s test the code. We will add a few duplicate person records in the List. Then we will use the Stream.distinct() method to find all instances of Person class with unique id.
+
+Find distinct persons by id
+```java
+Person lokeshOne = new Person(1, "Lokesh", "Gupta");
+Person lokeshTwo = new Person(1, "Lokesh", "Gupta");
+Person lokeshThree = new Person(1, "Lokesh", "Gupta");
+Person brianOne = new Person(2, "Brian", "Clooney");
+Person brianTwo = new Person(2, "Brian", "Clooney");
+Person alex = new Person(3, "Alex", "Kolen");
+ 
+Collection<Person> list = Arrays.asList(alex, 
+                                        brianOne, 
+                                        brianTwo, 
+                                        lokeshOne, 
+                                        lokeshTwo, 
+                                        lokeshThree);
+
+// Get distinct people by id
+List<Person> distinctElements = list.stream()
+            .distinct()
+            .collect( Collectors.toList() );
+
+System.out.println( distinctElements );
+```
+> Program output:
+
+> Output
+> [
+> Person [id=1, fname=Lokesh, lname=Gupta],
+> Person [id=2, fname=Brian, lname=Clooney],
+> Person [id=3, fname=Alex, lname=Kolen]
+> ]
+
+### 4. Find Distinct Items by Complex Keys or Multiple Fields
+We may not always get distinct items based on the natural equality rules. Sometimes, business wants to find distinct items based on custom logic. For example, we may need to find all people who may have any id but their full name is the same. In this case, we must check the equality based on Person class’s fname and lname fields.
+
+Java does not have any native API for finding distinct objects while comparing the objects using a provided user function. So we will create our own utility function and then use it.
+
+We can use the information on the linked post to find the items that are distinct by multiple fields.
+
+#### 4.1. Create distinctByKey() Method
+The distinctByKey() function uses a ConcurrentHashMap instance to find out if there is an existing key with the same value – where the key is obtained from a function reference.
+
+The parameter to this function is a lambda expression used to generate the map key for the comparison. If the used key is a custom type, do not forget to override the hashCode() and equals() method.
+
+Utility function to find distinct by class field
+```java
+public static <T> Predicate<T> distinctByKey(Function<? super T, Object> keyExtractor) 
+{
+    Map<Object, Boolean> map = new ConcurrentHashMap<>();
+    return t -> map.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+}
+```
+We can pass any field-getter method as a method argument which will cause the field value to act as the key to the map.
+
+#### 4.2. Demo
+Check how we are using distinctByKey(p -> p.getFname() + " " + p.getLname()) in the filter() method.
+
+Find all people who may have any id but their full name is the same
+```java
+Person lokeshOne = new Person(1, "Lokesh", "Gupta");
+Person lokeshTwo = new Person(2, "Lokesh", "Gupta");
+Person lokeshThree = new Person(3, "Lokesh", "Gupta");
+Person brianOne = new Person(4, "Brian", "Clooney");
+Person brianTwo = new Person(5, "Brian", "Clooney");
+Person alex = new Person(6, "Alex", "Kolen");
+ 
+Collection<Person> list = Arrays.asList(alex, 
+                                        brianOne, 
+                                        brianTwo, 
+                                        lokeshOne, 
+                                        lokeshTwo, 
+                                        lokeshThree);
+
+// Get distinct objects by key
+List<Person> distinctElements = list.stream()
+            .filter( distinctByKey(p -> p.getFname() + " " + p.getLname()) )
+            .collect( Collectors.toList() );
+
+System.out.println( distinctElements );
+```
+> Program Output:
+
+> Output
+> [
+> Person [id=1, fname=Lokesh, lname=Gupta],
+> Person [id=4, fname=Brian, lname=Clooney],
+> Person [id=6, fname=Alex, lname=Kolen]
+> ]
+
+### 5. Conclusion
+The primary purpose of Stream.distinct() is to eliminate duplicate elements from a given stream, guaranteeing that only distinct elements remain in the resulting stream. When applied to a stream, the distinct() operation leverages the equals() and hashCode() methods of the objects within the stream to identify and remove duplicates.
+
+While filtering out duplicates, distinct() operation preserves the original order of elements in the stream.
+
+</details> 
 </details>  
 
 <details>
@@ -3464,7 +5354,7 @@ Debugging Java streams can be challenging. In this post, we will learn to debug 
 Java 8 Streams may sometimes be difficult to debug. This happens because they require us to insert additional breakpoints and thoroughly analyze each transformation inside the stream.
 
 For example, we have the Student class:
-
+```java
 public class Student {
 
     private String name;
@@ -3473,9 +5363,9 @@ public class Student {
     
     //getters, setters, constructor, toString method
 }
-
+```
 We can create a list of students:
-
+```java
 List<Student> students = List.of(
     new Student("Alexandru","alex@gmail.com",5.6),
     new Student("Emmanuela","emma@yahoo.com",7.2),
@@ -3483,22 +5373,22 @@ List<Student> students = List.of(
     new Student("Andrew","andrew",6.2),
     new Student("Anna","anna@gmail.com",6.2)
 );
-
+```
 Suppose, we want to get all the students in alphabetical order that have a valid email address and a passing grade. So we use the stream API operations:
-
+```java
 List<Student> newList = students.stream()
     .filter(student -> student.getEmail().endsWith("@gmail.com"))
     .filter(student -> student.getGrade() > 5.0)
     .sorted(Comparator.comparing(Student::getName))
     .collect(Collectors.toList());
-
+```
 After running the program we get only one student. So we want to debug the stream to see how it filters the students.
 
 See Also: Guide to Java Stream API
 
 ### 2. Debug using peek() API
 We can debug the stream using the peek() method to log the information about the data at every step. The peek() method returns a stream consisting of the elements of the source stream and performs the action requested by the client of each element.
-
+```java
 List<Student> newList = students.stream()
     .filter(student -> student.getEmail().endsWith("@gmail.com"))
     .peek(student -> System.out.println("Filtered 1 value:" + student))
@@ -3506,14 +5396,14 @@ List<Student> newList = students.stream()
     .peek(student -> System.out.println("Filtered 2 value:" + student))
     .sorted(Comparator.comparing(Student::getName))
     .collect(Collectors.toList());
-
+```
 Notice the program output. We can see that peek() method clearly prints the elements of the stream in the pipeline after each call to filter() method. We can see that 3 students pass the first filter and only one passes the second one too.
-
+```java
 Filtered 1 value:Student{name="Alexandru", email="alex@gmail.com", grade=2.6}
 Filtered 1 value:Student{name="John", email="john@gmail.com", grade=10.0}
 Filtered 2 value:Student{name="John", email="john@gmail.com", grade=10.0}
 Filtered 1 value:Student{name="Anna", email="anna@gmail.com", grade=4.2}
-
+```
 ### 3. Debug using IntelliJ Stream Debugger
 The IntelliJ Stream Debugger is a hidden gem and is very easy to use. It allows you to visualize the stream. Let’s use this in our example.
 
