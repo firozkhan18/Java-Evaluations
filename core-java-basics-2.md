@@ -3735,17 +3735,6 @@ Test it Now
 Output:Hello
        Welcome
 </details>
-</details>
-<details><summary><b>[51 - Java 8 Interface Improvement]</b></summary>
-
-#### Java 8 Interface Improvement
-Since Java 8, interface can have default and static methods which is discussed later.
-Internal addition by the compiler
-The Java compiler adds public and abstract keywords before the interface method. Moreover, it adds public, static and final keywords before data members.
-In other words, Interface fields are public, static and final by default, and the methods are public and abstract.
-</details>
-<details><summary><b>[025 - Internal addition by the compiler]</b></summary>
-</details>
 <details><summary><b>[51.1 - Multiple inheritance is not supported through class in java, but it is possible by an interface, why?]</b></summary>
 
 #### Q) Multiple inheritance is not supported through class in java, but it is possible by an interface, why?
@@ -3794,6 +3783,18 @@ Output:
 Hello
 Welcome
 </details>
+</details>
+<details><summary><b>[51 - Java 8 Interface Improvement]</b></summary>
+
+#### Java 8 Interface Improvement
+Since Java 8, interface can have default and static methods which is discussed later.
+Internal addition by the compiler
+The Java compiler adds public and abstract keywords before the interface method. Moreover, it adds public, static and final keywords before data members.
+In other words, Interface fields are public, static and final by default, and the methods are public and abstract.
+</details>
+<details><summary><b>[025 - Internal addition by the compiler]</b></summary>
+</details>
+
 <details><summary><b>[52 - Java 8 Default Method in Interface]</b></summary>
 
 #### Java 8 Default Method in Interface
