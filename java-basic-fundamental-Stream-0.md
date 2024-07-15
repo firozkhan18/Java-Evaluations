@@ -3592,22 +3592,281 @@ Stream.peek() method can be useful in visualizing how the stream operations beha
 <details>
 <summary><b>Difference Between map() and flatMap()</b></summary>
 	
-- [](https://howtodoinjava.com/java8/stream-map-vs-flatmap)
+# Java Stream map() vs. flatMap() with Examples
+
+The Java 8 Stream interface contains the map() and flatMap() methods that process the elements of the current Stream and return a new Stream. Both methods are intermediate stream operations and serve distinct purposes.
+
+In this article, we’ll explore the differences between these operations and discuss when to use one over the other.
+
+### 1. Stream map(): One-to-One Operation
+The map() operation is used to transform each element of a stream into another object using a given function. It returns a new stream containing the transformed elements in the same order as the original stream.
+
+This transformation is one-to-one, meaning each input element produces exactly one output element. So, if there are N elements in the stream, the map() operation will produce a new stream of N elements.
+
+List<String> listOfStrings = Arrays.asList("1", "2", "3", "4", "5");
+ 
+List<Integer> listOfIntegers = listOfStrings.stream()
+                                .map(Integer::valueOf)
+                                .toList();
+ 
+System.out.println(listOfIntegers);   //[1, 2, 3, 4, 5]
+
+### 2. Stream flatMap(): One-to-Many Operation
+The flatMap() operation is used when each element in the stream is transformed into multiple elements, often in the form of another collection or stream. The resulting elements are then flattened into a single stream.
+
+This transformation is one-to-many, meaning an input element produces multiple output elements, later all flattened into a single Stream.
+
+In more simple words, the flatMap() operation is a two-step process i.e. map() + flattening. In a broader sense, it helps convert Collection<Collection<Item>> to Collection<Item>.
+
+List<List<Integer>> listOfLists = Arrays.asList(
+  Arrays.asList(1, 2, 3),
+  Arrays.asList(4, 5),
+  Arrays.asList(6, 7, 8)
+);
+
+List<Integer> flattenedList = listOfLists.stream()
+      .flatMap(list -> list.stream())
+      .toList();
+
+System.out.println(flattenedList);    //[1, 2, 3, 4, 5, 6, 7, 8]
+
+### 3. Differences between Stream map() and flatMap()
+The main difference between map() and flatMap() is that map() only transforms the elements of this Stream, but flatMap() transforms and flattens, both.
+
+flatMap() = map() + Flattening
+
+Let’s compare these two operations using a table:
+
+Aspect	map()	flatMap()
+Transformation	One-to-one transformation	One-to-many transformation
+Input to Output	1 input -> 1 output	1 input -> n outputs (flattened)
+Output Sequence	Preserves input sequence	Flattens output
+When to Use	Modify values, Extract properties	Splitting string, Combining nested collections
+Common Usage	Normal data transformations	Handling nested structures
+### 4. Usage of map() vs flatMap()
+Use Stream.map() when we need to transform each element individually and the output has a one-to-one relationship with the input.
+
+For example, we can write a program to find the date of birth of all employees in a stream of employees. For each employee in the Stream, we will have one date of birth as the output value extracted from the input Employee object.
+
+List<Employee> employees = ...;
+
+List<LocalDate> datesOfBirth = employees.stream()
+    .map(Employee::getDateOfBirth)
+    .collect(Collectors.toList());
+
+Use flatMap() when we need to transform each element into multiple elements, such as when dealing with nested collections.
+
+For example, we may write a program to find all district words from all lines in a text file. The following example:
+
+Reads a text file using Files.lines() to obtain a stream of lines.
+The flatMap() operation transforms each line into a new Stream of words. This is the one-to-many transformation.
+The words from all the streams are collected into a single Set and it is the flattening operation.
+String filePath = "path/to/your/textfile.txt";
+
+Stream<String> lines = Files.lines(Paths.get(filePath));
+
+Set<String> distinctWords = lines
+  .flatMap(line -> Arrays.stream(line.split("\\s+")))
+  .collect(Collectors.toSet());
+
+System.out.println("Distinct words in the file: " + distinctWords);
+
+### 5. Conclusion
+As discussed above, map() and flatMap(), both operations serve distinct purposes and are instrumental in streamlining data processing tasks. To keep things simpler, always remember that the map() operation is designed for one-to-one transformations, and conversely, the flatMap() operation handles one-to-many transformations.
 </details> 
 <details>
 <summary><b>Stream findFirst() vs. findAny()</b></summary>
-	
-- [](https://howtodoinjava.com/java8/stream-findfirst-findany)
+ava Stream findFirst() vs findAny(): What’s Difference?
+
+Java Stream interface has two methods findFirst() and findAny() for retrieving elements from streams. Both method looks very much similar but they behave differently in certain conditions. At the high level:
+
+findFirst(): Returns the first element in the stream.
+findAny(): Returns any element from the stream which is useful in parallel processing.
+In this post, learn the difference between findFirst() and findAny() methods.
+
+### Quick Reference
+Stream.of("one", "two", "three", "four")
+  .parallel()
+  .findFirst()
+  .ifPresent(System.out::println);  // one
+
+Stream.of("one", "two", "three", "four")
+  .parallel()
+  .findAny()
+  .ifPresent(System.out::println);  // three - it can change in every run
+
+### 1. Stream findFirst()
+The findFirst() method returns an Optional describing the first element of this stream, when the stream has:
+
+defined encounter order – first element in encounter order in the stream.
+no encounter order – any element may be returned.
+Syntax
+Optional<T> findFirst()
+
+The above assumptions are valid for all sequential and parallel streams and the behavior of findFirst() will not change.
+
+//sequential stream
+Stream.of("one", "two", "three", "four")
+    .findFirst()
+    .ifPresent(System.out::println);
+ 
+//parallel stream
+Stream.of("one", "two", "three", "four")
+  .parallel()
+  .findFirst()
+  .ifPresent(System.out::println);
+
+Program output.
+
+one
+one
+
+### 2. Stream findAny()
+The findAny() method returns an Optional describing any element of a stream, when the Stream has :
+
+defined encounter order – any element may be returned.
+no encounter order – any element may be returned.
+The above theory is valid for all sequential and parallel streams and the behavior of findAny() will not change.
+
+Stream.findAny() has been introduced for performance gain in the case of parallel streams, only.
+
+Syntax
+Optional<T> findAny()
+
+In non-parallel streams, findAny() will return the first element in most of the cases but this behavior is not gauranteed.
+
+//sequential stream
+Stream.of("one", "two", "three", "four")
+    .findAny()
+    .ifPresent(System.out::println);
+ 
+//parallel stream
+Stream.of("one", "two", "three", "four")
+  .parallel()
+  .findAny()
+  .ifPresent(System.out::println);
+
+Program output.
+
+one
+three
+
+### 3. Differences between findFirst() vs findAny()
+In this post, we learned the difference between findFirst() and findAny() methods in Java 8 Stream API. Let us quickly summarize the differences:
+
+Feature	findFirst()	findAny()
+Order Guarantee	Returns the first element in the encounter order of the stream.	May return any element from the stream, not necessarily the first, especially in parallel streams.
+Performance	Might have a performance overhead in parallel streams due to maintaining encounter order.	Can be more efficient in parallel streams since it does not have to maintain encounter order.
+When to Use	Use when the order matters and we need the first element, strictly.	Use when we don’t care which element is returned specially in parallel streams.
+Example Usecases	– Retrieving the first element in a sorted list of transactions to identify the earliest transaction.
+– Finding the highest priority task from a list of tasks ordered by priority.
+– Fetching the first log entry from an ordered list to identify the initial state of a system.
+– Getting the first data point from a time-series dataset to start the analysis.	– Fetching any element from a large dataset processed in parallel to quickly validate the presence of an item.
+– Choosing any available server from a pool of servers to distribute the load evenly.
+– Retrieving any sample data point from a large dataset for quick insights without caring about the order.
+– Picking any element from a population for statistical sampling in data analysis.
+### 4. Summary
+In non-parallel streams, both may return the first element of the stream in most cases but findAny() does not offer any guarantee of this behavior.
+
+Use findAny() to get any element from any parallel stream in a faster time. Else we can always use findFirst() it in most cases.
 </details> 
 <details>
 <summary><b>Java Stream findAny()</b></summary>
-	 
-- [](https://howtodoinjava.com/java8/stream-findany)
+
+# Java Stream findAny()
+
+The Stream.findAny() returns an Optional describing any element of the specified stream if Stream is non-empty. It returns an empty Optional if the stream is empty.
+
+In non-parallel streams, findAny() will return the first element in most cases, but this behavior is not guaranteed. The Stream.findAny() method has been introduced for performance gain in the case of parallel streams, only.
+
+### 1. Syntax
+Optional<T> findAny()
+The findAny() method is a terminal short-circuiting operation.
+The findAny() method returns an Optional.
+The Optional contains the value as any element of the given stream, if Stream is non-empty. The returned element is the first element in most cases.
+The Optional contains the empty value, if Stream is empty.
+If the element selected is null, NullPointerException is thrown.
+For all the sequential and parallel streams, it may return any element. The behavior of findAny() does not change by the parallelism of the Stream.
+Similarly, there is no guaranteed behavioral difference in case of a stream has a defined encounter order or has no encounter order at all.
+### 2. Stream.findAny() Example
+In the given example, we are using the finaAny() method to get any element from the Stream. The method returns an Optional.
+
+If the stream is empty, we get an empty optional.
+
+Optional optional = Stream.empty().findAny();
+Assertions.assertTrue(optional.isEmpty());
+
+For non-empty streams, we get an Optional with a value.
+
+Optional optional = Stream.of("one", "two", "three", "four").findAny();
+
+Assertions.assertTrue(optional.isPresent());
+Assertions.assertEquals("one", optional.get());
+
+For parallel streams, the findAny() behaves the same as above, but the optional value is not predictable.
+
+Optional optional = Stream.of("one", "two", "three", "four").parallel().findAny();
+
+Assertions.assertTrue(optional.isPresent());
+
+### 3. Difference between findFirst() vs findAny()
+In non-parallel streams, findFirst() and findAny(), both may return the first element of the Stream in most cases. But findAny() does not offer any guarantee of this behavior.
+
+Use findAny() to get any element from any parallel stream in a faster time. Else we can always use findFirst() in most cases.
 </details> 
 <details>
 <summary><b>Java Stream findFirst()</b></summary>
-	 
-- [](https://howtodoinjava.com/java8/java-stream-findfirst)
+
+# Java Stream findFirst() Example
+
+The Java 8 Stream.findFirst() is a terminal operation that returns an Optional describing the first element of the given stream if stream is non-empty, or an empty Optional if the stream is empty.
+
+The findFirst() is used to retrieve the first occurrence of an element that matches certain criteria, and when the order of elements is important.
+
+### 1. Stream findFirst()
+The method signature for findFirst() is as follows:
+
+Optional<T> findFirst();
+
+The findAny() method is a terminal short-circuiting operation.
+The findFirst() method returns an Optional.
+The Optional contains the value as the first element of the given stream, if the stream is non-empty.
+The Optional contains the empty value, if Stream is empty.
+If the element selected is null, NullPointerException is thrown.
+If Stream has defined encounter order, the findFirst() returns first element in encounter order.
+If Stream has no encounter order, the findFirst() may return any element.
+The above behavior is valid for all sequential and parallel streams. The behavior of findFirst() does not change by the parallelism of the Stream.
+### 2. Stream findFirst() Example
+In the given example, we are getting the first element from the Stream of strings. As soon as, we get the first element, the stream operation moves to Optional.ifPresent() method.
+
+We print the first element using the method reference inside ifPresent() method.
+
+Stream.of("one", "two", "three", "four")
+    .findFirst()
+    .ifPresent(System.out::println);   // Prints 'one'
+
+Similarly, we can use the findFirst() to get an element based on some condition. To apply the condition, we can use the filter() method.
+
+List<String> words = Arrays.asList("apple", "banana", "cherry", "date");
+
+Optional<String> firstWordStartingWithC = words.stream()
+        .filter(word -> word.startsWith("c"))
+        .findFirst();
+
+firstWordStartingWithC.ifPresent(word -> 
+  System.out.println("First word starting with 'c': " + word));  // Prints 'cherry'
+
+Making the stream parallel does not change the behavior.
+
+Stream.of("one", "two", "three", "four")
+  .parallel()
+  .findFirst()
+  .ifPresent(System.out::println);  // Prints 'one'
+
+### 3. Difference between findFirst() vs findAny()
+In non-parallel streams, findFirst() and findAny(), both may return the first element of the Stream in most cases. But findAny() does not offer any guarantee of this behavior.
+
+Use findAny() to get any element from any parallel stream in a faster time. Else we can always use findFirst() in most cases.
 </details> 
 <details>
 <summary><b>Java Collectors teeing()</b></summary>
