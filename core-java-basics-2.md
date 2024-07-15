@@ -4360,8 +4360,8 @@ Note: If you import a package, subpackages will not be imported.
 If you import a package, all the classes and interface of that package will be imported excluding the classes and interfaces of the subpackages. Hence, you need to import the subpackage as well.
 
 Note: Sequence of the program must be package then import then class.
-</details>
-<details><summary><b>[62 - Subpackage in java]</b></summary>
+
+<details><summary><b>[61.1 - Subpackage in java]</b></summary>
 
 #### Subpackage in java
 Package inside the package is called the subpackage. It should be created to categorize the package further.
@@ -4417,11 +4417,11 @@ Rule: There can be only one public class in a java source file and it must be sa
 4.	class B{}  
 5.	public class C{}  
 </details>
-<details><summary><b>[63 - How to send the class file to another directory or drive?]</b></summary>
+<details><summary><b>[61.2 - How to send the class file to another directory or drive?]</b></summary>
 
  
 </details>
-<details><summary><b>[64 - How to put two public classes in a package?]</b></summary>
+<details><summary><b>[61.3 - How to put two public classes in a package?]</b></summary>
 	
 #### How to put two public classes in a package?
 If you want to put two public classes in a package, have two java source files containing one public class, but keep the package name same. For example:
@@ -4433,6 +4433,7 @@ If you want to put two public classes in a package, have two java source files c
 2.	  
 3.	package javatpoint;  
 4.	public class B{} 
+</details>
 </details>
 <details><summary><b>[65 - What is static import feature of Java5?]</b></summary>
 	
