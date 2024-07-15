@@ -424,10 +424,7 @@ Stream<Integer> stream =
     Stream.generate(() -> rand.nextInt(100)).limit(20);
 ```
 </details>
-
-- [Functional Interfaces](https://howtodoinjava.com/java/stream/functional-interface-tutorial)
-
-<details><summary><b>Functional Interfaces in Java</b></summary>
+<details><summary><b>Functional Interfaces</b></summary>
 
 # Functional Interfaces in Java
 
@@ -494,22 +491,23 @@ Unexpected @FunctionalInterface annotation
 @FunctionalInterface ^ MyFirstFunctionalInterface is not a functional interface
 multiple non-overriding abstract methods found in interface MyFirstFunctionalInterface
 Functional-Interface-Error
-Read More : Generic Functional Interfaces
+
 
 ### 3. Functional Interfaces in JDK
 The following is a list of Java’s most commonly used functional interfaces.
 
-Runnable: contains only the run() method.
-Comparable: contains only the compareTo() method.
-ActionListener: contains only the actionPerformed() method.
-Callable: contains only the call() method.
-Predicate: a boolean-valued function that takes an argument and returns true or false.
-BiPredicate: a predicate with two arguments.
-Consumer: an operation that takes an argument, operates on it, and returns no result.
-BiConsumer: a consumer with two arguments.
-Supplier: a supplier that returns a value.
-Function<T, R>:  takes an argument of type T and returns a result of type R.
-BiFunction<T, U, R>: takes two arguments of types T and U and returns a result of type R.
+- Runnable: contains only the run() method.
+- Comparable: contains only the compareTo() method.
+- ActionListener: contains only the actionPerformed() method.
+- Callable: contains only the call() method.
+- Predicate: a boolean-valued function that takes an argument and returns true or false.
+- BiPredicate: a predicate with two arguments.
+- Consumer: an operation that takes an argument, operates on it, and returns no result.
+- BiConsumer: a consumer with two arguments.
+- Supplier: a supplier that returns a value.
+- Function<T, R>:  takes an argument of type T and returns a result of type R.
+- BiFunction<T, U, R>: takes two arguments of types T and U and returns a result of type R.
+  
 ### 4. Demo
 Let’s see a quick example of creating and using functional interfaces in Java.
 
