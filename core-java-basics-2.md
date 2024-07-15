@@ -2534,8 +2534,8 @@ Inside C’s callme method
 This program creates one superclass called A and two subclasses of it, called B and C.
 
 Subclasses B and C override callme( ) declared in A. Inside the main( ) method, objects of type A, B, and C are declared. Also, a reference of type A, called r, is declared. The program then in turn assigns a reference to each type of object to r and uses that reference to invoke callme( ). As the output shows, the version of callme( ) executed is determined by the type of object being referred to at the time of the call. Had it been determined by the type of the reference variable, r, you would see three calls to A’s callme( ) method. 
-</details>
-<details><summary><b>[42 - Can we override static method?]</b></summary>
+
+<details><summary><b>[41.1 - Can we override static method?]</b></summary>
 
  #### Why Overridden Methods?
 
@@ -2638,28 +2638,29 @@ AXIS Rate of Interest: 9
 #### Can we override static method?
 No, a static method cannot be overridden. It can be proved by runtime polymorphism, so we will learn it later.
 
-<details><summary><b>[42.1 - Why can we not override static method?]</b></summary>
+<details><summary><b>[41.2 - Why can we not override static method?]</b></summary>
 
 #### Why can we not override static method?
 It is because the static method is bound with class whereas instance method is bound with an object. Static belongs to the class area, and an instance belongs to the heap area.
 
 </details>
-<details><summary><b>[42.2 - Can we override java main method?]</b></summary>
+<details><summary><b>[41.3 - Can we override java main method?]</b></summary>
 
 #### Can we override java main method?
 No, because the main is a static method.
 
 </details>
-<details><summary><b>[42.3 - Difference between method Overloading and Method Overriding in java]</b></summary>
+<details><summary><b>[41.4 - Difference between method Overloading and Method Overriding in java]</b></summary>
 
 #### Difference between method Overloading and Method Overriding in java
 Click me for the difference between method overloading and overriding
 
 </details>
 </details>
-<details><summary><b>[42.4 - Usage of Java Method Overriding]</b></summary>
+<details><summary><b>[41.5 - Usage of Java Method Overriding]</b></summary>
 
 
+</details>
 </details>
 <details><summary><b>[43 - Dynamic Method Dispatch]</b></summary>
 
