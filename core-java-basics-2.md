@@ -271,10 +271,10 @@ A class is a group of objects which have common properties. It is a template or 
  
 Syntax to declare a class:
 ```java
-1.	class <class_name>{  
-2.	    field;  
-3.	    method;  
-4.	}
+class <class_name>{  
+    field;  
+method;  
+}
 ```
 </details>
 <details><summary><b>[8 - Instance variable in Java]</b></summary>
@@ -329,8 +329,9 @@ In this example, we have created a Student class which has two data members id a
 
 Here, we are creating a main() method inside the class.
 
-```java
 File: Student.java
+
+```java
 //Java Program to illustrate how to define a class and fields  
 //Defining a Student class.  
 class Student{  
@@ -357,8 +358,10 @@ Object and Class Example: main outside the class
 In real time development, we create classes and use it from another class. It is a better approach than previous one. Let's see a simple example, where we are having main() method in another class.
 
 We can have multiple classes in different Java files or single Java file. If you define multiple classes in a single Java source file, it is a good idea to save the file name with the class name which has main() method.
-```java
+
 File: TestStudent1.java
+
+```java
 //Java Program to demonstrate having the main method in   
 //another class  
 //Creating Student class.  
@@ -390,8 +393,10 @@ There are 3 ways to initialize object in Java.
 
 1) Object and Class Example: Initialization through reference
 Initializing an object means storing data into the object. Let's see a simple example where we are going to initialize the object through a reference variable.
-```java
+
 File: TestStudent2.java
+
+```java
 class Student{  
  int id;  
  String name;  
@@ -409,8 +414,10 @@ class TestStudent2{
 > Output:
 > 101 Sonoo
 We can also create multiple objects and store information in it through reference variable.
-```java
+
 File: TestStudent3.java
+
+```java
 class Student{  
  int id;  
  String name;  
@@ -439,27 +446,29 @@ System.out.println(s1.id+" "+s1.name);
 2) Object and Class Example: Initialization through method
 
 In this example, we are creating the two objects of Student class and initializing the value to these objects by invoking the insertRecord method. Here, we are displaying the state (data) of the objects by invoking the displayInformation() method.
-```java
+
 File: TestStudent4.java
-1.	class Student{  
-2.	 int rollno;  
-3.	 String name;  
-4.	 void insertRecord(int r, String n){  
-5.	  rollno=r;  
-6.	  name=n;  
-7.	 }  
-8.	 void displayInformation(){System.out.println(rollno+" "+name);}  
-9.	}  
-10.	class TestStudent4{  
-11.	 public static void main(String args[]){  
-12.	  Student s1=new Student();  
-13.	  Student s2=new Student();  
-14.	  s1.insertRecord(111,"Karan");  
-15.	  s2.insertRecord(222,"Aryan");  
-16.	  s1.displayInformation();  
-17.	  s2.displayInformation();  
-18.	 }  
-19.	}
+
+```java
+class Student{  
+ int rollno;  
+ String name;  
+ void insertRecord(int r, String n){  
+  rollno=r;  
+  name=n;  
+ }  
+void displayInformation(){System.out.println(rollno+" "+name);}  
+}  
+class TestStudent4{  
+ public static void main(String args[]){  
+Student s1=new Student();  
+  Student s2=new Student();  
+  s1.insertRecord(111,"Karan");  
+  s2.insertRecord(222,"Aryan");  
+  s1.displayInformation();  
+  s2.displayInformation();  
+ }  
+}
 ```
 > Test it Now
 > Output:
