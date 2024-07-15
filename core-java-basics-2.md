@@ -346,7 +346,7 @@ File: TestStudent1.java
 > Output:
 > 0 
 > null
-</details>
+
 <details><summary><b>[10.1 - 3 Ways to initializing object]</b></summary>
 
 #### 3 Ways to initializing object
@@ -641,6 +641,7 @@ File: TestAccount.java
 > Balance is: 41000.0
 > 15000.0 withdrawn
 > Balance is: 26000.0
+</details>
 </details>
 <details><summary><b>[11 - The Three OOP’s principles]</b></summary>
 	
