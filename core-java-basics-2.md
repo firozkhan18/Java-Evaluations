@@ -7501,7 +7501,7 @@ This Java tutorial is part of our Java concurrent collections tutorial series. I
 ConcurrentHashMap is a hash table which supports complete concurrency for retrievals and updates. ConcurrentHashMap follows the specifications of a Hashtable. ConcurrentHashMap does not lock the entire collection for synchronization. ConcurrentHashMap is a suited candidate collection when there are high number of updates and less number of read concurrently.
 ConcurrentHashMap implements ConcurrentMap which lays the blue print for the concurrent operations. This was introduced part of the JDK 1.5 in the Java collections framework.
 
-</details>
+
 <details><summary><b>[015 - ConcurrentHashMap Initialization]</b></summary>
 	
 #### ConcurrentHashMap Initialization
@@ -7536,7 +7536,7 @@ public class ConcurrentHashMapExample {
         }
     }
 }
-
+</details>
 </details>
 <details><summary><b>[015 - Java ConcurrentSkipListMap]</b></summary>
 	
@@ -7546,7 +7546,7 @@ ConcurrentNavigableMap Interface
 This interface is a type of SortedMap that provides navigation methods that returns the closest match for given search targets. It has methods like lowerEntry, floorEntry, ceilingEntry, higherEntrywhich return Map.Entry instances based on the key passed respectively less than, less than or equal, greater than or equal and greater than. Similar set of methods available for returning keys too. These can be navigated by ascending or descending order too.
 Combined with all the above operations of a NavigableMap it also extends the ConcurrentMap interface. So this is a super-dooper Map we get.
 
-</details>
+
 <details><summary><b>[015 - ConcurrentSkipListMap]</b></summary>
 	
 #### ConcurrentSkipListMap
