@@ -2347,7 +2347,7 @@ Test it Now
 Output:
 22
 24.9
-</details>
+
 <details><summary><b>[37 - Can we overload java main() method?]</b></summary>
 
 
@@ -2443,6 +2443,7 @@ This approach copies the value of an argument into the formal parameter of the s
 - The second way an argument can be passed is call-by-reference.
 
 In this approach, a reference to an argument (not the value of the argument) is passed to the parameter. Inside the subroutine, this reference is used to access the actual argument specified in the call. This means that changes made to the parameter will affect the argument used to call the subroutine.
+</details>
 </details>
 <details><summary><b>[40 - Recursion in Java]</b></summary>
 
