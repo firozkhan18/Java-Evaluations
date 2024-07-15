@@ -3572,7 +3572,7 @@ Since Java 8, we can have default and static methods in an interface.
 
 Since Java 9, we can have private methods in an interface.
 
-</details>
+
 <details><summary><b>[50.1 - Why use Java interface?]</b></summary>
 
  ### Why use Java interface?
@@ -3682,6 +3682,7 @@ If a class implements multiple interfaces, or an interface extends multiple inte
 Test it Now
 Output:Hello
        Welcome
+</details>
 </details>
 <details><summary><b>[51 - Java 8 Interface Improvement]</b></summary>
 
