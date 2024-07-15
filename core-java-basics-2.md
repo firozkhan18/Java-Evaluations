@@ -6644,7 +6644,6 @@ Java Concurrent Collection Classes
 •	ConcurrentNavigableMap – a Java concurrent collection interface that extends ConcurrentMap and adds operations of NavigableMap.
 •	ConcurrentSkipListMap – an implementation class of ConcurrentNavigableMap.
 
-</details>
 <details><summary><b>[015 - Java BlockingQueue]</b></summary>
 	
 #### Java BlockingQueue
@@ -7492,7 +7491,7 @@ Thread-1 take(): ea042179-4193-4716-86f3-dad9b6c2b8cb
 Put: 48692ecc-2cbe-4b6d-950c-01ee7f0d4d15
 Thread-2 take(): 48692ecc-2cbe-4b6d-950c-01ee7f0d4d15
 Put: da78bb0a-9b4b-4256-b2f8-db7c3c0476b1
-
+</details>
 </details>
 <details><summary><b>[015 - Java ConcurrentHashMap]</b></summary>
 	
