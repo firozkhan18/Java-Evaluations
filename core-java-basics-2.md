@@ -1111,6 +1111,7 @@ Since, BabyDog is not overriding the eat() method, so eat() method of Dog class 
 </details>
 </details>
 </details>
+</details>
 <details><summary><b>[14 - Inheritance in java]</b></summary>
 
 #### Inheritance in java
@@ -1455,7 +1456,7 @@ Association can be undirectional or bidirectional.
 #### Composition
 The composition is also a way to achieve Association. The composition represents the relationship where one object contains other objects as a part of its state. There is a strong relationship between the containing object and the dependent object. It is the state where containing objects do not have an independent existence. If you delete the parent object, all the child objects will be deleted automatically.
 </details>
-</details>
+
 <details><summary><b>[21 - Access Modifiers in Java]</b></summary>
 
 #### Access Modifiers in Java
