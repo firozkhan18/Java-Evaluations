@@ -9,9 +9,7 @@ This page lists down the related to Stream API and its related concepts.
 <details>
 <summary><b>1. Stream Basics</b></summary>
   
-- [Introduction to Streams API](https://howtodoinjava.com/java/stream/java-streams-by-examples)
-
-<details><summary><b>Java Stream API</b></summary>
+<details><summary><b>Introduction to Streams API</b></summary>
 
 # Java Stream API
 
@@ -343,10 +341,10 @@ It is also important to strike the balance between making parallelism easier and
 - findAny()
 
 </details>
-- [Java 9 Stream API Improvements](https://howtodoinjava.com/java9/stream-api-improvements)
-- [Creating Streams](https://howtodoinjava.com/java/stream/create-streams)
 
-<details><summary><b>Creating Streams in Java</b></summary>
+- [Java 9 Stream API Improvements](https://howtodoinjava.com/java9/stream-api-improvements)
+
+<details><summary><b>Creating Streams</b></summary>
 
 ## Creating Streams in Java
 
