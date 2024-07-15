@@ -1038,8 +1038,46 @@ IntStream randStream = sRand.ints(5);
 randStream.forEach(System.out::println);
 ```
 </details>
+<details>
+<summary><b>Boxed Streams</b></summary>
 
-- [Boxed Streams](https://howtodoinjava.com/java8/java8-boxed-intstream)
+# Boxed Streams in Java
+
+In Java, a boxed stream is a stream of the wrapper class instances to simulate a stream of primitives.
+
+### 1. What is a Boxed Stream?
+Java Stream API has been designed to work with objects, similar to Collections API. Streams do not treat the primitive types the same as objects.
+
+In Stream API, a stream of primitives can be represented by the following 3 classes:
+
+- IntStream
+- LongStream
+- DoubleStream
+
+To convert from a stream of primitives to a stream of objects, these classes provide boxed() method that returns a Stream consisting of the elements of the given stream, each boxed to an object of the corresponding wrapper class.
+```java
+Stream<Integer> stream = IntStream.of(1, 2, 3, 4, 5).boxed();
+
+Stream<Long> stream1 = LongStream.of(1, 2, 3, 4, 5).boxed();
+
+Stream<Double> stream2 = DoubleStream.of(1.0, 2.0, 3.0, 4.0, 5.0).boxed();
+```
+### 2. Need of Boxed Streams
+Without boxing the stream items, we cannot perform the regular stream operations on them. For example, we cannot collect the int values to a list, directly.
+```java
+//Compilation issue
+/*List<Integer> list = IntStream.of(1,2,3,4,5)
+    .collect(Collectors.toList());*/
+```
+To make the above collecting process work, we must box the stream items first.
+```java
+//Works fine
+List<Integer> list = IntStream.of(1,2,3,4,5)
+    .boxed()
+    .collect(Collectors.toList());
+```    
+</details>
+
 - [Stream of Dates](https://howtodoinjava.com/java9/stream-dates-datesuntil)
 - [Remove/Update Elements From List using Stream](https://howtodoinjava.com/java/stream/remove-update-stream-elements)
 - [Iterate with Indices](https://howtodoinjava.com/java/stream/iterate-over-stream-with-indices)
