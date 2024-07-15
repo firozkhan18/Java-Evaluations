@@ -1309,6 +1309,73 @@ Stream.of(employees).zipWithIndex()
 </details>
   
 - [Stream has already been operated upon or closed Exception](https://howtodoinjava.com/java/stream/stream-has-already-been-operated-upon-or-closed)
+
+
+<details>
+<summary><b>[Solved] “Stream has already been operated upon or closed” Exception</b></summary>
+	
+# [Solved] “Stream has already been operated upon or closed” Exception
+
+Java 8 Stream API is used to process data collections such as arrays, lists, and maps. If we often work with streams, we may have encountered the following error: java.lang.IllegalStateException: stream has already been operated upon or closed.
+
+Let us examine the root cause of the problem and how to solve it.
+
+### 1. Reason
+The Java Streams process the collection items with 2 types of operations:
+
+Intermediate operations: that help in method chaining and return a new Stream of processed items such as filter, sort, or map.
+Aggregate or terminal operations: terminate the stream by performing common operations or reduction on them. After calling the terminal operation, the Stream is considered closed. For example, max, min or collect items into a list or set.
+We can use the terminal operation on a Stream only once. Calling a terminal operation in a already closed Stream causes the IllegalStateException.
+
+Let us understand with an example. In the following example, we are using the same Stream twice. First for getting the even numbers, and then for getting the odd numbers.
+```java
+Stream<Integer> numberStream = Stream.of(123, 234, 11, 57, 60, -4);
+
+List<Integer> evenNumbers = numberStream
+	.filter(integer -> integer % 2 == 0)
+	.collect(Collectors.toList());
+
+List<Integer> oddNumbers = numberStream
+	.filter(integer -> integer % 2 == 1)    
+	.collect(Collectors.toList());
+```
+> The program output.
+
+> Even numbers:
+> 234
+> 60
+> -4
+> Exception in thread "main" java.lang.IllegalStateException: stream has already been operated upon or closed
+> 	at java.base/java.util.stream.AbstractPipeline.<init>(AbstractPipeline.java:203)
+> 	at java.base/java.util.stream.ReferencePipeline.<init>(ReferencePipeline.java:94)
+> 	at java.base/java.util.stream.ReferencePipeline$StatelessOp.<init>(ReferencePipeline.java:696)
+> 	at java.base/java.util.stream.ReferencePipeline$2.<init>(ReferencePipeline.java:165)
+> 	at java.base/java.util.stream.ReferencePipeline.filter(ReferencePipeline.java:164)
+>	at org.example.Main.main(Main.java:18)
+
+Process finished with exit code 1
+
+We can see that the first filtering operation on the stream was executed successfully, but the second operation returned an Exception. This is caused by the fact that the stream is consumed and closed by the first operation, more precisely by the collect() function.
+
+When we started processing the Stream a second time, we get the exception with the message “stream has already been operated upon or closed”.
+
+### 2. Solution
+One solution for this problem would be creating a new stream every time before every stream processing, but there exists a more elegant method to handle this.
+
+The Supplier interface is a functional interface that can be assigned using a lambda function. After initializing the supplier, we can use the get() function. The Supplier.get() returns a newly created Stream Object each time on which we can perform stream operations safely.
+```java
+Supplier<Stream<Integer>> streamSupplier = () -> Stream.of(123, 234, 11, 57, 60, -4);
+
+List<Integer> evenNumbers = streamSupplier.get()
+        .filter(integer -> integer % 2 == 0)
+        .collect(Collectors.toList());
+
+List<Integer> oddNumbers = streamSupplier.get()
+        .filter(integer -> integer % 2 == 1)
+        .collect(Collectors.toList());
+```
+</details>	
+
 </details>
 
 <details>
