@@ -93,6 +93,7 @@ Stream<Integer> stream =
     Stream.generate(() -> rand.nextInt(100)).limit(20);
 ```
 </details>
+
 - [Functional Interfaces](https://howtodoinjava.com/java/stream/functional-interface-tutorial)
 - [Generic Functional Interfaces](https://howtodoinjava.com/java/stream/generic-functional-interfaces)
 - [Primitive Type Streams](https://howtodoinjava.com/java/stream/primitive-type-streams)
