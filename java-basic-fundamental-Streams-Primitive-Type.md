@@ -98,6 +98,7 @@ Another way to find the above statistical data is by using the summaryStatistics
 - IntSummaryStatistics
 - LongSummaryStatistics
 - DoubleSummaryStatistics
+  
 Now we can use its methods to get the required value.
 
 - getAverage()
