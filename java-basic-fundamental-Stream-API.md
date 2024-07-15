@@ -181,12 +181,12 @@ YANA
 ```
 Please note that the sorted() method only creates a sorted view of the stream without manipulating the ordering of the source Collection. In this example, the ordering of string in the memberNames is untouched.
 
-### ### 4.2. Terminal operations
+#### 4.2. Terminal operations
 Terminal operations return a result of a certain type after processing all the stream elements.
 
 Once the terminal operation is invoked on a Stream, the iteration of the Stream and any of the chained streams will get started. Once the iteration is done, the result of the terminal operation is returned.
 
-### ### 4.2.1. Stream.forEach()
+#### 4.2.1. Stream.forEach()
 The forEach() method helps iterate over all stream elements and perform some operation on each of them. The operation to be performed is passed as the lambda expression.
 
 memberNames.forEach(System.out::println);
