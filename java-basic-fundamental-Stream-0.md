@@ -551,7 +551,7 @@ ArgumentsProcessor<Integer> multiplyProcessor = new ArgumentsProcessor<Integer>(
 System.out.println(multiplyProcessor.process(2,3));  	//6
 ```
 Java example to use generic functional interface with type String.
-
+```java
 ArgumentsProcessor<String> appendProcessor = new ArgumentsProcessor<String>() {
     @Override
     public String process(String str1, String str2)
@@ -561,24 +561,24 @@ ArgumentsProcessor<String> appendProcessor = new ArgumentsProcessor<String>() {
 };
 
 System.out.println(appendProcessor.process("Hello", "World !!"));	//Hello World !!
-
+```
 ### 2. With Type Restrictions
 #### 2.1. Interface Definition
 A functional interface can be defined that is restricted to certain types using extends keyword i.e. X extends Number.
-
+```java
 @FunctionalInterface
 public interface ArgumentsProcesso<X extends Number>
 {
     X process(X arg1, X arg2);
 }
-
+```
 This interface can be used for any type i.e. ArgumentsProcessor<Integer>, ArgumentsProcessor<Double> but not for ArgumentsProcessor<String> or ArgumentsProcessor<Employee>.
 
 In the above example, the permitted type must extend the Number class.
 
 #### 2.2. Example
 Java example to use generic functional interface with type Integer.
-
+```java
 ArgumentsProcessor<Double> doubleMultiplier = new ArgumentsProcessor<Double>() {
 	@Override
 	public Double process(Double arg1, Double arg2)
@@ -588,7 +588,7 @@ ArgumentsProcessor<Double> doubleMultiplier = new ArgumentsProcessor<Double>() {
 };
 
 System.out.println(doubleMultiplier.process(4d, 6d));	//24.0
-
+```
 ### 3. Specialized Functional Interfaces
 Specialization is accomplished by extending or implementing the generic functional interface of one type. The resulting interface or class is not generic for that type.
 ```java
