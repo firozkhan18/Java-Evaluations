@@ -1375,37 +1375,1826 @@ List<Integer> oddNumbers = streamSupplier.get()
 
 <details>
 <summary><b>2. Stream Searching, Filtering and Sorting</b></summary>
-  
-- [Getting Distinct Stream Items by Comparing Multiple Fields](https://howtodoinjava.com/java8/stream-distinct-by-multiple-fields)
-- [Getting the Last Item of a Stream](https://howtodoinjava.com/java8/java-stream-get-last-element)
-- [Get Object with Max Date From a List](https://howtodoinjava.com/java8/stream-get-object-with-max-date)
-- [Find, Count and Remove Duplicates](https://howtodoinjava.com/java8/stream-find-remove-duplicates)
-- [Applying Multiple Conditions on Java Streams](https://howtodoinjava.com/java8/stream-multiple-filters-example)
-- [Sorting a Stream by Multiple Fields](https://howtodoinjava.com/java8/sort-stream-multiple-fields)
-- [Sorting Streams in Java](https://howtodoinjava.com/java8/stream-sorting)
-- [Chaining Multiple Predicates in Java](https://howtodoinjava.com/java8/predicates-logical-operations)
-- [Negating a Predicate](https://howtodoinjava.com/java8/predicate-negate-example)
-- [Finding Max and Min from List using Streams](https://howtodoinjava.com/java8/stream-max-min-examples)
-- [Java Stream count() Matches with filter()](https://howtodoinjava.com/java8/stream-count-elements-example)
-- [Filter a Map by List of Keys](https://howtodoinjava.com/java/stream/filter-map-by-list-of-keys)
+<details>
+<summary><b>Getting Distinct Stream Items by Comparing Multiple Fields</b></summary>
+
+# Getting Distinct Stream Items by Comparing Multiple Fields
+
+Learn to collect or count distinct objects from a stream where each object is distinct by comparing multiple fields in the class.
+
+Java does not have direct support for finding such distinct items from the Stream where items should be distinct by multiple fields. So, we will create a custom Predicate for this purpose.
+
+#### 1. Finding Distinct Items by Multiple Fields
+Below given is a function that accepts varargs parameters and returns a Predicate instance. We can use this function to pass multiple key extractors (fields on which we want to filter the duplicates).
+
+This function creates a List of field values and this List act as a single key for that Stream item. The list contains the values of fields to check distinct combinations.
+
+Then these keys are inserted into a ConcurrentHashMap that allows only unique keys.
+
+Predicate distinctByKeys()
+private static <T> Predicate<T> 
+    distinctByKeys(final Function<? super T, ?>... keyExtractors) 
+{
+    final Map<List<?>, Boolean> seen = new ConcurrentHashMap<>();
+     
+    return t -> 
+    {
+      final List<?> keys = Arrays.stream(keyExtractors)
+                  .map(ke -> ke.apply(t))
+                  .collect(Collectors.toList());
+       
+      return seen.putIfAbsent(keys, Boolean.TRUE) == null;
+    };
+}
+
+In the given example, we are finding all persons having distinct ids and names. We should have only 3 records as output.
+
+Demo
+Collection<Person> list = Arrays.asList(alex, brianOne, 
+        brianTwo, lokeshOne,
+        lokeshTwo, lokeshThree);
+
+List<Person> distinctPersons = list.stream()
+      .filter(distinctByKeys(Person::firstName, Person::lastName))
+      .collect(Collectors.toList());
+
+Here Person may be a class or record.
+
+record Person(Integer id, String firstName, String lastName, String email) {
+}
+
+#### 2. Distinct by Multiple Fields using Custom Key Class
+Another possible approach is to have a custom class that represents the distinct key for the POJO class.
+
+For the previous example, we can create a class CustomKey containing id and name values. The distinct elements from a list will be taken based on the distinct combination of values for all these fields.
+
+In the given example, again, we are finding all records having unique ids and names. Note that in this approach, we are only replacing the List with CustomKey class.
+
+CustomKey.java
+record CustomKey(String firstName, String lastName) {
+  public CustomKey(final Person p) 
+  {
+    this(p.firstName(), p.lastName());
+  }
+}
+
+Let us see how CustomKey::new is used for filtering the distinct elements from the list based on the given multiple fields.
+
+Demo
+Collection<Person> list = Arrays.asList(alex, brianOne, 
+    brianTwo, lokeshOne,
+    lokeshTwo, lokeshThree);
+
+List<Person> distinctPersons = list.stream()
+      .filter(distinctByKeyClass(CustomKey::new))
+      .collect(Collectors.toList());
+
+//Method accepting Custom key class
+public static <T> Predicate<T> 
+    distinctByKeyClass(final Function<? super T, Object> keyExtractor) 
+{
+    Map<Object, Boolean> seen = new ConcurrentHashMap<>();
+    return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+}
+
+</details>
+<details>
+<summary><b>Getting the Last Item of a Stream</b></summary>
+
+# Getting the Last Item of a Stream
+
+Learn to find the last element of a stream in Java. We will learn to use finite as well as infinite streams as well.
+
+#### 1. Getting Last Item with Stream Reduction
+The reduce() method uses the reduction technique on the elements of the Stream. To get the last element, it continues picking up the two elements of the stream and choosing the latter. This will go on until all elements are exhausted.
+
+At the end of the reduction process, we will have the last element of the stream.
+
+Get last element using reduce() method
+Stream<Integer> stream = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9)
+                    .stream();
+ 
+Integer lastElement = stream.reduce((first, second) -> second)
+              .orElse(-1);
+ 
+System.out.println(lastElement);  // Prints 9
+
+The reduce() method returns an Optional which gives us the choice of what to do when an empty element is returned. For example, the stream itself might be empty.
+
+If the Stream is empty
+Stream<Integer> emptyStream = Stream.empty(); 
+ 
+
+//Return -1 if stream is empty
+Integer lastElement = emptyStream.reduce((first, second) -> second)
+                .orElse(-1);
+ 
+System.out.println(lastElement);  //-1
+ 
+//Throw IllegalStateException if stream is empty
+ 
+Integer lastElement = emptyStream.reduce((first, second) -> second)
+        .orElseThrow(() -> new IllegalStateException("no last element"));
+
+Program output:
+
+-1
+
+Exception in thread "main" java.lang.IllegalStateException: no last element
+	at com.howtodoinjava.core.streams.misc.GetLastElement.lambda$1(GetLastElement.java:19)
+	at java.util.Optional.orElseThrow(Unknown Source)
+	at com.howtodoinjava.core.streams.misc.GetLastElement.main(GetLastElement.java:19)
+
+#### 2. Using Streams.findLast() from Guava
+Streams.findLast() is really neat, readable, and provides good performance. It returns the last element of the specified stream, or Optional.empty() if the stream is empty.
+
+Streams.findLast() example 
+Stream<Integer> stream = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9)
+                    .stream();
+ 
+Integer lastElement = Streams.findLast(stream2).orElse(-1);
+ 
+System.out.println(lastElement);  // Prints 9
+
+#### 3. Last Item from an Infinite streams
+Can there be any last element in an infinite stream? No, there cannot be. So make sure that the stream is not infinite when we are trying to find the last element of the stream. None of the above-listed APIs will return any value or throw an exception.
+
+In fact, the above solutions will not even return and halt the program execution completely.
+
+Last Element of Infinite stream 
+Stream<Integer> stream = Stream.iterate(0, i -> i + 1);
+     
+Integer lastElement = Streams.findLast(stream).orElse(-1);  // Halts the program
+ 
+System.out.println(lastElement);
+
+Use limit() to get a finite stream out of a given infinite stream.
+
+Stream<Integer> infiniteStream = Stream.iterate(0, n -> n + 2);
+
+lastElement = infiniteStream.limit(100)
+                .reduce((first, second) -> second)
+                .orElse(-1);
+
+System.out.println(lastElement);   //198
+
 </details>
 
+<details>
+<summary><b>Get Object with Max Date From a List</b></summary>
+  
+# Java Stream – Get Object with Max Date From a List
+
+Learn to get an object with the latest date (max date) from a Stream of custom objects. We will use a custom Comparator for comparing the Date values stored in the custom objects.
+
+This example uses Employee class. We will create a program to get the youngest employee in a list of employees.
+
+#### 1. Custom Comparator for Comparing Objects by Date
+The LocalDate() implements the Comparable interface so it automatically supports the correct comparison logic for comparing the two LocalDate objects. We do not need to write our own comparison logic for this date comparison.
+
+We need to write a custom Comparator that can compare the custom objects and compare their LocalDate value.
+
+The given Comparator compares two given Employee objects by their age i.e. Date of birth.
+
+Custom Object Comparator
+Comparator<Employee> employeeAgeComparator = Comparator
+                .comparing(Employee::getDateOfBirth);
+
+Use Comparator.reversed() method, we need to find the Min Date from the Stream.
+
+#### 2. Getting Object with Max date using Stream.max()
+Now we know what to compare, let us create a program to create a stream of Employee Objects and then pass the custom Comparator to the Stream.max() method.
+
+Find Youngest Employee from a List
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+ 
+public class MaxDateExample 
+{
+    public static void main(final String[] args) 
+    {
+        Comparator<Employee> employeeAgeComparator = Comparator
+                            .comparing(Employee::getDateOfBirth);
+ 
+        Employee youngestEmployee = getEmployeeList().stream()
+                                    .max(employeeAgeComparator)
+                                    .get();
+ 
+        System.out.println(youngestEmployee); //Prints Employee 'D'
+    }
+ 
+    private static List<Employee> getEmployeeList() 
+    {
+        List<Employee> empList = new ArrayList<>();
+        empList.add(new Employee(1, "A", LocalDate.of(1991, 1, 1), 30000));
+        empList.add(new Employee(2, "B", LocalDate.of(1976, 7, 9), 30000));
+        empList.add(new Employee(3, "C", LocalDate.of(1992, 8, 1), 50000));
+        empList.add(new Employee(4, "D", LocalDate.of(2001, 3, 11), 50000));
+        return empList;
+    }
+}
+
+Program Output:
+
+Employee [id=4, name=D, dateOfBirth=2001-03-11, salary=50000.0]
+
+In this way, we can get a custom object from a List of objects while comparing the date values from one of its fields.
+
+</details>
+<details>
+<summary><b>Find, Count and Remove Duplicates</b></summary>
+	
+# Java Stream – Find, Count and Remove Duplicates
+
+Few simple examples to find and count the duplicates in a Stream and remove those duplicates since Java 8. We will use ArrayList to provide a Stream of elements including duplicates.
+
+### 1. Stream.distinct() – To Remove Duplicates
+#### 1.1. Remove Duplicate Strings
+The distinct() method returns a Stream consisting of the distinct elements of the given stream. The object equality is checked according to the object’s equals() method.
+
+Find all distinct strings
+List<String> list = Arrays.asList("A", "B", "C", "D", "A", "B", "C");
+
+// Get list without duplicates
+List<String> distinctItems = list.stream()
+                                    .distinct()
+                                    .collect(Collectors.toList());
+
+// Let's verify distinct elements
+System.out.println(distinctItems);
+
+Program output:
+
+Output
+[A, B, C, D]
+
+#### 1.2. Remove Duplicate Custom Objects
+The same syntax can be used to remove the duplicate objects from List. To do so, we need to be very careful about the object’s equals() method, because it will decide if an object is duplicate or unique.
+
+Consider the below example where two Person instances are considered equal if both have the same id value.
+
+public class Person 
+{
+    private Integer id;
+    private String fname;
+    private String lname;
+}
+
+Let us see an example of how we can remove duplicate Person objects from a List.
+
+Get Distinct Objects using Default Equality
+//Add some random persons
+Collection<Person> list = Arrays.asList(p1, p2, p3, p4, p5, p6);
+
+// Get distinct people by id
+List<Person> distinctElements = list.stream()
+        .distinct()
+        .collect( Collectors.toList() );
+
+To find all unique objects using a different equality condition, we can take the help of the following distinctByKey() method. For example, we are finding all unique objects by Person’s full name.
+
+Get Distinct Objects using Custom Equality
+//Add some random persons
+List<Person> list = Arrays.asList(p1, p2, p3, p4, p5, p6);
+
+// Get distinct people by full name
+List<Person> distinctPeople = list.stream()
+              .filter( distinctByKey(p -> p.getFname() + " " + p.getLname()) )
+              .collect( Collectors.toList() );
+
+//********The distinctByKey() method need to be created**********
+
+public static <T> Predicate<T> distinctByKey(Function<? super T, Object> keyExtractor) 
+{
+  Map<Object, Boolean> map = new ConcurrentHashMap<>();
+  return t -> map.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+}
+
+### 2. Collectors.toSet() – To Remove Duplicates
+Another simple and very useful way is to store all the elements in a Set. Sets, by definition, store only distinct elements. Note that a Set stores distinct items by comparing the objects with equals() method.
+
+Here, we cannot compare the objects using a custom equality condition.
+
+ArrayList<Integer> numbersList
+= new ArrayList<>(Arrays.asList(1, 1, 2, 3, 3, 3, 4, 5, 6, 6, 6, 7, 8));
+ 
+Set<Integer> setWithoutDuplicates = numbersList.stream()
+.collect(Collectors.toSet());
+ 
+System.out.println(setWithoutDuplicates);
+
+Program output:
+
+[1, 2, 3, 4, 5, 6, 7, 8]
+
+### 3. Collectors.toMap() – To Count Duplicates
+Sometimes, we are interested in finding out which elements are duplicates and how many times they appeared in the original list. We can use a Map to store this information.
+
+We have to iterate over the list, put the element as the Map key, and all its occurrences in the Map value.
+
+// ArrayList with duplicate elements
+ArrayList<Integer> numbersList
+= new ArrayList<>(Arrays.asList(1, 1, 2, 3, 3, 3, 4, 5, 6, 6, 6, 7, 8));
+ 
+Map<Integer, Long> elementCountMap = numbersList.stream()
+.collect(Collectors.toMap(Function.identity(), v -> 1L, Long::sum));
+ 
+System.out.println(elementCountMap);
+
+Program output:
+
+{1=2, 2=1, 3=3, 4=1, 5=1, 6=3, 7=1, 8=1}
+
+</details>
+<details>
+<summary><b>Applying Multiple Conditions on Java Streams</b></summary>
+	
+# Java Stream Filter on Multiple Conditions using Predicates
+
+Learn to filter the items of a stream using multiple conditions similar to nested if-else conditions with for-loop. Also, learn to process the filtered items by either collecting to a new List or calling a method on each item matching the provided filter conditions.
+
+### 1. Creating Predicates using Lambda Expressions
+In Java streams API, a filter is a Predicate instance (boolean-valued function). It can be thought of as an operator or function that returns a value that is either true or false.
+
+I will recommend to create one predicate per filter condition always and giving it a meaningful name. Later, we can combine multiple such simple filters to create a complex predicate representing multiple conditions that we need to apply.
+
+Use negate() to write the reverse/negative conditions so that a single predicate may serve true and false – both scenarios.
+Use and() to combine two predicates for a logical AND operation.
+Use or() to combine two predicates for a logical OR operation.
+How to Create Predicates
+Predicate<Integer> isEven = i -> i%2 == 0;
+Predicate<Integer> isOdd = i -> i%2 == 1;
+
+//Or use negate() to reverse the condition
+Predicate<Integer> isOdd = isEven.negate();  
+ 
+Predicate<Employee> isAdult = e -> e.getAge() > 18;
+Predicate<Account> isActive = a -> a.getStatus() == AccountStatus.ACTIVE;
+
+Predicate<Employee> isAdultAndActive = isAdult.and(isActive);
+Predicate<Employee> isAdultOrActive = isAdult.or(isActive);
+Predicate<Employee> isAdultAndInactive = isAdult.and(isActive.negate());
+
+Similarly, we can create as many simple and complex predicates as we require.
+
+### 2. Using Predicates for Multiple Conditions
+After creating simple and complex predicates, we can use them with Stream.filter() method.
+
+The given below is a Java program to filter an employees list with multiple different conditions using predicates.
+
+Multiple filters example
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+ 
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        List<Employee> employeeList = getEmployeesFromDataSource();
+         
+        //filter 1
+        Predicate<Employee> isEmployeeActive = e -> e.getStatus() == EmployeeStatus.ACTIVE;
+ 
+        //filter2
+        Predicate<Employee> isAccountActive = e -> e.getAccount().getStatus() == AccountStatus.ACTIVE;
+         
+        //Active employees
+        String result = employeeList.stream()
+                .filter(isEmployeeActive)
+                .map(e -> String.valueOf(e.getId()))
+                .collect(Collectors.joining(",", "[", "]"));
+         
+        System.out.println("Active employees = " + result);
+         
+        //Active employees with active accounts
+        result = employeeList.stream()
+                .filter(isEmployeeActive.and(isAccountActive))
+                .map(e -> String.valueOf(e.getId()))
+                .collect(Collectors.joining(",", "[", "]"));
+         
+        System.out.println("Active employees with active accounts = " + result);
+         
+        //Active employees with inactive accounts
+        result = employeeList.stream()
+                .filter(isEmployeeActive.and(isAccountActive.negate()))
+                .map(e -> String.valueOf(e.getId()))
+                .collect(Collectors.joining(",", "[", "]"));
+         
+        System.out.println("Active employees with inactive accounts = " + result);
+         
+        //Inactive employees with inactive accounts
+        result = employeeList.stream()
+                .filter(isEmployeeActive.negate().and(isAccountActive.negate()))
+                .map(e -> String.valueOf(e.getId()))
+                .collect(Collectors.joining(",", "[", "]"));
+         
+        System.out.println("Inactive employees with inactive accounts = " + result);
+    }
+     
+    private static List<Employee> getEmployeesFromDataSource() {
+        List<Employee> employeeList = new ArrayList<>();
+         
+        employeeList.add(new Employee(1L, "A", "AA", EmployeeStatus.ACTIVE, 
+            new Account(1001L, "Saving - 1001", "Saving", AccountStatus.ACTIVE)));
+        employeeList.add(new Employee(2L, "B", "BB", EmployeeStatus.ACTIVE, 
+            new Account(1002L, "Checking - 1002", "Checking", AccountStatus.ACTIVE)));
+        employeeList.add(new Employee(3L, "C", "CC", EmployeeStatus.ACTIVE, 
+            new Account(1003L, "Deposit - 1003", "Deposit", AccountStatus.ACTIVE)));
+        employeeList.add(new Employee(4L, "D", "DD", EmployeeStatus.ACTIVE, 
+            new Account(1004L, "Saving - 1004", "Saving", AccountStatus.INACTIVE)));
+        employeeList.add(new Employee(5L, "E", "EE", EmployeeStatus.ACTIVE, 
+            new Account(1005L, "Checking - 1005", "Checking", AccountStatus.INACTIVE)));
+        employeeList.add(new Employee(6L, "F", "FF", EmployeeStatus.ACTIVE, 
+            new Account(1006L, "Deposit - 1006", "Deposit", AccountStatus.BLOCKED)));
+         
+        return employeeList;
+    }
+}
+
+Program output.
+
+Output
+Active employees = [1,2,3,4,5,6]
+Active employees with active accounts = [1,2,3]
+Active employees with inactive accounts = [4,5,6]
+Inactive employees with inactive accounts = []
+
+Clearly, we can create many more such simple predicates, and then we can combine them to make more complex conditions. These complex predicates can help in filtering the streams and getting the desired output.
+
+</details>
+<details>
+<summary><b>Sorting a Stream by Multiple Fields</b></summary>
+	
+# Sorting a Stream by Multiple Fields in Java
+
+Learn to sort the streams of objects by multiple fields using Comparators and Comparator.thenComparing() method. This method returns a lexicographic-order comparator with another comparator. It gives the same effect as SQL GROUP BY clause.
+
+### 1. Creating Comparators for Multiple Fields
+To sort on multiple fields, we must first create simple comparators for each field on which we want to sort the stream items. Then we chain these Comparator instances in the desired order to give GROUP BY effect on complete sorting behavior.
+
+Note that Comparator provides a few other methods that we can use if they fit in the requirements.
+
+thenComparing(keyExtractor) :
+thenComparing(comparator)
+thenComparing(keyExtractor, comparator)
+thenComparingDouble(keyExtractor)
+thenComparingInt(keyExtractor)
+thenComparingLong(keyExtractor)
+Joining Multiple Comparators
+//first name comparator
+Comparator<Employee> compareByFirstName = Comparator.comparing( Employee::getFirstName );
+ 
+//last name comparator
+Comparator<Employee> compareByLastName = Comparator.comparing( Employee::getLastName );
+ 
+//Compare by first name and then last name (multiple fields)
+Comparator<Employee> compareByFullName = compareByFirstName.thenComparing(compareByLastName);
+ 
+//Using Comparator - pseudo code
+list.stream().sorted( comparator ).collect();
+
+### 2. Sorting with Complex Comparator
+Given below is an example of using thenComparing() to create Comparator which is capable of sorting the employees’ list by their first name and last name.
+
+Sort by first name and last name
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+ 
+public class Main 
+{
+  public static void main(String[] args) 
+  {
+    ArrayList<Employee> employees = getUnsortedEmployeeList();
+     
+    //Compare by first name and then last name
+    Comparator<Employee> compareByName = Comparator
+                        .comparing(Employee::getFirstName)
+                        .thenComparing(Employee::getLastName);
+     
+    List<Employee> sortedEmployees = employees.stream()
+                    .sorted(compareByName)
+                    .collect(Collectors.toList());
+     
+    System.out.println(sortedEmployees);
+  }
+ 
+  private static ArrayList<Employee> getUnsortedEmployeeList() 
+  {
+    ArrayList<Employee> list = new ArrayList<>();
+    list.add( new Employee(2l, "Lokesh", "Gupta") );
+    list.add( new Employee(1l, "Alex", "Gussin") );
+    list.add( new Employee(4l, "Brian", "Sux") );
+    list.add( new Employee(5l, "Neon", "Piper") );
+    list.add( new Employee(3l, "David", "Beckham") );
+    list.add( new Employee(7l, "Alex", "Beckham") );
+    list.add( new Employee(6l, "Brian", "Suxena") );
+        return list;
+  }
+}
+
+Program Output.
+
+Output
+[E[id=7, firstName=Alex,  lastName=Beckham], 
+E [id=1, firstName=Alex,  lastName=Gussin], 
+E [id=4, firstName=Brian,   lastName=Sux], 
+E [id=6, firstName=Brian,   lastName=Suxena], 
+E [id=3, firstName=David,   lastName=Beckham], 
+E [id=2, firstName=Lokesh,  lastName=Gupta], 
+E [id=5, firstName=Neon,  lastName=Piper]]
+
+### 3. Conclusion
+Similar to the chained predicates, we can combine any number of Comparators to create any complex sorting logic and sort the Stream items with it.
+
+</details>
+<details>
+<summary><b>Sorting Streams in Java</b></summary>
+	
+# How to Sort a Stream in Java
+
+Learn to sort streams of numbers, strings and custom types in ascending (natural order) and descending orders (reverse order) in Java.
+
+### 1. Basics of Sorting the Streams
+The Stream interface provides the sorted() method that returns a stream consisting of the elements of a given stream, sorted according to the natural order. It is an overloaded method:
+
+Stream sorted(): sorted according to natural order.
+Stream sorted(comparator): sorted according to the provided Comparator.
+Note that both methods are intermediate operations so we still need to call a terminal operation to trigger the sorting.
+
+Pseudo Code
+Stream<Person> unsortedStream;
+
+//Default Ordering
+
+List<Person> sortedList = unsortedStream.sorted()
+    .collect(Collectors.toList());
+
+//Order by First Name
+
+List<Person> sortedList = unsortedStream.sorted(Person::firstName)
+    .collect(Collectors.toList());
+
+### 2. Sorting Custom Types
+For demonstration purposes, we are using the custom class Person. This class has only three fields: id, first name and last name.
+
+By default, two persons are considered equal if their id is equal.
+
+Default sorting is by id field
+import java.util.Objects;
+
+public class Person implements Comparable<Person> { 
+
+    private Integer id;
+    private String fname;
+    private String lname;
+
+    //Constructor, Setters and Getters are hidden for brevity
+
+    @Override
+    public int compareTo(Person p) {
+        return this.getId().compareTo(p.getId());
+    }
+}
+
+#### 2.1. Default Sorting
+By default, the sorted() method uses the Comparable.compareTo() method implemented by the Person class.
+
+As Person class compares the instances using the value of id field, so when we sort the stream of Person instances – we get the instances sorted by id. The default sorting is in the natural order.
+
+Natural Sorting
+Stream<Person> personStream = getPersonStream();
+
+// Ascending Order
+personStream.sorted() 
+            .forEach(System.out::println);
+
+Output
+Person [id=1, fname=Lokesh, lname=Gupta]
+Person [id=2, fname=Lokesh, lname=Gupta]
+Person [id=3, fname=Brian, lname=Clooney]
+Person [id=4, fname=Brian, lname=Clooney]
+Person [id=5, fname=Lokesh, lname=Gupta]
+
+The same is true for reverse sorting as well. we can sort the Person instances in reverse order by passing the reverse comparator obtained from Comparator.reverseOrder() method into the sorted() method.
+
+Reverse Ordering
+Stream<Person> personStream = getPersonStream();
+
+// Reverse Order
+personStream.sorted(Comparator.reverseOrder()) 
+            .forEach(System.out::println);
+
+Output
+Person [id=6, fname=Alex, lname=Kolen]
+Person [id=5, fname=Lokesh, lname=Gupta]
+Person [id=4, fname=Brian, lname=Clooney]
+Person [id=3, fname=Brian, lname=Clooney]
+Person [id=2, fname=Lokesh, lname=Gupta]
+Person [id=1, fname=Lokesh, lname=Gupta]
+
+#### 2.2. Custom Sorting
+What if we want to sort the Person instances by their first name. The default sort does not support it, so we need to create our custom comparator.
+
+FirstNameSorter.java
+import java.util.Comparator;
+import com.howtodoinjava.core.streams.Person;
+
+public class FirstNameSorter implements Comparator<Person>{
+
+    @Override
+    public int compare(Person p1, Person p2) {
+        if(p1.getFname() == null || p2.getFname() == null) {
+            throw new IllegalArgumentException("Unnamed Person found in the system");
+        }
+       return p1.getFname().compareToIgnoreCase(p2.getFname());
+    }
+}
+
+Now pass the FirstNameSorter instance to the sorted() method. This time, sorting will use the compare() method written in FirstNameSorter.
+
+Sorting with first name
+List<Person> sortedList = personStream.sorted(new FirstNameSorter())
+    .collect(Collectors.toList());
+
+sortedList.forEach(System.out::println);
+
+Output
+Person [id=6, fname=Alex, lname=Kolen]
+Person [id=4, fname=Brian, lname=Clooney]
+Person [id=3, fname=Brian, lname=Clooney]
+Person [id=1, fname=Lokesh, lname=Gupta]
+Person [id=5, fname=Lokesh, lname=Gupta]
+Person [id=2, fname=Lokesh, lname=Gupta]
+
+Similarly, to sort the instances by the first name in reverse order, we can reverse any comparator using its reverse() method.
+
+Reverse Sorting by First Name
+List<Person> reverseSortedList = personStream.sorted( new FirstNameSorter().reversed() )
+                                        .collect(Collectors.toList());
+
+reverseSortedList.forEach(System.out::println);
+
+#### 2.3. Class cannot be cast to class java.lang.Comparable
+Please note that if our custom class Person does not implement the Comparable interface then we will get the ClassCastException in runtime while doing the natural sorting.
+
+Exception in thread "main" java.lang.ClassCastException: class com.howtodoinjava.core.streams.sort.Person
+ cannot be cast to class java.lang.Comparable (com.howtodoinjava.core.streams.sort.Person is in unnamed
+ module of loader 'app'; java.lang.Comparable is in module java.base of loader 'bootstrap')
+	at java.base/java.util.Comparators $NaturalOrderComparator.compare(Comparators.java:47)
+	at java.base/java.util.TimSort. countRunAndMakeAscending(TimSort.java:355)
+	at java.base/java.util.TimSort. sort(TimSort.java:220)
+	at java.base/java.util.Arrays. sort(Arrays.java:1307)
+
+### 3. Sorting Stream of Numbers
+#### 3.1. Ascending Order
+Java programs to sort a stream of numbers using Stream.sorted() method.
+
+Ascending sort example
+import java.util.stream.Stream;
+
+public class Main
+{
+	public static void main(String[] args)
+    {
+		Stream<Integer> numStream = Stream.of(1,3,5,4,2);
+
+		numStream.sorted()
+				 .forEach(System.out::println);
+    }
+}
+
+Program output.
+
+Output
+1
+2
+3
+4
+5
+
+#### 3.2. Descending Order
+To sort in reverse order, use Comparator.reverseOrder() in sorted() method.
+
+Descending sort example
+import java.util.Comparator;
+import java.util.stream.Stream;
+
+public class Main
+{
+	public static void main(String[] args)
+    {
+		Stream<Integer> numStream = Stream.of(1,3,5,4,2);
+
+		numStream.sorted( Comparator.reverseOrder() )
+				 .forEach(System.out::println);
+    }
+}
+
+### 4. Sorting Stream of Strings
+Java programs to sort a stream of strings using Stream.sorted() method in ascending and descending order.
+
+Sort stream of strings
+Stream<String> wordStream = Stream.of("A","C","E","B","D");
+
+wordStream.sorted()									//ascending
+		  .forEach(System.out::println);			
+
+wordStream.sorted( Comparator.reverseOrder() )		//descending
+		  .forEach(System.out::println);
+
+Program output.
+
+Output
+A B C D E
+
+E D C B A
+
+</details>
+<details>
+<summary><b>Chaining Multiple Predicates in Java</b></summary>
+	
+# Chaining Multiple Predicates in Java
+
+Learn to combine multiple Predicate instances aka chained predicates and perform ‘logical AND‘ and ‘logical OR‘ operations on the Stream filter() operation. Chained predicates are useful in filtering the stream items for multiple conditions.
+
+### 1. How to Use Predicates
+Predicates are used for filtering the items from a stream. For example, if a have a stream of strings and want to find all the strings starting with ‘A‘, we can create a Predicate using the lambda expression.
+
+Predicate to filter all strings starting with A
+Predicate<String> startsWithA = s -> s.startsWith("A");
+
+Now use this predicate with Stream.filter() method.
+
+Using Predicate to Filter Stream Items
+List<String> list = Arrays.asList("Aa", "Bb", "Cc", "Dd", "Ab", "Bc");
+
+Predicate<String> startsWithA = s -> s.startsWith("A");
+
+List<String> items = list.stream()
+  .filter(startsWithA)
+  .collect(Collectors.toList());
+
+System.out.println(items);
+
+### 2. Predicate Chain
+The first example is of a simple predicate or single condition. In real-world applications, we may be filtering the items on multiple conditions.
+
+#### 2.1. Simple Example
+A good way to apply such complex conditions is by combining multiple simple conditions to make one complex condition.
+
+For example, if we want to get all strings that start with either A or B but it must not contain the letter ‘c‘. Lets create the Predicate for this:
+
+All strings that start with either A or B but it must not contain the letter c
+Predicate<String> startsWithA = s -> s.startsWith("A");
+Predicate<String> startsWithB = s -> s.startsWith("B");
+Predicate<String> notContainsC = s -> !s.contains("c");
+
+Predicate<String> complexPredicate = startsWithA.or(startsWithB)
+  .and(notContainsC);
+
+Note that for creating the negative conditions, we can use the method negate() on the position predicates.
+
+negatedPredicate and notContainsC have the same effect
+Predicate<String> containsC = s -> s.contains("c");
+Predicate<String> negatedPredicate = containsC.negate();
+
+Predicate<String> notContainsC = s -> !s.contains("c");
+
+In the above example, negatedPredicate and notContainsC will have the same effect on the filter() operation.
+
+#### 2.2. The and() Method for Logical AND Operation
+The and() method returns a composed predicate that represents a short-circuiting logical AND of given predicate and another.
+When evaluating the composed predicate, if the first predicate is false, then the other predicate is not evaluated.
+Any exceptions thrown during evaluation of either predicate are relayed to the caller; if evaluation of first predicate throws an exception, the other predicate will not be evaluated.
+In the given example, we are finding all the employees whose id is less than 4 and salary is greater than 200.
+
+id is less than 4 AND salary is greater than 200
+List<Employee> employeesList = Arrays.asList(
+          new Employee(1, "Alex", 100),
+          new Employee(2, "Brian", 200),
+          new Employee(3, "Charles", 300),
+          new Employee(4, "David", 400),
+          new Employee(5, "Edward", 500),
+          new Employee(6, "Frank", 600)
+        );
+
+Predicate<Employee> idLessThan4 = e -> e.getId() < 4;
+
+Predicate<Employee> salaryGreaterThan200 = e -> e.getSalary() > 200;
+
+List<Employee> filteredEmployees = employeesList.stream()
+    .filter( idLessThan4.and( salaryGreaterThan200 ) )
+    .collect(Collectors.toList());
+
+System.out.println(filteredEmployees);
+
+Program Output.
+
+Output
+[Employee [id=3, name=Charles, salary=300.0]]
+
+#### 2.3. The or() Method for Logical OR Operation
+The Predicate.or() method returns a composed predicate that represents a short-circuiting logical OR of given predicate and another predicate.
+When evaluating the composed predicate, if the first predicate is true, then the other predicate is not evaluated.
+Any exceptions thrown during evaluation of either predicate are relayed to the caller; if evaluation of first predicate throws an exception, the other predicate will not be evaluated.
+In the given example, we are finding all the employees whose id is less than 2 or salary is greater than 500.
+
+id is less than 2 OR salary is greater than 500
+List<Employee> employeesList = Arrays.asList(
+              new Employee(1, "Alex", 100),
+              new Employee(2, "Brian", 200),
+              new Employee(3, "Charles", 300),
+              new Employee(4, "David", 400),
+              new Employee(5, "Edward", 500),
+              new Employee(6, "Frank", 600)
+            );
+
+Predicate<Employee> idLessThan2 = e -> e.getId() < 2;
+
+Predicate<Employee> salaryGreaterThan500 = e -> e.getSalary() > 500;
+
+List<Employee> filteredEmployees = employeesList.stream()
+        .filter( idLessThan2.or( salaryGreaterThan500 ) )
+        .collect(Collectors.toList());
+
+System.out.println(filteredEmployees);
+
+Program output.
+
+Output
+[Employee [id=1, name=Alex, salary=100.0], 
+Employee [id=6, name=Frank, salary=600.0]]
+
+### 3. Conclusion
+In this Java tutorial, we learned to create simple predicates and use them to filter the Stream items. Then we learned to combine multiple simple predicates to create complex predicates using and(), or() and negate() methods.
+
+</details>
+<details>
+<summary><b>Negating a Predicate</b></summary>
+	
+# Negating a Predicate in Java
+
+Learn to create a Predicate with the negating effect that will match all the elements not matching the original predicate. The negated predicate acts as a pass function and selects all the elements from the stream that were filtered out by the original predicate.
+
+### 1. Predicate negate() Method
+The Predicate.negate() method returns the logical negation of an existing predicate.
+
+Predicate<Integer> isEven = i -> i % 2 == 0;
+     
+Predicate<Integer> isOdd = isEven.negate();
+
+Use these predicates as follows with the Stream filter() method.
+
+List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+ 
+Predicate<Integer> isEven = i -> i % 2 == 0;
+ 
+Predicate<Integer> isOdd = Predicate.not( isEven );
+
+List<Integer> evenNumbers = list.stream()
+      .filter(isEven)
+      .collect(Collectors.toList());
+ 
+List<Integer> oddNumbers = list.stream()
+    .filter(isOdd)
+    .collect(Collectors.toList());
+
+### 2. Predicate not() Method – Java 11
+In Java 11, Predicate class has a new method not(). It returns a Predicate that is the negation of the supplied predicate.
+
+Internally, this is accomplished by returning the result of the calling predicate.negate().
+
+Predicate<Integer> isEven = i -> i % 2 == 0;
+     
+Predicate<Integer> isOdd = Predicate.not( isEven );
+
+</details>
+<details>
+<summary><b>Finding Max and Min from List using Streams</b></summary>
+	
+# Finding Max and Min from List using Streams
+
+Learn to find min and max values from a List using Stream API e.g. a date, number, Char, String or an object. We will use the Comparator.comparing() for custom comparison logic.
+
+### 1. Overview
+We will be using the following functions to find the max and min values from the stream:
+
+Stream.max(comparator) : It is a terminal operation that returns the maximum element of the stream according to the provided Comparator.
+Stream.min(comparator) : It is a terminal operation that returns the minimum element of the stream according to the provided Comparator.
+### 2. Finding Min or Max Date
+To get max or min date from a stream of dates, you can use Comparator.comparing( LocalDate::toEpochDay ) Comparator. The toEpochDay() function returns the count of days since epoch i.e. 1970-01-01.
+
+LocalDate start = LocalDate.now();
+LocalDate end = LocalDate.now().plusMonths(1).with(TemporalAdjusters.lastDayOfMonth());
+ 
+//Create stream of dates
+List<LocalDate> dates = Stream.iterate(start, date -> date.plusDays(1))
+                .limit(ChronoUnit.DAYS.between(start, end))
+                .collect(Collectors.toList());
+ 
+// Get Min or Max Date
+LocalDate maxDate = dates.stream()
+              .max( Comparator.comparing( LocalDate::toEpochDay ) )
+              .get();
+ 
+LocalDate minDate = dates.stream()
+              .min( Comparator.comparing( LocalDate::toEpochDay ) )
+              .get();
+
+Use the above program to find the earliest date or latest date from a list of dates.
+
+### 3. Find Min or Max Number
+To find min and max numbers from the stream of numbers, use Comparator.comparing( Integer::valueOf ) like comparators. The below example is for a stream of Integers.
+
+// Get Min or Max Number
+Integer maxNumber = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9)
+          .max(Comparator.comparing(Integer::valueOf))
+          .get();
+ 
+Integer minNumber = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9)
+          .min(Comparator.comparing(Integer::valueOf))
+          .get();
+
+### 4. Find Min or Max Char or String
+To find min and max string or char from a stream of chars, use Comparator.comparing( String::valueOf ) like comparators.
+
+// Get Min or Max String/Char
+String maxChar = Stream.of("H", "T", "D", "I", "J")
+            .max(Comparator.comparing(String::valueOf))
+            .get();
+ 
+String minChar = Stream.of("H", "T", "D", "I", "J")
+            .min(Comparator.comparing(String::valueOf))
+            .get();
+
+### 5. Find Min or Max Object by Field Value
+The Object comparison involves creating our own custom comparator, first. For example, if I want to get the youngest employee from a stream of Employee objects, then my comparator will look like Comparator.comparing(Employee::getAge). Now use this comparator to get max or min employee object.
+
+Java program to find max or min employee object by their age.
+
+Find max or min object by object property
+List<Employee> employees = new ArrayList<Employee>();
+
+//add few employees
+ 
+Comparator<Employee> comparator = Comparator.comparing( Employee::getAge );
+ 
+// Get Min or Max Object
+Employee minObject = employees.stream().min(comparator).get();
+Employee maxObject = employees.stream().max(comparator).get();
+
+### 6. Conclusion
+In this tutorial, we learned to find max value or min value from a list using the Java stream API and lambda expression. We also learned to find max or min objects such as max Date or String.
+
+</details>
+<details>
+<summary><b>Java Stream count() Matches with filter()</b></summary>
+	
+# Java Stream count() Matches with filter()
+
+Learn to count the matching items in the Stream that are passed by a specified filter expression. To count the items, we can use the following two methods and both are terminal operations and will give the same result.
+
+Stream.count()
+Stream.collect(Collectors.counting())
+### 1. Stream count() API
+The Stream interface has a default method called count() that returns a long value indicating the number of matching items in the stream.
+
+long count()
+
+To use the count() method, call it on any Stream instance.
+
+Stream s = ...;
+
+s.count();
+//or
+s.collect(Collectors.counting());
+
+### 2. Counting Matches in Stream
+Example 1: Counting all items in the Stream
+In this example, we are counting the number of elements in different kinds of streams such as IntStream, LongStream.
+
+long count = Stream.of("how","to","do","in","java").count();	//5
+ 
+long count = IntStream.of(1,2,3,4,5,6,7,8,9).count();   //9
+
+Example 2: Counting items matching to Stream filter()
+To count the matching items, we need to apply a filter expression or predicate to filter that will find the matching items and then we can use count() API to count the items.
+
+In the given example, we are counting all the even numbers in the stream.
+
+long count = LongStream.of(1,2,3,4,5,6,7,8,9)
+            .filter(i -> i%2 == 0)
+            .count();
+            //or
+            //.collect(Collectors.counting())
+</details>
+<details>
+<summary><b>Filter a Map by List of Keys</b></summary>
+	
+# How to Filter a Map by List of Keys in Java
+
+Learn to filter a Map by keys or values using forEach() loop and Stream.filter() API in Java 8.
+
+### 1. Setup
+For the code examples, we will use the following Map of users. Map keys are Integer types, and Map values are User instances.
+
+Map<Integer, User> usersMap = Map.of(
+    1, new User(1, "Alex"),
+    2, new User(2, "Allen"),
+    3, new User(3, "Brian"),
+    4, new User(4, "Bob"),
+    5, new User(5, "Charles"),
+    6, new User(6, "David"),
+    8, new User(7, "Don"),
+    9, new User(8, "Dave"));
+
+We will filter the Map against the following List of keys. The List can contain anything. We are storing user ids to keep the examples easy to understand.
+
+List<Integer> idList = List.of(1,3,5,7);
+
+### 2. Filter a Map by List of Keys
+Suppose we have a List of ids of users and we want to get the submap consisting of the users whose id is present in the List.
+
+To do so, we will iterate over the Map‘s EntrySet. Then we will check for the id to be present in the List in the filter() function. Finally, we will collect the matching entry sets in a new Map using Collectors.toUnmodifiableMap().
+
+Map<Integer, User> filteredMap = usersMap.entrySet()
+    .stream()
+    .filter(entry -> idList.contains(entry.getKey()))
+    .collect(Collectors.toUnmodifiableMap(Map.Entry::getKey, Map.Entry::getValue));
+
+System.out.println(filteredMap);
+
+The program output.
+
+{1=User(id=1, name=Alex), 3=User(id=3, name=Brian), 5=User(id=5, name=Charles), 7=User(id=7, name=Don)}
+
+If we want to change the evaluation criteria then we need to change the expression in the filter() function. For example, if we want to check for the User’s id into the List then change the filter() expression to as follows:
+
+...
+.filter(entry -> idList.contains(entry.getValue().getId()))
+...
+
+### 3. Filter a Map and Collect Values into a List
+Another usecase can be when we want to filter the Map and collect values into a List for entrysets whose key is present in the List.
+
+List<User> usersList = usersMap.values()
+    .stream()
+    .filter(user -> idList.contains(user.getId()))
+    .collect(Collectors.toUnmodifiableList());
+
+System.out.println(usersList);
+
+The program output.
+
+[User(id=1, name=Alex), User(id=3, name=Brian), User(id=5, name=Charles), User(id=7, name=Don)]
+
+### 4. Filter a Map using forEach()
+We can also filter a Map using forEach() loop. The forEach loop takes a Consumer action that accepts a single input argument and returns no result.
+
+In our case, we will pass the Map.Entry to the Consumer and match the key or value from the List item. If the Entry matches the condition, we will add the entry.getValue() to a new List.
+
+List<User> usersList = new ArrayList<>();
+    
+usersMap.entrySet().forEach( entry -> {
+  if(idList.contains(entry.getValue().getId())) {
+    usersList.add(entry.getValue());
+  }
+});
+
+System.out.println(usersList);
+
+The program output.
+
+[User(id=1, name=Alex), User(id=3, name=Brian), User(id=5, name=Charles), User(id=7, name=Don)]
+
+### 5. Conclusion
+In this Java tutorial, we learned to filter a HashMap by keys or values and collect the matching Entry instances into a submap. We also learned to collect the values in a List after filtering the Map keys against a List using Stream.filter() and forEach() APIs.
+
+</details>
+</details>
 
 <details>
 <summary><b>3. Stream Collectors</b></summary>
-  
-- [Collecting Stream Items into List](https://howtodoinjava.com/java8/convert-stream-to-list)
-- [Collecting Stream Items into Map](https://howtodoinjava.com/java8/collect-stream-to-map)
-- [Collect a Java Stream to an Immutable Collection](https://howtodoinjava.com/java/collections/collect-stream-into-immutable-collection)
-- [Collectors groupingBy](https://howtodoinjava.com/java/stream/collectors-groupingby)
-</details>
+<details>
+<summary><b>Collecting Stream Items into List</b></summary>
+ 
+# Java Collect Stream to List (with Examples)
 
+Learn to collect the items from a Stream into a List using different ways in Java. We will compare these different techniques so we can decide the best way for any kind of scenario.
+
+Method	List Attributes	Java Version
+List<T> list = stream.toList();	Unmodifiable List	Java 16+
+List<T> list = stream.collect(Collectors.toUnmodifiableList());	Unmodifiable List
+Stream cannot have null values	Java 10+
+List<T> list = stream.collect(Collectors.toList());	Modifiable List	Java 8+
+LinkedList<T> list = stream.collect(Collectors.toCollection(LinkedList::new));	Mutable LinkedList	Java 8+
+ArrayList<T> list = stream.collect(Collectors.toCollection(ArrayList::new));	Mutable ArrayList	Java 8+
+### 1. Different Ways to Collect Stream Items into List
+There are primarily three ways to collect stream items into a list. Let’s compare them.
+
+#### 1.1. Stream.toList()
+The toList() method has been added in Java 16. It is a default method that collects the stream items into an unmodifiable List.
+The returned list is an implementation of Collections.unmodifiableList(new ArrayList<>(Arrays.asList(stream.toArray()))) where stream represents the underlying Stream of items.
+The order of the items in the list will be same as the order in stream, if there is any.
+As the returned List is unmodifiable; calls to any mutator method will always cause UnsupportedOperationException to be thrown.
+It is a terminal operation.
+Stream<String> tokenStream = Stream.of("A", "B", "C", "D");
+
+List<String> tokenList = tokenStream.toList();
+
+#### 1.2. Stream.collect(Collectors.toUnmodifiableList())
+This method has been added in Java 10. It is a terminal operation that collects the stream items into an unmodifiable List.
+The returned list is an instance of Collections.unmodifiableList() that is filled with stream items using JDK internal APIs able to access private methods of the JDK classes without using the reflection. In this case, the unmodifiable list is an implementation of SharedSecrets.getJavaUtilCollectionAccess().listFromTrustedArray(list.toArray()) where the list is an intermediate and mutable list of stream items.
+The List does not allow the null values and the whole operation will throw the NullPointerException if there is a null value in the stream.
+The order of items in the list is the same as the order of items in the stream, if there is any.
+Stream<String> tokenStream = Stream.of("A", "B", "C", "D");
+
+List<String> tokenList = tokenStream.collect(Collectors.toUnmodifiableList());
+
+#### 1.3. Stream.collect(Collectors.toList())
+This method has been added in Java 8, along with the original Stream API. It is a terminal operation that collects the stream items into a mutable List.
+The returned list is an instance of ArrayList class.
+Similar to other versions, the order of the items in the mutable list will be same as the order in stream, if there is any.
+Stream<String> tokenStream = Stream.of("A", "B", "C", "D");
+
+List<String> tokenList = tokenStream.collect(Collectors.toList());
+
+### 2. Collecting Stream into LinkedList
+Use the Collectors.toCollection(LinkedList::new) API along with Stream.collect() API for collecting the Stream items into a LinkedList.
+
+Stream<String> tokenStream = Arrays.asList("A", "B", "C", "D").stream();
+     
+List<String> tokenList = tokenStream
+                .collect(Collectors.toCollection(LinkedList::new));
+
+### 3. Filtering a Stream and Collect Items into a List
+Sometimes we need to find only specific items from the Stream and then add only those items to List. Here, we can use Stream.filter() method to pass a predicate that will return only those items which match the given pre-condition.
+
+In the given example, we are filtering all employees whose salary is less than 400. Then we are collecting those employees into a List.
+
+Stream<Employee> employeeStream = Stream.of(
+          new Employee(1, "A", 100),
+          new Employee(2, "B", 200),
+          new Employee(3, "C", 300),
+          new Employee(4, "D", 400),
+          new Employee(5, "E", 500),
+          new Employee(6, "F", 600));
+ 
+List<Employee> employeeList = employeeStream
+        .filter(e -> e.getSalary() < 400)
+        .collect(Collectors.toList());
+
+### 4. Collect Items from Infinite Stream into List
+To convert an infinite stream into a list, we must limit the stream to a finite number of elements. Given example will work in the case of a stream of primitives.
+
+IntStream infiniteNumberStream = IntStream.iterate(1, i -> i+1);
+
+List<Integer> integerlist = infiniteNumberStream.limit(10)
+        .boxed()
+        .collect(Collectors.toList());
+
+### 5. Conclusion
+In this tutorial, we learned the different ways to work with streams and collect the stream items in a List.
+
+As a general guideline, we can use Stream.toList() for unmodifiable lists, and use the Stream.collect(Collectors.toList()) for modifiable lists.
+
+To collect items in any other List types, we must use the Stream.collect(Collectors.toCollection(LinkedList::new)) version of the solutions.
+</details>
+<details>
+<summary><b>Collecting Stream Items into Map</b></summary>
+
+# Java Collectors.toMap(): Collecting Stream Items into Map
+
+Learn to convert a Stream to Map i.e. collect the items from a Stream into Map using Collectors.toMap() and Collectors.groupingBy() methods.
+
+### 1. Watch out for IllegalStateException
+Please note that it is very important to know beforehand if the Stream elements will have a distinct value for the map key field or not. If map keys are duplicates and we use Collectors.toMap() method, we will get the IllegalStateException:
+
+Error
+Exception in thread "main" java.lang.IllegalStateException: 
+	Duplicate key 3 (attempted merging values Item[id=3, name=Item3] and Item[id=3, name=Item3])
+	at java.base/java.util.stream.Collectors.duplicateKeyException(Collectors.java:135)
+
+### 2. Convert Stream to Map (without Duplicate Keys)
+In this case, we must make sure that each key is unique in the Stream. After the process finishes, we will get a Map<K,V> where a specified key K is associated with only one single value V.
+
+For the demo purpose, we are using a Stream of 3 items:
+
+Stream<Item> stream = Stream.of(
+
+  new Item(1, "Item1"),
+  new Item(2, "Item2"),
+  new Item(3, "Item3")
+);
+
+We can convert the above Strem of Item instance into Map in two ways. The Map key will always be the Item Id but the Map value can be either the item value of the item itself.
+
+In the following example, we are converting into Map<Long, String> such that:
+
+Map Key – Item Id
+Map Value – Item Name
+Map<Long, String> mapWithValue = stream.collect(Collectors.toMap(Item::id, Item::name));
+
+// {1=Item1, 2=Item2, 3=Item3}
+
+In the next example, we are converting to Map<Long, Item> using the Function.identity() that returns the object itself as Map value.
+
+Map<Long, Item> map = stream.collect(Collectors.toMap(Item::id, Function.identity()));
+
+// {1=Item[id=1, name=Item1], 2=Item[id=2, name=Item2], 3=Item[id=3, name=Item3]}
+
+### 3. Convert Stream to Map (with Duplicate Keys)
+If the stream has items where Map keys are duplicates, there are two possible ways to handle it:
+
+Collect all values in List and associate them with the Key
+Choose only one value, and discard all other values for a Key
+For the demo purpose, we are using a Stream of five items where three items have the duplicate key ‘3‘.
+
+Stream<Item> streamWithDuplicates = Stream.of(
+
+  new Item(1, "Item1"),
+  new Item(2, "Item2"),
+  new Item(3, "Item3-1"),
+  new Item(3, "Item3-2"),
+  new Item(3, "Item3-3")
+);
+
+3.1. Collecting Stream to Map of Lists
+In case, we want to store all values for a key in a List, we can use Collectors.groupingBy() to collect elements in Map<key, List<value>> format.
+
+In the following example, we are collecting the items into Map of Lists i.e. Map<K, List<Item>>.
+
+Map<Long, List<Item>> mapWithList = streamWithDuplicates.collect(Collectors.groupingBy(Item::id));
+
+The program output:
+
+{
+	1=[Item[id=1, name=Item1]], 
+	2=[Item[id=2, name=Item2]], 
+	3=[
+			Item[id=3, name=Item3-1], 
+			Item[id=3, name=Item3-2], 
+			Item[id=3, name=Item3-3]
+		]
+}
+
+We can convert the Stream to such that List contains the Item names i.e. Map<K, List<String>>.
+
+Map<Long, List<String>> mapWithGroupedValues = streamWithDuplicates
+    .collect(
+        Collectors.groupingBy(Item::id, 
+        Collectors.mapping(Item::name, Collectors.toList())));
+
+The program output:
+
+{
+	1=[Item1], 
+	2=[Item2], 
+	3=[Item3-1, Item3-2, Item3-3]
+}
+
+#### 3.2. Collecting Stream to Map with Discarding Duplicate Values
+Another way is to to choose only one value from multiple values, and discard other values for any Key.
+
+In our example, we may decide to choose the most recent name for the Map key i.e. item3-3 and discard the other values i.e. item3-1 and item3-2.
+
+The following code uses the third parameter, mergeFunction, which when encountering conflicting values on a key, chooses which value must be associated with the key.
+
+Map<Long, Item> mapWithGrouping = streamWithDuplicates
+    .collect(Collectors.toMap(Item::id, Function.identity(), (oldValue, newValue) -> newValue));
+
+The program output:
+
+{
+	1=Item[id=1, name=Item1], 
+	2=Item[id=2, name=Item2], 
+	3=Item[id=3, name=Item3-3]
+}
+
+### 4. Maintaining Insertion Order or Sorting of keys
+At times, we may want to maintain the order of key-value pairs in which they are inserted into the Map. The LinkedHashMap maintains such insertion order so we can use it to collect the Stream items.
+
+LinkedHashMap<Long, String> mapWithValueInInsertionOrder = stream
+    .collect(Collectors.toMap(
+    	Item::id, 
+    	Item::name, 
+    	(o, n) -> n, 
+    	LinkedHashMap::new));
+
+Similarly, if we want to apply and maintain the sorting order in the Map keys, we can use the TreeMap.
+
+TreeMap<Long, String> mapwithSortedKeys = stream
+    .collect(Collectors.toMap(
+    	Item::id, 
+    	Item::name, 
+    	(o, n) -> n, 
+    	TreeMap::new));
+
+### 5. Conclusion
+This Java Stream tutorial discussed various ways to collect the stream items into a Map, or a Map of Lists. We saw the examples of each approach and their outputs for a better understanding of what each approach does to Stream items.
+- [Collect a Java Stream to an Immutable Collection](https://howtodoinjava.com/java/collections/collect-stream-into-immutable-collection)
+</details>
+<details>
+<summary><b>Filter a Map by List of Keys</b></summary>
+
+# Collecting Stream Elements into Immutable Collection
+
+In this tutorial, we’ll learn to collect the elements from a Java Stream into an immutable collection or unmodifiable collection.
+
+### 1. Using Collectors.collectingAndThen() – Java 8
+The Collectors.collectingAndThen() was introduced in Java 8 as part of lambda expression changes. This method takes two parameters a collector and a finishing function.
+
+Arrays.asList(1, 2, 3, 4, 5)
+	.stream()
+	.collect(Collectors.collectingAndThen(Collectors.toList(), Collections::unmodifiableList));
+
+We can break the above function down into two steps:
+
+Collectors.toList() will collect the Stream into a mutable List.
+Collections.unmodifiableList() will convert the mutable List to an unmodifiable List of type java.util.Collections$UnmodifiableRandomAccessList.
+We can write down both steps separately as follows:
+
+List<Integer> mutableList = Arrays.asList(1, 2, 3, 4, 5)
+	.stream()
+	.collect(Collectors.toList());
+	
+List<Integer> unmodifiableList = Collections.unmodifiableList(mutableList);
+
+See Also: Collecting Stream Items into List
+
+### 2. Using Collectors.toUnmodifiableList() – Java 10
+The Collectors.toUnmodifiableList() is a static function introduced in Java 10. This is a shortcut to the previous solution, which collects the Stream into an unmodifiable List in two steps.
+
+It returns an object of type java.util.ImmutableCollections$ListN and will throw a NullPointerException if it encounters any null values. Note that ImmutableCollections is a container class for various immutable collections.
+
+var unmodifiableList = Stream.of(1, 2, 3, 4, 5)
+	.collect(Collectors.toUnmodifiableList());
+
+We can use Collectors.toUnmodifiableSet() will collect the Stream elemens into an unmodifiable Set.
+
+var unmodifiableSet = Stream.of(1, 2, 3, 4, 5)
+	.collect(Collectors.toUnmodifiableSet());
+
+Similarly, we can use Collectors.toUnmodifiableMap() to collect elements into an unmodifiable Map. It takes two parameters:
+
+a key mapping function that would map the keys of the map
+a value mapping function that would map the values of the corresponding keys.
+In the following example, we will create a Map with the Integers in the List as keys and the square of the Integer as the value.
+
+var unmodifiableMap = Stream.of(1, 2, 3, 4, 5).collect(Collectors.toUnmodifiableMap(i -> i, i -> i * i));
+
+### 3. Using Stream.toList() – Java 16
+With Java 16, Stream interface introduced a new default method toList() which gives back an immutable List.
+
+var unmodifiableList = Stream.of(1, 2, 3, 4, 5)
+	.toList();
+
+### 4. Using Google’s Guava Library
+Since Guava is an external library, it will have to be added to your classpath. If you’re using Maven, add the Guava dependency as follows:
+
+<dependency>
+    <groupId>com.google.guava</groupId>
+    <artifactId>guava</artifactId>
+    <version>31.1-jre</version>
+</dependency>
+
+#### 4.1. Using ImmutableList.toImmutableList()
+Starting with Guava v21.0, we can use ImmutableList.toImmutableList() static method which collects the elements into an Immutable List.
+
+The ImmutableList.toImmutableList() method returns an object of type com.google.common.collect.RegularImmutableList and will throw a NullPointerException if it encounters any null values.
+
+var unmodifiableList = Stream.of(1, 2, 3, 4, 5)
+	.collect(ImmutableList.toImmutableList());
+
+#### 4.2. Using Collectors.collectingAndThen() with ImmutableList::copyOf
+This approach is similar to the one described above. Here, instead, we use the ImmutableList::copyOf as the finishing function.
+
+var unmodifiableList = Stream.of(1, 2, 3, 4, 5)
+	.collect(Collectors.collectingAndThen(Collectors.toList(), ImmutableList::copyOf));
+
+### 5. Immutable vs. Unmodifiable collections
+Collections that do not support modification operations are referred to as unmodifiable. Unmodifiable collections are usually read-only views (wrappers) of other mutable collections. We can’t add, remove or clear them, but if we change the underlying collection, this collection’s view is also changed.
+
+Collections that additionally guarantee that no change in the underlying collection object will be visible are referred to as immutable.
+
+We can’t change immutable collections at all – they don’t wrap another collection – they have their own elements.
+
+### 6. Conclusion
+This Java Collections tutorial explored various ways to convert a Java Stream into an immutable collection. It is recommended to use the solution available in the latest Java version we are using.
+</details>
+<details>
+<summary><b>Collectors groupingBy</b></summary>
+
+# Java 8 Stream – Collectors GroupingBy with Examples
+
+Learn to use Collectors.groupingBy() method to group and aggregate the Stream elements similar to ‘GROUP BY‘ clause in the SQL.
+
+Stream -> groupingBy() -> Map of elements after applying ‘group by’ operation
+
+### 1. Collectors.groupingBy() Method
+#### 1.1. Syntax
+The groupingBy() method returns a Collector implementing a “GROUP BY” operation on Stream elements and returns the result as a Map.
+
+Syntax
+groupingBy(classifier)
+groupingBy(classifier, collector)
+groupingBy(classifier, supplier, collector)
+
+We can pass the following arguments to this method:
+
+classifier: maps input elements to map keys
+collector: is the downstream reduction function. By default, Collectors.toList() is used which causes the grouped elements into a List.
+supplier: provides a new empty Map into which the results will be inserted. By default, HashMap::new is used. We can use other maps such as TreeMap, LinkedHashMap or ConcurrentMap to insert additional behavior in the grouping process such as sorting.
+#### 1.2. Using groupingByConcurrent() for Parallel Processing
+We can use Collectors.groupingByConcurrent() if we wish to process the stream elements parallelly that uses the multi-core architecture of the machine and returns a ConcurrentMap. Except for concurrency, it works similarly to groupingBy() method.
+
+Syntax
+groupingByConcurrent(classifier)
+groupingByConcurrent(classifier, collector)
+groupingByConcurrent(classifier, supplier, collector)
+
+### 2. Collectors groupingBy Examples
+For the demo purposes, we are creating two records Person and Department as follows.
+
+record Person(int id, String name, double salary, Department department) {}
+record Department(int id, String name) {}
+
+And we are creating a List of persons that we will use to create Stream and collect the records in different groupings.
+
+List<Person> persons = List.of(
+    new Person(1, "Alex", 100d, new Department(1, "HR")),
+    new Person(2, "Brian", 200d, new Department(1, "HR")),
+    new Person(3, "Charles", 900d, new Department(2, "Finance")),
+    new Person(4, "David", 200d, new Department(2, "Finance")),
+    new Person(5, "Edward", 200d, new Department(2, "Finance")),
+    new Person(6, "Frank", 800d, new Department(3, "ADMIN")),
+    new Person(7, "George", 900d, new Department(3, "ADMIN")));
+
+### 2.1. Grouping By a Simple Condition
+Let us start with a simple condition to understand the usage better. In the following example, we are grouping all the persons by department. This will create a Map<Department, List<Person>> where map key is department records and map value will be all the persons in that department.
+
+Grouping all persons by department
+Map<Department, List<Person>> map = persons.stream().collect(groupingBy(Person::department));
+
+System.out.println(map);
+
+The program output.
+
+{
+	Department[id=2, name=Finance]=[
+	Person[id=3, ...], 
+	Person[id=4, ...], 
+	Person[id=5, ...], 
+
+	Department[id=3, name=ADMIN]=[
+	Person[id=6, ...], 
+	Person[id=7, ...], 
+
+	Department[id=1, name=HR]=[
+	Person[id=1, ...], 
+	Person[id=2, ...]
+}
+
+Similarly, if we wish to collect only the person ids in all departments then we can use Collectors.mapping() to collect all the person ids in a List rather than collecting the person records.
+
+Grouping all person ids by department
+Map<Department, List<Integer>> map = persons.stream()
+        .collect(groupingBy(Person::department, mapping(Person::id, toList())));
+
+System.out.println(map);
+
+The program output.
+
+{
+	Department[id=2, name=Finance]=[3, 4, 5], 
+	Department[id=3, name=ADMIN]=[6, 7], 
+	Department[id=1, name=HR]=[1, 2]
+}
+
+#### 2.2. Grouping by Complex Condition
+There may be cases when we have to apply a complex condition for grouping. In this case, the Map can represent the condition using a Java tuple and then group the matching elements as a List in Map value.
+
+In the following example, we want to group on distinct departments and salary pairs. In the Map value, we will get a list of persons who have the same department and the same salary.
+
+Group by distinct department and salary pairs
+Map<Object, List<Integer>> map = persons.stream()
+    .collect(groupingBy(person -> new Pair<>(person.salary(), person.department()),
+        mapping(Person::id, toList())));
+
+System.out.println(map);
+
+The program output clearly tells that persons 4 and 5 are in the same department and have the same salary.
+
+{
+	[900.0, Department[id=3, name=ADMIN]]=[7], 
+	[800.0, Department[id=3, name=ADMIN]]=[6], 
+	[200.0, Department[id=2, name=Finance]]=[4, 5], 
+	[900.0, Department[id=2, name=Finance]]=[3], 
+	[200.0, Department[id=1, name=HR]]=[2], 
+	[100.0, Department[id=1, name=HR]]=[1]
+}
+
+#### 2.3. Grouping with Counting
+We can also aggregate the values by performing other operations such as counting(), averaging() summing() etc. This helps in getting the reduction operation on Map values to produce a single value.
+
+In the following example, we are counting all the persons in a department.
+
+Count persons by department
+Map<Department, Long> map = persons.stream()
+    .collect(groupingBy(Person::department, counting()));
+
+System.out.println(map);
+
+The program output.
+
+{
+	Department[id=2, name=Finance]=3, 
+	Department[id=3, name=ADMIN]=2, 
+	Department[id=1, name=HR]=2
+}
+
+In the same way, we can find count all the persons having the same salary.
+
+Count persons with same salary
+Map<Double, Long> map = persons.stream()
+    .collect(groupingBy(Person::salary, counting()));
+
+System.out.println(map);
+
+The program output.
+
+{800.0=1, 200.0=3, 100.0=1, 900.0=2}
+
+#### 2.4. Grouping with Average
+It is possible to perform other aggregate operations such as finding the average salary in each department.
+
+Average salary in each department
+Map<Department, Double> map = persons.stream()
+    .collect(groupingBy(Person::department, averagingDouble(Person::salary)));
+
+System.out.println(map);
+
+The program output.
+
+{
+	Department[id=2, name=Finance]=433.3333333333333, 
+	Department[id=3, name=ADMIN]=850.0, 
+	Department[id=1, name=HR]=150.0
+}
+
+#### 2.5. Grouping with Max/Min
+To find the maximum or minimum value for the grouped values, use maxBy() or minBy() collectors and pass the Comparator argument to compare the required field values.
+
+In the following example, we are finding the max salaried person in each department.
+
+Max salaried person in each department
+Map<Department, Optional<Person>> map = persons.stream()
+    .collect(groupingBy(Person::department, maxBy(Comparator.comparingDouble(Person::salary))));
+
+System.out.println(map);
+
+The program output.
+
+{
+	Department[id=2, name=Finance]=Optional[Person[id=3, name=Charles, salary=900.0,...]],
+	Department[id=3, name=ADMIN]=Optional[Person[id=7, name=George, salary=900.0, ...]], 
+	Department[id=1, name=HR]=Optional[Person[id=2, name=Brian, salary=200.0, ...]]
+}
+
+#### 2.6. Grouping with Filtering
+The Stream.filter() method filters out all the non-matching elements from the stream before passing it to the next operation. This may not be the desired solution.
+
+Consider the following example where we are grouping all persons by the department; whose salary is greater than 300.
+
+Filtering all persons with salary less than 300
+Map<Department, Long> map = persons.stream()
+    .filter(p -> p.salary() > 300d)
+    .collect(groupingBy(Person::department, counting()));
+
+System.out.println(map);
+
+The program output.
+
+{
+	Department[id=2, name=Finance]=1, 
+	Department[id=3, name=ADMIN]=2
+}
+
+The above program output omits the department-1 altogether because there was no person matching the condition in that department. But if we want to list all such Map keys where there is no matching value exists then we can use Collectors.filtering() method that applies the filter while adding values in to Map.
+
+Filtering all persons with salary less than 300
+Map<Department, Long> map = persons.stream()
+    .collect(groupingBy(Person::department, filtering(p -> p.salary() > 300d, counting())));
+
+System.out.println(map);
+
+The program output. Now the department-1 is also listed with zero matching records.
+
+{
+	Department[id=2, name=Finance]=1, 
+	Department[id=3, name=ADMIN]=2, 
+	Department[id=1, name=HR]=0
+}
+
+### 3. Conclusion
+The Collectors’s groupBy() method is excellent for grouping the Stream elements by various conditions and performing all kinds of aggregate operations on the Map values. We can use combinations of Collectors to perform any kind of grouping as shown in the above examples.
+</details>
+</details>
 <details>
 <summary><b>4. Stream Conversions</b></summary>
-  
-- [Converting Between Stream and Array](https://howtodoinjava.com/java/array/convert-between-stream-and-array)
-- [Convert Iterable or Iterator to Stream](https://howtodoinjava.com/java8/iterable-iterator-to-stream)
-- [Collecting Stream of Primitives into Collection or Array](https://howtodoinjava.com/java8/convert-intstream-collection-array)
+
+<details>
+<summary><b>Converting Between Stream and Array</b></summary>
+
+# Convert between Stream and Array in Java
+
+Learn to convert a stream to an array and vice versa in Java. We will learn to convert for the primitives as well as the Object types.
+
+## Quick Reference
+String[] stringArray = {"a", "b", "c", "d", "e"};
+
+// array -> stream
+Stream<String> strStream = Arrays.stream(stringArray);
+
+// stream -> array
+String[] stringArray = stream.toArray(String[]::new);
+
+Note that Java Stream API provides the following specialized classes for the stream of primitives. These classes support many useful sequential and parallel aggregate operations such as sum() and average(). Consider using these classes to store a stream of primitives for better compatibility with other APIs.
+
+IntStream – Stream of int values
+LongStream – Stream of long values
+DoubleStream – Stream of double values
+### 1. Converting an Array to Stream
+#### 1.1. Method Syntax
+The primary method to convert an array to a stream of elements is Arrays.stream(). It is an overloaded method.
+
+Stream<T> stream(T[] array) : returns a sequential Stream with the specified array as its source.
+Stream<T> stream(T[] array, int start, int end) : returns a sequential Stream of array items from index positions start (inclusive) to end (exclusive).
+Let’s under its usage with the following examples.
+
+#### 1.2. Primitive Array to Stream
+Java Program to convert int array to IntStream.
+
+int[] primitiveArray = {0,1,2,3,4};
+
+IntStream intStream = Arrays.stream(primitiveArray);
+
+Java Program to convert int array to Stream of Integer objects.
+
+int[] primitiveArray = {0,1,2,3,4};
+
+Stream<Integer> integerStream = Arrays.stream(primitiveArray)
+									.boxed();
+
+#### 1.3. Object Array to Stream
+Java program to convert an object array to a stream of objects. We can apply this approach to any type of object, including Java objects (String, Integer etc.) or custom objects (User, Employee etc.).
+
+String[] stringArray = {"a", "b", "c", "d", "e"};
+
+Stream<String> strStream = Arrays.stream(stringArray);
+
+### 2. Converting a Stream to Array
+#### 2.1. Method Syntax
+The primary method for converting a stream to an array is Stream.toArray(). It is also an overloaded method.
+
+Object[] toArray() : returns an array containing the elements of a specified stream. By default, the return type of this method is Object[].
+T[] toArray(IntFunction<T[]> generator) : returns an array containing the elements of this stream, using the provided generator function. The generator produces a new array of the desired type and the provided length.
+Let us understand the usage of toArray() method with some examples.
+
+#### 2.2. Stream to Primitive Array
+Java program to get a stream of ints from IntStream.
+
+IntStream intStream = Arrays.stream(new int[]{1,2,3});
+
+int[] primitiveArray = intStream.toArray();
+
+Java program to convert a stream of Integers to primitive int array. Note that mapToInt() returns an instance of IntStream type. And IntStream.toArray() returns an int[]. This is the reason we are not using any generator function.
+
+Stream<Integer> integerStream = Arrays.stream(new Integer[]{1,2,3}); 
+
+int[] primitiveArray = integerStream.mapToInt(i -> i).toArray();
+
+#### 2.3. Stream to Object Array
+Java program to convert a stream of objects to an array of objects. It applies to all Java classes and custom objects as well. By default, toArray() will return an Object[]. To get the String[], we are using the generator function String[]::new that creates an instance of String array.
+
+Stream<String> strStream = Arrays.stream(new String[]{});
+
+String[] stringArray = strStream.toArray(String[]::new);
+
+### 3. Conclusion
+In this short tutorial, we learned to convert the stream of items to the array of items, including primitives and complex object types. We learned to use the Arrays.stream() and Stream.toArray() methods and their examples.
+</details>  
+<details>
+<summary><b>Convert Iterable or Iterator to Stream</b></summary>
+
+# Convert Iterable or Iterator to Stream in Java
+
+Learn to convert Iterable or Iterator to Stream. It may be desired at times when we want to utilize excellent support of lambda expressions and collectors in Java Stream API.
+
+### 1. Converting Iterable to Stream
+The Iterables are useful but provide limited support for lambda expressions added in Java 8. To utilize full language features, it is desired to convert the iterable to stream.
+
+To convert, we will use iterable.spliterator() method to get the Spliterator reference, which is then used to get the Stream using StreamSupport.stream(spliterator, isParallel) method.
+
+//Iterable
+Iterable<String> iterable = Arrays.asList("a", "b", "c");
+ 
+//Iterable -> Stream
+//false means sequential stream
+Stream<String> stream = StreamSupport.stream(iterable.spliterator(), false);
+
+The above code is only linking the Stream to the Iterable but the actual iteration won’t happen until a terminal operation is executed.
+The second argument in StreamSupport.stream() determines if the resulting Stream should be parallel or sequential. Set it true for a parallel stream and false for a sequential stream.
+### 2. Converting Iterator to Stream – Java 8
+The Iterator to Stream conversion follows the same path as Iterable to Stream.
+
+The only difference is that the Iterator interface has no spliterator() method so we need to use Spliterators.spliteratorUnknownSize() method to get the spliterator. Rest everything is same.
+
+// Iterator
+Iterator<String> iterator = Arrays.asList("a", "b", "c").listIterator();
+                  
+//Extra step to get Spliterator
+Spliterator<String> splitItr = Spliterators
+    .spliteratorUnknownSize(iterator, Spliterator.ORDERED);
+
+// Iterator -> Stream
+Stream<String> stream = StreamSupport.stream(splitItr, false);
+
+### 3. Converting Iterator to Stream – Java 9
+Java 9 has made the syntax a little easier and now we don’t need to use Spliterator it explicitly. Rather it uses a Predicate to decide when the elements shall be taken.
+
+// Iterator
+Iterator<String> iterator = Arrays.asList("a", "b", "c")
+                  .listIterator();
+
+Stream<String> stream = Stream.generate(() -> null)
+    .takeWhile(x -> iterator.hasNext())
+    .map(n -> iterator.next());
+</details>  
+<details>
+<summary><b>Collecting Stream of Primitives into Collection or Array</b></summary>
+
+# Collecting Stream of Primitives into Collection or Array
+
+Java Collectors class provides many static methods to collect items from a Stream and store them into a Collection. But these methods do not work with streams of primitives.
+
+Works with Objects; But doesn't work with Primitives
+//It works perfect !!
+List<String> strings = Stream.of("how", "to", "do", "in", "java")
+            .collect(Collectors.toList());
+ 
+//Compilation Error !!
+IntStream.of(1,2,3,4,5).collect(Collectors.toList());
+
+To convert the Stream of primitives to a Collection, we can adapt one of the following ways. Note that these methods can be applied to all three primitive streams i.e. IntStream, LongStream, and DoubleStream.
+
+### 1. Collecting IntStream into Collection using Boxed Stream
+Using boxed() method of IntStream, LongStream or DoubleStream e.g. IntStream.boxed(), we can get stream of wrapper objects which can be collected by Collectors methods.
+
+//Primitive Stream -> List
+List<Integer> listOfIntegers = IntStream.of(1,2,3,4,5)
+  .boxed()
+  .collect(Collectors.toList());
+
+List<Long> listOfLongs = LongStream.of(1,2,3,4,5)
+  .boxed()
+  .collect(Collectors.toList());
+
+List<Double> listOfDoubles = DoubleStream.of(1.0,2.0,3.0,4.0,5.0)
+  .boxed()
+  .collect(Collectors.toList());
+
+### 2. Collecting IntStream to List by Mapping to Objects
+Another way is to manually to the boxing using IntStream.mapToObj(), IntStream.mapToLong() or IntStream.mapToDouble() methods. There are other similar methods in other stream classes, which you can use.
+
+//Primitive Stream -> List
+List<Integer> listOfIntegers = IntStream.of(1,2,3,4,5)
+  .mapToObj(Integer::valueOf)
+  .collect(Collectors.toList());
+
+List<Long> listOfLongs = LongStream.of(1,2,3,4,5)
+  .mapToObj(Long::valueOf)
+  .collect(Collectors.toList());
+
+List<Double> listOfDoubles = DoubleStream.of(1.0,2.0,3.0,4.0,5.0)
+  .mapToObj(Double::valueOf)
+  .collect(Collectors.toList());
+### 3. Collecting IntStream to Array
+It is also useful to know how to convert the primitive stream to an array. Use IntStream.toArray() method to convert from int stream to array.
+
+int[] intArray = IntStream.of(1, 2, 3, 4, 5).toArray();
+
+long[] longArray = LongStream.of(1, 2, 3, 4, 5).toArray();
+
+double[] doubleArray = DoubleStream.of(1, 2, 3, 4, 5).toArray();
+Similarly, use toArray() function of LongStream or DoubleStream as well.
+</details>
 </details> 
 
 <details>
