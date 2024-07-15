@@ -974,8 +974,70 @@ public class Employee implements Serializable {
 }
 ```
 </details>
+<details>
+<summary><b>Stream of Random Numbers</b></summary>
 
-- [Stream of Random Numbers](https://howtodoinjava.com/java8/stream-random-numbers-range)
+# Stream of Random Numbers in Java
+
+Learn to get a Stream of random numbers in Java using the Random and SecureRandom classes.
+
+### 1. The Random API
+Java 8 release has added several methods to the Random class which can return a sequential stream of random numbers (integers, longs and doubles). The most widely used methods are:
+
+- IntStream ints()
+- LongStream longs()
+- DoubleStream doubles()
+
+All of the above methods have their overloaded forms. For example, ints() method has these overloaded forms.
+
+- IntStream ints() – Returns an effectively unlimited stream of pseudorandom int values.
+- IntStream ints(long streamSize) – Returns a stream producing the given number of pseudorandom int values.
+- IntStream ints(int origin, int bound) – Returns an effectively unlimited stream of int values, each conforming to the given origin (inclusive) and bound (exclusive).
+- IntStream ints(long streamSize, int origin, int bound) – Returns a stream producing the given number of pseudorandom int values, each conforming to the given origin (inclusive) and bound (exclusive).
+### 2. Example of Stream of Random Numbers
+Let’s learn to use the above-discussed methods to create a stream of random numbers.
+```java
+Random random = new Random();
+
+//1
+IntStream randStream = random.ints(5);
+randStream.forEach(System.out::println);
+
+//2
+DoubleStream doubleStream = random.doubles(5, 0, 0.5);
+doubleStream.forEach(System.out::println);
+
+//collect to list
+List<Long> longs = random.longs(5)
+    .boxed()
+    .collect(Collectors.toList());
+```
+### 3. Stream of Secure Random Numbers
+To get the stream of secure random numbers (i.e. cryptographically strong random number), use the subclass SecureRandom. By default, SecureRandom uses the SHA1PRNG algorithm. The default constructor also uses this algorithm.
+
+CSPRNG (cryptographically strong pseudo-random number generator) uses entropy, which is nothing but an unpredictable input (true random source). It might be a hardware random number generator or possibly some unpredictable system process, such as the timings events, interrupts etc.
+```java
+SecureRandom secureRandomGenerator = SecureRandom.getInstanceStrong();
+ 
+//1. Get 128 random bytes
+byte[] randomBytes = new byte[128];
+secureRandomGenerator.nextBytes(randomBytes);
+ 
+//2. Get random integer
+int r = secureRandomGenerator.nextInt();
+ 
+//3. Get random integer in range
+int randInRange = secureRandomGenerator.nextInt(999999);
+```
+Please note that all the above-discussed methods (ints(), longs(), doubles() and their overloads) also work with the SecureRandom class.
+```java
+SecureRandom sRand = SecureRandom.getInstanceStrong();
+
+IntStream randStream = sRand.ints(5);
+
+randStream.forEach(System.out::println);
+```
+</details>
 - [Boxed Streams](https://howtodoinjava.com/java8/java8-boxed-intstream)
 - [Stream of Dates](https://howtodoinjava.com/java9/stream-dates-datesuntil)
 - [Remove/Update Elements From List using Stream](https://howtodoinjava.com/java/stream/remove-update-stream-elements)
