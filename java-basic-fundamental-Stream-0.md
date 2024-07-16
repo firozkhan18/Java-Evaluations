@@ -2483,6 +2483,11 @@ In this Java tutorial, we learned to filter a HashMap by keys or values and coll
 
 <details>
 <summary><b>3. Stream Collectors</b></summary>
+
+ <details>
+<summary><b>Stream Collectors</b></summary>
+	 
+</details>	 
 <details>
 <summary><b>Collecting Stream Items into List</b></summary>
  
