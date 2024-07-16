@@ -332,7 +332,7 @@ In this example, String[]::new is a reference to create a new array of type Stri
 
 A frequent error is to think that String::length is a reference to a static method because the syntax is close to String.length() which is a call to a static method. But for a method reference, the same syntax is used to reference an instance method and a static method. So String::length is a reference to an instance method because the method length() in the class String is declared as an instance method.
 
-### ===========================================================================
+### ===========================================================
 
 Method references are a shorthand notation to refer to methods by their names instead of using lambda expressions. There are four types of method references:
 
@@ -386,7 +386,7 @@ Function<Integer, List<String>> listFunction = ArrayList::new;
 
 In all the examples above, the lambda expressions are converted to method references to achieve a cleaner and more concise syntax. Method references improve readability and reduce code redundancy in functional programming.
 
-### ===========================================================================
+### =============================================================
 
 The difference between the four types of method references and the five kinds of method references listed in the above is that the former specifically refer to different ways in which methods can be referenced or used as lambda expressions in Java code, while the latter categorize the different types of method references based on their functionality.
 
