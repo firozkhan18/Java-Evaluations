@@ -332,7 +332,7 @@ In this example, String[]::new is a reference to create a new array of type Stri
 
 A frequent error is to think that String::length is a reference to a static method because the syntax is close to String.length() which is a call to a static method. But for a method reference, the same syntax is used to reference an instance method and a static method. So String::length is a reference to an instance method because the method length() in the class String is declared as an instance method.
 
-======================================================================================================
+============================================
 Method references are a shorthand notation to refer to methods by their names instead of using lambda expressions. There are four types of method references:
 
 #### Static Method References: Syntax: Class::staticMethodName
