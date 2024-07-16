@@ -101,8 +101,7 @@ forEach(), toArray(), reduce(), collect(), min(), max(), count(), anyMatch(), al
 | partitioningBy 	| Map<Boolean, List<T>> | Partition the items in the stream based on the result of the application of a predicate to each of them. Example use: Map<Boolean, List<Dish>> vegetarianDishes =menuStream.collect(partitioningBy(Dish::isVegetarian));|
 	
 
-
-12 Common uses of Java Streams
+### 12 Common uses of Java Streams
 
 Java Streams API was introduced in Java 8. Its aim is to provide a less verbose and concise way to carry out common operations on collections of objects.
 
