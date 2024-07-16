@@ -91,6 +91,7 @@ List<String> listOfStrings = Arrays.asList("Mark", "Howard", "Anthony D'Cornian"
 Optional<String> largeString = listOfStrings.stream().filter(str -> str.length() > 10).findAny();
 largeString.ifPresent(System.out::println);
 ```
+[Complete Fundamental Concepts Of Java Stream](java-basic-fundamental-Stream-0.md)
 
 ## Lambda Expression
 Lambda expressions are introduced in Java 8 and are touted to be the biggest feature of Java 8. Lambda expression facilitates functional programming, and simplifies the development a lot.
