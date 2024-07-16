@@ -336,7 +336,9 @@ A frequent error is to think that String::length is a reference to a static meth
 
 Method references are a shorthand notation to refer to methods by their names instead of using lambda expressions. There are four types of method references:
 
-#### Static Method References: Syntax: Class::staticMethodName
+#### Static Method References: 
+
+- Syntax: Class::staticMethodName
 
 Example:
 
@@ -348,7 +350,9 @@ Function<String, Integer> toInteger = (String s) -> Integer.parseInt(s);
 ```java
 Function<String, Integer> toInteger = Integer::parseInt;
 ```
-#### Instance Method References of an Object: Syntax: instance::instanceMethodName
+#### Instance Method References of an Object: 
+
+- Syntax: instance::instanceMethodName
 
 Example:
 
@@ -360,7 +364,9 @@ BiFunction<String, String, Boolean> startsWith = (String s1, String s2) -> s1.st
 ```java
 BiFunction<String, String, Boolean> startsWith = String::startsWith;
 ```
-#### Instance Method References of a Constructor: Syntax: ClassName::new
+#### Instance Method References of a Constructor: 
+
+- Syntax: ClassName::new
 
 Example:
  
@@ -372,7 +378,9 @@ Supplier<List<String>> listSupplier = () -> new ArrayList<>();
 ```java
 Supplier<List<String>> listSupplier = ArrayList::new;
 ```
-#### Constructor Method References: Syntax: ClassName::staticMethodName
+#### Constructor Method References: 
+
+- Syntax: ClassName::staticMethodName
 
 Example:
 
