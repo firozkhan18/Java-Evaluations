@@ -340,50 +340,50 @@ Method references are a shorthand notation to refer to methods by their names in
 
 Example:
 
-// Using lambda expression
-
+- Using lambda expression
+```java
 Function<String, Integer> toInteger = (String s) -> Integer.parseInt(s);
-
-// Using method reference
-
+```
+- Using method reference
+```java
 Function<String, Integer> toInteger = Integer::parseInt;
-
+```
 #### Instance Method References of an Object: Syntax: instance::instanceMethodName
 
 Example:
 
-// Using lambda expression
-
+- Using lambda expression
+```java
 BiFunction<String, String, Boolean> startsWith = (String s1, String s2) -> s1.startsWith(s2);
-
-// Using method reference
-
+```
+- Using method reference
+```java
 BiFunction<String, String, Boolean> startsWith = String::startsWith;
-
+```
 #### Instance Method References of a Constructor: Syntax: ClassName::new
 
 Example:
  
-// Using lambda expression
-
+- Using lambda expression
+```java
 Supplier<List<String>> listSupplier = () -> new ArrayList<>();
-
-// Using method reference
-
+```
+- Using method reference
+```java
 Supplier<List<String>> listSupplier = ArrayList::new;
-
+```
 #### Constructor Method References: Syntax: ClassName::staticMethodName
 
 Example:
 
-// Using lambda expression
-
+- Using lambda expression
+```java
 Function<Integer, List<String>> listFunction = (Integer size) -> new ArrayList<>(size);
-
-// Using method reference
-
+```
+- Using method reference
+```java
 Function<Integer, List<String>> listFunction = ArrayList::new;
-
+```
 In all the examples above, the lambda expressions are converted to method references to achieve a cleaner and more concise syntax. Method references improve readability and reduce code redundancy in functional programming.
 
 ### ===========================================================
