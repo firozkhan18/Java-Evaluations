@@ -14,6 +14,7 @@ Java 8 is the most awaited and is a major feature release of Java programming la
 * [Lambda Expression](#lambda-expression)
 * [Functional Interface](#functional-interface)
 * [Default Method](#default-method)
+* [Method References](#method-references)
 * [Date](#date)
 
 ## Stream
@@ -170,6 +171,10 @@ interface TI
 } 
 ```
 [Complete Fundamental Concepts Of Java Functional Interfaces](java-basic-fundamental-functional-interfaces.md)
+
+## Method References
+
+[Complete Fundamental Concepts Of Java Method References](java-basic-fundamental-method-references.md)
 
 ## Date
 Java 8 introduced new APIs for Date and Time to address the shortcomings of the older java.util.Date and java.util.Calendar.
