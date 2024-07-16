@@ -116,6 +116,7 @@ Collections.sort(names, (String a, String b) -> {
     return b.compareTo(a);
 });
 ```
+[Complete Fundamental Concepts Of Java Optional](java-basic-fundamental-optional.md)
 
 ## Functional Interface
 An Interface that contains exactly one abstract method is known as functional interface. It can have any number of default, static methods but can contain only one abstract method.
@@ -168,6 +169,7 @@ interface TI
     } 
 } 
 ```
+[Complete Fundamental Concepts Of Java Functional Interfaces](java-basic-fundamental-functional-interfaces.md)
 
 ## Date
 Java 8 introduced new APIs for Date and Time to address the shortcomings of the older java.util.Date and java.util.Calendar.
