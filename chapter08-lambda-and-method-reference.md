@@ -386,7 +386,7 @@ Function<Integer, List<String>> listFunction = ArrayList::new;
 
 In all the examples above, the lambda expressions are converted to method references to achieve a cleaner and more concise syntax. Method references improve readability and reduce code redundancy in functional programming.
 
-### =============================================================
+### ===========================================================
 
 The difference between the four types of method references and the five kinds of method references listed in the above is that the former specifically refer to different ways in which methods can be referenced or used as lambda expressions in Java code, while the latter categorize the different types of method references based on their functionality.
 
