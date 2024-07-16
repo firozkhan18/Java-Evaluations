@@ -332,53 +332,70 @@ In this example, String[]::new is a reference to create a new array of type Stri
 
 A frequent error is to think that String::length is a reference to a static method because the syntax is close to String.length() which is a call to a static method. But for a method reference, the same syntax is used to reference an instance method and a static method. So String::length is a reference to an instance method because the method length() in the class String is declared as an instance method.
 
-### ============================================
+### ===========================================================================
 
 Method references are a shorthand notation to refer to methods by their names instead of using lambda expressions. There are four types of method references:
 
 #### Static Method References: Syntax: Class::staticMethodName
+
 Example:
 
 // Using lambda expression
+
 Function<String, Integer> toInteger = (String s) -> Integer.parseInt(s);
 
 // Using method reference
+
 Function<String, Integer> toInteger = Integer::parseInt;
+
 #### Instance Method References of an Object: Syntax: instance::instanceMethodName
+
 Example:
 
 // Using lambda expression
+
 BiFunction<String, String, Boolean> startsWith = (String s1, String s2) -> s1.startsWith(s2);
 
 // Using method reference
+
 BiFunction<String, String, Boolean> startsWith = String::startsWith;
+
 #### Instance Method References of a Constructor: Syntax: ClassName::new
+
 Example:
  
 // Using lambda expression
+
 Supplier<List<String>> listSupplier = () -> new ArrayList<>();
 
 // Using method reference
+
 Supplier<List<String>> listSupplier = ArrayList::new;
+
 #### Constructor Method References: Syntax: ClassName::staticMethodName
+
 Example:
 
 // Using lambda expression
+
 Function<Integer, List<String>> listFunction = (Integer size) -> new ArrayList<>(size);
 
 // Using method reference
+
 Function<Integer, List<String>> listFunction = ArrayList::new;
 
 In all the examples above, the lambda expressions are converted to method references to achieve a cleaner and more concise syntax. Method references improve readability and reduce code redundancy in functional programming.
 
+### ===========================================================================
+
 The difference between the four types of method references and the five kinds of method references listed in the above is that the former specifically refer to different ways in which methods can be referenced or used as lambda expressions in Java code, while the latter categorize the different types of method references based on their functionality.
 
-Static Method References refer to referencing static methods in a class. 
+- Static Method References refer to referencing static methods in a class. 
 
-Instance Method References of an Object refer to referencing non-static instance methods of an object. 
+- Instance Method References of an Object refer to referencing non-static instance methods of an object. 
 
-Instance Method References of a Constructor refer to referencing instance methods of a constructor. 
+- Instance Method References of a Constructor refer to referencing instance methods of a constructor. 
 
-Constructor Method References refer to referencing constructors.
+- Constructor Method References refer to referencing constructors.
 
 On the other hand, the five kinds of method references listed in the original question categorize the different types of method references based on their characteristics or implementation in Java.
