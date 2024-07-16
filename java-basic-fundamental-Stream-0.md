@@ -2486,7 +2486,8 @@ In this Java tutorial, we learned to filter a HashMap by keys or values and coll
 
  <details>
 <summary><b>Stream Collectors</b></summary>
-	 # Java 8 Collectors
+	 
+# Java 8 Collectors
 
 Java 8 Collectors mainly consist of three things – Stream.collect() method, Collector interface and Collectors class. 
 
