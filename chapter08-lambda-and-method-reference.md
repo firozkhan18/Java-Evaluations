@@ -217,58 +217,167 @@ System.out.println(op.applyAsDouble(2));
 ## Method references
 There are 5 kinds of method references
 
+
+
+
+
+
+
+
+
+
+
+
 ### 1. a reference to an instance method
 
-   Seeing an instance method as a function means you have to
-   take the type of `this` into account, here `startsWith` as
-   one parameter but the function as two 
+Seeing an instance method as a function means you have to take the type of `this` into account, here `startsWith` as one parameter but the function as two
+
 ```java
 BiPredicate<String,String> predicate = String::startsWith;
 System.out.println(predicate.test("hello", "hell"));
 ```
+> Note: A reference to an instance method: This refers to a method that belongs to a specific object. It is typically used when you want to call a method on an object that is passed as a parameter or stored in a variable.
+
+- Reference to an instance method: This is a method reference to an instance method of a particular object.
+
+For example:
+
+```java 
+List<String> list = Arrays.asList("hi", "hello", "hey");
+list.forEach(System.out::println);
+```
+In this example, System.out::println is a reference to the instance method println of the System.out object.
 
 ### 2. a bound reference to an instance method
 
-   The value of this is fixed so the parameter of the function
-   are the same as the parameter of the instance method
+The value of this is fixed so the parameter of the function are the same as the parameter of the instance method
+
 ```java
 var text = "hello";
 IntSupplier supplier = text::length;
 System.out.println(supplier.getAsInt());
 ```
+> Note: A bound reference to an instance method: This is a specific type of instance method reference where you bind the object to which the method belongs. This is useful when you want to provide a method reference with a specific object context.
+
+- Bound reference to an instance method: This is a method reference to an instance method of a specific object, often used with streams.
+
+For example:
+
+```java
+List<String> list = Arrays.asList("apple", "banana", "orange");
+list.stream()
+    .map(String::toUpperCase)
+    .forEach(System.out::println);
+```
+In this example, String::toUpperCase is a bound reference to the instance method toUpperCase of a specific object in the stream.
 
 ### 3. a reference to a static method
 
-   No instance here, so the parameter of the function are the
-   same as the parameter of the static method
+No instance here, so the parameter of the function are the same as the parameter of the static method
+
 ```java
 ToIntFunction<String> function = Integer::parseInt;
 System.out.println(function.applyAsInt("42"));
 ```
+> Note: A reference to a static method: This refers to a method that belongs to a class rather than an instance of the class. Static methods are typically used for utility functions that do not depend on the state of an object.
+
+Reference to a static method: This is a method reference to a static method of a class. 
+
+For example:
+
+```java
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+numbers.stream()
+    .map(String::valueOf)
+    .forEach(System.out::println);
+```
+In this example, String::valueOf is a reference to the static method valueOf of the String class.
 
 ### 4. a reference to a new instance
 
-   The parameter of the function are the same as the parameter of
-   the constructor. The return type is the class of the constructor
+The parameter of the function are the same as the parameter of the constructor. The return type is the class of the constructor
+
 ```java
 record Person(String name) {}
 Function<String, Person> factory = Person::new;
 System.out.println(factory.apply("John"));
 ```
+> A reference to a new instance: This refers to a constructor method that is used to create a new instance of a class. It is used when you want to pass a constructor reference as a method reference.
+
+For example:
+```java
+Supplier<String> supplier = String::new;
+String message = supplier.get();
+```
+In this example, String::new is a reference to the constructor of the String class, used to create a new instance.
 
 ### 5. a reference to a new array
 
-   Same as above, the return type is the array.
+Same as above, the return type is the array.
+
 ```java
 IntFunction<String[]> arrayCreator = String[]::new;
 System.out.println(arrayCreator.apply(2).length);
 ```
+> A reference to a new array: This refers to the creation of a new array using a constructor reference. It is used when you want to create a new array without explicitly calling the constructor method.
 
-A frequent error is to think that String::length is a reference
-to a static method because the syntax is close to String.length()
-which is a call to a static method. But for a method reference,
-the same syntax is used to reference an instance method and
-a static method. So String::length is a reference to an instance
-method because the method length() in the class String is declared
-as an instance method.
+This is a method reference to create a new array of a specific type and length. 
 
+For example:
+```java
+Function<Integer, String[]> function = String[]::new;
+String[] newArray = function.apply(3);
+```
+In this example, String[]::new is a reference to create a new array of type String with a length of 3.
+
+A frequent error is to think that String::length is a reference to a static method because the syntax is close to String.length() which is a call to a static method. But for a method reference, the same syntax is used to reference an instance method and a static method. So String::length is a reference to an instance method because the method length() in the class String is declared as an instance method.
+
+======================================================================================================
+Method references are a shorthand notation to refer to methods by their names instead of using lambda expressions. There are four types of method references:
+
+#### Static Method References: Syntax: Class::staticMethodName
+Example:
+
+// Using lambda expression
+Function<String, Integer> toInteger = (String s) -> Integer.parseInt(s);
+
+// Using method reference
+Function<String, Integer> toInteger = Integer::parseInt;
+#### Instance Method References of an Object: Syntax: instance::instanceMethodName
+Example:
+
+// Using lambda expression
+BiFunction<String, String, Boolean> startsWith = (String s1, String s2) -> s1.startsWith(s2);
+
+// Using method reference
+BiFunction<String, String, Boolean> startsWith = String::startsWith;
+#### Instance Method References of a Constructor: Syntax: ClassName::new
+Example:
+ 
+// Using lambda expression
+Supplier<List<String>> listSupplier = () -> new ArrayList<>();
+
+// Using method reference
+Supplier<List<String>> listSupplier = ArrayList::new;
+#### Constructor Method References: Syntax: ClassName::staticMethodName
+Example:
+
+// Using lambda expression
+Function<Integer, List<String>> listFunction = (Integer size) -> new ArrayList<>(size);
+
+// Using method reference
+Function<Integer, List<String>> listFunction = ArrayList::new;
+
+In all the examples above, the lambda expressions are converted to method references to achieve a cleaner and more concise syntax. Method references improve readability and reduce code redundancy in functional programming.
+
+The difference between the four types of method references and the five kinds of method references listed in the above is that the former specifically refer to different ways in which methods can be referenced or used as lambda expressions in Java code, while the latter categorize the different types of method references based on their functionality.
+
+Static Method References refer to referencing static methods in a class. 
+
+Instance Method References of an Object refer to referencing non-static instance methods of an object. 
+
+Instance Method References of a Constructor refer to referencing instance methods of a constructor. 
+
+Constructor Method References refer to referencing constructors.
+
+On the other hand, the five kinds of method references listed in the original question categorize the different types of method references based on their characteristics or implementation in Java.
