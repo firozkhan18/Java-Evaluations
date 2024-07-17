@@ -348,13 +348,13 @@ It is also important to strike the balance between making parallelism easier and
 
 Learn new java 9 improvements in Stream API i.e. takeWhile / dropWhile methods, ofNullable and iterate methods with examples.
 
-Table of Contents
+### Table of Contents
 
 Limiting Stream with takeWhile() and dropWhile() methods
 Overloaded Stream iterate method
 New Stream ofNullable() method
 
-- Limiting Stream with takeWhile() and dropWhile() methods
+#### Limiting Stream with takeWhile() and dropWhile() methods
 The new methods takeWhile and dropWhile allow you to get portions of a stream based on a predicate. Here a stream can be either ordered or unordered, so :
 
 On an ordered stream, takeWhile returns the “longest prefix” of elements taken from the stream that match the given predicate, starting at the beginning of the stream.
@@ -365,6 +365,7 @@ The dropWhile method does the opposite of takeWhile method.
 
 On an ordered stream, dropWhile returns remaining items after the “longest prefix” that match the given predicate.
 On an un-ordered stream, dropWhile returns remaining stream elements after dropping subset of elements that match the given predicate.
+
 takeWhile and dropWhile Example
 
 In this example, we have list of chars from ‘a’ to ‘i’. I want all chars which may appear before char ‘d’ in iteration.
@@ -398,7 +399,7 @@ System.out.println(subset2);
 
 > [d, e, f, g, h, i]
 
-- Overloaded Stream iterate method
+#### Overloaded Stream iterate method
 
 iterate() methods used for creating a stream which starts with a single element (the seed), and subsequent elements are produced by successively applying the unary operator. The result is an infinite stream. To terminate the stream, a limit or some other short-circuiting function, like findFirst or findAny is used.
 
@@ -434,7 +435,7 @@ System.out.println(numbers);
 > [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 In above examples, the first stream is the Java 8 way of using iterate with a limit. The second one uses a Predicate as the second argument.
 
-- New Stream ofNullable() method
+#### New Stream ofNullable() method
 Until Java 8, you cannot have null value in a stream. It would have caused NullPointerException.
 
 In Java 9, the ofNullable method lets you create a single-element stream which wraps a value if not null, or is an empty stream otherwise.
