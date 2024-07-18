@@ -111,13 +111,14 @@ public class FibonacciCalculator {
   }
 }
 ```
-Sample Output:
+> Sample Output:
 
-The Fibonacci number at position 0 is: 0
+> The Fibonacci number at position 0 is: 0
 
-The Fibonacci number at position 3 is: 2
+> The Fibonacci number at position 3 is: 2
 
-The Fibonacci number at position 9 is: 34
+> The Fibonacci number at position 9 is: 34
+
 Explanation:
 
 In the above exercises -
@@ -171,11 +172,14 @@ public class PalindromeChecker {
   }
 }
 ```
-Sample Output:
+> Sample Output:
 
-madam is a palindrome: true
-level is a palindrome: true
-java is a palindrome: false
+> madam is a palindrome: true
+> 
+> level is a palindrome: true
+> 
+> java is a palindrome: false
+
 Explanation:
 
 In the above exercises -
@@ -212,9 +216,10 @@ public class ExponentiationCalculator {
   }
 }
 ```
-Sample Output:
+> Sample Output:
 
-3.5 raised to the power of 4 is: 150.0625
+> 3.5 raised to the power of 4 is: 150.0625
+
 Explanation:
 
 In the above exercises -
@@ -249,10 +254,11 @@ public class StringReverser {
   }
 }
 ```
-Sample Output:
+> Sample Output:
 
-Original string: Java, World!
-Reversed string: !dlroW ,avaJ
+> Original string: Java, World!
+> Reversed string: !dlroW ,avaJ
+
 Explanation:
 
 In the above exercises -
@@ -298,7 +304,6 @@ Explanation:
 In the above exercises -
 
 First, we define a class GCDCalculator that includes a recursive method calculateGCD() to find the greatest common divisor (GCD) of two numbers.
-
 
 The calculateGCD() method follows the recursive GCD definition. It has two cases:
 
@@ -349,9 +354,10 @@ public class ArrayElementCounter {
   }
 }
 ```
-Sample Output:
+> Sample Output:
 
-The number of occurrences of 20 in the array is: 3
+> The number of occurrences of 20 in the array is: 3
+
 Explanation:
 
 In the above exercises -
@@ -361,7 +367,9 @@ First, we define a class "ArrayElementCounter" that includes a recursive method 
 The countOccurrences() method has two cases:
 
 Base case: If the index reaches the end of the array (index == arr.length), we return 0 as there are no more elements to check.
+
 Recursive case: For any index that is within the bounds of the array, we check if the element at that index is equal to the target. We then recursively call the method with the next index and add 1 to the count if the element is equal to the target. This process continues until we reach the end of the array.
+
 In the main() method, we demonstrate the usage of the countOccurrences() method by counting the number of occurrences of the number 20 in the array {10, 20, 30, 40, 20, 50, 20, 60}and printing the result.
 
 ### 9. Write a Java recursive method to find the sum of all odd numbers in an array.
@@ -405,9 +413,10 @@ public class OddNumberSumCalculator {
   }
 }
 ```
-Sample Output:
+> Sample Output:
 
-The sum of all odd numbers in the array is: 25
+> The sum of all odd numbers in the array is: 25
+
 Explanation:
 
 In the above exercises -
@@ -445,9 +454,10 @@ public class StringLengthCalculator {
   }
 }
 ```
-Sample Output:
+> Sample Output:
 
-The length of the string "Java Exercises!" is: 15
+> The length of the string "Java Exercises!" is: 15
+
 Explanation:
 
 In the above exercises -
@@ -502,15 +512,16 @@ public class StringPermutationGenerator {
   }
 }
 ```
-Sample Output:
+> Sample Output:
 
-Permutations of "abc":
-abc
-acb
-bac
-bca
-cab
-cba
+> Permutations of "abc":
+> abc
+> acb
+> bac
+> bca
+> cab
+> cba
+
 Explanation:
 
 In the above exercises -
@@ -567,10 +578,11 @@ public class ArrayMaxElementFinder {
     System.out.println("The maximum element in the array is: " + maxElement);
   }
 ```
-Sample Output:
+> Sample Output:
 
-Original Array: [34, 45, 34, 23, 56, 62, 27, 55]
-The maximum element in the array is: 62
+> Original Array: [34, 45, 34, 23, 56, 62, 27, 55]
+> The maximum element in the array is: 62
+
 Explanation:
 
 In the above exercises -
@@ -624,9 +636,10 @@ public class ArrayProductCalculator {
   }
 }
 ```
-Sample Output:
+> Sample Output:
 
-The product of all numbers in the array is: 105
+> The product of all numbers in the array is: 105
+
 Explanation:
 
 In the above exercises -
@@ -665,9 +678,10 @@ public class DigitSumCalculator {
   }
 }
 ```
-Sample Output:
+> Sample Output:
 
-The sum of the digits of 123456 is: 21
+> The sum of the digits of 123456 is: 21
+
 Explanation:
 
 In the above exercises -
@@ -734,12 +748,13 @@ public class ArraySortChecker {
   }
 }
 ```
-Sample Output:
+> Sample Output:
 
-Original Array: [1, 2, 3, 4, 5]
-Is array1 sorted in ascending order? true
-Original Array: [4, 5, 3, 2, 1]
-Is array2 sorted in ascending order? false
+> Original Array: [1, 2, 3, 4, 5]
+> Is array1 sorted in ascending order? true
+> Original Array: [4, 5, 3, 2, 1]
+> Is array2 sorted in ascending order? false
+
 Explanation:
 
 In the above exercises -
