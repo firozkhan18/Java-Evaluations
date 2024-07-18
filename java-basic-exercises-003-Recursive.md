@@ -25,11 +25,12 @@ public class FactorialCalculator {
   }
 }
 ```
-Sample Output:
+> Sample Output:
 
-Factorial of 7 is: 5040
+> Factorial of 7 is: 5040
 
-Factorial of 12 is: 479001600
+> Factorial of 12 is: 479001600
+
 Explanation:
 
 In the above exercises -
@@ -39,7 +40,9 @@ First, we define a class "FactorialCalculator" that includes a recursive method 
 The calculateFactorial() method follows the recursive factorial definition. It has two cases:
 
 Base case: If n is 0, it returns 1. This is the termination condition for recursion.
+
 Recursive case: For any positive n, it multiplies n with the factorial of n-1. This step is repeated recursively until n reaches 0.
+
 In the main() method, we demonstrate the calculateFactorial() method by calculating the factorial of 7 and 12.
 
 ### 2. Write a Java recursive method to calculate the sum of all numbers from 1 to n.
@@ -63,9 +66,10 @@ public class SumCalculator {
   }
 }
 ```
-Sample Output:
+> Sample Output:
 
-Sum of numbers from 1 to 7 is: 28
+> Sum of numbers from 1 to 7 is: 28
+
 Explanation:
 
 In the above exercises -
@@ -73,7 +77,9 @@ In the above exercises -
 The calculateSum() method follows the recursive definition of the sum. It has two cases:
 
 Base case: If the input n is 0, it returns 0. This is the termination condition for recursion.
+
 Recursive case: For any positive n, it adds n with the sum of the numbers from 1 to n-1. This step is repeated recursively until n reaches 0
+
 In the main() method, we demonstrate the calculateSum() method by calculating the sum of numbers from 1 to 7 and printing the result.
 
 ### 3. Write a Java recursive method to calculate the nth Fibonacci number.
@@ -179,7 +185,9 @@ We define a class "PalindromeChecker" that includes a recursive method isPalindr
 The isPalindrome() method has two cases:
 
 Base case: If the string length is 0 or 1, it returns true because an empty string or a string with one character is considered a palindrome.
+
 Recursive case: It compares the first and last characters of the string. If they are not equal, it returns false. Otherwise, it extracts the remaining substring between the first and last characters, and recursively checks if this substring is a palindrome. This process continues until the string is reduced to an empty string or one character.
+
 In the main() method, we demonstrate the isPalindrome() method by checking if different strings are palindromes and printing the results.
 
 ### 5. Write a Java recursive method to calculate the exponentiation of a number (base) raised to a power (exponent).
@@ -214,7 +222,9 @@ In the above exercises -
 The "calculateExponentiation()" method follows the recursive definition of exponentiation. It has two cases:
 
 Base case: If the exponent is 0, it returns 1. This is because any number raised to the power of 0 is equal to 1.
+
 Recursive case: For any positive exponent "exponent", it multiplies the base with the exponentiation of the same base raised to the power of exponent-1. This process is repeated recursively until the exponent reaches 0.
+
 In the main() method, we demonstrate the calculateExponentiation() method by calculating the exponentiation of a base number (3.5) raised to a power (4) and printing the result.
 
 ### 6. Write a Java recursive method to reverse a given string.
@@ -252,7 +262,9 @@ First, we define a class "StringReverser" that includes a recursive method rever
 The reverseString() method has two cases:
 
 Base case: If the string is empty or has only one character, it is already reversed, so we return the original string.
+
 Recursive case: For any string with length greater than 1, we recursively reverse the substring starting with the second character and concatenate the first character at the end. This process continues until the string is reduced to an empty string or one character.
+
 In the main() method, we demonstrate the reverseString() method by reversing the string "Java, World!" and printing both the original and reversed strings.
 
 ### 7. Write a Java recursive method to find the greatest common divisor (GCD) of two numbers.
@@ -291,7 +303,9 @@ First, we define a class GCDCalculator that includes a recursive method calculat
 The calculateGCD() method follows the recursive GCD definition. It has two cases:
 
 Base case: If the second number (num2) is 0, the GCD is the first number (num1). This is because any number divided by 0 is the number itself.
+
 Recursive case: For any two numbers (num1 and num2), we calculate the remainder when num1 is divided by num2. We then recursively call the method with num2 as the new num1 and the remainder as num2. This process continues until num2 reaches 0.
+
 In the main() method, we demonstrate the calculateGCD() method by finding the GCD of two numbers (16 and 18) and printing the result.
 
 ### 8. Write a Java recursive method to count the number of occurrences of a specific element in an array.
@@ -403,7 +417,9 @@ First, we define a class OddNumberSumCalculator that includes a recursive method
 The calculateOddNumberSum() method has two cases:
 
 Base case: If the index reaches the end of the array (index == arr.length), we return 0 as there are no more elements to check.
+
 Recursive case: For any index that is within the bounds of the array, we check if the element at that index is odd. We then recursively call the method with the next index and add the current element to the sum if it is odd. This process continues until we reach the end of the array.
+
 In the main() method, we demonstrate the calculateOddNumberSum() method by finding the sum of all odd numbers in the array [1, 2, 3, 4, 5, 6, 7, 8, 9] and printing the result.
 
 ### 10. Write a Java recursive method to find the length of a given string.
@@ -441,7 +457,9 @@ First, we define a class "StringLengthCalculator" that includes a recursive meth
 The calculateStringLength() method has two cases:
 
 Base case: If the string is empty (str.isEmpty()), we return 0 as the length of an empty string is 0.
+
 Recursive case: For any non-empty string, we remove the first character using str.substring(1) and recursively call the method with the remaining substring. We then add 1 to the length calculated from the recursive call. This process continues until the string is reduced to an empty string.
+
 In the main() method, we demonstrate the calculateStringLength() method by finding the length of the string " Hello, World!" and printing the result.
 
 ### 11. Write a Java recursive method to generate all possible permutations of a given string.
@@ -502,7 +520,9 @@ First, we define a class "StringPermutationGenerator" that includes a recursive 
 The generatePermutations() method has two cases:
 
 Base case: If the string is empty (str.isEmpty()), we add the current permutation (current) to the list of permutations.
+
 Recursive case: For any non-empty string, we iterate through each character in the string and generate permutations by appending the character to the current permutation. We then recursively call the method with the remaining characters as the new string. This process continues until the string is reduced to an empty string.
+
 In the main() method, we demonstrate the generatePermutations() method by generating all possible permutations of the string "abc" and printing the result.
 
 ### 12. Write a Java recursive method to find the maximum element in an array.
@@ -560,7 +580,9 @@ First, we define a class ArrayMaxElementFinder that includes a recursive method 
 The findMaxElement() method has two cases:
 
 Base case: If the left and right indices are equal, we have a single element and return it as the maximum element.
+
 Recursive case: For any array with more than one element, we divide the array into two halves by finding the middle index. We then recursively find the maximum element in each half by calling the method with the appropriate indices. Finally, we return the higher value of the two maximums obtained from the recursive calls.
+
 In the main() method, we demonstrate the findMaxElement() method by finding the maximum element in the array [34, 45, 34, 23, 56, 62, 27, 55] and printing the result.
 
 ### 13. Write a Java recursive method to calculate the product of all numbers in an array.
@@ -614,7 +636,9 @@ We define a class "ArrayProductCalculator" that includes a recursive method calc
 The calculateProduct() method has two cases:
 
 Base case: If the left and right indices are equal, we have a single element and return it as the product.
+
 Recursive case: For any array with more than one element, we divide the array into two halves by finding the middle index. We then recursively calculate the product in each half by calling the method with the appropriate indices. Finally, we return the product of the two calculated products obtained from the recursive calls.
+
 In the main() method, we demonstrate the calculateProduct() method by calculating the product of all numbers in the array [1, 3, 5, 7] and printing the result.
 
 ### 14. Write a Java recursive method to find the sum of the digits of a given integer.
@@ -653,7 +677,9 @@ First, we define a class "DigitSumCalculator" that includes a recursive method c
 The calculateDigitSum() method has two cases:
 
 Base case: If the number is a single digit (less than 10), we return the number itself as the sum of its digits.
+
 Recursive case: For any number with more than one digit, we calculate the last digit by taking the number modulo 10. We then calculate the sum of the last digit and the digit sum of the remaining number obtained by dividing the number by 10. This process continues until the number is reduced to a single digit.
+
 In the main() method, we demonstrate the calculateDigitSum() method by finding the sum of the digits of the number 12345 and printing the result.
 
 ### 15. Write a Java recursive method to check if a given array is sorted in ascending order.
@@ -723,5 +749,7 @@ First, we define a class "ArraySortChecker" that includes a recursive method isS
 The isSorted() method has two cases:
 
 Base case: If the index reaches the end of the array (index == arr.length - 1), we have traversed the entire array and return true to indicate that the array is sorted.
+
 Recursive case: For any index that is within the bounds of the array, we check if the element at that index is greater than the next element. If it is, we return false to indicate that the array is not sorted. Otherwise, we recursively call the method with the next index.
+
 In the main() method, we demonstrate the usage of the isSorted() method by checking if two arrays (array1 and array2) are sorted in ascending order and printing the results.
