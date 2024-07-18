@@ -296,9 +296,10 @@ public class GCDCalculator {
   }
 }
 ```
-Sample Output:
+> Sample Output:
 
-The GCD of 16 and 18 is: 2
+> The GCD of 16 and 18 is: 2
+
 Explanation:
 
 In the above exercises -
