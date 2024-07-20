@@ -9,7 +9,7 @@ This page lists down the related to Stream API and its related concepts.
 <details>
 <summary><b>1. Stream Basics</b></summary>
   
-<details><summary><b>Introduction to Streams API</b></summary>
+<details><summary><b>1.1 Introduction to Streams API</b></summary>
 
 # Java Stream API
 
@@ -442,7 +442,7 @@ public class TaxService {
 ```
 
 </details>
-<details><summary><b>Java 9 Stream API Improvements</b></summary>
+<details><summary><b>1.2 Java 9 Stream API Improvements</b></summary>
 
 # Java 9 Stream API Improvements
 
@@ -634,7 +634,7 @@ Stream<Integer> stream =
     Stream.generate(() -> rand.nextInt(100)).limit(20);
 ```
 </details>
-<details><summary><b>Functional Interfaces</b></summary>
+<details><summary><b>1.3 Functional Interfaces</b></summary>
 
 # Functional Interfaces in Java
 
@@ -729,7 +729,7 @@ The Function interface has one abstract method apply() that we have implemented 
 
 > System.out.println( square.apply(5) );  //Prints 25
 </details>
-<details><summary><b>Generic Functional Interfaces</b></summary>
+<details><summary><b>1.4 Generic Functional Interfaces</b></summary>
 	
 # Generic Functional Interfaces in Java
 
@@ -813,7 +813,7 @@ ArgumentsProcessor<Integer> intMultiplier = (i1, i2) -> i1 * i2;
 System.out.println(intMultiplier.process(4, 5));	//20
 ```
 </details>
-<details><summary><b>Primitive Type Streams</b></summary>
+<details><summary><b>1.5 Primitive Type Streams</b></summary>
 
 # Primitive Type Streams in Java
 
@@ -941,7 +941,7 @@ Stream<Double> boxedStream2 =
 ```
 </details>
 <details>
-<summary><b>Using ‘if-else’ Conditions with Streams</b></summary>
+<summary><b>1.6 Using ‘if-else’ Conditions with Streams</b></summary>
 	
 # Using ‘if-else’ Conditions with Java Streams
 
@@ -1003,7 +1003,7 @@ Using one of the above given two methods, we can apply any combination of if-els
 
 </details>
 <details>
-<summary><b>Creating Infinite Streams</b></summary>
+<summary><b>1.7 Creating Infinite Streams</b></summary>
 
 # How to Create Infinite Streams in Java
 
@@ -1077,7 +1077,7 @@ public class Employee implements Serializable {
 ```
 </details>
 <details>
-<summary><b>Stream of Random Numbers</b></summary>
+<summary><b>1.8 Stream of Random Numbers</b></summary>
 
 # Stream of Random Numbers in Java
 
@@ -1141,7 +1141,7 @@ randStream.forEach(System.out::println);
 ```
 </details>
 <details>
-<summary><b>Boxed Streams</b></summary>
+<summary><b>1.9 Boxed Streams</b></summary>
 
 # Boxed Streams in Java
 
@@ -1180,7 +1180,7 @@ List<Integer> list = IntStream.of(1,2,3,4,5)
 ```    
 </details>
 <details>
-<summary><b>Stream of Dates</b></summary>
+<summary><b>1.10 Stream of Dates</b></summary>
 	
 # Get all Dates between Two Dates as Stream
 
@@ -1234,7 +1234,7 @@ List<LocalDate> list = nextThreeDays
 ```
 </details>
 <details>
-<summary><b>Remove/Update Elements From List using Stream</b></summary>
+<summary><b>1.11 Remove/Update Elements From List using Stream</b></summary>
 
 # Java – Remove/Update Elements From List using Stream
 
@@ -1296,7 +1296,7 @@ The program output.
 ```
 </details>
 <details>
-<summary><b>Iterate with Indices</b></summary>
+<summary><b>1.12 Iterate with Indices</b></summary>
 
 # How to Iterate Over a Stream With Indices
 
@@ -1410,7 +1410,7 @@ Stream.of(employees).zipWithIndex()
 ```
 </details>
 <details>
-<summary><b>Stream has already been operated upon or closed Exception</b></summary>
+<summary><b>1.13 Stream has already been operated upon or closed Exception</b></summary>
 	
 # [Solved] “Stream has already been operated upon or closed” Exception
 
@@ -1478,7 +1478,7 @@ List<Integer> oddNumbers = streamSupplier.get()
 <details>
 <summary><b>2. Stream Searching, Filtering and Sorting</b></summary>
 <details>
-<summary><b>Getting Distinct Stream Items by Comparing Multiple Fields</b></summary>
+<summary><b>2.1 Getting Distinct Stream Items by Comparing Multiple Fields</b></summary>
 
 # Getting Distinct Stream Items by Comparing Multiple Fields
 
@@ -1561,7 +1561,7 @@ public static <T> Predicate<T>
 ```
 </details>
 <details>
-<summary><b>Getting the Last Item of a Stream</b></summary>
+<summary><b>2.2 Getting the Last Item of a Stream</b></summary>
 
 # Getting the Last Item of a Stream
 
@@ -1646,7 +1646,7 @@ System.out.println(lastElement);   //198
 </details>
 
 <details>
-<summary><b>Get Object with Max Date From a List</b></summary>
+<summary><b>2.3 Get Object with Max Date From a List</b></summary>
   
 # Java Stream – Get Object with Max Date From a List
 
@@ -1711,7 +1711,7 @@ In this way, we can get a custom object from a List of objects while comparing t
 
 </details>
 <details>
-<summary><b>Find, Count and Remove Duplicates</b></summary>
+<summary><b>2.4 Find, Count and Remove Duplicates</b></summary>
 	
 # Java Stream – Find, Count and Remove Duplicates
 
@@ -1817,7 +1817,7 @@ System.out.println(elementCountMap);
 
 </details>
 <details>
-<summary><b>Applying Multiple Conditions on Java Streams</b></summary>
+<summary><b>2.5 Applying Multiple Conditions on Java Streams</b></summary>
 	
 # Java Stream Filter on Multiple Conditions using Predicates
 
@@ -1938,7 +1938,7 @@ Clearly, we can create many more such simple predicates, and then we can combine
 
 </details>
 <details>
-<summary><b>Sorting a Stream by Multiple Fields</b></summary>
+<summary><b>2.6 Sorting a Stream by Multiple Fields</b></summary>
 	
 # Sorting a Stream by Multiple Fields in Java
 
@@ -2025,7 +2025,7 @@ Similar to the chained predicates, we can combine any number of Comparators to c
 
 </details>
 <details>
-<summary><b>Sorting Streams in Java</b></summary>
+<summary><b>2.7 Sorting Streams in Java</b></summary>
 	
 # How to Sort a Stream in Java
 
@@ -2239,7 +2239,7 @@ E D C B A
 
 </details>
 <details>
-<summary><b>Chaining Multiple Predicates in Java</b></summary>
+<summary><b>2.8 Chaining Multiple Predicates in Java</b></summary>
 	
 # Chaining Multiple Predicates in Java
 
@@ -2364,7 +2364,7 @@ In this Java tutorial, we learned to create simple predicates and use them to fi
 
 </details>
 <details>
-<summary><b>Negating a Predicate</b></summary>
+<summary><b>2.9 Negating a Predicate</b></summary>
 	
 # Negating a Predicate in Java
 
@@ -2482,7 +2482,7 @@ In this tutorial, we learned to find max value or min value from a list using th
 
 </details>
 <details>
-<summary><b>Java Stream count() Matches with filter()</b></summary>
+<summary><b>2.10 Java Stream count() Matches with filter()</b></summary>
 	
 # Java Stream count() Matches with filter()
 
@@ -2614,7 +2614,7 @@ In this Java tutorial, we learned to filter a HashMap by keys or values and coll
 <summary><b>3. Stream Collectors</b></summary>
 
  <details>
-<summary><b>Stream Collectors</b></summary>
+<summary><b>3.1 Stream Collectors</b></summary>
 	 
 # Java 8 Collectors
 
@@ -2945,7 +2945,7 @@ System.out.println(first3Students);
 
 </details>	 
 <details>
-<summary><b>Collecting Stream Items into List</b></summary>
+<summary><b>3.2 Collecting Stream Items into List</b></summary>
  
 # Java Collect Stream to List (with Examples)
 
@@ -3033,7 +3033,7 @@ As a general guideline, we can use Stream.toList() for unmodifiable lists, and u
 To collect items in any other List types, we must use the Stream.collect(Collectors.toCollection(LinkedList::new)) version of the solutions.
 </details>
 <details>
-<summary><b>Collecting Stream Items into Map</b></summary>
+<summary><b>3.3 Collecting Stream Items into Map</b></summary>
 
 # Java Collectors.toMap(): Collecting Stream Items into Map
 
@@ -3167,7 +3167,7 @@ This Java Stream tutorial discussed various ways to collect the stream items int
 
 </details>
 <details>
-<summary><b>Collect a Java Stream to an Immutable Collection</b></summary>
+<summary><b>3.4 Collect a Java Stream to an Immutable Collection</b></summary>
 
 # Collecting Stream Elements into Immutable Collection
 
@@ -3255,7 +3255,7 @@ We can’t change immutable collections at all – they don’t wrap another col
 This Java Collections tutorial explored various ways to convert a Java Stream into an immutable collection. It is recommended to use the solution available in the latest Java version we are using.
 </details>
 <details>
-<summary><b>Collectors groupingBy</b></summary>
+<summary><b>3.5 Collectors groupingBy</b></summary>
 
 # Java 8 Stream – Collectors GroupingBy with Examples
 
@@ -3485,7 +3485,7 @@ The Collectors’s groupBy() method is excellent for grouping the Stream element
 <summary><b>4. Stream Conversions</b></summary>
 
 <details>
-<summary><b>Converting Between Stream and Array</b></summary>
+<summary><b>4.1 Converting Between Stream and Array</b></summary>
 
 # Convert between Stream and Array in Java
 
@@ -3614,7 +3614,7 @@ Stream<String> stream = Stream.generate(() -> null)
 ```
 </details>  
 <details>
-<summary><b>Collecting Stream of Primitives into Collection or Array</b></summary>
+<summary><b>4.2 Collecting Stream of Primitives into Collection or Array</b></summary>
 
 # Collecting Stream of Primitives into Collection or Array
 
@@ -3681,7 +3681,7 @@ Similarly, use toArray() function of LongStream or DoubleStream as well.
 <summary><b>5. Stream Operations</b></summary>
 
 <details>
-<summary><b>Append or Prepend Items to a Stream</b></summary>
+<summary><b>5.1 Append or Prepend Items to a Stream</b></summary>
 
 # Append or Prepend Items to a Stream
 
@@ -3722,7 +3722,7 @@ prependedStream.forEach(System.out::print); //Prints 01234
 The Stream API provides lots of useful methods which can be used to solve many problems. In the above case, adding new objects to the Java stream has been demonstrated using the concat() API whose original purpose is to merge two streams.
 </details>  
 <details>
-<summary><b>Merging Streams</b></summary>
+<summary><b>5.2 Merging Streams</b></summary>
 
 # Java 8 Stream.concat(): How to Combine Streams?
 
@@ -3848,7 +3848,7 @@ Employee [id=6, firstName=David, lastName=Beckham]]
 ```
 </details>  
 <details>
-<summary><b>Java Stream reuse – Traverse stream multiple times?</b></summary>
+<summary><b>5.3 Java Stream reuse – Traverse stream multiple times?</b></summary>
 
 # Java Stream Reuse – Consume Stream Multiple Times?
 
@@ -3902,7 +3902,7 @@ System.out.println(count);
 <summary><b>6. Stream API and Methods</b></summary>
 	
 <details>
-<summary><b>Guide to IntStream in Java</b></summary>
+<summary><b>6.1 Guide to IntStream in Java</b></summary>
 
 # Guide to IntStream in Java
 
@@ -3991,7 +3991,7 @@ List<Integer> list = IntStream.of(1,2,3,4,5)
 ```
 </details>
 <details>
-<summary><b>Streams peek() API</b></summary>
+<summary><b>6.2 Streams peek() API</b></summary>
 
 # Java Stream peek()
 
@@ -4069,7 +4069,7 @@ Stream.peek() method can be useful in visualizing how the stream operations beha
 
 </details> 
 <details>
-<summary><b>Difference Between map() and flatMap()</b></summary>
+<summary><b>6.3 Difference Between map() and flatMap()</b></summary>
 	
 # Java Stream map() vs. flatMap() with Examples
 
@@ -4251,7 +4251,7 @@ In non-parallel streams, both may return the first element of the stream in most
 Use findAny() to get any element from any parallel stream in a faster time. Else we can always use findFirst() it in most cases.
 </details> 
 <details>
-<summary><b>Java Stream findAny()</b></summary>
+<summary><b>6.4 Java Stream findAny()</b></summary>
 
 # Java Stream findAny()
 
@@ -4295,7 +4295,7 @@ In non-parallel streams, findFirst() and findAny(), both may return the first el
 Use findAny() to get any element from any parallel stream in a faster time. Else we can always use findFirst() in most cases.
 </details> 
 <details>
-<summary><b>Java Stream findFirst()</b></summary>
+<summary><b>6.5 Java Stream findFirst()</b></summary>
 
 # Java Stream findFirst() Example
 
@@ -4349,7 +4349,7 @@ In non-parallel streams, findFirst() and findAny(), both may return the first el
 Use findAny() to get any element from any parallel stream in a faster time. Else we can always use findFirst() in most cases.
 </details> 
 <details>
-<summary><b>Java Collectors teeing()</b></summary>
+<summary><b>6.6 Java Collectors teeing()</b></summary>
 
 # Collectors teeing() Examples
 
@@ -4470,7 +4470,7 @@ Simply remember that when we need to perform stream operation twice and collect 
 
 </details> 
 <details>
-<summary><b>Java Stream concat()</b></summary>
+<summary><b>6.7 Java Stream concat()</b></summary>
 
 # Java 8 Stream.concat(): How to Combine Streams?
 
@@ -4596,7 +4596,7 @@ Employee [id=6, firstName=David, lastName=Beckham]]
 ```
 </details> 
  <details>
-<summary><b>Java Stream toArray()</b></summary>
+<summary><b>6.8 Java Stream toArray()</b></summary>
 
 # Java Stream toArray() Example
 
@@ -4674,7 +4674,7 @@ The Stream.toArray() method converts a stream into an array. The default toArray
 Be careful with parallel streams and the result may not be predictable.
 </details> 
 <details>
-<summary><b>Java Stream noneMatch()</b></summary>
+<summary><b>6.9 Java Stream noneMatch()</b></summary>
 
 # Java Stream noneMatch()
 
@@ -4723,7 +4723,7 @@ public class Main
 Stream.noneMatch() method can be useful in certain cases where we need to run a check on all stream elements. For example, we can use noneMatch() function on a stream of Employee objects to validate that all employees are NOT below a certain age.
 </details> 
 <details>
-<summary><b>Java Stream allMatch()</b></summary>
+<summary><b>6.10 Java Stream allMatch()</b></summary>
 
 # Java Stream allMatch()
 
@@ -4831,7 +4831,7 @@ For example, we can use allMatch() on a stream of Employee objects to validate i
 It is short-circuiting operation. A terminal operation is short-circuiting if, when presented with infinite input, it may terminate in finite time.
 </details> 
 <details>
-<summary><b>Java Stream anyMatch()</b></summary>
+<summary><b>6.11 Java Stream anyMatch()</b></summary>
 
 # Java Stream anyMatch()
 
@@ -4941,7 +4941,7 @@ The anyMatch() method can be useful in certain cases where we need to check if t
 The shorter version list.contains() also does the same thing and can be used instead.
 </details> 
 <details>
-<summary><b>Java Stream skip()</b></summary>
+<summary><b>6.12 Java Stream skip()</b></summary>
 
 # Java Stream skip()
 
@@ -4988,7 +4988,7 @@ The Stream skip() method can be useful in certain cases where we need to get the
 The fact, that skip() returns the elements in the encounter order, makes it very useful for normal business usecases as well.
 </details> 
  <details>
-<summary><b>Java Stream limit()</b></summary>
+<summary><b>6.13 Java Stream limit()</b></summary>
 	 
 # Java Stream limit()
 
@@ -5043,7 +5043,7 @@ Java 8 Stream limit() method can be useful in certain cases where we need to get
 The fact, that it returns the elements in encounter order, makes it very useful for normal business usecases as well.
 </details> 
  <details>
-<summary><b>Java Stream peek()</b></summary>
+<summary><b>6.14 Java Stream peek()</b></summary>
 
 # Java Stream peek()
 
@@ -5120,7 +5120,7 @@ Stream.peek() method can be useful in visualizing how the stream operations beha
 Though it is entirely possible to alter the inner state of elements in the Stream, it is never recommended and shall be avoided.
 </details> 
  <details>
-<summary><b>Java Stream flatMap()</b></summary>
+<summary><b>6.15 Java Stream flatMap()</b></summary>
 
 # Java Stream flatMap()
 
@@ -5252,7 +5252,7 @@ System.out.println("Sum of all numbers: " + sum);  //36
 ```
 </details> 
  <details>
-<summary><b>Java Stream map()</b></summary>
+<summary><b>6.16 Java Stream map()</b></summary>
 	 
 # Java Stream map()
 
@@ -5363,7 +5363,7 @@ System.out.println("Average score: " + averageScore);
 ```
 </details> 
  <details>
-<summary><b>Java Stream min()</b></summary>
+<summary><b>6.17 Java Stream min()</b></summary>
 
 # Java Stream min()
 
@@ -5428,7 +5428,7 @@ Program output.
 > 1
 </details> 
  <details>
-<summary><b>Java Stream max()</b></summary>
+<summary><b>6.18 Java Stream max()</b></summary>
 
 # Java Stream max()
 
@@ -5490,7 +5490,7 @@ System.out.println(maxNumber.get());
 > 9
 </details> 
  <details>
-<summary><b>Java Stream sorted()</b></summary>
+<summary><b>6.19 Java Stream sorted()</b></summary>
 
 # Java Stream sorted() Example with/without Comparator
 
@@ -5595,7 +5595,7 @@ System.out.println(sortedList);
 > [9, 8, 7, 6, 5, 4, 3, 2, 1]
 </details> 
  <details>
-<summary><b>Java Stream filter()</b></summary>
+<summary><b>6.20 Java Stream filter()</b></summary>
 
 # Java Stream filter()
 
@@ -5767,7 +5767,7 @@ List<Integer> evenNumbers = list.stream()
 ```
 </details> 
  <details>
-<summary><b>Java Stream forEachOrdered()</b></summary>
+<summary><b>6.21 Java Stream forEachOrdered()</b></summary>
 
 # Java Stream forEachOrdered()
 
@@ -5851,7 +5851,7 @@ list.stream()
 > 2
 </details> 
  <details>
-<summary><b>Java Stream forEach()</b></summary>
+<summary><b>6.22 Java Stream forEach()</b></summary>
 
 # Java Stream forEach()
 
@@ -5919,7 +5919,7 @@ In this tutorial, we learned to use the forEach() method to iterate through all 
 Though we can use the enhanced for-each loop for the iteration, the primary difference between the forEach() method and for-each loop is that the for-each loop is an external iterator, whereas the new forEach() method is an internal iterator.
 </details> 
  <details>
-<summary><b>Java Stream distinct()</b></summary>
+<summary><b>6.23 Java Stream distinct()</b></summary>
 
 # Java Stream distinct(): Get Unique Values from Stream
 
@@ -6084,7 +6084,7 @@ While filtering out duplicates, distinct() operation preserves the original orde
 <summary><b>7. Advance Topics</b></summary>
 
 <details>
-<summary><b>How To Debug Java Streams</b></summary>
+<summary><b>7.1 How To Debug Java Streams</b></summary>
 
 # How To Debug Java Streams
 
