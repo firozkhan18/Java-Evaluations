@@ -2,7 +2,7 @@
 
 The features introduced in Java 8 have changed the way you write the code using Java. Using Java 8 features like lambda expressions, Stream API etc, you can write more concise and flexible code. In this article, we will try to learn Java 8 Lambda Expressions using some simple examples.
 
-#Java 8 Lambda Expressions
+## Java 8 Lambda Expressions
 
 ## 1) Definition
 
