@@ -554,7 +554,7 @@ Here, the count method returns the number of non-empty elements in a stream.
 
 Technically, Stream.ofNullable() is very similar to null condition check, when talking in context of stream API.
 </details>
-<details><summary><b>Creating Streams</b></summary>
+<details><summary><b>1.3 Creating Streams</b></summary>
 
 ## Creating Streams in Java
 
@@ -634,7 +634,7 @@ Stream<Integer> stream =
     Stream.generate(() -> rand.nextInt(100)).limit(20);
 ```
 </details>
-<details><summary><b>1.3 Functional Interfaces</b></summary>
+<details><summary><b>1.4 Functional Interfaces</b></summary>
 
 # Functional Interfaces in Java
 
@@ -729,7 +729,7 @@ The Function interface has one abstract method apply() that we have implemented 
 
 > System.out.println( square.apply(5) );  //Prints 25
 </details>
-<details><summary><b>1.4 Generic Functional Interfaces</b></summary>
+<details><summary><b>1.5 Generic Functional Interfaces</b></summary>
 	
 # Generic Functional Interfaces in Java
 
@@ -813,7 +813,7 @@ ArgumentsProcessor<Integer> intMultiplier = (i1, i2) -> i1 * i2;
 System.out.println(intMultiplier.process(4, 5));	//20
 ```
 </details>
-<details><summary><b>1.5 Primitive Type Streams</b></summary>
+<details><summary><b>1.6 Primitive Type Streams</b></summary>
 
 # Primitive Type Streams in Java
 
@@ -941,7 +941,7 @@ Stream<Double> boxedStream2 =
 ```
 </details>
 <details>
-<summary><b>1.6 Using ‘if-else’ Conditions with Streams</b></summary>
+<summary><b>1.7 Using ‘if-else’ Conditions with Streams</b></summary>
 	
 # Using ‘if-else’ Conditions with Java Streams
 
@@ -1003,7 +1003,7 @@ Using one of the above given two methods, we can apply any combination of if-els
 
 </details>
 <details>
-<summary><b>1.7 Creating Infinite Streams</b></summary>
+<summary><b>1.8 Creating Infinite Streams</b></summary>
 
 # How to Create Infinite Streams in Java
 
@@ -1077,7 +1077,7 @@ public class Employee implements Serializable {
 ```
 </details>
 <details>
-<summary><b>1.8 Stream of Random Numbers</b></summary>
+<summary><b>1.9 Stream of Random Numbers</b></summary>
 
 # Stream of Random Numbers in Java
 
@@ -1141,7 +1141,7 @@ randStream.forEach(System.out::println);
 ```
 </details>
 <details>
-<summary><b>1.9 Boxed Streams</b></summary>
+<summary><b>1.10 Boxed Streams</b></summary>
 
 # Boxed Streams in Java
 
@@ -1180,7 +1180,7 @@ List<Integer> list = IntStream.of(1,2,3,4,5)
 ```    
 </details>
 <details>
-<summary><b>1.10 Stream of Dates</b></summary>
+<summary><b>1.11 Stream of Dates</b></summary>
 	
 # Get all Dates between Two Dates as Stream
 
@@ -1234,7 +1234,7 @@ List<LocalDate> list = nextThreeDays
 ```
 </details>
 <details>
-<summary><b>1.11 Remove/Update Elements From List using Stream</b></summary>
+<summary><b>1.12 Remove/Update Elements From List using Stream</b></summary>
 
 # Java – Remove/Update Elements From List using Stream
 
@@ -1296,7 +1296,7 @@ The program output.
 ```
 </details>
 <details>
-<summary><b>1.12 Iterate with Indices</b></summary>
+<summary><b>1.13 Iterate with Indices</b></summary>
 
 # How to Iterate Over a Stream With Indices
 
@@ -1410,7 +1410,7 @@ Stream.of(employees).zipWithIndex()
 ```
 </details>
 <details>
-<summary><b>1.13 Stream has already been operated upon or closed Exception</b></summary>
+<summary><b>1.14 Stream has already been operated upon or closed Exception</b></summary>
 	
 # [Solved] “Stream has already been operated upon or closed” Exception
 
