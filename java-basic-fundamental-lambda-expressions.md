@@ -298,7 +298,7 @@ public class BookDAO {
 ```
 3) Create a service class BookService for performing business logic:
 
-- Without Lambda Expressions:
+- **Without Lambda Expressions**:
 
 ```java
 import java.util.Collections;
@@ -324,8 +324,40 @@ public int compare(Book o1, Book o2) {
 }
 
 ```
+- **Without Lambda Expressions and With Anonynous Function**:
 
-- With Lambda Expressions:
+```java
+import java.util.Collections;
+import java.util.List;
+
+public class BookService {
+
+	public List<Book> getBooksinSort() {
+		List<Book> books = new BookDAO().getBooks();
+		Collections.sort(books, new Comparator<Book>() {
+
+		@Override
+		public int compare(Book o1, Book o2) {
+		    return o2.getName().compareTo(o1.getName());
+		});
+          return books;
+	}
+	public static void main(String[] args) {
+		System.out.println(new BookService().getBooksinSort());
+	}
+}
+
+/*
+*class MyComparator implements Comparator<Book> {
+*
+*@Override
+*public int compare(Book o1, Book o2) {
+* return o2.getName().compareTo(o1.getName());
+*}
+*/
+
+```
+- **With Lambda Expressions**:
 
 ```java
 import java.util.Collections;
@@ -343,11 +375,5 @@ public class BookService {
 		System.out.println(new BookService().getBooksinSort());
 	}
 }
-/*
-*class MyComparator implements Comparator<Book> {
-*
-*@Override public int compare(Book o1, Book o2) {
-*	return o2.getName().compareTo(o1.getName());
-*}
-*/
+
 ```
