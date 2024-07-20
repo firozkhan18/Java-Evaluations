@@ -12,6 +12,7 @@ Java 8 Lambda Expressions can be defined as methods without names i.e anonymous 
 ## 2) Lambda Syntax
 
 Parameters    Expression    Body
+
 ()              ->          System.out.println("Lambda Expression");
 
 (Parameters) -> Expression
