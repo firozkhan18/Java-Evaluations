@@ -21,7 +21,7 @@ The new set of functional interfaces are introduced in Java 8 to make programmer
 
 ### 3) java.util.function package
 
-All Java 8 functional interfaces are organised in java.util.function package. Each functional interface in this package represents an operation that can be performed by the lambda expression.
+All Java 8 functional interfaces are organised in `java.util.function` package. Each functional interface in this package represents an operation that can be performed by the lambda expression.
 
 Below table shows the list of all Java 8 functional interfaces along with their abstract method, which operation they represent and when to use them?
 
@@ -145,7 +145,7 @@ for (Student student : listOfStudents)
     studentNames.add(nameFunction.apply(student));
 }
 ```
-d) Supplier – Supplies the objects
+### d) Supplier – Supplies the objects
 
 Supplier represents an operation which takes no argument and returns the results of type R. Use this functional interface when you want to create new objects.
 
@@ -156,7 +156,7 @@ Supplier<Student> studentSupplier = () -> new Student(111111, "New Student", 92.
          
 listOfStudents.add(studentSupplier.get());
 ```
-5) Functional Interfaces Supporting Primitive Type
+### 5) Functional Interfaces Supporting Primitive Type
 Java 8 has also introduced functional interfaces which support primitive types. For example IntPredicate, DoublePredicate, LongConsumer etc… (See above table).
 
 If an input or output is a primitive type then using these functional interfaces will enhance the performance of your code. For example, if input to a Predicate is primitive type int then using intPredicate instead of Predicate will remove unnecessary boxing of input.
