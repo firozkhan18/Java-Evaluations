@@ -17,7 +17,7 @@ Java 8 is the most awaited and is a major feature release of Java programming la
 * [Optional](#optional)
 * [Date](#date)
 * [Java Exercises](#java-exercises)
-* [Java Programing Question Answer](#java-programing-question-answer)
+* [Java Programing Question Answers](#java-programing-question-answer)
 
   
 ## Lambda Expression
