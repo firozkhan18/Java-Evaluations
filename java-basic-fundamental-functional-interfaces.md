@@ -643,10 +643,10 @@ class DataObject {
 ``` 
 > Output:
  
-> 10
-> null
-> 30
-> 30
+10
+null
+30
+30
 Notice how we changed the value to 30, and both objects now see the updated value which is 30.
 
 Another thing you should have noticed that how we are able to access static variable with its classname i.e. DataObject.staticVar. We don’t need to create any instance to access static variables. It clearly shows that static variables belong to class scope.
@@ -698,7 +698,7 @@ class DataObject
   }
 }
 ``` 
-Output:
+> Output:
  
 30
 30
@@ -708,7 +708,6 @@ The normal import declaration imports classes from packages, so that they can be
 
 A static import statement also comes in two flavors: single-static import and static-import-on-demand. A single-static import declaration imports one static member from a type. A static-import-on-demand declaration imports all static members of a type.
 
-```java
 //Single-static-import declaration:
   
 import static <<package name>>.<<type name>>.<<static member name>>;
@@ -716,11 +715,13 @@ import static <<package name>>.<<type name>>.<<static member name>>;
 //Static-import-on-demand declaration:
   
 import static <<package name>>.<<type name>>.*;
+
 For example, System.out is
 
 //Static import statement
 import static java.lang.System.out;
- 
+
+```java
 public class JavaStaticExample 
 {
   public static void main(String[] args) 
@@ -735,7 +736,7 @@ class DataObject
   public static Integer staticVar;  //static variable
 }
 ``` 
-Output:
+> Output:
  
 30
 Read More: Static Import Statements in Java
@@ -751,6 +752,7 @@ public class Main {
         System.out.println("Inside static initializer");
     }   
 }
+```
 Static blocks are executed when the class is loaded in the memory. A class can have multiple static blocks and these will be executed in the same sequence in which they appear in class definition.
 ```java
 import static java.lang.System.out;
