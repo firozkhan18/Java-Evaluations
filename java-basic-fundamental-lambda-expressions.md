@@ -1,6 +1,8 @@
 # Java 8 Lambda Expressions
 
-The features introduced in Java 8 have changed the way you write the code using Java. Using Java 8 features like lambda expressions, Stream API etc, you can write more concise and flexible code. In this article, we will try to learn Java 8 Lambda Expressions using some simple examples.
+The features introduced in Java 8 have changed the way you write the code using Java. Using Java 8 features like lambda expressions, Stream API etc, you can write more concise and flexible code. 
+
+In this example, we will try to learn Java 8 Lambda Expressions using some simple examples.
 
 ## Java 8 Lambda Expressions
 
@@ -8,7 +10,15 @@ The features introduced in Java 8 have changed the way you write the code using 
 
 Java 8 Lambda Expressions can be defined as methods without names i.e anonymous functions. Like methods, they can have parameters, a body, a return type and possible list of exceptions that can be thrown. But unlike methods, neither they have names nor they are associated with any particular class.
 
+*Lambda Expressions*: The Expression through which we can represnt an Anonymous Function.
+
+* Anonymous: Nameless/Unknown
+* Anonymous Function: A method who dont have any name or identifier
+
 ## 2) Lambda Syntax
+
+Parameters    Expression    Body
+()              ->          System.out.println("Lambda Expression");
 
 (Parameters) -> Expression
 
@@ -20,7 +30,14 @@ Lambda syntax consist of three parts – list of parameters, an arrow mark and a
 
 ## 3) Where To Use Lambda Expressions?
 
-Lambda expressions are used where an instance of functional interface is expected. Functional interface is an interface which has only one abstract method. Functional interfaces can have any number of default methods. But, they must have only one abstract method. Comparator, Runnable AndActionListener are some examples of functional interfaces.
+Lambda expressions are used where an instance of functional interface is expected (i.e. Lambda expressions only can be applicable for functional interface).
+
+Functional interface is an interface which has only one abstract method. 
+
+Functional interfaces can have any number of default methods. But, they must have only one abstract method. 
+
+Comparator, Runnable AndActionListener are some examples of functional interfaces.
+
 ```java
 @FunctionalInterface
 public interface Comparator 
