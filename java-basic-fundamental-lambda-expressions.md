@@ -308,7 +308,7 @@ public class BookService {
 
 	public List<Book> getBooksinSort() {
 		List<Book> books = new BookDAO().getBooks();
-		**Collections.sort(books, new MyComparator()));**
+		Collections.sort(books, new MyComparator()));
 		return books;
 	}
 	public static void main(String[] args) {
@@ -334,7 +334,7 @@ public class BookService {
 
 	public List<Book> getBooksinSort() {
 		List<Book> books = new BookDAO().getBooks();
-		<b>Collections.sort(books, (o1, o2) -> o1.getName().compareTo(o2.getName()));</b>
+		Collections.sort(books, (o1, o2) -> o1.getName().compareTo(o2.getName()));
 		return books;
 	}
 	public static void main(String[] args) {
