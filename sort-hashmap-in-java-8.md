@@ -37,16 +37,17 @@ public class SortMapByKeysProgram
         System.out.println(sortedStudentMap);
     }
 }
+```
 Output :
 Before Sorting :
 {Xiangh=91, Klusener=82, Narayan=95, Arunkumar=86, Jyous=87, Lisa=89}
 After Sorting :
 {Arunkumar=86, Jyous=87, Klusener=82, Lisa=89, Narayan=95, Xiangh=91}
-```java
+
 ### Sorting HashMap in natural reverse order of keys using TreeMap with Comparator :
 
 The following program sorts HashMap in natural reverse order of keys by passing Collections.reverseOrder() to TreeMap.
-
+```java
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -78,7 +79,7 @@ public class SortMapReverseOrderByKeysUsingTreeMap
         System.out.println(sortedStudentMap);
     }
 }
-
+```
 Output :
 
 Before Sorting :
