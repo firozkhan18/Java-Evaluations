@@ -708,6 +708,8 @@ The normal import declaration imports classes from packages, so that they can be
 
 A static import statement also comes in two flavors: single-static import and static-import-on-demand. A single-static import declaration imports one static member from a type. A static-import-on-demand declaration imports all static members of a type.
 
+```java
+
 //Single-static-import declaration:
   
 import static <<package name>>.<<type name>>.<<static member name>>;
@@ -721,7 +723,6 @@ For example, System.out is
 //Static import statement
 import static java.lang.System.out;
 
-```java
 public class JavaStaticExample 
 {
   public static void main(String[] args) 
