@@ -128,6 +128,42 @@ for (Student student : listOfStudents)
     percentageConsumer.accept(student);
 }
 ```
+Example 2:
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
+
+public class ConsumerDemo {
+
+	public static void main(String[] args) {
+		
+		Consumer<Integer> consumer = t -> System.out.println("Printing  : " + t);
+		 
+		consumer.accept(10);
+
+	}
+}
+```
+
+Example 3:
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
+
+public class ConsumerDemo {
+
+	public static void main(String[] args) {
+
+		List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5);
+
+		list1.stream().forEach(t -> System.out.println("print  : " + t));
+	}
+}
+```
 ### c) Function – Applies to an object
 
 Function represents an operation which takes an argument of type T and returns a result of type R. Use this functional interface if you want to extract some data from an existing data.
