@@ -204,3 +204,148 @@ class CalculatorImpl {
 	// () -> {body};
 }
 ```
+
+## Real Time Example:
+
+1) Create Pojo Class Book:
+```java
+public class Book {
+	private int id;
+	private String name;
+	private int pages;
+
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getPages() {
+		return pages;
+	}
+	public void setPages(int pages) {
+		this.pages = pages;
+	}
+	@Override
+	public String toString() {
+		return "Book [id=" + id + ", name=" + name + ", pages=" + pages + "]";
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + pages;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Book other = (Book) obj;
+		if (id != other.id)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (pages != other.pages)
+			return false;
+		return true;
+	}
+	public Book() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Book(int id, String name, int pages) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.pages = pages;
+	}
+}
+```
+2) Create a DAO layer class BookDAO:
+
+```java
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class BookDAO {
+
+	public List<Book> getBooks() {
+		List<Book> books = new ArrayList<>();
+		books.add(new Book(101, "Core Java", 400));
+		books.add(new Book(363, "Hibernate", 180));
+		books.add(new Book(275, "Spring", 200));
+		books.add(new Book(893, "WebService", 300));
+		return books;
+	}
+}
+```
+3) Create a service class BookService for performing business logic:
+
+- Without Lamplda Expressions:
+
+```java
+import java.util.Collections;
+import java.util.List;
+
+public class BookService {
+
+	public List<Book> getBooksinSort() {
+		List<Book> books = new BookDAO().getBooks();
+		*Collections.sort(books, new MyComparator()));*
+		return books;
+	}
+	public static void main(String[] args) {
+		System.out.println(new BookService().getBooksinSort());
+	}
+}
+
+class MyComparator implements Comparator<Book> {
+
+@Override public int compare(Book o1, Book o2) {
+	return o2.getName().compareTo(o1.getName());
+}
+
+```
+
+- With Lamplda Expressions:
+
+```java
+import java.util.Collections;
+import java.util.List;
+
+public class BookService {
+
+	public List<Book> getBooksinSort() {
+		List<Book> books = new BookDAO().getBooks();
+		**Collections.sort(books, (o1, o2) -> o1.getName().compareTo(o2.getName()));**
+		return books;
+	}
+	public static void main(String[] args) {
+		System.out.println(new BookService().getBooksinSort());
+	}
+}
+/*
+*class MyComparator implements Comparator<Book> {
+*
+*@Override public int compare(Book o1, Book o2) {
+*	return o2.getName().compareTo(o1.getName());
+*}
+*/
+```
