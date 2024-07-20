@@ -2404,7 +2404,7 @@ Predicate<Integer> isOdd = Predicate.not( isEven );
 ```
 </details>
 <details>
-<summary><b>Finding Max and Min from List using Streams</b></summary>
+<summary><b>2.10 Finding Max and Min from List using Streams</b></summary>
 	
 # Finding Max and Min from List using Streams
 
@@ -2482,7 +2482,7 @@ In this tutorial, we learned to find max value or min value from a list using th
 
 </details>
 <details>
-<summary><b>2.10 Java Stream count() Matches with filter()</b></summary>
+<summary><b>2.11 Java Stream count() Matches with filter()</b></summary>
 	
 # Java Stream count() Matches with filter()
 
@@ -2525,7 +2525,7 @@ long count = LongStream.of(1,2,3,4,5,6,7,8,9)
 ```
 </details>
 <details>
-<summary><b>Filter a Map by List of Keys</b></summary>
+<summary><b>2.13 Filter a Map by List of Keys</b></summary>
 	
 # How to Filter a Map by List of Keys in Java
 
