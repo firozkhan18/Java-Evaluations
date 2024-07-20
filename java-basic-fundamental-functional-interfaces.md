@@ -240,6 +240,30 @@ for (Student student : listOfStudents)
 
 Supplier represents an operation which takes no argument and returns the results of type R. Use this functional interface when you want to create new objects.
 
+1) Without Lambda:
+   
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Supplier;
+
+public class SupplierDemo implements Supplier<String>{
+
+	@Override
+	public String get(){
+            return "Hello World";
+	}
+
+	public static void main(String[] args) {
+
+		Supplier<String> supplier = new SupplierDemo();
+
+		System.out.println(supplier.get());
+	}
+}
+```
+2) With Lambda:
+   
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -249,10 +273,27 @@ public class SupplierDemo {
 
 	public static void main(String[] args) {
 
+		Supplier<String> supplier = t -> "Hello World";
 
+		System.out.println(supplier.get());
+	}
+}
+```
+3) With Lambda:
+   
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Supplier;
+
+public class SupplierDemo {
+
+	public static void main(String[] args) {
+
+		//Supplier<String> supplier = t -> "Hello World";
 		List<String> list1 = Arrays.asList();
-
-		System.out.println(list1.stream().findAny().orElseGet(() -> "Hi viewers"));
+		//System.out.println(list1.stream().findAny().orElseGet(() -> supplier));
+		System.out.println(list1.stream().findAny().orElseGet(() -> "Hello World"));
 	}
 }
 ```
