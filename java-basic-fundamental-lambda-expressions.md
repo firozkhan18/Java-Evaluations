@@ -13,7 +13,7 @@ Java 8 Lambda Expressions can be defined as methods without names i.e anonymous 
 
 Parameters    Expression    Body
 
-()&nbsp;&nbsp;&nbsp;&nbsp;->&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Lambda Expression");
+()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Lambda Expression");
 
 (Parameters) -> Expression
 
