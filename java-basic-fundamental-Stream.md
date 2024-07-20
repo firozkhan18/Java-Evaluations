@@ -2236,15 +2236,91 @@ A B C D E
 
 E D C B A
 
+- Pojo class
+```java
+public class Employee {
+
+	private int id;
+	private String name;
+	private String dept;
+	private long salary;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDept() {
+		return dept;
+	}
+
+	public void setDept(String dept) {
+		this.dept = dept;
+	}
+
+	public long getSalary() {
+		return salary;
+	}
+
+	public void setSalary(long salary) {
+		this.salary = salary;
+	}
+
+	public Employee(int id, String name, String dept, long salary) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.dept = dept;
+		this.salary = salary;
+	}
+
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", dept=" + dept + ", salary=" + salary + "]";
+	}
+
+}
+```
+- DAO layer
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+public class DataBase {
+
+	public static List<Employee> getEmployees() {
+		List<Employee> list = new ArrayList<>();
+		list.add(new Employee(176, "Roshan", "IT", 600000));
+		list.add(new Employee(388, "Bikash", "CIVIL", 900000));
+		list.add(new Employee(470, "Bimal", "DEFENCE", 500000));
+		list.add(new Employee(624, "Sourav", "CORE", 400000));
+		list.add(new Employee(176, "Prakash", "SOCIAL", 1200000));
+		return list;
+	}
+}
+```
 - Sort a List using lambda:
 ```java
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
-import com.javatechie.stream.api.example.DataBase;
-import com.javatechie.stream.api.example.Employee;
 
 public class SortListDemo {
 
@@ -2298,8 +2374,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
-
-import com.javatechie.stream.api.example.Employee;
 
 public class SortMapDemo {
 
