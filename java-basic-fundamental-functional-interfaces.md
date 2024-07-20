@@ -265,11 +265,14 @@ Supplier<Student> studentSupplier = () -> new Student(111111, "New Student", 92.
 listOfStudents.add(studentSupplier.get());
 ```
 ### 5) Functional Interfaces Supporting Primitive Type
-Java 8 has also introduced functional interfaces which support primitive types. For example IntPredicate, DoublePredicate, LongConsumer etc… (See above table).
 
-If an input or output is a primitive type then using these functional interfaces will enhance the performance of your code. For example, if input to a Predicate is primitive type int then using intPredicate instead of Predicate will remove unnecessary boxing of input.
+Java 8 has also introduced functional interfaces which support primitive types. 
 
+For example IntPredicate, DoublePredicate, LongConsumer etc… (See above table).
 
+If an input or output is a primitive type then using these functional interfaces will enhance the performance of your code. 
+
+For example, if input to a Predicate is primitive type int then using intPredicate instead of Predicate will remove unnecessary boxing of input.
 
 | Functional interface  | Function descriptor | Primitive specializations |
 |-----------------------|---------------------|--------------------------------------------------------| 
