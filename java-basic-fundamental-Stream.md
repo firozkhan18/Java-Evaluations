@@ -343,7 +343,7 @@ It is also important to strike the balance between making parallelism easier and
 
 ### Real Time Example
 
-- List Sort:
+- Sort a List using lambda:
 
 1) Create DTO class Employee.
 ```java
@@ -442,7 +442,7 @@ public class TaxService {
 	}
 }
 ```
-- Map Sort:
+- Sort a Map using lambda:
 
 ```java
 import java.util.ArrayList;
