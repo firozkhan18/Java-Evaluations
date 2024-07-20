@@ -298,7 +298,7 @@ public class BookDAO {
 ```
 3) Create a service class BookService for performing business logic:
 
-- Without Lamplda Expressions:
+- Without Lambda Expressions:
 
 ```java
 import java.util.Collections;
@@ -325,7 +325,7 @@ public int compare(Book o1, Book o2) {
 
 ```
 
-- With Lamplda Expressions:
+- With Lambda Expressions:
 
 ```java
 import java.util.Collections;
