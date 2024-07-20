@@ -111,6 +111,23 @@ for (Student student : listOfStudents)
     }
 }
 ```
+
+### Real Time Example
+
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class PredicateDemo {
+
+	public static void main(String[] args) {
+
+		List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5);
+
+		list1.stream().filter(t -> t % 2 == 0).forEach(t -> System.out.println("print  Even: " + t));
+	}
+}
+```
 ### b) Consumer – Consumes an object
 
 Consumer represents an operation which takes an argument and returns nothing. Use this functional interface If you want to compose a lambda expression which performs some operations on an object.
