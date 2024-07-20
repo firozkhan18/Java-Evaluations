@@ -300,15 +300,15 @@ The signature of the abstract method of a functional interface is called a funct
 So in order to use different lambda expressions, you need a set of functional interfaces that can describe common function descriptors. 
 There are several functional interfaces already available in the Java API such as Comparable, Runnable, and Callable, ActionaListner.
 
-The Java library designers for Java 8 have helped you by introducing several new functional interfaces inside the java.util.function package. 
+The Java library designers for Java 8 have helped you by introducing several new functional interfaces inside the `java.util.function` package. 
 We describe the interfaces Predicate, Consumer, and Function.
 
 # Predicate
-The java.util.function.Predicate<T> interface defines an abstract method named test that accepts an object of generic type T and returns a boolean. 
+The `java.util.function.Predicate<T>` interface defines an abstract method named test that accepts an object of generic type T and returns a boolean. 
+
 It’s exactly the same one that you created earlier, but is available out of the box! You might want to use this interface when you need to represent a boolean expression that uses an object of type T. 
 
 For example, you can define a lambda that accepts String objects, as shown in the following listing.
-
 
 ### Working with a Predicate
 ```java
@@ -334,17 +334,17 @@ If you look up the Javadoc specification of the Predicate interface, you may not
 
 ### What about @FunctionalInterface?
 
-If you explore the new Java API, you’ll notice that functional interfaces are annotated with @FunctionalInterface This annotation is used to indicate that the interface is intended to be a functional interface. The compiler will return a meaningful error if you define an interface using the @FunctionalInterface annotation and it isn’t a functional interface. 
+If you explore the new Java API, you’ll notice that functional interfaces are annotated with `@FunctionalInterface` This annotation is used to indicate that the interface is intended to be a functional interface. The compiler will return a meaningful error if you define an interface using the `@FunctionalInterface` annotation and it isn’t a functional interface. 
 
 For example, an error message could be “Multiple non-overriding abstract methods found in interface Foo” to indicate that more than one abstract method is available. 
 
-Note that the @FunctionalInterface annotation isn’t mandatory, but it’s good practice to use it when an interface is designed for that purpose.
+Note that the `@FunctionalInterface` annotation isn’t mandatory, but it’s good practice to use it when an interface is designed for that purpose.
 
-You can think of it like the @Override notation to indicate that a method is overridden.
+You can think of it like the `@Override` notation to indicate that a method is overridden.
 
 # Consumer
 
-The java.util.function.Consumer<T> interface defines an abstract method named accept that takes an object of generic type T and returns no result (void). 
+The `java.util.function.Consumer<T>` interface defines an abstract method named accept that takes an object of generic type T and returns no result (void). 
 You might use this interface when you need to access an object of type T and perform some operations on it. 
 
 For example, you can use it to create a method forEach, which takes a list of Integers and applies an operation on each element of that list. 
@@ -387,13 +387,6 @@ public static <T, R> List<R> map(List<T> list, Function<T, R> f) {
 List<Integer> l = map(Arrays.asList("lambdas","in","action"), (String s) -> s.length());
 ```
 
-
-## Functional Interfaces in Java
-
-Java Streams
-Functional Interface, Java 8 Stream
-Introduced in Java 8, a functional interface is simply an interface that has exactly one abstract method. Learn more about functional interfaces in this tutorial.
-
 ### 1. What is a Functional Interface?
 ### 1.1. Only one abstract method is allowed
 Functional interfaces are new additions in Java 8. As a rule, a functional interface can contain exactly one abstract method. These functional interfaces are also called Single Abstract Method interfaces (SAM Interfaces).
@@ -418,14 +411,14 @@ public interface Comparator<T> {
 Comparator interface has only two abstract methods compare() and equals(). But equals() has been inherited from the Object class, so it is not counted. Other than these two methods, all other methods are default methods. So Comparator is qualified to be declared as a functional interface.
 
 Java program to implement Comparator using a lambda expression.
-
+```java
 //Compare by Id
 Comparator<Employee> compareById = Comparator.comparing(e -> e.getId());
 
 Comparator<Employee> compareByFirstName = Comparator.comparing(e -> e.getFirstName());
-
+```
 ### 2. @FunctionalInterface Annotation
-Java 8 introduced the annotation @FunctionalInterface to mark an interface as a functional interface. The primary use of this annotation is for compiler-level errors when the interface violates the contracts of precisely one abstract method.
+Java 8 introduced the annotation `@FunctionalInterface` to mark an interface as a functional interface. The primary use of this annotation is for compiler-level errors when the interface violates the contracts of precisely one abstract method.
 
 Note that using the annotation @FunctionalInterface is optional.
 
@@ -434,26 +427,26 @@ If the interface has one abstract method and does not have @FunctionalInterface 
 The presence of the annotation protects us from inadvertently changing a functional interface into a non-functional interface, as the compiler will catch it.
 
 Let’s build our first functional interface. Note that methods in an interface are, by default, abstract.
-
+```java
 @FunctionalInterface
 public interface MyFirstFunctionalInterface 
 {
     public void firstWork();
 }
-
+```
 Let’s try to add another abstract method:
-
+```java
 @FunctionalInterface
 public interface MyFirstFunctionalInterface 
 {
     public void firstWork();
     public void doSomeMoreWork();   //error
 }
-
+```
 The above code will result in a compiler error:
 
-Unexpected @FunctionalInterface annotation
-@FunctionalInterface ^ MyFirstFunctionalInterface is not a functional interface
+Unexpected `@FunctionalInterface` annotation
+`@FunctionalInterface` ^ MyFirstFunctionalInterface is not a functional interface
 multiple non-overriding abstract methods found in interface MyFirstFunctionalInterface
 Functional-Interface-Error
 Read More : Generic Functional Interfaces
@@ -461,33 +454,33 @@ Read More : Generic Functional Interfaces
 ### 3. Functional Interfaces in JDK
 The following is a list of Java’s most commonly used functional interfaces.
 
-Runnable: contains only the run() method.
-Comparable: contains only the compareTo() method.
-ActionListener: contains only the actionPerformed() method.
-Callable: contains only the call() method.
-Predicate: a boolean-valued function that takes an argument and returns true or false.
-BiPredicate: a predicate with two arguments.
-Consumer: an operation that takes an argument, operates on it, and returns no result.
-BiConsumer: a consumer with two arguments.
-Supplier: a supplier that returns a value.
-Function<T, R>:  takes an argument of type T and returns a result of type R.
-BiFunction<T, U, R>: takes two arguments of types T and U and returns a result of type R.
+- Runnable: contains only the run() method.
+- Comparable: contains only the compareTo() method.
+- ActionListener: contains only the actionPerformed() method.
+- Callable: contains only the call() method.
+- Predicate: a boolean-valued function that takes an argument and returns true or false.
+- BiPredicate: a predicate with two arguments.
+- Consumer: an operation that takes an argument, operates on it, and returns no result.
+- BiConsumer: a consumer with two arguments.
+- Supplier: a supplier that returns a value.
+- Function<T, R>:  takes an argument of type T and returns a result of type R.
+- BiFunction<T, U, R>: takes two arguments of types T and U and returns a result of type R.
+  
 ### 4. Demo
 Let’s see a quick example of creating and using functional interfaces in Java.
 
 We are using a functional interface Function to create the formula for mathematical squares.
-
+```java
 Function<Integer, Integer> square = x -> x * x;
-
+```
 The Function interface has one abstract method apply() that we have implemented above. we can execute the above method as follows:
-
+```java
 System.out.println( square.apply(5) );  //Prints 25
-
+```
 ### 5. Conclusion
 In this tutorial, we learned to create and manage functional interfaces in Java. We learned that a functional interface has only one abstract method and they can be implemented by the lambda expressions.
 
 We also saw the JDK provided existing functional interfaces, and finally how to create an use a functional interface.
-
 
 ### Java Default Methods
 
@@ -502,6 +495,7 @@ I will discuss following points in this post:
 ### What are default methods in java 8?
 
 Default methods enable you to add new functionality to the interfaces of your libraries and ensure binary compatibility with code written for older versions of those interfaces.
+
 As name implies, default methods in java 8 are simply default. If you do not override them, they are the methods which will be invoked by caller classes. They are defined in interfaces.
 
 Let’s understand with an example:
@@ -541,6 +535,7 @@ Output: I am running
 This is not all done here. Best part comes as following benefits:
 
 **Static default methods**: You can define static default methods in interface which will be available to all instances of class which implement this interface. This makes it easier for you to organize helper methods in your libraries; you can keep static methods specific to an interface in the same interface rather than in a separate class. This enables you to define methods out of your class and yet share with all child classes.
+
 They provide you an highly desired capability of adding a capability to number of classes without even touching their code. Simply add a default method in interface which they all implement.
 
 ### Why default methods were needed in java 8?
@@ -584,8 +579,11 @@ So far so good. We have got all basics well. Now move to complicated things. In 
 Rules for this conflict resolution are as follows:
 
 1) Most preferred are the overridden methods in classes. They will be matched and called if found before matching anything.
+
 2) The method with the same signature in the “most specific default-providing interface” is selected. This means if class Animal implements two interfaces i.e. Moveable and Walkable such that Walkable extends Moveable. Then Walkable is here most specific interface and default method will be chosen from here if method signature is matched.
+
 3) If Moveable and Walkable are independent interfaces then a serious conflict condition happen, and compiler will complain then it is unable to decide. The you have to help compiler by providing extra info that from which interface the default method should be called. e.g.
+
 ```java
 	Walkable.super.move();
 	//or 
@@ -616,6 +614,7 @@ public static Integer staticVar;
 The most important thing about static variables is that they belong to class level. What it means is that there can be only one copy of variable in runtime.
 
 When you define a static variable in class definition, each instance of class will have access to that single copy. Separate instances of class will not have their own local copy, like they have for non-static variables.
+
 ```java
 public class JavaStaticExample 
 {
@@ -642,21 +641,20 @@ class DataObject {
   public Integer nonStaticVar;
 }
 ``` 
-Output:
+> Output:
  
-10
-null
-30
-30
+> 10
+> null
+> 30
+> 30
 Notice how we changed the value to 30, and both objects now see the updated value which is 30.
 
 Another thing you should have noticed that how we are able to access static variable with its classname i.e. DataObject.staticVar. We don’t need to create any instance to access static variables. It clearly shows that static variables belong to class scope.
 
-
 ### 2. Static Method
 To declare a static method, use static keyword in method declaration. Static method syntax is:
 
-ACCESS_MODIFER static RETURN_TYPE METHOD_NAME;
+`ACCESS_MODIFER static RETURN_TYPE METHOD_NAME;`
 For example, a public static variable of Integer type is declared in this way.
 ```java
 public static Integer staticVar;
@@ -669,8 +667,10 @@ public static Integer getStaticVar(){
 Few things to remember.
 
 You can access only static variables inside static methods. If you try to access any non-static variable, the compiler error will be generated with message “Cannot make a static reference to the non-static field nonStaticVar“.
+
 Static methods can be accessed via it’s class reference, and there is no need to create an instance of class. Though you can access using instance reference as well but it will have not any difference in comparison to access via class reference.
 Static methods also belong to class level scope.
+
 ```java
 public class JavaStaticExample 
 {
@@ -707,6 +707,7 @@ Output:
 The normal import declaration imports classes from packages, so that they can be used without package reference. Similarly the static import declaration imports static members from classes and allowing them to be used without class reference.
 
 A static import statement also comes in two flavors: single-static import and static-import-on-demand. A single-static import declaration imports one static member from a type. A static-import-on-demand declaration imports all static members of a type.
+
 ```java
 //Single-static-import declaration:
   
@@ -751,7 +752,7 @@ public class Main {
     }   
 }
 Static blocks are executed when the class is loaded in the memory. A class can have multiple static blocks and these will be executed in the same sequence in which they appear in class definition.
-
+```java
 import static java.lang.System.out;
  
 class DataObject 
@@ -839,8 +840,13 @@ Output:
 Let’s summarize everything about static keyword usage in Java.
 
 Static members belong to class. No need to create class instance to access static members.
+
 Static members (variables and methods) can be accessed inside static methods and static blocks only.
+
 Non-static members cannot be accessed inside static methods, blocks and inner classes.
+
 A class can have multiple static blocks and they will be executed in order they appear in class definition.
+
 A class can be static only if its declared as inner class inside outer class.
+
 Static imports can be used to import all static members from a class. These members can be referred without any class reference.
