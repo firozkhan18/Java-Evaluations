@@ -2347,7 +2347,7 @@ public class SortListDemo {
 		//System.out.println(employees);	
 		
 		//employees.stream().sorted(( o1,  o2) ->(int) (o2.getSalary() -
-							o1.getSalary())).forEach(System.out::println);
+		//					o1.getSalary())).forEach(System.out::println);
 		
 		//employees.stream().sorted(Comparator.comparing(emp->emp.getSalary())).forEach(System.out::println);
 		
