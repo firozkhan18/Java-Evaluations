@@ -114,6 +114,44 @@ for (Student student : listOfStudents)
 
 ### Real Time Example
 
+- 1)  Without Lambda:
+
+```java
+import java.util.Collections;
+import java.util.List;
+
+public class PredicateDemo implements Predicate<Integer> {
+
+	@Override
+	public Boolean test(Integer t) {
+		if(t % 2 ==0){
+	            return true;
+		}else{
+	            return false;
+		}
+       };
+
+       public static void main(String[] args) {
+	 Predicate<Integer> predicate= new PredicateDemo()
+	 System.out.println(predicate.test(8));
+       }
+}
+```
+- 2) With Lambda: 
+```java
+import java.util.Collections;
+import java.util.List;
+
+public class PredicateDemo {
+
+       public static void main(String[] args) {
+
+	 Predicate<Integer> predicate= t-> t % 2 ==0;
+	 System.out.println(predicate.test(8));
+       }
+}
+```
+- 3) stream().filter internaly using Predicate functional interface.
 ```java
 import java.util.Arrays;
 import java.util.List;
