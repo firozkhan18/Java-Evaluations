@@ -202,6 +202,23 @@ for (Student student : listOfStudents)
 
 Supplier represents an operation which takes no argument and returns the results of type R. Use this functional interface when you want to create new objects.
 
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Supplier;
+
+public class SupplierDemo {
+
+	public static void main(String[] args) {
+
+
+		List<String> list1 = Arrays.asList();
+
+		System.out.println(list1.stream().findAny().orElseGet(() -> "Hi viewers"));
+	}
+}
+```
+
 ### Lambda expression implementing Supplier : Creating a new Student
 
 ```java
