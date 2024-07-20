@@ -167,7 +167,7 @@ List<Integer> array = Arrays.asList(-2, 0, 4, 6, 8);
 int sum = array.stream().reduce(0, (element1, element2) -> element1 + element2); 
 ```
 
-[Complete Fundamental Concepts Of Java Stream](java-basic-fundamental-Stream-0.md)
+[Complete Fundamental Concepts Of Java Stream](java-basic-fundamental-Stream.md)
 
 ## Optional
 Every Java Programmer is familiar with NullPointerException. It can crash your code. And it is very hard to avoid it without using too many null checks.
