@@ -29,9 +29,9 @@ Lambda expressions are used where an instance of functional interface is expecte
 
 Functional interface is an interface which has only one abstract method. 
 
-Functional interfaces can have any number of default methods. But, they must have only one abstract method. 
+Functional interfaces can have any number of default and static methods. But, they must have only one abstract method. 
 
-Comparator, Runnable AndActionListener are some examples of functional interfaces.
+Comparator, Runnable, Comparable, Callable, and ActionListener are some examples of functional interfaces.
 
 ```java
 @FunctionalInterface
