@@ -147,7 +147,7 @@ public class ConsumerDemo {
 }
 ```
 
-Example 3:
+Example 3: stream().forEach internaly using Consumer functional interface.
 
 ```java
 import java.util.Arrays;
