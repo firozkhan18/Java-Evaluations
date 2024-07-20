@@ -3566,7 +3566,7 @@ String[] stringArray = strStream.toArray(String[]::new);
 In this short tutorial, we learned to convert the stream of items to the array of items, including primitives and complex object types. We learned to use the Arrays.stream() and Stream.toArray() methods and their examples.
 </details>  
 <details>
-<summary><b>Convert Iterable or Iterator to Stream</b></summary>
+<summary><b>4.2 Convert Iterable or Iterator to Stream</b></summary>
 
 # Convert Iterable or Iterator to Stream in Java
 
@@ -3614,7 +3614,7 @@ Stream<String> stream = Stream.generate(() -> null)
 ```
 </details>  
 <details>
-<summary><b>4.2 Collecting Stream of Primitives into Collection or Array</b></summary>
+<summary><b>4.3 Collecting Stream of Primitives into Collection or Array</b></summary>
 
 # Collecting Stream of Primitives into Collection or Array
 
