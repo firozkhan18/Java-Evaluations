@@ -1,9 +1,13 @@
 # Java 8 Functional Interfaces – When & How To Use Them?
 
-Functional interfaces, lambda expressions and Stream API – these three features of Java 8 has turned Java programming into new style of programming called functional-style programming. Java is still an object-oriented programming language, but from Java 8, with the introduction of new features, most of the programming is done keeping functions in mind rather than objects. In this article, we will see Java 8 functional interfaces, @FunctionalInterface annotation, java.util.function package and how to use new Java 8 functional interfaces to compose lambda expressions with some simple examples.
+Functional interfaces, lambda expressions and Stream API – these three features of Java 8 has turned Java programming into new style of programming called functional-style programming. Java is still an object-oriented programming language, but from Java 8, with the introduction of new features, most of the programming is done keeping functions in mind rather than objects. 
+
+In this example, we will see Java 8 functional interfaces, `@FunctionalInterface` annotation, `java.util.function` package and how to use new Java 8 functional interfaces to compose lambda expressions with some simple examples.
 
 ## Java 8 Functional Interfaces
+
 ### 1) Definition
+
 Functional interfaces are the interfaces which has exactly one abstract method. They may have any number of default methods but must have only one abstract method. Functional interfaces provide only one functionality to implement.
 
 There were functional interfaces exist before Java 8. It is not like that they are the whole new concept introduced only in Java 8. Runnable, ActionListener, Callable and Comaprator are some old functional interfaces which exist even before Java 8.
@@ -11,16 +15,17 @@ There were functional interfaces exist before Java 8. It is not like that they a
 The new set of functional interfaces are introduced in Java 8 to make programmer’s job easy while writing lambda expressions. Your lambda expression must implement any one of these functional interfaces. These new functional interfaces are organised under java.util.function package.
 
 ### 2) @FunctionalInterface Annotation
-@FunctionalInterface annotation is introduced in Java 8 to represent functional interfaces. Although, it is not compulsory to write functional interface using this annotation. But, if you are using @FunctionalInterface annotation then your interface should contain only one abstract method. If you try to write more than one abstract method, compiler will show the error.
+
+`@FunctionalInterface` annotation is introduced in Java 8 to represent functional interfaces. Although, it is not compulsory to write functional interface using this annotation. But, if you are using @FunctionalInterface annotation then your interface should contain only one abstract method. If you try to write more than one abstract method, compiler will show the error.
 
 
 ### 3) java.util.function package
+
 All Java 8 functional interfaces are organised in java.util.function package. Each functional interface in this package represents an operation that can be performed by the lambda expression.
 
 Below table shows the list of all Java 8 functional interfaces along with their abstract method, which operation they represent and when to use them?
 
-### Java 8 functional interfaces
-4) How To Use Java 8 Functional Interfaces In Real Time?
+### 4) How To Use Java 8 Functional Interfaces In Real Time?
 Let’s define Student class like below. We will be using this class in the subsequent examples.
 ```java
 class Student
