@@ -4251,7 +4251,7 @@ In non-parallel streams, both may return the first element of the stream in most
 Use findAny() to get any element from any parallel stream in a faster time. Else we can always use findFirst() it in most cases.
 </details> 
 <details>
-<summary><b>6.4 Java Stream findAny()</b></summary>
+<summary><b>6.5 Java Stream findAny()</b></summary>
 
 # Java Stream findAny()
 
