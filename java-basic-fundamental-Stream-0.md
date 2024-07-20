@@ -2525,7 +2525,7 @@ long count = LongStream.of(1,2,3,4,5,6,7,8,9)
 ```
 </details>
 <details>
-<summary><b>2.13 Filter a Map by List of Keys</b></summary>
+<summary><b>2.12 Filter a Map by List of Keys</b></summary>
 	
 # How to Filter a Map by List of Keys in Java
 
