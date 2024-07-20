@@ -503,9 +503,9 @@ Learn new java 9 improvements in Stream API i.e. takeWhile / dropWhile methods, 
 
 ### Table of Contents
 
-Limiting Stream with takeWhile() and dropWhile() methods
-Overloaded Stream iterate method
-New Stream ofNullable() method
+- Limiting Stream with takeWhile() and dropWhile() methods
+- Overloaded Stream iterate method
+- New Stream ofNullable() method
 
 #### Limiting Stream with takeWhile() and dropWhile() methods
 The new methods takeWhile and dropWhile allow you to get portions of a stream based on a predicate. Here a stream can be either ordered or unordered, so :
