@@ -774,7 +774,7 @@ class DataObject
   }
 }
 ``` 
-Output:
+> Output:
  
 40
 
@@ -834,7 +834,7 @@ class DataObject
   }
 }
 ``` 
-Output:
+> Output:
  
 40
 
