@@ -167,3 +167,40 @@ Lambda expressions removes verbosity and repetition of code.
 | Select/extract from an object		| (String s) -> s.length()			 								|
 | Combine two values				| (int a, int b) -> a * b											|
 | Compare two objects  				| (Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight())	|
+
+## Example:
+
+```java
+
+interface Calculator {
+	// void switchOn();
+	/* void sum(int input); */
+	int substract(int i1, int i2);
+}
+
+class CalculatorImpl {
+
+	public static void main(String[] args) {
+
+		/*
+		 * Calculator calculator = () -> System.out.println("Switch On");
+		 * calculator.switchOn();
+		 */
+
+		/*
+		 * Calculator calculator = (input) -> System.out.println("Sum : " + input);
+		 * calculator.sum(394);
+		 */
+
+		Calculator calculator = (i1, i2) -> {
+			if (i2 < i1) {
+				throw new RuntimeException("message");
+			} else {
+				return i2 - i1;
+			}
+		};
+		System.out.println(calculator.substract(8, 20));
+	}
+	// () -> {body};
+}
+```
