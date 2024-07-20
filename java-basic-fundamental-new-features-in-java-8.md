@@ -41,7 +41,7 @@ Collections.sort(names, (String a, String b) -> {
 });
 ```
 
-[Complete Fundamental Concepts Of Java Optional](java-basic-fundamental-lambda-expressions.md)
+[Complete Fundamental Concepts Of Java Lambda expressions](java-basic-fundamental-lambda-expressions.md)
 
 ## Functional Interface
 An Interface that contains exactly one abstract method is known as functional interface. It can have any number of default, static methods but can contain only one abstract method.
