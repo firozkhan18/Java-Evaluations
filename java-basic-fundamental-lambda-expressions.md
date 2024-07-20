@@ -4,7 +4,7 @@
 
 Java 8 Lambda Expressions can be defined as methods without names i.e anonymous functions. Like methods, they can have parameters, a body, a return type and possible list of exceptions that can be thrown. But unlike methods, neither they have names nor they are associated with any particular class.
 
-*Lambda Expressions*: The Expression through which we can represnt an Anonymous Function.
+**Lambda Expressions**: The Expression through which we can represnt an Anonymous Function.
 
 * Anonymous: Nameless/Unknown
 * Anonymous Function: A method who dont have any name or identifier
@@ -334,7 +334,9 @@ public class BookService {
 
 	public List<Book> getBooksinSort() {
 		List<Book> books = new BookDAO().getBooks();
-		Collections.sort(books, (o1, o2) -> o1.getName().compareTo(o2.getName()));
+```
+		**Collections.sort(books, (o1, o2) -> o1.getName().compareTo(o2.getName()));**
+```java
 		return books;
 	}
 	public static void main(String[] args) {
