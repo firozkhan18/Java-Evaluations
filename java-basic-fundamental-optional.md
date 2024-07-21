@@ -629,3 +629,174 @@ public class OptionalDemo {
 
 `Optional` provides a more structured and reliable approach to handling optional values in Java, addressing common pitfalls associated with null references. By encouraging explicit handling of absent values and providing a rich set of methods for working with optionals, `Optional` improves code clarity, safety, and maintainability.
 
+
+Null Handling : Before & After Java 8
+Null represents an absence of a value. Before Java 8, if-constructs are used to handle the null values. For example, have a look at the below code.
+
+class Person
+{
+    House house;
+     
+    public House getHouse() 
+    {
+        return house;
+    }
+}
+ 
+class House
+{
+    HouseLoan houseLoan;
+     
+    public HouseLoan getHouseLoan() 
+    {
+        return houseLoan;
+    }
+}
+ 
+class HouseLoan
+{
+    String houseLoanDetails;
+     
+    public String getHouseLoanDetails() 
+    {
+        return houseLoanDetails;
+    }
+}
+In the above example, if Person doesn’t own a House, then the value of house will be absent. If Person owns a House and that House is not built with HouseLoan, then the value of houseLoan will be absent.
+
+Below code shows how the absence of values are handled using if-constructs to avoid NullPointerException.
+
+
+Person person = new Person();
+         
+        //Null check for person
+         
+        if (person != null)
+        {
+            House house = person.getHouse();
+             
+            //Null check for house
+             
+            if (house != null)
+            {
+                HouseLoan houseLoan = house.getHouseLoan();
+                 
+                //Null check for houseLoan
+                 
+                if (houseLoan != null) 
+                {
+                    System.out.println(houseLoan.getHouseLoanDetails());
+                }
+            }
+        }
+You can notice that for each null check, an extra if-construct is required. It makes code more imprecise and less readable. And it also doesn’t solve the NullPointerException. It just hides it and transfers it to the next level.
+
+
+Java 8 provides most efficient way to handle the absence of a value. What you have to do is, whenever you feel that a particular property may not contain a value, you declare it as Optional.
+
+For example, in the above example, house property of Person class may not contain a value, then you have to declare it as an Optional of House type. And same applies to houseLoan property of House class.
+
+Below is the modified code with Java 8 Optional class.
+
+class Person
+{
+    //house declared as an Optional
+     
+    Optional<House> house;     
+     
+    public Optional<House> getHouse() 
+    {
+        return house;
+    }
+}
+ 
+class House
+{
+    //houseLoan declared as an Optional
+     
+    Optional<HouseLoan> houseLoan;
+     
+    public Optional<HouseLoan> getHouseLoan() 
+    {
+        return houseLoan;
+    }
+}
+ 
+class HouseLoan
+{
+    String houseLoanDetails;
+     
+    public String getHouseLoanDetails() 
+    {
+        return houseLoanDetails;
+    }
+}
+
+## Working With Java 8 Optional Class :
+
+### 1) Instantiation :
+
+**Optional.empty()** : It creates an empty optional object.
+
+> Optional<House> house = Optional.empty();
+
+**Optional.of()** : It creates an Optional object with specified non-null value.
+
+> Optional<House> house = Optional.of(new House());
+
+**Optional.ofNullable()** : It creates an Optional object with specified value if the value is non-null. If the value is null, it returns an empty Optional.
+
+> House house = new House();
+> Optional<House> optionalHouse = Optional.ofNullable(house);
+
+
+### 2) Extraction :
+
+**get()** : This method returns the value present in the Optional object. If the value is absent, throws NoSuchElementException.
+
+> Optional<House> optionalHouse = Optional.of(new House());
+> optionalHouse.get();
+
+**orElse()** : It Returns the value present in the Optional object. If the value is absent, returns the supplied value.
+
+> Optional<House> optionalHouse = Optional.of(new House());
+> optionalHouse.orElse(new House());
+
+**ifPresent()** : Performs the specified action if the value is present, otherwise no action taken.
+
+> Optional<House> optionalHouse = Optional.of(new House());
+> optionalHouse.ifPresent((House house) -> house.getHouseLoan());
+
+**isPresent()** : Returns true if the value is present, otherwise returns false.
+
+> Optional<House> optionalHouse = Optional.ofNullable(new House());
+> System.out.println(optionalHouse.isPresent()); //Output : true
+
+**orElseGet()** : Returns the value if the value is present, otherwise returns result of specified supplier.
+
+> Optional<House> optionalHouse = Optional.ofNullable(new House());
+> optionalHouse.orElseGet(() -> new House());
+
+**orElseThrow()** : Returns the value if the value is present, otherwise throws an exception created by the specified supplier.
+
+> Optional<House> optionalHouse = Optional.ofNullable(new House());
+> optionalHouse.orElseThrow(() -> new NoSuchElementException());
+
+### 3) Mapping & Filtering :
+
+**map()** : If the value is present, applies given mapping function to it and if the result is null, returns empty Optional. Otherwise returns Optional containing the result.
+
+> Optional<House> optionalHouse = Optional.ofNullable(new House());
+> optionalHouse.map((House house) -> house.getHouseType());
+
+**flatMap()** : This method is similar to above map() method. But, it is used when mapper function returns another Optional as a result and you don’t want to wrap it in another Optional.
+
+> Optional<House> optionalHouse = Optional.ofNullable(new House());
+> optionalHouse.flatMap(House::getHouseLoan).map(HouseLoan::getHouseLoanDetails);
+
+**filter()** : If the value is present and that value matches with the given predicate, then it returns Optional containing the result. Otherwise returns empty Optional.
+
+> Optional<House> optionalHouse = Optional.ofNullable(new House());
+> optionalHouse.filter((House house) -> house.getHouseType() == “Heritage”)
+> .flatMap(House::getHouseLoan)
+> .map(HouseLoan::getHouseLoanDetails);
