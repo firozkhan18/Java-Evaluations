@@ -498,14 +498,15 @@ public DisplayFeatures(String size, Optional<ScreenResolution> resolution){
 }
 ```
 #### 8.4 Variable Declaration
-
+```java
 private Optional<ScreenResolution> resolution;
-
+```
 #### 8.5 Class Level
-
+```java
 public class B
 
 public class A<T extends Optional<B>> { }
+```
 
 ### Real Time Example
 
