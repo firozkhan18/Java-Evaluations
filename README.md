@@ -13,7 +13,7 @@
   * [Reduce](#reduce)
 * [Optional](#optional)
 * [Date](#date)
-* [Java Exercises](#java-exercises)
+* [Java Programing Exercises](#java-programing-exercises)
 * [Java Programing Question Answers](#java-programing-question-answer)
 
   
@@ -191,7 +191,7 @@ System.out.println("Current DateTime: " + currentTime);
 LocalDate date1 = currentTime.toLocalDate();
 System.out.println("date1: " + date1);
 ```
-## Java Exercises
+## Java Programing Exercises
 * [java-basic-exercises-001-Basic-1](java-basic-exercises-001-Basic-1.md)
 * [java-basic-exercises-002-Basic-2](java-basic-exercises-002-Basic-2.md)
 * [java-basic-exercises-003-Recursive](java-basic-exercises-003-Recursive.md)
