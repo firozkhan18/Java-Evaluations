@@ -1,5 +1,7 @@
 # Optional in Java
 
+Java 8 has introduced a new class Optional in java.util package. It is used to represent a value is present or absent. The main advantage of this new construct is that No more too many null checks and NullPointerException. It avoids any runtime NullPointerExceptions and supports us in developing clean and neat Java APIs or Applications. Like Collections and arrays, it is also a Container to hold at most one value. Let us explore this new construct with some useful examples.
+
 ## What is Optional?
 
 `Optional` is a container object that may or may not contain a non-null value. It was introduced in Java 8 as part of the `java.util` package to represent optional values and to deal with the problem of null references in a more effective and expressive way.
@@ -22,6 +24,13 @@ Before the introduction of `Optional`, developers commonly used null references 
 
 ### 3. Forced Null Checking
 - `Optional` encourages developers to explicitly handle the case of a missing value, either by providing a default value or performing an alternative action, thus promoting defensive programming practices.
+
+### Advantages of Java 8 Optional:
+
+- Null checks are not required.
+- No more NullPointerException at run-time.
+- We can develop clean and neat APIs.
+- No more Boiler plate code
 
 ## Basic Methods
 
@@ -50,15 +59,6 @@ Before the introduction of `Optional`, developers commonly used null references 
 - `ifPresent(Consumer<? super T> consumer)`: If a value is present, performs the given action with the value.
 - `ifPresentOrElse(Consumer<? super T> action, Runnable emptyAction)`: If a value is present, performs the given action with the value, otherwise performs the specified empty action.
 - `equals(Object obj)`: Indicates whether some other object is "equal to" this Optional.
-
-Java 8 has introduced a new class Optional in java.util package. It is used to represent a value is present or absent. The main advantage of this new construct is that No more too many null checks and NullPointerException. It avoids any runtime NullPointerExceptions and supports us in developing clean and neat Java APIs or Applications. Like Collections and arrays, it is also a Container to hold at most one value. Let us explore this new construct with some useful examples.
-
-### Advantages of Java 8 Optional:
-
-- Null checks are not required.
-- No more NullPointerException at run-time.
-- We can develop clean and neat APIs.
-- No more Boiler plate code
 
 ### 1. Optional Basic example
 Optional.ofNullable() method returns a Non-empty Optional if a value present in the given object. Otherwise returns empty Optional.
