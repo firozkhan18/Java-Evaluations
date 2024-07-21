@@ -7788,7 +7788,9 @@ System.out.println(list);
 </details>
 <details>
 <summary><b>7.4 Java Stream Exception Handling</b></summary>
+	
 ```java
+
 import java.lang.annotation.Target;
 import java.util.*;
 import java.util.function.Consumer;
@@ -7862,7 +7864,9 @@ public class ExceptionHandlingExample {
     }
 }
 ```
+
 ```java
+
 @FunctionalInterface
 public interface CheckedExceptionHandlerConsumer<Target,ExObj extends Exception> {
 
