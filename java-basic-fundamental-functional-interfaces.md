@@ -315,6 +315,8 @@ If an input or output is a primitive type then using these functional interfaces
 
 For example, if input to a Predicate is primitive type int then using intPredicate instead of Predicate will remove unnecessary boxing of input.
 
+[](images/Java8FunctionalInterfaces.png)
+
 | Functional interface  | Function descriptor | Primitive specializations |
 |-----------------------|---------------------|--------------------------------------------------------| 
 | Predicate<T> 	| T -> boolean 	| <p>IntPredicate, </p><p>LongPredicate,</p><p> DoublePredicate</p> | 
