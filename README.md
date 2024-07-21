@@ -227,3 +227,4 @@ System.out.println("date1: " + date1);
 * [java-programming-question-answer-2](java-programming-question-answer-2.md)
 * [java-programming-question-answer-3-emp-mgmt](java-programming-question-answer-3-emp-mgmt.md)
 * [java-programming-question-answer-4-java-8](java-programming-question-answer-4-java-8.md)
+* [java-programming-question-answer-5-java-8](java-programming-question-answer-5-java-8.md)
