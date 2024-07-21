@@ -129,6 +129,8 @@ This repository contains sample Java 8 coding questions that can be used for int
 
 32. **Calculate the age of a person in years**
 
+    Write a Java 8 program to calculate the age of a person in years given their birthday.
+
 ```java
 import java.time.LocalDate;
 import java.time.Period;
