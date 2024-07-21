@@ -751,6 +751,7 @@ class HouseLoan
 **Optional.ofNullable()** : It creates an Optional object with specified value if the value is non-null. If the value is null, it returns an empty Optional.
 
 > House house = new House();
+> 
 > Optional<House> optionalHouse = Optional.ofNullable(house);
 
 
@@ -759,31 +760,37 @@ class HouseLoan
 **get()** : This method returns the value present in the Optional object. If the value is absent, throws NoSuchElementException.
 
 > Optional<House> optionalHouse = Optional.of(new House());
+> 
 > optionalHouse.get();
 
 **orElse()** : It Returns the value present in the Optional object. If the value is absent, returns the supplied value.
 
 > Optional<House> optionalHouse = Optional.of(new House());
+> 
 > optionalHouse.orElse(new House());
 
 **ifPresent()** : Performs the specified action if the value is present, otherwise no action taken.
 
 > Optional<House> optionalHouse = Optional.of(new House());
+> 
 > optionalHouse.ifPresent((House house) -> house.getHouseLoan());
 
 **isPresent()** : Returns true if the value is present, otherwise returns false.
 
 > Optional<House> optionalHouse = Optional.ofNullable(new House());
+> 
 > System.out.println(optionalHouse.isPresent()); //Output : true
 
 **orElseGet()** : Returns the value if the value is present, otherwise returns result of specified supplier.
 
 > Optional<House> optionalHouse = Optional.ofNullable(new House());
+> 
 > optionalHouse.orElseGet(() -> new House());
 
 **orElseThrow()** : Returns the value if the value is present, otherwise throws an exception created by the specified supplier.
 
 > Optional<House> optionalHouse = Optional.ofNullable(new House());
+> 
 > optionalHouse.orElseThrow(() -> new NoSuchElementException());
 
 ### 3) Mapping & Filtering :
@@ -791,16 +798,21 @@ class HouseLoan
 **map()** : If the value is present, applies given mapping function to it and if the result is null, returns empty Optional. Otherwise returns Optional containing the result.
 
 > Optional<House> optionalHouse = Optional.ofNullable(new House());
+> 
 > optionalHouse.map((House house) -> house.getHouseType());
 
 **flatMap()** : This method is similar to above map() method. But, it is used when mapper function returns another Optional as a result and you don’t want to wrap it in another Optional.
 
 > Optional<House> optionalHouse = Optional.ofNullable(new House());
+> 
 > optionalHouse.flatMap(House::getHouseLoan).map(HouseLoan::getHouseLoanDetails);
 
 **filter()** : If the value is present and that value matches with the given predicate, then it returns Optional containing the result. Otherwise returns empty Optional.
 
 > Optional<House> optionalHouse = Optional.ofNullable(new House());
+> 
 > optionalHouse.filter((House house) -> house.getHouseType() == “Heritage”)
+> 
 > .flatMap(House::getHouseLoan)
+> 
 > .map(HouseLoan::getHouseLoanDetails);
