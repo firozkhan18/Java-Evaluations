@@ -630,9 +630,10 @@ public class OptionalDemo {
 `Optional` provides a more structured and reliable approach to handling optional values in Java, addressing common pitfalls associated with null references. By encouraging explicit handling of absent values and providing a rich set of methods for working with optionals, `Optional` improves code clarity, safety, and maintainability.
 
 
-Null Handling : Before & After Java 8
+### Null Handling : Before & After Java 8
 Null represents an absence of a value. Before Java 8, if-constructs are used to handle the null values. For example, have a look at the below code.
 
+```java
 class Person
 {
     House house;
@@ -662,10 +663,11 @@ class HouseLoan
         return houseLoanDetails;
     }
 }
+```
 In the above example, if Person doesn’t own a House, then the value of house will be absent. If Person owns a House and that House is not built with HouseLoan, then the value of houseLoan will be absent.
 
 Below code shows how the absence of values are handled using if-constructs to avoid NullPointerException.
-
+```java
 
 Person person = new Person();
          
@@ -689,14 +691,16 @@ Person person = new Person();
                 }
             }
         }
+```
 You can notice that for each null check, an extra if-construct is required. It makes code more imprecise and less readable. And it also doesn’t solve the NullPointerException. It just hides it and transfers it to the next level.
-
 
 Java 8 provides most efficient way to handle the absence of a value. What you have to do is, whenever you feel that a particular property may not contain a value, you declare it as Optional.
 
 For example, in the above example, house property of Person class may not contain a value, then you have to declare it as an Optional of House type. And same applies to houseLoan property of House class.
 
 Below is the modified code with Java 8 Optional class.
+
+```java
 
 class Person
 {
@@ -731,7 +735,7 @@ class HouseLoan
         return houseLoanDetails;
     }
 }
-
+```
 ## Working With Java 8 Optional Class :
 
 ### 1) Instantiation :
