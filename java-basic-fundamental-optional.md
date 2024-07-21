@@ -53,22 +53,20 @@ Before the introduction of `Optional`, developers commonly used null references 
 
 Java 8 has introduced a new class Optional in java.util package. It is used to represent a value is present or absent. The main advantage of this new construct is that No more too many null checks and NullPointerException. It avoids any runtime NullPointerExceptions and supports us in developing clean and neat Java APIs or Applications. Like Collections and arrays, it is also a Container to hold at most one value. Let us explore this new construct with some useful examples.
 
-Advantages of Java 8 Optional:
+### Advantages of Java 8 Optional:
 
-Null checks are not required.
-No more NullPointerException at run-time.
-We can develop clean and neat APIs.
-No more Boiler plate code
+- Null checks are not required.
+- No more NullPointerException at run-time.
+- We can develop clean and neat APIs.
+- No more Boiler plate code
 
-1. Optional Basic example
+### 1. Optional Basic example
 Optional.ofNullable() method returns a Non-empty Optional if a value present in the given object. Otherwise returns empty Optional.
 
 Optionaal.empty() method is useful to create an empty Optional object.
 
 OptionalBasicExample.java
 ```java
-package com.mkyong;
-
 import java.util.Optional;
 
 public class OptionalBasicExample {
@@ -107,10 +105,9 @@ Exception in thread "main" java.lang.NullPointerException
 	at java.util.Optional.of(Optional.java:108)
 	//...
 ```
-2. Optional.map and flatMap
+### 2. Optional.map and flatMap
 OptionalMapFlapMapExample.java
 ```java
-package com.mkyong;
 
 import java.util.Optional;
 
@@ -139,11 +136,9 @@ Optional value   :: Optional[Optional[male]]
 Optional.map     :: Optional[Optional[MALE]]
 Optional.flatMap :: Optional[MALE]
 ```
-3. Optional.filter
+### 3. Optional.filter
 OptionalFilterExample.java
 ```java
-package com.mkyong;
-
 import java.util.Optional;
 
 public class OptionalFilterExample {
@@ -166,15 +161,13 @@ Optional.empty
 Optional[MALE]
 Optional.empty
 ```
-4. Optional isPresent and ifPresent
+### 4. Optional isPresent and ifPresent
 Optional.isPresent() returns true if the given Optional object is non-empty. Otherwise it returns false.
 
 Optional.ifPresent() performs given action if the given Optional object is non-empty. Otherwise it returns false.
 
 OptionalIfPresentExample.java
 ```java
-package com.mkyong;
-
 import java.util.Optional;
 
 public class OptionalIfPresentExample {
@@ -203,12 +196,11 @@ Value available.
 In gender Option, value available.
 ```
 
-5. Optional orElse methods
+### 5. Optional orElse methods
 It returns the value if present in Optional Container. Otherwise returns given default value.
 
 OptionalOrElseExample.java
 ```java
-package com.mkyong;
 
 import java.util.Optional;
 
@@ -234,14 +226,13 @@ MALE
 MALE
 <N/A>
 ```
-6. Without Java 8 Optional
+### 6. Without Java 8 Optional
 As everyone is familiar with Online Shopping. Let us assume that we want to implement a Mobile Product Module for a famous e-Commerce website.
 
 Let us implement Mobile Domain module Without Java 8 Optional.
 
 ScreenResolution.java
 ```java
-package com.mkyong.without.optional;
 
 public class ScreenResolution {
 
@@ -264,8 +255,6 @@ public class ScreenResolution {
 ```
 DisplayFeatures.java
 ```java
-package com.mkyong.without.optional;
-
 public class DisplayFeatures {
 
 	private String size; // In inches
@@ -286,7 +275,6 @@ public class DisplayFeatures {
 ```
 Mobile.java
 ```java
-package com.mkyong.without.optional;
 
 public class Mobile {
 
@@ -321,7 +309,6 @@ Here if we observe getMobileScreenWidth() method, it has lot of boiler plate cod
 
 MobileService.java
 ```java
-package com.mkyong.without.optional;
 
 public class MobileService {
 	
@@ -344,7 +331,6 @@ Develop one test application to test these Domain objects.
 
 MobileTesterWithoutOptional.java
 ```java
-package com.mkyong.without.optional;
 
 public class MobileTesterWithoutOptional {
 	
@@ -373,7 +359,7 @@ Output
 Apple iPhone 6s Screen Width = 750
 Apple iPhone 16s Screen Width = 0
 ```
-7. With Java 8 Optional
+### 7. With Java 8 Optional
 Now develop same domain models using Java 8 Optional construct with clean and neat way.
 
 P.S ScreenResolution.java no change. Please refer above section.
@@ -445,7 +431,6 @@ Here we can observe that how clean our getMobileScreenWidth() API without null c
 
 MobileService.java
 ```java
-package com.mkyong.with.optional;
 
 import java.util.Optional;
 
@@ -464,7 +449,6 @@ Now develop one test component
 
 MobileTesterWithOptional.java
 ```java
-package com.mkyong.with.optional;
 
 import java.util.Optional;
 
@@ -491,33 +475,33 @@ Output
 Apple iPhone 6s Screen Width = 750
 Apple iPhone 16s Screen Width = 0
 ```
-8. Where does Java Optional fits?
+### 8. Where does Java Optional fits?
 If we observe above real-time Retail Domain use-case, we should know that Java Optional construct is useful at the following places.
 
-8.1 Method Parameter
+#### 8.1 Method Parameter
 ```java
 public void setResolution(Optional<ScreenResolution> resolution) {
 	this.resolution = resolution;
 }
 ```
-8.2 Method Return Type
+#### 8.2 Method Return Type
 ```java
 public Optional<ScreenResolution> getResolution() {
 	return resolution;
 }
 ```
-8.3 Constructor Parameter
+#### 8.3 Constructor Parameter
 ```java
 public DisplayFeatures(String size, Optional<ScreenResolution> resolution){
 	this.size = size;
 	this.resolution = resolution;
 }
 ```
-8.4 Variable Declaration
+#### 8.4 Variable Declaration
 
 private Optional<ScreenResolution> resolution;
 
-8.5 Class Level
+#### 8.5 Class Level
 
 public class B
 
