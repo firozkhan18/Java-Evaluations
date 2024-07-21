@@ -4292,12 +4292,25 @@ flatMap() = map() + Flattening
 
 Let’s compare these two operations using a table:
 
-Aspect	map()	flatMap()
-Transformation	One-to-one transformation	One-to-many transformation
-Input to Output	1 input -> 1 output	1 input -> n outputs (flattened)
-Output Sequence	Preserves input sequence	Flattens output
-When to Use	Modify values, Extract properties	Splitting string, Combining nested collections
-Common Usage	Normal data transformations	Handling nested structures
+Aspect|	map()|	flatMap()|
+--- |--- | --- |  
+Transformation|	One-to-one transformation|	One-to-many transformation|
+Input to Output|	1 input -> 1 output|	1 input -> n outputs (flattened)|
+Output Sequence|	Preserves input sequence|	Flattens output|
+When to Use|	Modify values, Extract properties|	Splitting string, Combining nested collections|
+Common Usage|	Normal data transformations|	Handling nested structures|
+
+Differences between Java 8 Map() Vs flatMap() :
+
+map() | flatMap() | 
+--- | --- |  
+It processes stream of values. | It processes stream of stream of values. 
+It does only mapping. | It performs mapping as well as flattening.
+It’s mapper function produces single value for each input value. | It’s mapper function produces multiple values for each input value. 
+It is a One-To-One mapping. | It is a One-To-Many mapping. 
+Data Transformation : From Stream<T> to Stream<R> | Data Transformation : From Stream<Stream<T> to Stream<R> 
+Use this method when the mapper function is producing a single value for each input value. | Use this method when the mapper function is producing multiple values for each input value. 
+
 ### 4. Usage of map() vs flatMap()
 Use Stream.map() when we need to transform each element individually and the output has a one-to-one relationship with the input.
 
@@ -4326,7 +4339,120 @@ Set<String> distinctWords = lines
 
 System.out.println("Distinct words in the file: " + distinctWords);
 ```
-### 5. Conclusion
+
+### 5. Real Time Example:
+
+- POJO class:
+  
+```java
+import java.util.List;
+
+public class Customer {
+
+    private int id;
+    private String name;
+    private String email;
+    private List<String> phoneNumbers;
+
+    public Customer() {
+    }
+
+    public Customer(int id, String name, String email, List<String> phoneNumbers) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phoneNumbers = phoneNumbers;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public List<String> getPhoneNumbers() {
+        return phoneNumbers;
+    }
+
+    public void setPhoneNumbers(List<String> phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
+    }
+}
+```
+- Dao Layer:
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class EkartDataBase {
+
+    public static List<Customer> getAll() {
+        return Stream.of(
+                new Customer(101, "john", "john@gmail.com", Arrays.asList("397937955", "21654725")),
+                new Customer(102, "smith", "smith@gmail.com", Arrays.asList("89563865", "2487238947")),
+                new Customer(103, "peter", "peter@gmail.com", Arrays.asList("38946328654", "3286487236")),
+                new Customer(104, "kely", "kely@gmail.com", Arrays.asList("389246829364", "948609467"))
+        ).collect(Collectors.toList());
+    }
+}
+```
+- Service Class:
+```java
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class MapVsFlatMap {
+    public static void main(String[] args) {
+
+        List<Customer> customers = EkartDataBase.getAll();
+
+        //List<Customer>  convert List<String> -> Data Transformation
+        //mapping : customer -> customer.getEmail()
+        //customer -> customer.getEmail()  one to one mapping
+        List<String> emails = customers.stream()
+                .map(customer -> customer.getEmail())
+                .collect(Collectors.toList());
+        System.out.println(emails);
+
+	//customer -> customer.getPhoneNumbers()  ->> one to many mapping
+        //customer -> customer.getPhoneNumbers()  ->> one to many mapping
+        List<List<String>> phoneNumbers = customers.
+                stream().map(customer -> customer.getPhoneNumbers())
+                .collect(Collectors.toList());
+        System.out.println(phoneNumbers);
+
+        //List<Customer>  convert List<String> -> Data Transformation
+        //mapping : customer -> phone Numbers
+        //customer -> customer.getPhoneNumbers()  ->> one to many mapping
+        List<String> phones = customers.stream()
+                .flatMap(customer -> customer.getPhoneNumbers().stream())
+                .collect(Collectors.toList());
+        System.out.println(phones);
+    }
+}
+```
+### 6. Conclusion
 As discussed above, map() and flatMap(), both operations serve distinct purposes and are instrumental in streamlining data processing tasks. To keep things simpler, always remember that the map() operation is designed for one-to-one transformations, and conversely, the flatMap() operation handles one-to-many transformations.
 </details> 
 <details>
