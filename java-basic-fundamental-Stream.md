@@ -6382,7 +6382,9 @@ While filtering out duplicates, distinct() operation preserves the original orde
 </details> 
 <details>
 <summary><b>6.25  Java Stream map() and reduce()</b></summary>
-- POJO Class
+	
+- POJO Class :
+
 ```java
 public class Employee {
     private int id;
@@ -6433,7 +6435,9 @@ public class Employee {
     }
 }
 ```
+
 - DAO Layer
+  
 ```java
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6451,7 +6455,9 @@ public class EmployeeDatabase {
     }
 }
 ```
+
 - Service Class
+  
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -6488,7 +6494,6 @@ public class MapReduceExample {
 
         Integer maxvalueWithMethodReference = numbers.stream().reduce(Integer::max).get();
         System.out.println(maxvalueWithMethodReference);
-
 
         String longestString = words.stream()
                 .reduce((word1, word2) -> word1.length() > word2.length() ? word1 : word2)
