@@ -6562,8 +6562,8 @@ Parallel streams may provide better performance, but they can also introduce com
 
 Overall, the choice between sequential and parallel streams in Java 8 depends on the specific requirements of your application and the characteristics of the dataset you are working with.
 
-Sequential Stream | Parallel Stream
-
+Sequential Stream | Parallel Stream |
+----- | ----- |
 Processes elements in a serial order | Processes elements concurrently Executes operations one after the other | Executes operations in parallel Recommended for small collections with fewer elements | Recommended for large collections with many elements Useful when the order of processing is important | Useful when processing speed is more important than order Utilizes a single thread for processing | Utilizes multiple threads for processing Performance may be slower for large collections | Performance may be faster for large collections Less complex and easier to implement | More complex and may require additional handling for thread safety
 
 - POJO Class :
