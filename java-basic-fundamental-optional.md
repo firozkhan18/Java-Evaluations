@@ -63,7 +63,7 @@ Before the introduction of `Optional`, developers commonly used null references 
 ### 1. Optional Basic example
 Optional.ofNullable() method returns a Non-empty Optional if a value present in the given object. Otherwise returns empty Optional.
 
-Optionaal.empty() method is useful to create an empty Optional object.
+Optional.empty() method is useful to create an empty Optional object.
 
 OptionalBasicExample.java
 ```java
