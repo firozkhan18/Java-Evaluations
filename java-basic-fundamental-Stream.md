@@ -6522,7 +6522,50 @@ public class MapReduceExample {
 </details> 
 <details>
 <summary><b>6.26 Java Stream ParallelStream</b></summary>
-	
+
+In Java 8, Streams provide a new way to work with collections of objects. Streams enable you to perform aggregate operations on collections of objects, such as filtering, mapping, and reducing. There are two types of Streams in Java 8: sequential and parallel streams.
+
+**Sequential Stream**: A sequential stream processes the elements of a collection one by one in a linear order. This means that each element is processed in sequence before moving on to the next element. Sequential streams are useful when the order of processing is important, or when the operations are dependent on each other.
+
+Example: Suppose you have a list of numbers and you want to find the sum of all the even numbers in the list using a sequential stream. Here is how you can do it:
+
+ 
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
+
+int sum = numbers.stream()
+                .filter(num -> num % 2 == 0)
+                .mapToInt(Integer::intValue)
+                .sum();
+
+System.out.println("Sum of even numbers: " + sum);
+
+**Parallel Stream**: A parallel stream processes the elements of a collection concurrently, dividing the workload among multiple threads. 
+
+This can result in improved performance, particularly when working with large datasets that can be processed in parallel.
+
+Example: Suppose you have a list of strings and you want to concatenate them into a single string using a parallel stream. Here is how you can do it:
+
+List<String> words = Arrays.asList("hello", "world", "java", "stream");
+
+String result = words.parallelStream()
+                .reduce("", (str1, str2) -> str1 + " " + str2);
+
+System.out.println("Concatenated string: " + result);
+
+#### Sequential vs Parallel Stream:
+
+Sequential streams are suitable for small datasets or operations where the order of processing is important.
+
+Parallel streams are suitable for large datasets or operations that can be divided and processed concurrently.
+
+Parallel streams may provide better performance, but they can also introduce complexity and require careful consideration of thread safety.
+
+Overall, the choice between sequential and parallel streams in Java 8 depends on the specific requirements of your application and the characteristics of the dataset you are working with.
+
+Sequential Stream | Parallel Stream
+
+Processes elements in a serial order | Processes elements concurrently Executes operations one after the other | Executes operations in parallel Recommended for small collections with fewer elements | Recommended for large collections with many elements Useful when the order of processing is important | Useful when processing speed is more important than order Utilizes a single thread for processing | Utilizes multiple threads for processing Performance may be slower for large collections | Performance may be faster for large collections Less complex and easier to implement | More complex and may require additional handling for thread safety
+
 - POJO Class :
 
 ```java
