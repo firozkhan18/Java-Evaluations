@@ -938,6 +938,137 @@ Stream<Long> boxedStream = LongStream.of(1, 2, 3, 4, 5).boxed();
 Stream<Double> boxedStream2 =
     DoubleStream.of(1.0, 2.0, 3.0, 4.0, 5.0).boxed();
 ```
+
+## Primitive Type Streams in Java 8
+
+### 1. Introduction
+The Stream API was one of the key features added in Java 8.
+
+Briefly, the API allows us to process collections and other sequences of elements – conveniently and more efficiently – by providing a declarative API.
+
+### 2. Primitive Streams
+Streams primarily work with collections of objects and not primitive types.
+
+Fortunately, to provide a way to work with the three most used primitive types – int, long and double – the standard library includes three primitive-specialized implementations: IntStream, LongStream, and DoubleStream.
+
+Primitive streams are limited mainly because of boxing overhead and because creating specialized streams for other primitives isn’t’ that useful in many cases.
+
+### 3. Arithmetic Operations
+Let’s start with a few interesting methods for heavily used arithmetic operations such as min, max, sum, and average:
+```java
+int[] integers = new int[] {20, 98, 12, 7, 35};
+int min = Arrays.stream(integers)
+  .min()
+  .getAsInt(); // returns 7
+```
+Let’s now step through the code snippet above to understand what’s going on.
+
+We created our IntStream by using java.util.Arrays.stream(int[]) and then used the min() method to get the lowest integer as java.util.OptionalInt and finally called getAsInt() to get the int value.
+
+Another way to create an IntStream is using IntStream.of(int…). The max() method will return the greatest integer:
+```java
+int max = IntStream.of(20, 98, 12, 7, 35)
+  .max()
+  .getAsInt(); // returns 98
+```
+Next – to get the sum of integers we just call the sum() method and we don’t need to use getAsInt() since it already returns the result as an int value:
+```java
+int sum = IntStream.of(20, 98, 12, 7, 35).sum(); // returns 172
+```
+We invoke the average() method to get the average of integer values and as we can see, we should use getAsDouble() as it returns a value of type double.
+```java
+double avg = IntStream.of(20, 98, 12, 7, 35)
+  .average()
+  .getAsDouble(); // returns 34.4
+```
+### 4. Range
+We can also create an IntStream based on a range:
+```java
+int sum = IntStream.range(1, 10)
+  .sum(); // returns 45
+int sum = IntStream.rangeClosed(1, 10)
+  .sum(); // returns 55
+```
+As the code snippet above shows there are two ways to create a range of integer values range() and rangeClosed().
+
+The difference is that the end of range() is exclusive while it is inclusive in rangeClosed().
+
+Range methods are only available for IntStream and LongStream.
+
+We can use range as a fancy form of a for-each loop:
+```java
+IntStream.rangeClosed(1, 5)
+  .forEach(System.out::println);
+```
+What’s good at using them as a for-each loop replacement is that we can also take advantage of the parallel execution:
+```java
+IntStream.rangeClosed(1, 5)
+  .parallel()
+  .forEach(System.out::println);
+```
+As helpful as these fancy loops are it’s still better to use the traditional for-loops instead of the functional one for simple iterations because of simplicity, readability, and performance in some cases.
+
+### 5. Boxing and Unboxing
+There’re times when we need to convert primitive values to their wrapper equivalents.
+
+In those cases, we can use the boxed() method:
+```java
+List<Integer> evenInts = IntStream.rangeClosed(1, 10)
+  .filtedouble avg = IntStream.of(20, 98, 12, 7, 35)
+  .average()
+  .getAsDouble(); // returns 34.4
+```
+### 4. Range
+We can also create an IntStream based on a range:
+```java
+int sum = IntStream.range(1, 10)
+  .sum(); // returns 45
+int sum = IntStream.rangeClosed(1, 10)
+  .sum(); // returns 55
+```
+As the code snippet above shows there are two ways to create a range of integer values range() and rangeClosed().
+
+The difference is that the end of range() is exclusive while it is inclusive in rangeClosed().
+
+Range methods are only available for IntStream and LongStream.
+
+We can use range as a fancy form of a for-each loop:
+```java
+IntStream.rangeClosed(1, 5)
+  .forEach(System.out::println);
+```
+What’s good at using them as a for-each loop replacement is that we can also take advantage of the parallel execution:
+```java
+IntStream.rangeClosed(1, 5)
+  .parallel()
+  .forEach(System.out::println);
+```
+As helpful as these fancy loops are it’s still better to use the traditional for-loops instead of the functional one for simple iterations because of simplicity, readability, and performance in some cases.
+
+### 5. Boxing and Unboxing
+There’re times when we need to convert primitive values to their wrapper equivalents.
+
+In those cases, we can use the boxed() method:
+```java
+List<Integer> evenInts = IntStream.rangeClosed(1, 10)
+  .filter(i -> i % 2 == 0)
+  .boxed()r(i -> i % 2 == 0)
+  .boxed()
+  .collect(Collectors.toList());
+```
+We can also convert from the wrapper class stream to the primitive stream:
+```java
+// returns 78
+int sum = Arrays.asList(33,45)
+  .stream()
+  .mapToInt(i -> i)
+  .sum();
+```
+We can always use mapToXxx and flatMapToXxx methods to create primitive streams.
+
+### 6. Conclusion
+Java Streams is a very powerful addition to the language. We’ve barely scratched the surface of primitive streams here, but, as you can already use them to be productive.
+
 </details>
 <details>
 <summary><b>1.7 Using ‘if-else’ Conditions with Streams</b></summary>
@@ -1176,7 +1307,7 @@ To make the above collecting process work, we must box the stream items first.
 List<Integer> list = IntStream.of(1,2,3,4,5)
     .boxed()
     .collect(Collectors.toList());
-```    
+```
 </details>
 <details>
 <summary><b>1.11 Stream of Dates</b></summary>
