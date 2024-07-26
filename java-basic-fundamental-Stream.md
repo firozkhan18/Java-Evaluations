@@ -8085,4 +8085,586 @@ Output:
 Array: [3, 2, 5, 4, 1]
 Stream: [3, 2, 5, 4, 1]    
 </details>
+StreamSupport.stream() method, and get a Stream from the given Iterable object. It is easier to turn an Iterable into a Stream. Iterable has a default method spliterator(), which can be used to get a Spliterator instance, which can be in turn then converted to a Stream.
+
+Note: The Iterable is not a instance of Collection, this method internally calls StreamSupport.stream() to get a sequential Stream from Spliterator else it simply calls Collection.stream() method.
+
+Program:
+```java
+// Java program to create Stream from Collections 
+  
+import java.util.*; 
+import java.util.stream.*; 
+  
+class GFG { 
+  
+    // Function convert a List into Stream 
+    private static <T> void getStream(Iterable<T> iterable) 
+    { 
+  
+        // Convert the iterator into a Stream 
+        Stream<T> stream 
+            = StreamSupport 
+                  .stream(iterable.spliterator(), 
+                          false); 
+  
+        // Iterate list first to last element 
+        Iterator<T> it = stream.iterator(); 
+  
+        // Iterate stream object 
+        while (it.hasNext()) { 
+            System.out.print(it.next() + " "); 
+        } 
+    } 
+  
+    public static void main(String[] args) 
+    { 
+  
+        // Get the Iterable 
+        Iterable<String> iterable 
+            = Arrays.asList("a", "b", "c"); 
+  
+        // Get the Stream from the Iterable 
+        getStream(iterable); 
+    } 
+} 
+```
+Output:
+a b c
+</details>
+<details>
+<summary><b>7.6 10 Ways of Java Stream creation</b></summary>
+	
+The Stream API, introduced in Java 8, it is used to process collections of objects. Stream is a sequence of objects, that supports many different methods which can be pipe lined to produce the desired result.
+
+The features of Java stream are –
+
+A stream is not a data structure alternatively it takes input from the Collections, Arrays or I/O channels.
+A Streams does not change the original data structure, they only provide the result as the pipelined methods.
+Each intermediate operation is lazily executed and returns a stream as a result, hence various intermediate operations can be pipe lined. Terminal operation mark the end of the stream and return the result.
+### Different way to create Streams:
+
+#### Using Collection
+Approach:
+
+Get the collection
+Construct a Sequential Stream from the collection using Collection.stream() method
+Print the Stream
+Below is the implementation of the above approach:
+
+Program:
+
+// Java program to create Stream from Collections 
+  
+import java.util.*; 
+import java.util.stream.Stream; 
+  
+class GFG { 
+  
+    // Function convert a List into Stream 
+    private static <T> void getStream(List<T> list) 
+    { 
+  
+        // Create stream object with the List 
+        Stream<T> stream = list.stream(); 
+  
+        // Iterate list first to last element 
+        Iterator<T> it = stream.iterator(); 
+  
+        // Iterate stream object 
+        while (it.hasNext()) { 
+            System.out.print(it.next() + " "); 
+        } 
+    } 
+  
+    public static void main(String[] args) 
+    { 
+  
+        // Create ArrayList of String 
+        List<String> list = new ArrayList<>(); 
+  
+        // Add element in list 
+        list.add("Geeks"); 
+        list.add("for"); 
+        list.add("Geeks"); 
+  
+        // Get the Stream from the List 
+        getStream(list); 
+    } 
+} 
+Output:
+Geeks for Geeks
+Create a stream from specified values
+Stream.of(T…t) method can be used to create a stream with the specified t values, where t are the elements. This method returns a sequential Stream containing the t elements.
+
+Below is the implementation of the above approach:
+
+Program:
+
+// Java program to create Stream from values 
+  
+import java.util.*; 
+import java.util.stream.Stream; 
+  
+class GFG { 
+  
+    // Function convert a List into Stream 
+    private static void getStream() 
+    { 
+  
+        // Create a stream from specified values 
+        Stream<Integer> stream 
+            = Stream.of(1, 2, 
+                        3, 4, 
+                        5, 6, 
+                        7, 8, 
+                        9); 
+  
+        // Displaying the sequential ordered stream 
+        stream.forEach(p -> System.out.print(p + " ")); 
+    } 
+  
+    public static void main(String[] args) 
+    { 
+  
+        // Get the Stream from the values 
+        getStream(); 
+    } 
+} 
+Output:
+1 2 3 4 5 6 7 8 9
+Create stream from an array:
+The Stream.of() and Arrays.stream() are two commonly used methods for creating a sequential stream from a specified array. Both these methods returns a Stream when called with a non-primitive type T.
+Integer array
+
+#### Create stream using
+Arrays.stream()
+Program:
+
+// Java program to create Stream from Collections 
+  
+import java.util.*; 
+import java.util.stream.Stream; 
+  
+class GFG { 
+  
+    // Function convert a List into Stream 
+    private static <T> void getStream(T[] arr) 
+    { 
+  
+        // Create stream from an array 
+        // using Arrays.stream() 
+        Stream<T> streamOfArray 
+            = Arrays.stream(arr); 
+  
+        // Iterate list first to last element 
+        Iterator<T> it 
+            = streamOfArray.iterator(); 
+  
+        // Iterate stream object 
+        while (it.hasNext()) { 
+            System.out.print(it.next() + " "); 
+        } 
+    } 
+  
+    public static void main(String[] args) 
+    { 
+  
+        // Get the array 
+        String[] arr 
+            = new String[] { "a", "b", "c" }; 
+  
+        // Get the Stream from the Array 
+        getStream(arr); 
+    } 
+} 
+Output:
+a b c
+#### Create stream using
+Stream.of()
+
+A non interfering action to be perform on elements as they are consumed from the stream and returns also a new stream.
+Program:
+
+// Java program to create Stream from Collections 
+  
+import java.util.*; 
+import java.util.stream.Stream; 
+  
+class GFG { 
+  
+    // Function convert a List into Stream 
+    private static <T> void getStream(T[] arr) 
+    { 
+  
+        // Create stream from an array 
+        // using Stream.of() 
+        Stream<T> streamOfArray = Stream.of(arr); 
+  
+        // Iterate list first to last element 
+        Iterator<T> it = streamOfArray.iterator(); 
+  
+        // Iterate stream object 
+        while (it.hasNext()) { 
+            System.out.print(it.next() + " "); 
+        } 
+    } 
+  
+    public static void main(String[] args) 
+    { 
+  
+        // Get the array 
+        String[] arr 
+            = new String[] { "a", "b", "c" }; 
+  
+        // Get the Stream from the Array 
+        getStream(arr); 
+    } 
+} 
+Output:
+a b c
+#### Create an empty stream using Stream.empty()
+The empty() method is used upon creation to avoid returning null for streams with no element.
+
+Program:
+
+// Java program to create empty Stream 
+  
+import java.util.*; 
+import java.util.stream.Stream; 
+  
+class GFG { 
+  
+    // Function convert a List into Stream 
+    private static void getStream() 
+    { 
+  
+        // Create stream from an array using Stream.empty() 
+        Stream<String> streamOfArray 
+            = Stream.empty(); 
+  
+        // Iterate list first to last element 
+        Iterator<String> it 
+            = streamOfArray.iterator(); 
+  
+        // Iterate stream object 
+        while (it.hasNext()) { 
+            System.out.print(it.next() + " "); 
+        } 
+    } 
+  
+    public static void main(String[] args) 
+    { 
+  
+        // Get the empty Stream 
+        getStream(); 
+    } 
+} 
+Output:
+
+#### Create a Stream using Stream.builder()
+The builder() method is used when the desired type should be additionally specified in the right part of the statement, otherwise the build() method will create an instance of the Stream.
+
+Program:
+
+// Java program to create Stream from Collections 
+  
+import java.util.*; 
+import java.util.stream.Stream; 
+  
+class GFG { 
+  
+    // Function convert a List into Stream 
+    private static <T> void getStream() 
+    { 
+  
+        // Create stream using Stream builder() 
+        Stream.Builder<String> builder 
+            = Stream.builder(); 
+  
+        // Adding elements in the stream of Strings 
+        Stream<String> stream = builder.add("a") 
+                                    .add("b") 
+                                    .add("c") 
+                                    .build(); 
+  
+        // Iterate list first to last element 
+        Iterator<String> it = stream.iterator(); 
+  
+        // Iterate stream object 
+        while (it.hasNext()) { 
+            System.out.print(it.next() + " "); 
+        } 
+    } 
+  
+    public static void main(String[] args) 
+    { 
+  
+        // Get the Stream using Builder 
+        getStream(); 
+    } 
+} 
+Output:
+a b c
+#### Create an infinite Stream using Stream.iterate()
+The iterate() method returns an infinite sequential ordered Stream produced by iterative application of a function f to an initial element seed. In below example, First element of the resulting stream is a first parameter of the iterate method. For creating every following element the function is applied to the previous element. In the example below the second element will be 4.
+
+Program:
+
+// Java program to create infinite Stream 
+// using Stream.iterate() method 
+  
+import java.util.*; 
+import java.util.stream.Stream; 
+  
+class GFG { 
+  
+    // Function convert a List into Stream 
+    private static <T> void
+    getStream(int seedValue, int limitTerms) 
+    { 
+  
+        // Create infinite stream 
+        // using Stream.iterate() method 
+        Stream.iterate(seedValue, 
+                       (Integer n) -> n * n) 
+            .limit(limitTerms) 
+            .forEach(System.out::println); 
+    } 
+  
+    public static void main(String[] args) 
+    { 
+  
+        // Get the seed value 
+        int seedValue = 2; 
+  
+        // Get the limit for number of terms 
+        int limitTerms = 5; 
+  
+        // Get the Stream from the function 
+        getStream(seedValue, limitTerms); 
+    } 
+} 
+Output:
+2
+4
+16
+256
+65536
+#### Create an infinite Stream using Stream.generate() method
+The generate() method accepts a Supplier for generating elements and the resulting stream is infinite. So to restrict it, specify the desired size or the generate() method will work until it reaches the memory limit.
+
+Program:
+
+// Java program to create infinite Stream 
+// using Stream.generate() method 
+  
+import java.util.*; 
+import java.util.stream.*; 
+  
+class GFG { 
+  
+    // Function convert a List into Stream 
+    private static <T> void getStream(int limitTerms) 
+    { 
+  
+        // Create infinite stream 
+        // using Stream.generate() method 
+        Stream.generate(Math::random) 
+            .limit(limitTerms) 
+            .forEach(System.out::println); 
+    } 
+  
+    public static void main(String[] args) 
+    { 
+  
+        // Get the limit for number of terms 
+        int limitTerms = 5; 
+  
+        // Get the Stream from the function 
+        getStream(limitTerms); 
+    } 
+} 
+Output:
+0.2293502475696314
+0.5650334795948209
+0.3418138293253522
+0.36831074763500116
+0.4864408670097241
+#### Create stream from a Pattern using Predicate
+In java 8, the Predicate asPredicate() method of Pattern creates a predicate boolean-valued function that is used for pattern matching.
+
+Program:
+
+// Java program to create Stream from Collections 
+  
+import java.util.*; 
+import java.util.stream.*; 
+import java.util.regex.Pattern; 
+  
+class GFG { 
+  
+    // Function convert a List into Stream 
+    private static void
+    getStream(List<String> list, Pattern p) 
+    { 
+  
+        list.stream() 
+            .filter(p.asPredicate()) 
+            .forEach(System.out::println); 
+    } 
+  
+    public static void main(String[] args) 
+    { 
+  
+        // Create ArrayList of String 
+        // that is backed by the specified array 
+        List<String> list 
+            = Arrays 
+                  .asList("Geeks", 
+                          "For", 
+                          "Geek", 
+                          "GeeksForGeeks", 
+                          "A Computer Portal"); 
+  
+        // Get the pattern 
+        Pattern p = Pattern.compile("^G"); 
+  
+        // Get the Stream from the List matching Pattern 
+        getStream(list, p); 
+    } 
+} 
+Output:
+Geeks
+Geek
+GeeksForGeeks
+#### Create stream from Iterator
+Iterators, in Java, are used in Collection Framework to retrieve elements one by one. Spliterator is the key to create the sequential stream. Hence in this method also, Spliterator is used. But in this method, the source of Spliterator is set to an Iterable created from the Iterator. So first the Iterable is created from the Iterator. Then the Spliterator is passed to the stream() method directly as Iterable.spliterator().
+
+Program:
+
+// Java program to create Stream from Collections 
+  
+import java.util.*; 
+import java.util.stream.*; 
+  
+class GFG { 
+  
+    // Function convert a List into Stream 
+    private static <T> void getStream(Iterator<T> itr) 
+    { 
+  
+        // Convert the iterator into a Spliterator 
+        Spliterator<T> spitr 
+            = Spliterators 
+                  .spliteratorUnknownSize(itr, 
+                                          Spliterator.NONNULL); 
+  
+        // Convert spliterator into a sequential stream 
+        Stream<T> stream 
+            = StreamSupport.stream(spitr, false); 
+  
+        // Iterate list first to last element 
+        Iterator<T> it = stream.iterator(); 
+  
+        // Iterate stream object 
+        while (it.hasNext()) { 
+            System.out.print(it.next() + " "); 
+        } 
+    } 
+  
+    public static void main(String[] args) 
+    { 
+  
+        // Get the Iterator 
+        Iterator<String> iterator = Arrays 
+                                        .asList("a", "b", "c") 
+                                        .iterator(); 
+  
+        // Get the Stream from the Iterator 
+        getStream(iterator); 
+    } 
+} 
+Output:
+a b c
+#### Create stream from Iterable
+Iterable interface is designed keeping in mind and does not provide any stream() method on its own. Simply it can be passed into StreamSupport.stream() method, and get a Stream from the given Iterable object. It is easier to turn an Iterable into a Stream. Iterable has a default method spliterator(), which can be used to get a Spliterator instance, which can be in turn then converted to a Stream.
+
+Note: The Iterable is not a instance of Collection, this method internally calls StreamSupport.stream() to get a sequential Stream from Spliterator else it simply calls Collection.stream() method.
+
+Program:
+
+// Java program to create Stream from Collections 
+  
+import java.util.*; 
+import java.util.stream.*; 
+  
+class GFG { 
+  
+    // Function convert a List into Stream 
+    private static <T> void getStream(Iterable<T> iterable) 
+    { 
+  
+        // Convert the iterator into a Stream 
+        Stream<T> stream 
+            = StreamSupport 
+                  .stream(iterable.spliterator(), 
+                          false); 
+  
+        // Iterate list first to last element 
+        Iterator<T> it = stream.iterator(); 
+  
+        // Iterate stream object 
+        while (it.hasNext()) { 
+            System.out.print(it.next() + " "); 
+        } 
+    } 
+  
+    public static void main(String[] args) 
+    { 
+  
+        // Get the Iterable 
+        Iterable<String> iterable 
+            = Arrays.asList("a", "b", "c"); 
+  
+        // Get the Stream from the Iterable 
+        getStream(iterable); 
+    } 
+} 
+Output:
+a b c
+
+Three 90 Challenge is back on popular demand! After processing refunds worth INR 1CR+, we are back with the offer if you missed it the first time. Get 90% course fee refund in 90 days. Avail now!
+Want to be a master in Backend Development with Java for building robust and scalable applications? Enroll in Java Backend and Development Live Course by GeeksforGeeks to get your hands dirty with Backend Programming. Master the key Java concepts, server-side programming, database integration, and more through hands-on experiences and live projects. Are you new to Backend development or want to be a Java Pro? This course equips you with all you need for building high-performance, heavy-loaded backend systems in Java. Ready to take your Java Backend skills to the next level? Enroll now and take your development career to sky highs.
+
+Difference between Stream.of() and Arrays.stream() method in Java
+Arrays.stream() The stream(T[] array) method of Arrays class in Java, is used to get a Sequential Stream from the array passed as the parameter with its elements. It returns a sequential Stream with the elements of the array, passed as parameter, as its source. Example: Java Code // Java program to demonstrate Arrays.stream() method import java.util
+
+Character Stream Vs Byte Stream in Java
+A stream is a sequence of data. I/O Stream refers to a stream that is unlikely a method to sequentially access a file. I/O Stream means an input source or output destination representing different types of sources e.g. disk files. The java.io package provides classes that allow you to convert between Unicode character streams and byte streams of no
+
+foreach() loop vs Stream foreach() vs Parallel Stream foreach()
+foreach() loopLambda operator is not used: foreach loop in Java doesn't use any lambda operations and thus operations can be applied on any value outside of the list that we are using for iteration in the foreach loop. The foreach loop is concerned over iterating the collection or array by storing each element of the list on a local variable and do
+
+Java Stream | Collectors toCollection() in Java
+Collectors toCollection(Supplier&lt;C&gt; collectionFactory) method in Java is used to create a Collection using Collector. It returns a Collector that accumulates the input elements into a new Collection, in the order in which they are passed. Syntax: public static &lt;T, C extends Collection&lt;T&gt;&gt; Collector&lt;T, ?, C&gt; toCollection(Supp
+
+stream.limit() method in Java
+Prerequisite : Streams in Java8 The limit(long N) is a method of java.util.stream.Stream object. This method takes one (long N) as an argument and returns a stream of size no more than N. limit() can be quite expensive on ordered parallel pipelines, if the value of N is large, because limit(N) is constrained to return the first N elements in the en
+
+Stream skip() method in Java with examples
+Prerequisite : Streams in java The skip(long N) is a method of java.util.stream.Stream object. This method takes one long (N) as an argument and returns a stream after removing first N elements. skip() can be quite expensive on ordered parallel pipelines, if the value of N is large, because skip(N) is constrained to skip the first N elements in the
+
+Stream.reduce() in Java with examples
+Many times, we need to perform operations where a stream reduces to single resultant value, for example, maximum, minimum, sum, product, etc. Reducing is the repeated process of combining all elements. reduce operation applies a binary operator to each element in the stream where the first argument to the operator is the return value of the previous
+
+Stream.concat() in Java
+Stream.concat() method creates a concatenated stream in which the elements are all the elements of the first stream followed by all the elements of the second stream. The resulting stream is ordered if both of the input streams are ordered, and parallel if either of the input streams is parallel. Syntax : static &lt;T&gt; Stream&lt;T&gt; concat(Str
+
+Stream.distinct() in Java
+distinct() returns a stream consisting of distinct elements in a stream. distinct() is the method of Stream interface. This method uses hashCode() and equals() methods to get distinct elements. In case of ordered streams, the selection of distinct elements is stable. But, in case of unordered streams, the selection of distinct elements is not neces
+
+Stream sorted() in Java
+Stream sorted() returns a stream consisting of the elements of this stream, sorted according to natural order. For ordered streams, the sort method is stable but for unordered streams, no stability is guaranteed. It is a stateful intermediate operation i.e, it may incorporate state from previously seen elements when processing new elements.
+</details>
 </details>   
