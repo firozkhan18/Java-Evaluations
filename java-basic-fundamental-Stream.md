@@ -7967,4 +7967,122 @@ public interface CheckedExceptionHandlerConsumer<Target,ExObj extends Exception>
 }
 ```
 </details>
+<details>
+<summary><b>7.5 Java Stream Programs</b></summary>
+
+### Program to convert Primitive Array to Stream in Java
+
+An array is a group of like-typed variables that are referred to by a common name. An array can contain primitives data types as well as objects of a class depending on the definition of the array. In case of primitives data types, the actual values are stored in contiguous memory locations. In case of objects of a class, the actual objects are stored in heap segment.
+
+A Primitive array is an array which is defined with the help of the primitive wrapper classes, instead of objects.
+Example: Integer a = new Integer(4);
+
+When a Primitive Array is converted into a Stream, primitive Streams will be obtained like IntStream, DoubleStream and LongStream.
+
+- Examples:
+
+Input: Double Array: [1.2, 2.4, 3.6, 4.8, 5.0]
+Output: DoubleStream: [1.2, 2.4, 3.6, 4.8, 5.0]
+
+Input: Integer Array: [1, 2, 3, 4, 5]
+Output: IntStream: [1, 2, 3, 4, 5]
+
+Below are methods to convert Primitive Array to Stream in Java:
+
+### Using Arrays.stream():
+Algorithm:
+
+Get the Array to be converted.
+Convert the array into Stream using Arrays.stream() method by passing the array as the parameter.
+Return the formed Stream
+Program:
+```java
+// Java Program to convert 
+// Array to Stream 
+  
+import java.util.*; 
+import java.util.stream.*; 
+  
+class GFG { 
+  
+    // Generic function to convert  
+    // an Array to Stream 
+    public static IntStream  
+                convertArrayToStream(int array[]) 
+    { 
+  
+        // Return the converted Stream 
+        return Arrays.stream(array); 
+    } 
+  
+    public static void main(String args[]) 
+    { 
+        // Create an Array 
+        int[] array = new int[] { 3, 2, 5, 4, 1 }; 
+  
+        // Print the Array 
+        System.out.println("Array: " 
+                    + Arrays.toString(array)); 
+  
+        // convert the Array to Stream 
+        IntStream stream = convertArrayToStream(array); 
+  
+        // Print the Stream 
+        System.out.println("Stream: " 
+                    + Arrays.toString(stream.toArray())); 
+    } 
+}
+```
+Output:
+Array: [3, 2, 5, 4, 1]
+Stream: [3, 2, 5, 4, 1]
+
+### Using IntStream.of(): The IntStream.of() method creates a Stream directly with the primitive values or collection passed as the parameter.
+Algorithm:
+
+Get the Array to be converted.
+Convert the array into Stream using IntStream.of() method by passing the array as the parameter.
+Return the formed Stream
+Program:
+```java
+// Java Program to convert 
+// Array to Stream 
+  
+import java.util.*; 
+import java.util.stream.*; 
+  
+class GFG { 
+  
+    // Generic function to convert  
+    // an Array to Stream 
+    public static IntStream  
+               convertArrayToStream(int array[]) 
+    { 
+  
+        // Return the converted Stream 
+        return IntStream.of(array); 
+    } 
+  
+    public static void main(String args[]) 
+    { 
+        // Create an Array 
+        int[] array = new int[] { 3, 2, 5, 4, 1 }; 
+  
+        // Print the Array 
+        System.out.println("Array: " 
+                      + Arrays.toString(array)); 
+  
+        // convert the Array to Stream 
+        IntStream stream = convertArrayToStream(array); 
+  
+        // Print the Stream 
+        System.out.println("Stream: " 
+                      + Arrays.toString(stream.toArray())); 
+    } 
+}
+```
+Output:
+Array: [3, 2, 5, 4, 1]
+Stream: [3, 2, 5, 4, 1]    
+</details>
 </details>   
