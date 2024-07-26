@@ -1014,45 +1014,7 @@ There’re times when we need to convert primitive values to their wrapper equiv
 In those cases, we can use the boxed() method:
 ```java
 List<Integer> evenInts = IntStream.rangeClosed(1, 10)
-  .filtedouble avg = IntStream.of(20, 98, 12, 7, 35)
-  .average()
-  .getAsDouble(); // returns 34.4
-```
-### 4. Range
-We can also create an IntStream based on a range:
-```java
-int sum = IntStream.range(1, 10)
-  .sum(); // returns 45
-int sum = IntStream.rangeClosed(1, 10)
-  .sum(); // returns 55
-```
-As the code snippet above shows there are two ways to create a range of integer values range() and rangeClosed().
-
-The difference is that the end of range() is exclusive while it is inclusive in rangeClosed().
-
-Range methods are only available for IntStream and LongStream.
-
-We can use range as a fancy form of a for-each loop:
-```java
-IntStream.rangeClosed(1, 5)
-  .forEach(System.out::println);
-```
-What’s good at using them as a for-each loop replacement is that we can also take advantage of the parallel execution:
-```java
-IntStream.rangeClosed(1, 5)
-  .parallel()
-  .forEach(System.out::println);
-```
-As helpful as these fancy loops are it’s still better to use the traditional for-loops instead of the functional one for simple iterations because of simplicity, readability, and performance in some cases.
-
-### 5. Boxing and Unboxing
-There’re times when we need to convert primitive values to their wrapper equivalents.
-
-In those cases, we can use the boxed() method:
-```java
-List<Integer> evenInts = IntStream.rangeClosed(1, 10)
   .filter(i -> i % 2 == 0)
-  .boxed()r(i -> i % 2 == 0)
   .boxed()
   .collect(Collectors.toList());
 ```
