@@ -8131,6 +8131,7 @@ class GFG {
 ```
 Output:
 a b c
+
 </details>
 <details>
 <summary><b>7.6 10 Ways of Java Stream creation</b></summary>
