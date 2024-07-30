@@ -1,6 +1,6 @@
 Here's the content you provided formatted into a proper Markdown file:
 
-```markdown
+
 # Java 8 `IntStream` With Working Examples
 
 A quick guide to understanding the primitive `int` representation of `Stream` as interface `IntStream` to support integer operations, along with useful examples.
