@@ -50,6 +50,7 @@ It is available in two forms: single element stream and multiple values stream.
 - `IntStream of(int… values)` – Returns a stream with all the components supplied.
 
 ```java
+
 package com.javaprogramto.java8.intstream;
 
 import java.util.stream.IntStream;
