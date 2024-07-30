@@ -945,9 +945,7 @@ Certainly! Here’s a comprehensive set of examples for each of the functional i
       public class LongBinaryOperatorExample {
           public static void main(String[] args) {
               LongBinaryOperator subtract = (a, b) -> a - b;
-              System.out.println(sub
-
-tract.applyAsLong(100L, 50L)); // 50
+              System.out.println(subtract.applyAsLong(100L, 50L)); // 50
           }
       }
       ```
