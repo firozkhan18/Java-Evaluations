@@ -1,0 +1,26 @@
+package com.java.prgr.v1.coding.examples;
+
+import java.util.Scanner;
+
+/**
+ * 
+ * Java program to calculate the Sum of first n natural numbers using arithmetic
+ * formula
+ * 
+ * @author Firoz Khan
+ *
+ */
+public class SumOfNaturalNumbersFormula {
+
+	public static void main(String[] args) {
+
+		System.out.println("Enter n value: ");
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+
+		int naturalNumbersSum = n * (n + 1) / 2;
+
+		System.out.println("Using arthemetic formula: Sum of frist 100 numbers: " + naturalNumbersSum);
+	}
+
+}

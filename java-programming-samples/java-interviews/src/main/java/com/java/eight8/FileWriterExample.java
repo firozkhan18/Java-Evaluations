@@ -21,7 +21,7 @@ public class FileWriterExample {
 			// Bringing cursor to next line
 			printWriter.println();
 			// Writing text to file
-			printWriter.println("Venkatesh : 789546");
+			printWriter.println("Firoz Khan : 789546");
 			printWriter.println("Daniel : 874566");
 			printWriter.println("Shankar : 789546");
 			System.out.println("Done");
