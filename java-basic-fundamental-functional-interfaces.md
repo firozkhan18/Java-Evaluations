@@ -352,9 +352,622 @@ BinaryOperator| (T, T) -> T|<p>IntBinaryOperator</p><p>LongBinaryOperator</p><p>
 BiPredicate| (L, R) -> boolean||
 BiConsumer| (T, U) -> void||
 BiFunction<T, U, R>| (T, U) -> R|<p>ToIntBiFunction</p><p>ToLongBiFunction</p><p>ToDoubleBiFunction</p>|
-UnaryOperator|T -> T|<p>IntUnaryOperator</p><p>LongUnaryOperator</p><p>DoubleUnaryOperator</p>|
-BinaryOperator| (T, T) -> T|<p>IntBinaryOperator</p><p>LongBinaryOperator</p><p>DoubleBinaryOperator</p>|
 
+Certainly! Here’s a comprehensive set of examples for each of the functional interfaces and their primitive specializations in Java:
+
+### **1. Predicate and Primitive Specializations**
+
+- **`Predicate<T>`**
+  - **Description:** Tests if a condition holds true for an input of type `T`.
+  - **Example:**
+
+    ```java
+    import java.util.function.Predicate;
+
+    public class PredicateExample {
+        public static void main(String[] args) {
+            Predicate<String> isNonEmpty = s -> !s.isEmpty();
+            System.out.println(isNonEmpty.test("Hello")); // true
+            System.out.println(isNonEmpty.test(""));      // false
+        }
+    }
+    ```
+
+- **Primitive Specializations**
+
+  - **`IntPredicate`**
+    - **Description:** Tests if a condition holds true for an `int` value.
+    - **Example:**
+
+      ```java
+      import java.util.function.IntPredicate;
+
+      public class IntPredicateExample {
+          public static void main(String[] args) {
+              IntPredicate isEven = n -> n % 2 == 0;
+              System.out.println(isEven.test(4)); // true
+              System.out.println(isEven.test(5)); // false
+          }
+      }
+      ```
+
+  - **`LongPredicate`**
+    - **Description:** Tests if a condition holds true for a `long` value.
+    - **Example:**
+
+      ```java
+      import java.util.function.LongPredicate;
+
+      public class LongPredicateExample {
+          public static void main(String[] args) {
+              LongPredicate isPositive = l -> l > 0;
+              System.out.println(isPositive.test(100L)); // true
+              System.out.println(isPositive.test(-100L)); // false
+          }
+      }
+      ```
+
+  - **`DoublePredicate`**
+    - **Description:** Tests if a condition holds true for a `double` value.
+    - **Example:**
+
+      ```java
+      import java.util.function.DoublePredicate;
+
+      public class DoublePredicateExample {
+          public static void main(String[] args) {
+              DoublePredicate isGreaterThanFive = d -> d > 5.0;
+              System.out.println(isGreaterThanFive.test(6.0)); // true
+              System.out.println(isGreaterThanFive.test(4.0)); // false
+          }
+      }
+      ```
+
+### **2. BiPredicate**
+
+- **`BiPredicate<L, R>`**
+  - **Description:** Tests if a condition holds true for two arguments of types `L` and `R`.
+  - **Example:**
+
+    ```java
+    import java.util.function.BiPredicate;
+
+    public class BiPredicateExample {
+        public static void main(String[] args) {
+            BiPredicate<String, Integer> lengthGreaterThan = (s, len) -> s.length() > len;
+            System.out.println(lengthGreaterThan.test("Hello", 3)); // true
+            System.out.println(lengthGreaterThan.test("Hi", 3));    // false
+        }
+    }
+    ```
+
+### **3. Consumer and Primitive Specializations**
+
+- **`Consumer<T>`**
+  - **Description:** Performs an action on an input of type `T` without returning a result.
+  - **Example:**
+
+    ```java
+    import java.util.function.Consumer;
+
+    public class ConsumerExample {
+        public static void main(String[] args) {
+            Consumer<String> printUppercase = s -> System.out.println(s.toUpperCase());
+            printUppercase.accept("hello"); // HELLO
+        }
+    }
+    ```
+
+- **Primitive Specializations**
+
+  - **`IntConsumer`**
+    - **Description:** Performs an action on an `int` value.
+    - **Example:**
+
+      ```java
+      import java.util.function.IntConsumer;
+
+      public class IntConsumerExample {
+          public static void main(String[] args) {
+              IntConsumer printSquare = n -> System.out.println(n * n);
+              printSquare.accept(4); // 16
+          }
+      }
+      ```
+
+  - **`LongConsumer`**
+    - **Description:** Performs an action on a `long` value.
+    - **Example:**
+
+      ```java
+      import java.util.function.LongConsumer;
+
+      public class LongConsumerExample {
+          public static void main(String[] args) {
+              LongConsumer printLong = l -> System.out.println(l);
+              printLong.accept(123456789L); // 123456789
+          }
+      }
+      ```
+
+  - **`DoubleConsumer`**
+    - **Description:** Performs an action on a `double` value.
+    - **Example:**
+
+      ```java
+      import java.util.function.DoubleConsumer;
+
+      public class DoubleConsumerExample {
+          public static void main(String[] args) {
+              DoubleConsumer printDouble = d -> System.out.println(d);
+              printDouble.accept(4.5); // 4.5
+          }
+      }
+      ```
+
+### **4. BiConsumer**
+
+- **`BiConsumer<T, U>`**
+  - **Description:** Performs an action on two arguments of types `T` and `U` without returning a result.
+  - **Example:**
+
+    ```java
+    import java.util.function.BiConsumer;
+
+    public class BiConsumerExample {
+        public static void main(String[] args) {
+            BiConsumer<String, Integer> printNameAndAge = (name, age) ->
+                System.out.println(name + " is " + age + " years old.");
+            printNameAndAge.accept("Alice", 30); // Alice is 30 years old.
+        }
+    }
+    ```
+
+### **5. Function and Primitive Specializations**
+
+- **`Function<T, R>`**
+  - **Description:** Takes an input of type `T` and returns a result of type `R`.
+  - **Example:**
+
+    ```java
+    import java.util.function.Function;
+
+    public class FunctionExample {
+        public static void main(String[] args) {
+            Function<String, Integer> stringLength = s -> s.length();
+            System.out.println(stringLength.apply("Hello")); // 5
+        }
+    }
+    ```
+
+- **Primitive Specializations**
+
+  - **`IntFunction<R>`**
+    - **Description:** Takes an `int` and returns a result of type `R`.
+    - **Example:**
+
+      ```java
+      import java.util.function.IntFunction;
+
+      public class IntFunctionExample {
+          public static void main(String[] args) {
+              IntFunction<String> intToString = i -> "Number: " + i;
+              System.out.println(intToString.apply(10)); // Number: 10
+          }
+      }
+      ```
+
+  - **`IntToDoubleFunction`**
+    - **Description:** Takes an `int` and returns a `double`.
+    - **Example:**
+
+      ```java
+      import java.util.function.IntToDoubleFunction;
+
+      public class IntToDoubleFunctionExample {
+          public static void main(String[] args) {
+              IntToDoubleFunction intToDouble = i -> i / 2.0;
+              System.out.println(intToDouble.applyAsDouble(5)); // 2.5
+          }
+      }
+      ```
+
+  - **`IntToLongFunction`**
+    - **Description:** Takes an `int` and returns a `long`.
+    - **Example:**
+
+      ```java
+      import java.util.function.IntToLongFunction;
+
+      public class IntToLongFunctionExample {
+          public static void main(String[] args) {
+              IntToLongFunction intToLong = i -> i * 1000L;
+              System.out.println(intToLong.applyAsLong(5)); // 5000
+          }
+      }
+      ```
+
+  - **`LongFunction<R>`**
+    - **Description:** Takes a `long` and returns a result of type `R`.
+    - **Example:**
+
+      ```java
+      import java.util.function.LongFunction;
+
+      public class LongFunctionExample {
+          public static void main(String[] args) {
+              LongFunction<String> longToString = l -> "Long: " + l;
+              System.out.println(longToString.apply(123456789L)); // Long: 123456789
+          }
+      }
+      ```
+
+  - **`LongToDoubleFunction`**
+    - **Description:** Takes a `long` and returns a `double`.
+    - **Example:**
+
+      ```java
+      import java.util.function.LongToDoubleFunction;
+
+      public class LongToDoubleFunctionExample {
+          public static void main(String[] args) {
+              LongToDoubleFunction longToDouble = l -> l / 2.0;
+              System.out.println(longToDouble.applyAsDouble(10L)); // 5.0
+          }
+      }
+      ```
+
+  - **`LongToIntFunction`**
+    - **Description:** Takes a `long` and returns an `int`.
+    - **Example:**
+
+      ```java
+      import java.util.function.LongToIntFunction;
+
+      public class LongToIntFunctionExample {
+          public static void main(String[] args) {
+              LongToIntFunction longToInt = l -> (int) (l % 100);
+              System.out.println(longToInt.applyAsInt(123456789L)); // 89
+          }
+      }
+      ```
+
+  - **`DoubleFunction<R>`**
+    - **Description:** Takes a `double` and returns a result of type `R`.
+    - **Example:**
+
+      ```java
+      import java.util.function.DoubleFunction;
+
+      public class DoubleFunctionExample {
+          public static void main(String[] args) {
+              DoubleFunction<String> doubleToString = d -> "Double: " + d;
+              System.out.println(doubleToString.apply(3.14)); // Double: 3.14
+          }
+      }
+      ```
+
+  - **`ToIntFunction<T>`**
+   
+
+ - **Description:** Takes an input of type `T` and returns an `int`.
+    - **Example:**
+
+      ```java
+      import java.util.function.ToIntFunction;
+
+      public class ToIntFunctionExample {
+          public static void main(String[] args) {
+              ToIntFunction<String> stringLength = s -> s.length();
+              System.out.println(stringLength.applyAsInt("Hello")); // 5
+          }
+      }
+      ```
+
+  - **`ToDoubleFunction<T>`**
+    - **Description:** Takes an input of type `T` and returns a `double`.
+    - **Example:**
+
+      ```java
+      import java.util.function.ToDoubleFunction;
+
+      public class ToDoubleFunctionExample {
+          public static void main(String[] args) {
+              ToDoubleFunction<String> stringLengthToDouble = s -> s.length() * 1.0;
+              System.out.println(stringLengthToDouble.applyAsDouble("Hello")); // 5.0
+          }
+      }
+      ```
+
+  - **`ToLongFunction<T>`**
+    - **Description:** Takes an input of type `T` and returns a `long`.
+    - **Example:**
+
+      ```java
+      import java.util.function.ToLongFunction;
+
+      public class ToLongFunctionExample {
+          public static void main(String[] args) {
+              ToLongFunction<String> stringLengthToLong = s -> s.length();
+              System.out.println(stringLengthToLong.applyAsLong("Hello")); // 5
+          }
+      }
+      ```
+
+### **6. BiFunction and Its Primitive Specializations**
+
+- **`BiFunction<T, U, R>`**
+  - **Description:** Takes two arguments and produces a result.
+  - **Example:**
+
+    ```java
+    import java.util.function.BiFunction;
+
+    public class BiFunctionExample {
+        public static void main(String[] args) {
+            BiFunction<Integer, Integer, Integer> add = (a, b) -> a + b;
+            System.out.println(add.apply(5, 10)); // 15
+        }
+    }
+    ```
+
+- **Primitive Specializations**
+
+  - **`ToIntBiFunction<T, U>`**
+    - **Description:** Takes two arguments and produces an `int`.
+    - **Example:**
+
+      ```java
+      import java.util.function.ToIntBiFunction;
+
+      public class ToIntBiFunctionExample {
+          public static void main(String[] args) {
+              ToIntBiFunction<String, String> stringLengthSum = (a, b) -> a.length() + b.length();
+              System.out.println(stringLengthSum.applyAsInt("Hello", "World")); // 10
+          }
+      }
+      ```
+
+  - **`ToLongBiFunction<T, U>`**
+    - **Description:** Takes two arguments and produces a `long`.
+    - **Example:**
+
+      ```java
+      import java.util.function.ToLongBiFunction;
+
+      public class ToLongBiFunctionExample {
+          public static void main(String[] args) {
+              ToLongBiFunction<Integer, Integer> multiply = (a, b) -> (long) a * b;
+              System.out.println(multiply.applyAsLong(5, 10)); // 50
+          }
+      }
+      ```
+
+  - **`ToDoubleBiFunction<T, U>`**
+    - **Description:** Takes two arguments and produces a `double`.
+    - **Example:**
+
+      ```java
+      import java.util.function.ToDoubleBiFunction;
+
+      public class ToDoubleBiFunctionExample {
+          public static void main(String[] args) {
+              ToDoubleBiFunction<Integer, Integer> average = (a, b) -> (a + b) / 2.0;
+              System.out.println(average.applyAsDouble(5, 10)); // 7.5
+          }
+      }
+      ```
+
+### **7. Supplier and Its Primitive Specializations**
+
+- **`Supplier<T>`**
+  - **Description:** Supplies a result of type `T` without taking any arguments.
+  - **Example:**
+
+    ```java
+    import java.util.function.Supplier;
+
+    public class SupplierExample {
+        public static void main(String[] args) {
+            Supplier<String> stringSupplier = () -> "Hello World";
+            System.out.println(stringSupplier.get()); // Hello World
+        }
+    }
+    ```
+
+- **Primitive Specializations**
+
+  - **`BooleanSupplier`**
+    - **Description:** Supplies a `boolean` value.
+    - **Example:**
+
+      ```java
+      import java.util.function.BooleanSupplier;
+
+      public class BooleanSupplierExample {
+          public static void main(String[] args) {
+              BooleanSupplier randomBoolean = () -> Math.random() > 0.5;
+              System.out.println(randomBoolean.getAsBoolean()); // true or false
+          }
+      }
+      ```
+
+  - **`IntSupplier`**
+    - **Description:** Supplies an `int` value.
+    - **Example:**
+
+      ```java
+      import java.util.function.IntSupplier;
+
+      public class IntSupplierExample {
+          public static void main(String[] args) {
+              IntSupplier randomInt = () -> (int) (Math.random() * 100);
+              System.out.println(randomInt.getAsInt()); // Random integer between 0 and 99
+          }
+      }
+      ```
+
+  - **`LongSupplier`**
+    - **Description:** Supplies a `long` value.
+    - **Example:**
+
+      ```java
+      import java.util.function.LongSupplier;
+
+      public class LongSupplierExample {
+          public static void main(String[] args) {
+              LongSupplier randomLong = () -> (long) (Math.random() * 1000000);
+              System.out.println(randomLong.getAsLong()); // Random long value
+          }
+      }
+      ```
+
+  - **`DoubleSupplier`**
+    - **Description:** Supplies a `double` value.
+    - **Example:**
+
+      ```java
+      import java.util.function.DoubleSupplier;
+
+      public class DoubleSupplierExample {
+          public static void main(String[] args) {
+              DoubleSupplier randomDouble = () -> Math.random() * 100;
+              System.out.println(randomDouble.getAsDouble()); // Random double value between 0 and 100
+          }
+      }
+      ```
+
+### **8. UnaryOperator and Its Primitive Specializations**
+
+- **`UnaryOperator<T>`**
+  - **Description:** Applies a function to an input of type `T` and returns a result of the same type.
+  - **Example:**
+
+    ```java
+    import java.util.function.UnaryOperator;
+
+    public class UnaryOperatorExample {
+        public static void main(String[] args) {
+            UnaryOperator<String> toUpperCase = s -> s.toUpperCase();
+            System.out.println(toUpperCase.apply("hello")); // HELLO
+        }
+    }
+    ```
+
+- **Primitive Specializations**
+
+  - **`IntUnaryOperator`**
+    - **Description:** Applies a function to an `int` and returns an `int`.
+    - **Example:**
+
+      ```java
+      import java.util.function.IntUnaryOperator;
+
+      public class IntUnaryOperatorExample {
+          public static void main(String[] args) {
+              IntUnaryOperator square = n -> n * n;
+              System.out.println(square.applyAsInt(5)); // 25
+          }
+      }
+      ```
+
+  - **`LongUnaryOperator`**
+    - **Description:** Applies a function to a `long` and returns a `long`.
+    - **Example:**
+
+      ```java
+      import java.util.function.LongUnaryOperator;
+
+      public class LongUnaryOperatorExample {
+          public static void main(String[] args) {
+              LongUnaryOperator multiplyByTwo = l -> l * 2;
+              System.out.println(multiplyByTwo.applyAsLong(10L)); // 20
+          }
+      }
+      ```
+
+  - **`DoubleUnaryOperator`**
+    - **Description:** Applies a function to a `double` and returns a `double`.
+    - **Example:**
+
+      ```java
+      import java.util.function.DoubleUnaryOperator;
+
+      public class DoubleUnaryOperatorExample {
+          public static void main(String[] args) {
+              DoubleUnaryOperator half = d -> d / 2;
+              System.out.println(half.applyAsDouble(10.0)); // 5.0
+          }
+      }
+      ```
+
+### **9. BinaryOperator and Its Primitive Specializations**
+
+- **`BinaryOperator<T>`**
+  - **Description:** Applies a function to two arguments of type `T` and returns a result of the same type.
+  - **Example:**
+
+    ```java
+    import java.util.function.BinaryOperator;
+
+    public class BinaryOperatorExample {
+        public static void main(String[] args) {
+            BinaryOperator<Integer> add = (a, b) -> a + b;
+            System.out.println(add.apply(5, 10)); // 15
+        }
+    }
+    ```
+
+- **Primitive Specializations**
+
+  - **`IntBinaryOperator`**
+    - **Description:** Applies a function to two `int` values and returns an `int`.
+    - **Example:**
+
+      ```java
+      import java.util.function.IntBinaryOperator;
+
+      public class IntBinaryOperatorExample {
+          public static void main(String[] args) {
+              IntBinaryOperator multiply = (a, b) -> a * b;
+              System.out.println(multiply.applyAsInt(4, 5)); // 20
+          }
+      }
+      ```
+
+  - **`LongBinaryOperator`**
+    - **Description:** Applies a function to two `long` values and returns a `long`.
+    - **Example:**
+
+      ```java
+      import java.util.function.LongBinaryOperator;
+
+      public class LongBinaryOperatorExample {
+          public static void main(String[] args) {
+              LongBinaryOperator subtract = (a, b) -> a - b;
+              System.out.println(sub
+
+tract.applyAsLong(100L, 50L)); // 50
+          }
+      }
+      ```
+
+  - **`DoubleBinaryOperator`**
+    - **Description:** Applies a function to two `double` values and returns a `double`.
+    - **Example:**
+
+      ```java
+      import java.util.function.DoubleBinaryOperator;
+
+      public class DoubleBinaryOperatorExample {
+          public static void main(String[] args) {
+              DoubleBinaryOperator divide = (a, b) -> a / b;
+              System.out.println(divide.applyAsDouble(10.0, 2.0)); // 5.0
+          }
+      }
+      ```
+
+These examples cover the key functional interfaces and their primitive specializations in Java. They demonstrate how each interface can be used in practice for different types of data and operations.
 # Using functional interfaces:
 A functional interface specifies exactly one abstract method.
 Functional interfaces are useful because the signature of the abstract method can describe the signature of a lambda expression. 
