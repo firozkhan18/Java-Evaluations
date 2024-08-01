@@ -632,3 +632,466 @@ public class CommandLineFileReader {
 ```
 
 For all of these approaches, make sure that the file paths and resource names are correctly specified. Adjust paths as needed depending on your directory structure and file locations.
+
+To read a text file in a Maven Java application, you have different approaches depending on where the file is located and how you want to access it. Here’s how you can handle each of the locations you mentioned:
+
+### 1. Reading from `src/main/java/com/javacoding/file/firoz.txt`
+
+Files located in the `src/main/java` directory are typically treated as source code files rather than resources. It's generally better practice to place resource files under `src/main/resources`. However, if you need to read from `src/main/java/com/javacoding/file/firoz.txt`, you can use a `File` object like this:
+
+```java
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class FileReaderExample {
+    public static void main(String[] args) {
+        try {
+            File file = new File("src/main/java/com/javacoding/file/firoz.txt");
+            String content = new String(Files.readAllBytes(file.toPath()));
+            System.out.println(content);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### 2. Reading from `src/main/resources/firoz.txt`
+
+Files in `src/main/resources` are included in the classpath when the application is built and run. You should access these files as resources. Here’s how you can do it:
+
+```java
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
+public class FileReaderExample {
+    public static void main(String[] args) {
+        try (InputStream inputStream = FileReaderExample.class.getClassLoader().getResourceAsStream("firoz.txt");
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+            
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### 3. Reading from `D:\resource\firoz.txt`
+
+For files located outside of your project directory, you need to specify the absolute path or use a relative path from your working directory:
+
+```java
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class FileReaderExample {
+    public static void main(String[] args) {
+        try {
+            File file = new File("D:\\resource\\firoz.txt");
+            String content = new String(Files.readAllBytes(file.toPath()));
+            System.out.println(content);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Summary
+- For files in `src/main/java`, use `File` and specify the path relative to the project root.
+- For files in `src/main/resources`, use `ClassLoader.getResourceAsStream()` to read the file as a resource.
+- For files with an absolute path, use `File` and specify the absolute path.
+
+Each method is suited to different scenarios, so choose the one that fits your application's structure and requirements.
+
+
+To accomplish reading a file and counting the number of words in each line using various methods in Java, you can use several techniques. Here's how you can do it using different file reading methods:
+
+### 1. **Using `BufferedReader`**
+
+**Example:**
+
+```java
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class BufferedReaderWordCount {
+    public static void main(String[] args) {
+        String filePath = "path/to/your/file.txt"; // Change this to your file's location
+
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                int wordCount = countWords(line);
+                System.out.println("Line: \"" + line + "\" has " + wordCount + " words.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static int countWords(String line) {
+        if (line == null || line.isEmpty()) {
+            return 0;
+        }
+        // Split the line by whitespace and count the number of words
+        String[] words = line.trim().split("\\s+");
+        return words.length;
+    }
+}
+```
+
+### 2. **Using `Files` Class (Java NIO)**
+
+**Example:**
+
+```java
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.io.IOException;
+import java.util.List;
+
+public class FilesClassWordCount {
+    public static void main(String[] args) {
+        Path filePath = Paths.get("path/to/your/file.txt"); // Change this to your file's location
+
+        try {
+            List<String> lines = Files.readAllLines(filePath);
+            for (String line : lines) {
+                int wordCount = countWords(line);
+                System.out.println("Line: \"" + line + "\" has " + wordCount + " words.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static int countWords(String line) {
+        if (line == null || line.isEmpty()) {
+            return 0;
+        }
+        // Split the line by whitespace and count the number of words
+        String[] words = line.trim().split("\\s+");
+        return words.length;
+    }
+}
+```
+
+### 3. **Using `Scanner`**
+
+**Example:**
+
+```java
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class ScannerWordCount {
+    public static void main(String[] args) {
+        String filePath = "path/to/your/file.txt"; // Change this to your file's location
+
+        try (Scanner scanner = new Scanner(new File(filePath))) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                int wordCount = countWords(line);
+                System.out.println("Line: \"" + line + "\" has " + wordCount + " words.");
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static int countWords(String line) {
+        if (line == null || line.isEmpty()) {
+            return 0;
+        }
+        // Split the line by whitespace and count the number of words
+        String[] words = line.trim().split("\\s+");
+        return words.length;
+    }
+}
+```
+
+### 4. **Using `FileInputStream` and `InputStreamReader`**
+
+**Example:**
+
+```java
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+
+public class FileInputStreamWordCount {
+    public static void main(String[] args) {
+        String filePath = "path/to/your/file.txt"; // Change this to your file's location
+
+        try (FileInputStream fis = new FileInputStream(filePath);
+             InputStreamReader isr = new InputStreamReader(fis);
+             BufferedReader br = new BufferedReader(isr)) {
+
+            String line;
+            while ((line = br.readLine()) != null) {
+                int wordCount = countWords(line);
+                System.out.println("Line: \"" + line + "\" has " + wordCount + " words.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static int countWords(String line) {
+        if (line == null || line.isEmpty()) {
+            return 0;
+        }
+        // Split the line by whitespace and count the number of words
+        String[] words = line.trim().split("\\s+");
+        return words.length;
+    }
+}
+```
+
+### Summary
+
+- **BufferedReader**: Efficient for reading lines of text.
+- **Files Class**: Modern way to read lines of text from a file.
+- **Scanner**: Useful for parsing text with built-in support for different delimiters.
+- **FileInputStream with InputStreamReader**: Handles raw bytes and can convert them to characters for text processing.
+
+In each method, we use the `countWords` method to split each line by whitespace and count the number of resulting tokens, which gives us the word count. Adjust the `filePath` variable to the correct path of your file.
+
+
+To address your requirements in Java, we'll need to break the task into the following steps:
+
+1. **Reading the File**
+2. **Counting Words in Each Line**
+3. **Finding Words That Appear in More Than 50% of the Lines**
+
+Here's a step-by-step guide with code examples:
+
+### 1. Reading the File
+
+We'll use `BufferedReader` to read the file line by line from the classpath.
+
+### 2. Counting Words in Each Line
+
+We'll split each line into words and count them.
+
+### 3. Finding Words That Appear in More Than 50% of the Lines
+
+We'll keep track of word occurrences across lines and then check if any word appears in more than 50% of the lines.
+
+Here’s a complete Java example illustrating how to perform these tasks:
+
+```java
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+public class FileAnalyzer {
+
+    public static void main(String[] args) {
+        // Path relative to the classpath
+        String fileName = "/fi.txt"; // Adjust path if needed
+
+        // Use a map to count the number of lines each word appears in
+        Map<String, Integer> wordLineCount = new HashMap<>();
+        // Use a set to keep track of the words in each line
+        Set<String> currentLineWords = new HashSet<>();
+        int totalLines = 0;
+
+        try (InputStream inputStream = FileAnalyzer.class.getResourceAsStream(fileName);
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                totalLines++;
+                currentLineWords.clear();
+                // Split line into words
+                String[] words = line.split("\\s+");
+                for (String word : words) {
+                    if (!word.trim().isEmpty()) {
+                        currentLineWords.add(word.toLowerCase()); // Normalize to lowercase
+                    }
+                }
+                // Update wordLineCount map
+                for (String word : currentLineWords) {
+                    wordLineCount.put(word, wordLineCount.getOrDefault(word, 0) + 1);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Determine the threshold for words to appear in more than 50% of the lines
+        double threshold = totalLines * 0.5;
+
+        System.out.println("Words appearing in more than 50% of the lines:");
+        for (Map.Entry<String, Integer> entry : wordLineCount.entrySet()) {
+            if (entry.getValue() > threshold) {
+                System.out.println(entry.getKey());
+            }
+        }
+    }
+}
+```
+
+### Explanation:
+
+1. **Reading the File:**
+   - The file is read line by line using `BufferedReader`.
+
+2. **Counting Words in Each Line:**
+   - Each line is split into words using `split("\\s+")`.
+   - Words are added to a `Set` to avoid duplicates for the current line, and then the count of each word is updated in the `wordLineCount` map.
+
+3. **Finding Words That Appear in More Than 50% of the Lines:**
+   - After processing all lines, the threshold is calculated as half the total number of lines.
+   - We then iterate through the `wordLineCount` map to find words that appear in more than this threshold number of lines.
+
+### Additional Notes:
+
+- **Case Sensitivity:** Words are converted to lowercase to ensure case-insensitivity.
+- **Whitespace Handling:** Words are split based on whitespace using `split("\\s+")`, which handles multiple spaces between words.
+
+Ensure that the path to your resource file (`/fi.txt`) is correct and adjust it if necessary. This code assumes that the file is placed in the `src/main/resources` folder or its equivalent in your project's classpath.
+
+```java
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+public class SampleExample {
+	
+	public static void main(String[] args) {
+		//1. reading the file
+		//2. number of words in every lines
+		//3. words are present in more than 50% in line
+
+		    String filePath = "D://firoz.txt";
+	        try {
+	            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+	            String line;
+	            Map<String, Integer> wordFrequency = new HashMap<>();
+	            Set<String> uniqueWords = new HashSet<>();
+	            int totalLines = 0;
+
+	            // Reading the file line by line
+	            while ((line = reader.readLine()) != null) {
+	                totalLines++;
+	                String[] words = line.split("\\s+"); // Split by any whitespace
+	                uniqueWords.addAll(Set.of(words));
+
+	                // Count the frequency of each word in the current line
+	                for (String word : words) {
+	                    wordFrequency.put(word, wordFrequency.getOrDefault(word, 0) + 1);
+	                }
+	            }
+	            reader.close();
+
+	            // Determine the words that appear in more than 50% of the lines
+	            Set<String> frequentWords = new HashSet<>();
+	            for (Map.Entry<String, Integer> entry : wordFrequency.entrySet()) {
+	                if (entry.getValue() > (totalLines / 2)) {
+	                    frequentWords.add(entry.getKey());
+	                }
+	            }
+
+	            // Output the results
+	            System.out.println("Total lines: " + totalLines);
+	            System.out.println("Words present in more than 50% of the lines:");
+	            for (String word : frequentWords) {
+	                System.out.println(word);
+	            }
+
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	}
+}
+```
+
+The concept behind finding words that appear in more than 50% of the lines involves analyzing the frequency of words in a text file and determining which words are "frequent enough" based on their presence in the majority of lines. Here's a breakdown of the concept:
+
+### Concept Breakdown:
+
+1. **Total Lines Calculation:**
+   - First, you need to know how many lines are present in the file. This count will help you determine what constitutes "more than 50%" of the lines.
+
+2. **Word Frequency Count:**
+   - As you read each line of the file, you keep track of how many distinct lines each word appears in. This requires a map (or dictionary) where the key is the word, and the value is the count of lines that contain that word.
+
+3. **Threshold Calculation:**
+   - To find which words appear in more than 50% of the lines, calculate the threshold value. This threshold is the number of lines in which a word must appear to be considered frequent enough. For 50%, it is simply half of the total number of lines.
+   - Formula: `threshold = totalLines * 0.5`
+
+4. **Identify Frequent Words:**
+   - Iterate through your word frequency map and check each word's count against the threshold. If a word's count is greater than the threshold, it means the word appears in more than 50% of the lines.
+
+### Detailed Steps:
+
+1. **Initialize Counters:**
+   - Initialize a map (`wordLineCount`) to track the number of distinct lines each word appears in.
+   - Use a set (`currentLineWords`) to keep track of words in the current line to avoid counting duplicates within the same line.
+
+2. **Process Each Line:**
+   - For each line, split the line into words.
+   - Add words to a set (`currentLineWords`) to ensure uniqueness within that line.
+   - Update the map (`wordLineCount`) based on the words found in the set.
+
+3. **Calculate the Threshold:**
+   - After processing all lines, compute the threshold as half the total number of lines. This tells you the minimum number of lines a word must appear in to be considered frequent.
+
+4. **Filter Frequent Words:**
+   - Iterate over the map and select words whose count exceeds the threshold.
+
+### Example:
+
+Consider a file with the following lines:
+
+```
+apple orange banana
+banana apple
+apple banana
+```
+
+1. **Count Lines:**
+   - Total lines = 3
+
+2. **Word Frequency Map (`wordLineCount`):**
+   - `apple`: 3 lines
+   - `orange`: 1 line
+   - `banana`: 3 lines
+
+3. **Calculate Threshold:**
+   - Threshold = 3 * 0.5 = 1.5
+   - Since we're dealing with whole lines, we'll round to the nearest whole number or use integer comparison (`> 1` in this case).
+
+4. **Find Words Appearing in More Than 50% of Lines:**
+   - `apple` and `banana` both appear in 3 lines, which is greater than the threshold of 1.5, so they are considered frequent.
+
+### Summary
+
+The concept is to filter words based on their frequency across lines, providing insight into which words are most prevalent in the majority of lines. This technique is useful for text analysis, document classification, and other applications where word frequency and distribution are important.
