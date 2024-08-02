@@ -511,6 +511,354 @@ It is a One-To-One mapping. | It is a One-To-Many mapping.
 Data Transformation : From Stream<T> to Stream<R> | Data Transformation : From Stream<Stream<T> to Stream<R> 
 Use this method when the mapper function is producing a single value for each input value. | Use this method when the mapper function is producing multiple values for each input value. 
 
+How Stream.map() works in Java 8? Example
+The Stream.map() function performs map functional operation i.e. it takes a Stream and transforms it to another Stream. It applies a function on each element of Stream and stores return value into new Stream. 
+
+This way you can transform a Stream of String into a Stream of Integer where Integer could be the length of String if you supply the length() function. This is a very powerful function that is very helpful while dealing with collection in Java.
+
+Here is an example of Stream.map() in Java 8:
+```java
+List listOfIntegers = Stream.of("1", "2", "3", "4")
+               .map(Integer::valueOf)
+               .collect(Collectors.toList());
+```
+
+How Stream.flatMap() works in Java 8 - Example
+The Stream.flatMap() function, as the name suggests, is the combination of a map and a flat operation. This means you first apply the map function and then flattens the result. The key difference is the function used by map operation returns a Stream of values or a list of values rather than a single value, that's why we need flattening. When you flat a Stream of Stream, it gets converted into Stream of values.
+
+To understand what flattening a stream consists in, consider a structure like [ [1,2,3],[4,5,6],[7,8,9] ] which has "two levels". It's basically a big List containing three more List.  Flattening this means transforming it in a "one level" structure e.g. [ 1,2,3,4,5,6,7,8,9 ] i.e. just one list.
+
+In short,
+Before flattening - Stream of List of Integer
+After flattening - Stream of Integer
+
+Here is a code example to understand the flatMap() function better:
+
+List evens = Arrays.asList(2, 4, 6);
+List odds = Arrays.asList(3, 5, 7);
+List primes = Arrays.asList(2, 3, 5, 7, 11);
+       
+List numbers = Stream.of(evens, odds, primes)
+               .flatMap(list -> list.stream())
+               .collect(Collectors.toList());
+       
+System.out.println("flattend list: " + numbers);
+
+Output:
+flattend list: [2, 4, 6, 3, 5, 7, 2, 3, 5, 7, 11]
+
+You can see that we have three lists that are merged into one by using a flatMap() function. For mapping, you can see we have used a list.stream() function which returns multiple values instead of a single value. Finally, we have collected the flattened stream into a list. If you want, you can print the final list using the forEach() method.
+
+
+
+
+Stream.map() vs Stream.flatMap() in Java 8
+In short, here are the key difference between map() vs flatMap() in Java 8:
+The function you pass to the map() operation returns a single value.
+The function you pass to flatMap() operation returns a Stream of value.
+flatMap() is a combination of map and flat operation. 
+map() is used for transformation only, but flatMap() is used for both transformation and flattening. 
+
+Now let's see a sample Java program to understand the difference between flatMap() and map() better.
+
+Java Program to show the difference between map vs flatMap
+Here is our sample Java program to demonstrate the real difference between the map() and the flatMap() function of the Stream class in Java 8. As I told you before, map() is used to transform one Stream into another by applying a function on each element, and flatMap() does both transformations as well as flattening.
+
+The flatMap() function can take a Stream of List and return a Stream of values combined from all those lists. In the example below, we have collected the result in a List but you can also print them using the forEach() method of Java 8.
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * Java Program to demonstrate difference between map()
+ * vs flatMap() function in Java 8. Both are defined
+ * in Stream class. 
+ *
+ * @author WINDOWS 8
+ */
+public class Java8Demo {
+
+    public static void main(String args[]) {
+
+        // foods which helps in weight loss
+        List<String> loseWeight = new ArrayList<>();
+        loseWeight.add("avocados");
+        loseWeight.add("beans");
+        loseWeight.add("salad");
+        loseWeight.add("oats");
+        loseWeight.add("broccoli");
+                
+        System.out.println("list of String : " + loseWeight);
+        
+        // let's use map() method to convert list of weight
+        // lose food, which are String to list of ints
+        // which are length of each food String
+        
+        List listOfInts = loseWeight.stream()
+                .map(s -> s.length())
+                .collect(Collectors.toList());
+        
+        System.out.println("list of ints generate by map(): " + listOfInts);
+
+        
+        // flatMap() example, let's first creat a list of list
+        List<List> listOfListOfNumber = new ArrayList<>();
+        listOfListOfNumber.add(Arrays.asList(2, 4));
+        listOfListOfNumber.add(Arrays.asList(3, 9));
+        listOfListOfNumber.add(Arrays.asList(4, 16));
+        
+        System.out.println("list of list : " + listOfListOfNumber);
+        
+        // let's use flatMap() to flatten this list into
+        // list of integers i.e. 2,4,3,9,4,16
+        
+        List listOfIntegers = listOfListOfNumber.stream()
+                .flatMap( list -> list.stream())
+                .collect(Collectors.toList());
+        
+        System.out.println("list of numbers generated by flatMap : " 
+                                      + listOfIntegers);
+                
+
+    }
+
+}
+```
+```
+Output
+list of String : [avocados, beans, salad, oats, broccoli]
+list of ints generate by map(): [8, 5, 5, 4, 8]
+list of list : [[2, 4], [3, 9], [4, 16]]
+list of numbers generated by flatMap : [2, 4, 3, 9, 4, 16]
+```
+You can see that in the first example, the function used by the map() method returns a single value, the length of the string passed to it, while in the case of flatMap() the method returns a stream, which is basically your multiple values.
+
+## How to use forEach() method in Java 8
+Now you know a little bit about the forEach() method and Java 8, it's time to see some code examples and explore more of the forEach() method in JDK 8.
+
+### 1. Iterating over all elements of List using forEach()
+You can loop over all elements using the Iterable.forEach() method as shown below:
+```java
+List<String> alphabets 
+     = new ArrayList<>(Arrays.asList("aa", "bbb", "cat", "dog"));
+alphabets.forEach(s -> System.out.println(s));
+```
+This code will print every element of the list called alphabets. You can even replace lambda expression with method reference because we are passing the lambda parameter as it is to the
+System.out.println() method as shown below:
+```java
+ alphabets.forEach(System.out::println);
+```
+Now, let's see if you want to add a comma between two elements then you can do so by using lambda parameters as shown in the following example
+```java
+alphabets.forEach(s -> System.out.print(s + ","));
+```
+Btw, now you cannot use method reference now because we are doing something with lambda parameters. Let's see another example of the forEach() method for doing filtering of elements. If you want to learn more about loops in Java, The Complete Java MasterClass is the most comprehensive course for Java programmers.
+
+### 2. filter and forEach() Example
+   
+One of the main features of Stream API is its capability to filter elements based upon some conditions. We have already seen a glimpse of the powerful feature of Stream API in my earlier post, how to use Stream API in Java 8, here we will see it again but in the context of the forEach() method.
+
+let's now only print elements that start with "a", following code will do that for you, startWith() is a method of String class, which return true if String is starting with String "a" or it will return false. Once the list is filtered then forEach() method will print all elements starting with  String "a", as shown below:
+
+```java
+alphabets.stream()
+         .filter(s -> s.startsWith("a"))
+         .forEach(System.out::println);
+```
+This is cool, right? You can read the code like cake, it's much easier than using Iterator or any other way to loop over List in Java.
+
+Now, let's filter out only which has a length greater than 2, for this purpose we can use the length() function of String class:
+```java
+alphabets.stream()
+         .filter(s -> s.length() > 2)
+         .forEach(System.out::println);
+```
+Apart from forEach, this is also a good example of using the filter method in Java 8 for filtering or selecting a subset of elements from Stream. You can read more about that in the Collections to Streams in Java 8 Using the Lambda Expressions course on Pluralsight, which provides an in-depth explanation of new Java 8 features.
+
+### 3. forEach() and map() Example
+   
+So far you have both basic and advanced examples of using the forEach() method, first with simply iterating over each element and then along with using the filter() method, Let's see one more example of the forEach() method along with the map() function, which is another key functionality of Stream API.
+
+The map() method of Java 8 allows you to transform one type to another like in our first example we are using a map() to transform a list of String to a list of Integer where each element represents the length of String. Now, let's print the length of each string using the map() function:
+```java
+alphabets.stream()
+         .mapToInt(s -> s.length())
+         .forEach(System.out::println);
+```
+That was fun, isn't it? how about the calculating sum of the length of all strings? you can do so by using fold operations like sum() as shown in the following example:
+```java
+alphabets.stream()
+         .mapToInt(s -> s.length())
+         .sum();
+```
+These were some of the common but very useful examples of Java 8's forEach() method, a new way to loop over List in Java. If you are feeling nostalgist then don't forget to the journey of for loop in Java, a recap of for loop from JDK 1 to JDK 8
+
+If you want to learn more about functional programming in Java 8 and using a map, flatmap methods then I suggest you go through Learn Java Functional Programming with Lambdas & Streams course on Udemy. It's a nice course and packed with good examples to learn key Java 8 features.
+
+Program to use forEach() function in Java 8
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Java Program to show How to use forEach() statement in Java8.
+ * You can loop over a list, set or any collection using this
+ * method. You can even do filtering and transformation and 
+ * can run the loop in parallel.
+ *
+ * @author WINDOWS 8
+ */
+public class Java8Demo {
+
+    public static void main(String args[]) {
+
+       List<String> alphabets = new ArrayList<>(
+                                 Arrays.asList("aa", "bbb", "cac", "dog"));
+       
+       // looping over all elements using Iterable.forEach() method
+       alphabets.forEach(s -> System.out.println(s));
+       
+       // You can even replace lambda expression with method reference
+       // because we are passing the lambda parameter as it is to the
+       // method
+       alphabets.forEach(System.out::println);
+       
+       // you can even do something with lambda parameter e.g. adding a comma
+       alphabets.forEach(s -> System.out.print(s + ","));
+       
+       
+       // There is one more forEach() method on Stream class, which operates
+       // on stream and allows you to use various stream methods e.g. filter()
+       // map() etc
+       
+       alphabets.stream().forEach(System.out::println);
+       
+       // let's now only print elmements which startswith "a"
+       alphabets.stream()
+               .filter(s -> s.startsWith("a"))
+               .forEach(System.out::println);
+       
+       // let's filter out only which has length greater than 2
+       alphabets.stream()
+               .filter(s -> s.length() > 2)
+               .forEach(System.out::println);
+
+       
+       // now, let's print length of each string using map()
+       alphabets.stream()
+               .mapToInt(s -> s.length())
+               .forEach(System.out::println);
+       
+       // how about calculating sum of length of all string
+       alphabets.stream()
+               .mapToInt(s -> s.length())
+               .sum();
+
+    }
+
+}
+```
+
+### Important things to remember:
+- 1) The forEach() is a terminal operation, which means once calling the forEach() method on stream, you cannot call another method. It will result in a runtime exception.
+
+- 2) When you call forEach() on a parallel stream, the order of iteration is not guaranteed, but you can ensure that ordering by calling the forEachOrdered() method.
+
+- 3) There is two forEach() method in Java 8, one defined inside Iterable, and the other inside java.util.stream.Stream class. If the purpose of forEach() is just iteration then you can directly call it like list.forEach() or set.forEach() but if you want to perform some operations like filter or map then it better first get the stream and then perform that operation and finally call forEach() method.
+
+- 4) Use of forEach() results in readable and cleaner code.
+
+
+### Now, one task for you, how do you break from forEach()? Does the forEach() method allow you to break in between?
+
+In Java, the `forEach` method in the `Stream` API does not allow you to break out of the iteration early like you can with a traditional `for` loop or an `enhanced for` loop. The `forEach` method is designed for performing operations on each element of the stream and does not provide a built-in mechanism to stop iteration prematurely.
+
+However, you can achieve similar behavior by using the following approaches:
+
+### 1. **Using a `for` Loop:**
+If you need to break out of the loop based on a condition, using a traditional `for` loop or an enhanced `for` loop (`for-each`) is the most straightforward approach.
+
+**Example:**
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class BreakInForLoop {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        for (Integer number : numbers) {
+            if (number == 3) {
+                break; // Break out of the loop
+            }
+            System.out.println(number);
+        }
+    }
+}
+```
+
+### 2. **Using `Stream` with Short-Circuiting Operations:**
+While `forEach` does not support breaking, you can use other stream operations that allow short-circuiting. For instance, you can use `takeWhile` to process elements up to a certain condition.
+
+**Example:**
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class ShortCircuitStream {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        numbers.stream()
+               .takeWhile(number -> number != 3)
+               .forEach(System.out::println);
+    }
+}
+```
+In this example, `takeWhile` will stop processing as soon as the condition is false, thus achieving a similar effect to breaking out of the loop.
+
+### 3. **Using a `boolean` Flag with `forEach`:**
+If you are using `forEach` and need to conditionally stop processing, you can use a `boolean` flag to skip further processing within the lambda expression.
+
+**Example:**
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class ForEachWithFlag {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        final boolean[] shouldContinue = {true};
+
+        numbers.forEach(number -> {
+            if (!shouldContinue[0]) return;
+            if (number == 3) {
+                shouldContinue[0] = false; // Set flag to stop further processing
+            }
+            System.out.println(number);
+        });
+    }
+}
+```
+In this example, a boolean array `shouldContinue` is used as a flag to determine whether to continue processing elements.
+
+### Summary:
+- **`forEach` Method**: Does not support breaking or stopping iteration early.
+- **Traditional Loops**: Use `for` or enhanced `for` loops for breaking out early.
+- **Stream API**: Use short-circuiting operations like `takeWhile` for similar effects.
+- **Flag Approach**: Use a boolean flag within the `forEach` method to conditionally skip further processing.
+
+Each method has its use cases, so you should choose the one that best fits your requirements.
+==================================================================================
+
+In this example, we have a Stream of String values which represent numbers, by using the map() function we have converted this Stream to Stream of Integers. How? by applying Integer.valueOf() on each element of Stream. That's how "1" converted to integer 1 and so on. Once the transformation is done, we have collected the result into a List by converting Stream to List using Collectors.
+
+
 To find the second highest salary using Java 8 features such as `ArrayList` and `Map`, you can follow these steps. I'll provide a complete example that demonstrates how to achieve this using Java 8 streams.
 
 ### Example Scenario
