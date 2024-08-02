@@ -352,3 +352,75 @@ P. S. - If you running in Java 8, you can also use streams to lazily read the fi
 
 
 Read more: https://www.java67.com/2016/08/BufferedReader-Example-how-to-read-text-file-in-java.html#ixzz8hiOC3UAG
+
+How to read file in Java using Scanner Example - text files
+
+Reading a file with Scanner
+From Java 5 onwards java.util.Scanner class can be used to read file in Java. Earlier we have seen examples of reading file in Java using FileInputStream and reading file line by line using BufferedInputStream and in this Java tutorial, we will See How can we use Scanner to read files in Java. Scanner is a utility class in java.util package and provides several convenient methods to read int, long, String, double etc from a source which can be an InputStream, a file, or a String itself.
+
+ As noted on How to get input from User, Scanner is also an easy way to read user input using System.in (InputStream) as the source. The main advantage of using Scanner for reading files is that it allows you to change delimiter using the useDelimiter() method, So you can use any other delimiter like comma, pipe instead of white space.
+
+## How to Read File in Java - Scanner Example
+How to read file in Java 5 using Scanner with ExampleIn this Java program, we have used java.util.Scanner to read file line by line in Java. We have first created a File instance to represent a text file in Java and then we passed this File instance to java.util.Scanner for scanning. 
+
+The scanner provides methods like hasNextLine() and readNextLine() which can be used to read file line by line. It's advised to check for next line before reading next the line to avoid NoSuchElementException in Java.  
+
+Here is the complete code example of using Scanner to read text files in Java :
+
+```java
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+/**
+ *
+ * Java program to read files using Scanner class in Java.
+ * java.util.Scanner is added on Java 5 and offers a convenient method to read data
+ *
+ * @author
+ */
+public class ScannerExample {
+
+    public static void main(String args[]) throws FileNotFoundException {
+ 
+        //creating File instance to reference text file in Java
+        File text = new File("C:/temp/test.txt");
+     
+        //Creating Scanner instance to read File in Java
+        Scanner scnr = new Scanner(text);
+     
+        //Reading each line of the file using Scanner class
+        int lineNumber = 1;
+        while(scnr.hasNextLine()){
+            String line = scnr.nextLine();
+            System.out.println("line " + lineNumber + " :" + line);
+            lineNumber++;
+        }      
+   
+    }  
+ 
+}
+```
+```
+Output:
+line 1 :--------------------- START------
+-----------------------------------------------
+line 2 :Java provides several way to read files.
+line 3 :You can read file using Scanner, FileReader,
+FileInputStream and BufferedReader.
+line 4 :This Java program shows How to read file using java.util.Scanner class.
+line 5 :--------------------- END-----------------------
+---------------------------------
+```
+This is the content of test.txt file exception line numbers. You see it doesn't require much coding to read file in Java using Scanner. You just need to create an instance of Scanner and you are ready to read file.
+
+Other Java IO tutorials you may like
+What is memory mapped file in Java
+How to parse XML File using DOM parser
+How to read properties file in Java
+How to read XML file in Java using JDOM library
+How to find hidden files in Java with Example
+How to set File permissions in Java
+
+
+Read more: https://www.java67.com/2012/11/how-to-read-file-in-java-using-scanner-example.html#ixzz8hiR70n7z
