@@ -1,4 +1,5 @@
 ## Table of Contents
+* [Why We Need Functional Programming?](#why-we-need-functional-programming)
 * [Lambda Expression](#lambda-expression)
 * [Functional Interface](#functional-interface)
 * [Default Method](#default-method)
@@ -16,6 +17,110 @@
 * [Java Programing Exercises](#java-programing-exercises)
 * [Java Programing Question Answers](#java-programing-question-answer)
 
+## Why We Need Functional Programming?
+
+Java is indeed an Object-Oriented Programming (OOP) language, and its design principles emphasize the use of classes and objects to model and manage data and behavior. However, the introduction of functional programming concepts into Java, particularly with Java 8's addition of lambda expressions and the Stream API, reflects the recognition that functional programming (FP) offers distinct advantages and complements the traditional OOP approach. Here’s why integrating functional programming into Java is beneficial:
+
+### 1. **Enhanced Expressiveness and Conciseness**
+
+- **Simplified Code**: Functional programming often leads to more concise and expressive code. For example, using lambda expressions and the Stream API, you can perform operations on collections in a more readable and less verbose manner compared to traditional loops and iterators.
+
+  **Example:**
+
+  ```java
+  List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+  // Using OOP style with loops
+  List<String> filteredNames = new ArrayList<>();
+  for (String name : names) {
+      if (name.startsWith("A")) {
+          filteredNames.add(name);
+      }
+  }
+
+  // Using functional style with Streams
+  List<String> filteredNames = names.stream()
+                                     .filter(name -> name.startsWith("A"))
+                                     .collect(Collectors.toList());
+  ```
+
+### 2. **Improved Readability and Maintainability**
+
+- **Declarative Style**: Functional programming encourages a declarative style of programming, where you describe what you want to achieve rather than how to achieve it. This can make the code more readable and easier to understand, especially for complex data processing tasks.
+
+- **Immutability**: Functional programming emphasizes immutability, which means that data is not modified after it is created. This can reduce bugs related to mutable state and make reasoning about code easier.
+
+### 3. **Facilitating Parallelism**
+
+- **Stream API**: The Stream API in Java 8 provides a straightforward way to perform parallel operations on collections. By simply calling `parallelStream()` on a collection, you can leverage multi-core processors to perform operations concurrently.
+
+  **Example:**
+
+  ```java
+  List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+  // Sequential processing
+  List<Integer> squared = numbers.stream()
+                                 .map(n -> n * n)
+                                 .collect(Collectors.toList());
+
+  // Parallel processing
+  List<Integer> squaredParallel = numbers.parallelStream()
+                                         .map(n -> n * n)
+                                         .collect(Collectors.toList());
+  ```
+
+### 4. **Higher-Order Functions and Reusability**
+
+- **First-Class Functions**: Functional programming treats functions as first-class citizens, meaning functions can be passed as arguments, returned from other functions, and assigned to variables. This enables higher-order functions that can enhance reusability and abstraction.
+
+  **Example:**
+
+  ```java
+  // Higher-order function
+  public static void performOperation(List<Integer> numbers, Function<Integer, Integer> operation) {
+      List<Integer> results = numbers.stream()
+                                     .map(operation)
+                                     .collect(Collectors.toList());
+      System.out.println(results);
+  }
+
+  public static void main(String[] args) {
+      List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+      // Pass a lambda expression
+      performOperation(numbers, n -> n * n); // Square operation
+      performOperation(numbers, n -> n + 10); // Increment operation
+  }
+  ```
+
+### 5. **Reduced Boilerplate Code**
+
+- **Less Boilerplate**: Functional programming features like lambdas and method references help reduce boilerplate code, especially when dealing with anonymous classes or verbose implementations of interfaces.
+
+  **Example:**
+
+  ```java
+  // Using anonymous class
+  Runnable runnable = new Runnable() {
+      @Override
+      public void run() {
+          System.out.println("Hello, World!");
+      }
+  };
+
+  // Using lambda expression
+  Runnable runnableLambda = () -> System.out.println("Hello, World!");
+  ```
+
+### 6. **Better Handling of Side Effects**
+
+- **Pure Functions**: Functional programming encourages the use of pure functions, which have no side effects and always produce the same output for the same input. This predictability and lack of side effects help in writing reliable and testable code.
+
+### 7. **Integration with Existing OOP Code**
+
+- **Interoperability**: Java’s functional features are designed to integrate seamlessly with its existing OOP features. This means you can use functional programming where it fits best while continuing to use OOP principles in other parts of your application.
+
+### Summary
+
+Java’s move towards functional programming with features like lambda expressions, the Stream API, and functional interfaces does not replace OOP but complements it. It provides additional tools and paradigms that enhance code readability, maintainability, and performance. The combination of OOP and FP in Java allows developers to choose the best approach for different problems, leading to more flexible and robust software design.
   
 ## Lambda Expression
 Lambda expressions are introduced in Java 8 and are touted to be the biggest feature of Java 8. Lambda expression facilitates functional programming, and simplifies the development a lot.
