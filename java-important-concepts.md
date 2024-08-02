@@ -6,29 +6,29 @@ I don't see automatic resource management used by developers in daily life, even
 
 So I took this opportunity to write a summary sort of post to revise these convenient changes and adopt them into our daily programming life. There are a couple of good changes on NIO and new File API, and lots of other at the API level, which is also worth looking at. I am sure combined with Java 8 lambda expression, these features will result in a much better and cleaner code.
 
-
 ### 10 Best JDK 7 Features Every Java developer should learn 
 Here are my favorite features from Java 7 release which every Java developer should learn:
 ### 1) Type inference
 Before JDK 1.7 introduce a new operator <<, known as diamond operator to making type inference available for constructors as well. Prior to Java 7, type inference is only available for methods, and Joshua Bloch has rightly predicted in Effective Java 2nd Edition, it’s now available for constructor as well.
 
-
-
 Prior JDK 7, you type more to specify types on both left and right hand side of object creation expression, but now it only needed on left hand side, as shown in below example.
 
 Prior JDK 7
+```java
 Map<String, List<String>> employeeRecords =  new HashMap<String, List<String>>();
 List<Integer> primes = new ArrayList<Integer>();
-
+```
 In JDK 7
+```java
 Map<String, List<String>> employeeRecords =  new HashMap<>();
 List<Integer> primes = new ArrayList<>();
-
+```
 So you have to type less in Java 7, while working with Collections, where we heavily use Generics. See here for more detailed information on diamond operator in Java.
 
 
 ### 2) String in Switch
 Before JDK 7, only integral types can be used as selector for switch-case statement. In JDK 7, you can use a String object as the selector. For example,
+```java
 String state = "NEW";
 
 switch (day) {
@@ -39,6 +39,7 @@ switch (day) {
    default: System.out.println("Invalid");
 
 }
+```
 equals() and hashcode() method from java.lang.String is used in comparison, which is case-sensitive. Benefit of using String in switch is that, Java compiler can generate more efficient code than using nested if-then-else statement. See here for more detailed information of how to use String on Switch case statement.
 
 
