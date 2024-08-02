@@ -855,6 +855,144 @@ In this example, a boolean array `shouldContinue` is used as a flag to determine
 - **Flag Approach**: Use a boolean flag within the `forEach` method to conditionally skip further processing.
 
 Each method has its use cases, so you should choose the one that best fits your requirements.
+
+## How to use Stream.filter method in Java 8? Example Tutorial
+
+In the last couple of Java 8 tutorials, you have learned how to use map(), flatMap(), and other stream methods to get an understanding of how Java 8 Stream and Lambda expressions make it easy to perform the bulk data operation on Collection classes like List or Set. In this Java 8 tutorial, I am going to share how to use the filter() method in Java 8, another key method of the Stream class.  This is the one method you will always be used because it forms the key part of the Stream pipeline. If you have seen some Java 8 code, you would have already seen this method a couple of times.
+
+The filter() method as its name suggests is used to perform filtering based upon some boolean conditions.  The condition is applied to each element of Stream and those who pass the condition moves to the next stage and those who don't get filtered out.
+
+For example,  if you have a stream of integral numbers that contains both even and odd numbers then by using the filter method, you can create another stream of even numbers or odd numbers by filtering out others.
+
+Though the filter() method is a little bit counter-intuitive, I mean, in order to create a stream of even numbers you call filter( i -> i % 2 == 0) which means you do filter(isEven()) but, you are actually filtering out odd numbers to create a new stream of even numbers, but that's how it works.
+
+I think select() would have been a positive and proper name for this operation, but, we don't have any control over that can't change that now.
+
+The key benefit of using the filter() method is lazy evaluation i.e. no data comparison is performed unless you call a terminal operation on stream like findFirst() or forEach().
+
+The filter() method just sets up some pointers when you first call them on stream and only performs real filtering when you call the terminal method. You can join a good Java course like The Complete Java MasterClass to learn more about Stream and lazy evaluation in Java 8. It is also one of the most up-to-date courses, recently updated for Java 11.
+
+### How Stream.filter method works in Java 8
+In order to learn how to use the filter() method in Java 8, it's important that you also know how it works, at least at a high level. Let's see an example of a filter() method to understand the lazy evaluation it does.
+
+Suppose we have a list of integer numbers and we want to find the first number which is divisible by both 2 and 3, let' see how to solve this problem in Java 8.
+```java
+List<Integer> listOfNumbers = Arrays.asList(1, 2, 3, 4, 5, 6, 12, 18);
+Integer lcm = listOfNumbers.stream()
+                           .filter(i -> i % 2 == 0)
+                           .filter(i -> i % 3 == 0)
+                           .findFirst().get();        
+```
+This code is returning the first number which is divisible by both 2 and 3. Now, let's see how this code will execute. When you call the filter() method nothing happens until you call the findFirst().
+
+At this time, Java knows that it just needs to find the first element which satisfies the criterion imposed by the two chained filter() methods.
+
+The findFirst() asks the filter() method prior to it in the chain of any number, the filter doesn't have any record so it asks the first filter() method, which in turn then scans the list and returns a number that is divisible by 2.
+
+At this time, the second filter method checks if this number is divisible by 3, if yes then it returns that number to findFirst() otherwise it asks for another number from the first filter() method.
+
+This process continues until a number is found which satisfies both filter() methods. Once that number is found it is presented to the findFirst() method. The job of findFirst() is to return that number.
+
+This is an example of lazy evaluation because nothing happens until the call to findFirst() is a method, this also presents an opportunity to stop as soon as you find the first number which satisfies your criterion.
+
+
+There is no need to process the entire list again and again, as it happens in the case of iterative eager evaluation.  You can read more about Stream Processing and Lazy Evaluation on Pluralsight's From Collections to Streams in Java 8 Using the Lambda Expressions course by Jose Paumard, a Java Champion and expert Java Programmer.
+
+## Java 8 filter + Stream Example
+
+### Java 8 filter Example
+Here are a couple of more examples of the Stream.filter() method in Java 8. I have created a list of String containing Android versions like  Lollipop, KitKat, etc.
+
+The first example just uses one filter() method to print Strings whose length is greater than 10. The second example prints String which contains the letter "e" like Gingerbread.
+
+The Third examples combine these two filter methods to create a chain of filter methods to print a String whose length is greater than 5 and starts with a letter "G".
+
+By the way, for testing purposes, you can also create a stream of integers numbers by using Stream.of() static factory methods as shown in the following example:
+
+### How to use filter method in Java 8 with example
+
+You can see that the input stream contains numbers from 1 to 5 but the output stream just contains odd numbers. This means even numbers were filtered out because they didn't satisfy the boolean condition specified by Predicate.
+
+I mean for even number x%2 == 0 and we are checking for x%2 !=0 so they didn't pass the condition and hence not progress to the output stream. If you need more examples, I suggest you check out the Java Streams API Developer Guide by Nelson Djalo, one of the hands-on courses on learning Stream examples live.
+
+### How to use filter() method in Java 8
+
+Here is a sample Java program to demonstrate how to use the filter() method of Stream class to filter elements from a List or Stream, based upon some conditions, specified by the Predicate functional interface of Java 8.
+```java
+package test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Java 8 filter example. You can use filter() method to perform lazy filtering
+ * in Java.
+ */
+public class Java8FilterExample {
+
+    public static void main(String[] args) {
+
+        List<String> versions = new ArrayList<>();
+        versions.add("Lollipop");
+        versions.add("KitKat");
+        versions.add("Jelly Bean");
+        versions.add("Ice Cream Sandwidth");
+        versions.add("Honeycomb");
+        versions.add("Gingerbread");
+
+        // Using one filter() 
+        // print all versions whose length is greater than 10 character
+        System.out.println("All versions whose length greater than 10");
+        versions.stream()
+                .filter(s -> s.length() > 10)
+                .forEach(System.out::println);
+
+        System.out.println("first element which has letter 'e' ");
+        String first = versions.stream()
+                .filter(s -> s.contains("e"))
+                .findFirst().get();
+        System.out.println(first);
+        
+
+        // Using multiple filter
+        System.out.println("Element whose length is > 5 and startswith G");
+        versions.stream()
+                .filter(s -> s.length() > 8)
+                .filter(s -> s.startsWith("G"))
+                .forEach(System.out::println);
+        
+
+        // another example of filter() method in Java 8
+        List<Integer> listOfNumbers = Arrays.asList(1, 2, 3, 4, 5, 6, 12, 18);
+        Integer lcm = listOfNumbers.stream()
+                .filter(i -> i % 2 == 0)
+                .filter(i -> i % 3 == 0)
+                .findFirst().get();
+        System.out.println("first number divisible by 2 and 3 in the list is : "
+                                  + lcm);
+
+    }
+
+}
+```
+```
+Output
+All versions whose length greater than 10
+Ice Cream Sandwidth
+Gingerbread
+first element which has letter 'e' 
+Jelly Bean
+Element whose length is > 5 and starts with G
+Gingerbread
+a first number divisible by 2 and 3 in the list is : 6
+```
+
+That's all in this Java 8 filter() example. It's one of the most useful methods of Stream class and you will find yourself using this method time and again. The best part of this method is that it improves performance by doing the lazy evaluation.
+
+The filter() method just sets up a couple of pointers and no data comparison is performed until a terminal method like forEach() or findFirst() is called.
+
+
 ==================================================================================
 
 In this example, we have a Stream of String values which represent numbers, by using the map() function we have converted this Stream to Stream of Integers. How? by applying Integer.valueOf() on each element of Stream. That's how "1" converted to integer 1 and so on. Once the transformation is done, we have collected the result into a List by converting Stream to List using Collectors.
