@@ -109,7 +109,7 @@ If you want to become a back-end developer in 2024, then you can follow this Bac
 
 The 2021 Backend Developer RoadMap
 
-![Setting the Scheme](images/Backend Developer RoadMap 2019.png)
+![Setting the Scheme](images/Backend-Developer-RoadMap-2019.png)
 
 ### 1. Node.js
 There are many choices to develop your web application's backend like you can use Java and Spring or maybe Python + Django, but in recent years Node.js has come up as the preferred option. The best thing about Node is that it allows you to develop a complete web application using just one programming language - JavaScript. 
