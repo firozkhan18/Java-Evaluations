@@ -917,7 +917,112 @@ public class DoubleStreamExample {
 
 These examples cover a range of operations for primitive streams, demonstrating how to use `IntStream`, `LongStream`, and `DoubleStream` effectively.
 
+## Java 8 Lambda Expression + Stream Interview Questions with Answers
+
 Java Streams API is a powerful feature introduced in Java 8 that allows for functional-style operations on sequences of elements. Interview questions related to streams often test your ability to perform complex data manipulations using this API.
+
+### 1. What is lambda expression of Java 8? (answer)
+As it's name suggests its an expression which allows you to write more succinct code in Java 8. For example (a, b) -> a + b is a lambda expression (look for that arrow ->) which is equal to following code:
+```java
+public int value(int a, int b){
+   return a + b;
+}
+```
+It's also called anonymous function because you are essentially writing the code you write in function but without name. 
+
+### 2. Can you pass lambda expression to a method? When? (answer)
+Yes, you can pass a lambda expression to a method provided it is expecting a functional interface. For example, if a method is accepting a Runnable, Comparable or Comparator then you can pass a lambda expression to it because all these are functional interface in Java 8. 
+
+### 3. What is functional interface in Java 8? (answer)
+A functional interface in Java 8 is an interface with single abstract method. For example, Comparator which has just one abstract method called compare() or Runnable which has just one abstract method called run(). There are many more general purpose functional interface are introduced in JDK on java.util.function package. They are also annotated with @FunctionalInterface but that's optional.
+
+### 4. What is map operation in Java 8? (answer)
+The map operation is used to transform one type to another type but applying a function. For example, if you have list of integer number but you want a List of String then you can use map operation to convert that list of integer into list of String by applying toString() function on each element. It came from functional programming paradigm but now Java 8 also has this. 
+
+### 5. What is method reference? (answer)
+A method reference is shortcut of lambda expression. It further cutdown the boilerplate and make your code more readable. If you have a method which already does what you are doing in lambda expression then you can use method reference in place of lambda expression. For example, if you have a list of integer and your are just printing its values like below:
+```java
+list.forEach(i -> System.out.println(i));
+```
+then you can replace this lambda expression with method reference because System.out.println() already does this i.e. take an argument and prints it.
+
+here is the equivalent code using method reference:
+```java
+list.forEach(System.out::println);
+```
+Remember, double colon operator (::) is used for method reference in Java 8. 
+
+### 6. When can you replace lambda expression with method reference? (answer)
+As explained in previous question, you can replace lambda expression with method reference if you already have an equivalent method which is doing the job of your lambda expression. 
+
+### 7. Can you local variables inside lambda expressions in Java 8? (answer)
+Yes, you can use local variable inside lambda expression but only which are effectively final variables. This rule is same as the local variable used inside Anonymous class. If you remember, we can only use final local variables inside anonymous class. 
+
+### 8. What is effectively final variable in Java 8? (answer)
+This question is generally asked as the follow-up of previous question. An effectively final variable is a variable whose value cannot be changed once created. It's similar to final variable but without final modifier. 
+
+### 9. Can you name some common functional interface of JDK 8? (answer)
+Even though you can name Comparator, Comparable, Runnable, Callable, or EventListener as functional interface, it's better to name new functional interfaces from java.util.function pacakge like Predicate, Consumer, Supplier, or BinaryFunction. 
+
+### 10. What is type inference in lambda expression? (answer)
+Lambda expression supports improved type inference that's why you don't need to define types on both side of lambda operator (->). For example, in following lambda expression 
+```java
+(int a, int b) -> (return a+ b);
+```
+compiler will infer the return value will be an int. This is one of the simplest example, compiler is much more intelligent now to infer type s in more complex situations like below:
+```java
+List<String> carOwners = 
+cars.stream()
+.map(car -> car.getRegistration())
+.map(registration -> RTORecords.getOwner(registration))
+.map(owner -> owner.getName())
+.map(name -> name.toUpperCase())
+.collect(toList());
+```
+In this case, we have not specified that car is object of Car, registration is a String, owner is a Person and name is a String type, instead compiler has inferred it all based upon the information it has e.g. List of String is the result. 
+
+
+### 11. What is flatmap operation in Java? (answer)
+This is another functional programming operation which is now available in Java. It's close cousin of map function, which means it not only transforms but also flatten the list. For example, if you have list of list of Integers but you just need list of String then you can use flatmap to do that. You can see this Java Flatmap tutorial for a live example. 
+
+### 12. What is difference between map and flatmap in Java? (answer)
+As the name suggests, map function just transform one type to another like you can use map to transfer list of integer to list of String or vice-versa but flatmap not only transform but also flatten the list. This means if you list of list of employeeIds then you can create a big list of Employee object by transforming and flattening all those list. See the detailed answer for more detailed discussion and real world examples.
+
+### 13. What is difference between lambda expression and anonymous class in Java 8? (answer)
+Even though both lambda expression and anonymous class server the same purpose of passing code to a method there is a key difference between them from Java perspective. 
+
+An anonymous class is a class while lambda expression is more like anonymous function. You can also pass the Lambda expression to any method which accept a functional interface, I mean those interface which just have one single abstract method but you can pass anonymous class to any method which accept any class, there is no restriction on that. 
+
+Also, Anonymous class can implement more than one abstract method unlike Lambda expression which can only implement one single abstract method considering they can only be used in place where a Functional interface is expected. 
+
+On Implementation also, anonymous class generates a class file but lambda expression doesn't. You can further read Java 8 in Action to learn more about implementation of lambda expression in Java. 
+
+### 14. Can you write more than one line of code in lambda expression? (answer)
+Yes, you can write more than online of code in lambda expression using curly braces, similar to how you define static initializer block. 
+
+Here is an example of lambda expression which is longer than one line:
+```java
+(String first, String second) -> { 
+if(first.equals(second)){ 
+   return true; 
+ }else{ 
+   return false; 
+ } 
+};
+```
+One important thing to note in this case is the return statement, which is mandatory here, unlike one liner lambda where you can just omit them most of the time. 
+
+### 15. What is the benefit of lambda expression of Java 8? (answer)
+The main benefit of lambda expression in Java 8 that now it's easier to pass a code block to a method. Earlier, the only way to do this was wrapping the code inside an Anonymous class, which requires a lot of boilerplate code.
+
+Now, you can achieve the same effect in just a couple of line using lambda expression. This is in my opinion most important Java 8 interview question and if candidate can explain the benefit clearly, he understand Java 8 better than others. 
+
+### 16. Is it mandatory for a lambda expression to have parameters? (answer)
+No, it's not mandatory for a lambda expression to have parameters, you can define a lambda expression without parameters as shown below:
+```java
+() -> System.out.println("lambdas without parameter");
+```
+You can pass this code to any method which accepts a functional interface. 
 
 Here are some common Java Streams interview questions, along with detailed solutions:
 
