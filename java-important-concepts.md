@@ -422,5 +422,87 @@ How to read XML file in Java using JDOM library
 How to find hidden files in Java with Example
 How to set File permissions in Java
 
-
 Read more: https://www.java67.com/2012/11/how-to-read-file-in-java-using-scanner-example.html#ixzz8hiR70n7z
+
+## Why use Memory Mapped File or MapppedByteBuffer in Java? Example
+
+Memory Mapped Files in Java is a rather new java concept for many programmers and developers, though it’s been there from JDK 1.4 along with java.nio package. Java IO has been considerably fast after the introduction of NIO and memory-mapped file offers the fastest IO operation possible in Java, that's the main reason of Why high-performance Java application should use Memory Mapped files for persisting data. It's already quite popular in the high-frequency trading space, where the electronic trading system needs to be super fast and one-way latency to exchange has to be on the sub-microsecond level.
+
+IO has always been a concern for performance-sensitive applications and memory-mapped file allows you to directly read from memory and write into memory by using direct and non-direct byte buffers. 
+
+The key advantage of  Memory Mapped File is that the operating system takes care of reading and writing and even if your program crashed just after writing into memory. OS will take care of writing content to File. 
+
+One more notable advantage is shared memory, memory-mapped files can be accessed by more than one process and can act as shared memory with extremely low latency. See Peter's comment also in the comment section.
+
+Earlier we have seen how to read xml files in Java and how to read a text file in java and in this Java IO tutorial we gonna look at what is a memory-mapped file, how to read and write from a memory-mapped file, and important points related to Memory Mapped Files.
+
+And, If you are new to the Java world then I also recommend you go through these advanced core Java courses to learn Java in a better and more structured way. This is one of the best and up-to-date courses to learn Java online.
+
+### What is Memory Mapped File and IO in Java
+memory mapped file and io in java read write exampleMemory mapped files are special files in Java which allows Java program to access contents  directly from memory, this is achieved by mapping whole file or portion of file into memory and operating system takes care of loading page requested and writing into file while application only deals with memory which results in very fast IO operations. Memory used to load Memory mapped file is outside of Java heap Space. Java programming language supports memory mapped file with java.nio package and has MappedByteBuffer to read and write from memory.
+
+### Advantage and Disadvantage of Memory Mapped file
+Possibly main advantage of Memory Mapped IO is performance, which is important to build high frequency electronic trading system. Memory Mapped Files are way faster than standard file access via normal IO. Another big advantage of memory mapped IO is that it allows you to load potentially larger file which is not otherwise accessible. Experiments shows that memory mapped IO performs better with large files. 
+
+Though it has disadvantage in terms of increasing number of page faults. Since operating system only loads a portion of file into memory if a page requested is not present in memory than it would result in page fault Most of major operating system like Windows platform, UNIX, Solaris and other UNIX like operating system supports memory mapped IO and with 64 bit architecture you can map almost any file into memory and access it directly using Java programming language. 
+
+Another advantages is that the file can be shared, giving you shared memory between processes and can be more than 10x lower latency than using a Socket over loopback.
+
+MappedByteBuffer Read Write Example in Java
+Below example will show you how to read and write from memory mapped file in Java. We have used RandomAccesFile to open a File and then mapped it to memory using FileChannel's map() method, map method takes three parameter modes, start, and length of the region to be mapped. It returns MapppedByteBuffer which is a ByteBuffer for dealing with memory mapped file.
+
+```java
+import java.io.RandomAccessFile;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
+
+  public class MemoryMappedFileInJava {
+
+    private static int count = 10485760; //10 MB
+
+    public static void main(String[] args) throws Exception {
+
+        RandomAccessFile memoryMappedFile = new RandomAccessFile("largeFile.txt", "rw");
+
+        //Mapping a file into memory
+
+        MappedByteBuffer out = memoryMappedFile.getChannel().map(FileChannel.MapMode.READ_WRITE, 0, count);
+
+        //Writing into Memory Mapped File
+        for (int i = 0; i < count; i++) {
+            out.put((byte) 'A');
+        }
+
+        System.out.println("Writing to Memory Mapped File is completed");     
+
+        //reading from memory file in Java
+        for (int i = 0; i < 10 ; i++) {
+            System.out.print((char) out.get(i));
+        }
+
+        System.out.println("Reading from Memory Mapped File is completed");
+
+    }
+
+}
+```
+
+### Important Points about Memory Mapped File and IO in Java
+To summarize the post here is quick summary of memory mapped files and IO in Java:
+
+- 1. Java supports Memory mapped IO with java.nio package.
+- 2. Memory mapped files is used in performance sensitive application e.g. high frequency electronic trading platforms.
+- 3. By using memory mapped IO you can load portion of large files in memory.
+- 4. Memory mapped file can result in page fault if requested page is not in memory.
+- 5. Ability to map a region of file in memory depends on addressable size of memory. In a 32 bit machine you can not access beyond 4GB or 2^32.
+- 6. Memory mapped IO is much faster than Stream IO in Java.
+- 7. Memory used to load File is outside of Java heap and reside on shared memory which allow two different process to access File. By the way this depends upon, whether you are using direct or non-direct byte buffer.
+- 8. Reading and writing on memory mapped file are done by operating system, so even if your Java Program crash after putting content into memory it will make to disk, until OS is fine.
+- 9. Prefer Direct Byte buffer over Non Direct Buffer for higher performance.
+- 10. Don't call MappedByteBuffer.force() method to often, this method is meant to force operating system to write content of memory into disk, So if you call force() method each time you write into memory mapped file, you will not see true benefit of using mapped byte buffer, instead it will be similar to disk IO.
+- 11. In case of power failure or host failure, there is a slim chance that the content of the memory mapped file is not written into the disk, which means you could lose critical data.
+- 12. MappedByteBuffer and file mapping remain valid until buffer is garbage collected. sun.misc.Cleaner is probably the only option available to clear memory mapped file.
+
+That’s all on memory mapped file and memory mapped IO in Java. Its pretty useful concept and I encourage you to learn more about it. If you are working on high frequency trading space than memory mapped file is quite common there.
+
+Read more: https://javarevisited.blogspot.com/2012/01/memorymapped-file-and-io-in-java.html#ixzz8hiS3BzuX
