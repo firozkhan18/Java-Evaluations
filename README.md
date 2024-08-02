@@ -199,6 +199,143 @@ interface TI
     } 
 } 
 ```
+
+Java 8 introduced default and static methods in interfaces, providing enhanced functionality and flexibility in designing functional interfaces. Here's an overview of their use and real-time examples:
+
+### 1. Default Methods
+
+**Definition**: Default methods in interfaces allow you to define methods with a default implementation. This helps in extending interfaces with new methods without breaking existing implementations.
+
+**Key Points**:
+- Default methods are useful for adding new methods to interfaces with existing implementations.
+- They can be overridden by implementing classes if a different behavior is needed.
+- They help in providing a common behavior across multiple implementations.
+
+**Syntax**:
+```java
+public interface MyInterface {
+    default void defaultMethod() {
+        System.out.println("This is a default method.");
+    }
+}
+```
+
+**Real-Time Example**:
+
+Consider an interface for logging that various classes might implement. You might want to provide a default logging behavior.
+
+```java
+public interface Logger {
+    default void logInfo(String message) {
+        System.out.println("INFO: " + message);
+    }
+
+    void logError(String message);
+}
+
+public class FileLogger implements Logger {
+    @Override
+    public void logError(String message) {
+        System.out.println("ERROR: " + message);
+    }
+}
+
+public class App {
+    public static void main(String[] args) {
+        Logger logger = new FileLogger();
+        logger.logInfo("Application started");  // Uses default method
+        logger.logError("An error occurred");    // Uses overridden method
+    }
+}
+```
+
+In this example, `FileLogger` implements `Logger` but does not provide an implementation for `logInfo`, so the default implementation is used.
+
+### 2. Static Methods
+
+**Definition**: Static methods in interfaces allow you to define utility methods that are not tied to instance data. They are called on the interface itself rather than on instances of implementing classes.
+
+**Key Points**:
+- Static methods in interfaces are similar to static methods in classes; they cannot be overridden.
+- They provide utility functions related to the interface but are not tied to specific instances.
+
+**Syntax**:
+```java
+public interface MyUtility {
+    static void staticMethod() {
+        System.out.println("This is a static method.");
+    }
+}
+```
+
+**Real-Time Example**:
+
+Consider an interface that provides utility methods for mathematical operations.
+
+```java
+public interface MathUtils {
+    static int add(int a, int b) {
+        return a + b;
+    }
+
+    static int subtract(int a, int b) {
+        return a - b;
+    }
+}
+
+public class App {
+    public static void main(String[] args) {
+        int sum = MathUtils.add(5, 3);         // Call static method
+        int difference = MathUtils.subtract(5, 3); // Call static method
+        
+        System.out.println("Sum: " + sum);
+        System.out.println("Difference: " + difference);
+    }
+}
+```
+
+In this example, `MathUtils` provides static methods for addition and subtraction, which can be used without creating an instance of `MathUtils`.
+
+### Combining Default and Static Methods
+
+You can combine default and static methods in the same interface to provide a mix of common behavior and utility functions.
+
+**Example**:
+
+```java
+public interface Device {
+    default void powerOn() {
+        System.out.println("Device is powered on.");
+    }
+
+    static void reset() {
+        System.out.println("Device is reset.");
+    }
+}
+
+public class Laptop implements Device {
+    @Override
+    public void powerOn() {
+        System.out.println("Laptop is powered on.");
+    }
+}
+
+public class App {
+    public static void main(String[] args) {
+        Device.reset(); // Static method call
+        Laptop laptop = new Laptop();
+        laptop.powerOn(); // Default method overridden
+    }
+}
+```
+
+### Summary
+
+- **Default Methods**: Provide a way to add new methods to interfaces with default behavior, helping maintain backward compatibility.
+- **Static Methods**: Allow utility functions related to the interface to be implemented directly within the interface.
+
+These methods enhance the flexibility and functionality of interfaces in Java, making it easier to work with functional programming and interface-based design patterns. They also support better code organization and reuse, contributing to more maintainable and extensible codebases.
+
 [Complete Fundamental Concepts Of Java Functional Interfaces](java-basic-fundamental-functional-interfaces.md)
 
 ## Method References
