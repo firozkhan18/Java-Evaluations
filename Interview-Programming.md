@@ -511,19 +511,20 @@ It is a One-To-One mapping. | It is a One-To-Many mapping.
 Data Transformation : From Stream<T> to Stream<R> | Data Transformation : From Stream<Stream<T> to Stream<R> 
 Use this method when the mapper function is producing a single value for each input value. | Use this method when the mapper function is producing multiple values for each input value. 
 
-How Stream.map() works in Java 8? Example
+## How Stream.map() works in Java 8? Example
 The Stream.map() function performs map functional operation i.e. it takes a Stream and transforms it to another Stream. It applies a function on each element of Stream and stores return value into new Stream. 
 
 This way you can transform a Stream of String into a Stream of Integer where Integer could be the length of String if you supply the length() function. This is a very powerful function that is very helpful while dealing with collection in Java.
 
 Here is an example of Stream.map() in Java 8:
+
 ```java
 List listOfIntegers = Stream.of("1", "2", "3", "4")
                .map(Integer::valueOf)
                .collect(Collectors.toList());
 ```
 
-How Stream.flatMap() works in Java 8 - Example
+### How Stream.flatMap() works in Java 8 - Example
 The Stream.flatMap() function, as the name suggests, is the combination of a map and a flat operation. This means you first apply the map function and then flattens the result. The key difference is the function used by map operation returns a Stream of values or a list of values rather than a single value, that's why we need flattening. When you flat a Stream of Stream, it gets converted into Stream of values.
 
 To understand what flattening a stream consists in, consider a structure like [ [1,2,3],[4,5,6],[7,8,9] ] which has "two levels". It's basically a big List containing three more List.  Flattening this means transforming it in a "one level" structure e.g. [ 1,2,3,4,5,6,7,8,9 ] i.e. just one list.
@@ -533,7 +534,7 @@ Before flattening - Stream of List of Integer
 After flattening - Stream of Integer
 
 Here is a code example to understand the flatMap() function better:
-
+```java
 List evens = Arrays.asList(2, 4, 6);
 List odds = Arrays.asList(3, 5, 7);
 List primes = Arrays.asList(2, 3, 5, 7, 11);
@@ -543,16 +544,16 @@ List numbers = Stream.of(evens, odds, primes)
                .collect(Collectors.toList());
        
 System.out.println("flattend list: " + numbers);
-
+```
+```
 Output:
 flattend list: [2, 4, 6, 3, 5, 7, 2, 3, 5, 7, 11]
-
+```
 You can see that we have three lists that are merged into one by using a flatMap() function. For mapping, you can see we have used a list.stream() function which returns multiple values instead of a single value. Finally, we have collected the flattened stream into a list. If you want, you can print the final list using the forEach() method.
 
 
+### Stream.map() vs Stream.flatMap() in Java 8
 
-
-Stream.map() vs Stream.flatMap() in Java 8
 In short, here are the key difference between map() vs flatMap() in Java 8:
 The function you pass to the map() operation returns a single value.
 The function you pass to flatMap() operation returns a Stream of value.
@@ -561,7 +562,7 @@ map() is used for transformation only, but flatMap() is used for both transforma
 
 Now let's see a sample Java program to understand the difference between flatMap() and map() better.
 
-Java Program to show the difference between map vs flatMap
+### Java Program to show the difference between map vs flatMap
 Here is our sample Java program to demonstrate the real difference between the map() and the flatMap() function of the Stream class in Java 8. As I told you before, map() is used to transform one Stream into another by applying a function on each element, and flatMap() does both transformations as well as flattening.
 
 The flatMap() function can take a Stream of List and return a Stream of values combined from all those lists. In the example below, we have collected the result in a List but you can also print them using the forEach() method of Java 8.
