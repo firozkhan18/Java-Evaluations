@@ -26,7 +26,7 @@ Btw, the Roadmap tells you what to learn but doesn't tell you how to learn and w
 Anyway, Here’s where you'll start. As I have said before, you can choose either the Front-end or Backend path below, depending upon your interest. Regardless, there are eight recommendations in yellow that you must learn for either path, these are the everyday things every programmer should know.
 
 ## The 2021  Web Developer RoadMap
-![Setting the Scheme](images/Kafka.jpg)
+![Setting the Scheme](images/Complete Web Developer RoadMap.png)
 
 ## Recommended learning for either path
 Here are some of the core technologies and tools you need to learn for both the frontend and backend developer path.
@@ -55,7 +55,7 @@ There is no doubt that every programmer should know Git and Github as they are t
 ## The 2024 Frontend Developer RoadMap
 If you want to become a front-end developer in 2024, then you should follow the below Front-end Developer RoadMap. You should focus on yellow boxes that highlight important things to learn and follow from there. Below the RoadMap, you will find additional resources like books and courses to aid your learning.
 
-![Setting the Scheme](images/Kafka.jpg)
+![Setting the Scheme](images/Complete Web Developer RoadMap.png)
 
 The 2021 Frontend Developer RoadMap
 
@@ -109,6 +109,7 @@ If you want to become a back-end developer in 2024, then you can follow this Bac
 
 The 2021 Backend Developer RoadMap
 
+![Setting the Scheme](images/Backend Developer RoadMap 2019.png)
 
 ### 1. Node.js
 There are many choices to develop your web application's backend like you can use Java and Spring or maybe Python + Django, but in recent years Node.js has come up as the preferred option. The best thing about Node is that it allows you to develop a complete web application using just one programming language - JavaScript. 
@@ -132,7 +133,7 @@ Ruby is another powerful language perfect for web development. It has got a grea
 
 best Ruby and Rails courses
 
-![Setting the Scheme](images/Kafka.jpg)
+![Setting the Scheme](images/4223.png)
 
 ### 5. PHP and MySQL
 Forget about whatever negative things people say about PHP. It is still the easiest way to write server-side code, and many, almost 50% of the internet runs on PHP and MySQL stacks. If you are interested in learning PHP, you can check out my list of free PHP and MySQL courses to start with.
@@ -143,4 +144,4 @@ Not many people will tell you but ASP .NET is a popular technology after Java fo
 
 If you are interested in learning ASP .NET for building web application and need resources, then you can also check out these best ASP .NET online courses to start with. 
 
-![Setting the Scheme](images/Kafka.jpg)
+![Setting the Scheme](images/2120618_cfe6_2.JPG)
