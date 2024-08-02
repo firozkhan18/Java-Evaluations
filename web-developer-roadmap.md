@@ -55,7 +55,7 @@ There is no doubt that every programmer should know Git and Github as they are t
 ## The 2024 Frontend Developer RoadMap
 If you want to become a front-end developer in 2024, then you should follow the below Front-end Developer RoadMap. You should focus on yellow boxes that highlight important things to learn and follow from there. Below the RoadMap, you will find additional resources like books and courses to aid your learning.
 
-![Setting the Scheme](images/Complete-Web-Developer-RoadMap.png)
+![Setting the Scheme](images/FrontEnd-Developer-RoadMap-2019.png)
 
 The 2021 Frontend Developer RoadMap
 
