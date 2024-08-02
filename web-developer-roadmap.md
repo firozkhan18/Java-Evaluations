@@ -26,7 +26,7 @@ Btw, the Roadmap tells you what to learn but doesn't tell you how to learn and w
 Anyway, Here’s where you'll start. As I have said before, you can choose either the Front-end or Backend path below, depending upon your interest. Regardless, there are eight recommendations in yellow that you must learn for either path, these are the everyday things every programmer should know.
 
 ## The 2021  Web Developer RoadMap
-![Setting the Scheme](images/Complete Web Developer RoadMap.png)
+![Setting the Scheme](images/Complete-Web-Developer-RoadMap.png)
 
 ## Recommended learning for either path
 Here are some of the core technologies and tools you need to learn for both the frontend and backend developer path.
@@ -55,7 +55,7 @@ There is no doubt that every programmer should know Git and Github as they are t
 ## The 2024 Frontend Developer RoadMap
 If you want to become a front-end developer in 2024, then you should follow the below Front-end Developer RoadMap. You should focus on yellow boxes that highlight important things to learn and follow from there. Below the RoadMap, you will find additional resources like books and courses to aid your learning.
 
-![Setting the Scheme](images/Complete Web Developer RoadMap.png)
+![Setting the Scheme](images/Complete-Web-Developer-RoadMap.png)
 
 The 2021 Frontend Developer RoadMap
 
@@ -144,4 +144,4 @@ Not many people will tell you but ASP .NET is a popular technology after Java fo
 
 If you are interested in learning ASP .NET for building web application and need resources, then you can also check out these best ASP .NET online courses to start with. 
 
-![Setting the Scheme](images/2120618_cfe6_2.JPG)
+![Setting the Scheme](images/2120618_cfe6_2.jpg)
