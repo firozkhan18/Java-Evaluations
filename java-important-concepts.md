@@ -6826,3 +6826,1869 @@ public class FindElementsStartingWith {
 }
 ```
 Read more: https://www.java67.com/2015/06/20-java-arraylist-interview-questions.html#ixzz8himTFcWz
+
+How do you reverse a given string in place? (solution)
+How do you print duplicate characters from a string? (solution)
+How do you check if two strings are anagrams of each other? (solution)
+How do you find all the permutations of a string? (solution)
+How can a given string be reversed using recursion? (solution)
+How do you check if a string contains only digits? (solution)
+How do you find duplicate characters in a given string? (solution)
+How do you count a number of vowels and consonants in a given string? (solution)
+How do you count the occurrence of a given character in a string? (solution)
+How do you print the first non-repeated character from a string? (solution)
+How do you convert a given String into int like the atoi()? (solution)
+How do you reverse words in a given sentence without using any library method? (solution)
+How do you check if two strings are a rotation of each other? (solution)
+How do you check if a given string is a palindrome? (solution)
+How do you find the length of the longest substring without repeating characters? (solution)
+Given string str, How do you find the longest palindromic substring in str? (solution)
+How to convert a byte array to String? (solution)
+how to remove the duplicate character from String? (solution)
+How to find the maximum occurring character in given String? (solution)
+How do you remove a given character from String? (solution)
+
+Here are solutions for the common string manipulation problems in Java:
+
+### 1. **Reverse a Given String In-Place**
+
+```java
+public class ReverseStringInPlace {
+    public static void main(String[] args) {
+        String str = "hello";
+        char[] chars = str.toCharArray();
+        int left = 0;
+        int right = chars.length - 1;
+        
+        while (left < right) {
+            char temp = chars[left];
+            chars[left] = chars[right];
+            chars[right] = temp;
+            left++;
+            right--;
+        }
+        
+        String reversed = new String(chars);
+        System.out.println(reversed);
+    }
+}
+```
+
+### 2. **Print Duplicate Characters from a String**
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class PrintDuplicateCharacters {
+    public static void main(String[] args) {
+        String str = "programming";
+        Map<Character, Integer> charCountMap = new HashMap<>();
+        
+        for (char c : str.toCharArray()) {
+            charCountMap.put(c, charCountMap.getOrDefault(c, 0) + 1);
+        }
+        
+        for (Map.Entry<Character, Integer> entry : charCountMap.entrySet()) {
+            if (entry.getValue() > 1) {
+                System.out.println("Duplicate character: " + entry.getKey());
+            }
+        }
+    }
+}
+```
+
+### 3. **Check if Two Strings Are Anagrams of Each Other**
+
+```java
+import java.util.Arrays;
+
+public class CheckAnagrams {
+    public static void main(String[] args) {
+        String str1 = "listen";
+        String str2 = "silent";
+        
+        if (str1.length() != str2.length()) {
+            System.out.println("Not Anagrams");
+            return;
+        }
+        
+        char[] arr1 = str1.toCharArray();
+        char[] arr2 = str2.toCharArray();
+        
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        
+        if (Arrays.equals(arr1, arr2)) {
+            System.out.println("Anagrams");
+        } else {
+            System.out.println("Not Anagrams");
+        }
+    }
+}
+```
+
+### 4. **Find All Permutations of a String**
+
+```java
+import java.util.HashSet;
+import java.util.Set;
+
+public class FindPermutations {
+    public static void main(String[] args) {
+        String str = "abc";
+        Set<String> permutations = new HashSet<>();
+        permute(str, 0, str.length() - 1, permutations);
+        System.out.println(permutations);
+    }
+    
+    public static void permute(String str, int l, int r, Set<String> permutations) {
+        if (l == r) {
+            permutations.add(str);
+        } else {
+            for (int i = l; i <= r; i++) {
+                str = swap(str, l, i);
+                permute(str, l + 1, r, permutations);
+                str = swap(str, l, i); // backtrack
+            }
+        }
+    }
+    
+    public static String swap(String str, int i, int j) {
+        char[] arr = str.toCharArray();
+        char temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        return new String(arr);
+    }
+}
+```
+
+### 5. **Reverse a String Using Recursion**
+
+```java
+public class ReverseStringRecursion {
+    public static void main(String[] args) {
+        String str = "hello";
+        String reversed = reverse(str);
+        System.out.println(reversed);
+    }
+    
+    public static String reverse(String str) {
+        if (str.isEmpty()) {
+            return str;
+        }
+        return reverse(str.substring(1)) + str.charAt(0);
+    }
+}
+```
+
+### 6. **Check if a String Contains Only Digits**
+
+```java
+public class CheckDigitsOnly {
+    public static void main(String[] args) {
+        String str = "12345";
+        boolean isDigits = str.chars().allMatch(Character::isDigit);
+        System.out.println("Contains only digits: " + isDigits);
+    }
+}
+```
+
+### 7. **Find Duplicate Characters in a Given String**
+
+```java
+import java.util.HashSet;
+import java.util.Set;
+
+public class FindDuplicateCharacters {
+    public static void main(String[] args) {
+        String str = "programming";
+        Set<Character> seen = new HashSet<>();
+        Set<Character> duplicates = new HashSet<>();
+        
+        for (char c : str.toCharArray()) {
+            if (seen.contains(c)) {
+                duplicates.add(c);
+            } else {
+                seen.add(c);
+            }
+        }
+        
+        System.out.println("Duplicate characters: " + duplicates);
+    }
+}
+```
+
+### 8. **Count Number of Vowels and Consonants in a Given String**
+
+```java
+public class CountVowelsAndConsonants {
+    public static void main(String[] args) {
+        String str = "hello world";
+        int vowels = 0;
+        int consonants = 0;
+        
+        for (char c : str.toLowerCase().toCharArray()) {
+            if (Character.isLetter(c)) {
+                if ("aeiou".indexOf(c) != -1) {
+                    vowels++;
+                } else {
+                    consonants++;
+                }
+            }
+        }
+        
+        System.out.println("Vowels: " + vowels);
+        System.out.println("Consonants: " + consonants);
+    }
+}
+```
+
+### 9. **Count the Occurrence of a Given Character in a String**
+
+```java
+public class CountCharacterOccurrence {
+    public static void main(String[] args) {
+        String str = "hello world";
+        char charToCount = 'o';
+        long count = str.chars().filter(c -> c == charToCount).count();
+        System.out.println("Occurrences of '" + charToCount + "': " + count);
+    }
+}
+```
+
+### 10. **Print the First Non-Repeated Character from a String**
+
+```java
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class FirstNonRepeatedCharacter {
+    public static void main(String[] args) {
+        String str = "swiss";
+        Map<Character, Integer> charCountMap = new LinkedHashMap<>();
+        
+        for (char c : str.toCharArray()) {
+            charCountMap.put(c, charCountMap.getOrDefault(c, 0) + 1);
+        }
+        
+        for (Map.Entry<Character, Integer> entry : charCountMap.entrySet()) {
+            if (entry.getValue() == 1) {
+                System.out.println("First non-repeated character: " + entry.getKey());
+                break;
+            }
+        }
+    }
+}
+```
+
+### 11. **Convert a Given String into Int (Like `atoi()` in C)**
+
+```java
+public class StringToInt {
+    public static void main(String[] args) {
+        String str = "12345";
+        try {
+            int num = Integer.parseInt(str);
+            System.out.println("Converted integer: " + num);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number format");
+        }
+    }
+}
+```
+
+### 12. **Reverse Words in a Given Sentence Without Using Any Library Method**
+
+```java
+public class ReverseWordsInSentence {
+    public static void main(String[] args) {
+        String sentence = "Hello World";
+        String[] words = sentence.split(" ");
+        StringBuilder reversedSentence = new StringBuilder();
+        
+        for (int i = words.length - 1; i >= 0; i--) {
+            reversedSentence.append(words[i]);
+            if (i != 0) {
+                reversedSentence.append(" ");
+            }
+        }
+        
+        System.out.println(reversedSentence.toString());
+    }
+}
+```
+
+### 13. **Check if Two Strings Are Rotations of Each Other**
+
+```java
+public class CheckRotations {
+    public static void main(String[] args) {
+        String str1 = "waterbottle";
+        String str2 = "erbottlewat";
+        
+        if (str1.length() != str2.length()) {
+            System.out.println("Not rotations");
+            return;
+        }
+        
+        String combined = str1 + str1;
+        if (combined.contains(str2)) {
+            System.out.println("Rotations");
+        } else {
+            System.out.println("Not rotations");
+        }
+    }
+}
+```
+
+### 14. **Check if a Given String is a Palindrome**
+
+```java
+public class CheckPalindrome {
+    public static void main(String[] args) {
+        String str = "racecar";
+        String reversed = new StringBuilder(str).reverse().toString();
+        
+        if (str.equals(reversed)) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not a palindrome");
+        }
+    }
+}
+```
+
+### 15. **Find the Length of the Longest Substring Without Repeating Characters**
+
+```java
+import java.util.HashSet;
+import java.util.Set;
+
+public class LongestSubstringWithoutRepeating {
+    public static void main(String[] args) {
+        String str = "abcabcbb";
+        int maxLength = 0;
+        int start = 0;
+        Set<Character> charSet = new HashSet<>();
+        
+        for (int end = 0; end < str.length(); end++) {
+            while (charSet.contains(str.charAt(end))) {
+                charSet.remove(str.charAt(start++));
+            }
+            charSet.add(str.charAt(end));
+            maxLength = Math.max(maxLength, end - start + 1);
+        }
+        
+        System.out.println("Length of longest substring: " + maxLength);
+    }
+}
+```
+
+### 
+
+16. **Find the Longest Palindromic Substring**
+
+```java
+public class LongestPalindromicSubstring {
+    public static void main(String[] args) {
+        String str = "babad";
+        String longest = "";
+        
+        for (int i = 0; i < str.length(); i++) {
+            String oddPalindrome = expandAroundCenter(str, i, i);
+            String evenPalindrome = expandAroundCenter(str, i, i + 1);
+            
+            if (oddPalindrome.length() > longest.length()) {
+                longest = oddPalindrome;
+            }
+            if (evenPalindrome.length() > longest.length()) {
+                longest = evenPalindrome;
+            }
+        }
+        
+        System.out.println("Longest palindromic substring: " + longest);
+    }
+    
+    private static String expandAroundCenter(String str, int left, int right) {
+        while (left >= 0 && right < str.length() && str.charAt(left) == str.charAt(right)) {
+            left--;
+            right++;
+        }
+        return str.substring(left + 1, right);
+    }
+}
+```
+
+### 17. **Convert a Byte Array to String**
+
+```java
+public class ByteArrayToString {
+    public static void main(String[] args) {
+        byte[] byteArray = {72, 101, 108, 108, 111}; // corresponds to "Hello"
+        String str = new String(byteArray);
+        System.out.println("Converted string: " + str);
+    }
+}
+```
+
+### 18. **Remove Duplicate Characters from a String**
+
+```java
+public class RemoveDuplicateCharacters {
+    public static void main(String[] args) {
+        String str = "programming";
+        StringBuilder result = new StringBuilder();
+        Set<Character> seen = new HashSet<>();
+        
+        for (char c : str.toCharArray()) {
+            if (seen.add(c)) {
+                result.append(c);
+            }
+        }
+        
+        System.out.println("String after removing duplicates: " + result.toString());
+    }
+}
+```
+
+### 19. **Find the Maximum Occurring Character in a Given String**
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class MaxOccurringCharacter {
+    public static void main(String[] args) {
+        String str = "programming";
+        Map<Character, Integer> charCountMap = new HashMap<>();
+        int maxCount = 0;
+        char maxChar = ' ';
+        
+        for (char c : str.toCharArray()) {
+            int count = charCountMap.getOrDefault(c, 0) + 1;
+            charCountMap.put(c, count);
+            if (count > maxCount) {
+                maxCount = count;
+                maxChar = c;
+            }
+        }
+        
+        System.out.println("Maximum occurring character: " + maxChar);
+    }
+}
+```
+
+### 20. **Remove a Given Character from a String**
+
+```java
+public class RemoveCharacter {
+    public static void main(String[] args) {
+        String str = "hello world";
+        char charToRemove = 'o';
+        String result = str.replace(Character.toString(charToRemove), "");
+        System.out.println("String after removal: " + result);
+    }
+}
+```
+
+These solutions cover a range of common string manipulation tasks and showcase how to approach these problems in Java.
+
+
+30 Array Coding Problems for Programming Interviews
+Ok, let's now start with my list of array interview questions, my solutions are in Java, but you are free to solve in any programming language of your choice.
+
+
+1. How to find the missing number in integer array of 1 to 100? (solution)
+This is one of the most simple array problems you will see, mostly asked in a telephonic round of Interview. You have given an integer array which contains numbers from 1 to 100 but one number is missing, you need to write a Java program to find that missing number in an array. 
+
+You cannot use any open source library or Java API method which solves this problem. 
+
+One trick to solve this problem is to calculate sum of all numbers in the array and compare with expected sum, the difference would be the missing number.
+
+Array Interview Questions and Answer Java C++
+
+
+
+2. How to find duplicate number on Integer array in Java? (solution)
+An array contains n numbers ranging from 0 to n-2. There is exactly one number is repeated in the array. You need to write a program to find that duplicate number. For example, if an array with length 6 contains numbers {0, 3, 1, 2, 3}, then duplicated number is 3. 
+
+Actually, this problem is very similar to previous one and you can apply the same trick of comparing actual sum of an array to expected sum of series to find out that duplicate. 
+
+This is generally asked as follow-up question of previous problem.
+
+
+
+
+3. How to check if array contains a number in Java? (solution)
+Another interesting array problem, because array doesn't provide any built-in method to check if any number exists or not. This problem is essentially how to search an element in the array. There are two options sequential search or binary search. 
+
+You should ask the interviewer about whether an array is sorted or not, if the array is sorted then you can use binary search to check if given number is present in an array or not. The complexity of binary search is O(logN). 
+
+BTW, if interviewer says that array is not sorted then you can still sort and perform binary search otherwise you can use sequential search. Time complexity of sequential search in array is O(n).
+
+
+4. How to find largest and smallest number in unsorted array? (solution)
+This is a rather simple array interview question. You have given an unsorted integer array and you need to find the largest and smallest element in the array. 
+
+Of course, you can sort the array and then pick the top and bottom element but that would cost you O(NLogN) because of sorting, getting element in array with index is O(1) operation.
+
+
+5. How to find all pairs on integer array whose sum is equal to given number? (solution)
+This is an intermediate level of array coding question, it's neither too easy nor too difficult. You have given an integer array and a number, you need to write a program to find all elements in the array whose sum is equal to the given number. 
+
+Remember, the array may contain both positive and negative numbers, so your solution should consider that. 
+
+Don't forget to write unit test though, even if the interviewer is not asked for it, that would separate you from a lot of developers. Unit testing is always expected from a professional developer.
+
+
+6.   How to find repeated numbers in an array if it contains multiple duplicates? (solution)
+This is actually the follow-up question of problem 2, how to find a duplicate number on integer array. In that case, an array contains only one duplicate but what if it contains multiple duplicates? 
+
+Suppose, an array contains n numbers ranging from 0 to n-1 and there are 5 duplicates on it, how do you find it? You can use the approach, we have learned in similar String based problem of finding repeated characters in given String.
+
+
+7. Write a program to remove duplicates from array in Java? (solution)
+This is another follow-up question from problem 2 and 6. You have given an array which contains duplicates, could be one or more. You need to write a program to remove all duplicates from array in Java. 
+
+For example if given array is {1, 2, 1, 2, 3, 4, 5} then your program should return an array which contains just {1, 2, 3, 4, 5}. 
+
+This array question is also comes at intermediate category because there is no way to delete an element from an array. If substituting with another value is not an option then you need to create another array to mimic deletion.
+
+
+
+8. How to sort an array in place using QuickSort algorithm? (solution)
+You will often see sorting problems on array related questions because sorting mostly happen on array data structure. 
+
+You need to write a program to implement in place quick sort algorithm in Java. You can implement either recursive or iterative quicksort, it's your choice but you cannot use additional buffer, array or list, you must sort array in place.
+
+
+9.   Write a program to find intersection of two sorted arrays in Java? (solution)
+Another interesting array interview question, where you need to treat the array as Set. Your task is to write a function in your favorite language e.g. Java, Python, C or C++ to return the intersection of two sorted arrays.
+
+ For example, if the two sorted arrays as input are {21, 34, 41, 22, 35} and {61, 34, 45, 21, 11}, it should return an intersection array with numbers {34, 21}, For the sake of this problem you can assume that numbers in each integer array are unique.
+
+
+10. There is an array with every element repeated twice except one. Find that element? (solution)
+This is an interesting array coding problem, just opposite of question related to finding duplicates in array. Here you need to find the unique number which is not repeated twice. 
+
+For example if given array is {1, 1, 2, 2, 3, 4, 4, 5, 5} then your program should return 3. Also, don't forget to write couple of unit test for your solution. This program is quite similar to finding the first non-repeated character on String because you can treat String as character array and use the same algorithm to solve this problem. 
+
+Java Array Interview Question Answer
+
+
+11. How to find kth smallest element in unsorted array? (solution)
+You are given an unsorted array of numbers and k, you need to find the kth smallest number in the array. For example if given array is {1, 2, 3, 9, 4} and k=2 then you need to find the 2nd smallest number in the array, which is 2. 
+
+One way to solve this problem is to sort the array in ascending order then pick the k-1th element, that would be your kth smallest number in array because array index starts at zero, but can you do better? 
+
+Once you are able to solve this array coding question, you can solve many similar questions easily e.g. our next question.
+
+
+12. How to find kth largest element in unsorted array? (solution)
+This problem is exactly same as previous question with only difference being finding kth largest element instead of kth smallest number. For example if given array is {10, 20, 30, 50, 40} and k = 3 then your program should return 30 because 30 is the 3rd largest number in array. 
+
+You can also solve this problem by sorting the array in decreasing order and picking k-1th element. I often seen this array question on Java interviews with 2 to 3 years experienced guys.
+
+
+
+
+13 How to find common elements in three sorted array? (solution)
+Now we are coming on territory of tough array questions. Given three arrays sorted in non-decreasing order, print all common elements in these arrays.
+
+Examples:
+input1 = {1, 5, 10, 20, 40, 80}
+input2 = {6, 7, 20, 80, 100}
+input3 = {3, 4, 15, 20, 30, 70, 80, 120}
+Output: 20, 80
+
+
+14. How find the first repeating element in an array of integers? (solution)
+Given an array of integers, find the first repeating element in it. We need to find the element that occurs more than once and whose index of the first occurrence is smallest.
+
+Examples:
+
+Input:  input [] = {10, 5, 3, 4, 3, 5, 6}
+Output: 5 [5 is the first element that repeats]
+
+
+15. How to find first non-repeating element in array of integers? (solution)
+This array interview question is exactly opposite of previous problem, In that you need to find first repeating element while in this you need to find first non-repeating element. I am sure you can use similar approach to solve this problem, just need to consider non repeating element though.
+
+
+16. How to find top two numbers from an integer array? (solution)
+This is another one of the easy array questions you will find on telephonic round of Interviews, but its also little bit tricky. You are asked to find top two numbers not just the top or highest numbers? Can you think of how you would do it without sorting? before looking at solution.
+
+
+17. How to find the smallest positive integer value that cannot be represented as sum of any subset of a given array? (solution)
+This is another tough array question you will see on Amazon, Microsoft or Google. You have given a sorted array (sorted in non-decreasing order) of positive numbers, find the smallest positive integer value that cannot be represented as sum of elements of any subset of given set. 
+
+What makes it more challenging is expected time complexity of O(n).
+
+Examples:
+
+Input: {1, 3, 6, 10, 11, 15};
+Output: 2
+
+
+18. How to rearrange array in alternating positive and negative number? (solution)
+Given an array of positive and negative numbers, arrange them in an alternate fashion such that every positive number is followed by negative and vice-versa maintaining the order of appearance.
+Number of positive and negative numbers need not be equal. If there are more positive numbers they appear at the end of the array. 
+
+If there are more negative numbers, they too appear in the end of the array. This is also a difficult array problem to solve and you need lot of practice to solve this kind of problems in real interviews, especially when you see it first time. 
+
+If you have time constraint then always attempt these kind of questions once you are done with easier ones. 
+
+Example:
+
+Input: {1, 2, 3, -4, -1, 4}
+Output: {-4, 1, -1, 2, 3, 4}
+
+Input: {-5, -2, 5, 2, 4, 7, 1, 8, 0, -8}
+output: {-5, 5, -2, 2, -8, 4, 7, 1, 8, 0} 
+
+
+
+
+19. How to find if there is a sub array with sum equal to zero? (solution)
+There is whole set of array related questions which are based upon sub-array or only selective elements of array e.g. from some range, this is one of such problem. Here you are given an array of positive and negative numbers, find if there is a sub-array with 0 sum.
+
+Examples:
+
+Input: {4, 2, -3, 1, 6}
+Output: true 
+
+There is a sub-array with zero sum from index 1 to 3.
+
+20. How to remove duplicates from array in place? (solution)
+Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
+
+Do not allocate extra space for another array, you must do this in place with constant memory.
+
+For example,
+Given input array A = [1,1,2],
+
+Your function should return length = 2, and A is now [1,2]. 
+
+When you see a questions which asked you do to sorting or task in place, it means you cannot use additional array or buffer, but using couple of variables is fine.
+
+
+21. How to remove a given element from array in Java? (solution)
+This is another array coding questions similar to previous one. Here you don't have to find and remove duplicates but a given number. In this problem you are given an array and a value, remove all instances of that value in place and return the new length. The order of elements can be changed. It doesn't matter what you leave beyond the new length. 
+
+
+22. How to merge sorted array? (solution)
+Given two sorted integer arrays A and B, merge B into A as one sorted array. You may assume that A has enough space (size that is greater or equal to m + n) to hold additional elements from B. The number of elements initialized in A and B are m and n respectively. This is another intermediate array coding question, its not as simple as previous one but neither very difficult.
+
+
+23. How to find sub array with maximum sum in an array of positive and negative number? (solution)
+Another array coding question based upon sub-array. Here you have to find the contiguous sub-array within an array (containing at least one number) which has the largest sum.
+
+For example, given the array [−2,1,−3,4,−1,2,1,−5,4],
+the contiguous subarray [4,−1,2,1] has the largest sum = 6. 
+
+
+24. How to find sub array with largest product in array of both positive and negative number? (solution) 
+In this problem, your task is to write a program in Java or C++ to find the contiguous sub-array within an array (containing at least one number) which has the largest product.
+
+For example, given the array [2,3,-2,4],
+the contiguous subarray [2,3] has the largest product = 6. 
+
+
+25. Write a program to find length of longest consecutive sequence in array of integers? (solution)
+Given an unsorted array of integers, find the length of the longest consecutive elements sequence.
+
+For example,
+Given [100, 4, 200, 1, 3, 2],
+
+The longest consecutive elements sequence is [1, 2, 3, 4]. Return its length: 4.
+
+Challenging part of this question is that your algorithm should run in O(n) complexity. 
+
+
+26. How to find minimum value in a rotated sorted array? (solution)
+This is another advanced level array coding question and you should only attempt this one, once you have solved the easier ones. Suppose a sorted array is rotated at some pivot unknown to you beforehand.
+
+(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
+
+Find the minimum element.
+
+You may assume no duplicate exists in the array. One follow-up question of this question is What if duplicates are allowed? Would this affect the run-time complexity? How and why?
+
+
+
+
+27. Given an array of of size n and a number k, find all elements that appear more than n/k times? (solution)
+Another tough array based coding questions from Interviews. You are given an array of size n, find all elements in array that appear more than n/k times. For example, if the input arrays is {3, 1, 2, 2, 1, 2, 3, 3} and k is 4, then the output should be [2, 3]. Note that size of array is 8 (or n = 8), so we need to find all elements that appear more than 2 (or 8/4) times. There are two elements that appear more than two times, 2 and 3.
+
+1. Returns the largest sum of contiguous integers in the array
+Example: if the input is (-10, 2, 3, -2, 0, 5, -15), the largest sum is 8
+
+2. Return the sum two largest integers in an array
+
+3. Given an array of integers write a program that will determine if any two numbers add up to a specified number N. Do this without using hash tables
+
+
+28. How to reverse array in place in Java? (solution)
+Now let's see one of the most frequently asked array interview question. You need to write a program which accepts an integer array and your program needs to reverse that array in place, which means you cannot use additional buffer or array, but one or two variables will be fine. 
+
+Of course you cannot use any open source library or Java API method to directly solve this problem, you need to create your own logic. 
+
+Here is one such logic to solve this problem :
+
+
+Array Coding Interview Questions and Answers
+
+
+29. Difference between array and linked list data structure? (answer)
+This is a theoretical questions from phone interviews. There are several differences between array and linked list e.g. array stores element in contiguous memory location while linked list stores at random places, this means linked list better utilizes the places. 
+
+Consequently, its possible to have large linked list in limited memory environment compare to array of same size. Advantage of using array is random access it provides if you know the index, while in linked list you need to search an element by traversing which is O(n) operation.
+
+
+30. How to check if array contains a duplicate number? (answer)
+This may look a repeated question because we have already done similar question, but in this question, most from Java interviews, you need to write a contains() like method from Collections, which returns true or false if you pass an element and it is repeated or not.
+
+
+Read more: https://javarevisited.blogspot.com/2015/06/top-20-array-interview-questions-and-answers.html#ixzz8hioiCHLH
+
+50 Common Algorithms Interview Questions
+Without any further ado, here is my list of some of the most frequently asked coding interview questions from programming job interviews:
+
+1. Array Coding and Data Structures Interview Questions
+An array is the most fundamental data structure, which stores elements at a contiguous memory location. It is also one of the darling topics of
+interviewers and you will hear a lot of questions about an array in any coding interview, e.g. reversing an array, sorting the array, or searching elements on the array.
+
+The key benefit of an array data structure is that it offers fast O(1) search if you know the index, but adding and removing an element from an array is slow because you cannot change the size of the array once it’s created.
+
+In order to create a shorter or longer array, you need to create a new array and copy all elements from old to new.
+
+The key to solving array-based questions is having a good knowledge of array data structure as well as basic programming constructors such as loop, recursion, and fundamental operators.
+
+Here are some of the popular array-based coding interview questions for your practice:
+
+How do you find the missing number in a given integer array of 1 to 100? (solution)
+How do you find the duplicate number on a given integer array? (solution)
+How do you find the largest and smallest number in an unsorted integer array? (solution)
+How do you find all pairs of an integer array whose sum is equal to a given number? (solution)
+How do you find duplicate numbers in an array if it contains multiple duplicates? (solution)
+How are duplicates removed from a given array in Java? (solution)
+How is an integer array sorted in place using the quicksort algorithm? (solution)
+How do you remove duplicates from an array in place? (solution)
+How do you reverse an array in place in Java? (solution)
+How are duplicates removed from an array without using any library? (solution)
+These questions will not only help you to develop your problem-solving skills but also improve your knowledge of array data structure.
+
+If you need more advanced questions based upon array then you can see also see The Coding Interview Bootcamp: Algorithms + Data Structures, a bootcamp style course on algorithms, especially designed for
+interview preparation to get a job on technical giants like Google,
+Microsoft, Apple, Facebook etc.
+
+And, if you feel 10 is not enough questions and you need more practice, then you can also check out this list of 30 array questions.
+
+2. Linked List Programming Interview Questions
+A linked list is another common data structure that complements the array data structure. Similar to the array, it is also a linear data structure and
+stores elements in a linear fashion.
+
+However, unlike the array, it doesn’t store them in contiguous locations; instead, they are scattered everywhere in memory, which is connected to each other using nodes.
+
+A linked list is nothing but a list of nodes where each node contains the value stored and the address of the next node.
+
+Because of this structure, it’s easy to add and remove elements in a linked list, as you just need to change the link instead of creating the array, but the search is difficult and often requires O(n) time to find an element in the singly linked list.
+
+This article provides more information on the difference between an array and linked list data structures.
+
+It also comes in varieties like a singly linked list, which allows you to traverse in one direction (forward or reverse); a doubly linked list,
+which allows you to traverse in both directions (forward and backward);
+and finally, the circular linked list, which forms a circle.
+
+In order to solve linked list-based questions, a good knowledge of recursion is important, because a linked list is a recursive data structure.
+
+If you take one node from a linked list, the remaining data structure is
+still a linked list, and because of that, many linked list problems have
+simpler recursive solutions than iterative ones.
+
+Here are some of the most common and popular linked list interview questions and their solutions:
+
+How do you find the middle element of a singly linked list in one pass? (solution)
+How do you check if a given linked list contains a cycle? How do you find the starting node of the cycle? (solution)
+How do you reverse a linked list? (solution)
+How do you reverse a singly linked list without recursion? (solution)
+How are duplicate nodes removed in an unsorted linked list? (solution)
+How do you find the length of a singly linked list? (solution)
+How do you find the third node from the end in a singly linked list? (solution)
+How do you find the sum of two linked lists using Stack? (solution)
+These questions will help you to develop your problem-solving skills as well
+as improve your knowledge of the linked list data structure.
+
+If you are having trouble solving these linked list coding questions then I
+suggest you refresh your data structure and algorithms skill by going
+through Data Structures and Algorithms: Deep Dive Using Java course.
+
+You can also check out this list of 30 linked list interview questions for more practice questions.
+
+3. String Coding Interview Questions
+Along with array and linked list data structures, a string is another popular
+topic on programming job interviews. I have never participated in a
+coding interview where no string-based questions were asked.
+
+A good thing about the string is that if you know the array, you can solve string-based questions easily because strings are nothing but a character array.
+
+So all the techniques you learn by solving array-based coding questions
+can be used to solve string programming questions as well.
+
+Here is my list of frequently asked string coding questions from programming job interviews:
+
+How do you print duplicate characters from a string? (solution)
+How do you check if two strings are anagrams of each other? (solution)
+How do you print the first non-repeated character from a string? (solution)
+How can a given string be reversed using recursion? (solution)
+How do you check if a string contains only digits? (solution)
+How are duplicate characters found in a string? (solution)
+How do you count a number of vowels and consonants in a given string? (solution)
+How do you count the occurrence of a given character in a string? (solution)
+How do you find all permutations of a string? (solution)
+How do you reverse words in a given sentence without using any library method? (solution)
+How do you check if two strings are a rotation of each other? (solution)
+How do you check if a given string is a palindrome? (solution)
+
+Here are solutions to the string manipulation problems you’ve mentioned:
+
+### 1. **Print Duplicate Characters from a String**
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class PrintDuplicateCharacters {
+    public static void main(String[] args) {
+        String str = "programming";
+        Map<Character, Integer> charCountMap = new HashMap<>();
+        
+        for (char c : str.toCharArray()) {
+            charCountMap.put(c, charCountMap.getOrDefault(c, 0) + 1);
+        }
+        
+        System.out.println("Duplicate characters:");
+        for (Map.Entry<Character, Integer> entry : charCountMap.entrySet()) {
+            if (entry.getValue() > 1) {
+                System.out.println(entry.getKey() + " : " + entry.getValue());
+            }
+        }
+    }
+}
+```
+
+### 2. **Check if Two Strings Are Anagrams of Each Other**
+
+```java
+import java.util.Arrays;
+
+public class CheckAnagrams {
+    public static void main(String[] args) {
+        String str1 = "listen";
+        String str2 = "silent";
+        
+        if (str1.length() != str2.length()) {
+            System.out.println("Not Anagrams");
+            return;
+        }
+        
+        char[] arr1 = str1.toCharArray();
+        char[] arr2 = str2.toCharArray();
+        
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        
+        if (Arrays.equals(arr1, arr2)) {
+            System.out.println("Anagrams");
+        } else {
+            System.out.println("Not Anagrams");
+        }
+    }
+}
+```
+
+### 3. **Print the First Non-Repeated Character from a String**
+
+```java
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class FirstNonRepeatedCharacter {
+    public static void main(String[] args) {
+        String str = "swiss";
+        Map<Character, Integer> charCountMap = new LinkedHashMap<>();
+        
+        for (char c : str.toCharArray()) {
+            charCountMap.put(c, charCountMap.getOrDefault(c, 0) + 1);
+        }
+        
+        for (Map.Entry<Character, Integer> entry : charCountMap.entrySet()) {
+            if (entry.getValue() == 1) {
+                System.out.println("First non-repeated character: " + entry.getKey());
+                break;
+            }
+        }
+    }
+}
+```
+
+### 4. **Reverse a Given String Using Recursion**
+
+```java
+public class ReverseStringRecursion {
+    public static void main(String[] args) {
+        String str = "hello";
+        String reversed = reverse(str);
+        System.out.println(reversed);
+    }
+    
+    public static String reverse(String str) {
+        if (str.isEmpty()) {
+            return str;
+        }
+        return reverse(str.substring(1)) + str.charAt(0);
+    }
+}
+```
+
+### 5. **Check if a String Contains Only Digits**
+
+```java
+public class CheckDigitsOnly {
+    public static void main(String[] args) {
+        String str = "12345";
+        boolean isDigits = str.chars().allMatch(Character::isDigit);
+        System.out.println("Contains only digits: " + isDigits);
+    }
+}
+```
+
+### 6. **Find Duplicate Characters in a String**
+
+```java
+import java.util.HashSet;
+import java.util.Set;
+
+public class FindDuplicateCharacters {
+    public static void main(String[] args) {
+        String str = "programming";
+        Set<Character> seen = new HashSet<>();
+        Set<Character> duplicates = new HashSet<>();
+        
+        for (char c : str.toCharArray()) {
+            if (seen.contains(c)) {
+                duplicates.add(c);
+            } else {
+                seen.add(c);
+            }
+        }
+        
+        System.out.println("Duplicate characters: " + duplicates);
+    }
+}
+```
+
+### 7. **Count Number of Vowels and Consonants in a Given String**
+
+```java
+public class CountVowelsAndConsonants {
+    public static void main(String[] args) {
+        String str = "hello world";
+        int vowels = 0;
+        int consonants = 0;
+        
+        for (char c : str.toLowerCase().toCharArray()) {
+            if (Character.isLetter(c)) {
+                if ("aeiou".indexOf(c) != -1) {
+                    vowels++;
+                } else {
+                    consonants++;
+                }
+            }
+        }
+        
+        System.out.println("Vowels: " + vowels);
+        System.out.println("Consonants: " + consonants);
+    }
+}
+```
+
+### 8. **Count the Occurrence of a Given Character in a String**
+
+```java
+public class CountCharacterOccurrence {
+    public static void main(String[] args) {
+        String str = "hello world";
+        char charToCount = 'o';
+        long count = str.chars().filter(c -> c == charToCount).count();
+        System.out.println("Occurrences of '" + charToCount + "': " + count);
+    }
+}
+```
+
+### 9. **Find All Permutations of a String**
+
+```java
+import java.util.HashSet;
+import java.util.Set;
+
+public class FindPermutations {
+    public static void main(String[] args) {
+        String str = "abc";
+        Set<String> permutations = new HashSet<>();
+        permute(str, 0, str.length() - 1, permutations);
+        System.out.println(permutations);
+    }
+    
+    public static void permute(String str, int l, int r, Set<String> permutations) {
+        if (l == r) {
+            permutations.add(str);
+        } else {
+            for (int i = l; i <= r; i++) {
+                str = swap(str, l, i);
+                permute(str, l + 1, r, permutations);
+                str = swap(str, l, i); // backtrack
+            }
+        }
+    }
+    
+    public static String swap(String str, int i, int j) {
+        char[] arr = str.toCharArray();
+        char temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        return new String(arr);
+    }
+}
+```
+
+### 10. **Reverse Words in a Given Sentence Without Using Any Library Method**
+
+```java
+public class ReverseWordsInSentence {
+    public static void main(String[] args) {
+        String sentence = "Hello World";
+        String[] words = sentence.split(" ");
+        StringBuilder reversedSentence = new StringBuilder();
+        
+        for (int i = words.length - 1; i >= 0; i--) {
+            reversedSentence.append(words[i]);
+            if (i != 0) {
+                reversedSentence.append(" ");
+            }
+        }
+        
+        System.out.println(reversedSentence.toString());
+    }
+}
+```
+
+### 11. **Check if Two Strings Are Rotations of Each Other**
+
+```java
+public class CheckRotations {
+    public static void main(String[] args) {
+        String str1 = "waterbottle";
+        String str2 = "erbottlewat";
+        
+        if (str1.length() != str2.length()) {
+            System.out.println("Not rotations");
+            return;
+        }
+        
+        String combined = str1 + str1;
+        if (combined.contains(str2)) {
+            System.out.println("Rotations");
+        } else {
+            System.out.println("Not rotations");
+        }
+    }
+}
+```
+
+### 12. **Check if a Given String is a Palindrome**
+
+```java
+public class CheckPalindrome {
+    public static void main(String[] args) {
+        String str = "racecar";
+        String reversed = new StringBuilder(str).reverse().toString();
+        
+        if (str.equals(reversed)) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not a palindrome");
+        }
+    }
+}
+```
+
+These solutions provide a variety of techniques to handle common string manipulation tasks in Java.
+
+These questions help improve your knowledge of string as a data structure. If you can solve all these String questions without any help then you are in good shape.
+
+For more advanced questions, I suggest you solve problems given in the Algorithm Design Manual by Steven Skiena, a book with the toughest algorithm questions.
+
+If you need more practice, here is another list of 20 string coding questions.
+
+4. Binary Tree Coding Interview Questions
+So far, we have looked at only the linear data structure, but all
+information in the real world cannot be represented in linear fashion,
+and that’s where tree data structure helps.
+
+Tree data structure is a data structure that allows you to store your data in a hierarchical fashion. Depending on how you store data, there are different types of trees, such as a binary tree, where each node has, at most, two child nodes.a
+
+Along with its close cousin binary search tree, it’s also one of the most popular tree data structures. Therefore, you will find a lot of questions based on them, such as how to traverse them, count nodes, find depth, and check if they are balanced or not.
+
+A key point to solving binary tree questions is a strong knowledge of theory, e.g. what is the size or depth of the binary tree, what is a leaf, and
+what is a node, as well as an understanding of the popular traversing
+algorithms, e.g. pre-, post-, and in-order traversal.
+
+Here is a list of popular binary tree-based coding questions from software engineer or developer job interviews:
+
+How is a binary search tree implemented? (solution)
+How do you perform preorder traversal in a given binary tree? (solution)
+How do you traverse a given binary tree in preorder without recursion? (solution)
+How do you perform an inorder traversal in a given binary tree? (solution)
+How do you print all nodes of a given binary tree using inorder traversal without recursion? (solution)
+How do you implement a postorder traversal algorithm? (solution)
+How do you traverse a binary tree in postorder traversal without recursion? (solution)
+How are all leaves of a binary search tree printed? (solution)
+How do you count a number of leaf nodes in a given binary tree? (solution)
+How do you perform a binary search in a given array? (solution)
+
+Here are detailed implementations and explanations for various tree traversal methods and operations:
+
+### 1. **Binary Search Tree (BST) Implementation**
+
+In Java, a Binary Search Tree (BST) can be implemented using a class for nodes and a class for the BST itself. 
+
+```java
+class TreeNode {
+    int value;
+    TreeNode left, right;
+    
+    TreeNode(int item) {
+        value = item;
+        left = right = null;
+    }
+}
+
+class BinarySearchTree {
+    TreeNode root;
+    
+    // Insert a new value into the BST
+    void insert(int value) {
+        root = insertRec(root, value);
+    }
+    
+    TreeNode insertRec(TreeNode root, int value) {
+        if (root == null) {
+            root = new TreeNode(value);
+            return root;
+        }
+        
+        if (value < root.value) {
+            root.left = insertRec(root.left, value);
+        } else if (value > root.value) {
+            root.right = insertRec(root.right, value);
+        }
+        
+        return root;
+    }
+    
+    // Inorder traversal
+    void inorder() {
+        inorderRec(root);
+    }
+    
+    void inorderRec(TreeNode root) {
+        if (root != null) {
+            inorderRec(root.left);
+            System.out.print(root.value + " ");
+            inorderRec(root.right);
+        }
+    }
+}
+```
+
+### 2. **Preorder Traversal of a Binary Tree**
+
+#### Recursive Preorder Traversal
+
+```java
+class BinaryTree {
+    TreeNode root;
+    
+    void preorder() {
+        preorderRec(root);
+    }
+    
+    void preorderRec(TreeNode node) {
+        if (node != null) {
+            System.out.print(node.value + " ");
+            preorderRec(node.left);
+            preorderRec(node.right);
+        }
+    }
+}
+```
+
+#### Iterative Preorder Traversal
+
+```java
+import java.util.Stack;
+
+class BinaryTreeIterativePreorder {
+    TreeNode root;
+    
+    void preorder() {
+        if (root == null) return;
+        
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            System.out.print(node.value + " ");
+            
+            if (node.right != null) stack.push(node.right);
+            if (node.left != null) stack.push(node.left);
+        }
+    }
+}
+```
+
+### 3. **Inorder Traversal of a Binary Tree**
+
+#### Recursive Inorder Traversal
+
+```java
+class BinaryTreeInorder {
+    TreeNode root;
+    
+    void inorder() {
+        inorderRec(root);
+    }
+    
+    void inorderRec(TreeNode node) {
+        if (node != null) {
+            inorderRec(node.left);
+            System.out.print(node.value + " ");
+            inorderRec(node.right);
+        }
+    }
+}
+```
+
+#### Iterative Inorder Traversal
+
+```java
+import java.util.Stack;
+
+class BinaryTreeIterativeInorder {
+    TreeNode root;
+    
+    void inorder() {
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode current = root;
+        
+        while (current != null || !stack.isEmpty()) {
+            while (current != null) {
+                stack.push(current);
+                current = current.left;
+            }
+            
+            current = stack.pop();
+            System.out.print(current.value + " ");
+            current = current.right;
+        }
+    }
+}
+```
+
+### 4. **Postorder Traversal of a Binary Tree**
+
+#### Recursive Postorder Traversal
+
+```java
+class BinaryTreePostorder {
+    TreeNode root;
+    
+    void postorder() {
+        postorderRec(root);
+    }
+    
+    void postorderRec(TreeNode node) {
+        if (node != null) {
+            postorderRec(node.left);
+            postorderRec(node.right);
+            System.out.print(node.value + " ");
+        }
+    }
+}
+```
+
+#### Iterative Postorder Traversal
+
+```java
+import java.util.Stack;
+
+class BinaryTreeIterativePostorder {
+    TreeNode root;
+    
+    void postorder() {
+        if (root == null) return;
+        
+        Stack<TreeNode> stack1 = new Stack<>();
+        Stack<TreeNode> stack2 = new Stack<>();
+        stack1.push(root);
+        
+        while (!stack1.isEmpty()) {
+            TreeNode node = stack1.pop();
+            stack2.push(node);
+            
+            if (node.left != null) stack1.push(node.left);
+            if (node.right != null) stack1.push(node.right);
+        }
+        
+        while (!stack2.isEmpty()) {
+            System.out.print(stack2.pop().value + " ");
+        }
+    }
+}
+```
+
+### 5. **Print All Leaves of a Binary Search Tree**
+
+```java
+class PrintLeaves {
+    TreeNode root;
+    
+    void printLeaves() {
+        printLeavesRec(root);
+    }
+    
+    void printLeavesRec(TreeNode node) {
+        if (node != null) {
+            if (node.left == null && node.right == null) {
+                System.out.print(node.value + " ");
+            }
+            printLeavesRec(node.left);
+            printLeavesRec(node.right);
+        }
+    }
+}
+```
+
+### 6. **Count Number of Leaf Nodes in a Binary Tree**
+
+```java
+class CountLeaves {
+    TreeNode root;
+    
+    int countLeaves() {
+        return countLeavesRec(root);
+    }
+    
+    int countLeavesRec(TreeNode node) {
+        if (node == null) return 0;
+        if (node.left == null && node.right == null) return 1;
+        
+        return countLeavesRec(node.left) + countLeavesRec(node.right);
+    }
+}
+```
+
+### 7. **Binary Search in a Given Array**
+
+```java
+public class BinarySearch {
+    public static void main(String[] args) {
+        int[] arr = {2, 3, 4, 10, 40};
+        int target = 10;
+        int result = binarySearch(arr, 0, arr.length - 1, target);
+        
+        if (result == -1) {
+            System.out.println("Element not present in array");
+        } else {
+            System.out.println("Element found at index: " + result);
+        }
+    }
+    
+    static int binarySearch(int[] arr, int left, int right, int target) {
+        if (right >= left) {
+            int mid = left + (right - left) / 2;
+            
+            if (arr[mid] == target) return mid;
+            if (arr[mid] > target) return binarySearch(arr, left, mid - 1, target);
+            
+            return binarySearch(arr, mid + 1, right, target);
+        }
+        
+        return -1;
+    }
+}
+```
+
+These solutions provide implementations for various common tree and array operations, showcasing both recursive and iterative approaches where applicable.
+
+If you feel that your understanding of binary tree coding is inadequate
+and you can’t solve these questions on your own, I suggest you go back
+and pick a good data structure and algorithm course like From 0 to 1: Data Structures & Algorithms in Java.
+
+If you need some more recommendations, here is my list of useful data structure algorithm books and courses to start with.
+
+5. Miscellaneous Coding Interview Questions
+Apart from data structure-based questions, most of the programming job
+interviews also ask algorithm, design, bit manipulation, and general
+logic-based questions, which I’ll describe in this section.
+
+It’s important that you practice these concepts because sometimes they
+become tricky to solve in the actual interview. Having practiced them
+before not only makes you familiar with them but also gives you more
+confidence in explaining the solution to the interviewer.
+
+How is a bubble sort algorithm implemented? (solution)
+How is an iterative quicksort algorithm implemented? (solution)
+How do you implement an insertion sort algorithm? (solution)
+How is a merge sort algorithm implemented? (solution)
+How do you implement a bucket sort algorithm? (solution)
+How do you implement a counting sort algorithm? (solution)
+How is a radix sort algorithm implemented? (solution)
+How do you swap two numbers without using the third variable? (solution)
+How do you check if two rectangles overlap with each other? (solution)
+How do you design a vending machine? (solution)
+
+Here are detailed implementations and explanations for various sorting algorithms, number swapping, rectangle overlap checks, and designing a vending machine:
+
+### 1. **Bubble Sort Algorithm**
+
+Bubble Sort repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted.
+
+```java
+public class BubbleSort {
+    public static void main(String[] args) {
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+        bubbleSort(arr);
+        System.out.println("Sorted array:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+    
+    static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // swap arr[j] and arr[j + 1]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+}
+```
+
+### 2. **Iterative Quicksort Algorithm**
+
+Quicksort is a divide-and-conquer algorithm that sorts by partitioning an array into smaller sub-arrays.
+
+```java
+import java.util.Stack;
+
+public class IterativeQuickSort {
+    public static void main(String[] args) {
+        int[] arr = {10, 7, 8, 9, 1, 5};
+        iterativeQuickSort(arr, 0, arr.length - 1);
+        System.out.println("Sorted array:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+    
+    static void iterativeQuickSort(int[] arr, int left, int right) {
+        Stack<int[]> stack = new Stack<>();
+        stack.push(new int[]{left, right});
+        
+        while (!stack.isEmpty()) {
+            int[] range = stack.pop();
+            int l = range[0];
+            int r = range[1];
+            
+            if (l < r) {
+                int p = partition(arr, l, r);
+                
+                stack.push(new int[]{l, p - 1});
+                stack.push(new int[]{p + 1, r});
+            }
+        }
+    }
+    
+    static int partition(int[] arr, int left, int right) {
+        int pivot = arr[right];
+        int i = left - 1;
+        
+        for (int j = left; j < right; j++) {
+            if (arr[j] <= pivot) {
+                i++;
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[right];
+        arr[right] = temp;
+        
+        return i + 1;
+    }
+}
+```
+
+### 3. **Insertion Sort Algorithm**
+
+Insertion Sort builds the final sorted array one item at a time, with each new item being inserted into its proper place.
+
+```java
+public class InsertionSort {
+    public static void main(String[] args) {
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+        insertionSort(arr);
+        System.out.println("Sorted array:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+    
+    static void insertionSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 1; i < n; i++) {
+            int key = arr[i];
+            int j = i - 1;
+            
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = key;
+        }
+    }
+}
+```
+
+### 4. **Merge Sort Algorithm**
+
+Merge Sort is a divide-and-conquer algorithm that divides the array into halves, sorts them, and then merges them.
+
+```java
+public class MergeSort {
+    public static void main(String[] args) {
+        int[] arr = {12, 11, 13, 5, 6, 7};
+        mergeSort(arr, 0, arr.length - 1);
+        System.out.println("Sorted array:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+    
+    static void mergeSort(int[] arr, int left, int right) {
+        if (left < right) {
+            int mid = (left + right) / 2;
+            
+            mergeSort(arr, left, mid);
+            mergeSort(arr, mid + 1, right);
+            merge(arr, left, mid, right);
+        }
+    }
+    
+    static void merge(int[] arr, int left, int mid, int right) {
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+        
+        int[] L = new int[n1];
+        int[] R = new int[n2];
+        
+        System.arraycopy(arr, left, L, 0, n1);
+        System.arraycopy(arr, mid + 1, R, 0, n2);
+        
+        int i = 0, j = 0;
+        int k = left;
+        
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                arr[k++] = L[i++];
+            } else {
+                arr[k++] = R[j++];
+            }
+        }
+        
+        while (i < n1) {
+            arr[k++] = L[i++];
+        }
+        
+        while (j < n2) {
+            arr[k++] = R[j++];
+        }
+    }
+}
+```
+
+### 5. **Bucket Sort Algorithm**
+
+Bucket Sort distributes the elements into a number of buckets, then sorts these buckets individually.
+
+```java
+import java.util.Arrays;
+
+public class BucketSort {
+    public static void main(String[] args) {
+        int[] arr = {0.897, 0.565, 0.656, 0.123, 0.665, 0.343};
+        bucketSort(arr);
+        System.out.println("Sorted array:");
+        for (double num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+    
+    static void bucketSort(double[] arr) {
+        int n = arr.length;
+        if (n <= 0) return;
+        
+        // Create buckets
+        @SuppressWarnings("unchecked")
+        double[][] buckets = new double[n][0];
+        
+        // Put array elements in different buckets
+        for (double num : arr) {
+            int index = (int) (num * n);
+            buckets[index] = Arrays.copyOf(buckets[index], buckets[index].length + 1);
+            buckets[index][buckets[index].length - 1] = num;
+        }
+        
+        // Sort each bucket and put back to array
+        int pos = 0;
+        for (double[] bucket : buckets) {
+            Arrays.sort(bucket);
+            for (double num : bucket) {
+                arr[pos++] = num;
+            }
+        }
+    }
+}
+```
+
+### 6. **Counting Sort Algorithm**
+
+Counting Sort counts the occurrences of each distinct element and uses this count to place elements in the sorted order.
+
+```java
+public class CountingSort {
+    public static void main(String[] args) {
+        int[] arr = {4, 2, 2, 8, 3, 3, 1};
+        countingSort(arr);
+        System.out.println("Sorted array:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+    
+    static void countingSort(int[] arr) {
+        int max = Arrays.stream(arr).max().getAsInt();
+        int[] count = new int[max + 1];
+        
+        for (int num : arr) {
+            count[num]++;
+        }
+        
+        int index = 0;
+        for (int i = 0; i < count.length; i++) {
+            while (count[i] > 0) {
+                arr[index++] = i;
+                count[i]--;
+            }
+        }
+    }
+}
+```
+
+### 7. **Radix Sort Algorithm**
+
+Radix Sort processes each digit of the number. It is a non-comparative integer sorting algorithm.
+
+```java
+import java.util.Arrays;
+
+public class RadixSort {
+    public static void main(String[] args) {
+        int[] arr = {170, 45, 75, 90, 802, 24, 2, 66};
+        radixSort(arr);
+        System.out.println("Sorted array:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+    
+    static void radixSort(int[] arr) {
+        int max = Arrays.stream(arr).max().getAsInt();
+        int exp = 1;
+        
+        while (max / exp > 0) {
+            countingSortForRadix(arr, exp);
+            exp *= 10;
+        }
+    }
+    
+    static void countingSortForRadix(int[] arr, int exp) {
+        int n = arr.length;
+        int[] output = new int[n];
+        int[] count = new int[10];
+        
+        Arrays.fill(count, 0);
+        
+        for (int i = 0; i < n; i++) {
+            count[(arr[i] / exp) % 10]++;
+        }
+        
+        for (
+
+int i = 1; i < 10; i++) {
+            count[i] += count[i - 1];
+        }
+        
+        for (int i = n - 1; i >= 0; i--) {
+            output[count[(arr[i] / exp) % 10] - 1] = arr[i];
+            count[(arr[i] / exp) % 10]--;
+        }
+        
+        System.arraycopy(output, 0, arr, 0, n);
+    }
+}
+```
+
+### 8. **Swapping Two Numbers Without Using a Third Variable**
+
+```java
+public class SwapNumbers {
+    public static void main(String[] args) {
+        int a = 10, b = 20;
+        
+        // Swapping using arithmetic operations
+        a = a + b;
+        b = a - b;
+        a = a - b;
+        
+        System.out.println("After swapping: a = " + a + ", b = " + b);
+    }
+}
+```
+
+### 9. **Check if Two Rectangles Overlap**
+
+To check if two rectangles overlap, use their coordinates and dimensions.
+
+```java
+public class RectangleOverlap {
+    public static void main(String[] args) {
+        int[] rect1 = {0, 0, 10, 10}; // x1, y1, x2, y2
+        int[] rect2 = {5, 5, 15, 15};
+        
+        boolean result = doRectanglesOverlap(rect1, rect2);
+        System.out.println("Do the rectangles overlap? " + result);
+    }
+    
+    static boolean doRectanglesOverlap(int[] rect1, int[] rect2) {
+        // Check if one rectangle is to the left of the other
+        if (rect1[0] >= rect2[2] || rect2[0] >= rect1[2]) return false;
+        
+        // Check if one rectangle is above the other
+        if (rect1[1] >= rect2[3] || rect2[1] >= rect1[3]) return false;
+        
+        return true;
+    }
+}
+```
+
+### 10. **Design a Vending Machine**
+
+A basic vending machine can be implemented by simulating a real-world machine with items, prices, and methods to handle user interactions.
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class VendingMachine {
+    private Map<String, Integer> items;
+    private int balance;
+    
+    public VendingMachine() {
+        items = new HashMap<>();
+        items.put("Soda", 120);
+        items.put("Chips", 50);
+        items.put("Candy", 75);
+        balance = 0;
+    }
+    
+    public void insertMoney(int amount) {
+        balance += amount;
+        System.out.println("Balance: " + balance);
+    }
+    
+    public void selectItem(String item) {
+        if (!items.containsKey(item)) {
+            System.out.println("Item not available.");
+            return;
+        }
+        
+        int price = items.get(item);
+        if (balance < price) {
+            System.out.println("Insufficient balance.");
+            return;
+        }
+        
+        balance -= price;
+        System.out.println("Dispensing " + item);
+        System.out.println("Remaining balance: " + balance);
+    }
+    
+    public static void main(String[] args) {
+        VendingMachine machine = new VendingMachine();
+        Scanner scanner = new Scanner(System.in);
+        
+        while (true) {
+            System.out.println("1. Insert Money");
+            System.out.println("2. Select Item");
+            System.out.println("3. Exit");
+            int choice = scanner.nextInt();
+            
+            switch (choice) {
+                case 1:
+                    System.out.println("Enter amount:");
+                    int amount = scanner.nextInt();
+                    machine.insertMoney(amount);
+                    break;
+                case 2:
+                    System.out.println("Enter item name:");
+                    String item = scanner.next();
+                    machine.selectItem(item);
+                    break;
+                case 3:
+                    System.out.println("Exiting...");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Invalid choice.");
+            }
+        }
+    }
+}
+```
+
+This solution provides the basic implementation and example usage for various sorting algorithms, number swapping, rectangle overlap checks, and a simple vending machine design in Java.
