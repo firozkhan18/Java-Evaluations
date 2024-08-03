@@ -1,3 +1,47 @@
+<style>
+  /* Style the summary element (the button) */
+  details summary {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight: bold;
+    outline: none;
+  }
+
+  /* Style the summary element when it's open */
+  details[open] summary {
+    background-color: #e0e0e0;
+  }
+
+  /* Add a custom icon for the summary */
+  details summary::before {
+    content: "👉"; /* Default icon for collapsed state */
+    margin-right: 10px;
+  }
+
+  /* Change the icon when the details are open */
+  details[open] summary::before {
+    content: "👇"; /* Icon for expanded state */
+  }
+
+  /* Style the content inside details */
+  details div {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+  }
+</style>
+
+<details>
+  <summary>Another Section Expand</summary>
+  <div>
+    **Another Expanded Content 👇**
+    <p>More details are available in this section. Clicking the summary will reveal the content below.</p>
+  </div>
+</details>
+
+
 # Table of Contents
 
 <details>
