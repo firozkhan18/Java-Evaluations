@@ -88,9 +88,9 @@
 - [Date](#date)
 
 <details>
-<summary><b>4. Java 8 primitive Streams Examples</b></summary>
+<summary><b>4. Java 8 Primitive Streams Examples</b></summary>
   
-## primitive Streams Examples
+## Primitive Streams Examples
 
 Java 8 introduced specialized streams for handling primitive data types (`int`, `long`, `double`) more efficiently than using the generic `Stream<T>`. These specialized streams are `IntStream`, `LongStream`, and `DoubleStream`. Each provides methods tailored to their respective primitive types.
 
@@ -241,718 +241,126 @@ These examples cover a range of operations for primitive streams, demonstrating 
 
 </details>
 <details>
-<summary><b>4. Java 8 primitive Streams Examples</b></summary>
-  
-Here are some common Java Streams interview questions, along with detailed solutions:
-
-### 1. **Find the First N Elements in a Stream**
-
-**Question:**
-Given a list of integers, find the first 5 even numbers using Java Streams.
-
-**Solution:**
-
-```java
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
-public class FirstNElements {
-    public static void main(String[] args) {
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-
-        List<Integer> firstNEvenNumbers = numbers.stream()
-            .filter(n -> n % 2 == 0)   // Filter even numbers
-            .limit(5)                  // Limit to first 5
-            .collect(Collectors.toList()); // Collect to list
-
-        System.out.println(firstNEvenNumbers);
-    }
-}
-```
-
-**Explanation:**
-- `filter(n -> n % 2 == 0)`: Filters the even numbers.
-- `limit(5)`: Limits the result to the first 5 elements.
-- `collect(Collectors.toList())`: Collects the results into a `List`.
-
-### 2. **Group Elements by Property**
-
-**Question:**
-Given a list of employees with their names and departments, group them by their department.
-
-**Solution:**
-
-```java
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-public class GroupByDepartment {
-    static class Employee {
-        String name;
-        String department;
-
-        Employee(String name, String department) {
-            this.name = name;
-            this.department = department;
-        }
-
-        public String getDepartment() {
-            return department;
-        }
-
-        public String getName() {
-            return name;
-        }
-    }
-
-    public static void main(String[] args) {
-        List<Employee> employees = Arrays.asList(
-            new Employee("Alice", "HR"),
-            new Employee("Bob", "IT"),
-            new Employee("Charlie", "IT"),
-            new Employee("David", "HR"),
-            new Employee("Eve", "Finance")
-        );
-
-        Map<String, List<Employee>> employeesByDepartment = employees.stream()
-            .collect(Collectors.groupingBy(Employee::getDepartment));
-
-        employeesByDepartment.forEach((department, empList) -> {
-            System.out.println(department + ": " + empList.stream()
-                .map(Employee::getName)
-                .collect(Collectors.joining(", ")));
-        });
-    }
-}
-```
-
-**Explanation:**
-- `collect(Collectors.groupingBy(Employee::getDepartment))`: Groups employees by department.
-- `forEach` loop prints department-wise employee names.
-
-### 3. **Find the Sum of Squares of Even Numbers**
-
-**Question:**
-Given a list of integers, compute the sum of the squares of all even numbers.
-
-**Solution:**
-
-```java
-import java.util.Arrays;
-import java.util.List;
-
-public class SumOfSquares {
-    public static void main(String[] args) {
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-
-        int sumOfSquares = numbers.stream()
-            .filter(n -> n % 2 == 0) // Filter even numbers
-            .map(n -> n * n)         // Square each number
-            .reduce(0, Integer::sum); // Sum the results
-
-        System.out.println("Sum of squares of even numbers: " + sumOfSquares);
-    }
-}
-```
-
-**Explanation:**
-- `filter(n -> n % 2 == 0)`: Filters even numbers.
-- `map(n -> n * n)`: Squares each number.
-- `reduce(0, Integer::sum)`: Reduces the stream to the sum of the squares.
-
-### 4. **Check If All Elements Satisfy a Condition**
-
-**Question:**
-Given a list of strings, check if all strings have a length greater than 3.
-
-**Solution:**
-
-```java
-import java.util.Arrays;
-import java.util.List;
-
-public class CheckAllElements {
-    public static void main(String[] args) {
-        List<String> strings = Arrays.asList("Java", "Streams", "Example", "Code");
-
-        boolean allLongerThanThree = strings.stream()
-            .allMatch(s -> s.length() > 3);
-
-        System.out.println("All strings have length greater than 3: " + allLongerThanThree);
-    }
-}
-```
-
-**Explanation:**
-- `allMatch(s -> s.length() > 3)`: Checks if all strings have a length greater than 3.
-
-### 5. **Find the Most Frequent Element**
-
-**Question:**
-Given a list of integers, find the most frequent element.
-
-**Solution:**
-
-```java
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-
-public class MostFrequentElement {
-    public static void main(String[] args) {
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 2, 4, 2, 5, 3, 3);
-
-        Integer mostFrequent = numbers.stream()
-            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting())) // Count occurrences
-            .entrySet().stream() // Convert to stream of entries
-            .max(Map.Entry.comparingByValue()) // Find entry with max count
-            .map(Map.Entry::getKey) // Get the key (element)
-            .orElse(null); // Handle empty case
-
-        System.out.println("Most frequent element: " + mostFrequent);
-    }
-}
-```
-
-**Explanation:**
-- `collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))`: Groups by elements and counts occurrences.
-- `max(Map.Entry.comparingByValue())`: Finds the entry with the highest count.
-- `map(Map.Entry::getKey)`: Extracts the element.
-
-### 6. **Find the Longest String**
-
-**Question:**
-Given a list of strings, find the longest string.
-
-**Solution:**
-
-```java
-import java.util.Arrays;
-import java.util.List;
-
-public class LongestString {
-    public static void main(String[] args) {
-        List<String> strings = Arrays.asList("Java", "Streams", "Example", "Code");
-
-        String longest = strings.stream()
-            .max((s1, s2) -> Integer.compare(s1.length(), s2.length())) // Compare by length
-            .orElse("No elements"); // Handle empty case
-
-        System.out.println("Longest string: " + longest);
-    }
-}
-```
-
-**Explanation:**
-- `max((s1, s2) -> Integer.compare(s1.length(), s2.length()))`: Finds the string with the maximum length.
-- `orElse("No elements")`: Handles the case where the list is empty.
-
-### 7. **Flatten a List of Lists**
-
-**Question:**
-Given a list of lists of integers, flatten it into a single list of integers.
-
-**Solution:**
-
-```java
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
-public class FlattenList {
-    public static void main(String[] args) {
-        List<List<Integer>> listOfLists = Arrays.asList(
-            Arrays.asList(1, 2, 3),
-            Arrays.asList(4, 5),
-            Arrays.asList(6, 7, 8)
-        );
-
-        List<Integer> flattenedList = listOfLists.stream()
-            .flatMap(List::stream) // Flatten the lists
-            .collect(Collectors.toList()); // Collect into a single list
-
-        System.out.println("Flattened list: " + flattenedList);
-    }
-}
-```
-
-**Explanation:**
-- `flatMap(List::stream)`: Flattens the lists into a single stream.
-- `collect(Collectors.toList())`: Collects the elements into a single list.
-
-These examples cover a range of common operations and challenges you might encounter with Java Streams, demonstrating how to leverage the API effectively for various tasks.
-</details>
-<details>
 <summary><b>4. Java 8 Strings Coding Interview Questions</b></summary>
+  
+In Java, you can use the `summaryStatistics()` method to gather summary statistics such as average, count, maximum, minimum, and sum for a stream of primitive types. This method is available on `IntStream`, `LongStream`, and `DoubleStream` and returns instances of `IntSummaryStatistics`, `LongSummaryStatistics`, and `DoubleSummaryStatistics`, respectively. Below are examples demonstrating how to use these classes and their methods.
 
-String manipulation is a common topic in Java coding interviews. Below are several string-related coding interview questions you might encounter, along with detailed solutions using Java 8 features.
+### 1. **IntSummaryStatistics Example**
 
-### 1. **Reverse a String**
+**Description:**
+Gather summary statistics for a stream of integers.
 
-**Question:**
-Reverse a given string using Java 8 Streams.
-
-**Solution:**
-
-```java
-import java.util.stream.Collectors;
-
-public class ReverseString {
-    public static void main(String[] args) {
-        String input = "JavaStreams";
-
-        String reversed = input.chars()                              // Create an IntStream of characters
-                                .mapToObj(c -> (char) c)          // Convert int to Character
-                                .collect(Collectors.toCollection(StringBuilder::new)) // Collect into a StringBuilder
-                                .reverse()                        // Reverse the StringBuilder
-                                .toString();                      // Convert to String
-
-        System.out.println("Reversed string: " + reversed);
-    }
-}
-```
-
-**Explanation:**
-- `input.chars()`: Creates an `IntStream` of character codes.
-- `mapToObj(c -> (char) c)`: Converts `int` values to `Character` objects.
-- `collect(Collectors.toCollection(StringBuilder::new))`: Collects characters into a `StringBuilder`.
-- `reverse()`: Reverses the `StringBuilder`.
-- `toString()`: Converts the `StringBuilder` to a `String`.
-
-### 2. **Check if Two Strings Are Anagrams**
-
-**Question:**
-Check if two given strings are anagrams of each other.
-
-**Solution:**
+**Example:**
 
 ```java
-import java.util.Arrays;
-
-public class AnagramCheck {
-    public static void main(String[] args) {
-        String str1 = "listen";
-        String str2 = "silent";
-
-        boolean isAnagram = Arrays.equals(
-            str1.chars().sorted().toArray(), // Sort and convert to int[]
-            str2.chars().sorted().toArray()  // Sort and convert to int[]
-        );
-
-        System.out.println("Are the strings anagrams? " + isAnagram);
-    }
-}
-```
-
-**Explanation:**
-- `str1.chars().sorted().toArray()`: Sorts characters of the first string and converts to an array.
-- `str2.chars().sorted().toArray()`: Does the same for the second string.
-- `Arrays.equals()`: Compares the sorted arrays.
-
-### 3. **Find the Most Frequent Character in a String**
-
-**Question:**
-Find the most frequent character in a given string.
-
-**Solution:**
-
-```java
-import java.util.Map;
-import java.util.Optional;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-
-public class MostFrequentCharacter {
-    public static void main(String[] args) {
-        String input = "abracadabra";
-
-        Optional<Character> mostFrequent = input.chars()
-            .mapToObj(c -> (char) c)
-            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting())) // Count occurrences
-            .entrySet().stream()
-            .max(Map.Entry.comparingByValue()) // Find the max count
-            .map(Map.Entry::getKey); // Get the character with the max count
-
-        System.out.println("Most frequent character: " + mostFrequent.orElse(' '));
-    }
-}
-```
-
-**Explanation:**
-- `input.chars().mapToObj(c -> (char) c)`: Converts the string into a stream of characters.
-- `collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))`: Groups by character and counts occurrences.
-- `max(Map.Entry.comparingByValue())`: Finds the entry with the highest count.
-- `map(Map.Entry::getKey)`: Extracts the most frequent character.
-
-### 4. **Remove Duplicates from a String**
-
-**Question:**
-Remove duplicate characters from a string while preserving the order of their first occurrence.
-
-**Solution:**
-
-```java
-import java.util.LinkedHashSet;
-import java.util.Set;
-import java.util.stream.Collectors;
-
-public class RemoveDuplicates {
-    public static void main(String[] args) {
-        String input = "programming";
-
-        String result = input.chars()
-            .mapToObj(c -> (char) c)
-            .collect(Collectors.toCollection(LinkedHashSet::new)) // Collect into LinkedHashSet to preserve order
-            .stream()
-            .map(String::valueOf)
-            .collect(Collectors.joining());
-
-        System.out.println("String after removing duplicates: " + result);
-    }
-}
-```
-
-**Explanation:**
-- `input.chars().mapToObj(c -> (char) c)`: Converts characters to `Character`.
-- `collect(Collectors.toCollection(LinkedHashSet::new))`: Collects unique characters into a `LinkedHashSet` to preserve insertion order.
-- `map(String::valueOf)`: Converts `Character` back to `String`.
-- `collect(Collectors.joining())`: Joins the characters into a single `String`.
-
-### 5. **Check if a String is a Palindrome**
-
-**Question:**
-Check if a given string is a palindrome (reads the same forward and backward).
-
-**Solution:**
-
-```java
+import java.util.IntSummaryStatistics;
 import java.util.stream.IntStream;
 
-public class PalindromeCheck {
+public class IntSummaryStatisticsExample {
     public static void main(String[] args) {
-        String input = "radar";
+        IntStream numbers = IntStream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
-        boolean isPalindrome = IntStream.range(0, input.length() / 2)
-            .allMatch(i -> input.charAt(i) == input.charAt(input.length() - 1 - i));
+        IntSummaryStatistics stats = numbers.summaryStatistics();
 
-        System.out.println("Is the string a palindrome? " + isPalindrome);
+        System.out.println("Count: " + stats.getCount());  // Number of elements
+        System.out.println("Sum: " + stats.getSum());      // Sum of elements
+        System.out.println("Average: " + stats.getAverage()); // Average of elements
+        System.out.println("Min: " + stats.getMin());      // Minimum element
+        System.out.println("Max: " + stats.getMax());      // Maximum element
     }
 }
 ```
 
-**Explanation:**
-- `IntStream.range(0, input.length() / 2)`: Creates a stream of indices from 0 to half the length of the string.
-- `allMatch(i -> input.charAt(i) == input.charAt(input.length() - 1 - i))`: Checks if characters from the beginning match those from the end.
+**Output:**
+```
+Count: 10
+Sum: 55
+Average: 5.5
+Min: 1
+Max: 10
+```
 
-### 6. **Count Vowels in a String**
+### 2. **LongSummaryStatistics Example**
 
-**Question:**
-Count the number of vowels in a given string.
+**Description:**
+Gather summary statistics for a stream of long values.
 
-**Solution:**
+**Example:**
 
 ```java
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.LongSummaryStatistics;
+import java.util.stream.LongStream;
 
-public class CountVowels {
+public class LongSummaryStatisticsExample {
     public static void main(String[] args) {
-        String input = "hello world";
+        LongStream numbers = LongStream.of(100L, 200L, 300L, 400L, 500L);
 
-        long vowelCount = input.chars()
-            .mapToObj(c -> (char) c)
-            .filter(c -> "AEIOUaeiou".indexOf(c) != -1) // Filter vowels
-            .count();
+        LongSummaryStatistics stats = numbers.summaryStatistics();
 
-        System.out.println("Number of vowels: " + vowelCount);
+        System.out.println("Count: " + stats.getCount());  // Number of elements
+        System.out.println("Sum: " + stats.getSum());      // Sum of elements
+        System.out.println("Average: " + stats.getAverage()); // Average of elements
+        System.out.println("Min: " + stats.getMin());      // Minimum element
+        System.out.println("Max: " + stats.getMax());      // Maximum element
     }
 }
 ```
 
-**Explanation:**
-- `input.chars().mapToObj(c -> (char) c)`: Converts characters to `Character`.
-- `filter(c -> "AEIOUaeiou".indexOf(c) != -1)`: Filters out vowels.
-- `count()`: Counts the number of vowels.
+**Output:**
+```
+Count: 5
+Sum: 1500
+Average: 300.0
+Min: 100
+Max: 500
+```
 
-### 7. **Find the Longest Word in a Sentence**
+### 3. **DoubleSummaryStatistics Example**
 
-**Question:**
-Find the longest word in a given sentence.
+**Description:**
+Gather summary statistics for a stream of double values.
 
-**Solution:**
+**Example:**
 
 ```java
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Optional;
+import java.util.DoubleSummaryStatistics;
+import java.util.stream.DoubleStream;
 
-public class LongestWord {
+public class DoubleSummaryStatisticsExample {
     public static void main(String[] args) {
-        String sentence = "Java Streams are powerful and concise";
+        DoubleStream numbers = DoubleStream.of(1.1, 2.2, 3.3, 4.4, 5.5);
 
-        Optional<String> longestWord = Arrays.stream(sentence.split("\\s+")) // Split sentence into words
-            .max(Comparator.comparingInt(String::length)); // Find the longest word
+        DoubleSummaryStatistics stats = numbers.summaryStatistics();
 
-        System.out.println("Longest word: " + longestWord.orElse("No words found"));
+        System.out.println("Count: " + stats.getCount());  // Number of elements
+        System.out.println("Sum: " + stats.getSum());      // Sum of elements
+        System.out.println("Average: " + stats.getAverage()); // Average of elements
+        System.out.println("Min: " + stats.getMin());      // Minimum element
+        System.out.println("Max: " + stats.getMax());      // Maximum element
     }
 }
 ```
 
-**Explanation:**
-- `sentence.split("\\s+")`: Splits the sentence into words based on whitespace.
-- `max(Comparator.comparingInt(String::length))`: Finds the longest word by comparing lengths.
-- `orElse("No words found")`: Handles the case when there are no words.
-
-These examples demonstrate various ways to manipulate strings using Java 8 Streams and functional programming features. They cover common interview scenarios and show how to solve problems efficiently using Java 8 features.
-</details>
-<details>
-<summary><b>4. Java 8 Strings Coding Interview Questions</b></summary>
-  
-Certainly! In Java, the Streams API can be used to efficiently process collections. Here are several common coding interview questions that involve different parts of the Java Collections Framework and their solutions using Java Streams:
-
-### 1. **Find the Second Largest Element in a List**
-
-**Question:**
-Given a list of integers, find the second largest element.
-
-**Solution:**
-
-```java
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-
-public class SecondLargestElement {
-    public static void main(String[] args) {
-        List<Integer> numbers = Arrays.asList(10, 20, 4, 45, 99, 99);
-
-        Optional<Integer> secondLargest = numbers.stream()
-            .distinct() // Remove duplicates
-            .sorted((a, b) -> b - a) // Sort in descending order
-            .skip(1) // Skip the largest element
-            .findFirst(); // Get the first element, which is the second largest
-
-        System.out.println("Second largest element: " + secondLargest.orElse(null));
-    }
-}
+**Output:**
+```
+Count: 5
+Sum: 16.5
+Average: 3.3
+Min: 1.1
+Max: 5.5
 ```
 
-**Explanation:**
-- `distinct()`: Removes duplicate values.
-- `sorted((a, b) -> b - a)`: Sorts elements in descending order.
-- `skip(1)`: Skips the largest element.
-- `findFirst()`: Retrieves the first element after skipping, which is the second largest.
+### Summary
 
-### 2. **Merge Two Lists and Remove Duplicates**
+- **`IntSummaryStatistics`**: Used with `IntStream` to get statistics like count, sum, average, min, and max for integer values.
+- **`LongSummaryStatistics`**: Used with `LongStream` to get similar statistics for long values.
+- **`DoubleSummaryStatistics`**: Used with `DoubleStream` to get similar statistics for double values.
 
-**Question:**
-Given two lists of integers, merge them into a single list and remove any duplicates.
-
-**Solution:**
-
-```java
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
-public class MergeAndRemoveDuplicates {
-    public static void main(String[] args) {
-        List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5);
-        List<Integer> list2 = Arrays.asList(4, 5, 6, 7, 8);
-
-        Set<Integer> mergedSet = Stream.concat(list1.stream(), list2.stream())
-            .collect(Collectors.toCollection(HashSet::new)); // Collect into a HashSet to remove duplicates
-
-        System.out.println("Merged list with duplicates removed: " + mergedSet);
-    }
-}
-```
-
-**Explanation:**
-- `Stream.concat(list1.stream(), list2.stream())`: Concatenates the two streams.
-- `collect(Collectors.toCollection(HashSet::new))`: Collects into a `HashSet` to remove duplicates.
-
-### 3. **Convert a List of Strings to Uppercase and Remove Empty Strings**
-
-**Question:**
-Given a list of strings, convert all strings to uppercase and remove any empty strings.
-
-**Solution:**
-
-```java
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
-public class UppercaseAndRemoveEmpty {
-    public static void main(String[] args) {
-        List<String> strings = Arrays.asList("hello", "", "world", "java", "streams", "");
-
-        List<String> processedList = strings.stream()
-            .filter(s -> !s.isEmpty()) // Remove empty strings
-            .map(String::toUpperCase) // Convert to uppercase
-            .collect(Collectors.toList()); // Collect into a list
-
-        System.out.println("Processed list: " + processedList);
-    }
-}
-```
-
-**Explanation:**
-- `filter(s -> !s.isEmpty())`: Removes empty strings.
-- `map(String::toUpperCase)`: Converts strings to uppercase.
-- `collect(Collectors.toList())`: Collects the results into a list.
-
-### 4. **Count the Frequency of Elements in a List**
-
-**Question:**
-Given a list of integers, count the frequency of each element.
-
-**Solution:**
-
-```java
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-public class CountFrequencies {
-    public static void main(String[] args) {
-        List<Integer> numbers = Arrays.asList(1, 2, 2, 3, 3, 3, 4, 4, 4, 4);
-
-        Map<Integer, Long> frequencyMap = numbers.stream()
-            .collect(Collectors.groupingBy(n -> n, Collectors.counting())); // Group by element and count occurrences
-
-        System.out.println("Element frequencies: " + frequencyMap);
-    }
-}
-```
-
-**Explanation:**
-- `collect(Collectors.groupingBy(n -> n, Collectors.counting()))`: Groups elements and counts occurrences.
-
-### 5. **Find Common Elements Between Two Lists**
-
-**Question:**
-Given two lists, find the common elements between them.
-
-**Solution:**
-
-```java
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
-public class CommonElements {
-    public static void main(String[] args) {
-        List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5);
-        List<Integer> list2 = Arrays.asList(4, 5, 6, 7, 8);
-
-        Set<Integer> commonElements = list1.stream()
-            .filter(list2::contains) // Filter elements that are in both lists
-            .collect(Collectors.toSet()); // Collect into a set
-
-        System.out.println("Common elements: " + commonElements);
-    }
-}
-```
-
-**Explanation:**
-- `filter(list2::contains)`: Keeps elements that are present in both lists.
-- `collect(Collectors.toSet())`: Collects common elements into a `Set`.
-
-### 6. **Get the Sum of All Even Numbers in a List**
-
-**Question:**
-Given a list of integers, compute the sum of all even numbers.
-
-**Solution:**
-
-```java
-import java.util.Arrays;
-import java.util.List;
-
-public class SumOfEvenNumbers {
-    public static void main(String[] args) {
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-
-        int sumOfEvenNumbers = numbers.stream()
-            .filter(n -> n % 2 == 0) // Filter even numbers
-            .mapToInt(Integer::intValue) // Convert to int
-            .sum(); // Compute the sum
-
-        System.out.println("Sum of even numbers: " + sumOfEvenNumbers);
-    }
-}
-```
-
-**Explanation:**
-- `filter(n -> n % 2 == 0)`: Filters even numbers.
-- `mapToInt(Integer::intValue)`: Converts `Integer` to `int`.
-- `sum()`: Computes the sum of even numbers.
-
-### 7. **Sort a List of Objects by a Property**
-
-**Question:**
-Given a list of `Person` objects, sort them by age in ascending order.
-
-**Solution:**
-
-```java
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
-
-public class SortByAge {
-    static class Person {
-        String name;
-        int age;
-
-        Person(String name, int age) {
-            this.name = name;
-            this.age = age;
-        }
-
-        @Override
-        public String toString() {
-            return name + " (" + age + ")";
-        }
-    }
-
-    public static void main(String[] args) {
-        List<Person> people = Arrays.asList(
-            new Person("Alice", 30),
-            new Person("Bob", 25),
-            new Person("Charlie", 35)
-        );
-
-        List<Person> sortedByAge = people.stream()
-            .sorted(Comparator.comparingInt(person -> person.age)) // Sort by age
-            .collect(Collectors.toList());
-
-        System.out.println("Sorted by age: " + sortedByAge);
-    }
-}
-```
-
-**Explanation:**
-- `sorted(Comparator.comparingInt(person -> person.age))`: Sorts `Person` objects by age.
-- `collect(Collectors.toList())`: Collects the sorted elements into a list.
-
-These examples demonstrate various ways to use Java Streams with different types of collections, such as lists, sets, and maps. They illustrate common operations like filtering, sorting, and collecting results, which are essential for solving a variety of real-world problems efficiently.
+These summary statistics classes provide a convenient way to gather statistical data from streams of primitive types.
 
 </details>
 <details>
-<summary><b>4. Java 8 Strings Coding Interview Questions</b></summary>
+<summary><b>4. Java 8 Functional Interfaces</b></summary>
   
 In Java, functional interfaces such as `Predicate`, `Consumer`, `Supplier`, and their primitive counterparts are key components in functional programming. Here’s a detailed overview of each interface along with coding examples.
 
@@ -1088,127 +496,9 @@ Here’s a summary of the functional interfaces and their primitive variants:
 These functional interfaces are powerful tools for functional programming in Java, enabling concise and expressive code for a variety of operations.
 
 </details>
+
 <details>
-<summary><b>4. Java 8 Strings Coding Interview Questions</b></summary>
-  
-In Java, you can use the `summaryStatistics()` method to gather summary statistics such as average, count, maximum, minimum, and sum for a stream of primitive types. This method is available on `IntStream`, `LongStream`, and `DoubleStream` and returns instances of `IntSummaryStatistics`, `LongSummaryStatistics`, and `DoubleSummaryStatistics`, respectively. Below are examples demonstrating how to use these classes and their methods.
-
-### 1. **IntSummaryStatistics Example**
-
-**Description:**
-Gather summary statistics for a stream of integers.
-
-**Example:**
-
-```java
-import java.util.IntSummaryStatistics;
-import java.util.stream.IntStream;
-
-public class IntSummaryStatisticsExample {
-    public static void main(String[] args) {
-        IntStream numbers = IntStream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-
-        IntSummaryStatistics stats = numbers.summaryStatistics();
-
-        System.out.println("Count: " + stats.getCount());  // Number of elements
-        System.out.println("Sum: " + stats.getSum());      // Sum of elements
-        System.out.println("Average: " + stats.getAverage()); // Average of elements
-        System.out.println("Min: " + stats.getMin());      // Minimum element
-        System.out.println("Max: " + stats.getMax());      // Maximum element
-    }
-}
-```
-
-**Output:**
-```
-Count: 10
-Sum: 55
-Average: 5.5
-Min: 1
-Max: 10
-```
-
-### 2. **LongSummaryStatistics Example**
-
-**Description:**
-Gather summary statistics for a stream of long values.
-
-**Example:**
-
-```java
-import java.util.LongSummaryStatistics;
-import java.util.stream.LongStream;
-
-public class LongSummaryStatisticsExample {
-    public static void main(String[] args) {
-        LongStream numbers = LongStream.of(100L, 200L, 300L, 400L, 500L);
-
-        LongSummaryStatistics stats = numbers.summaryStatistics();
-
-        System.out.println("Count: " + stats.getCount());  // Number of elements
-        System.out.println("Sum: " + stats.getSum());      // Sum of elements
-        System.out.println("Average: " + stats.getAverage()); // Average of elements
-        System.out.println("Min: " + stats.getMin());      // Minimum element
-        System.out.println("Max: " + stats.getMax());      // Maximum element
-    }
-}
-```
-
-**Output:**
-```
-Count: 5
-Sum: 1500
-Average: 300.0
-Min: 100
-Max: 500
-```
-
-### 3. **DoubleSummaryStatistics Example**
-
-**Description:**
-Gather summary statistics for a stream of double values.
-
-**Example:**
-
-```java
-import java.util.DoubleSummaryStatistics;
-import java.util.stream.DoubleStream;
-
-public class DoubleSummaryStatisticsExample {
-    public static void main(String[] args) {
-        DoubleStream numbers = DoubleStream.of(1.1, 2.2, 3.3, 4.4, 5.5);
-
-        DoubleSummaryStatistics stats = numbers.summaryStatistics();
-
-        System.out.println("Count: " + stats.getCount());  // Number of elements
-        System.out.println("Sum: " + stats.getSum());      // Sum of elements
-        System.out.println("Average: " + stats.getAverage()); // Average of elements
-        System.out.println("Min: " + stats.getMin());      // Minimum element
-        System.out.println("Max: " + stats.getMax());      // Maximum element
-    }
-}
-```
-
-**Output:**
-```
-Count: 5
-Sum: 16.5
-Average: 3.3
-Min: 1.1
-Max: 5.5
-```
-
-### Summary
-
-- **`IntSummaryStatistics`**: Used with `IntStream` to get statistics like count, sum, average, min, and max for integer values.
-- **`LongSummaryStatistics`**: Used with `LongStream` to get similar statistics for long values.
-- **`DoubleSummaryStatistics`**: Used with `DoubleStream` to get similar statistics for double values.
-
-These summary statistics classes provide a convenient way to gather statistical data from streams of primitive types.
-
-</details>
-<details>
-<summary><b>4. Java 8 Strings Coding Interview Questions</b></summary>
+<summary><b>4. Java 8 Functional Interfaces and Its Primitive Specializations</b></summary>
 
 Certainly! Here's a detailed breakdown of various functional interfaces in Java and their corresponding primitive specializations, including code examples for each:
 
@@ -1870,12 +1160,719 @@ ToDouble.applyAsDouble("Hello")); // 5.0
 This set of examples covers the core functional interfaces and their primitive specializations in Java. Each specialization is tailored to work with specific primitive types (int, long, double) for more efficient operations.
 
 </details>
+<details>
+<summary><b>4. Java 8 Streams interview questions, along with detailed solutions</b></summary>
+  
+Here are some common Java Streams interview questions, along with detailed solutions:
+
+### 1. **Find the First N Elements in a Stream**
+
+**Question:**
+Given a list of integers, find the first 5 even numbers using Java Streams.
+
+**Solution:**
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class FirstNElements {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        List<Integer> firstNEvenNumbers = numbers.stream()
+            .filter(n -> n % 2 == 0)   // Filter even numbers
+            .limit(5)                  // Limit to first 5
+            .collect(Collectors.toList()); // Collect to list
+
+        System.out.println(firstNEvenNumbers);
+    }
+}
+```
+
+**Explanation:**
+- `filter(n -> n % 2 == 0)`: Filters the even numbers.
+- `limit(5)`: Limits the result to the first 5 elements.
+- `collect(Collectors.toList())`: Collects the results into a `List`.
+
+### 2. **Group Elements by Property**
+
+**Question:**
+Given a list of employees with their names and departments, group them by their department.
+
+**Solution:**
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class GroupByDepartment {
+    static class Employee {
+        String name;
+        String department;
+
+        Employee(String name, String department) {
+            this.name = name;
+            this.department = department;
+        }
+
+        public String getDepartment() {
+            return department;
+        }
+
+        public String getName() {
+            return name;
+        }
+    }
+
+    public static void main(String[] args) {
+        List<Employee> employees = Arrays.asList(
+            new Employee("Alice", "HR"),
+            new Employee("Bob", "IT"),
+            new Employee("Charlie", "IT"),
+            new Employee("David", "HR"),
+            new Employee("Eve", "Finance")
+        );
+
+        Map<String, List<Employee>> employeesByDepartment = employees.stream()
+            .collect(Collectors.groupingBy(Employee::getDepartment));
+
+        employeesByDepartment.forEach((department, empList) -> {
+            System.out.println(department + ": " + empList.stream()
+                .map(Employee::getName)
+                .collect(Collectors.joining(", ")));
+        });
+    }
+}
+```
+
+**Explanation:**
+- `collect(Collectors.groupingBy(Employee::getDepartment))`: Groups employees by department.
+- `forEach` loop prints department-wise employee names.
+
+### 3. **Find the Sum of Squares of Even Numbers**
+
+**Question:**
+Given a list of integers, compute the sum of the squares of all even numbers.
+
+**Solution:**
+
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class SumOfSquares {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        int sumOfSquares = numbers.stream()
+            .filter(n -> n % 2 == 0) // Filter even numbers
+            .map(n -> n * n)         // Square each number
+            .reduce(0, Integer::sum); // Sum the results
+
+        System.out.println("Sum of squares of even numbers: " + sumOfSquares);
+    }
+}
+```
+
+**Explanation:**
+- `filter(n -> n % 2 == 0)`: Filters even numbers.
+- `map(n -> n * n)`: Squares each number.
+- `reduce(0, Integer::sum)`: Reduces the stream to the sum of the squares.
+
+### 4. **Check If All Elements Satisfy a Condition**
+
+**Question:**
+Given a list of strings, check if all strings have a length greater than 3.
+
+**Solution:**
+
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class CheckAllElements {
+    public static void main(String[] args) {
+        List<String> strings = Arrays.asList("Java", "Streams", "Example", "Code");
+
+        boolean allLongerThanThree = strings.stream()
+            .allMatch(s -> s.length() > 3);
+
+        System.out.println("All strings have length greater than 3: " + allLongerThanThree);
+    }
+}
+```
+
+**Explanation:**
+- `allMatch(s -> s.length() > 3)`: Checks if all strings have a length greater than 3.
+
+### 5. **Find the Most Frequent Element**
+
+**Question:**
+Given a list of integers, find the most frequent element.
+
+**Solution:**
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class MostFrequentElement {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 2, 4, 2, 5, 3, 3);
+
+        Integer mostFrequent = numbers.stream()
+            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting())) // Count occurrences
+            .entrySet().stream() // Convert to stream of entries
+            .max(Map.Entry.comparingByValue()) // Find entry with max count
+            .map(Map.Entry::getKey) // Get the key (element)
+            .orElse(null); // Handle empty case
+
+        System.out.println("Most frequent element: " + mostFrequent);
+    }
+}
+```
+
+**Explanation:**
+- `collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))`: Groups by elements and counts occurrences.
+- `max(Map.Entry.comparingByValue())`: Finds the entry with the highest count.
+- `map(Map.Entry::getKey)`: Extracts the element.
+
+### 6. **Find the Longest String**
+
+**Question:**
+Given a list of strings, find the longest string.
+
+**Solution:**
+
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class LongestString {
+    public static void main(String[] args) {
+        List<String> strings = Arrays.asList("Java", "Streams", "Example", "Code");
+
+        String longest = strings.stream()
+            .max((s1, s2) -> Integer.compare(s1.length(), s2.length())) // Compare by length
+            .orElse("No elements"); // Handle empty case
+
+        System.out.println("Longest string: " + longest);
+    }
+}
+```
+
+**Explanation:**
+- `max((s1, s2) -> Integer.compare(s1.length(), s2.length()))`: Finds the string with the maximum length.
+- `orElse("No elements")`: Handles the case where the list is empty.
+
+### 7. **Flatten a List of Lists**
+
+**Question:**
+Given a list of lists of integers, flatten it into a single list of integers.
+
+**Solution:**
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class FlattenList {
+    public static void main(String[] args) {
+        List<List<Integer>> listOfLists = Arrays.asList(
+            Arrays.asList(1, 2, 3),
+            Arrays.asList(4, 5),
+            Arrays.asList(6, 7, 8)
+        );
+
+        List<Integer> flattenedList = listOfLists.stream()
+            .flatMap(List::stream) // Flatten the lists
+            .collect(Collectors.toList()); // Collect into a single list
+
+        System.out.println("Flattened list: " + flattenedList);
+    }
+}
+```
+
+**Explanation:**
+- `flatMap(List::stream)`: Flattens the lists into a single stream.
+- `collect(Collectors.toList())`: Collects the elements into a single list.
+
+These examples cover a range of common operations and challenges you might encounter with Java Streams, demonstrating how to leverage the API effectively for various tasks.
 </details>
 <details>
-<summary><b>4. Java Programming Exercises</b></summary>
- 
-- [Java Programming Questions and Answers](#java-programming-questions-and-answers)
+<summary><b>4. Java 8 Strings Coding Interview Questions</b></summary>
 
+String manipulation is a common topic in Java coding interviews. Below are several string-related coding interview questions you might encounter, along with detailed solutions using Java 8 features.
+
+### 1. **Reverse a String**
+
+**Question:**
+Reverse a given string using Java 8 Streams.
+
+**Solution:**
+
+```java
+import java.util.stream.Collectors;
+
+public class ReverseString {
+    public static void main(String[] args) {
+        String input = "JavaStreams";
+
+        String reversed = input.chars()                              // Create an IntStream of characters
+                                .mapToObj(c -> (char) c)          // Convert int to Character
+                                .collect(Collectors.toCollection(StringBuilder::new)) // Collect into a StringBuilder
+                                .reverse()                        // Reverse the StringBuilder
+                                .toString();                      // Convert to String
+
+        System.out.println("Reversed string: " + reversed);
+    }
+}
+```
+
+**Explanation:**
+- `input.chars()`: Creates an `IntStream` of character codes.
+- `mapToObj(c -> (char) c)`: Converts `int` values to `Character` objects.
+- `collect(Collectors.toCollection(StringBuilder::new))`: Collects characters into a `StringBuilder`.
+- `reverse()`: Reverses the `StringBuilder`.
+- `toString()`: Converts the `StringBuilder` to a `String`.
+
+### 2. **Check if Two Strings Are Anagrams**
+
+**Question:**
+Check if two given strings are anagrams of each other.
+
+**Solution:**
+
+```java
+import java.util.Arrays;
+
+public class AnagramCheck {
+    public static void main(String[] args) {
+        String str1 = "listen";
+        String str2 = "silent";
+
+        boolean isAnagram = Arrays.equals(
+            str1.chars().sorted().toArray(), // Sort and convert to int[]
+            str2.chars().sorted().toArray()  // Sort and convert to int[]
+        );
+
+        System.out.println("Are the strings anagrams? " + isAnagram);
+    }
+}
+```
+
+**Explanation:**
+- `str1.chars().sorted().toArray()`: Sorts characters of the first string and converts to an array.
+- `str2.chars().sorted().toArray()`: Does the same for the second string.
+- `Arrays.equals()`: Compares the sorted arrays.
+
+### 3. **Find the Most Frequent Character in a String**
+
+**Question:**
+Find the most frequent character in a given string.
+
+**Solution:**
+
+```java
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class MostFrequentCharacter {
+    public static void main(String[] args) {
+        String input = "abracadabra";
+
+        Optional<Character> mostFrequent = input.chars()
+            .mapToObj(c -> (char) c)
+            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting())) // Count occurrences
+            .entrySet().stream()
+            .max(Map.Entry.comparingByValue()) // Find the max count
+            .map(Map.Entry::getKey); // Get the character with the max count
+
+        System.out.println("Most frequent character: " + mostFrequent.orElse(' '));
+    }
+}
+```
+
+**Explanation:**
+- `input.chars().mapToObj(c -> (char) c)`: Converts the string into a stream of characters.
+- `collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))`: Groups by character and counts occurrences.
+- `max(Map.Entry.comparingByValue())`: Finds the entry with the highest count.
+- `map(Map.Entry::getKey)`: Extracts the most frequent character.
+
+### 4. **Remove Duplicates from a String**
+
+**Question:**
+Remove duplicate characters from a string while preserving the order of their first occurrence.
+
+**Solution:**
+
+```java
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class RemoveDuplicates {
+    public static void main(String[] args) {
+        String input = "programming";
+
+        String result = input.chars()
+            .mapToObj(c -> (char) c)
+            .collect(Collectors.toCollection(LinkedHashSet::new)) // Collect into LinkedHashSet to preserve order
+            .stream()
+            .map(String::valueOf)
+            .collect(Collectors.joining());
+
+        System.out.println("String after removing duplicates: " + result);
+    }
+}
+```
+
+**Explanation:**
+- `input.chars().mapToObj(c -> (char) c)`: Converts characters to `Character`.
+- `collect(Collectors.toCollection(LinkedHashSet::new))`: Collects unique characters into a `LinkedHashSet` to preserve insertion order.
+- `map(String::valueOf)`: Converts `Character` back to `String`.
+- `collect(Collectors.joining())`: Joins the characters into a single `String`.
+
+### 5. **Check if a String is a Palindrome**
+
+**Question:**
+Check if a given string is a palindrome (reads the same forward and backward).
+
+**Solution:**
+
+```java
+import java.util.stream.IntStream;
+
+public class PalindromeCheck {
+    public static void main(String[] args) {
+        String input = "radar";
+
+        boolean isPalindrome = IntStream.range(0, input.length() / 2)
+            .allMatch(i -> input.charAt(i) == input.charAt(input.length() - 1 - i));
+
+        System.out.println("Is the string a palindrome? " + isPalindrome);
+    }
+}
+```
+
+**Explanation:**
+- `IntStream.range(0, input.length() / 2)`: Creates a stream of indices from 0 to half the length of the string.
+- `allMatch(i -> input.charAt(i) == input.charAt(input.length() - 1 - i))`: Checks if characters from the beginning match those from the end.
+
+### 6. **Count Vowels in a String**
+
+**Question:**
+Count the number of vowels in a given string.
+
+**Solution:**
+
+```java
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class CountVowels {
+    public static void main(String[] args) {
+        String input = "hello world";
+
+        long vowelCount = input.chars()
+            .mapToObj(c -> (char) c)
+            .filter(c -> "AEIOUaeiou".indexOf(c) != -1) // Filter vowels
+            .count();
+
+        System.out.println("Number of vowels: " + vowelCount);
+    }
+}
+```
+
+**Explanation:**
+- `input.chars().mapToObj(c -> (char) c)`: Converts characters to `Character`.
+- `filter(c -> "AEIOUaeiou".indexOf(c) != -1)`: Filters out vowels.
+- `count()`: Counts the number of vowels.
+
+### 7. **Find the Longest Word in a Sentence**
+
+**Question:**
+Find the longest word in a given sentence.
+
+**Solution:**
+
+```java
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Optional;
+
+public class LongestWord {
+    public static void main(String[] args) {
+        String sentence = "Java Streams are powerful and concise";
+
+        Optional<String> longestWord = Arrays.stream(sentence.split("\\s+")) // Split sentence into words
+            .max(Comparator.comparingInt(String::length)); // Find the longest word
+
+        System.out.println("Longest word: " + longestWord.orElse("No words found"));
+    }
+}
+```
+
+**Explanation:**
+- `sentence.split("\\s+")`: Splits the sentence into words based on whitespace.
+- `max(Comparator.comparingInt(String::length))`: Finds the longest word by comparing lengths.
+- `orElse("No words found")`: Handles the case when there are no words.
+
+These examples demonstrate various ways to manipulate strings using Java 8 Streams and functional programming features. They cover common interview scenarios and show how to solve problems efficiently using Java 8 features.
+</details>
+<details>
+<summary><b>4. Java 8 Collections Framework and their solutions using Java Streams</b></summary>
+  
+Certainly! In Java, the Streams API can be used to efficiently process collections. Here are several common coding interview questions that involve different parts of the Java Collections Framework and their solutions using Java Streams:
+
+### 1. **Find the Second Largest Element in a List**
+
+**Question:**
+Given a list of integers, find the second largest element.
+
+**Solution:**
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+public class SecondLargestElement {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(10, 20, 4, 45, 99, 99);
+
+        Optional<Integer> secondLargest = numbers.stream()
+            .distinct() // Remove duplicates
+            .sorted((a, b) -> b - a) // Sort in descending order
+            .skip(1) // Skip the largest element
+            .findFirst(); // Get the first element, which is the second largest
+
+        System.out.println("Second largest element: " + secondLargest.orElse(null));
+    }
+}
+```
+
+**Explanation:**
+- `distinct()`: Removes duplicate values.
+- `sorted((a, b) -> b - a)`: Sorts elements in descending order.
+- `skip(1)`: Skips the largest element.
+- `findFirst()`: Retrieves the first element after skipping, which is the second largest.
+
+### 2. **Merge Two Lists and Remove Duplicates**
+
+**Question:**
+Given two lists of integers, merge them into a single list and remove any duplicates.
+
+**Solution:**
+
+```java
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class MergeAndRemoveDuplicates {
+    public static void main(String[] args) {
+        List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> list2 = Arrays.asList(4, 5, 6, 7, 8);
+
+        Set<Integer> mergedSet = Stream.concat(list1.stream(), list2.stream())
+            .collect(Collectors.toCollection(HashSet::new)); // Collect into a HashSet to remove duplicates
+
+        System.out.println("Merged list with duplicates removed: " + mergedSet);
+    }
+}
+```
+
+**Explanation:**
+- `Stream.concat(list1.stream(), list2.stream())`: Concatenates the two streams.
+- `collect(Collectors.toCollection(HashSet::new))`: Collects into a `HashSet` to remove duplicates.
+
+### 3. **Convert a List of Strings to Uppercase and Remove Empty Strings**
+
+**Question:**
+Given a list of strings, convert all strings to uppercase and remove any empty strings.
+
+**Solution:**
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class UppercaseAndRemoveEmpty {
+    public static void main(String[] args) {
+        List<String> strings = Arrays.asList("hello", "", "world", "java", "streams", "");
+
+        List<String> processedList = strings.stream()
+            .filter(s -> !s.isEmpty()) // Remove empty strings
+            .map(String::toUpperCase) // Convert to uppercase
+            .collect(Collectors.toList()); // Collect into a list
+
+        System.out.println("Processed list: " + processedList);
+    }
+}
+```
+
+**Explanation:**
+- `filter(s -> !s.isEmpty())`: Removes empty strings.
+- `map(String::toUpperCase)`: Converts strings to uppercase.
+- `collect(Collectors.toList())`: Collects the results into a list.
+
+### 4. **Count the Frequency of Elements in a List**
+
+**Question:**
+Given a list of integers, count the frequency of each element.
+
+**Solution:**
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class CountFrequencies {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 2, 3, 3, 3, 4, 4, 4, 4);
+
+        Map<Integer, Long> frequencyMap = numbers.stream()
+            .collect(Collectors.groupingBy(n -> n, Collectors.counting())); // Group by element and count occurrences
+
+        System.out.println("Element frequencies: " + frequencyMap);
+    }
+}
+```
+
+**Explanation:**
+- `collect(Collectors.groupingBy(n -> n, Collectors.counting()))`: Groups elements and counts occurrences.
+
+### 5. **Find Common Elements Between Two Lists**
+
+**Question:**
+Given two lists, find the common elements between them.
+
+**Solution:**
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class CommonElements {
+    public static void main(String[] args) {
+        List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> list2 = Arrays.asList(4, 5, 6, 7, 8);
+
+        Set<Integer> commonElements = list1.stream()
+            .filter(list2::contains) // Filter elements that are in both lists
+            .collect(Collectors.toSet()); // Collect into a set
+
+        System.out.println("Common elements: " + commonElements);
+    }
+}
+```
+
+**Explanation:**
+- `filter(list2::contains)`: Keeps elements that are present in both lists.
+- `collect(Collectors.toSet())`: Collects common elements into a `Set`.
+
+### 6. **Get the Sum of All Even Numbers in a List**
+
+**Question:**
+Given a list of integers, compute the sum of all even numbers.
+
+**Solution:**
+
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class SumOfEvenNumbers {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        int sumOfEvenNumbers = numbers.stream()
+            .filter(n -> n % 2 == 0) // Filter even numbers
+            .mapToInt(Integer::intValue) // Convert to int
+            .sum(); // Compute the sum
+
+        System.out.println("Sum of even numbers: " + sumOfEvenNumbers);
+    }
+}
+```
+
+**Explanation:**
+- `filter(n -> n % 2 == 0)`: Filters even numbers.
+- `mapToInt(Integer::intValue)`: Converts `Integer` to `int`.
+- `sum()`: Computes the sum of even numbers.
+
+### 7. **Sort a List of Objects by a Property**
+
+**Question:**
+Given a list of `Person` objects, sort them by age in ascending order.
+
+**Solution:**
+
+```java
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class SortByAge {
+    static class Person {
+        String name;
+        int age;
+
+        Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        @Override
+        public String toString() {
+            return name + " (" + age + ")";
+        }
+    }
+
+    public static void main(String[] args) {
+        List<Person> people = Arrays.asList(
+            new Person("Alice", 30),
+            new Person("Bob", 25),
+            new Person("Charlie", 35)
+        );
+
+        List<Person> sortedByAge = people.stream()
+            .sorted(Comparator.comparingInt(person -> person.age)) // Sort by age
+            .collect(Collectors.toList());
+
+        System.out.println("Sorted by age: " + sortedByAge);
+    }
+}
+```
+
+**Explanation:**
+- `sorted(Comparator.comparingInt(person -> person.age))`: Sorts `Person` objects by age.
+- `collect(Collectors.toList())`: Collects the sorted elements into a list.
+
+These examples demonstrate various ways to use Java Streams with different types of collections, such as lists, sets, and maps. They illustrate common operations like filtering, sorting, and collecting results, which are essential for solving a variety of real-world problems efficiently.
+
+</details>
+
+</details>
 <details>
 <summary><b>4. Java 8 Arrays Coding Interview Questions</b></summary>
 
@@ -2062,7 +2059,7 @@ public class ListToArray {
 These questions and examples should help you prepare for Java 8 array-related interview questions and demonstrate your understanding of the Stream API and modern Java practices.
 </details>
 <details>
-<summary><b>4. Java 8 Strings Coding Interview Questions</b></summary>
+<summary><b>4.Java 8 Coding Interview Questions</b></summary>
   
 Sure! Here are Java programs for each of the tasks listed:
 
@@ -2253,7 +2250,7 @@ public class VowelCount {
 ```
 </details>
 <details>
-<summary><b>4. Java 8 Strings Coding Interview Questions</b></summary>
+<summary><b>4. 500 Java 8 Coding Interview Questions</b></summary>
 These programs cover basic operations and data structures in Java. You can modify and expand them based on your requirements.
 Certainly! Here are Java 8 programs utilizing streams for each of the tasks you've mentioned:
 
