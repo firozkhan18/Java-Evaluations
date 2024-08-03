@@ -1,15 +1,3 @@
-```mermaid
-classDiagram
-    direction LR
-    classA --|> classB : Inheritance
-    classB --* classC : Composition
-    classC --o classD : Aggregation
-    classD --> classE : Association
-    classF -- classG : Link(Solid)
-    classG ..> classH : Dependency
-    classH ..|> classI : Realization
-    classI .. classJ : Link(Dashed)
-```
 
 # Java Collections Framework Class Diagram
 
@@ -21,11 +9,11 @@ classDiagram
     <<interface>>
   }
 
-  class List {
+  class Set {
     <<interface>>
   }
 
-  class Set {
+  class List {
     <<interface>>
   }
 
