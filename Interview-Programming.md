@@ -21331,7 +21331,7 @@ These solutions cover a wide range of LeetCode problems. If you need more detail
 
 </details>
 <details>
-<summary><b>Employee Management Java 8 Coding Interview Questions</b></summary>
+<summary><b>3.11 Employee Management Java 8 Coding Interview Questions</b></summary>
   
 Sure! Let's dive into two key management scenarios using Java 8 Streams: Employee Management and Student Management. For each scenario, I'll provide common tasks and demonstrate how to perform them using Java Streams.
 
@@ -21471,7 +21471,7 @@ These examples should provide a good foundation for managing employees and stude
 
 </details>
 <details>
-<summary><b>Student Management</b></summary>
+<summary><b>3.12 Student Management</b></summary>
 
 ### Student Management
 
@@ -21604,7 +21604,6 @@ public class StudentManagement {
     }
 }
 ```
-</details>
 </details>
 </details>
 <details>
