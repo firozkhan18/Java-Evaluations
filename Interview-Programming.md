@@ -65,7 +65,7 @@
 # Table of Contents
 
 <details>
-<summary>Java Concepts</summary>
+<summary><b>Java Concepts</b></summary>
 
 ## OOP
 - [Object](#object)
@@ -98,7 +98,7 @@
 </details>
 
 <details>
-<summary>Java 8 Features</summary>
+<summary><b>Java 8 Features</b></summary>
 
 - [Stream](#stream)
   - [Generating streams](#generating-streams)
@@ -113,7 +113,7 @@
 </details>
 
 <details>
-<summary>Java Programming Exercises</summary>
+<summary><b>Java Programming Exercises</b></summary>
 
 - [Java Programming Questions and Answers](#java-programming-questions-and-answers)
 </details>
