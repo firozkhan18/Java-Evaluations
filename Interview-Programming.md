@@ -1,12 +1,4 @@
-<style>
-  body {
-    color: red;
-  }
-</style>
-
-A very long sentence.
-
-bobbyhadz.com
+This is a regular paragraph with <span style="color: red">red colored text</span> inside it.
 
 # Table of Contents
 
