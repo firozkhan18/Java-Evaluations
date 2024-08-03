@@ -1,6 +1,6 @@
 ![Setting the Scheme](images/Collection-hierarchy-in-java.png)
 
-![Setting the Scheme](images/collectionc.png)
+![Setting the Scheme](images/collections.png)
 
 2. Collection hierarchy in java ( Part 1: Interfaces )
 
