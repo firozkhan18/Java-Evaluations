@@ -1,9 +1,9 @@
 # Table of Contents
 
 <details>
-<summary><b>Core Java Concepts</b></summary>
+<summary><b>1. Core Java Concepts</b></summary>
 <details>
-<summary><b>Object Oriented Prgramming</b></summary>
+<summary><b>1.1 Object Oriented Prgramming</b></summary>
   
 ## OOP
 - [Object](#object)
@@ -17,7 +17,7 @@
 - [Aggregation](#aggregation)
 </details>
 <details>
-<summary><b>Java Keywords</b></summary>
+<summary><b>1.2 Java Keywords</b></summary>
   
 ## Keywords
 - [new](#new)
@@ -27,7 +27,7 @@
 - [extends](#extends)
   </details>
 <details>
-<summary><b>Java Modifiers</b></summary>
+<summary><b>1.3 Java Modifiers</b></summary>
   
 ## Modifiers
 - [Access Modifiers](#access-modifiers)
@@ -42,7 +42,7 @@
   </details>
 </details>
 <details>
-<summary><b>Java Design Patterns</b></summary>
+<summary><b>2. Java Design Patterns</b></summary>
 
 ## Creational Design Patterns
 - [Object](#object)
@@ -74,7 +74,7 @@
   - [instanceOf](#instanceof)
 </details>
 <details>
-<summary><b>Java 8 Features</b></summary>
+<summary><b>3. Java 8 Features</b></summary>
 
 - [Stream](#stream)
   - [Generating streams](#generating-streams)
@@ -88,12 +88,12 @@
 - [Date](#date)
 </details>
 <details>
-<summary><b>Java Programming Exercises</b></summary>
+<summary><b>4. Java Programming Exercises</b></summary>
  
 - [Java Programming Questions and Answers](#java-programming-questions-and-answers)
 </details>
 <details>
-<summary><b>Spring Framework</b></summary>
+<summary><b>5. Spring Framework</b></summary>
  
 ## Spring Framework
 - [Introduction](#introduction)
@@ -126,7 +126,7 @@
 - [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
 </details>
 <details>
-<summary><b>Spring Boot Framework</b></summary>
+<summary><b>6. Spring Boot Framework</b></summary>
 
 ## Spring Boot Framework
 - [Introduction](#introduction)
@@ -160,41 +160,41 @@
   
 </details>
 <details>
-<summary><b>Hibernate</b></summary>
+<summary><b>7. Hibernate</b></summary>
 
  ## Hibernate
 - [Java Programming Questions and Answers](#java-programming-questions-and-answers)
 </details>
 <details>
-<summary><b>Kafka</b></summary>
+<summary><b>8. Kafka</b></summary>
 
 ## Kafka
 - [K Framework](#java-programming-questions-and-answers)
 - [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
 </details>
 <details>
-<summary><b>Docker</b></summary>
+<summary><b>9. Docker</b></summary>
 
 ## Docker
 - [Spring Framework](#java-programming-questions-and-answers)
 - [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
 </details>
 <details>
-<summary><b>Kubernetes</b></summary>
+<summary><b>10. Kubernetes</b></summary>
 
 ## Kubernetes
 - [Spring Framework](#java-programming-questions-and-answers)
 - [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
 </details>
 <details>
-<summary><b>Caching</b></summary>
+<summary><b>11. Caching</b></summary>
 
 ## Caching
 - [Spring Framework](#java-programming-questions-and-answers)
 - [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
 </details>
 <details>
-<summary><b>SQL & NO SQL Database</b></summary>
+<summary><b>12. SQL & NO SQL Database</b></summary>
 
 ## SQL
 - [Spring Framework](#java-programming-questions-and-answers)
@@ -205,21 +205,21 @@
 - [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
 </details>
 <details>
-<summary><b>Mongo DB</b></summary>
+<summary><b>13. Mongo DB</b></summary>
 
 ## Mongo DB
 - [Spring Framework](#java-programming-questions-and-answers)
 - [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
 </details>
 <details>
-<summary><b>Angular</b></summary>
+<summary><b>14. Angular</b></summary>
 
 ## Angular
 - [Spring Framework](#java-programming-questions-and-answers)
 - [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
 </details>
 <details>
-<summary><b>React JS</b></summary>
+<summary><b>15. React JS</b></summary>
 
 ## React JS
 - [Spring Framework](#java-programming-questions-and-answers)
