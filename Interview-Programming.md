@@ -360,10 +360,10 @@ These summary statistics classes provide a convenient way to gather statistical 
 
 </details>
 <details>
-<summary><b>3.3 Java 8 Functional Interfaces</b></summary>
+<summary><b>3 Java 8 Functional Interfaces</b></summary>
 
 <details>
-<summary><b>3.3 Java 8 Functional Interfaces</b></summary>
+<summary><b>3.1 Intruction</b></summary>
 	
 # Java 8 Functional Interfaces – When & How To Use Them?
 
@@ -498,10 +498,12 @@ System.out.println( square.apply(5) );  //Prints 25
 
 We also saw the JDK provided existing functional interfaces, and finally how to create an use a functional interface.
 </details>
-<details>
-<summary><b>3.3 Java 8 Functional Interfaces - Java Default Methods</b></summary>
 
- ### Java Default Methods
+### Java Default Methods
+<details>
+<summary><b>3.2 Java 8 Functional Interfaces - Default Methods</b></summary>
+
+ ## Java Default Methods
  
 Let’s move on the discussion and talk about another related feature i.e. default methods. Well, this is truly revolutionary for java developers. Till java 7, we have learned a lot of things about interfaces and all those things have been in our mind whenever we wrote code or designed the applications. Some of these concepts are going to change drastically from java 8, after introduction of default methods.
 
@@ -609,10 +611,12 @@ Rules for this conflict resolution are as follows:
 	Moveable.super.move();
 ```
 </details>
+
+### Java Static Methods
 <details>
 <summary><b>3.3 Java 8 Functional Interfaces - Java Static Methods</b></summary>
 	
-### Java Static – Variable, Method, Block, Class and Import Statement
+## Java Static – Variable, Method, Block, Class and Import Statement
 
 Static keyword in java can be applied on variables, methods, blocks, import and inner classes. In this tutorial, we will learn the effect of using static keyword in these places with examples.
 
@@ -877,7 +881,7 @@ Static imports can be used to import all static members from a class. These memb
 
 </details>
 <details>
-<summary><b>3.3 Java 8 Functional Interfaces</b></summary>
+<summary><b>3.4 java.util.function package</b></summary>
 	
 ## java.util.function package
 
@@ -960,7 +964,7 @@ List<Integer> l = map(Arrays.asList("lambdas","in","action"), (String s) -> s.le
 ```
 </details>
 <details>
-<summary><b>3.3 Functional Interfaces And Their Primitive Specializations</b></summary>
+<summary><b>3.5 Functional Interfaces And Their Primitive Specializations</b></summary>
 
 ### Functional Interfaces Supporting Primitive Type
 
@@ -1716,7 +1720,7 @@ This set of examples covers the core functional interfaces and their primitive s
 
 </details>
 <details>
-<summary><b>3.4 How To Use Java 8 Functional Interfaces In Real Time?</b></summary>
+<summary><b>3.6 Java 8 Functional Interfaces Uses In Real Time?</b></summary>
 
 ### How To Use Java 8 Functional Interfaces In Real Time?
 Let’s define Student class like below. We will be using this class in the subsequent examples.
@@ -2000,7 +2004,7 @@ listOfStudents.add(studentSupplier.get());
 ```
 </details>
 <details>
-<summary><b>3.4 Java 8 Functional Interfaces and Its Primitive Specializations</b></summary>
+<summary><b>3.7 Java 8 Functional Interfaces and Its Primitive Specializations</b></summary>
 
 
 Functional interfaces in Java are interfaces that have exactly one abstract method. These interfaces are commonly used in lambda expressions and method references. Each functional interface has a corresponding functional descriptor, which describes the type of the abstract method in the interface. Additionally, some functional interfaces have primitive specializations, which are interfaces that work with primitive data types instead of object types.
