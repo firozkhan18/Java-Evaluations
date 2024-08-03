@@ -494,7 +494,6 @@ System.out.println( square.apply(5) );  //Prints 25
 ```
 
 We also saw the JDK provided existing functional interfaces, and finally how to create an use a functional interface.
-</details>
 
 ### Java Default Methods
 <details>
@@ -2022,10 +2021,10 @@ BiFunction<T, U, R>| (T, U) -> R|<p>ToIntBiFunction</p><p>ToLongBiFunction</p><p
 
 Certainly! Here’s a comprehensive set of examples for each of the functional interfaces and their primitive specializations in Java:
 
-
+</details>
 </details>
 <details>
-<summary><b>3.5 Java 8 Interview Questions Along With Detailed Solutions</b></summary>
+<summary><b>4. Java 8 Interview Questions And Solutions</b></summary>
 <details>
 <summary><b>3.5 Java 8 Streams Interview Questions Along With Detailed Solutions</b></summary>
   
@@ -2274,7 +2273,7 @@ public class FlattenList {
 These examples cover a range of common operations and challenges you might encounter with Java Streams, demonstrating how to leverage the API effectively for various tasks.
 </details>
 <details>
-<summary><b>3.6 Java 8 Strings Coding Interview Questions</b></summary>
+<summary><b>4.2 Java 8 Strings Coding Interview Questions</b></summary>
 
 String manipulation is a common topic in Java coding interviews. Below are several string-related coding interview questions you might encounter, along with detailed solutions using Java 8 features.
 
@@ -2497,7 +2496,7 @@ public class LongestWord {
 These examples demonstrate various ways to manipulate strings using Java 8 Streams and functional programming features. They cover common interview scenarios and show how to solve problems efficiently using Java 8 features.
 </details>
 <details>
-<summary><b>3.7 Java 8 Collections Framework and their solutions using Java Streams</b></summary>
+<summary><b>4.3 Java 8 Collections Framework and their solutions using Java Streams</b></summary>
   
 Certainly! In Java, the Streams API can be used to efficiently process collections. Here are several common coding interview questions that involve different parts of the Java Collections Framework and their solutions using Java Streams:
 
@@ -2737,10 +2736,8 @@ public class SortByAge {
 These examples demonstrate various ways to use Java Streams with different types of collections, such as lists, sets, and maps. They illustrate common operations like filtering, sorting, and collecting results, which are essential for solving a variety of real-world problems efficiently.
 
 </details>
-
-</details>
 <details>
-<summary><b>3.8 Java 8 Arrays Coding Interview Questions</b></summary>
+<summary><b>4.4 Java 8 Arrays Coding Interview Questions</b></summary>
 
 Java 8 introduced several new features and improvements that can be useful in interview scenarios. When it comes to arrays, interview questions often explore your understanding of how Java 8 features interact with arrays, as well as your knowledge of core Java array operations.
 
@@ -2925,7 +2922,7 @@ public class ListToArray {
 These questions and examples should help you prepare for Java 8 array-related interview questions and demonstrate your understanding of the Stream API and modern Java practices.
 </details>
 <details>
-<summary><b>3.9 Java 8 Coding Interview Questions</b></summary>
+<summary><b>4.5 Java 8 Coding Interview Questions</b></summary>
   
 Sure! Here are Java programs for each of the tasks listed:
 
@@ -3116,7 +3113,7 @@ public class VowelCount {
 ```
 </details>
 <details>
-<summary><b>3.10 Java 8 500 Coding Interview Questions</b></summary>
+<summary><b>4.6 Java 8 500 Coding Interview Questions</b></summary>
 These programs cover basic operations and data structures in Java. You can modify and expand them based on your requirements.
 Certainly! Here are Java 8 programs utilizing streams for each of the tasks you've mentioned:
 
