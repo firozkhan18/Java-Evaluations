@@ -2,8 +2,9 @@
 
 ---
 
-### **1. Question:**
-**Can you explain the core principles of microservices architecture and how it differs from a monolithic architecture?**
+### **Question:**
+<details>
+<summary><b>1. Can you explain the core principles of microservices architecture and how it differs from a monolithic architecture?</b></summary>
 
 **Answer:**
 Microservices architecture breaks down an application into small, independent services that are loosely coupled and can be developed, deployed, and scaled independently. Each service typically handles a specific business function and communicates with other services via APIs.
@@ -94,7 +95,9 @@ Each service communicates via APIs or messaging queues. If the payment service e
 - **Monolithic Architecture:** Uses a single codebase and deployment unit, making it simpler to develop and deploy initially but harder to scale, update, and manage as the application grows.
 
 By adopting microservices, organizations can improve their ability to innovate quickly, handle complex applications more effectively, and maintain higher levels of system availability and performance.
+
 ---
+</details>
 
 ### **2. Question:**
 **Describe your experience with creating a streaming data pipeline using Kafka. What are the key considerations when designing such a pipeline?**
