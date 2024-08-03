@@ -866,13 +866,18 @@ A class can have multiple static blocks and they will be executed in order they 
 A class can be static only if its declared as inner class inside outer class.
 
 Static imports can be used to import all static members from a class. These members can be referred without any class reference.
-### 3) java.util.function package
+
+</details>
+<details>
+<summary><b>3.3 Java 8 Functional Interfaces</b></summary>
+	
+## java.util.function package
 
 All Java 8 functional interfaces are organised in `java.util.function` package. Each functional interface in this package represents an operation that can be performed by the lambda expression.
 
 Below table shows the list of all Java 8 functional interfaces along with their abstract method, which operation they represent and when to use them?
 
-# Predicate
+### Predicate
 The `java.util.function.Predicate<T>` interface defines an abstract method named test that accepts an object of generic type T and returns a boolean. 
 
 It’s exactly the same one that you created earlier, but is available out of the box! You might want to use this interface when you need to represent a boolean expression that uses an object of type T. 
@@ -901,7 +906,7 @@ List<String> nonEmpty = filter(listOfStrings, nonEmptyStringPredicate);
 ```
 If you look up the Javadoc specification of the Predicate interface, you may notice additional methods such as and and or.
 
-# Consumer
+### Consumer
 
 The `java.util.function.Consumer<T>` interface defines an abstract method named accept that takes an object of generic type T and returns no result (void). 
 You might use this interface when you need to access an object of type T and perform some operations on it. 
@@ -922,7 +927,7 @@ public static <T> void forEach(List<T> list, Consumer<T> c) {
 }
 forEach(Arrays.asList(1,2,3,4,5), (Integer i) -> System.out.println(i));
 ```
-# Function
+### Function
 The java.util.function.Function<T, R> interface defines an abstract method named apply that takes an object of generic type T as input and returns an object of generic type R. 
 
 You might use this interface when you need to define a lambda that maps information from an input object to an output (for example, extracting the weight of an apple or mapping a string to its length). 
@@ -945,7 +950,11 @@ public static <T, R> List<R> map(List<T> list, Function<T, R> f) {
 
 List<Integer> l = map(Arrays.asList("lambdas","in","action"), (String s) -> s.length());
 ```
-### 4) Functional Interfaces Supporting Primitive Type
+</details>
+<details>
+<summary><b>3.3 Functional Interfaces And Their Primitive Specializations</b></summary>
+
+### Functional Interfaces Supporting Primitive Type
 
 Java 8 has also introduced functional interfaces which support primitive types. 
 
@@ -954,6 +963,7 @@ For example IntPredicate, DoublePredicate, LongConsumer etc… (See above table)
 If an input or output is a primitive type then using these functional interfaces will enhance the performance of your code. 
 
 For example, if input to a Predicate is primitive type int then using intPredicate instead of Predicate will remove unnecessary boxing of input.
+
 
 ### 5) Functional Interfaces And Their Primitive Specializations
 
@@ -1696,8 +1706,11 @@ These examples cover the key functional interfaces and their primitive specializ
 
 This set of examples covers the core functional interfaces and their primitive specializations in Java. Each specialization is tailored to work with specific primitive types (int, long, double) for more efficient operations.
 
+</details>
+<details>
+<summary><b>3.4 How To Use Java 8 Functional Interfaces In Real Time?</b></summary>
 
-### 4) How To Use Java 8 Functional Interfaces In Real Time?
+### How To Use Java 8 Functional Interfaces In Real Time?
 Let’s define Student class like below. We will be using this class in the subsequent examples.
 ```java
 class Student
@@ -1977,11 +1990,7 @@ Supplier<Student> studentSupplier = () -> new Student(111111, "New Student", 92.
          
 listOfStudents.add(studentSupplier.get());
 ```
-
-
-
 </details>
-
 <details>
 <summary><b>3.4 Java 8 Functional Interfaces and Its Primitive Specializations</b></summary>
 
