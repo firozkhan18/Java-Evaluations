@@ -88,9 +88,9 @@
 - [Date](#date)
 
 <details>
-<summary><b>4. Java 8 Primitive Streams Examples</b></summary>
+<summary><b>3.1 Java 8 Primitive Streams</b></summary>
   
-## Primitive Streams Examples
+## Primitive Streams
 
 Java 8 introduced specialized streams for handling primitive data types (`int`, `long`, `double`) more efficiently than using the generic `Stream<T>`. These specialized streams are `IntStream`, `LongStream`, and `DoubleStream`. Each provides methods tailored to their respective primitive types.
 
@@ -241,7 +241,7 @@ These examples cover a range of operations for primitive streams, demonstrating 
 
 </details>
 <details>
-<summary><b>4. Java 8 Strings Coding Interview Questions</b></summary>
+<summary><b>3.2 Java 8 Primitive Stream Summary Statistics</b></summary>
   
 In Java, you can use the `summaryStatistics()` method to gather summary statistics such as average, count, maximum, minimum, and sum for a stream of primitive types. This method is available on `IntStream`, `LongStream`, and `DoubleStream` and returns instances of `IntSummaryStatistics`, `LongSummaryStatistics`, and `DoubleSummaryStatistics`, respectively. Below are examples demonstrating how to use these classes and their methods.
 
@@ -360,7 +360,7 @@ These summary statistics classes provide a convenient way to gather statistical 
 
 </details>
 <details>
-<summary><b>4. Java 8 Functional Interfaces</b></summary>
+<summary><b>3.3 Java 8 Functional Interfaces</b></summary>
   
 In Java, functional interfaces such as `Predicate`, `Consumer`, `Supplier`, and their primitive counterparts are key components in functional programming. Here’s a detailed overview of each interface along with coding examples.
 
@@ -498,7 +498,7 @@ These functional interfaces are powerful tools for functional programming in Jav
 </details>
 
 <details>
-<summary><b>4. Java 8 Functional Interfaces and Its Primitive Specializations</b></summary>
+<summary><b>3.4 Java 8 Functional Interfaces and Its Primitive Specializations</b></summary>
 
 Certainly! Here's a detailed breakdown of various functional interfaces in Java and their corresponding primitive specializations, including code examples for each:
 
@@ -1161,7 +1161,7 @@ This set of examples covers the core functional interfaces and their primitive s
 
 </details>
 <details>
-<summary><b>4. Java 8 Streams interview questions, along with detailed solutions</b></summary>
+<summary><b>3.5 Java 8 Streams Interview Questions Along With Detailed Solutions</b></summary>
   
 Here are some common Java Streams interview questions, along with detailed solutions:
 
@@ -1408,7 +1408,7 @@ public class FlattenList {
 These examples cover a range of common operations and challenges you might encounter with Java Streams, demonstrating how to leverage the API effectively for various tasks.
 </details>
 <details>
-<summary><b>4. Java 8 Strings Coding Interview Questions</b></summary>
+<summary><b>3.6 Java 8 Strings Coding Interview Questions</b></summary>
 
 String manipulation is a common topic in Java coding interviews. Below are several string-related coding interview questions you might encounter, along with detailed solutions using Java 8 features.
 
@@ -1631,7 +1631,7 @@ public class LongestWord {
 These examples demonstrate various ways to manipulate strings using Java 8 Streams and functional programming features. They cover common interview scenarios and show how to solve problems efficiently using Java 8 features.
 </details>
 <details>
-<summary><b>4. Java 8 Collections Framework and their solutions using Java Streams</b></summary>
+<summary><b>3.7 Java 8 Collections Framework and their solutions using Java Streams</b></summary>
   
 Certainly! In Java, the Streams API can be used to efficiently process collections. Here are several common coding interview questions that involve different parts of the Java Collections Framework and their solutions using Java Streams:
 
@@ -1874,7 +1874,7 @@ These examples demonstrate various ways to use Java Streams with different types
 
 </details>
 <details>
-<summary><b>4. Java 8 Arrays Coding Interview Questions</b></summary>
+<summary><b>3.8 Java 8 Arrays Coding Interview Questions</b></summary>
 
 Java 8 introduced several new features and improvements that can be useful in interview scenarios. When it comes to arrays, interview questions often explore your understanding of how Java 8 features interact with arrays, as well as your knowledge of core Java array operations.
 
@@ -2059,7 +2059,7 @@ public class ListToArray {
 These questions and examples should help you prepare for Java 8 array-related interview questions and demonstrate your understanding of the Stream API and modern Java practices.
 </details>
 <details>
-<summary><b>4.Java 8 Coding Interview Questions</b></summary>
+<summary><b>3.9 Java 8 Coding Interview Questions</b></summary>
   
 Sure! Here are Java programs for each of the tasks listed:
 
@@ -2250,7 +2250,7 @@ public class VowelCount {
 ```
 </details>
 <details>
-<summary><b>4. 500 Java 8 Coding Interview Questions</b></summary>
+<summary><b>3.10 Java 8 500 Coding Interview Questions</b></summary>
 These programs cover basic operations and data structures in Java. You can modify and expand them based on your requirements.
 Certainly! Here are Java 8 programs utilizing streams for each of the tasks you've mentioned:
 
