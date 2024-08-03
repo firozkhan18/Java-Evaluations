@@ -609,7 +609,7 @@ Rules for this conflict resolution are as follows:
 ```
 </details>
 
-## Java Static Methods
+### Java Static Methods
 <details>
 <summary><b>3.3 Java 8 Functional Interfaces - Java Static Methods</b></summary>
 	
@@ -2024,6 +2024,8 @@ Certainly! Here’s a comprehensive set of examples for each of the functional i
 
 
 </details>
+<details>
+<summary><b>3.5 Java 8 Interview Questions Along With Detailed Solutions</b></summary>
 <details>
 <summary><b>3.5 Java 8 Streams Interview Questions Along With Detailed Solutions</b></summary>
   
@@ -21602,6 +21604,7 @@ public class StudentManagement {
     }
 }
 ```
+</details>
 </details>
 </details>
 <details>
