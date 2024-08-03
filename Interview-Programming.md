@@ -2020,7 +2020,7 @@ BiConsumer| (T, U) -> void||
 BiFunction<T, U, R>| (T, U) -> R|<p>ToIntBiFunction</p><p>ToLongBiFunction</p><p>ToDoubleBiFunction</p>|
 
 Certainly! Here’s a comprehensive set of examples for each of the functional interfaces and their primitive specializations in Java:
-
+</details>
 </details>
 </details>
 <details>
@@ -2272,6 +2272,7 @@ public class FlattenList {
 
 These examples cover a range of common operations and challenges you might encounter with Java Streams, demonstrating how to leverage the API effectively for various tasks.
 </details>
+
 <details>
 <summary><b>4.2 Java 8 Strings Coding Interview Questions</b></summary>
 
