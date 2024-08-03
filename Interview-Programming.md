@@ -6,7 +6,6 @@ Here’s how you can format the `<details>` and `<summary>` tags to maintain pro
 
 ### Markdown with HTML Example
 
-```markdown
 <details>
   <summary>Parent Node</summary>
   <p>Details about Parent Node</p>
@@ -31,7 +30,7 @@ Here’s how you can format the `<details>` and `<summary>` tags to maintain pro
     <p>Details about Another Child Node</p>
   </details>
 </details>
-```
+
 
 ### Key Points:
 
