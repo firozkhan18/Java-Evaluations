@@ -92,7 +92,8 @@
  
 - [Java Programming Questions and Answers](#java-programming-questions-and-answers)
 
-  ### Arrays Interview Questions
+<details>
+<summary><b>4. Java 8 Arrays Coding Interview Questions</b></summary>
 
 Java 8 introduced several new features and improvements that can be useful in interview scenarios. When it comes to arrays, interview questions often explore your understanding of how Java 8 features interact with arrays, as well as your knowledge of core Java array operations.
 
@@ -668,8 +669,9 @@ public class FlattenList {
 - `collect(Collectors.toList())`: Collects the elements into a single list.
 
 These examples cover a range of common operations and challenges you might encounter with Java Streams, demonstrating how to leverage the API effectively for various tasks.
-
-### Strings Interview question in java 8
+</details>
+<details>
+<summary><b>4. Java 8 Strings Coding Interview Questions</b></summary>
 
 String manipulation is a common topic in Java coding interviews. Below are several string-related coding interview questions you might encounter, along with detailed solutions using Java 8 features.
 
@@ -890,7 +892,10 @@ public class LongestWord {
 - `orElse("No words found")`: Handles the case when there are no words.
 
 These examples demonstrate various ways to manipulate strings using Java 8 Streams and functional programming features. They cover common interview scenarios and show how to solve problems efficiently using Java 8 features.
-
+</details>
+<details>
+<summary><b>4. Java 8 Strings Coding Interview Questions</b></summary>
+  
 Certainly! In Java, the Streams API can be used to efficiently process collections. Here are several common coding interview questions that involve different parts of the Java Collections Framework and their solutions using Java Streams:
 
 ### 1. **Find the Second Largest Element in a List**
@@ -1128,7 +1133,10 @@ public class SortByAge {
 
 These examples demonstrate various ways to use Java Streams with different types of collections, such as lists, sets, and maps. They illustrate common operations like filtering, sorting, and collecting results, which are essential for solving a variety of real-world problems efficiently.
 
-
+</details>
+<details>
+<summary><b>4. Java 8 Strings Coding Interview Questions</b></summary>
+  
 In Java, functional interfaces such as `Predicate`, `Consumer`, `Supplier`, and their primitive counterparts are key components in functional programming. Here’s a detailed overview of each interface along with coding examples.
 
 ### 1. **`Predicate<T>` Interface**
@@ -1262,7 +1270,10 @@ Here’s a summary of the functional interfaces and their primitive variants:
 
 These functional interfaces are powerful tools for functional programming in Java, enabling concise and expressive code for a variety of operations.
 
-
+</details>
+<details>
+<summary><b>4. Java 8 Strings Coding Interview Questions</b></summary>
+  
 In Java, you can use the `summaryStatistics()` method to gather summary statistics such as average, count, maximum, minimum, and sum for a stream of primitive types. This method is available on `IntStream`, `LongStream`, and `DoubleStream` and returns instances of `IntSummaryStatistics`, `LongSummaryStatistics`, and `DoubleSummaryStatistics`, respectively. Below are examples demonstrating how to use these classes and their methods.
 
 ### 1. **IntSummaryStatistics Example**
@@ -1378,7 +1389,9 @@ Max: 5.5
 
 These summary statistics classes provide a convenient way to gather statistical data from streams of primitive types.
 
-
+</details>
+<details>
+<summary><b>4. Java 8 Strings Coding Interview Questions</b></summary>
 
 Certainly! Here's a detailed breakdown of various functional interfaces in Java and their corresponding primitive specializations, including code examples for each:
 
@@ -2039,7 +2052,10 @@ ToDouble.applyAsDouble("Hello")); // 5.0
 
 This set of examples covers the core functional interfaces and their primitive specializations in Java. Each specialization is tailored to work with specific primitive types (int, long, double) for more efficient operations.
 
-
+</details>
+<details>
+<summary><b>4. Java 8 Strings Coding Interview Questions</b></summary>
+  
 Sure! Here are Java programs for each of the tasks listed:
 
 ### 1. Program to find the sum of all elements in an array
@@ -3496,6 +3512,7 @@ public class CountOccurrencesOfCharacter {
 ```
 
 These programs make use of Java 8 streams and functional programming concepts to perform various tasks, showcasing the versatility and power of the Stream API in simplifying complex operations.
+
 Certainly! Here's a collection of Java 8 programs that use streams to solve the given problems:
 
 ### 67. Count Words in a Sentence Program
@@ -20438,7 +20455,282 @@ public class KeyboardRow {
 ```
 
 These solutions cover a wide range of LeetCode problems. If you need more details on any specific problem or want additional problems solved, feel free to ask!
+
+</details>
+<details>
+<summary><b>Employee Management Java 8 Coding Interview Questions</b></summary>
+  
 Sure! Let's dive into two key management scenarios using Java 8 Streams: Employee Management and Student Management. For each scenario, I'll provide common tasks and demonstrate how to perform them using Java Streams.
+
+### Employee Management
+
+**1. List All Employees**
+
+```java
+import java.util.*;
+import java.util.stream.Collectors;
+
+class Employee {
+    String name;
+    int age;
+    double salary;
+
+    Employee(String name, int age, double salary) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return name + " (" + age + ", $" + salary + ")";
+    }
+}
+
+public class EmployeeManagement {
+    public static void main(String[] args) {
+        List<Employee> employees = Arrays.asList(
+            new Employee("Alice", 30, 70000),
+            new Employee("Bob", 45, 85000),
+            new Employee("Charlie", 35, 60000),
+            new Employee("David", 50, 90000)
+        );
+
+        // List all employees
+        employees.forEach(System.out::println);
+    }
+}
+```
+
+**2. Find Employees with Salary Greater Than 70,000**
+
+```java
+public class EmployeeManagement {
+    public static void main(String[] args) {
+        List<Employee> employees = Arrays.asList(
+            new Employee("Alice", 30, 70000),
+            new Employee("Bob", 45, 85000),
+            new Employee("Charlie", 35, 60000),
+            new Employee("David", 50, 90000)
+        );
+
+        // Employees with salary greater than 70,000
+        List<Employee> highEarners = employees.stream()
+            .filter(e -> e.salary > 70000)
+            .collect(Collectors.toList());
+
+        highEarners.forEach(System.out::println);
+    }
+}
+```
+
+**3. Calculate Average Salary**
+
+```java
+public class EmployeeManagement {
+    public static void main(String[] args) {
+        List<Employee> employees = Arrays.asList(
+            new Employee("Alice", 30, 70000),
+            new Employee("Bob", 45, 85000),
+            new Employee("Charlie", 35, 60000),
+            new Employee("David", 50, 90000)
+        );
+
+        // Calculate average salary
+        double averageSalary = employees.stream()
+            .mapToDouble(e -> e.salary)
+            .average()
+            .orElse(0.0);
+
+        System.out.println("Average Salary: $" + averageSalary);
+    }
+}
+```
+
+**4. Group Employees by Age**
+
+```java
+import java.util.stream.Collectors;
+
+public class EmployeeManagement {
+    public static void main(String[] args) {
+        List<Employee> employees = Arrays.asList(
+            new Employee("Alice", 30, 70000),
+            new Employee("Bob", 45, 85000),
+            new Employee("Charlie", 35, 60000),
+            new Employee("David", 50, 90000)
+        );
+
+        // Group employees by age
+        Map<Integer, List<Employee>> employeesByAge = employees.stream()
+            .collect(Collectors.groupingBy(e -> e.age));
+
+        employeesByAge.forEach((age, emps) -> {
+            System.out.println("Age " + age + ": " + emps);
+        });
+    }
+}
+```
+
+**5. Sort Employees by Salary**
+
+```java
+public class EmployeeManagement {
+    public static void main(String[] args) {
+        List<Employee> employees = Arrays.asList(
+            new Employee("Alice", 30, 70000),
+            new Employee("Bob", 45, 85000),
+            new Employee("Charlie", 35, 60000),
+            new Employee("David", 50, 90000)
+        );
+
+        // Sort employees by salary
+        List<Employee> sortedBySalary = employees.stream()
+            .sorted(Comparator.comparingDouble(e -> e.salary))
+            .collect(Collectors.toList());
+
+        sortedBySalary.forEach(System.out::println);
+    }
+}
+```
+
+These examples should provide a good foundation for managing employees and students using Java 8 Streams. They cover listing, filtering, grouping, and sorting data, which are common tasks in such scenarios.
+
+</details>
+<details>
+<summary><b>Student Management</b></summary>
+
+### Student Management
+
+**1. List All Students**
+
+```java
+import java.util.*;
+import java.util.stream.Collectors;
+
+class Student {
+    String name;
+    int age;
+    double grade;
+
+    Student(String name, int age, double grade) {
+        this.name = name;
+        this.age = age;
+        this.grade = grade;
+    }
+
+    @Override
+    public String toString() {
+        return name + " (" + age + ", " + grade + ")";
+    }
+}
+
+public class StudentManagement {
+    public static void main(String[] args) {
+        List<Student> students = Arrays.asList(
+            new Student("John", 20, 85.5),
+            new Student("Jane", 22, 90.0),
+            new Student("Tom", 21, 78.0),
+            new Student("Emily", 22, 92.0)
+        );
+
+        // List all students
+        students.forEach(System.out::println);
+    }
+}
+```
+
+**2. Find Students with Grade Greater Than 80**
+
+```java
+public class StudentManagement {
+    public static void main(String[] args) {
+        List<Student> students = Arrays.asList(
+            new Student("John", 20, 85.5),
+            new Student("Jane", 22, 90.0),
+            new Student("Tom", 21, 78.0),
+            new Student("Emily", 22, 92.0)
+        );
+
+        // Students with grade greater than 80
+        List<Student> highAchievers = students.stream()
+            .filter(s -> s.grade > 80)
+            .collect(Collectors.toList());
+
+        highAchievers.forEach(System.out::println);
+    }
+}
+```
+
+**3. Calculate Average Grade**
+
+```java
+public class StudentManagement {
+    public static void main(String[] args) {
+        List<Student> students = Arrays.asList(
+            new Student("John", 20, 85.5),
+            new Student("Jane", 22, 90.0),
+            new Student("Tom", 21, 78.0),
+            new Student("Emily", 22, 92.0)
+        );
+
+        // Calculate average grade
+        double averageGrade = students.stream()
+            .mapToDouble(s -> s.grade)
+            .average()
+            .orElse(0.0);
+
+        System.out.println("Average Grade: " + averageGrade);
+    }
+}
+```
+
+**4. Group Students by Age**
+
+```java
+import java.util.stream.Collectors;
+
+public class StudentManagement {
+    public static void main(String[] args) {
+        List<Student> students = Arrays.asList(
+            new Student("John", 20, 85.5),
+            new Student("Jane", 22, 90.0),
+            new Student("Tom", 21, 78.0),
+            new Student("Emily", 22, 92.0)
+        );
+
+        // Group students by age
+        Map<Integer, List<Student>> studentsByAge = students.stream()
+            .collect(Collectors.groupingBy(s -> s.age));
+
+        studentsByAge.forEach((age, stus) -> {
+            System.out.println("Age " + age + ": " + stus);
+        });
+    }
+}
+```
+
+**5. Sort Students by Grade**
+
+```java
+public class StudentManagement {
+    public static void main(String[] args) {
+        List<Student> students = Arrays.asList(
+            new Student("John", 20, 85.5),
+            new Student("Jane", 22, 90.0),
+            new Student("Tom", 21, 78.0),
+            new Student("Emily", 22, 92.0)
+        );
+
+        // Sort students by grade
+        List<Student> sortedByGrade = students.stream()
+            .sorted(Comparator.comparingDouble(s -> s.grade))
+            .collect(Collectors.toList());
+
+        sortedByGrade.forEach(System.out::println);
+    }
+}
+```
 </details>
 <details>
 <summary><b>5. Spring Framework</b></summary>
@@ -23041,269 +23333,3 @@ That's all about how to convert a list of objects List<V> to a map of keys and v
 Though you should be mindful of the essential difference between List and Map data structure like one is ordered collection while the other is not. Transferring values from List to Map means you will lose the order if you don't preserve them like by using a LinkedHashMap.
 
 
-
-### Employee Management
-
-**1. List All Employees**
-
-```java
-import java.util.*;
-import java.util.stream.Collectors;
-
-class Employee {
-    String name;
-    int age;
-    double salary;
-
-    Employee(String name, int age, double salary) {
-        this.name = name;
-        this.age = age;
-        this.salary = salary;
-    }
-
-    @Override
-    public String toString() {
-        return name + " (" + age + ", $" + salary + ")";
-    }
-}
-
-public class EmployeeManagement {
-    public static void main(String[] args) {
-        List<Employee> employees = Arrays.asList(
-            new Employee("Alice", 30, 70000),
-            new Employee("Bob", 45, 85000),
-            new Employee("Charlie", 35, 60000),
-            new Employee("David", 50, 90000)
-        );
-
-        // List all employees
-        employees.forEach(System.out::println);
-    }
-}
-```
-
-**2. Find Employees with Salary Greater Than 70,000**
-
-```java
-public class EmployeeManagement {
-    public static void main(String[] args) {
-        List<Employee> employees = Arrays.asList(
-            new Employee("Alice", 30, 70000),
-            new Employee("Bob", 45, 85000),
-            new Employee("Charlie", 35, 60000),
-            new Employee("David", 50, 90000)
-        );
-
-        // Employees with salary greater than 70,000
-        List<Employee> highEarners = employees.stream()
-            .filter(e -> e.salary > 70000)
-            .collect(Collectors.toList());
-
-        highEarners.forEach(System.out::println);
-    }
-}
-```
-
-**3. Calculate Average Salary**
-
-```java
-public class EmployeeManagement {
-    public static void main(String[] args) {
-        List<Employee> employees = Arrays.asList(
-            new Employee("Alice", 30, 70000),
-            new Employee("Bob", 45, 85000),
-            new Employee("Charlie", 35, 60000),
-            new Employee("David", 50, 90000)
-        );
-
-        // Calculate average salary
-        double averageSalary = employees.stream()
-            .mapToDouble(e -> e.salary)
-            .average()
-            .orElse(0.0);
-
-        System.out.println("Average Salary: $" + averageSalary);
-    }
-}
-```
-
-**4. Group Employees by Age**
-
-```java
-import java.util.stream.Collectors;
-
-public class EmployeeManagement {
-    public static void main(String[] args) {
-        List<Employee> employees = Arrays.asList(
-            new Employee("Alice", 30, 70000),
-            new Employee("Bob", 45, 85000),
-            new Employee("Charlie", 35, 60000),
-            new Employee("David", 50, 90000)
-        );
-
-        // Group employees by age
-        Map<Integer, List<Employee>> employeesByAge = employees.stream()
-            .collect(Collectors.groupingBy(e -> e.age));
-
-        employeesByAge.forEach((age, emps) -> {
-            System.out.println("Age " + age + ": " + emps);
-        });
-    }
-}
-```
-
-**5. Sort Employees by Salary**
-
-```java
-public class EmployeeManagement {
-    public static void main(String[] args) {
-        List<Employee> employees = Arrays.asList(
-            new Employee("Alice", 30, 70000),
-            new Employee("Bob", 45, 85000),
-            new Employee("Charlie", 35, 60000),
-            new Employee("David", 50, 90000)
-        );
-
-        // Sort employees by salary
-        List<Employee> sortedBySalary = employees.stream()
-            .sorted(Comparator.comparingDouble(e -> e.salary))
-            .collect(Collectors.toList());
-
-        sortedBySalary.forEach(System.out::println);
-    }
-}
-```
-
-### Student Management
-
-**1. List All Students**
-
-```java
-import java.util.*;
-import java.util.stream.Collectors;
-
-class Student {
-    String name;
-    int age;
-    double grade;
-
-    Student(String name, int age, double grade) {
-        this.name = name;
-        this.age = age;
-        this.grade = grade;
-    }
-
-    @Override
-    public String toString() {
-        return name + " (" + age + ", " + grade + ")";
-    }
-}
-
-public class StudentManagement {
-    public static void main(String[] args) {
-        List<Student> students = Arrays.asList(
-            new Student("John", 20, 85.5),
-            new Student("Jane", 22, 90.0),
-            new Student("Tom", 21, 78.0),
-            new Student("Emily", 22, 92.0)
-        );
-
-        // List all students
-        students.forEach(System.out::println);
-    }
-}
-```
-
-**2. Find Students with Grade Greater Than 80**
-
-```java
-public class StudentManagement {
-    public static void main(String[] args) {
-        List<Student> students = Arrays.asList(
-            new Student("John", 20, 85.5),
-            new Student("Jane", 22, 90.0),
-            new Student("Tom", 21, 78.0),
-            new Student("Emily", 22, 92.0)
-        );
-
-        // Students with grade greater than 80
-        List<Student> highAchievers = students.stream()
-            .filter(s -> s.grade > 80)
-            .collect(Collectors.toList());
-
-        highAchievers.forEach(System.out::println);
-    }
-}
-```
-
-**3. Calculate Average Grade**
-
-```java
-public class StudentManagement {
-    public static void main(String[] args) {
-        List<Student> students = Arrays.asList(
-            new Student("John", 20, 85.5),
-            new Student("Jane", 22, 90.0),
-            new Student("Tom", 21, 78.0),
-            new Student("Emily", 22, 92.0)
-        );
-
-        // Calculate average grade
-        double averageGrade = students.stream()
-            .mapToDouble(s -> s.grade)
-            .average()
-            .orElse(0.0);
-
-        System.out.println("Average Grade: " + averageGrade);
-    }
-}
-```
-
-**4. Group Students by Age**
-
-```java
-import java.util.stream.Collectors;
-
-public class StudentManagement {
-    public static void main(String[] args) {
-        List<Student> students = Arrays.asList(
-            new Student("John", 20, 85.5),
-            new Student("Jane", 22, 90.0),
-            new Student("Tom", 21, 78.0),
-            new Student("Emily", 22, 92.0)
-        );
-
-        // Group students by age
-        Map<Integer, List<Student>> studentsByAge = students.stream()
-            .collect(Collectors.groupingBy(s -> s.age));
-
-        studentsByAge.forEach((age, stus) -> {
-            System.out.println("Age " + age + ": " + stus);
-        });
-    }
-}
-```
-
-**5. Sort Students by Grade**
-
-```java
-public class StudentManagement {
-    public static void main(String[] args) {
-        List<Student> students = Arrays.asList(
-            new Student("John", 20, 85.5),
-            new Student("Jane", 22, 90.0),
-            new Student("Tom", 21, 78.0),
-            new Student("Emily", 22, 92.0)
-        );
-
-        // Sort students by grade
-        List<Student> sortedByGrade = students.stream()
-            .sorted(Comparator.comparingDouble(s -> s.grade))
-            .collect(Collectors.toList());
-
-        sortedByGrade.forEach(System.out::println);
-    }
-}
-```
-
-These examples should provide a good foundation for managing employees and students using Java 8 Streams. They cover listing, filtering, grouping, and sorting data, which are common tasks in such scenarios.
