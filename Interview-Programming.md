@@ -429,10 +429,6 @@ Certainly! Here's a detailed breakdown of various functional interfaces in Java 
 
 ### **1. Predicate Interface and Its Primitive Specializations**
 
-A `Predicate<T>` is a functional interface that represents a boolean-valued function of one argument. It is commonly used for filtering or testing conditions.
-
-**Example: **
-
 - **`Predicate<T>` Interface**
   - **Description:** A `Predicate<T>` is a functional interface that represents a boolean-valued function of one argument. It is commonly used for filtering or testing conditions. A functional interface that tests if a condition holds true for an input type `T`.
   - **Signature:** `T -> boolean`
