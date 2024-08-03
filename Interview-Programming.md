@@ -1,25 +1,3 @@
-## Example of Collapsible Sections with Emojis
-
-<details>
-  <summary>Expand 👉</summary>
-  
-  **Expanded Content 👇**
-
-  This section provides additional information. You can include any detailed content here, and it will be visible when the section is expanded.
-
-</details>
-
-<details>
-  <summary>Another Section Expand 👉</summary>
-
-  **Another Expanded Content 👇**
-
-  More details are available in this section. Clicking the summary will reveal the content below.
-
-</details>
-
-
-
 # Table of Contents
 
 <details>
