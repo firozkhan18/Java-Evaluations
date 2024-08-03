@@ -361,9 +361,47 @@ These summary statistics classes provide a convenient way to gather statistical 
 </details>
 <details>
 <summary><b>3.3 Java 8 Functional Interfaces</b></summary>
-  
-In Java, functional interfaces such as `Predicate`, `Consumer`, `Supplier`, and their primitive counterparts are key components in functional programming. Here’s a detailed overview of each interface along with coding examples.
 
+# Java 8 Functional Interfaces – When & How To Use Them?
+
+Functional interfaces, lambda expressions and Stream API – these three features of Java 8 has turned Java programming into new style of programming called functional-style programming. Java is still an object-oriented programming language, but from Java 8, with the introduction of new features, most of the programming is done keeping functions in mind rather than objects. 
+
+In this example, we will see Java 8 functional interfaces, `@FunctionalInterface` annotation, `java.util.function` package and how to use new Java 8 functional interfaces to compose lambda expressions with some simple examples.
+
+## Java 8 Functional Interfaces
+
+### 1) Definition
+
+Functional interfaces are the interfaces which has exactly one abstract method. They may have any number of default methods but must have only one abstract method. Functional interfaces provide only one functionality to implement.
+
+There were functional interfaces exist before Java 8. It is not like that they are the whole new concept introduced only in Java 8. Runnable, ActionListener, Callable and Comaprator are some old functional interfaces which exist even before Java 8.
+
+The new set of functional interfaces are introduced in Java 8 to make programmer’s job easy while writing lambda expressions. Your lambda expression must implement any one of these functional interfaces. These new functional interfaces are organised under java.util.function package.
+
+### 2) @FunctionalInterface Annotation
+
+`@FunctionalInterface` annotation is introduced in Java 8 to represent functional interfaces. Although, it is not compulsory to write functional interface using this annotation. But, if you are using @FunctionalInterface annotation then your interface should contain only one abstract method. If you try to write more than one abstract method, compiler will show the error.
+
+
+### 3) java.util.function package
+
+All Java 8 functional interfaces are organised in `java.util.function` package. Each functional interface in this package represents an operation that can be performed by the lambda expression.
+
+Below table shows the list of all Java 8 functional interfaces along with their abstract method, which operation they represent and when to use them?
+
+### 4) Functional Interfaces Supporting Primitive Type
+
+Java 8 has also introduced functional interfaces which support primitive types. 
+
+For example IntPredicate, DoublePredicate, LongConsumer etc… (See above table).
+
+If an input or output is a primitive type then using these functional interfaces will enhance the performance of your code. 
+
+For example, if input to a Predicate is primitive type int then using intPredicate instead of Predicate will remove unnecessary boxing of input.
+
+### 5) Functional Interfaces And Their Primitive Specializations
+
+In Java, functional interfaces such as `Predicate`, `Consumer`, `Supplier`, and their primitive counterparts are key components in functional programming. Here’s a detailed overview of each interface along with coding examples.
 
 ![Desktop Screenshot](images/Java8FunctionalInterfaces.png)
 
@@ -517,30 +555,6 @@ Here’s a summary of the functional interfaces and their primitive variants:
    - **Usage:** Providing or generating values
 
 These functional interfaces are powerful tools for functional programming in Java, enabling concise and expressive code for a variety of operations.
-
-</details>
-
-<details>
-<summary><b>3.4 Java 8 Functional Interfaces and Its Primitive Specializations</b></summary>
-
-
-Functional interfaces in Java are interfaces that have exactly one abstract method. These interfaces are commonly used in lambda expressions and method references. Each functional interface has a corresponding functional descriptor, which describes the type of the abstract method in the interface. Additionally, some functional interfaces have primitive specializations, which are interfaces that work with primitive data types instead of object types.
-
-Examples:
-
-Functional interface  | Function descriptor | Primitive specializations |
------------------------|---------------------|--------------------------------------------------------| 
-Predicate| T -> boolean |<p>IntPredicate</p><p>LongPredicate</p><p>DoublePredicate</p>|
-Consumer|T -> void| <p>IntConsumer</p><p>LongConsumer</p><p>DoubleConsumer</p>|
-Function<T, R>|T -> R|<p>IntFunction</p><p>IntToDoubleFunction</p><p>IntToLongFunction</p><p>LongFunction</p> <p>LongToDoubleFunction</p><p>LongToIntFunction</p><p>DoubleFunction</p><p>ToIntFunction</p><p>ToDoubleFunction</p><p>ToLongFunction</p>|
-Supplier| () -> T|<p>BooleanSupplier</p><p>IntSupplier</p><p>LongSupplier</p><p>DoubleSupplier</p>|
-UnaryOperator| T -> T|<p>IntUnaryOperator</p><p>LongUnaryOperator</p><p>DoubleUnaryOperator</p>|
-BinaryOperator| (T, T) -> T|<p>IntBinaryOperator</p><p>LongBinaryOperator</p><p>DoubleBinaryOperator</p>|
-BiPredicate| (L, R) -> boolean||
-BiConsumer| (T, U) -> void||
-BiFunction<T, U, R>| (T, U) -> R|<p>ToIntBiFunction</p><p>ToLongBiFunction</p><p>ToDoubleBiFunction</p>|
-
-Certainly! Here’s a comprehensive set of examples for each of the functional interfaces and their primitive specializations in Java:
 
 Certainly! Here's a detailed breakdown of various functional interfaces in Java and their corresponding primitive specializations, including code examples for each:
 
@@ -1200,6 +1214,312 @@ ToDouble.applyAsDouble("Hello")); // 5.0
     ```
 
 This set of examples covers the core functional interfaces and their primitive specializations in Java. Each specialization is tailored to work with specific primitive types (int, long, double) for more efficient operations.
+
+
+### 4) How To Use Java 8 Functional Interfaces In Real Time?
+Let’s define Student class like below. We will be using this class in the subsequent examples.
+```java
+class Student
+{
+    int id;
+     
+    String name;
+     
+    double percentage;
+     
+    String specialization;
+     
+    public Student(int id, String name, double percentage, String specialization) 
+    {
+        this.id = id;
+         
+        this.name = name;
+         
+        this.percentage = percentage;
+         
+        this.specialization = specialization;
+    }
+     
+    public int getId() {
+        return id;
+    }
+ 
+    public String getName() {
+        return name;
+    }
+ 
+    public double getPercentage() {
+        return percentage;
+    }
+ 
+    public String getSpecialization() {
+        return specialization;
+    }
+ 
+    @Override
+    public String toString()
+    {
+        return id+"-"+name+"-"+percentage+"-"+specialization;
+    }
+}
+```
+Let listOfStudents be the list of 10 students.
+```java
+List<Student> listOfStudents = new ArrayList<Student>();
+         
+listOfStudents.add(new Student(111, "John", 81.0, "Mathematics"));         
+listOfStudents.add(new Student(222, "Harsha", 79.5, "History"));         
+listOfStudents.add(new Student(333, "Ruth", 87.2, "Computers"));         
+listOfStudents.add(new Student(444, "Aroma", 63.2, "Mathematics"));         
+listOfStudents.add(new Student(555, "Zade", 83.5, "Computers"));         
+listOfStudents.add(new Student(666, "Xing", 58.5, "Geography"));         
+listOfStudents.add(new Student(777, "Richards", 72.6, "Banking"));         
+listOfStudents.add(new Student(888, "Sunil", 86.7, "History"));         
+listOfStudents.add(new Student(999, "Jordan", 58.6, "Finance"));         
+listOfStudents.add(new Student(101010, "Chris", 89.8, "Computers"));
+```
+Let’s see how to use 4 important functional interfaces – Predicate, Consumer, Function and Supplier using above listOfStudents.
+
+### a) Predicate – Tests an object
+
+Predicate represents an operation which takes an argument T and returns a boolean. Use this functional interface, if you want to define a lambda expression which performs some test on an argument and returns true or false depending upon outcome of the test.
+
+For example,
+
+Imagine an operation where you want only a list of “Mathematics” students from the above listOfStudents. Let’s see how to do it using Predicate.
+
+Lambda expression implementing Predicate : Checking specialization of a Student
+```java
+Predicate<Student> mathematicsPredicate = (Student student) -> student.getSpecialization().equals("Mathematics");
+         
+List<Student> mathematicsStudents = new ArrayList<Student>();
+         
+for (Student student : listOfStudents) 
+{
+    if (mathematicsPredicate.test(student)) 
+    {
+        mathematicsStudents.add(student);
+    }
+}
+```
+
+### Real Time Example
+
+- 1)  Without Lambda:
+
+```java
+import java.util.Collections;
+import java.util.List;
+
+public class PredicateDemo implements Predicate<Integer> {
+
+	@Override
+	public Boolean test(Integer t) {
+		if(t % 2 ==0){
+	            return true;
+		}else{
+	            return false;
+		}
+       };
+
+       public static void main(String[] args) {
+	 Predicate<Integer> predicate= new PredicateDemo()
+	 System.out.println(predicate.test(8));
+       }
+}
+```
+- 2) With Lambda: 
+```java
+import java.util.Collections;
+import java.util.List;
+
+public class PredicateDemo {
+
+       public static void main(String[] args) {
+
+	 Predicate<Integer> predicate= t-> t % 2 ==0;
+	 System.out.println(predicate.test(8));
+       }
+}
+```
+- 3) stream().filter internaly using Predicate functional interface.
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class PredicateDemo {
+
+	public static void main(String[] args) {
+
+		List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5);
+
+		list1.stream().filter(t -> t % 2 == 0).forEach(t -> System.out.println("print  Even: " + t));
+	}
+}
+```
+### b) Consumer – Consumes an object
+
+Consumer represents an operation which takes an argument and returns nothing. Use this functional interface If you want to compose a lambda expression which performs some operations on an object.
+
+For example, displaying all students with their percentage.
+
+Lambda expression implementing Consumer : Displaying all students with their percentage
+```java
+Consumer<Student> percentageConsumer = (Student student) -> {
+        System.out.println(student.getName()+" : "+student.getPercentage());
+    };
+         
+for (Student student : listOfStudents) 
+{
+    percentageConsumer.accept(student);
+}
+```
+Example 2:
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
+
+public class ConsumerDemo {
+
+	public static void main(String[] args) {
+		
+		Consumer<Integer> consumer = t -> System.out.println("Printing  : " + t);
+		 
+		consumer.accept(10);
+
+	}
+}
+```
+
+Example 3: stream().forEach internaly using Consumer functional interface.
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
+
+public class ConsumerDemo {
+
+	public static void main(String[] args) {
+
+		List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5);
+
+		list1.stream().forEach(t -> System.out.println("print  : " + t));
+	}
+}
+```
+### c) Function – Applies to an object
+
+Function represents an operation which takes an argument of type T and returns a result of type R. Use this functional interface if you want to extract some data from an existing data.
+
+For example, extracting only the names from listOfStudents.
+
+Lambda expression implementing Function : Extracting only the names of all students
+```java
+Function<Student, String> nameFunction = (Student Student) -> Student.getName();
+         
+List<String> studentNames = new ArrayList<String>();
+         
+for (Student student : listOfStudents) 
+{
+    studentNames.add(nameFunction.apply(student));
+}
+```
+### d) Supplier – Supplies the objects
+
+Supplier represents an operation which takes no argument and returns the results of type R. Use this functional interface when you want to create new objects.
+
+1) Without Lambda:
+   
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Supplier;
+
+public class SupplierDemo implements Supplier<String>{
+
+	@Override
+	public String get(){
+            return "Hello World";
+	}
+
+	public static void main(String[] args) {
+
+		Supplier<String> supplier = new SupplierDemo();
+
+		System.out.println(supplier.get());
+	}
+}
+```
+2) With Lambda:
+   
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Supplier;
+
+public class SupplierDemo {
+
+	public static void main(String[] args) {
+
+		Supplier<String> supplier = t -> "Hello World";
+
+		System.out.println(supplier.get());
+	}
+}
+```
+3) With Lambda:
+   
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Supplier;
+
+public class SupplierDemo {
+
+	public static void main(String[] args) {
+
+		//Supplier<String> supplier = t -> "Hello World";
+		List<String> list1 = Arrays.asList();
+		//System.out.println(list1.stream().findAny().orElseGet(() -> supplier));
+		System.out.println(list1.stream().findAny().orElseGet(() -> "Hello World"));
+	}
+}
+```
+
+### Lambda expression implementing Supplier : Creating a new Student
+
+```java
+Supplier<Student> studentSupplier = () -> new Student(111111, "New Student", 92.9, "Java 8");
+         
+listOfStudents.add(studentSupplier.get());
+```
+</details>
+
+<details>
+<summary><b>3.4 Java 8 Functional Interfaces and Its Primitive Specializations</b></summary>
+
+
+Functional interfaces in Java are interfaces that have exactly one abstract method. These interfaces are commonly used in lambda expressions and method references. Each functional interface has a corresponding functional descriptor, which describes the type of the abstract method in the interface. Additionally, some functional interfaces have primitive specializations, which are interfaces that work with primitive data types instead of object types.
+
+Examples:
+
+Functional interface  | Function descriptor | Primitive specializations |
+-----------------------|---------------------|--------------------------------------------------------| 
+Predicate| T -> boolean |<p>IntPredicate</p><p>LongPredicate</p><p>DoublePredicate</p>|
+Consumer|T -> void| <p>IntConsumer</p><p>LongConsumer</p><p>DoubleConsumer</p>|
+Function<T, R>|T -> R|<p>IntFunction</p><p>IntToDoubleFunction</p><p>IntToLongFunction</p><p>LongFunction</p> <p>LongToDoubleFunction</p><p>LongToIntFunction</p><p>DoubleFunction</p><p>ToIntFunction</p><p>ToDoubleFunction</p><p>ToLongFunction</p>|
+Supplier| () -> T|<p>BooleanSupplier</p><p>IntSupplier</p><p>LongSupplier</p><p>DoubleSupplier</p>|
+UnaryOperator| T -> T|<p>IntUnaryOperator</p><p>LongUnaryOperator</p><p>DoubleUnaryOperator</p>|
+BinaryOperator| (T, T) -> T|<p>IntBinaryOperator</p><p>LongBinaryOperator</p><p>DoubleBinaryOperator</p>|
+BiPredicate| (L, R) -> boolean||
+BiConsumer| (T, U) -> void||
+BiFunction<T, U, R>| (T, U) -> R|<p>ToIntBiFunction</p><p>ToLongBiFunction</p><p>ToDoubleBiFunction</p>|
+
+Certainly! Here’s a comprehensive set of examples for each of the functional interfaces and their primitive specializations in Java:
+
 
 </details>
 <details>
