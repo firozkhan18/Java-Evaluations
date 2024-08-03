@@ -1,67 +1,3 @@
-## Table of Contents
-* [Java Concepts](#java-concepts)
-  * [OOP](#stream)
-    * [Object](#generating-streams)
-    * [Class](#filter)
-    * [Polymorphism](#generating-streams)
-    * [Encapsulation](#filter)
-    * [Inheritance](#sorted)
-    * [Abstraction](#map)
-    * [Composition](#match)
-    * [Associaction](#count)
-    * [Aggregation](#reduce)
-  * [Keywords](#date)
-    * [new](#match)
-    * [this](#match)
-    * [super](#map)
-    * [import](#map)
-    * [extends](#map)
-  * [Modifiers](#date)
-    * [Access Modifiers](#generating-streams)
-    * [Non Access Modifiers](#generating-streams)
-      * [Static](#filter)
-      * [Final](#sorted)    
-      * [transient](#count)
-      * [volatile](#reduce)
-      * [syncronized](#reduce)
-      * [abstract](#reduce)
-      * [instanceOf](#reduce)
-* [Java 8 Features](#java-8-features)
-  * [Stream](#stream)
-    * [Generating streams](#generating-streams)
-    * [Filter](#filter)
-    * [Sorted](#sorted)
-    * [Map](#map)
-    * [Match](#match)
-    * [Count](#count)
-    * [Reduce](#reduce)
-  * [Optional](#optional)
-  * [Date](#date)
-* [Java Programing Exercises](#java-programing-exercises)
-* [Java Programing Question Answers](#java-programing-question-answer)
-* [Spring](#spring)
-  * [Java Programing Question Answers](#java-programing-question-answer)
-* [Spring Boot](#springboot)
-  * [Java Programing Question Answers](#java-programing-question-answer)
-* [Hibernate](#hibernate)
-  * [Java Programing Question Answers](#java-programing-question-answer)
-* [Microservice](#microservice)
-  * [Java Programing Question Answers](#java-programing-question-answer)
-* [Kafka](#kafka)
-  * [Java Programing Question Answers](#java-programing-question-answer)
-* [Docker](#docker)
-  * [Java Programing Question Answers](#java-programing-question-answer)
-* [kubernetes](#kubernetes)
-  * [Java Programing Question Answers](#java-programing-question-answer)
-* [Caching](#caching)
-  * [Java Programing Question Answers](#java-programing-question-answer)
-* [MongoDB](#mongo-db)
-  * [Java Programing Question Answers](#java-programing-question-answer)
-* [Angular](#angular)
-* [ReactJS](#react-js)
-
----
-
 # Table of Contents
 
 <details>
@@ -111,13 +47,146 @@
 - [Optional](#optional)
 - [Date](#date)
 </details>
-
 <details>
 <summary><b>Java Programming Exercises</b></summary>
-
+ 
 - [Java Programming Questions and Answers](#java-programming-questions-and-answers)
 </details>
+<details>
+<summary><b>Spring Framework</b></summary>
+ 
+## Spring Framework
+- [Introduction](#introduction)
+- [Lifecycles](#class)
 
+## Spring Modules
+- [Modules](#polymorphism)
+
+## Spring Scopes 
+- [Scopes](#encapsulation)
+
+## Spring Dependecies Injections
+- [Dependecies Injections (DI) & Inversion Of Control (Ioc)](#inheritance)
+- [Types of Dependecies Injections](#inheritance)
+
+## Spring AOP
+- [Abstraction](#abstraction)
+- [Composition](#composition)
+ 
+## Spring Trsansactions
+- [Association](#association)
+- [Aggregation](#aggregation)
+  
+## Exercises & FAQ's
+- [Spring Framework Annotaions](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+
+## FAQ's
+- [Spring Framework Annotaions](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>Spring Boot Framework</b></summary>
+
+## Spring Boot Framework
+- [Introduction](#introduction)
+- [Lifecycles](#class)
+
+## Spring Modules
+- [Modules](#polymorphism)
+
+## Spring Scopes 
+- [Scopes](#encapsulation)
+
+## Spring Dependecies Injections
+- [Dependecies Injections (DI) & Inversion Of Control (Ioc)](#inheritance)
+- [Types of Dependecies Injections](#inheritance)
+
+## Spring AOP
+- [Abstraction](#abstraction)
+- [Composition](#composition)
+ 
+## Spring Trsansactions
+- [Association](#association)
+- [Aggregation](#aggregation)
+  
+## Exercises & FAQ's
+- [Spring Boot Framework Annotaions](#java-programming-questions-and-answers)
+- [Spring Boot Framework Questions and Answers](#java-programming-questions-and-answers)
+
+## FAQ's
+- [Spring Boot Framework Annotaions](#java-programming-questions-and-answers)
+- [Spring Boot Framework Questions and Answers](#java-programming-questions-and-answers)
+  
+</details>
+<details>
+<summary><b>Hibernate</b></summary>
+
+ ## Hibernate
+- [Java Programming Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>Kafka</b></summary>
+
+## Kafka
+- [K Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>Docker</b></summary>
+
+## Docker
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>Kubernetes</b></summary>
+
+## Kubernetes
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>Caching</b></summary>
+
+## Caching
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>SQL & NO SQL Database</b></summary>
+
+## SQL
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+
+## NO SQL
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>Mongo DB</b></summary>
+
+## Mongo DB
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>Angular</b></summary>
+
+## Angular
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>React JS</b></summary>
+
+## React JS
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+
+-------
 
 ### **Questions & Answers:**
 <details>
