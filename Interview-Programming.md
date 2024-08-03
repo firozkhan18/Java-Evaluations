@@ -187,13 +187,6 @@ If you are a complete beginner and want to learn more about Microservice archite
 
 ![Setting the Scheme](images/microservices/microservices1.jpg)
 
-Microservice architecture explained
-
-
-
-
-
-
 ### 10 Essential Microservice Design Patterns and Principles
 Now that you know what is Microservice architecture and why you need to consider Microservice architecture to build applications that can stand the test of time and are scalable enough to handle real-world traffic, let's now go through the fundamental principle of Microservices and design pattern which you can use to solve common problem associate with microservice architecture. 
 
@@ -209,7 +202,7 @@ Let's look at the principles in which the microservice architecture has been bui
 
 while adhering to the above principles, there may have some other pitfalls that developers might befall and to avoid this, we can use the design patterns in a microservice architecture. 
 
-In this article, we are going to discuss 10 main design patterns which are mentioned below.
+10 main design patterns which are mentioned below.
 
 1. [Database per Microservice](#database-per-microservice)
 2. [Event Sourcing](#event-sourcing)
@@ -226,9 +219,6 @@ So first start with the Database per Microservice design pattern.
 
 ### Top 10 Microservices Design Patterns and Principles
 
-
-
-
 ## Database per Microservice
 
 ### 1. Database per Microservice Pattern
@@ -238,9 +228,8 @@ What is the best way to store data and where should it be stored?
 
 There should are two main options for organizing the databases when using the microservice architecture. 
 
-  Database per service
-  Shared database
-
+  - Database per service
+  - Shared database
 
 ### 1.1 Database per service.
 
@@ -301,7 +290,7 @@ In traditional data management systems, there are some issues,
  
 So in order to solve these problems, the CQRS pattern comes to the big picture. The CQRS is responsible for either change the state of the entity or return the result. 
 
-benefits of using the CQRS are discussed below.
+### benefits of using the CQRS are discussed below.
    1. The complexity of the system is reduced as the query models and commands are separated.
    2. Can provide multiple views for query purposes.
    3. Can optimize the read side of the system separately from the write side. 
@@ -328,9 +317,6 @@ In the Orchestration saga, each service participating in the saga performs their
 
 - The disadvantage of using SAGA
 1. Complexity of the SAGA design pattern is high from the programmer's point of view and developers are not well accustomed to writing sagas as traditional transactions.
-
-
-
 
 ## Backend For Frontend (BFF)
 
@@ -397,7 +383,6 @@ You need to understand the quality and reliability of your system, whether you'r
 
 Moving from Monolithic to microservice architecture stages.
 
-
 ## Circuit Breaker Pattern
 
 ### 8. Circuit Breaker Pattern
@@ -413,7 +398,6 @@ Closed - When everything works well according to the normal way, the circuit bre
 Open -  When the number of failures in the system exceeds the maximum threshold, this will lead to open up the open state. This will give the error for calls without executing the function.
 
 Open -Half - After having run the system several times, the circuit breaker will go on to the half-open state in order to check the underlying problems are still exist. 
-
 
 Here, we will have an example code that is built using the Netflix hystrix.
 ```java
