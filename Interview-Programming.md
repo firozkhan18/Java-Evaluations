@@ -362,6 +362,9 @@ These summary statistics classes provide a convenient way to gather statistical 
 <details>
 <summary><b>3.3 Java 8 Functional Interfaces</b></summary>
 
+<details>
+<summary><b>3.3 Java 8 Functional Interfaces</b></summary>
+	
 # Java 8 Functional Interfaces – When & How To Use Them?
 
 Functional interfaces, lambda expressions and Stream API – these three features of Java 8 has turned Java programming into new style of programming called functional-style programming. Java is still an object-oriented programming language, but from Java 8, with the introduction of new features, most of the programming is done keeping functions in mind rather than objects. 
@@ -494,8 +497,7 @@ System.out.println( square.apply(5) );  //Prints 25
 ```
 
 We also saw the JDK provided existing functional interfaces, and finally how to create an use a functional interface.
-
-### Java Default Methods
+</details>
 <details>
 <summary><b>3.3 Java 8 Functional Interfaces - Java Default Methods</b></summary>
 
@@ -607,8 +609,6 @@ Rules for this conflict resolution are as follows:
 	Moveable.super.move();
 ```
 </details>
-
-### Java Static Methods
 <details>
 <summary><b>3.3 Java 8 Functional Interfaces - Java Static Methods</b></summary>
 	
