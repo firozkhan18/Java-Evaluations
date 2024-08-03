@@ -161,10 +161,11 @@
 </details>
 <details>
 <summary><b>7. Microservices</b></summary>
-  
-### **Questions & Answers:**
+
+### <span style="color:blue;">**Questions & Answers:**</span>
+
 <details>
-<summary><b>1. Can you explain the core principles of microservices architecture and how it differs from a monolithic architecture?</b></summary>
+<summary style="color:blue;"><b>1. Can you explain the core principles of microservices architecture and how it differs from a monolithic architecture?</b></summary>
 
 **Answer:**
 Microservices architecture breaks down an application into small, independent services that are loosely coupled and can be developed, deployed, and scaled independently. Each service typically handles a specific business function and communicates with other services via APIs.
