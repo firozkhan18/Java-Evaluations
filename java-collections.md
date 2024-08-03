@@ -1,3 +1,15 @@
+
+classDiagram
+    direction LR
+    classA --|> classB : Inheritance
+    classB --* classC : Composition
+    classC --o classD : Aggregation
+    classD --> classE : Association
+    classF -- classG : Link(Solid)
+    classG ..> classH : Dependency
+    classH ..|> classI : Realization
+    classI .. classJ : Link(Dashed)
+    
 The Collection in Java is a framework that provides an architecture to store and manipulate a group of objects.
  
 All the operations that you perform on data such as searching, sorting, insertion, manipulation, deletion, etc. can be achieved by Java Collections.
