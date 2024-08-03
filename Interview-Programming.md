@@ -1,3 +1,50 @@
+The issue of child and subchild nodes appearing on the same line is likely due to the way HTML is rendered inside Markdown. By default, browsers render nested `<details>` elements in a way that can sometimes cause them to appear on the same line if there is no explicit spacing or block-level formatting.
+
+To ensure proper spacing and hierarchy in your collapsible sections, you can use additional CSS to control the appearance. However, since Markdown platforms often do not support custom CSS directly, you have limited control over the exact spacing.
+
+Here’s how you can format the `<details>` and `<summary>` tags to maintain proper hierarchy and ensure each section is displayed on a new line:
+
+### Markdown with HTML Example
+
+```markdown
+<details>
+  <summary>Parent Node</summary>
+  <p>Details about Parent Node</p>
+
+  <details>
+    <summary>Child Node 1</summary>
+    <p>Details about Child Node 1</p>
+  </details>
+
+  <details>
+    <summary>Child Node 2</summary>
+    <p>Details about Child Node 2</p>
+
+    <details>
+      <summary>Subchild Node 2.1</summary>
+      <p>Details about Subchild Node 2.1</p>
+    </details>
+  </details>
+
+  <details>
+    <summary>Another Child Node</summary>
+    <p>Details about Another Child Node</p>
+  </details>
+</details>
+```
+
+### Key Points:
+
+1. **Indentation for Readability:** Make sure to use consistent indentation for nested elements. This helps with readability but does not affect the rendering.
+
+2. **Adding Extra Spacing:** If you need more control over spacing, you may need to use a platform that supports custom CSS. However, in standard Markdown editors or viewers, the default rendering should create space between nested `<details>` elements.
+
+3. **Check Platform Support:** Make sure your Markdown platform or viewer supports nested HTML elements properly. Some platforms may have limited support for complex HTML structures.
+
+### Testing
+
+After you make these adjustments, check the rendered result on the platform where you’ll be using the Markdown to ensure it looks as expected. If the platform does not render nested `<details>` elements correctly, consider alternative methods of displaying hierarchical information or consult the platform’s documentation for supported features.
+
 # Table of Contents
 
 <details>
