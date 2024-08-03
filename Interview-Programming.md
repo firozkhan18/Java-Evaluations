@@ -992,6 +992,816 @@ That's all in this Java 8 filter() example. It's one of the most useful methods 
 
 The filter() method just sets up a couple of pointers and no data comparison is performed until a terminal method like forEach() or findFirst() is called.
 
+## How to debug Java 8 Stream Pipeline - peek() method
+
+The peek() method of the Stream class can be very useful to debug and understand streams in Java 8. You can use the peek() method to see the elements as they flow from one step to another like when you use the filter() method for filtering, you can actually see how filtering is working like lazy evaluation as well as which elements are filtered.
+
+The peek() method returns a stream consisting of the elements of this stream and performs the action requested by the client. The peek() method expects a Consumer functional interface to perform a non-interfering action on the elements of this stream, usually printing them using the forEach() method.
+
+Btw, the sole reason for using peek() is debugging the Stream pipeline, even the API itself says that peek() is only there for debugging, but it does help to understand the lazy evaluation technique Stream uses to improve performance.
+
+Lazy evaluation means nothing is evaluated in the Stream until a terminal method like forEach(), collect(), or reduce() is called and processing stops as soon as the result is obtained, which means not all the elements of Stream is processed always.
+
+It all depends upon what kind of result you want from Stream. For example, if you call the findFirst() method then as soon as it finds the first element fulling the criterion, processing stops. If you want to understand lazy evaluation in-depth and other Stream features then I highly recommend you check out these Java collections and Stream courses from Udemy and Pluralsight. 
+
+### Java 8 Stream peek() method Example
+
+In order to understand the peek() method better, let's see some code in action. How about using the filter and map methods in a chained pipeline?
+
+This is a very common code in Java 8 and will help you to learn how stream pipeline processing works in Java 8? What happens in each step? What is the output or data in the stream after each step etc?
+
+Consider the following example, which calls the peek() method after each step in a Stream pipeline involving filter() and map()  methods:
+
+```java
+List<String> result = Stream.of("EURO/INR", "USD/AUD", "USD/GBP", "USD/EURO")
+        .filter(e -> e.length() > 7)
+        .peek(e -> System.out.println("Filtered value: " + e))
+        .map(String::toLowerCase)
+        .peek(e -> System.out.println("Mapped value: " + e))
+        .collect(Collectors.toList());
+```
+In this example, we have a Stream of String and then we are filtering all Strings whose length is greater than 7 and then we are converting them to lowercase using the map() function.
+
+Now, what do you think, how will this program execute? top to bottom or bottom to top?
+
+Many of you will think that after the first filter() execution you will get a Stream containing two elements "EURO/INR" and "USD/EURO" and peek() will print those two elements.
+
+Well, that's not the case, since Streams are executed lazily, nothing will happen until the collect() method will execute, which is the terminal method.
+
+This is proved by the following output from running the above code into Eclipse IDE or command prompt, it will print the following lines:
+```
+Filtered value: EURO/INR
+Mapped value: euro/inr
+Filtered value: USD/EURO
+Mapped value: usd/euro
+```
+The key point to note here is that values are filtered and mapped one by one, not together. It means the code is executed backward when the collect() method calls the Collectors.toList() to get the result in a List, it asks map() function which in turn asks the filter() method.
+
+Since filter() is lazy it returns the first element whose length is greater than 7 and sits back until map() asks again.
+
+You can see that peek() method clearly prints the value of the stream in the pipeline after each call to filter() method. You can further join From Collections to Streams in Java 8 Using the Lambda Expressions course on Pluralsight to learn more about different types of operation with Streamlike intermediate and terminal operation.
+
+### How to debug Java 8 Stream Pipeline - peek() method Example Tutorial
+
+### How to use peek() method in Java 8
+
+As I said, the Stream.peek() method is very useful for debugging and understating the stream-related code in Java. Here is a couple of more example of using peek() to understand how bulk data operations are processed by Stream utility.
+
+```java
+package test;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * Java 8 peek() method example
+ */
+public class Test {
+
+    public static void main(String[] args) {
+
+        List<String> versions = new ArrayList<>();
+        versions.add("Lollipop");
+        versions.add("KitKat");
+        versions.add("Jelly Bean");
+        versions.add("Ice Cream Sandwidch");
+        versions.add("Honeycomb");
+        versions.add("Gingerbread");
+
+        // filtering all vaersion which are longer than 7 characters
+        versions.stream()
+                .filter(s -> s.length() > 7)
+                .peek(e -> System.out.println("After the first filter: " + e))
+                .filter(s -> s.startsWith("H"))
+                .peek(e -> System.out.println("After the second filter: " + e))
+                .collect(Collectors.toSet());
+
+    }
+
+}
+```
+```
+Output
+After the first filter: Lollipop
+After the first filter: Jelly Bean
+After the first filter: Ice Cream Sandwich
+After the first filter: Honeycomb
+After the second filter: Honeycomb
+After the first filter: Gingerbread
+```
+By looking at this output, can you explain how the code would have been executed? Well, it seems that when to collect() ask the second filter() method, it further asks the first filter() and you can see that the first element Lollipop passed the first filter but couldn't pass the second one because it doesn't start with letter "H".
+
+So, the second filter() again asks the first() filter for an element, it returns Jelly Bean, Ice Cream Sandwich, and HoneyComb one by one. Since HoneyComb made past the second filter it is collected by Collector and again the same process happens but aborted after GingerBread because all elements in Stream are already processed.
+
+This clearly explains the lazy execution behavior of Stream as opposed to eager iterative implementation and the peek() method definitely helps you to understand this better, but if you want to learn Stream in-depth, I suggest you further check these Java Functional Programming and Stream API courses. 
+
+
+### Java 8 Stream peek() example for debugging
+
+### Important points
+1) The peek() method of Stream class is an intermediate method, hence you can call other stream methods after this.
+
+2) It returns a new Stream, which is basically the stream it got.
+
+3) It accepts an object of functional interface Consumer to perform non-interfering action e.g. printing values.
+
+4) For parallel stream pipelines, the action may be called at whatever time and whatever thread the element is made available by the upstream operation.
+
+Btw, peek() is not the only way to figure out what goes inside a Stream pipeline, you can also use your IDEs to do the heavy work. For example, If you are using IntelliIDEA from JetBrains, you can also use their Java Stream Debugger Plugin to easily debug Java 8 code using map, filter, and collect in IDE itself, like shown in the following GIF diagram:
+
+### How to debug Java 8 code with map and filter
+
+That's all about how to use the peek() method in Java 8. You can use the peek() method for debugging. It allows you to see the elements as they flow past a certain point in the pipeline. By using this you can check whether your filter() method is working properly or not. You can see exactly which elements are got filtered by using peek() in Java 8.
+
+## Examples of Stream.collect() method in Java 8
+
+Hello guys, you may know that Java 8 brought Stream API which supports a lot of functional programming operations like filter, map, flatMap, reduce, and collect. In this article, you will learn about the collect() method. The collect() method of Stream class can be used to accumulate elements of any Stream into a Collection. In Java 8, you will often write code that converts a Collection like a List or Set to Stream and then applies some logic using functional programming methods like the filter, map, flatMap and then converts the result back to the Collection like a List, Set, Map, or ConcurrentMap in Java.
+
+ In this last part, the collect() method of Stream helps. It allows you to accumulate the result into a choice for containers you want like a list, set, or map.
+
+Programmers often confuse that the collect() method belongs to the Collector class but that's not true. It is defined in Stream class and that's why you can call it on Stream after doing any filtering or mapping. It accepts a Collector to accumulate elements of Stream into a specified Collection.
+
+The Collector class provides different methods like toList(), toSet(), toMap(), and toConcurrentMap() to collect the result of Stream into List, Set, Map, and ConcurrentMap in Java.
+
+It also provides a special toCollection() method which can be used to collect Stream elements into a specified Collection like ArrayList, Vector, LinkedList, or HashSet.
+
+It's also a terminal operation which means after calling this method on Stream, you cannot call any other method on Stream.
+
+Btw, if you are new to Java or Java 8 world then I suggest you first join a comprehensive course like The Complete Java MasterClass instead of learning in bits and pieces. The course provides a more structured learning material that will teach you all Java fundamentals in a quick time. Once you understand them you can explore the topic you like by following blog posts and articles.
+
+### Java 8 Stream.collect() Examples
+In this article, we'll see a couple of examples of Stream's collect() method to collect the result of stream processing into a List, Set, and Map in Java. In other words, you can also say we'll convert a given Stream into List, Set, and Map in Java
+
+### 1. Stream to List using collect()
+This is the first example of using the Stream.collect() method where we will collect the result of the stream pipeline in a List. You can collect the result of a Stream processing pipeline in a list by using the Collectors.toList() method. Just pass the Collectors.toList() to collect() method as shown below:
+```java
+List<String> listOfStringStartsWithJ
+ = listOfString
+     .stream()
+     .filter( s -> s.startsWith("J"))
+     .collect(Collectors.toList());
+```
+The list returned by the collect method will have all the String which starts with "J" in the same order they appear in the original list because both Stream and List keep elements in order. This is an important detail which you should know because you often need to process and collect elements in order.
+
+If you want to learn more about ordered and unordered collections I suggest you join Java Fundamentals: Collections course by Richard Warburton on Pluralsight. It's a specialized course on the Java Collection framework which is very important for any Java developer.
+
+## 3 Examples of Collect() method of Stream in Java 8
+
+### 2. Stream to Set using Collector.toSet() method
+This is the second example of the collect() method of Stream class where we will collect the result of the Stream pipeline into a Set. You can use Collectors.toSet() method along with collect() to accumulate elements of a Stream into a Set. 
+
+
+Since Set doesn't provide ordering and doesn't allow duplicate, any duplicate from Stream will be discarded and the order of elements will be lost.
+
+Here is an example to convert Stream to Set using collect() and Collectors in Java 8:
+
+### Java 8 - Stream.collect() Example
+
+The set of String in this example contains all the String which starts with the letter C like C and C++. The order will be lost and any duplicate will be removed. 
+
+
+Though, if you are new to functional programming in Java, I highly recommend you check out the  Learn Java Functional Programming with Lambdas and Stream course by Ranga Karnam on Udemy. It's a hands-on course to learn all stream and lambda concepts. 
+
+### 3. Stream to Map using toMap()
+You can create a Map from elements of Stream using collect() and Collectors.toMap() method. Since a Map like HashMap stores two objects i.e. key and value and Stream contains just one element, you need to provide the logic to extract the key and value objects from the Stream element.
+
+For example, if you have a Stream of String then you can create a Map where the key is String itself and the value is their length, as shown in the following example:
+
+```java
+Map<String, Integer> stringToLength 
+   = listOfString
+        .stream()
+        .collect(
+            Collectors.toMap(Function.identity(), String::length));
+```
+The Function.identity() used here denotes that the same object is used as a key. Though you need to be a little bit careful since Map doesn't allow duplicate keys if your Stream contains duplicate elements then this conversion will fail.
+
+In that case, you need to use another overloaded toMap() method also accepts an argument to resolve conflict in case of duplicate keys.  Also, toMap() doesn't provide any guarantee on what kind of Map is returned. This is another important detail you should remember.
+
+If you want to learn more about dealing with Collections and Stream I suggest you take a look at another Pluralsight gem, From Collections to Streams in Java 8 Using Lambda Expressions course.
+
+### How to use Collect() method of Stream in Java 8
+
+### 4. Stream to Collection using Collectors.toCollection()
+You can also collect or accumulate the result of Stream processing into a Collection of your choices like ArrayList, HashSet, or LinkedList. 
+
+There is also a toCollection() method in the Collectors class that allows you to convert Stream to any collection. In the following example, we will learn how to collect Stream elements into an ArrayList.
+
+```java
+ArrayList<String> stringWithLengthGreaterThanTwo 
+  = listOfString
+      .stream()
+      .filter( s -> s.length() > 2)
+      .collect(Collectors.toCollection(ArrayList::new));
+```
+Since ArrayList is a list, it provides an ordering guarantee, hence all the elements in the ArrayList will be in the same order they appear in the original List and Stream.
+
+If you find Javadoc boring then you can also join this best Java course, one of the most comprehensive Java courses on Udemy.
+
+
+### Java Program to Use Stream.collect() method
+
+Here is our complete Java program to demonstrate the use of the collect() method of Stream class to convert Stream into different Collection classes in Java, like List, Set, Map, and Collection itself.
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class Code {
+
+  public static void main(String[] args) {
+
+    List<String> listOfString = Arrays.asList("Java", "C", "C++", "Go",
+        "JavaScript", "Python", "Scala");
+    System.out.println("input list of String: " + listOfString);
+
+    // Example 1 - converting Stream to List using collect() method
+    List<String> listOfStringStartsWithJ
+                              = listOfString.stream()
+                                            .filter(s -> s.startsWith("J"))
+                                            .collect(Collectors.toList());
+
+    System.out.println("list of String starts with letter J: "
+        + listOfStringStartsWithJ);
+
+    // Example 2 - converting Stream to Set
+    Set<String> setOfStringStartsWithC 
+                      = listOfString.stream()
+                                    .filter(s -> s.startsWith("C"))
+                                    .collect(Collectors.toSet());
+
+    System.out.println("set of String starts with letter C: "
+        + setOfStringStartsWithC);
+
+    // Example 3 - converting Stream to Map
+    Map<String, Integer> stringToLength 
+                          = listOfString.stream()
+                                         .collect(Collectors
+                                                .toMap(Function.identity(),
+                                                          String::length));
+    System.out.println("map of string and their length: " + stringToLength);
+
+    // Example - Converting Stream to Collection e.g. ArrayList
+    ArrayList<String> stringWithLengthGreaterThanTwo
+                        = listOfString.stream()
+                                      .filter(s -> s.length() > 2)
+                                      .collect(Collectors.
+                                         toCollection(ArrayList::new));
+    System.out.println("collection of String with length greather than 2: "
+        + stringWithLengthGreaterThanTwo);
+
+  }
+}
+```
+```
+Output
+input list of String: 
+[Java, C, C++, Go, JavaScript, Python, Scala]
+list of String starts with letter J: 
+[Java, JavaScript]
+set of String starts with letter C: 
+[C++, C]
+map of string and their length: 
+{Java=4, C++=3, C=1, Scala=5, JavaScript=10, Go=2, Python=6}
+collection of String with length greather than 2: 
+[Java, C++, JavaScript, Python, Scala]
+```
+
+That's all about how to use the collect() method of Stream class in Java 8. Along with collect(), you can use the Collectors method to convert Stream to List, Set, Map, or any other Collection of your choice. Just explore the Collectors Javadoc to learn more about those methods.
+
+### How to implement Comparator and Comparable in Java with Lambda Expression & method reference? Example
+
+Hello guys, After Java 8 it has become a lot easier to work with Comparator and Comparable classes in Java. You can implement a Comparator using lambda expression because it is a SAM type interface. It has just one abstract method compare() which means you can pass a lambda expression where a Comparator is expected. Many Java programmers often ask me, what is the best way to learn lambda expression of Java 8?  And, my answer is, of course by using it on your day to the day programming task. Since implementing equals(), hashcode(), compareTo(), and compare() methods are some of the most common tasks of a Java developer, it makes sense to learn how to use the lambda expression to implement Comparable and Comparator in Java.
+
+
+Though, some of you might have a doubt that, can we use lambda expression with Comparator? because it's an old interface and may not implement functional interface annotated with @FunctionalInterface annotation?
+
+The answer to that question is Yes, you can use a lambda expression to implement Comparator and Comparable interface in Java, and not just these two interfaces but to implement any interface, which has only one abstract method because those are known as SAM (Single Abstract Method) Type and lambda expression in Java supports that.
+
+That's why lambda expression in Java 8 is also known as SAM type, where SAM stands for Single Abstract Method. Though, you should also remember that from Java 8 interface can have non-abstract methods as well as default and static methods.
+
+This was one of the very intelligent decisions made by Java designers, which makes the lambdas even more useful. Because of this, you can use lambda expressions with Runnable, Callable, ActionListener, and several other existing interfaces from JDK API which has just one abstract method.
+
+You should also check out these Java Functional Programming courses to learn more about why lambda expression was introduced in Java and the benefits of using lambdas in Java code, particularly on the Java Collection framework.
+
+
+
+
+
+
+### The Comparator is a Functional Interface in Java 8
+By the way, you don't need to  worry in the case of Comparator, because it has been made to implement the @FunctionalInterface as shown below:
+
+```java
+@FunctionalInterfaces
+public interface Comparator<T> {
+ ....
+}
+```
+This code snippet is from JDK 1.8, if you are using Netbeans you can open this class by typing Ctrl+O and if you are using Eclipse you open this class by using the Open type shortcut Ctrl+Shift+T. See here for more useful Eclipse shortcuts for Java Programmers.
+
+Even the Runnable interface is also annotated with @FunctionalInterface as seen below:
+
+
+```java
+@FunctionalInterface
+public interface Runnable {
+   .......
+}
+```
+but yes ActionListener is not annotated with @FunctionalInterface, but you can still use it in lambda expressions because it just got one abstract method called actionPerformed()
+```java
+public interface ActionListener extends EventListener {
+
+    /**
+     * Invoked when an action occurs.
+     */
+    public void actionPerformed(ActionEvent e);
+
+}
+```
+
+Earlier we have seen some hands-on examples of Java 8 Streams, here we will learn how to use lambda expression by implementing the Comparator interface in Java. This will make creating a custom Comparator very easy and reduce lots of boilerplate code.
+
+By the way, the From Collections to Streams in Java 8 Using the Lambda Expression course only covers lambda expression and streams, it doesn't cover all other Java 8 features e.g. new Date and Time API, new JavaScript engine, and other small enhancements like Base64 encoder-decoder and performance improvements.
+
+For other Java 8 changes, I suggest you check out these Java 8 tutorials and courses from Udemy and Pluralsight. It is a short and concise course but covers all major Java 8 features.
+
+
+
+.
+
+
+### How to Implement Comparator using Lambda Expression
+As I said before using lambdas to implement a Comparator is a good way to learn how lambda expression works in Java. Since lambda expression in Java is SAM type (Single Abstract Method) you can use it with any interface which got just one method like Comparator, Comparable, Runnable, Callable, ActionListener, and so on.
+
+Earlier we used to use the Anonymous class to implement these one method interfaces, mostly when we want to pass them to a method or just want to use them locally like creating a thread for some temporary task or handling the event.
+
+
+
+Now we can use a lambda expression to implement these methods, In these cases, lambdas work exactly like an anonymous class but without the heavy dose of boilerplate code required before as shown in the following diagram:
+
+
+### How to implement Comparator in Java 8 using lambdas
+
+Anyway, here is our Java program to implement Comparator using the lambda expression in Java 8:
+
+```java
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+/**
+ * How to sort Objects in Java 8, by implementing Comparator using lambda
+ * expression.
+ *
+ * @author WINDOWS 8
+ *
+ */
+public class ComparatorUsingLambdas{
+
+    public static void main(String args[]) {
+
+        // list of training courses, our target is to sort these courses
+        // based upon their price or title
+        List<TrainingCourses> onlineCourses = new ArrayList<>();
+        onlineCourses.add(new TrainingCourses("Java", new BigDecimal("200")));
+        onlineCourses.add(new TrainingCourses("Scala", new BigDecimal("300")));
+        onlineCourses.add(new TrainingCourses("Spring", new BigDecimal("250")));
+        onlineCourses.add(new TrainingCourses("NoSQL", new BigDecimal("310")));
+
+
+        // Creating Comparator to compare Price of training courses
+        final Comparator<TrainingCourses> PRICE_COMPARATOR 
+         = new Comparator<TrainingCourses>() {
+            @Override
+            public int compare(TrainingCourses t1, TrainingCourses t2) {
+                return t1.price().compareTo(t2.price());
+            }
+        };
+
+
+        // Comparator to compare title of courses
+        final Comparator<TrainingCourses> TITLE_COMPARATOR 
+         = new Comparator<TrainingCourses>() {
+            @Override
+            public int compare(TrainingCourses c1, TrainingCourses c2) {
+                return c1.title().compareTo(c2.title());
+            }
+        };
+
+
+        // sorting objects using Comparator by price
+        System.out.println("List of training courses, before sorting");
+        System.out.println(onlineCourses);
+        Collections.sort(onlineCourses, PRICE_COMPARATOR);
+       
+        System.out.println("After sorting by price, increasing order");
+        System.out.println(onlineCourses);
+        System.out.println("Sorting list by title ");      
+       Collections.sort(onlineCourses, TITLE_COMPARATOR);
+        System.out.println(onlineCourses);
+
+
+        // Now let's see how less code you need to write if you use
+        // lambda expression from Java 8, in place of anonymous class
+        // we don't need an extra line to declare comparator, we can
+        // provide them in place to sort() method.
+       
+ 
+        System.out.println("Sorting objects in decreasing order of price, using lambdas");
+        Collections.sort(onlineCourses, (c1, c2) -> c2.price().compareTo(c1.price()));
+        System.out.println(onlineCourses);
+       
+        System.out.println("Sorting list in decreasing order of title, using lambdas");
+        Collections.sort(onlineCourses, (c1, c2) -> c2.title().compareTo(c1.title()));
+        System.out.println(onlineCourses);
+    }
+}
+
+class TrainingCourses {
+    private final String title;
+    private final BigDecimal price;
+
+    public TrainingCourses(String title, BigDecimal price) {
+        super();
+        this.title = title;
+        this.price = price;
+    }
+
+    public String title() {
+        return title;
+    }
+
+    public BigDecimal price() {
+        return price;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s : %s", title, price);
+    }
+}
+```
+```
+Output:
+List of training courses, before sorting
+[Java : 200, Scala : 300, Spring : 250, NoSQL : 310]
+After sorting by price, increasing order
+[Java : 200, Spring : 250, Scala : 300, NoSQL : 310]
+Sorting list by title
+[Java : 200, NoSQL : 310, Scala : 300, Spring : 250]
+Sorting objects in decreasing order of price, using lambdas
+[NoSQL : 310, Scala : 300, Spring : 250, Java : 200]
+Sorting list in decreasing order of title, using lambdas
+[Spring : 250, Scala : 300, NoSQL : 310, Java : 200]
+```
+
+In this example, we have an object called the TrainingCourse, which represents a typical training course from institutes. For simplicity, it just got two attributes title and price, where the title is String and price is BigDecimal because float and double are not good for exact calculations.
+
+Now we have a list of training courses and our task is to sort based on their price or based upon their title. Ideally, TrainingCourse class should implement the Comparable interface and sort training courses by their title, i.e. their natural order.
+
+Anyway, we are not doing that here to focus purely on Comparator.
+
+To complete these tasks we need to create two custom Comparator implementations, one to sort TrainingCourse by title and the other to sort it by price.
+
+To show the stark difference in the number of lines of code you need to do this prior to Java 8 and in JDK 1.8, I have implemented that two Comparator first using Anonymous class and later using the lambda expression.
+
+You can see that by using lambdas implementing Comparator just take one line and you can even do that on method invocation, without sacrificing readability.
+
+This is the main reason, why you should use the lambda expression to implement Comparator, Runnable, Callable, or ActionListener post-Java 8, they make your code more readable and terse.
+
+For a complete Java 8 learning, I recommend The Complete Java MasterClass course on Udemy. It is also the most up-to-date course to learn Java.
+
+### Implement Comparator using Method References in Java 8
+
+By the way, you can even do better by leveraging new methods added on the Comparator interface in Java 8 and by using method references as shown below:
+
+### Java 8 Comparator example
+
+You can see that by using new methods in Comparator like comparing()  and method references, you can implement a Comparator in just one line after Java 8 version. I strongly recommend this style of code in the current Java word.
+
+That's all on how to implement a Comparator using Java 8 lambda expression. You can see it take very little code to create a custom Comparator using lambdas than an anonymous class. From Java 8 there is no point using anonymous class anymore, in fact, use lambdas wherever you used to use Anonymous class. 
+
+Make sure you implement SAM interfaces using lambdas like Runnable, Callable, ActionListener, etc.
+
+How to sort HashMap by values in Java 8 [using Lambdas and Stream] - Example Tutorial
+
+In the past, I have shown you how to sort a HashMap by values in Java, but that was using traditional techniques of the pre-Java 8 world. Now the time has changed and Java has evolved into a programming language that can also do functional programming. How can you, a Java Programmer take advantage of that fact to do your day-to-day task better like how do you sort a Map by values in Java using lambda expressions and Stream API. That's what you are going to learn in this article. It will serve two purposes, first, it will tell you a new way to sort a Map by values in Java, and, second and more important it will introduce you to essential Java 8 features like Lambda Expression and Streams, which every Java Programmer should learn.
+
+
+By the way, it's not just the lambda expression and stream which makes coding fun in Java 8, but also all the new API methods added into an existing interface like Comparator, Map.Entry makes day-to-day coding much easier.
+
+This evaluation of existing interfaces was possible by introducing the non-abstract method on interfaces like default methods and static methods.
+
+Because of this path-breaking feature, it's possible to add new methods into the existing Java interface and Java API designers have taken advantage to add much-needed methods on popular existing interfaces.
+
+One of the best examples of this is java.util.Comparator interface which has now got comparing() and thenComparing() methods to chain multiple comparators, making it easier to compare an object by multiple fields, which was very tedious and requires a lot of nesting prior to Java 8.
+
+The Map.Entry class, which is a nested static class of java.util.Map interface is also not behind, it has got two additional methods comparingByKey() and comparingByValue() which can be used to sort a Map by key and values. They can be used along with the sorted() method of Stream to sort a HashMap by values in Java.
+
+Btw, if you are new to the Java world then I suggest you start learning from Java 8 itself, no need to learn the old techniques of doing a common task like sorting a list or map, working with date and time, etc and if you need some help, you can also look at comprehensive online Java courses like The Complete Java MasterClass, which will not only teach you all this but much more. 
+
+
+
+
+### How to Sort a Map by values in Increasing order in Java
+You can sort a Map like a HashMap, LinkedHashMap, or TreeMap in Java 8 by using the sorted() method of java.util.stream.Stream class. This means accepts a Comparator, which can be used for sorting. If you want to sort by values then you can simply use the comparingByValue() method of the Map.Entry class. 
+
+This method is newly added in Java 8 to make it easier for sorting.
+```java
+ItemToPrice.entrySet()
+.stream()
+.sorted(Map.Entry.<String, Integer>comparingByValue())
+.forEach(System.out::println);
+```
+Btw, if you need a Map instead of just printing the value into the console, you can collect the result of the sorted stream using the collect() method of Stream and Collectors class of Java 8 as shown below:
+```java
+// now, let's collect the sorted entries in Map
+Map<String, Integer> sortedByPrice = ItemToPrice.entrySet()
+.stream()
+.sorted(Map.Entry.<String, Integer>comparingByValue())
+.collect(Collectors.toMap(e -> e.getKey(),e -> e.getValue()));
+```
+The Map returned by the previous statement was not sorted because the order was lost while collecting results in Map you need to use the LinkedHashMap to preserve the order
+```java
+Map<String, Integer> sortedByValue = ItemToPrice.entrySet()
+.stream()
+.sorted(Map.Entry.<String, Integer>comparingByValue())
+.collect(toMap(Map.Entry::getKey,
+               Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+```
+This is the right way to sort a Map by values in Java 8 because now the ordering will not be lost as Collector is using LinkedHashMap to store entries. This is also a good example of using constructor references in Java 8. You can read more about that in the Collections to Streams in Java 8 Using the Lambda Expressions course on Pluralsight, which provides an in-depth explanation of new Java 8 features.
+
+### How to sort HashMap by values in Java 8
+
+
+
+
+
+### Sorting a Map by values on decreasing Order in Java
+In order to sort a Map by values in decreasing order, we just need to pass a Comparator which sort it in the reverse order. You can use the reversed() method of java.util.Comparator purpose to reverse order of a Comparator. 
+
+
+This method is also newly added in the Comparator class in JDK 8.
+
+```java
+Map<String, Integer> sortedByValueDesc = ItemToPrice.entrySet()
+.stream()
+.sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+.collect(toMap(Map.Entry::getKey, 
+               Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+```
+The key point here is the use of the reversed() method, the rest of the code is the same as the previous example. In the first step, you get the entry set from the Map, then you get the stream, then you sorted elements of the stream using the sorted() method, which needs a comparator.
+
+You supply a Comparator which compares by values and then reversed it so that entries will be ordered in the decreasing order. 
+
+
+Finally, you collected all elements into a Map and you asked Collector to use the LinkedHashMap by using constructor reference, which is similar to method reference in Java 8 but instead of using method name, it uses Class::new, that's it. If you are interested, you can learn about it in any good Java 8 book like Java 8 in Action by Raul Gabriela Ulma on Manning publication. 
+
+### Sort HashMap by values in Java 8 using Lambdas and Stream
+
+
+
+
+### Important points about HashMap and Map in Java
+Here are some of the important points to remember while sorting a Map by values in Java 8. These are very important for correctly sorting any HashMap or Hashtable as well:
+Use LinkedHashMap for collecting the result to keep the sorting intact.
+
+Use static import for better readability e.g. static import Map.Entry nested class.
+
+Use new comparingByKey() and comparingByValue() method from Map.Entry they were added in Java 8 to make sorting by key and value easier in Java.
+ 
+Use reversed() method to sort the Map in descending order
+
+Use forEach() to print the Map
+
+Use Collectors to collect the result into a Map but always use LinkedHashMap because it maintains the insertion order. 
+You can learn more about lambda expression and method reference used in our example in a good Java 8 course like The Complete Java MasterClass on Udemy.
+
+### How to Sort Map by values in Java 8 using Lambdas and Stream - Example Tutorial
+
+
+
+
+### Java Program to Sort an HashMap by Values in JDK 8
+Here is our complete Java program to sort a HashMap by values in Java 8 using a lambda expression, method reference, and new methods introduced in JDK 8 like Map.Entry.comparingByValue() method, which makes it easier to sort the Map by values.
+```java
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package test;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
+import static java.util.stream.Collectors.*;
+
+/**
+ *
+ * @author Javin Paul
+ */
+public class SortingMapByValueInJava8 {
+
+  /**
+   * @param args
+   * the command line arguments
+   */
+  public static void main(String[] args) {
+
+    // Creating a Map with electoric items and prices
+    Map<String, Integer> ItemToPrice = new HashMap<>();
+    ItemToPrice.put("Sony Braiva", 1000);
+    ItemToPrice.put("Apple iPhone 6S", 1200);
+    ItemToPrice.put("HP Laptop", 700);
+    ItemToPrice.put("Acer HD Monitor", 139);
+    ItemToPrice.put("Samsung Galaxy", 800);
+
+    System.out.println("unsorted Map: " + ItemToPrice);
+
+    // sorting Map by values in ascending order, price here
+    ItemToPrice.entrySet().stream()
+        .sorted(Map.Entry.<String, Integer> comparingByValue())
+        .forEach(System.out::println);
+
+    // now, let's collect the sorted entries in Map
+    Map<String, Integer> sortedByPrice = ItemToPrice.entrySet().stream()
+        .sorted(Map.Entry.<String, Integer> comparingByValue())
+        .collect(Collectors.toMap(e -> e.getKey(), e -> e.getValue()));
+
+    System.out.println("Map incorrectly sorted by value in ascending order: "
+        + sortedByPrice);
+
+    // the Map returned by the previous statement was not sorted
+    // because ordering was lost while collecting result in Map
+    // you need to use the LinkedHashMap to preserve the order
+
+    Map<String, Integer> sortedByValue = ItemToPrice
+        .entrySet()
+        .stream()
+        .sorted(Map.Entry.<String, Integer> comparingByValue())
+        .collect(
+            toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1,
+                LinkedHashMap::new));
+
+    System.out.println("Map sorted by value in increasing order: "
+        + sortedByValue);
+
+    // sorting a Map by values in descending order
+    // just reverse the comparator sorting by using reversed() method
+    Map<String, Integer> sortedByValueDesc = ItemToPrice
+        .entrySet()
+        .stream()
+        .sorted(Map.Entry.<String, Integer> comparingByValue().reversed())
+        .collect(
+            toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1,
+                LinkedHashMap::new));
+
+    System.out.println("Map sorted by value in descending order: "
+        + sortedByValueDesc);
+  }
+
+}
+```
+```
+Output
+unsorted Map: {Samsung Galaxy=800, HP Laptop=700, Sony Braiva=1000,
+               Acer HD Monitor=139, Apple iPhone 6S=1200}
+Acer HD Monitor=139
+HP Laptop=700
+Samsung Galaxy=800
+Sony Braiva=1000
+Apple iPhone 6S=1200
+Map incorrectly sorted by value in ascending order: 
+{Samsung Galaxy=800, HP Laptop=700, Sony Braiva=1000, 
+Acer HD Monitor=139, Apple iPhone 6S=1200}
+Map sorted by value in increasing order: 
+{Acer HD Monitor=139, HP Laptop=700, Samsung Galaxy=800, 
+Sony Braiva=1000, Apple iPhone 6S=1200}
+Map sorted by value in descending order: {Apple iPhone 6S=1200,
+ Sony Braiva=1000, Samsung Galaxy=800, HP Laptop=700, Acer HD Monitor=139}
+```
+
+You can see that the map is sorted now by values, which are integers. In this first example, we have printed all entries in sorted order and that's why Acer HD Monitor comes first because it is least expensive, while Apple iPhone comes last because it is most expensive.
+
+In the second example, even though we sorted in the same way as before, the end result is not what you have expected because we failed to collect the result into a Map which keeps them in the order they were i.e. we should have used LinkedHashMap, which keeps entries in the order they were inserted.
+
+In the third and fourth examples, we rectified our mistake and collected the result of the sorted stream into a LinkedHashMap, hence we have entries in sorted order. In the last example, sort entries in descending order hence, Apple comes first and Acer comes last.
+
+Here is a one-liner in Java 8 to sort a HashMap by values:
+
+
+### How to Sort Map by values in Java 8 using Lambdas and Stream
+
+
+That's all about how to sort a Map by values in Java 8. you can use this technique to sort any Map implementations like HashMap, Hashtable, ConcurrentHashMap, TreeMap, etc. If you don't need to print the values or perform any operation, but you just need a sorted Map then make sure you use the collect() method to store sorted entries into another Map. 
+
+Also, when you use the Collector to collect elements from sorted Stream, make sure you use LinkedHashMap to collect the result, otherwise ordering will be lost.
+
+## Java 8 StringJoiner Example - How to join multiple Strings with delimiter in Java?
+
+While everyone was looking at the lambda expression and Stream API, JDK quietly sneaked some of the exciting methods on its API. There are a lot of hidden gems on JDK 8 and I have uncovered many of them already in this blog and today we'll talk about one of such gems which you can use in your day-to-day programming activities like joining much String together. The Java 8 has added a new class called StringJoiner to join Strings. The java.util.StringJoiner can be used to join any number of arbitrary String, a list of String, or an array of String in Java. You can choose any delimiter to join String like comma, pipe, colon, or semi-colon. This class also allows you to specify a prefix and suffix while joining two or more String in Java.
+
+In order to join Strings, you first create an instance of StringJoiner class. While creating the instance, you provide the delimiter, a String or character, which will be used between Strings while joining them like you can pass comma as a delimiter to create a comma-separated String or pipe to create a pipe-delimited String.
+
+In this article, you will see some examples of StringJoiner to learn how to join String in Java 8.
+
+Some of the readers may be curious why do you need a new StringJoiner class if you already have StringBuffer and StringBuilder classes to concatenate String, which is nothing but joining.
+
+Well, you can certainly use the StringBuffer and StringBuilder class to join String in Java and that's what Java developers do prior to Java 8
+
+But, StringJoiner provides a much cleaner and capable interface to join Strings. You don't need to write logic to start adding comma only after the first element and not to add after the last element, which Java programmers used to do while joining String in Java 6 or JDK 7.
+
+Though StringJoiner is just one of the hidden gems of the Java SE 8 release, there are many more day-to-day useful features that are hidden behind lambda expressions and streams like  CompletableFuture. You can further see these Java Functional Programming and Stream Courses to learn more about useful features like Lambda expression and Stream in a quick time.
+
+### How to join String by a comma in Java 8 - Example
+Let's see our first example, which will join String by a comma to create a CSV String in Java 8 using the StringJoiner class. In this example, we join arbitrary String like Java, C++, Python, and Ruby to form a comma-separated String.
+```java
+// Creating a StringJoiner with delimiter as comma
+StringJoiner joiner = new StringJoiner(",");
+joiner.add("Java");
+joiner.add("C++");
+joiner.add("Python");
+joiner.add("Ruby");
+
+String text = joiner.toString();
+System.out.println("comma separated String: " + text);
+```
+```
+Output
+comma separated String: Java,C++,Python,Ruby
+```
+You can see that StringJoiner has joined all String you have added to it. You don't need to loop through a list of String anymore.
+
+This code may look very similar to the code you may have written using StringBuffer but StringJoiner is very different from StringJoiner.
+
+In the case of StringBuffer or StringBuilder, you need to explicitly call the append(",") to join String by a comma but, here, once you tell StringJoiner about delimiter you are done.
+
+No need to call any function or write special logic, except adding String.
+
+You can further shorten the above code in one line because StringJoiner allows fluent API as shown below:
+```java
+String CSV = new StringJoiner(",").add("Scala")
+                                  .add("Haskell")
+                                  .add("Lisp").toString();
+System.out.println("CSV: " + CSV);
+```
+```
+Output
+CSV: Scala,Haskell,Lisp
+```
+You can see how you can join multiple String in just one line using StringJoiner and fluent API. If you are new to fluent API and interested in writing your own, you should check these Java design pattern courses on  Udemy which talk about a software architecture approach for creating readable, intuitive, and easy-to-understand code.
+
+Java 8 StringJoiner Example - How to join multiple Strings with delimiter in Java
+
+You can also provide prefix and suffix String to StringJoiner which can be used to enclose String like by giving parenthesis as prefix and suffix you can enclose String as shown in our third example below:
+```java
+String text = new StringJoiner(",", "(", ")")
+                  .add("Car Insurance")
+                  .add("Health Insurance")
+                  .add("Life Insurance").toString();
+System.out.println("Insurance: " + text);
+```
+```         
+Output
+Insurance: (Car Insurance,Health Insurance,Life Insurance)
+```
+You can see in this example, we have enclosed the comma-separated String with an opening and closing braces by supplying them as prefix and suffix.
+
+One of the common use cases of this feature is dynamically generating IP address as shown in our fourth example below:
+
+```java
+String text = new StringJoiner(".", "[", "]")
+                .add("192")
+                .add("168")
+                .add("2")
+                .add("81").toString();
+System.out.println("IP address: " + text);
+```
+```
+Output
+IP address: [192.168.2.81]
+```
+You can see the nice and clean IP address generated by supplying opening and closing brackets as prefix and suffix and dot as a separator.  To be honest, these are just the tip of the iceberg in terms of both StringJoiner and Java 8 features.
+
+I suggest you look at a comprehensive Java course like The Complete Java MasterClass which covers almost everything about Java SE 8. This will allow you to get the full benefit of new API enhancement and Java 8 features in your day-to-day programming.
+
+### how to join String in Java with example
+
+
+
+That's all about how to use StringJoiner in Java 8 to Join multiple Strings. There is another alternative, you can use String.join() as well to join String. It internally uses StringJoiner for joining String but it's more versatile as it provides another overloaded version of String.join() to join elements from a String array or list of String.
+
 
 ==================================================================================
 
@@ -1177,6 +1987,90 @@ No, it's not mandatory for a lambda expression to have parameters, you can defin
 You can pass this code to any method which accepts a functional interface. 
 
 This example uses Java 8 features effectively to handle collections and perform operations in a functional style.
+
+## How to Convert a List to Map in Java 8 - Example Tutorial
+
+One of the common tasks in Java programming is to convert a list to a map and I have written about this in the past and today we'll see how Java 8 makes this task easier. Btw, be it Java 7 or Java 8, you need to keep something in mind while converting a list to a map because they are two different data structures and have completely different properties. For example, the List interface in Java allows duplicate elements but keys in a Map must be unique, the value can be duplicated but a duplicate key may cause a problem in Java 8. This means a List with duplicates cannot be directly converted into Map without handling the duplicate values properly. 
+
+Similarly, another concern is the order of elements. A list is an ordered collection but the map doesn't guarantee any order unless you decide to use LinkedHashMap, which keeps insertion order, or TreeMap which keeps mapping in the sorted order of keys. This is one of the important details which many Java beginners forget and then spend hours chasing subtle bugs.
+
+If your program has any dependency on the order of elements in the list they will not work as expected if you use a map. So, you should be mindful of these general details while converting a list to a map in Java. This is true irrespective of the Java version.
+
+Btw, if you are new to the Java world, I suggest you first go through a comprehensive course on Java-like The Complete Java Masterclass on Udemy. It not only provides organized and structure learning but also you will learn more in less time.  It's also one of the most up-to-date courses, recently updated for Java 11 features.
+
+Anyway, let's see the task at hand. Assume you have a list of courses and you want to create a map where keys should be the title of the course and value should be the course object itself. How will you do that?
+
+
+
+### How to convert List<V> into Map<K, V> in Java? Example
+It's easy in Java, all you need to do is go through the List, extract a key from each object and add both key and value into the map, but how will you do that in Java 8 style like by using lambda expression and streams?
+
+### How to Convert a List<V> to Map<K,V> in Java 8 - Example Tutorial
+
+
+
+We'll see that but let's first write the JDK 7 version to convert a List<V> into Map<K, V>:
+
+```java
+private Map<String, Course> toMap(List<Course> listOfCourses) {
+    final Map<String, Course> courses = new HashMap<>();
+    for (final Course current : listOfCourses) {
+      hashMap.put(current.getTitle(), current);
+    }
+    return courses;
+  }
+```
+This code is very simple and easy to read, let's now see the Java 8 version to find out whether Java 8 really makes your life easy when it comes to writing day to day code:
+```java
+Map<String, Course > result = listOfCourses
+                                 .stream()
+                                 .collect(
+                                 Collectors.toMap(Course::getTitle,
+                                                 Function.identity()));
+```
+Wow, it just took one line to convert a list of objects into a map, which had taken one function in JDK 7. So, it looks Java 8 really makes the developer's life easy.
+
+Anyway, let's try to understand what's going on here. Well, you have a listOfCourses, which is a List and then you called the stream() method which returns a Stream associated with that list. After that, you have called the collect() method which is used to accumulate elements from Stream.
+
+Since we are not doing any filtering there is no call to filter(), the collect() method then uses a Collector which can combine results in a map. All it needs is one method to extract the key, which is Course::getTitle, and one method to extract value which is Function.identity() i.e. the object itself.
+
+We have also used a method reference to shorten the key extractor. You can further see What's New in Java 8: Lambdas to learn more about how to convert lambda expression to a method reference.
+
+### How to convert List<V> into Map<K,V> in Java 8
+
+Btw, there is a catch here. The ordering of elements has been lost because Map doesn't guarantee any order. If you want to keep Courses in the same order they appeared in the List, we need to use a Map that provides ordering guarantees e.g. LinkedHashMap which keeps elements in the order they are inserted.
+
+We also need to tell this to Collector so that it will collect elements inside a LinkedHashMap rather than a general Map. Let's re-write the code to achieve that:
+
+```java
+ Map<String, Course > result = listOfCourses
+        .stream()
+        .collect(
+        Collectors.toMap(Course::getTitle, 
+                         Function.identity(), 
+                         LinkedHashMap::new));
+```
+This looks good now. The order of elements in both List and Map are the same now, but there is still one more thing you need to take care of to keep this code full proof and pass the test of time.
+
+If you remember, List allows duplicates but if you try to insert a duplicate key in the Map it overrides the values, that would have been a nightmare in this case, but thankfully Java 8 protects you. Instead of silently overwriting a value in such condition, it throws an exception as shown below when it encountered a duplicate element in the source list (see Modern Java in Action )
+
+Though, you can resolve this error by just telling Collector how to resolve collision e.g. what to do when it encounters a duplicate key. It can do nothing and keep the original mapping or it can override and update the value. You can instruct the collector whatever you want by providing an extra parameter to the Collectors.toMap() method as shown in the following code:
+
+```java
+    Map<String, Course > result = listOfCourses
+        .stream()
+        .collect(
+        Collectors.toMap(Course::getTitle, 
+                         Function.identity(),
+                         (e1, e2) -> e2, 
+                         LinkedHashMap::new));
+```
+Here in case of a duplicate, we are using the second element as a key to generated LinkedHashMap. You can also choose the first object or just concatenate the first and second as per your need.
+
+
+That's all about how to convert a list of objects List<V> to a map of keys and values e.g. Map<K, V>. It's super easy in Java 8. All you need to know is how to use the collect() and Collector class of Stream API to do this task. 
+
+Though you should be mindful of the essential difference between List and Map data structure like one is ordered collection while the other is not. Transferring values from List to Map means you will lose the order if you don't preserve them like by using a LinkedHashMap.
 
 ### Arrays Interview Questions
 
