@@ -276,7 +276,10 @@ public class ListToArray {
 - `list.toArray(new Integer[0])` converts the list to an array of `Integer`. Using `new Integer[0]` ensures the correct type of array is created.
 
 These questions and examples should help you prepare for Java 8 array-related interview questions and demonstrate your understanding of the Stream API and modern Java practices.
-
+</details>
+<details>
+<summary><b>4. Java 8 primitive Streams Examples</b></summary>
+  
 ## primitive Streams Examples
 
 Java 8 introduced specialized streams for handling primitive data types (`int`, `long`, `double`) more efficiently than using the generic `Stream<T>`. These specialized streams are `IntStream`, `LongStream`, and `DoubleStream`. Each provides methods tailored to their respective primitive types.
@@ -426,6 +429,10 @@ public class DoubleStreamExample {
 
 These examples cover a range of operations for primitive streams, demonstrating how to use `IntStream`, `LongStream`, and `DoubleStream` effectively.
 
+</details>
+<details>
+<summary><b>4. Java 8 primitive Streams Examples</b></summary>
+  
 Here are some common Java Streams interview questions, along with detailed solutions:
 
 ### 1. **Find the First N Elements in a Stream**
@@ -2243,7 +2250,9 @@ public class VowelCount {
     }
 }
 ```
-
+</details>
+<details>
+<summary><b>4. Java 8 Strings Coding Interview Questions</b></summary>
 These programs cover basic operations and data structures in Java. You can modify and expand them based on your requirements.
 Certainly! Here are Java 8 programs utilizing streams for each of the tasks you've mentioned:
 
@@ -20732,6 +20741,7 @@ public class StudentManagement {
 }
 ```
 </details>
+</details>
 <details>
 <summary><b>5. Spring Framework</b></summary>
  
@@ -23331,5 +23341,5 @@ Here in case of a duplicate, we are using the second element as a key to generat
 That's all about how to convert a list of objects List<V> to a map of keys and values e.g. Map<K, V>. It's super easy in Java 8. All you need to know is how to use the collect() and Collector class of Stream API to do this task. 
 
 Though you should be mindful of the essential difference between List and Map data structure like one is ordered collection while the other is not. Transferring values from List to Map means you will lose the order if you don't preserve them like by using a LinkedHashMap.
-</details>
+
 
