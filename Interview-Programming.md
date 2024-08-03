@@ -2,7 +2,7 @@
 
 ---
 
-### **Question:**
+### **Questions & Answers:**
 <details>
 <summary><b>1. Can you explain the core principles of microservices architecture and how it differs from a monolithic architecture?</b></summary>
 
@@ -98,9 +98,8 @@ By adopting microservices, organizations can improve their ability to innovate q
 
 ---
 </details>
-
-### **2. Question:**
-**Describe your experience with creating a streaming data pipeline using Kafka. What are the key considerations when designing such a pipeline?**
+<details>
+<summary><b>2. Describe your experience with creating a streaming data pipeline using Kafka. What are the key considerations when designing such a pipeline?</b></summary>
 
 **Answer:**
 In my experience with Kafka, I've implemented streaming data pipelines that handle real-time data ingestion, processing, and delivery. The key considerations for designing a Kafka-based streaming data pipeline include:
@@ -194,11 +193,13 @@ Suppose you are building a streaming data pipeline for a real-time fraud detecti
 7. **Scaling:** Configure topics with multiple partitions and scale Kafka brokers as needed.
 
 By carefully designing and managing each component of the Kafka-based streaming data pipeline, you can build a robust, scalable, and efficient system to handle real-time data processing needs.
+
 ---
 
-### **3. Question:**
-**How do you implement and manage CI/CD pipelines in your projects? What tools and practices do you use?**
-
+</details>
+<details>
+<summary><b>3. How do you implement and manage CI/CD pipelines in your projects? What tools and practices do you use?</b></summary>
+   
 **Answer:**
 In my projects, I implement CI/CD pipelines to automate the build, test, and deployment processes. The tools and practices I use include:
 
@@ -212,9 +213,10 @@ In my projects, I implement CI/CD pipelines to automate the build, test, and dep
 
 ---
 
-### **4. Question:**
-**Explain the key concepts of Spring Boot and how it facilitates microservices development.**
-
+</details>
+<details>
+<summary><b>4. Explain the key concepts of Spring Boot and how it facilitates microservices development.</b></summary>
+   
 **Answer:**
 Spring Boot simplifies the development of Spring-based applications by providing:
 
@@ -226,9 +228,10 @@ Spring Boot simplifies the development of Spring-based applications by providing
 
 ---
 
-### **5. Question:**
-**Can you discuss your approach to handling multi-threading and concurrency issues in Java applications?**
-
+</details>
+<details>
+<summary><b>5. Can you discuss your approach to handling multi-threading and concurrency issues in Java applications?</b></summary>
+   
 **Answer:**
 Handling multi-threading and concurrency in Java involves understanding and using various concurrency utilities provided by the Java standard library. My approach includes:
 
@@ -437,9 +440,10 @@ Applying these strategies can help you design and implement concurrent systems t
 
 ---
 
-### **6. Question:**
-**What are some best practices for designing RESTful APIs, and how do you ensure that they are both effective and efficient?**
-
+</details>
+<details>
+<summary><b>6. What are some best practices for designing RESTful APIs, and how do you ensure that they are both effective and efficient?</b></summary>
+   
 **Answer:**
 Best practices for designing RESTful APIs include:
 
@@ -453,9 +457,10 @@ Best practices for designing RESTful APIs include:
 
 ---
 
-### **7. Question:**
-**How do you approach performance tuning in a Java application? What tools and techniques do you use?**
-
+</details>
+<details>
+<summary><b>7. How do you approach performance tuning in a Java application? What tools and techniques do you use?</b></summary>
+   
 **Answer:**
 Performance tuning in Java involves identifying and resolving performance bottlenecks. My approach includes:
 
@@ -468,8 +473,9 @@ Performance tuning in Java involves identifying and resolving performance bottle
 
 ---
 
-### **8. Question:**
-**Describe your experience with Agile development and Scrum. How do you ensure successful implementation in a team?**
+</details>
+<details>
+<summary><b>8. Describe your experience with Agile development and Scrum. How do you ensure successful implementation in a team?</b></summary>
 
 **Answer:**
 My experience with Agile and Scrum includes:
@@ -482,8 +488,9 @@ My experience with Agile and Scrum includes:
 
 ---
 
-### **9. Question:**
-**Can you provide an example of a challenging problem you solved in a distributed system?**
+</details>
+<details>
+<summary><b>9. Can you provide an example of a challenging problem you solved in a distributed system?</b></summary>
 
 **Answer:**
 One challenging problem I encountered was managing data consistency in a distributed microservices architecture. We had multiple services that needed to update shared data while ensuring eventual consistency.
@@ -495,10 +502,13 @@ One challenging problem I encountered was managing data consistency in a distrib
 - **Monitoring and Alerts:** Set up monitoring and alerts to detect and respond to inconsistencies or failures in real-time.
 
 ---
+</details>
+
 
 These questions and answers should help prepare for an interview for a Lead Java Engineer position, covering core technical skills and practical experience relevant to the role.
 
-# java8
+<details>
+<summary><b>java8</b></summary>
 Java 8 features
 
 Differences between Java 8 Map() Vs flatMap() :
