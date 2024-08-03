@@ -499,7 +499,7 @@ System.out.println( square.apply(5) );  //Prints 25
 We also saw the JDK provided existing functional interfaces, and finally how to create an use a functional interface.
 </details>
 
-### Java Default Methods
+##### Java Default Methods
 <details>
 <summary><b>3.3.2 Java 8 Functional Interfaces - Default Methods</b></summary>
 
@@ -612,7 +612,7 @@ Rules for this conflict resolution are as follows:
 ```
 </details>
 
-### Java Static Methods
+##### Java Static Methods
 <details>
 <summary><b>3.3.3 Java 8 Functional Interfaces - Java Static Methods</b></summary>
 	
