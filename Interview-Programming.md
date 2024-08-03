@@ -1,5 +1,10 @@
 This is a regular paragraph with <span style="color: red">red colored text</span> inside it.
 
+A <span style="color: lightblue;">very</span> long <span style="color: red;">sentence</span>.
+
+<span style="color: lightgreen;">bobbyhadz</span>.com
+
+
 # Table of Contents
 
 <details>
