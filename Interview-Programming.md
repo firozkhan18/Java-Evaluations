@@ -558,10 +558,45 @@ These functional interfaces are powerful tools for functional programming in Jav
 
 Certainly! Here's a detailed breakdown of various functional interfaces in Java and their corresponding primitive specializations, including code examples for each:
 
+### **1. Predicate and Primitive Specializations**
+
+
+
+  - **`LongPredicate`**
+    - **Description:** Tests if a condition holds true for a `long` value.
+    - **Example:**
+
+      ```java
+      import java.util.function.LongPredicate;
+
+      public class LongPredicateExample {
+          public static void main(String[] args) {
+              LongPredicate isPositive = l -> l > 0;
+              System.out.println(isPositive.test(100L)); // true
+              System.out.println(isPositive.test(-100L)); // false
+          }
+      }
+      ```
+
+  - **`DoublePredicate`**
+    - **Description:** Tests if a condition holds true for a `double` value.
+    - **Example:**
+
+      ```java
+      import java.util.function.DoublePredicate;
+
+      public class DoublePredicateExample {
+          public static void main(String[] args) {
+              DoublePredicate isGreaterThanFive = d -> d > 5.0;
+              System.out.println(isGreaterThanFive.test(6.0)); // true
+              System.out.println(isGreaterThanFive.test(4.0)); // false
+          }
+      }
+      ```
 ### **1. Predicate and Its Primitive Specializations**
 
 - **`Predicate<T>`**
-  - **Description:** A functional interface that tests if a condition holds true for an input.
+  - **Description:** A functional interface that tests if a condition holds true for an input type `T`.
   - **Signature:** `T -> boolean`
 
   **Example:**
@@ -577,6 +612,17 @@ Certainly! Here's a detailed breakdown of various functional interfaces in Java 
       }
   }
   ```
+  ```java
+    import java.util.function.Predicate;
+
+    public class PredicateExample {
+        public static void main(String[] args) {
+            Predicate<String> isNonEmpty = s -> !s.isEmpty();
+            System.out.println(isNonEmpty.test("Hello")); // true
+            System.out.println(isNonEmpty.test(""));      // false
+        }
+    }
+  ```
 
 - **Primitive Specializations**
 
@@ -585,7 +631,7 @@ Certainly! Here's a detailed breakdown of various functional interfaces in Java 
 
     **Example:**
 
-    ```java
+  ```java
     import java.util.function.IntPredicate;
 
     public class IntPredicateExample {
@@ -595,7 +641,19 @@ Certainly! Here's a detailed breakdown of various functional interfaces in Java 
             System.out.println(isPositive.test(-1)); // false
         }
     }
-    ```
+  ```
+
+  ```java
+      import java.util.function.IntPredicate;
+
+      public class IntPredicateExample {
+          public static void main(String[] args) {
+              IntPredicate isEven = n -> n % 2 == 0;
+              System.out.println(isEven.test(4)); // true
+              System.out.println(isEven.test(5)); // false
+          }
+      }
+  ```
 
   - **`LongPredicate`**
     - **Description:** A specialized version of `Predicate` for `long` values.
@@ -631,10 +689,41 @@ Certainly! Here's a detailed breakdown of various functional interfaces in Java 
     }
     ```
 
-### **2. Consumer and Its Primitive Specializations**
+### **2. BiPredicate**
+
+- **`BiPredicate<L, R>`**
+  - **Description:** Tests if a condition holds true for two arguments of types `L` and `R`. A functional interface that tests a condition on two arguments. 
+  - **Signature:** `(L, R) -> boolean`
+  - **Example:**
+
+    ```java
+    import java.util.function.BiPredicate;
+
+    public class BiPredicateExample {
+        public static void main(String[] args) {
+            BiPredicate<String, Integer> lengthGreaterThan = (s, len) -> s.length() > len;
+            System.out.println(lengthGreaterThan.test("Hello", 3)); // true
+            System.out.println(lengthGreaterThan.test("Hi", 3));    // false
+        }
+    }
+    ```
+
+  ```java
+  import java.util.function.BiPredicate;
+
+  public class BiPredicateExample {
+      public static void main(String[] args) {
+          BiPredicate<Integer, Integer> isEqual = (a, b) -> a.equals(b);
+          System.out.println(isEqual.test(5, 5)); // true
+          System.out.println(isEqual.test(5, 10)); // false
+      }
+  }
+  ```
+
+### **3. Consumer and Its Primitive Specializations**
 
 - **`Consumer<T>`**
-  - **Description:** A functional interface that accepts an input and returns no result.
+  - **Description:** A functional interface that accepts an input and returns no result. Performs an action on an input of type `T` without returning a result.
   - **Signature:** `T -> void`
 
   **Example:**
@@ -649,7 +738,7 @@ Certainly! Here's a detailed breakdown of various functional interfaces in Java 
       }
   }
   ```
-
+ 
 - **Primitive Specializations**
 
   - **`IntConsumer`**
@@ -669,7 +758,7 @@ Certainly! Here's a detailed breakdown of various functional interfaces in Java 
     ```
 
   - **`LongConsumer`**
-    - **Description:** A specialized version of `Consumer` for `long` values.
+    - **Description:** A specialized version of `Consumer` for `long` values. Performs an action on a `long` value.
 
     **Example:**
 
@@ -683,9 +772,8 @@ Certainly! Here's a detailed breakdown of various functional interfaces in Java 
         }
     }
     ```
-
   - **`DoubleConsumer`**
-    - **Description:** A specialized version of `Consumer` for `double` values.
+    - **Description:** A specialized version of `Consumer` for `double` values. Performs an action on a `double` value.
 
     **Example:**
 
@@ -698,9 +786,28 @@ Certainly! Here's a detailed breakdown of various functional interfaces in Java 
             printDouble.accept(4.5); // 4.5
         }
     }
-    ```
+    ``` 
 
-### **3. Function and Its Primitive Specializations**
+### **4. BiConsumer**
+
+- **`BiConsumer<T, U>`**
+  - **Description:** Performs an action on two arguments of types `T` and `U` without returning a result. A functional interface that accepts two arguments and returns no result.
+  - **Signature:** `(T, U) -> void`
+  - **Example:**
+
+    ```java
+    import java.util.function.BiConsumer;
+
+    public class BiConsumerExample {
+        public static void main(String[] args) {
+            BiConsumer<String, Integer> printNameAndAge = (name, age) ->
+                System.out.println(name + " is " + age + " years old.");
+            printNameAndAge.accept("Alice", 30); // Alice is 30 years old.
+        }
+    }
+    ```
+   
+### **5. Function and Its Primitive Specializations**
 
 - **`Function<T, R>`**
   - **Description:** A functional interface that takes an input of type `T` and produces a result of type `R`.
@@ -736,7 +843,7 @@ Certainly! Here's a detailed breakdown of various functional interfaces in Java 
         }
     }
     ```
-
+    
   - **`IntToDoubleFunction`**
     - **Description:** A specialized version of `Function` that takes an `int` and produces a `double`.
 
@@ -860,9 +967,7 @@ Certainly! Here's a detailed breakdown of various functional interfaces in Java 
     public class ToDoubleFunctionExample {
         public static void main(String[] args) {
             ToDoubleFunction<String> stringLengthToDouble = s -> s.length() * 1.0;
-            System.out.println(stringLength
-
-ToDouble.applyAsDouble("Hello")); // 5.0
+            System.out.println(stringLengthToDouble.applyAsDouble("Hello")); // 5.0
         }
     }
     ```
@@ -883,10 +988,74 @@ ToDouble.applyAsDouble("Hello")); // 5.0
     }
     ```
 
-### **4. Supplier and Its Primitive Specializations**
+
+### **6. BiFunction and Its Primitive Specializations**
+
+- **`BiFunction<T, U, R>`**
+  - **Description:** Takes two arguments and produces a result. A functional interface that takes two arguments and produces a result.
+  - **Signature:** `(T, U) -> R`
+  - **Example:**
+
+    ```java
+    import java.util.function.BiFunction;
+
+    public class BiFunctionExample {
+        public static void main(String[] args) {
+            BiFunction<Integer, Integer, Integer> add = (a, b) -> a + b;
+            System.out.println(add.apply(5, 10)); // 15
+        }
+    }
+    ```
+- **Primitive Specializations**
+
+  - **`ToIntBiFunction<T, U>`**
+    - **Description:** Takes two arguments and produces an `int`. A functional interface that takes two arguments and produces an `int`.
+    - **Example:**
+
+      ```java
+      import java.util.function.ToIntBiFunction;
+
+      public class ToIntBiFunctionExample {
+          public static void main(String[] args) {
+              ToIntBiFunction<String, String> stringLengthSum = (a, b) -> a.length() + b.length();
+              System.out.println(stringLengthSum.applyAsInt("Hello", "World")); // 10
+          }
+      }
+      ```
+
+  - **`ToLongBiFunction<T, U>`**
+    - **Description:** Takes two arguments and produces a `long`. A functional interface that takes two arguments and produces a `long`.
+    - **Example:**
+
+      ```java
+      import java.util.function.ToLongBiFunction;
+
+      public class ToLongBiFunctionExample {
+          public static void main(String[] args) {
+              ToLongBiFunction<Integer, Integer> multiply = (a, b) -> (long) a * b;
+              System.out.println(multiply.applyAsLong(5, 10)); // 50
+          }
+      }
+      ```
+
+  - **`ToDoubleBiFunction<T, U>`**
+    - **Description:** Takes two arguments and produces a `double`. A functional interface that takes two arguments and produces a `double`.
+    - **Example:**
+
+      ```java
+      import java.util.function.ToDoubleBiFunction;
+
+      public class ToDoubleBiFunctionExample {
+          public static void main(String[] args) {
+              ToDoubleBiFunction<Integer, Integer> average = (a, b) -> (a + b) / 2.0;
+              System.out.println(average.applyAsDouble(5, 10)); // 7.5
+          }
+      }
+      ```
+### **7. Supplier and Its Primitive Specializations**
 
 - **`Supplier<T>`**
-  - **Description:** A functional interface that supplies a result of type `T` without taking any arguments.
+  - **Description:** A functional interface that supplies a result of type `T` without taking any arguments. 
   - **Signature:** `() -> T`
 
   **Example:**
@@ -968,7 +1137,7 @@ ToDouble.applyAsDouble("Hello")); // 5.0
     }
     ```
 
-### **5. UnaryOperator and Its Primitive Specializations**
+### **8. UnaryOperator and Its Primitive Specializations**
 
 - **`UnaryOperator<T>`**
   - **Description:** A functional interface that applies a function to a single input and returns a result of the same type.
@@ -990,7 +1159,7 @@ ToDouble.applyAsDouble("Hello")); // 5.0
 - **Primitive Specializations**
 
   - **`IntUnaryOperator`**
-    - **Description:** A specialized version of `UnaryOperator` for `int` values.
+    - **Description:** A specialized version of `UnaryOperator` for `int` values. Applies a function to an `int` and returns an `int`.
 
     **Example:**
 
@@ -1006,7 +1175,7 @@ ToDouble.applyAsDouble("Hello")); // 5.0
     ```
 
   - **`LongUnaryOperator`**
-    - **Description:** A specialized version of `UnaryOperator` for `long` values.
+    - **Description:** A specialized version of `UnaryOperator` for `long` values. Applies a function to a `long` and returns a `long`.
 
     **Example:**
 
@@ -1022,7 +1191,7 @@ ToDouble.applyAsDouble("Hello")); // 5.0
     ```
 
   - **`DoubleUnaryOperator`**
-    - **Description:** A specialized version of `UnaryOperator` for `double` values.
+    - **Description:** A specialized version of `UnaryOperator` for `double` values. Applies a function to a `double` and returns a `double`.
 
     **Example:**
 
@@ -1040,7 +1209,7 @@ ToDouble.applyAsDouble("Hello")); // 5.0
 ### **6. BinaryOperator and Its Primitive Specializations**
 
 - **`BinaryOperator<T>`**
-  - **Description:** A functional interface that applies a function to two arguments of the same type and returns a result of the same type.
+  - **Description:** A functional interface that applies a function to two arguments of the same type `T` and returns a result of the same type.
   - **Signature:** `(T, T) -> T`
 
   **Example:**
@@ -1059,7 +1228,7 @@ ToDouble.applyAsDouble("Hello")); // 5.0
 - **Primitive Specializations**
 
   - **`IntBinaryOperator`**
-    - **Description:** A specialized version of `BinaryOperator` for `int` values.
+    - **Description:** A specialized version of `BinaryOperator` for `int` values. Applies a function to two `int` values and returns an `int`.
 
     **Example:**
 
@@ -1075,7 +1244,7 @@ ToDouble.applyAsDouble("Hello")); // 5.0
     ```
 
   - **`LongBinaryOperator`**
-    - **Description:** A specialized version of `BinaryOperator` for `long` values.
+    - **Description:** A specialized version of `BinaryOperator` for `long` values. Applies a function to two `long` values and returns a `long`.
 
     **Example:**
 
@@ -1091,7 +1260,7 @@ ToDouble.applyAsDouble("Hello")); // 5.0
     ```
 
   - **`DoubleBinaryOperator`**
-    - **Description:** A specialized version of `BinaryOperator` for `double` values.
+    - **Description:** A specialized version of `BinaryOperator` for `double` values. Applies a function to two `double` values and returns a `double`.
 
     **Example:**
 
@@ -1108,110 +1277,10 @@ ToDouble.applyAsDouble("Hello")); // 5.0
 
 ### **7. BiPredicate, BiConsumer, BiFunction and Their Primitive Specializations**
 
-- **`BiPredicate<L, R>`**
-  - **Description:** A functional interface that tests a condition on two arguments.
-  - **Signature:** `(L, R) -> boolean`
 
-  **Example:**
 
-  ```java
-  import java.util.function.BiPredicate;
 
-  public class BiPredicateExample {
-      public static void main(String[] args) {
-          BiPredicate<Integer, Integer> isEqual = (a, b) -> a.equals(b);
-          System.out.println(isEqual.test(5, 5)); // true
-          System.out.println(isEqual.test(5, 10)); // false
-      }
-  }
-  ```
 
-- **`BiConsumer<T, U>`**
-  - **Description:** A functional interface that accepts two arguments and returns no result.
-  - **Signature:** `(T, U) -> void`
-
-  **Example:**
-
-  ```java
-  import java.util.function.BiConsumer;
-
-  public class BiConsumerExample {
-      public static void main(String[] args) {
-          BiConsumer<String, Integer> printPerson = (name, age) -> 
-              System.out.println(name + " is " + age + " years old.");
-          printPerson.accept("Alice", 30); // Alice is 30 years old.
-      }
-  }
-  ```
-
-- **`BiFunction<T, U, R>`**
-  - **Description:** A functional interface that takes two arguments and produces a result.
-  - **Signature:** `(T, U) -> R`
-
-  **Example:**
-
-  ```java
-  import java.util.function.BiFunction;
-
-  public class BiFunctionExample {
-      public static void main(String[] args) {
-          BiFunction<Integer, Integer, Integer> add = (a, b) -> a + b;
-          System.out.println(add.apply(5, 10)); // 15
-      }
-  }
-  ```
-
-- **Primitive Specializations**
-
-  - **`ToIntBiFunction<T, U>`**
-    - **Description:** A functional interface that takes two arguments and produces an `int`.
-
-    **Example:**
-
-    ```java
-    import java.util.function.ToIntBiFunction;
-
-    public class ToIntBiFunctionExample {
-        public static void main(String[] args
-
-) {
-            ToIntBiFunction<String, String> stringLengthSum = (a, b) -> a.length() + b.length();
-            System.out.println(stringLengthSum.applyAsInt("Hello", "World")); // 10
-        }
-    }
-    ```
-
-  - **`ToLongBiFunction<T, U>`**
-    - **Description:** A functional interface that takes two arguments and produces a `long`.
-
-    **Example:**
-
-    ```java
-    import java.util.function.ToLongBiFunction;
-
-    public class ToLongBiFunctionExample {
-        public static void main(String[] args) {
-            ToLongBiFunction<Integer, Integer> multiply = (a, b) -> (long) a * b;
-            System.out.println(multiply.applyAsLong(5, 10)); // 50
-        }
-    }
-    ```
-
-  - **`ToDoubleBiFunction<T, U>`**
-    - **Description:** A functional interface that takes two arguments and produces a `double`.
-
-    **Example:**
-
-    ```java
-    import java.util.function.ToDoubleBiFunction;
-
-    public class ToDoubleBiFunctionExample {
-        public static void main(String[] args) {
-            ToDoubleBiFunction<Integer, Integer> average = (a, b) -> (a + b) / 2.0;
-            System.out.println(average.applyAsDouble(5, 10)); // 7.5
-        }
-    }
-    ```
 
 This set of examples covers the core functional interfaces and their primitive specializations in Java. Each specialization is tailored to work with specific primitive types (int, long, double) for more efficient operations.
 
