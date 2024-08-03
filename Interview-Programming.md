@@ -494,9 +494,14 @@ System.out.println( square.apply(5) );  //Prints 25
 ```
 
 We also saw the JDK provided existing functional interfaces, and finally how to create an use a functional interface.
+</details>
 
 ### Java Default Methods
+<details>
+<summary><b>3.3 Java 8 Functional Interfaces - Java Default Methods</b></summary>
 
+ ### Java Default Methods
+ 
 Let’s move on the discussion and talk about another related feature i.e. default methods. Well, this is truly revolutionary for java developers. Till java 7, we have learned a lot of things about interfaces and all those things have been in our mind whenever we wrote code or designed the applications. Some of these concepts are going to change drastically from java 8, after introduction of default methods.
 
 I will discuss following points in this post:
@@ -602,8 +607,12 @@ Rules for this conflict resolution are as follows:
 	//or 
 	Moveable.super.move();
 ```
-## Java Static Methods
+</details>
 
+## Java Static Methods
+<details>
+<summary><b>3.3 Java 8 Functional Interfaces - Java Static Methods</b></summary>
+	
 ### Java Static – Variable, Method, Block, Class and Import Statement
 
 Static keyword in java can be applied on variables, methods, blocks, import and inner classes. In this tutorial, we will learn the effect of using static keyword in these places with examples.
