@@ -86,197 +86,7 @@
   - [Reduce](#reduce)
 - [Optional](#optional)
 - [Date](#date)
-</details>
-<details>
-<summary><b>4. Java Programming Exercises</b></summary>
- 
-- [Java Programming Questions and Answers](#java-programming-questions-and-answers)
 
-<details>
-<summary><b>4. Java 8 Arrays Coding Interview Questions</b></summary>
-
-Java 8 introduced several new features and improvements that can be useful in interview scenarios. When it comes to arrays, interview questions often explore your understanding of how Java 8 features interact with arrays, as well as your knowledge of core Java array operations.
-
-Here are some common Java 8 array-related interview questions and answers:
-
-### 1. **How can you convert an array to a list in Java 8?**
-
-**Answer:**
-
-Java 8 introduced the `Stream` API, which can be used to convert an array to a list easily.
-
-```java
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
-public class ArrayToList {
-    public static void main(String[] args) {
-        String[] array = {"a", "b", "c"};
-        List<String> list = Arrays.stream(array).collect(Collectors.toList());
-        System.out.println(list);
-    }
-}
-```
-
-**Explanation:**
-- `Arrays.stream(array)` creates a stream from the array.
-- `collect(Collectors.toList())` collects the elements of the stream into a `List`.
-
-### 2. **How can you filter an array using Java 8 Streams?**
-
-**Answer:**
-
-You can use the `filter` method of the `Stream` API to filter elements of an array.
-
-```java
-import java.util.Arrays;
-
-public class FilterArray {
-    public static void main(String[] args) {
-        int[] array = {1, 2, 3, 4, 5};
-        int[] filteredArray = Arrays.stream(array)
-                                    .filter(x -> x % 2 == 0)  // Keep only even numbers
-                                    .toArray();
-        System.out.println(Arrays.toString(filteredArray));
-    }
-}
-```
-
-**Explanation:**
-- `Arrays.stream(array)` creates a stream from the array.
-- `filter(x -> x % 2 == 0)` keeps only even numbers.
-- `toArray()` converts the filtered stream back to an array.
-
-### 3. **How can you sort an array using Java 8 Streams?**
-
-**Answer:**
-
-Sorting an array can be achieved using the `sorted` method of the `Stream` API.
-
-```java
-import java.util.Arrays;
-
-public class SortArray {
-    public static void main(String[] args) {
-        int[] array = {5, 3, 8, 1, 2};
-        int[] sortedArray = Arrays.stream(array)
-                                   .sorted()
-                                   .toArray();
-        System.out.println(Arrays.toString(sortedArray));
-    }
-}
-```
-
-**Explanation:**
-- `Arrays.stream(array)` creates a stream from the array.
-- `sorted()` sorts the stream in natural order.
-- `toArray()` converts the sorted stream back to an array.
-
-### 4. **How can you find the maximum value in an array using Java 8 Streams?**
-
-**Answer:**
-
-You can use the `max` method with a `Comparator` to find the maximum value.
-
-```java
-import java.util.Arrays;
-
-public class MaxValue {
-    public static void main(String[] args) {
-        int[] array = {5, 3, 8, 1, 2};
-        int max = Arrays.stream(array)
-                        .max()
-                        .orElseThrow(() -> new RuntimeException("Array is empty"));
-        System.out.println("Maximum value: " + max);
-    }
-}
-```
-
-**Explanation:**
-- `Arrays.stream(array)` creates a stream from the array.
-- `max()` returns an `OptionalInt` containing the maximum value.
-- `orElseThrow()` is used to handle the case when the array is empty.
-
-### 5. **How can you find the second highest value in an array using Java 8 Streams?**
-
-**Answer:**
-
-To find the second highest value, you need to sort the stream and skip the highest value.
-
-```java
-import java.util.Arrays;
-
-public class SecondHighestValue {
-    public static void main(String[] args) {
-        int[] array = {5, 3, 8, 1, 2};
-        int secondHighest = Arrays.stream(array)
-                                  .distinct() // Ensure unique values
-                                  .boxed()    // Convert int to Integer
-                                  .sorted((a, b) -> b - a) // Sort in descending order
-                                  .skip(1)   // Skip the highest value
-                                  .findFirst()
-                                  .orElseThrow(() -> new RuntimeException("No second highest value"));
-        System.out.println("Second highest value: " + secondHighest);
-    }
-}
-```
-
-**Explanation:**
-- `distinct()` ensures all elements are unique.
-- `boxed()` converts `int` to `Integer` to use `Comparator`.
-- `sorted((a, b) -> b - a)` sorts in descending order.
-- `skip(1)` skips the highest value to get the second highest.
-- `findFirst()` retrieves the second highest value.
-
-### 6. **How can you find the average of values in an array using Java 8 Streams?**
-
-**Answer:**
-
-You can use the `average` method to calculate the average.
-
-```java
-import java.util.Arrays;
-
-public class AverageValue {
-    public static void main(String[] args) {
-        int[] array = {5, 3, 8, 1, 2};
-        double average = Arrays.stream(array)
-                               .average()
-                               .orElseThrow(() -> new RuntimeException("Array is empty"));
-        System.out.println("Average value: " + average);
-    }
-}
-```
-
-**Explanation:**
-- `average()` calculates the average and returns an `OptionalDouble`.
-- `orElseThrow()` handles the case when the array is empty.
-
-### 7. **How can you convert a list of integers to an array in Java 8?**
-
-**Answer:**
-
-You can use the `toArray` method to convert a list to an array.
-
-```java
-import java.util.Arrays;
-import java.util.List;
-
-public class ListToArray {
-    public static void main(String[] args) {
-        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
-        Integer[] array = list.toArray(new Integer[0]);
-        System.out.println(Arrays.toString(array));
-    }
-}
-```
-
-**Explanation:**
-- `list.toArray(new Integer[0])` converts the list to an array of `Integer`. Using `new Integer[0]` ensures the correct type of array is created.
-
-These questions and examples should help you prepare for Java 8 array-related interview questions and demonstrate your understanding of the Stream API and modern Java practices.
-</details>
 <details>
 <summary><b>4. Java 8 primitive Streams Examples</b></summary>
   
@@ -2059,6 +1869,197 @@ ToDouble.applyAsDouble("Hello")); // 5.0
 
 This set of examples covers the core functional interfaces and their primitive specializations in Java. Each specialization is tailored to work with specific primitive types (int, long, double) for more efficient operations.
 
+</details>
+</details>
+<details>
+<summary><b>4. Java Programming Exercises</b></summary>
+ 
+- [Java Programming Questions and Answers](#java-programming-questions-and-answers)
+
+<details>
+<summary><b>4. Java 8 Arrays Coding Interview Questions</b></summary>
+
+Java 8 introduced several new features and improvements that can be useful in interview scenarios. When it comes to arrays, interview questions often explore your understanding of how Java 8 features interact with arrays, as well as your knowledge of core Java array operations.
+
+Here are some common Java 8 array-related interview questions and answers:
+
+### 1. **How can you convert an array to a list in Java 8?**
+
+**Answer:**
+
+Java 8 introduced the `Stream` API, which can be used to convert an array to a list easily.
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class ArrayToList {
+    public static void main(String[] args) {
+        String[] array = {"a", "b", "c"};
+        List<String> list = Arrays.stream(array).collect(Collectors.toList());
+        System.out.println(list);
+    }
+}
+```
+
+**Explanation:**
+- `Arrays.stream(array)` creates a stream from the array.
+- `collect(Collectors.toList())` collects the elements of the stream into a `List`.
+
+### 2. **How can you filter an array using Java 8 Streams?**
+
+**Answer:**
+
+You can use the `filter` method of the `Stream` API to filter elements of an array.
+
+```java
+import java.util.Arrays;
+
+public class FilterArray {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5};
+        int[] filteredArray = Arrays.stream(array)
+                                    .filter(x -> x % 2 == 0)  // Keep only even numbers
+                                    .toArray();
+        System.out.println(Arrays.toString(filteredArray));
+    }
+}
+```
+
+**Explanation:**
+- `Arrays.stream(array)` creates a stream from the array.
+- `filter(x -> x % 2 == 0)` keeps only even numbers.
+- `toArray()` converts the filtered stream back to an array.
+
+### 3. **How can you sort an array using Java 8 Streams?**
+
+**Answer:**
+
+Sorting an array can be achieved using the `sorted` method of the `Stream` API.
+
+```java
+import java.util.Arrays;
+
+public class SortArray {
+    public static void main(String[] args) {
+        int[] array = {5, 3, 8, 1, 2};
+        int[] sortedArray = Arrays.stream(array)
+                                   .sorted()
+                                   .toArray();
+        System.out.println(Arrays.toString(sortedArray));
+    }
+}
+```
+
+**Explanation:**
+- `Arrays.stream(array)` creates a stream from the array.
+- `sorted()` sorts the stream in natural order.
+- `toArray()` converts the sorted stream back to an array.
+
+### 4. **How can you find the maximum value in an array using Java 8 Streams?**
+
+**Answer:**
+
+You can use the `max` method with a `Comparator` to find the maximum value.
+
+```java
+import java.util.Arrays;
+
+public class MaxValue {
+    public static void main(String[] args) {
+        int[] array = {5, 3, 8, 1, 2};
+        int max = Arrays.stream(array)
+                        .max()
+                        .orElseThrow(() -> new RuntimeException("Array is empty"));
+        System.out.println("Maximum value: " + max);
+    }
+}
+```
+
+**Explanation:**
+- `Arrays.stream(array)` creates a stream from the array.
+- `max()` returns an `OptionalInt` containing the maximum value.
+- `orElseThrow()` is used to handle the case when the array is empty.
+
+### 5. **How can you find the second highest value in an array using Java 8 Streams?**
+
+**Answer:**
+
+To find the second highest value, you need to sort the stream and skip the highest value.
+
+```java
+import java.util.Arrays;
+
+public class SecondHighestValue {
+    public static void main(String[] args) {
+        int[] array = {5, 3, 8, 1, 2};
+        int secondHighest = Arrays.stream(array)
+                                  .distinct() // Ensure unique values
+                                  .boxed()    // Convert int to Integer
+                                  .sorted((a, b) -> b - a) // Sort in descending order
+                                  .skip(1)   // Skip the highest value
+                                  .findFirst()
+                                  .orElseThrow(() -> new RuntimeException("No second highest value"));
+        System.out.println("Second highest value: " + secondHighest);
+    }
+}
+```
+
+**Explanation:**
+- `distinct()` ensures all elements are unique.
+- `boxed()` converts `int` to `Integer` to use `Comparator`.
+- `sorted((a, b) -> b - a)` sorts in descending order.
+- `skip(1)` skips the highest value to get the second highest.
+- `findFirst()` retrieves the second highest value.
+
+### 6. **How can you find the average of values in an array using Java 8 Streams?**
+
+**Answer:**
+
+You can use the `average` method to calculate the average.
+
+```java
+import java.util.Arrays;
+
+public class AverageValue {
+    public static void main(String[] args) {
+        int[] array = {5, 3, 8, 1, 2};
+        double average = Arrays.stream(array)
+                               .average()
+                               .orElseThrow(() -> new RuntimeException("Array is empty"));
+        System.out.println("Average value: " + average);
+    }
+}
+```
+
+**Explanation:**
+- `average()` calculates the average and returns an `OptionalDouble`.
+- `orElseThrow()` handles the case when the array is empty.
+
+### 7. **How can you convert a list of integers to an array in Java 8?**
+
+**Answer:**
+
+You can use the `toArray` method to convert a list to an array.
+
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class ListToArray {
+    public static void main(String[] args) {
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+        Integer[] array = list.toArray(new Integer[0]);
+        System.out.println(Arrays.toString(array));
+    }
+}
+```
+
+**Explanation:**
+- `list.toArray(new Integer[0])` converts the list to an array of `Integer`. Using `new Integer[0]` ensures the correct type of array is created.
+
+These questions and examples should help you prepare for Java 8 array-related interview questions and demonstrate your understanding of the Stream API and modern Java practices.
 </details>
 <details>
 <summary><b>4. Java 8 Strings Coding Interview Questions</b></summary>
