@@ -169,28 +169,23 @@
 
 The essential Microservice design principle and patterns like Event Sourcing, Circuit Breaker, SAGA, CQRS, Strangler, Database per Microservices, Backend for Frontend (BFF), Service Discovery, and API Gateway and principles like Scalability, Flexibility, Resiliency, etc. When you developing an enterprise application, it is good to move with micro-services rather than move with a monolithic architecture. 
 
-
 While there are cases where you would like to go with monolithic architecture like for low latency applications, but in most cases where you want to run your Java application in the cloud, Microservice architecture offers a better solution.
 
 So let's have a quick look into what is microservices and it's use cases and design patterns for micro-services.
 
-
-
-
-
-What is Microservice Architecture?
+### What is Microservice Architecture?
 The microservice architecture is structured on the business domain and it's a collection of small autonomous services. In a microservice architecture, all the components are self-contained and wrap up around a single business capability.
 
 Why do we need to consider the microservice architecture instead of using monolithic architecture? Below mentioned four main concepts that described the importance of microservice architecture over monolithic architecture.
 
-1. Visibility is high - MSA provides better visibility to your services.
-2. Improves resilience - Improves the resilience of our service network
-3. Production time reduced - Reduce the delivery time from idea to final product.
-4. Reduced cost - Reduce the overall cost of designing, implementing, and maintaining IT services.
+- 1. Visibility is high - MSA provides better visibility to your services.
+- 2. Improves resilience - Improves the resilience of our service network
+- 3. Production time reduced - Reduce the delivery time from idea to final product.
+- 4. Reduced cost - Reduce the overall cost of designing, implementing, and maintaining IT services.
 
 If you are a complete beginner and want to learn more about Microservice architecture then I highly recommend you to go through these Microservice architecture courses to start with, in particular Grokking Microservices Design Patterns on DesignGuru.io, one of the best course to learn about Microservices patterns
 
-
+![Setting the Scheme](images/microservices/microservices1.jpg)
 
 Microservice architecture explained
 
@@ -204,8 +199,8 @@ Now that you know what is Microservice architecture and why you need to consider
 
 Let's look at the principles in which the microservice architecture has been built.
 
- 1. Scalability
- 2. Flexibility
+1. Scalability
+2. Flexibility
 3. Independent and autonomous
 4. Decentralized governance
 5. Resiliency
