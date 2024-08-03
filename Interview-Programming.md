@@ -2033,7 +2033,7 @@ listOfStudents.add(studentSupplier.get());
 </details>
 </details>
 <details>
-<summary><b>Java 8 Important Features</b></summary>
+<summary><b>3.4 Java 8 Important Features</b></summary>
 
 <details>
 <summary><b>How Stream.map() works in Java 8? Example</b></summary>
@@ -22642,7 +22642,7 @@ These solutions cover a wide range of LeetCode problems. If you need more detail
 
 </details>
 <details>
-<summary><b>3.11 Employee Management Java 8 Coding Interview Questions</b></summary>
+<summary><b>4.7 Employee Management Java 8 Coding Interview Questions</b></summary>
   
 Sure! Let's dive into two key management scenarios using Java 8 Streams: Employee Management and Student Management. For each scenario, I'll provide common tasks and demonstrate how to perform them using Java Streams.
 
@@ -22782,7 +22782,7 @@ These examples should provide a good foundation for managing employees and stude
 
 </details>
 <details>
-<summary><b>3.12 Student Management</b></summary>
+<summary><b>4.8 Student Management</b></summary>
 
 ### Student Management
 
