@@ -2,7 +2,9 @@
 
 <details>
 <summary><b>Core Java Concepts</b></summary>
-
+<details>
+<summary><b>Object Oriented Prgramming</b></summary>
+  
 ## OOP
 - [Object](#object)
 - [Class](#class)
@@ -13,14 +15,20 @@
 - [Composition](#composition)
 - [Association](#association)
 - [Aggregation](#aggregation)
-
+</details>
+<details>
+<summary><b>Java Keywords</b></summary>
+  
 ## Keywords
 - [new](#new)
 - [this](#this)
 - [super](#super)
 - [import](#import)
 - [extends](#extends)
-
+  </details>
+<details>
+<summary><b>Java Modifiers</b></summary>
+  
 ## Modifiers
 - [Access Modifiers](#access-modifiers)
 - [Non-Access Modifiers](#non-access-modifiers)
@@ -31,6 +39,7 @@
   - [synchronized](#synchronized)
   - [abstract](#abstract)
   - [instanceOf](#instanceof)
+  </details>
 </details>
 <details>
 <summary><b>Java Design Patterns</b></summary>
