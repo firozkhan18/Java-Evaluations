@@ -9,7 +9,115 @@ classDiagram
     classG ..> classH : Dependency
     classH ..|> classI : Realization
     classI .. classJ : Link(Dashed)
-```    
+```
+
+# Java Collections Framework Class Diagram
+
+The following diagram illustrates the class hierarchy of the Java Collections Framework:
+
+```mermaid
+classDiagram
+  class Collection {
+    <<interface>>
+  }
+
+  class List {
+    <<interface>>
+  }
+
+  class Set {
+    <<interface>>
+  }
+
+  class Queue {
+    <<interface>>
+  }
+
+  class Map {
+    <<interface>>
+  }
+
+  class ArrayList {
+    <<class>>
+  }
+
+  class LinkedList {
+    <<class>>
+  }
+
+  class Vector {
+    <<class>>
+  }
+
+  class Stack {
+    <<class>>
+  }
+
+  class HashSet {
+    <<class>>
+  }
+
+  class LinkedHashSet {
+    <<class>>
+  }
+
+  class TreeSet {
+    <<class>>
+  }
+
+  class PriorityQueue {
+    <<class>>
+  }
+
+  class Deque {
+    <<interface>>
+  }
+
+  class ArrayDeque {
+    <<class>>
+  }
+
+  class HashMap {
+    <<class>>
+  }
+
+  class LinkedHashMap {
+    <<class>>
+  }
+
+  class TreeMap {
+    <<class>>
+  }
+
+  class Hashtable {
+    <<class>>
+  }
+
+  Collection <|-- List
+  Collection <|-- Set
+  Collection <|-- Queue
+  Collection <|-- Map
+
+  List <|-- ArrayList
+  List <|-- LinkedList
+  List <|-- Vector
+  List <|-- Stack
+
+  Set <|-- HashSet
+  Set <|-- LinkedHashSet
+  Set <|-- TreeSet
+
+  Queue <|-- PriorityQueue
+  Queue <|-- Deque
+
+  Deque <|-- ArrayDeque
+  Deque <|-- LinkedList
+
+  Map <|-- HashMap
+  Map <|-- LinkedHashMap
+  Map <|-- TreeMap
+  Map <|-- Hashtable
+```
 The Collection in Java is a framework that provides an architecture to store and manipulate a group of objects.
  
 All the operations that you perform on data such as searching, sorting, insertion, manipulation, deletion, etc. can be achieved by Java Collections.
