@@ -62,6 +62,63 @@
 
 ---
 
+# Table of Contents
+
+<details>
+<summary>Java Concepts</summary>
+
+## OOP
+- [Object](#object)
+- [Class](#class)
+- [Polymorphism](#polymorphism)
+- [Encapsulation](#encapsulation)
+- [Inheritance](#inheritance)
+- [Abstraction](#abstraction)
+- [Composition](#composition)
+- [Association](#association)
+- [Aggregation](#aggregation)
+
+## Keywords
+- [new](#new)
+- [this](#this)
+- [super](#super)
+- [import](#import)
+- [extends](#extends)
+
+## Modifiers
+- [Access Modifiers](#access-modifiers)
+- [Non-Access Modifiers](#non-access-modifiers)
+  - [Static](#static)
+  - [Final](#final)
+  - [transient](#transient)
+  - [volatile](#volatile)
+  - [synchronized](#synchronized)
+  - [abstract](#abstract)
+  - [instanceOf](#instanceof)
+</details>
+
+<details>
+<summary>Java 8 Features</summary>
+
+- [Stream](#stream)
+  - [Generating streams](#generating-streams)
+  - [Filter](#filter)
+  - [Sorted](#sorted)
+  - [Map](#map)
+  - [Match](#match)
+  - [Count](#count)
+  - [Reduce](#reduce)
+- [Optional](#optional)
+- [Date](#date)
+</details>
+
+<details>
+<summary>Java Programming Exercises</summary>
+
+- [Java Programming Questions and Answers](#java-programming-questions-and-answers)
+</details>
+
+
 ### **Questions & Answers:**
 <details>
 <summary><b>1. Can you explain the core principles of microservices architecture and how it differs from a monolithic architecture?</b></summary>
