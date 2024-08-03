@@ -1,3 +1,31 @@
+
+graph TD
+  Collection
+  Collection --> List
+  Collection --> Set
+  Collection --> Queue
+  Collection --> Map
+
+  List --> ArrayList
+  List --> LinkedList
+  List --> Vector
+  List --> Stack
+
+  Set --> HashSet
+  Set --> LinkedHashSet
+  Set --> TreeSet
+
+  Queue --> PriorityQueue
+  Queue --> Deque
+  Deque --> ArrayDeque
+  Deque --> LinkedList
+
+  Map --> HashMap
+  Map --> LinkedHashMap
+  Map --> TreeMap
+  Map --> Hashtable
+
+
 In Java, there are already plenty of data structures already available
 there are grouped under the name the collection API.
 
