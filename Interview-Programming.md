@@ -1049,7 +1049,7 @@ Certainly! Here's a detailed breakdown of various functional interfaces in Java 
     }
     ```
 
-### **6. BinaryOperator and Its Primitive Specializations**
+### **9. BinaryOperator and Its Primitive Specializations**
 
 - **`BinaryOperator<T>`**
   - **Description:** A functional interface that applies a function to two arguments of the same type `T` and returns a result of the same type.
@@ -1118,12 +1118,25 @@ Certainly! Here's a detailed breakdown of various functional interfaces in Java 
     }
     ```
 
-### **7. BiPredicate, BiConsumer, BiFunction and Their Primitive Specializations**
+### Summary
 
+Here’s a summary of the functional interfaces and their primitive variants:
 
+1. **Predicate<T>**
+   - **Primitive Variant:** `IntPredicate`, `LongPredicate`, `DoublePredicate`
+   - **Usage:** Testing or filtering values
 
+2. **Consumer<T>**
+   - **Primitive Variant:** `IntConsumer`, `LongConsumer`, `DoubleConsumer`
+   - **Usage:** Performing operations on values (side effects)
 
+3. **Supplier<T>**
+   - **Primitive Variant:** `IntSupplier`, `LongSupplier`, `DoubleSupplier`
+   - **Usage:** Providing or generating values
 
+These functional interfaces are powerful tools for functional programming in Java, enabling concise and expressive code for a variety of operations.
+
+These examples cover the key functional interfaces and their primitive specializations in Java. They demonstrate how each interface can be used in practice for different types of data and operations.
 
 This set of examples covers the core functional interfaces and their primitive specializations in Java. Each specialization is tailored to work with specific primitive types (int, long, double) for more efficient operations.
 
