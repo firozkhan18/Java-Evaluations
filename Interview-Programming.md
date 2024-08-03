@@ -160,14 +160,406 @@
   
 </details>
 <details>
-<summary style="color:blue;">123</summary>
+<summary><b>7. Microservices</b></summary>
 
-## <span style="color:blue;">xar</span>
-- [Object](#object)
+<details>
+<summary><b>7. Microservices Design Patterns and Principles</b></summary>
+
+### **Microservices Design Patterns and Principles:**
+
+The essential Microservice design principle and patterns like Event Sourcing, Circuit Breaker, SAGA, CQRS, Strangler, Database per Microservices, Backend for Frontend (BFF), Service Discovery, and API Gateway and principles like Scalability, Flexibility, Resiliency, etc. When you developing an enterprise application, it is good to move with micro-services rather than move with a monolithic architecture. 
+
+
+While there are cases where you would like to go with monolithic architecture like for low latency applications, but in most cases where you want to run your Java application in the cloud, Microservice architecture offers a better solution.
+
+So let's have a quick look into what is microservices and it's use cases and design patterns for micro-services.
+
+
+
+
+
+What is Microservice Architecture?
+The microservice architecture is structured on the business domain and it's a collection of small autonomous services. In a microservice architecture, all the components are self-contained and wrap up around a single business capability.
+
+Why do we need to consider the microservice architecture instead of using monolithic architecture? Below mentioned four main concepts that described the importance of microservice architecture over monolithic architecture.
+
+1. Visibility is high - MSA provides better visibility to your services.
+2. Improves resilience - Improves the resilience of our service network
+3. Production time reduced - Reduce the delivery time from idea to final product.
+4. Reduced cost - Reduce the overall cost of designing, implementing, and maintaining IT services.
+
+If you are a complete beginner and want to learn more about Microservice architecture then I highly recommend you to go through these Microservice architecture courses to start with, in particular Grokking Microservices Design Patterns on DesignGuru.io, one of the best course to learn about Microservices patterns
+
+
+
+Microservice architecture explained
+
+
+
+
+
+
+10 Essential Microservice Design Patterns and Principles
+Now that you know what is Microservice architecture and why you need to consider Microservice architecture to build applications that can stand the test of time and are scalable enough to handle real-world traffic, let's now go through the fundamental principle of Microservices and design pattern which you can use to solve common problem associate with microservice architecture. 
+
+Let's look at the principles in which the microservice architecture has been built.
+
+ 1. Scalability
+ 2. Flexibility
+3. Independent and autonomous
+4. Decentralized governance
+5. Resiliency
+6. Failure isolation.
+7. Continuous delivery through the DevOps
+
+while adhering to the above principles, there may have some other pitfalls that developers might befall and to avoid this, we can use the design patterns in a microservice architecture. 
+
+In this article, we are going to discuss 10 main design patterns which are mentioned below.
+
+        1. Database per Microservice
+        2. Event Sourcing
+        3. CQRS
+        4. Saga
+        5. BFF
+        6. API Gateway
+        7. Strangler
+        8. Circuit Breaker
+        9. Externalized Configuration
+        10. Consumer-Driven Contract Tracing
+
+So first start with the Database per Microservice design pattern.
+
+Top 10 Microservices Design Patterns and Principles
+
+
+
+
+
+
+1. Database per Microservice Pattern
+Database design is rapidly evolving, and there are numerous hurdles to overcome while developing a microservices-based solution. Database architecture is one of the most important aspects of microservices. 
+
+What is the best way to store data and where should it be stored?
+
+There should are two main options for organizing the databases when using the microservice architecture. 
+
+  Database per service
+  Shared database
+
+
+1.1 Database per service.
+
+The concept is straightforward. There is a data store for each microservice (whole schema or a table). Other services are unable to access data repositories that they do not control. A solution like this has a lot of advantages.
+
+Individual data storage, on the other hand, is easy to scale. Furthermore, the microservice encapsulates the domain's data. As a result, understanding the service and its data as a whole is much easier. It's especially crucial for new development team members. 
+
+It will take them less time and effort to properly comprehend the area for which they are responsible. The main drawback of this database service is that there is a need for a failure protection mechanism in case the communication fails. 
+
+Database per Microservice Pattern Example
+
+
+
+
+
+
+
+1.2 Shared Database
+The use of a shared database is an anti-pattern. It is, however, questionable. The issue is that when microservices use a shared database, they lose their key features of scalability, robustness, and independence. As a result, Microservices rarely employ a shared database.
+
+When a common database appears to be the best solution for a microservices project, we should reconsider if microservices are truly necessary. Perhaps the monolith is the better option. Let's have a look at how a shared database works.
+
+Using a shared database with microservices isn't a frequent scenario. A temporary state could be created while moving a monolith to microservices. Transaction management is the fundamental advantage of a shared database versus a per-service database. There's no need to spread transactions out across services.
+
+
+
+
+
+
+
+2. Event Sourcing Pattern
+The event sourcing is responsible for giving a new ordered sequence of events. The application state can be reconstructed using querying the data and in order to do this, we need to reimage every change to the state of the application. 
+
+Event Sourcing is based on the idea that any change in an entity's state should be captured by the system. 
+
+The persistence of a business item is accomplished by storing a series of state-changing events. A new event is added to the sequence of events every time an object's state changes. It's essentially atomic because it's one action. 
+
+By replaying the occurrences of an entity, its current state can be reconstructed.
+
+An event store is used to keep track of all of your events. The event store serves as a message broker as well as a database of events. It gives services the ability to subscribe to events via an API. 
+
+The event store sends all interested subscribers information about each event that is saved in the database. In an event-driven microservices architecture, the event store is the foundation.
+
+This pattern can be used in the following scenarios,
+It's important to keep the existing data storage.
+There should be no changes to the existing data layer codebase.
+Transactions are critical to the application's success.
+So as from the above discussion, it is clearly indicated that the event sourcing addresses a challenge of implementing an event-driven architecture. Microservices with shared databases can't easily scale. The database will also be a single point of failure. Changes to the database could have an influence on a number of services.
+
+
+Event Sourcing Pattern Example
+
+
+
+
+
+
+
+3. Command Query Segmentation (CQRS)  Pattern
+In the above, we have discussed what is event sourcing. In this topic, we are going to discuss what is CQRS? We can divide the topic into two parts with commands and queries.
+
+ Commands - Change the state of the object or entity.
+ Queries -  Return the state of the entity and will not change anything.
+
+In traditional data management systems, there are some issues,
+
+   1. Risk of data contention
+   2. Managing performance and security is complex as objects are exposed to both reading and writing applications.
+ 
+So in order to solve these problems, the CQRS pattern comes to the big picture. The CQRS is responsible for either change the state of the entity or return the result. 
+
+benefits of using the CQRS are discussed below.
+   1. The complexity of the system is reduced as the query models and commands are separated.
+   2. Can provide multiple views for query purposes.
+   3. Can optimize the read side of the system separately from the write side. 
+
+The write side of the model handles the event's persistence and acting as a source of information to the read side. The system's read model generates materialized views of the data, which are often highly denormalized views.
+
+
+Command Query Segmentation (CQRS)  Pattern Example
+
+
+
+
+4. SAGA
+SAGA is one of the best solutions to keep consistency with data in distributed architecture without having the ACID principles. SAGA is responsible for committing multiple commentary transactions by giving rollback opportunities.
+
+There are two ways to achieve the saga's
+
+1. Choreography
+2. Orchestration.
+In this choreography saga, there is no central orchestration. Each service in the Saga carries out its transaction and publishes events. The other services respond to those occurrences and carry out their tasks. In addition, depending on the scenario, they may or may not publish additional events.
+
+In the Orchestration saga, each service participating in the saga performs their transactions and publish events. The other services respond to those events and complete their tasks.
+
+Advantage of using SAGA 
+1. Can be used to maintain the data consistency across multiple services without tight coupling.
+
+The disadvantage of using SAGA
+1. Complexity of the SAGA design pattern is high from the programmer's point of view and developers are not well accustomed to writing sagas as traditional transactions.
+
+
+
+
+
+5. Backend For Frontend (BFF)
+This pattern is used to identify how the data is fetched between the server and clients. Ideally, the frontend team will be responsible for managing the BFF.
+
+A single BFF is responsible for handling the single UI and it will help us to keep the frontend simple and see a unified view data through the backend.
+
+Why BFF needs in our microservice application?
+The goal of this architecture is to decouple the front-end apps from the backend architecture.
+As a scenario, think about you have an application that consists of the mobile app, web app and needs to communicate with the backend services in a microservices architecture. 
+
+This can be done successfully but if you want to make a change to one of the frontend services, you need to deploy a new version instead of stick to updating the one service.
+
+So here comes the microservice architecture and this is able to understand what our apps need and how to handle the services.
+
+This is a big improvement in microservice architecture as this allows to isolate the backend of the application from the frontend. One other advantage that we can get from this BFF is that we can reuse the code as this allows all clients to use the code from the backend. 
+
+Between the client and other external APIs, services, and so on, BFF functions similarly to a proxy server. If the request must pass through another component, the latency will undoubtedly increase.
+
+
+Backend For Frontend (BFF) Pattern for Microservices
+
+
+
+
+6. API Gateway
+This microservice architecture pattern is really good for large applications with multiple client apps and it is responsible for giving a single entry point for a certain group of microservices. 
+
+API gateway sits between the client apps and the microservices and it serves as a reverse proxy, forwarding client requests to services. Authentication, SSL termination, and caching are some of the other cross-cutting services it can provide.
+
+Why do we consider the API Gateway architecture instead of using direct client-to-microservice communication? We will discuss this with the following examples,
+   
+1. Security issues - All microservices must be exposed to the "external world" without a gateway, increasing the attack surface compared to hiding internal microservices that aren't directly accessed by client apps.
+ 
+2. Cross-cutting concerns - Authorization and SSL must be handled by each publicly published microservice. Those problems might be addressed in a single tier in many cases, reducing the number of internal microservices.
+
+3. Coupling - Client apps are tied to internal microservices without the API Gateway pattern. Client apps must understand how microservices decompose the application's various sections.
+
+Last but not least, the microservices API gateway must be capable of handling partial failures. The failure of a single unresponsive microservice should not result in the failure of the entire request.
+
+A microservices API gateway can deal with partial failures in a variety of ways, including:
+Use data from a previous request that has been cached.
+For time-sensitive data that is the request's major focus, return an error code.
+Provide an empty value
+Rely on hardware top 10 value.
+API Gateway Microservice Pattern explained
+API Gateway
+
+
+
+
+7. Strangler
+The strangler design pattern is a popular design pattern to incrementally transform your monolithic application to microservices by replacing old functionality with a new service.  Once the new component is ready, the old component is strangled and a new one is put to use.
+
+The facade interface, which serves as the primary interface between the legacy system and the other apps and systems that call it, is one of the most important components of the strangler pattern.
+
+External apps and systems will be able to identify the code associated with a certain function, while the underlying historical system code will be obscured by the facade interface. The strangler design addresses this by requiring developers to provide a façade interface that allows them to expose individual services and functions when they break them free from the monolith.
+
+You need to understand the quality and reliability of your system, whether you're working with legacy code, starting the process of "strangling" your old system, or running a newly containerized application. When anything goes wrong, you need to know how the system got there and why it went down that road.
+
+
+Strangle Microservice Pattern explained
+Moving from Monolithic to microservice architecture stages.
+
+
+
+8. Circuit Breaker Pattern
+The circuit breaker is the solution for the failure of remote calls or the hang without a response until some timeout limit is reached. You can run out of critical resources if you having many callers with an unresponsive supplier and this will lead to failure across the multiple systems in the applications.
+
+So here comes the circuit breaker pattern which is wrapping up a protected function call in a circuit breaker object which monitors for failure. 
+
+When the number of failures reaches a specific level, the circuit breaker trips, and all subsequent calls to the circuit breaker result in an error or a different service or default message, rather than the protected call being made at all.
+
+Different states in the circuit break pattern
+Closed - When everything works well according to the normal way, the circuit breaker remains in this closed state.
+
+Open -  When the number of failures in the system exceeds the maximum threshold, this will lead to open up the open state. This will give the error for calls without executing the function.
+
+Open -Half - After having run the system several times, the circuit breaker will go on to the half-open state in order to check the underlying problems are still exist. 
+
+
+Here, we will have an example code that is built using the Netflix hystrix.
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@RestController
+@SpringBootApplication
+public class StudentApplication {
+
+    @RequestMapping(value = "/student")
+    public String studentMethod(){
+        return "Calling the studentMethod";
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(StudentApplication.class, args);
+    }
+}
+
+So the client application code will call the studentMethod() and if the calling API, /student is not given any response back in time, then there is an alternative method calling the fallback. It is mentioned in the below code.
+
+import java.net.URI;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
+@Service
+public class StudentService {
+
+    private final RestTemplate restTemplate;
+
+    public StudentService(RestTemplate rest) {
+        this.restTemplate = rest;
+    }
+
+    @HystrixCommand(fallbackMethod = "reliable")
+    public String studentMethodCalling() {
+        URI uri = URI.create("http://localhost:8000/student");
+        return this.restTemplate.getForObject(uri, String.class);
+    }
+
+    public String reliable() {
+        return "This is calling if the studentMethod is falling to respond on time";
+    }
+
+}
+
+So you can use the circuit breaker pattern to improve the fault tolerance and resilience of the microservice architecture and also prevent the cascading of failure to other microservices.
+
+
+
+
+9. Externalized Configuration
+Often services need to be run in different environments. Environment-specific configuration is required, such as secret keys, database credentials, and so on. Changing the service for each environment has a number of drawbacks. So how we can enable a service to run in multiple environments without modification?
+
+Here comes the Externalized configuration pattern as this enables the externalization of all application configurations including the database credentials and network location. 
+
+For example, the Spring Boot framework enables externalized configuration, which allows you to read configuration from many sources and potentially change previously specified configuration settings based on the reading order. 
+
+FastAPI, thankfully, has built-in support for externalized configuration.
+
+
+How to externalize Configuration in Microservice
+
+
+
+Open up the ConfigServerApplication class and activate the discovery client and the configuration server by using the following annotation.
+@SpringBootApplication
+@EnableConfigServer
+@EnableDiscoveryClient
+public class ConfigServerApplication {
+
+}
+
+Remove the application.properties file and create a new application.yml file with the following content.
+
+server.port: 8001
+
+spring:
+  application.name: config-server
+  cloud.config.server.git.uri: 
+   https://github.com/alejandro-du/vaadin-microservices-demo-config.git
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7001/eureka/
+    registryFetchIntervalSeconds: 1
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+
+
+
+This sets the port (8001) and name (config-server) of the application, as well as the URI 
+Spring Cloud Config should use to read the configuration from. On GitHub, we have a Git 
+repository. The configuration files for all of the example application's microservices can 
+be found in this repository. The admin-applicationmicroservic uses the admin-application.yml 
+file, for example.
+
+
+
+
+
+
+
+
+
+
+
+10. Consumer-Driven Contract Tracing
+When a team is constructing multiple related services at the same time as part of a modernization effort, and your team knows the “domain language” of the bounded context but not the individual properties of each aggregate and event payload, the consumer driven contracts approach may be effective. 
+It ensures that Microservices can interact with each other correctly by focusing on contracts or agreements between clients and service providers.  
+In short, Consumer Driven Contract Tracing is an effective strategy for independent Microservice development and finding integration issues earlier. 
+Consumer-Driven Contract Tracing Pattern in Microservice
+
+
+This microservice pattern is useful in legacy application which contains a large data model and existing service surface area. This design patterns will address the following issues,
+ 1. How can you add to an API without breaking downstream clients. 
+ 2. How to find out who is using their service.
+3. How to make short release cycles with the continuous delivery.
+
+In an event driven architecture, many microservices expose two kinds of API's, 
+ 1. RESTful API over HTTP 
+ 2. HTTP and a message-based API The RESTful API allows for synchronous integration with these services as well as extensive querying capabilities for services that have received events from a service. 
+In summary, a consumer-driven approach is sometimes used when breaking down a monolithic legacy
+application.
 
 </details>
-<details>
-<summary><b>7. Microservices</b></summary>
 
 ### **Questions & Answers:**
 
