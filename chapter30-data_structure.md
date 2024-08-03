@@ -1,29 +1,106 @@
 ```mermaid
-graph TD
-  Collection
-  Collection --> List
-  Collection --> Set
-  Collection --> Queue
-  Collection --> Map
+classDiagram
+  class Collection {
+    <<interface>>
+  }
 
-  List --> ArrayList
-  List --> LinkedList
-  List --> Vector
-  List --> Stack
+  class List {
+    <<interface>>
+  }
 
-  Set --> HashSet
-  Set --> LinkedHashSet
-  Set --> TreeSet
+  class Set {
+    <<interface>>
+  }
 
-  Queue --> PriorityQueue
-  Queue --> Deque
-  Deque --> ArrayDeque
-  Deque --> LinkedList
+  class Queue {
+    <<interface>>
+  }
 
-  Map --> HashMap
-  Map --> LinkedHashMap
-  Map --> TreeMap
-  Map --> Hashtable
+  class Map {
+    <<interface>>
+  }
+
+  class ArrayList {
+    <<class>>
+  }
+
+  class LinkedList {
+    <<class>>
+  }
+
+  class Vector {
+    <<class>>
+  }
+
+  class Stack {
+    <<class>>
+  }
+
+  class HashSet {
+    <<class>>
+  }
+
+  class LinkedHashSet {
+    <<class>>
+  }
+
+  class TreeSet {
+    <<class>>
+  }
+
+  class PriorityQueue {
+    <<class>>
+  }
+
+  class Deque {
+    <<interface>>
+  }
+
+  class ArrayDeque {
+    <<class>>
+  }
+
+  class HashMap {
+    <<class>>
+  }
+
+  class LinkedHashMap {
+    <<class>>
+  }
+
+  class TreeMap {
+    <<class>>
+  }
+
+  class Hashtable {
+    <<class>>
+  }
+
+  Collection <|-- List
+  Collection <|-- Set
+  Collection <|-- Queue
+  Collection <|-- Map
+
+  List <|-- ArrayList
+  List <|-- LinkedList
+  List <|-- Vector
+  List <|-- Stack
+
+  Set <|-- HashSet
+  Set <|-- LinkedHashSet
+  Set <|-- TreeSet
+
+  Queue <|-- PriorityQueue
+  Queue <|-- Deque
+
+  Deque <|-- ArrayDeque
+  Deque <|-- LinkedList
+
+  Map <|-- HashMap
+  Map <|-- LinkedHashMap
+  Map <|-- TreeMap
+  Map <|-- Hashtable
+
 
 
 In Java, there are already plenty of data structures already available
