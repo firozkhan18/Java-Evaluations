@@ -425,181 +425,19 @@ In Java, functional interfaces such as `Predicate`, `Consumer`, `Supplier`, and 
 |BinaryOperator (extends BiFunction) |Same as BiFunction but the argument and result are of the same type.|<p>IntBinaryOperator</p><p>LongBinaryOperator</p><p> DoubleBinaryOperator</p>|
 
 
-### 1. **`Predicate<T>` Interface**
+Certainly! Here's a detailed breakdown of various functional interfaces in Java and their corresponding primitive specializations, including code examples for each:
+
+### **1. Predicate Interface and Its Primitive Specializations**
 
 A `Predicate<T>` is a functional interface that represents a boolean-valued function of one argument. It is commonly used for filtering or testing conditions.
 
-**Example: Check if a number is even**
+**Example: **
 
-```java
-import java.util.function.Predicate;
-
-public class PredicateExample {
-    public static void main(String[] args) {
-        Predicate<Integer> isEven = number -> number % 2 == 0;
-
-        System.out.println("Is 4 even? " + isEven.test(4));  // Output: true
-        System.out.println("Is 7 even? " + isEven.test(7));  // Output: false
-    }
-}
-```
-
-**Primitive Type: `IntPredicate`**
-
-An `IntPredicate` is the primitive type variant for `Predicate<Integer>`.
-
-**Example: Check if an integer is positive**
-
-```java
-import java.util.function.IntPredicate;
-
-public class IntPredicateExample {
-    public static void main(String[] args) {
-        IntPredicate isPositive = number -> number > 0;
-
-        System.out.println("Is 5 positive? " + isPositive.test(5));  // Output: true
-        System.out.println("Is -3 positive? " + isPositive.test(-3)); // Output: false
-    }
-}
-```
-
-### 2. **`Consumer<T>` Interface**
-
-A `Consumer<T>` is a functional interface that represents an operation that accepts a single input argument and returns no result. It is typically used for operations that perform side effects.
-
-**Example: Print a string in uppercase**
-
-```java
-import java.util.function.Consumer;
-
-public class ConsumerExample {
-    public static void main(String[] args) {
-        Consumer<String> printInUppercase = str -> System.out.println(str.toUpperCase());
-
-        printInUppercase.accept("hello world");  // Output: HELLO WORLD
-    }
-}
-```
-
-**Primitive Type: `IntConsumer`**
-
-An `IntConsumer` is the primitive type variant for `Consumer<Integer>`.
-
-**Example: Print integers squared**
-
-```java
-import java.util.function.IntConsumer;
-
-public class IntConsumerExample {
-    public static void main(String[] args) {
-        IntConsumer printSquare = number -> System.out.println(number * number);
-
-        printSquare.accept(4);  // Output: 16
-        printSquare.accept(7);  // Output: 49
-    }
-}
-```
-
-### 3. **`Supplier<T>` Interface**
-
-A `Supplier<T>` is a functional interface that represents a supplier of results. It does not take any arguments and returns a result. It is commonly used for generating or providing values.
-
-**Example: Generate a random number**
-
-```java
-import java.util.function.Supplier;
-import java.util.Random;
-
-public class SupplierExample {
-    public static void main(String[] args) {
-        Supplier<Integer> randomNumberSupplier = () -> new Random().nextInt(100);
-
-        System.out.println("Random number: " + randomNumberSupplier.get());
-    }
-}
-```
-
-**Primitive Type: `IntSupplier`**
-
-An `IntSupplier` is the primitive type variant for `Supplier<Integer>`.
-
-**Example: Generate a random integer**
-
-```java
-import java.util.function.IntSupplier;
-import java.util.Random;
-
-public class IntSupplierExample {
-    public static void main(String[] args) {
-        IntSupplier randomIntSupplier = () -> new Random().nextInt(100);
-
-        System.out.println("Random integer: " + randomIntSupplier.getAsInt());
-    }
-}
-```
-
-### Summary
-
-Here’s a summary of the functional interfaces and their primitive variants:
-
-1. **Predicate<T>**
-   - **Primitive Variant:** `IntPredicate`, `LongPredicate`, `DoublePredicate`
-   - **Usage:** Testing or filtering values
-
-2. **Consumer<T>**
-   - **Primitive Variant:** `IntConsumer`, `LongConsumer`, `DoubleConsumer`
-   - **Usage:** Performing operations on values (side effects)
-
-3. **Supplier<T>**
-   - **Primitive Variant:** `IntSupplier`, `LongSupplier`, `DoubleSupplier`
-   - **Usage:** Providing or generating values
-
-These functional interfaces are powerful tools for functional programming in Java, enabling concise and expressive code for a variety of operations.
-
-Certainly! Here's a detailed breakdown of various functional interfaces in Java and their corresponding primitive specializations, including code examples for each:
-
-### **1. Predicate and Primitive Specializations**
-
-
-
-  - **`LongPredicate`**
-    - **Description:** Tests if a condition holds true for a `long` value.
-    - **Example:**
-
-      ```java
-      import java.util.function.LongPredicate;
-
-      public class LongPredicateExample {
-          public static void main(String[] args) {
-              LongPredicate isPositive = l -> l > 0;
-              System.out.println(isPositive.test(100L)); // true
-              System.out.println(isPositive.test(-100L)); // false
-          }
-      }
-      ```
-
-  - **`DoublePredicate`**
-    - **Description:** Tests if a condition holds true for a `double` value.
-    - **Example:**
-
-      ```java
-      import java.util.function.DoublePredicate;
-
-      public class DoublePredicateExample {
-          public static void main(String[] args) {
-              DoublePredicate isGreaterThanFive = d -> d > 5.0;
-              System.out.println(isGreaterThanFive.test(6.0)); // true
-              System.out.println(isGreaterThanFive.test(4.0)); // false
-          }
-      }
-      ```
-### **1. Predicate and Its Primitive Specializations**
-
-- **`Predicate<T>`**
-  - **Description:** A functional interface that tests if a condition holds true for an input type `T`.
+- **`Predicate<T>` Interface**
+  - **Description:** A `Predicate<T>` is a functional interface that represents a boolean-valued function of one argument. It is commonly used for filtering or testing conditions. A functional interface that tests if a condition holds true for an input type `T`.
   - **Signature:** `T -> boolean`
 
-  **Example:**
+  **Example: Check if a number is even**
 
   ```java
   import java.util.function.Predicate;
@@ -627,8 +465,7 @@ Certainly! Here's a detailed breakdown of various functional interfaces in Java 
 - **Primitive Specializations**
 
   - **`IntPredicate`**
-    - **Description:** A specialized version of `Predicate` for `int` values.
-
+    - **Description:** A specialized version of `Predicate` for `int` values. An `IntPredicate` is the primitive type variant for `Predicate<Integer>`.
     **Example:**
 
   ```java
@@ -723,10 +560,10 @@ Certainly! Here's a detailed breakdown of various functional interfaces in Java 
 ### **3. Consumer and Its Primitive Specializations**
 
 - **`Consumer<T>`**
-  - **Description:** A functional interface that accepts an input and returns no result. Performs an action on an input of type `T` without returning a result.
+  - **Description:** A `Consumer<T>` is a functional interface that represents an operation that accepts a single input argument and returns no result. It is typically used for operations that perform side effects. Performs an action on an input of type `T` without returning a result.
   - **Signature:** `T -> void`
 
-  **Example:**
+  **Example: Print a string in uppercase**
 
   ```java
   import java.util.function.Consumer;
@@ -742,9 +579,9 @@ Certainly! Here's a detailed breakdown of various functional interfaces in Java 
 - **Primitive Specializations**
 
   - **`IntConsumer`**
-    - **Description:** A specialized version of `Consumer` for `int` values.
-
-    **Example:**
+    - **Description:** A specialized version of `Consumer` for `int` values. An `IntConsumer` is the primitive type variant for `Consumer<Integer>`.
+    
+    **Example: Print integers squared**
 
     ```java
     import java.util.function.IntConsumer;
@@ -1055,11 +892,22 @@ Certainly! Here's a detailed breakdown of various functional interfaces in Java 
 ### **7. Supplier and Its Primitive Specializations**
 
 - **`Supplier<T>`**
-  - **Description:** A functional interface that supplies a result of type `T` without taking any arguments. 
+  - **Description:** A `Supplier<T>` is a functional interface that represents a supplier of results. It does not take any arguments and returns a result. It is commonly used for generating or providing values. A functional interface that supplies a result of type `T` without taking any arguments. 
   - **Signature:** `() -> T`
 
-  **Example:**
+  **Example: Generate a random number**
 
+  ```java
+  import java.util.function.Supplier;
+  import java.util.Random;
+
+  public class SupplierExample {
+      public static void main(String[] args) {
+          Supplier<Integer> randomNumberSupplier = () -> new Random().nextInt(100);
+          System.out.println("Random number: " + randomNumberSupplier.get());
+      }
+  }
+  ```
   ```java
   import java.util.function.Supplier;
 
@@ -1070,7 +918,6 @@ Certainly! Here's a detailed breakdown of various functional interfaces in Java 
       }
   }
   ```
-
 - **Primitive Specializations**
 
   - **`BooleanSupplier`**
@@ -1090,9 +937,9 @@ Certainly! Here's a detailed breakdown of various functional interfaces in Java 
     ```
 
   - **`IntSupplier`**
-    - **Description:** A specialized version of `Supplier` that returns an `int`.
+    - **Description:** A specialized version of `Supplier` that returns an `int`. An `IntSupplier` is the primitive type variant for `Supplier<Integer>`.
 
-    **Example:**
+    **Example: Generate a random integer**
 
     ```java
     import java.util.function.IntSupplier;
