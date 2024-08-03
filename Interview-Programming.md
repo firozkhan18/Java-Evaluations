@@ -1,6 +1,4 @@
-
-
-Certainly! Below is a set of interview questions and answers tailored to the job description of a Lead Java Engineer, focusing on the key skills and responsibilities mentioned.
+# Intyerview Questions
 
 ---
 
