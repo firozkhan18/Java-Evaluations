@@ -1,6 +1,61 @@
 # Table of Contents
 
 <details>
+<summary style="color:blue;">Java Concepts</summary>
+
+## <span style="color:blue;">OOP</span>
+- [Object](#object)
+- [Class](#class)
+- [Polymorphism](#polymorphism)
+- [Encapsulation](#encapsulation)
+- [Inheritance](#inheritance)
+- [Abstraction](#abstraction)
+- [Composition](#composition)
+- [Association](#association)
+- [Aggregation](#aggregation)
+
+## <span style="color:blue;">Keywords</span>
+- [new](#new)
+- [this](#this)
+- [super](#super)
+- [import](#import)
+- [extends](#extends)
+
+## <span style="color:blue;">Modifiers</span>
+- [Access Modifiers](#access-modifiers)
+- [Non-Access Modifiers](#non-access-modifiers)
+  - [Static](#static)
+  - [Final](#final)
+  - [transient](#transient)
+  - [volatile](#volatile)
+  - [synchronized](#synchronized)
+  - [abstract](#abstract)
+  - [instanceOf](#instanceof)
+</details>
+
+<details>
+<summary style="color:blue;">Java 8 Features</summary>
+
+- [Stream](#stream)
+  - [Generating streams](#generating-streams)
+  - [Filter](#filter)
+  - [Sorted](#sorted)
+  - [Map](#map)
+  - [Match](#match)
+  - [Count](#count)
+  - [Reduce](#reduce)
+- [Optional](#optional)
+- [Date](#date)
+</details>
+
+<details>
+<summary style="color:blue;">Java Programming Exercises</summary>
+
+- [Java Programming Questions and Answers](#java-programming-questions-and-answers)
+</details>
+# Table of Contents
+
+<details>
 <summary><b>1. Core Java Concepts</b></summary>
 <details>
 <summary><b>1.1 Object Oriented Prgramming</b></summary>
