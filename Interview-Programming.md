@@ -160,74 +160,8 @@
   
 </details>
 <details>
-<summary><b>7. Hibernate</b></summary>
-
- ## Hibernate
-- [Java Programming Questions and Answers](#java-programming-questions-and-answers)
-</details>
-<details>
-<summary><b>8. Kafka</b></summary>
-
-## Kafka
-- [K Framework](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-</details>
-<details>
-<summary><b>9. Docker</b></summary>
-
-## Docker
-- [Spring Framework](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-</details>
-<details>
-<summary><b>10. Kubernetes</b></summary>
-
-## Kubernetes
-- [Spring Framework](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-</details>
-<details>
-<summary><b>11. Caching</b></summary>
-
-## Caching
-- [Spring Framework](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-</details>
-<details>
-<summary><b>12. SQL & NO SQL Database</b></summary>
-
-## SQL
-- [Spring Framework](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-
-## NO SQL
-- [Spring Framework](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-</details>
-<details>
-<summary><b>13. Mongo DB</b></summary>
-
-## Mongo DB
-- [Spring Framework](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-</details>
-<details>
-<summary><b>14. Angular</b></summary>
-
-## Angular
-- [Spring Framework](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-</details>
-<details>
-<summary><b>15. React JS</b></summary>
-
-## React JS
-- [Spring Framework](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-</details>
-
--------
-
+<summary><b>6. Microservices</b></summary>
+  
 ### **Questions & Answers:**
 <details>
 <summary><b>1. Can you explain the core principles of microservices architecture and how it differs from a monolithic architecture?</b></summary>
@@ -732,6 +666,77 @@ One challenging problem I encountered was managing data consistency in a distrib
 
 
 These questions and answers should help prepare for an interview for a Lead Java Engineer position, covering core technical skills and practical experience relevant to the role.
+</details>
+<details>
+<summary><b>7. Hibernate</b></summary>
+
+ ## Hibernate
+- [Java Programming Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>8. Kafka</b></summary>
+
+## Kafka
+- [K Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>9. Docker</b></summary>
+
+## Docker
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>10. Kubernetes</b></summary>
+
+## Kubernetes
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>11. Caching</b></summary>
+
+## Caching
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>12. SQL & NO SQL Database</b></summary>
+
+## SQL
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+
+## NO SQL
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>13. Mongo DB</b></summary>
+
+## Mongo DB
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>14. Angular</b></summary>
+
+## Angular
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>15. React JS</b></summary>
+
+## React JS
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+
+-------
+
+
 
 <details>
 <summary><b>java8</b></summary>
