@@ -91,2608 +91,8 @@
 <summary><b>4. Java Programming Exercises</b></summary>
  
 - [Java Programming Questions and Answers](#java-programming-questions-and-answers)
-</details>
-<details>
-<summary><b>5. Spring Framework</b></summary>
- 
-## Spring Framework
-- [Introduction](#introduction)
-- [Lifecycles](#class)
 
-## Spring Modules
-- [Modules](#polymorphism)
-
-## Spring Scopes 
-- [Scopes](#encapsulation)
-
-## Spring Dependecies Injections
-- [Dependecies Injections (DI) & Inversion Of Control (Ioc)](#inheritance)
-- [Types of Dependecies Injections](#inheritance)
-
-## Spring AOP
-- [Abstraction](#abstraction)
-- [Composition](#composition)
- 
-## Spring Trsansactions
-- [Association](#association)
-- [Aggregation](#aggregation)
-  
-## Exercises & FAQ's
-- [Spring Framework Annotaions](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-
-## FAQ's
-- [Spring Framework Annotaions](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-</details>
-<details>
-<summary><b>6. Spring Boot Framework</b></summary>
-
-## Spring Boot Framework
-- [Introduction](#introduction)
-- [Lifecycles](#class)
-
-## Spring Modules
-- [Modules](#polymorphism)
-
-## Spring Scopes 
-- [Scopes](#encapsulation)
-
-## Spring Dependecies Injections
-- [Dependecies Injections (DI) & Inversion Of Control (Ioc)](#inheritance)
-- [Types of Dependecies Injections](#inheritance)
-
-## Spring AOP
-- [Abstraction](#abstraction)
-- [Composition](#composition)
- 
-## Spring Trsansactions
-- [Association](#association)
-- [Aggregation](#aggregation)
-  
-## Exercises & FAQ's
-- [Spring Boot Framework Annotaions](#java-programming-questions-and-answers)
-- [Spring Boot Framework Questions and Answers](#java-programming-questions-and-answers)
-
-## FAQ's
-- [Spring Boot Framework Annotaions](#java-programming-questions-and-answers)
-- [Spring Boot Framework Questions and Answers](#java-programming-questions-and-answers)
-  
-</details>
-<details>
-<summary><b>7. Microservices</b></summary>
-
-<details>
-<summary><b>7. Microservices Design Patterns and Principles</b></summary>
-
-### **Microservices Design Patterns and Principles:**
-
-The essential Microservice design principle and patterns like Event Sourcing, Circuit Breaker, SAGA, CQRS, Strangler, Database per Microservices, Backend for Frontend (BFF), Service Discovery, and API Gateway and principles like Scalability, Flexibility, Resiliency, etc. When you developing an enterprise application, it is good to move with micro-services rather than move with a monolithic architecture. 
-
-While there are cases where you would like to go with monolithic architecture like for low latency applications, but in most cases where you want to run your Java application in the cloud, Microservice architecture offers a better solution.
-
-So let's have a quick look into what is microservices and it's use cases and design patterns for micro-services.
-
-### What is Microservice Architecture?
-The microservice architecture is structured on the business domain and it's a collection of small autonomous services. In a microservice architecture, all the components are self-contained and wrap up around a single business capability.
-
-Why do we need to consider the microservice architecture instead of using monolithic architecture? Below mentioned four main concepts that described the importance of microservice architecture over monolithic architecture.
-
-- 1. Visibility is high - MSA provides better visibility to your services.
-- 2. Improves resilience - Improves the resilience of our service network
-- 3. Production time reduced - Reduce the delivery time from idea to final product.
-- 4. Reduced cost - Reduce the overall cost of designing, implementing, and maintaining IT services.
-
-If you are a complete beginner and want to learn more about Microservice architecture then I highly recommend you to go through these Microservice architecture courses to start with, in particular Grokking Microservices Design Patterns on DesignGuru.io, one of the best course to learn about Microservices patterns
-
-![Setting the Scheme](images/microservices/microservices1.jpg)
-
-### 10 Essential Microservice Design Patterns and Principles
-Now that you know what is Microservice architecture and why you need to consider Microservice architecture to build applications that can stand the test of time and are scalable enough to handle real-world traffic, let's now go through the fundamental principle of Microservices and design pattern which you can use to solve common problem associate with microservice architecture. 
-
-Let's look at the principles in which the microservice architecture has been built.
-
-1. Scalability
-2. Flexibility
-3. Independent and autonomous
-4. Decentralized governance
-5. Resiliency
-6. Failure isolation.
-7. Continuous delivery through the DevOps
-
-while adhering to the above principles, there may have some other pitfalls that developers might befall and to avoid this, we can use the design patterns in a microservice architecture. 
-
-10 main design patterns which are mentioned below.
-
-1. [Database per Microservice](#database-per-microservice)
-2. [Event Sourcing](#event-sourcing)
-3. [CQRS](#cqrs)
-4. [Saga](#saga)
-5. [BFF](#bff)
-6. [API Gateway](#api-gateway)
-7. [Strangler](#strangler)
-8. [Circuit Breaker](#circuit-breaker)
-9. [Externalized Configuration](#externalized-configuration)
-10. [Consumer-Driven Contract Tracing](#consumer-driven-contract-tracing)
-
-So first start with the Database per Microservice design pattern.
-
-### Top 10 Microservices Design Patterns and Principles
-
-## Database per Microservice
-
-### 1. Database per Microservice Pattern
-Database design is rapidly evolving, and there are numerous hurdles to overcome while developing a microservices-based solution. Database architecture is one of the most important aspects of microservices. 
-
-What is the best way to store data and where should it be stored?
-
-There should are two main options for organizing the databases when using the microservice architecture. 
-
-  - Database per service
-  - Shared database
-
-### 1.1 Database per service.
-
-The concept is straightforward. There is a data store for each microservice (whole schema or a table). Other services are unable to access data repositories that they do not control. A solution like this has a lot of advantages.
-
-Individual data storage, on the other hand, is easy to scale. Furthermore, the microservice encapsulates the domain's data. As a result, understanding the service and its data as a whole is much easier. It's especially crucial for new development team members. 
-
-It will take them less time and effort to properly comprehend the area for which they are responsible. The main drawback of this database service is that there is a need for a failure protection mechanism in case the communication fails. 
-
-![Setting the Scheme](images/microservices/ppp.PNG)
-
-### 1.2 Shared Database
-The use of a shared database is an anti-pattern. It is, however, questionable. The issue is that when microservices use a shared database, they lose their key features of scalability, robustness, and independence. As a result, Microservices rarely employ a shared database.
-
-When a common database appears to be the best solution for a microservices project, we should reconsider if microservices are truly necessary. Perhaps the monolith is the better option. Let's have a look at how a shared database works.
-
-Using a shared database with microservices isn't a frequent scenario. A temporary state could be created while moving a monolith to microservices. Transaction management is the fundamental advantage of a shared database versus a per-service database. There's no need to spread transactions out across services.
-
-
-![Setting the Scheme](images/microservices/qqqqq.PNG)
-
-
-## Event Sourcing
-
-### 2. Event Sourcing Pattern
-The event sourcing is responsible for giving a new ordered sequence of events. The application state can be reconstructed using querying the data and in order to do this, we need to reimage every change to the state of the application. 
-
-Event Sourcing is based on the idea that any change in an entity's state should be captured by the system. 
-
-The persistence of a business item is accomplished by storing a series of state-changing events. A new event is added to the sequence of events every time an object's state changes. It's essentially atomic because it's one action. 
-
-**By replaying the occurrences of an entity, its current state can be reconstructed.**
-
-An event store is used to keep track of all of your events. The event store serves as a message broker as well as a database of events. It gives services the ability to subscribe to events via an API. 
-
-The event store sends all interested subscribers information about each event that is saved in the database. In an event-driven microservices architecture, the event store is the foundation.
-
-This pattern can be used in the following scenarios,
-It's important to keep the existing data storage.
-There should be no changes to the existing data layer codebase.
-Transactions are critical to the application's success.
-So as from the above discussion, it is clearly indicated that the event sourcing addresses a challenge of implementing an event-driven architecture. Microservices with shared databases can't easily scale. The database will also be a single point of failure. Changes to the database could have an influence on a number of services.
-
-![Setting the Scheme](images/microservices/BpTt6.png)
-
-## CQRS
-
-### 3. Command Query Segmentation (CQRS)  Pattern
-In the above, we have discussed what is event sourcing. In this topic, we are going to discuss what is CQRS? We can divide the topic into two parts with commands and queries.
-
- Commands - Change the state of the object or entity.
- Queries -  Return the state of the entity and will not change anything.
-
-In traditional data management systems, there are some issues,
-
-   1. Risk of data contention
-   2. Managing performance and security is complex as objects are exposed to both reading and writing applications.
- 
-So in order to solve these problems, the CQRS pattern comes to the big picture. The CQRS is responsible for either change the state of the entity or return the result. 
-
-### benefits of using the CQRS are discussed below.
-   1. The complexity of the system is reduced as the query models and commands are separated.
-   2. Can provide multiple views for query purposes.
-   3. Can optimize the read side of the system separately from the write side. 
-
-The write side of the model handles the event's persistence and acting as a source of information to the read side. The system's read model generates materialized views of the data, which are often highly denormalized views.
-
-![Setting the Scheme](images/microservices/cqsr_pattern-e1560327720529.png)
-
-## SAGA
-
-### 4. SAGA
-SAGA is one of the best solutions to keep consistency with data in distributed architecture without having the ACID principles. SAGA is responsible for committing multiple commentary transactions by giving rollback opportunities.
-
-There are two ways to achieve the saga's
-
-- 1. Choreography
-- 2. Orchestration.
-In this choreography saga, there is no central orchestration. Each service in the Saga carries out its transaction and publishes events. The other services respond to those occurrences and carry out their tasks. In addition, depending on the scenario, they may or may not publish additional events.
-
-In the Orchestration saga, each service participating in the saga performs their transactions and publish events. The other services respond to those events and complete their tasks.
-
-- Advantage of using SAGA 
-1. Can be used to maintain the data consistency across multiple services without tight coupling.
-
-- The disadvantage of using SAGA
-1. Complexity of the SAGA design pattern is high from the programmer's point of view and developers are not well accustomed to writing sagas as traditional transactions.
-
-## Backend For Frontend (BFF)
-
-### 5. Backend For Frontend (BFF)
-
-This pattern is used to identify how the data is fetched between the server and clients. Ideally, the frontend team will be responsible for managing the BFF.
-
-A single BFF is responsible for handling the single UI and it will help us to keep the frontend simple and see a unified view data through the backend.
-
-### Why BFF needs in our microservice application?
-The goal of this architecture is to decouple the front-end apps from the backend architecture.
-As a scenario, think about you have an application that consists of the mobile app, web app and needs to communicate with the backend services in a microservices architecture. 
-
-This can be done successfully but if you want to make a change to one of the frontend services, you need to deploy a new version instead of stick to updating the one service.
-
-So here comes the microservice architecture and this is able to understand what our apps need and how to handle the services.
-
-This is a big improvement in microservice architecture as this allows to isolate the backend of the application from the frontend. One other advantage that we can get from this BFF is that we can reuse the code as this allows all clients to use the code from the backend. 
-
-Between the client and other external APIs, services, and so on, BFF functions similarly to a proxy server. If the request must pass through another component, the latency will undoubtedly increase.
-
-![Setting the Scheme](images/microservices/1_2BaGJecjJNBk0gGCUQJO2wdfdf.jpg)
-
-## API Gateway
-
-### 6. API Gateway
-This microservice architecture pattern is really good for large applications with multiple client apps and it is responsible for giving a single entry point for a certain group of microservices. 
-
-API gateway sits between the client apps and the microservices and it serves as a reverse proxy, forwarding client requests to services. Authentication, SSL termination, and caching are some of the other cross-cutting services it can provide.
-
-Why do we consider the API Gateway architecture instead of using direct client-to-microservice communication? We will discuss this with the following examples,
-   
-1. Security issues - All microservices must be exposed to the "external world" without a gateway, increasing the attack surface compared to hiding internal microservices that aren't directly accessed by client apps.
- 
-2. Cross-cutting concerns - Authorization and SSL must be handled by each publicly published microservice. Those problems might be addressed in a single tier in many cases, reducing the number of internal microservices.
-
-3. Coupling - Client apps are tied to internal microservices without the API Gateway pattern. Client apps must understand how microservices decompose the application's various sections.
-
-Last but not least, the microservices API gateway must be capable of handling partial failures. The failure of a single unresponsive microservice should not result in the failure of the entire request.
-
-A microservices API gateway can deal with partial failures in a variety of ways, including:
-Use data from a previous request that has been cached.
-For time-sensitive data that is the request's major focus, return an error code.
-Provide an empty value
-Rely on hardware top 10 value.
-
-![Setting the Scheme](images/microservices/api_gateway_nginx.png)
-
-API Gateway
-
-## Strangler
-
-### 7. Strangler
-The strangler design pattern is a popular design pattern to incrementally transform your monolithic application to microservices by replacing old functionality with a new service.  Once the new component is ready, the old component is strangled and a new one is put to use.
-
-The facade interface, which serves as the primary interface between the legacy system and the other apps and systems that call it, is one of the most important components of the strangler pattern.
-
-External apps and systems will be able to identify the code associated with a certain function, while the underlying historical system code will be obscured by the facade interface. The strangler design addresses this by requiring developers to provide a façade interface that allows them to expose individual services and functions when they break them free from the monolith.
-
-You need to understand the quality and reliability of your system, whether you're working with legacy code, starting the process of "strangling" your old system, or running a newly containerized application. When anything goes wrong, you need to know how the system got there and why it went down that road.
-
-
-![Setting the Scheme](images/microservices/55555.jpg)
-
-Moving from Monolithic to microservice architecture stages.
-
-## Circuit Breaker Pattern
-
-### 8. Circuit Breaker Pattern
-The circuit breaker is the solution for the failure of remote calls or the hang without a response until some timeout limit is reached. You can run out of critical resources if you having many callers with an unresponsive supplier and this will lead to failure across the multiple systems in the applications.
-
-So here comes the circuit breaker pattern which is wrapping up a protected function call in a circuit breaker object which monitors for failure. 
-
-When the number of failures reaches a specific level, the circuit breaker trips, and all subsequent calls to the circuit breaker result in an error or a different service or default message, rather than the protected call being made at all.
-
-Different states in the circuit break pattern
-Closed - When everything works well according to the normal way, the circuit breaker remains in this closed state.
-
-Open -  When the number of failures in the system exceeds the maximum threshold, this will lead to open up the open state. This will give the error for calls without executing the function.
-
-Open -Half - After having run the system several times, the circuit breaker will go on to the half-open state in order to check the underlying problems are still exist. 
-
-Here, we will have an example code that is built using the Netflix hystrix.
-```java
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-@RestController
-@SpringBootApplication
-public class StudentApplication {
-
-    @RequestMapping(value = "/student")
-    public String studentMethod(){
-        return "Calling the studentMethod";
-    }
-
-    public static void main(String[] args) {
-        SpringApplication.run(StudentApplication.class, args);
-    }
-}
-```
-So the client application code will call the studentMethod() and if the calling API, /student is not given any response back in time, then there is an alternative method calling the fallback. It is mentioned in the below code.
-```java
-import java.net.URI;
-import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-
-@Service
-public class StudentService {
-
-    private final RestTemplate restTemplate;
-
-    public StudentService(RestTemplate rest) {
-        this.restTemplate = rest;
-    }
-
-    @HystrixCommand(fallbackMethod = "reliable")
-    public String studentMethodCalling() {
-        URI uri = URI.create("http://localhost:8000/student");
-        return this.restTemplate.getForObject(uri, String.class);
-    }
-
-    public String reliable() {
-        return "This is calling if the studentMethod is falling to respond on time";
-    }
-
-}
-```
-So you can use the circuit breaker pattern to improve the fault tolerance and resilience of the microservice architecture and also prevent the cascading of failure to other microservices.
-
-
-
-## Externalized Configuration
-
-### 9. Externalized Configuration
-Often services need to be run in different environments. Environment-specific configuration is required, such as secret keys, database credentials, and so on. Changing the service for each environment has a number of drawbacks. So how we can enable a service to run in multiple environments without modification?
-
-Here comes the Externalized configuration pattern as this enables the externalization of all application configurations including the database credentials and network location. 
-
-For example, the Spring Boot framework enables externalized configuration, which allows you to read configuration from many sources and potentially change previously specified configuration settings based on the reading order. 
-
-FastAPI, thankfully, has built-in support for externalized configuration.
-
-![Setting the Scheme](images/microservices/external-configuration-store-overview.png)
-
-Open up the ConfigServerApplication class and activate the discovery client and the configuration server by using the following annotation.
-```java
-@SpringBootApplication
-@EnableConfigServer
-@EnableDiscoveryClient
-public class ConfigServerApplication {
-
-}
-```
-Remove the application.properties file and create a new application.yml file with the following content.
-```yaml
-server.port: 8001
-
-spring:
-  application.name: config-server
-  cloud.config.server.git.uri: 
-   https://github.com/alejandro-du/vaadin-microservices-demo-config.git
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:7001/eureka/
-    registryFetchIntervalSeconds: 1
-  instance:
-    leaseRenewalIntervalInSeconds: 1
-
-```
-
-This sets the port (8001) and name (config-server) of the application, as well as the URI 
-Spring Cloud Config should use to read the configuration from. On GitHub, we have a Git 
-repository. The configuration files for all of the example application's microservices can 
-be found in this repository. The admin-applicationmicroservic uses the admin-application.yml 
-file, for example.
-
-## Consumer-Driven Contract Tracing
-
-### 10. Consumer-Driven Contract Tracing
-When a team is constructing multiple related services at the same time as part of a modernization effort, and your team knows the “domain language” of the bounded context but not the individual properties of each aggregate and event payload, the consumer driven contracts approach may be effective. 
-It ensures that Microservices can interact with each other correctly by focusing on contracts or agreements between clients and service providers.  
-In short, Consumer Driven Contract Tracing is an effective strategy for independent Microservice development and finding integration issues earlier. 
-
-![Setting the Scheme](images/microservices/1_s-ujrGQyZszBcSdY3PCybw.png)
-
-This microservice pattern is useful in legacy application which contains a large data model and existing service surface area. This design patterns will address the following issues,
-1. How can you add to an API without breaking downstream clients. 
-2. How to find out who is using their service.
-3. How to make short release cycles with the continuous delivery.
-
-In an event driven architecture, many microservices expose two kinds of API's, 
- 1. RESTful API over HTTP 
- 2. HTTP and a message-based API The RESTful API allows for synchronous integration with these services as well as extensive querying capabilities for services that have received events from a service. 
-In summary, a consumer-driven approach is sometimes used when breaking down a monolithic legacy
-application.
-
-</details>
-
-### **Questions & Answers:**
-
-<details>
-<summary style="color:blue;"><b>1. Can you explain the core principles of microservices architecture and how it differs from a monolithic architecture?</b></summary>
-
-**Answer:**
-Microservices architecture breaks down an application into small, independent services that are loosely coupled and can be developed, deployed, and scaled independently. Each service typically handles a specific business function and communicates with other services via APIs.
-
-**Key Differences from Monolithic Architecture:**
-- **Modularity:** Microservices are modular and can be developed and deployed independently, whereas monolithic applications are tightly coupled, making them harder to manage and scale.
-- **Scalability:** Microservices allow individual components to be scaled independently based on their needs, while in a monolithic architecture, scaling requires scaling the entire application.
-- **Development Speed:** Microservices enable teams to work on different services simultaneously, potentially speeding up development, while monolithic applications often require coordination across the whole codebase.
-- **Technology Diversity:** Different microservices can use different technologies and languages, whereas monolithic applications are usually built with a single technology stack.
-
-
-Certainly! Understanding the core principles of microservices architecture and how it differs from a monolithic architecture is crucial for building scalable and maintainable systems. Let’s break down these concepts and explore them with a real-time example.
-
-### Core Principles of Microservices Architecture
-
-1. **Single Responsibility Principle:**
-   - Each microservice is designed to perform a specific function or domain within the system. It focuses on a single responsibility, which makes it easier to understand, develop, test, and deploy.
-
-2. **Autonomy:**
-   - Microservices operate independently of one another. They can be developed, deployed, and scaled individually, which allows teams to work on different services simultaneously without affecting others.
-
-3. **Decentralized Data Management:**
-   - Each microservice manages its own data. This means that services are responsible for their own databases or storage mechanisms, leading to a more decentralized approach to data management.
-
-4. **Inter-Service Communication:**
-   - Microservices communicate with each other through APIs (usually HTTP/REST or gRPC) or messaging queues. This communication should be loosely coupled, meaning changes in one service should not drastically impact others.
-
-5. **Technology Agnosticism:**
-   - Microservices can be implemented using different technologies, languages, or frameworks as long as they adhere to the communication protocols and standards. This allows teams to choose the best tools for their specific needs.
-
-6. **Resilience and Fault Tolerance:**
-   - The architecture is designed to handle failures gracefully. If one microservice fails, it does not bring down the entire system. Mechanisms like circuit breakers, retries, and failover strategies are used to maintain system stability.
-
-7. **Scalability:**
-   - Microservices can be scaled independently based on demand. If a particular service experiences high load, it can be scaled without scaling the entire application.
-
-8. **Continuous Deployment:**
-   - Microservices support continuous integration and continuous deployment (CI/CD) practices, enabling frequent and reliable releases of new features or fixes.
-
-### Differences from Monolithic Architecture
-
-**1. **Structure:**
-   - **Monolithic Architecture:** All components of the application are tightly integrated and run as a single unit. Typically, a monolithic application is built as a single executable or deployment package.
-   - **Microservices Architecture:** The application is divided into multiple small, independent services. Each service is developed, deployed, and scaled separately.
-
-**2. **Development:**
-   - **Monolithic Architecture:** Development is often done in a single codebase, which can become complex and difficult to manage as the application grows.
-   - **Microservices Architecture:** Each microservice has its own codebase and repository, making it easier to manage and deploy changes independently.
-
-**3. **Deployment:**
-   - **Monolithic Architecture:** The entire application must be deployed at once. Any change requires redeploying the entire system.
-   - **Microservices Architecture:** Individual services can be deployed independently. This allows for more frequent and smaller updates.
-
-**4. **Scaling:**
-   - **Monolithic Architecture:** Scaling requires scaling the entire application, even if only a specific part of it needs more resources.
-   - **Microservices Architecture:** Services can be scaled independently based on their specific needs, optimizing resource utilization.
-
-**5. **Fault Isolation:**
-   - **Monolithic Architecture:** A failure in one part of the application can potentially bring down the entire system.
-   - **Microservices Architecture:** Failures are isolated to individual services. Other services can continue to function even if one service fails.
-
-**6. **Technology Stack:**
-   - **Monolithic Architecture:** The entire application typically uses a single technology stack.
-   - **Microservices Architecture:** Different services can use different technologies and frameworks, chosen based on their specific requirements.
-
-### Real-Time Example: E-Commerce Platform
-
-**Monolithic Architecture Example:**
-
-In a traditional monolithic e-commerce application, the system might have a single codebase handling user authentication, product management, order processing, payment, and inventory management. This monolithic application is deployed as one unit, and scaling requires replicating the entire application. If a bug occurs in the payment module, it could potentially affect the entire application.
-
-**Microservices Architecture Example:**
-
-In a microservices-based e-commerce platform, the system is broken down into multiple services:
-
-1. **User Service:** Manages user authentication and profile information.
-2. **Product Service:** Handles product listings, details, and catalog management.
-3. **Order Service:** Manages order creation, processing, and status.
-4. **Payment Service:** Handles payment processing and transactions.
-5. **Inventory Service:** Manages stock levels and inventory.
-
-Each service communicates via APIs or messaging queues. If the payment service experiences high load, it can be scaled independently of other services. If a bug is found in the order service, only that service needs to be updated or redeployed, without affecting the rest of the system. Additionally, different services can use different technology stacks suited to their specific needs.
-
-### Summary
-
-- **Microservices Architecture:** Breaks down the application into smaller, independent services that can be developed, deployed, and scaled independently. It supports resilience, scalability, and technology diversity but requires careful management of inter-service communication and data consistency.
-  
-- **Monolithic Architecture:** Uses a single codebase and deployment unit, making it simpler to develop and deploy initially but harder to scale, update, and manage as the application grows.
-
-By adopting microservices, organizations can improve their ability to innovate quickly, handle complex applications more effectively, and maintain higher levels of system availability and performance.
-
----
-</details>
-<details>
-<summary><b>2. Describe your experience with creating a streaming data pipeline using Kafka. What are the key considerations when designing such a pipeline?</b></summary>
-
-**Answer:**
-In my experience with Kafka, I've implemented streaming data pipelines that handle real-time data ingestion, processing, and delivery. The key considerations for designing a Kafka-based streaming data pipeline include:
-
-- **Topic Design:** Properly design topics based on data types and consumer needs to ensure efficient data processing and retrieval.
-- **Partitioning:** Use partitioning to enable parallel processing and ensure high throughput. The number of partitions should be based on the volume of data and the need for parallelism.
-- **Replication:** Configure replication to ensure fault tolerance and high availability. Ensure that replication factors are set to meet the desired level of durability.
-- **Consumer Groups:** Use consumer groups to distribute the workload and achieve horizontal scaling. Ensure proper handling of offsets to avoid data loss or duplication.
-- **Data Schema:** Implement a consistent schema for data to ensure compatibility and ease of processing across different services.
-- **Error Handling:** Design mechanisms for handling errors and retries to ensure reliability and robustness of the pipeline.
-
-
-Creating a streaming data pipeline using Apache Kafka involves several key steps and considerations to ensure it meets the needs of your application. Below, I'll describe my experience and highlight the key considerations when designing a Kafka-based streaming data pipeline.
-
-### Experience with Creating a Streaming Data Pipeline Using Kafka
-
-**1. **Understanding Requirements:**
-   - **Problem Definition:** Determine the problem you are solving with streaming data, such as real-time analytics, monitoring, or event-driven architecture.
-   - **Data Sources:** Identify and assess the sources of streaming data (e.g., logs, sensors, transactions).
-
-**2. **Designing the Pipeline:**
-   - **Kafka Topics:** Define Kafka topics based on the logical data boundaries. For example, separate topics for different types of events or logs.
-   - **Data Producers:** Implement producers that push data into Kafka topics. These could be applications, data ingestion services, or other data sources.
-   - **Data Consumers:** Develop consumers that read from Kafka topics and process the data. This might involve analytics, transformation, or further distribution.
-
-**3. **Implementing Producers:**
-   - **Producer Configuration:** Configure producers with proper settings for batching, retries, and acknowledgments to balance performance and reliability.
-   - **Serialization:** Choose appropriate serialization formats (e.g., JSON, Avro, Protobuf) and implement serialization logic.
-
-**4. **Implementing Consumers:**
-   - **Consumer Configuration:** Configure consumers for appropriate settings related to offset management, auto-commit, and concurrency.
-   - **Deserialization:** Implement deserialization logic to convert messages from Kafka into application-specific formats.
-
-**5. **Processing Streams:**
-   - **Stream Processing Frameworks:** Use frameworks like Kafka Streams or Apache Flink for complex transformations and aggregations.
-   - **Stateless vs. Stateful Processing:** Determine whether processing needs to maintain state (e.g., maintaining a count of events) or can be stateless.
-
-**6. **Monitoring and Management:**
-   - **Monitoring Tools:** Use tools like Confluent Control Center, Prometheus, and Grafana to monitor Kafka metrics, consumer lag, and throughput.
-   - **Error Handling:** Implement robust error handling and alerting mechanisms to handle issues like message reprocessing, failed transformations, or system downtime.
-
-**7. **Scaling and Optimization:**
-   - **Partitioning:** Design topics with an appropriate number of partitions to handle the volume of data and ensure load balancing.
-   - **Replication:** Configure replication to ensure data durability and high availability.
-   - **Resource Allocation:** Allocate adequate resources for Kafka brokers, Zookeeper nodes, and other components to handle expected workloads.
-
-**8. **Security and Compliance:**
-   - **Authentication and Authorization:** Implement security measures such as SASL/SSL for authentication and access control lists (ACLs) for authorization.
-   - **Data Encryption:** Ensure data is encrypted both in transit and at rest to meet compliance requirements.
-
-### Key Considerations When Designing a Kafka-based Streaming Data Pipeline
-
-1. **Data Volume and Velocity:**
-   - **Throughput Requirements:** Estimate the volume of data and message rate to design appropriate Kafka cluster capacity and configurations.
-   - **Latency:** Ensure the pipeline meets latency requirements for real-time or near-real-time processing.
-
-2. **Fault Tolerance and Reliability:**
-   - **Replication Factor:** Configure an appropriate replication factor to ensure data is replicated across multiple brokers for fault tolerance.
-   - **Consumer Offsets:** Implement reliable offset management to ensure no data is lost or processed multiple times.
-
-3. **Scalability:**
-   - **Partitioning Strategy:** Design topics with a sufficient number of partitions to distribute load and improve parallelism.
-   - **Dynamic Scaling:** Consider how the pipeline can scale dynamically in response to changing data volumes.
-
-4. **Schema Evolution:**
-   - **Data Formats:** Use schema registry tools to manage and evolve data schemas over time, ensuring backward and forward compatibility.
-   - **Versioning:** Implement versioning strategies for schema changes to avoid data processing issues.
-
-5. **Performance Optimization:**
-   - **Batching and Compression:** Use batching and compression techniques to optimize network and storage usage.
-   - **Consumer Tuning:** Fine-tune consumer configurations such as fetch sizes, number of threads, and commit intervals.
-
-6. **Operational Management:**
-   - **Monitoring:** Set up comprehensive monitoring and alerting to track Kafka performance metrics and operational health.
-   - **Logging:** Ensure detailed logging for both producers and consumers to facilitate debugging and performance tuning.
-
-7. **Security:**
-   - **Access Controls:** Implement strict access controls and encryption to secure data in transit and at rest.
-   - **Audit Logs:** Maintain audit logs for tracking access and changes to Kafka topics and configurations.
-
-### Example Scenario
-
-Suppose you are building a streaming data pipeline for a real-time fraud detection system in a financial application:
-
-1. **Data Sources:** Transaction data from multiple financial systems.
-2. **Topics:** Separate Kafka topics for transaction events, fraud alerts, and transaction metadata.
-3. **Producers:** Financial systems send transaction data to Kafka topics.
-4. **Consumers:** A fraud detection service processes transactions to detect anomalies and generates alerts.
-5. **Processing:** Use Kafka Streams to apply real-time fraud detection algorithms and enrich transaction data.
-6. **Monitoring:** Use Prometheus and Grafana to monitor Kafka metrics and system health.
-7. **Scaling:** Configure topics with multiple partitions and scale Kafka brokers as needed.
-
-By carefully designing and managing each component of the Kafka-based streaming data pipeline, you can build a robust, scalable, and efficient system to handle real-time data processing needs.
-
----
-
-</details>
-<details>
-<summary><b>3. How do you implement and manage CI/CD pipelines in your projects? What tools and practices do you use?</b></summary>
-   
-**Answer:**
-In my projects, I implement CI/CD pipelines to automate the build, test, and deployment processes. The tools and practices I use include:
-
-- **CI/CD Tools:** Jenkins, GitLab CI, or GitHub Actions for orchestrating the CI/CD processes.
-- **Version Control Integration:** Integrate with version control systems (e.g., Git) to trigger builds on code commits.
-- **Automated Testing:** Incorporate unit, integration, and end-to-end tests to ensure code quality before deployment.
-- **Build Automation:** Use build tools like Maven or Gradle to automate the build process.
-- **Deployment Automation:** Deploy applications using tools like Docker, Kubernetes, or cloud-native solutions such as AWS CodeDeploy.
-- **Configuration Management:** Use configuration management tools like Ansible or Terraform for environment setup and management.
-- **Monitoring and Alerts:** Implement monitoring and alerting to track the health of deployments and quickly address issues.
-
----
-
-</details>
-<details>
-<summary><b>4. Explain the key concepts of Spring Boot and how it facilitates microservices development.</b></summary>
-   
-**Answer:**
-Spring Boot simplifies the development of Spring-based applications by providing:
-
-- **Auto-Configuration:** Automatically configures Spring application context based on the dependencies in the classpath, reducing boilerplate configuration.
-- **Standalone Applications:** Allows creating standalone applications that can be run independently with an embedded server (e.g., Tomcat, Jetty).
-- **Production-Ready Features:** Provides features such as health checks, metrics, and application monitoring out-of-the-box.
-- **Spring Initializr:** A web-based tool to generate Spring Boot projects with pre-configured dependencies.
-- **Microservices Support:** Facilitates the development of microservices with support for building RESTful APIs, integrating with databases, and configuring service discovery and load balancing (e.g., via Spring Cloud).
-
----
-
-</details>
-<details>
-<summary><b>5. Can you discuss your approach to handling multi-threading and concurrency issues in Java applications?</b></summary>
-   
-**Answer:**
-Handling multi-threading and concurrency in Java involves understanding and using various concurrency utilities provided by the Java standard library. My approach includes:
-
-- **Using Concurrent Collections:** Utilize thread-safe collections like `ConcurrentHashMap` and `CopyOnWriteArrayList` to manage shared data.
-- **Executor Framework:** Use `ExecutorService` to manage and control thread pools and task execution, avoiding manual thread management.
-- **Synchronization:** Apply synchronization techniques (e.g., `synchronized` blocks or methods) to protect shared resources and avoid race conditions.
-- **Locks and Conditions:** Use `ReentrantLock` and `Condition` objects for more fine-grained control over thread synchronization compared to synchronized blocks.
-- **Avoiding Deadlocks:** Be cautious of potential deadlocks by ensuring proper ordering of lock acquisitions and avoiding nested locks.
-- **Atomic Operations:** Use `AtomicInteger`, `AtomicLong`, and other atomic classes to perform lock-free thread-safe operations on single variables.
-
-Avoiding deadlocks is crucial in concurrent programming to ensure that your application remains responsive and performs well. Deadlocks occur when two or more threads are each waiting for resources held by the other threads, causing all of them to be stuck indefinitely. Here are strategies and techniques to help avoid deadlocks:
-
-### 1. **Avoid Nested Locks**
-
-**Problem:** Nested locks (locking a resource while holding another lock) can easily lead to deadlocks if not managed carefully.
-
-**Solution:** Try to avoid acquiring multiple locks simultaneously. If you must use multiple locks, ensure that all threads acquire them in the same global order. This ordering can prevent cyclic dependencies.
-
-**Example:**
-
-```java
-public class DeadlockAvoidance {
-    private final Object lock1 = new Object();
-    private final Object lock2 = new Object();
-
-    public void method1() {
-        synchronized (lock1) {
-            // Critical section for lock1
-            synchronized (lock2) {
-                // Critical section for lock2
-            }
-        }
-    }
-
-    public void method2() {
-        synchronized (lock1) {
-            // Critical section for lock1
-            synchronized (lock2) {
-                // Critical section for lock2
-            }
-        }
-    }
-}
-```
-
-### 2. **Use Try-Lock with Timeout**
-
-**Problem:** Traditional locking mechanisms don't have a timeout, which means threads can be blocked indefinitely.
-
-**Solution:** Use a `tryLock` with a timeout (available in `java.util.concurrent.locks.Lock`) to attempt to acquire the lock within a given time frame. If the lock cannot be acquired in time, the thread can perform other tasks or retry.
-
-**Example:**
-
-```java
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.concurrent.TimeUnit;
-
-public class TryLockExample {
-    private final Lock lock1 = new ReentrantLock();
-    private final Lock lock2 = new ReentrantLock();
-
-    public void method() {
-        try {
-            if (lock1.tryLock(1000, TimeUnit.MILLISECONDS)) {
-                try {
-                    if (lock2.tryLock(1000, TimeUnit.MILLISECONDS)) {
-                        try {
-                            // Critical section
-                        } finally {
-                            lock2.unlock();
-                        }
-                    }
-                } finally {
-                    lock1.unlock();
-                }
-            }
-        } catch (InterruptedException e) {
-            // Handle interruption
-        }
-    }
-}
-```
-
-### 3. **Use Lock Ordering**
-
-**Problem:** Deadlocks can occur when locks are acquired in different orders.
-
-**Solution:** Always acquire locks in a consistent order. Define a global ordering for locks and ensure that every thread acquires them in this order.
-
-**Example:**
-
-```java
-public class LockOrdering {
-    private final Object lock1 = new Object();
-    private final Object lock2 = new Object();
-
-    private void acquireLocks() {
-        synchronized (lock1) {
-            synchronized (lock2) {
-                // Critical section
-            }
-        }
-    }
-
-    private void method1() {
-        acquireLocks();
-    }
-
-    private void method2() {
-        acquireLocks();
-    }
-}
-```
-
-### 4. **Use Higher-Level Concurrency Utilities**
-
-**Problem:** Low-level locking mechanisms are more prone to deadlock issues.
-
-**Solution:** Use higher-level concurrency utilities from `java.util.concurrent` package like `ExecutorService`, `Semaphore`, `CountDownLatch`, or `CyclicBarrier` that manage synchronization for you and can help avoid deadlocks.
-
-**Example:**
-
-```java
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-public class ConcurrencyUtilities {
-    private final ExecutorService executor = Executors.newFixedThreadPool(2);
-
-    public void executeTasks() {
-        executor.submit(() -> {
-            // Task 1
-        });
-        executor.submit(() -> {
-            // Task 2
-        });
-    }
-}
-```
-
-### 5. **Use Immutable Objects**
-
-**Problem:** Mutable objects can be shared and modified by multiple threads, increasing the risk of deadlocks.
-
-**Solution:** Use immutable objects where possible. Immutable objects are inherently thread-safe and don't require synchronization.
-
-**Example:**
-
-```java
-public final class ImmutableClass {
-    private final int value;
-
-    public ImmutableClass(int value) {
-        this.value = value;
-    }
-
-    public int getValue() {
-        return value;
-    }
-}
-```
-
-### 6. **Detect Deadlocks**
-
-**Problem:** If deadlocks occur, it is essential to detect them to understand and resolve the issue.
-
-**Solution:** Use tools and techniques to detect deadlocks. For Java, you can use JVisualVM, JConsole, or other profiling tools to detect deadlocks. The JVM also provides options to detect and log deadlocks.
-
-**Example:**
-
-To detect deadlocks programmatically:
-
-```java
-import java.lang.management.ManagementFactory;
-import java.lang.management.ThreadMXBean;
-import java.lang.management.ThreadInfo;
-
-public class DeadlockDetector {
-    public static void main(String[] args) {
-        ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
-        long[] deadlockedThreads = threadMXBean.findDeadlockedThreads();
-
-        if (deadlockedThreads != null) {
-            ThreadInfo[] threadInfos = threadMXBean.getThreadInfo(deadlockedThreads);
-            for (ThreadInfo threadInfo : threadInfos) {
-                System.out.println("Deadlocked Thread: " + threadInfo.getThreadName());
-            }
-        } else {
-            System.out.println("No deadlocked threads detected.");
-        }
-    }
-}
-```
-
-### Summary
-
-1. **Avoid Nested Locks**: Minimize the use of nested locks and ensure locks are acquired in a consistent global order.
-2. **Use Try-Lock with Timeout**: Apply `tryLock` with a timeout to avoid indefinite blocking.
-3. **Use Lock Ordering**: Always acquire locks in a predetermined order.
-4. **Use Higher-Level Concurrency Utilities**: Leverage utilities like `ExecutorService` to manage synchronization.
-5. **Use Immutable Objects**: Prefer immutable objects to reduce the need for synchronization.
-6. **Detect Deadlocks**: Use tools and JVM features to detect and analyze deadlocks.
-
-Applying these strategies can help you design and implement concurrent systems that are less prone to deadlocks and more robust overall.
-
----
-
-</details>
-<details>
-<summary><b>6. What are some best practices for designing RESTful APIs, and how do you ensure that they are both effective and efficient?</b></summary>
-   
-**Answer:**
-Best practices for designing RESTful APIs include:
-
-- **Resource-Oriented Design:** Focus on resources (e.g., `/users`, `/orders`) and use HTTP methods (GET, POST, PUT, DELETE) to represent actions on these resources.
-- **Statelessness:** Ensure that each API request contains all necessary information for processing, and avoid maintaining server-side state between requests.
-- **Use of HTTP Status Codes:** Return appropriate HTTP status codes to indicate the result of the request (e.g., 200 OK, 201 Created, 404 Not Found).
-- **Versioning:** Include versioning in the API (e.g., `/api/v1/resources`) to handle changes and backward compatibility.
-- **Pagination and Filtering:** Implement pagination and filtering for endpoints that return large datasets to improve performance and usability.
-- **Documentation:** Provide clear and comprehensive API documentation (e.g., using Swagger/OpenAPI) to help consumers understand and use the API effectively.
-- **Security:** Implement security measures such as authentication (OAuth, JWT) and authorization to protect sensitive data and operations.
-
----
-
-</details>
-<details>
-<summary><b>7. How do you approach performance tuning in a Java application? What tools and techniques do you use?</b></summary>
-   
-**Answer:**
-Performance tuning in Java involves identifying and resolving performance bottlenecks. My approach includes:
-
-- **Profiling:** Use profiling tools (e.g., VisualVM, JProfiler) to identify performance issues and hotspots in the code.
-- **Heap Dump Analysis:** Analyze heap dumps to detect memory leaks and inefficient memory usage using tools like Eclipse MAT.
-- **Monitoring:** Implement application monitoring and logging (e.g., using ELK stack) to track performance metrics and identify anomalies.
-- **Code Optimization:** Refactor code to improve efficiency, reduce complexity, and optimize algorithms and data structures.
-- **Concurrency Optimization:** Tune thread pool sizes and use concurrent data structures to improve multi-threading performance.
-- **Caching:** Implement caching strategies (e.g., using Ehcache, Redis) to reduce redundant computations and database access.
-
----
-
-</details>
-<details>
-<summary><b>8. Describe your experience with Agile development and Scrum. How do you ensure successful implementation in a team?</b></summary>
-
-**Answer:**
-My experience with Agile and Scrum includes:
-
-- **Sprint Planning:** Participate in sprint planning meetings to define and prioritize user stories and tasks for the upcoming sprint.
-- **Daily Stand-ups:** Facilitate or attend daily stand-ups to track progress, address roadblocks, and ensure team alignment.
-- **Retrospectives:** Conduct retrospectives at the end of each sprint to review performance, discuss what went well, and identify areas for improvement.
-- **Backlog Management:** Maintain and refine the product backlog to ensure that it reflects current priorities and project needs.
-- **Collaboration:** Foster a collaborative environment where team members can share knowledge, work together, and address challenges proactively.
-
----
-
-</details>
-<details>
-<summary><b>9. Can you provide an example of a challenging problem you solved in a distributed system?</b></summary>
-
-**Answer:**
-One challenging problem I encountered was managing data consistency in a distributed microservices architecture. We had multiple services that needed to update shared data while ensuring eventual consistency.
-
-**Solution:**
-- **Event Sourcing:** Implemented an event sourcing pattern where changes to the system state were stored as a sequence of events, allowing us to reconstruct the state if needed.
-- **CQRS:** Used Command Query Responsibility Segregation (CQRS) to separate read and write operations, improving performance and consistency.
-- **Distributed Transactions:** Implemented the Saga pattern to manage distributed transactions across microservices, ensuring that each service could participate in a long-running transaction with compensating actions for rollback.
-- **Monitoring and Alerts:** Set up monitoring and alerts to detect and respond to inconsistencies or failures in real-time.
-
----
-</details>
-
-
-These questions and answers should help prepare for an interview for a Lead Java Engineer position, covering core technical skills and practical experience relevant to the role.
-</details>
-<details>
-<summary><b>8. Hibernate</b></summary>
-
- ## Hibernate
-- [Java Programming Questions and Answers](#java-programming-questions-and-answers)
-</details>
-<details>
-<summary><b>9. Kafka</b></summary>
-
-## Kafka
-- [K Framework](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-</details>
-<details>
-<summary><b>10. Docker</b></summary>
-
-## Docker
-- [Spring Framework](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-</details>
-<details>
-<summary><b>11. Kubernetes</b></summary>
-
-## Kubernetes
-- [Spring Framework](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-</details>
-<details>
-<summary><b>12. Caching</b></summary>
-
-## Caching
-- [Spring Framework](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-</details>
-<details>
-<summary><b>13. SQL & NO SQL Database</b></summary>
-
-## SQL
-- [Spring Framework](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-
-## NO SQL
-- [Spring Framework](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-</details>
-<details>
-<summary><b>14. Mongo DB</b></summary>
-
-## Mongo DB
-- [Spring Framework](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-</details>
-<details>
-<summary><b>15. Angular</b></summary>
-
-## Angular
-- [Spring Framework](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-</details>
-<details>
-<summary><b>16. React JS</b></summary>
-
-## React JS
-- [Spring Framework](#java-programming-questions-and-answers)
-- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
-</details>
-
--------
-
-
-
-<details>
-<summary><b>java8</b></summary>
-Java 8 features
-
-Differences between Java 8 Map() Vs flatMap() :
-
-map() | flatMap() | 
---- | --- |  
-It processes stream of values. | It processes stream of stream of values. 
-It does only mapping. | It performs mapping as well as flattening.
-It’s mapper function produces single value for each input value. | It’s mapper function produces multiple values for each input value. 
-It is a One-To-One mapping. | It is a One-To-Many mapping. 
-Data Transformation : From Stream<T> to Stream<R> | Data Transformation : From Stream<Stream<T> to Stream<R> 
-Use this method when the mapper function is producing a single value for each input value. | Use this method when the mapper function is producing multiple values for each input value. 
-
-
-
-<details>
-<summary><b>How Stream.map() works in Java 8? Example</b></summary>
-The Stream.map() function performs map functional operation i.e. it takes a Stream and transforms it to another Stream. It applies a function on each element of Stream and stores return value into new Stream. 
-
-This way you can transform a Stream of String into a Stream of Integer where Integer could be the length of String if you supply the length() function. This is a very powerful function that is very helpful while dealing with collection in Java.
-
-Here is an example of Stream.map() in Java 8:
-
-```java
-List listOfIntegers = Stream.of("1", "2", "3", "4")
-               .map(Integer::valueOf)
-               .collect(Collectors.toList());
-```
-
-### How Stream.flatMap() works in Java 8 - Example
-The Stream.flatMap() function, as the name suggests, is the combination of a map and a flat operation. This means you first apply the map function and then flattens the result. The key difference is the function used by map operation returns a Stream of values or a list of values rather than a single value, that's why we need flattening. When you flat a Stream of Stream, it gets converted into Stream of values.
-
-To understand what flattening a stream consists in, consider a structure like [ [1,2,3],[4,5,6],[7,8,9] ] which has "two levels". It's basically a big List containing three more List.  Flattening this means transforming it in a "one level" structure e.g. [ 1,2,3,4,5,6,7,8,9 ] i.e. just one list.
-
-In short,
-Before flattening - Stream of List of Integer
-After flattening - Stream of Integer
-
-Here is a code example to understand the flatMap() function better:
-```java
-List evens = Arrays.asList(2, 4, 6);
-List odds = Arrays.asList(3, 5, 7);
-List primes = Arrays.asList(2, 3, 5, 7, 11);
-       
-List numbers = Stream.of(evens, odds, primes)
-               .flatMap(list -> list.stream())
-               .collect(Collectors.toList());
-       
-System.out.println("flattend list: " + numbers);
-```
-```
-Output:
-flattend list: [2, 4, 6, 3, 5, 7, 2, 3, 5, 7, 11]
-```
-You can see that we have three lists that are merged into one by using a flatMap() function. For mapping, you can see we have used a list.stream() function which returns multiple values instead of a single value. Finally, we have collected the flattened stream into a list. If you want, you can print the final list using the forEach() method.
-
-
-### Stream.map() vs Stream.flatMap() in Java 8
-
-In short, here are the key difference between map() vs flatMap() in Java 8:
-The function you pass to the map() operation returns a single value.
-The function you pass to flatMap() operation returns a Stream of value.
-flatMap() is a combination of map and flat operation. 
-map() is used for transformation only, but flatMap() is used for both transformation and flattening. 
-
-Now let's see a sample Java program to understand the difference between flatMap() and map() better.
-
-### Java Program to show the difference between map vs flatMap
-Here is our sample Java program to demonstrate the real difference between the map() and the flatMap() function of the Stream class in Java 8. As I told you before, map() is used to transform one Stream into another by applying a function on each element, and flatMap() does both transformations as well as flattening.
-
-The flatMap() function can take a Stream of List and return a Stream of values combined from all those lists. In the example below, we have collected the result in a List but you can also print them using the forEach() method of Java 8.
-
-```java
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
-/**
- * Java Program to demonstrate difference between map()
- * vs flatMap() function in Java 8. Both are defined
- * in Stream class. 
- *
- * @author WINDOWS 8
- */
-public class Java8Demo {
-
-    public static void main(String args[]) {
-
-        // foods which helps in weight loss
-        List<String> loseWeight = new ArrayList<>();
-        loseWeight.add("avocados");
-        loseWeight.add("beans");
-        loseWeight.add("salad");
-        loseWeight.add("oats");
-        loseWeight.add("broccoli");
-                
-        System.out.println("list of String : " + loseWeight);
-        
-        // let's use map() method to convert list of weight
-        // lose food, which are String to list of ints
-        // which are length of each food String
-        
-        List listOfInts = loseWeight.stream()
-                .map(s -> s.length())
-                .collect(Collectors.toList());
-        
-        System.out.println("list of ints generate by map(): " + listOfInts);
-
-        
-        // flatMap() example, let's first creat a list of list
-        List<List> listOfListOfNumber = new ArrayList<>();
-        listOfListOfNumber.add(Arrays.asList(2, 4));
-        listOfListOfNumber.add(Arrays.asList(3, 9));
-        listOfListOfNumber.add(Arrays.asList(4, 16));
-        
-        System.out.println("list of list : " + listOfListOfNumber);
-        
-        // let's use flatMap() to flatten this list into
-        // list of integers i.e. 2,4,3,9,4,16
-        
-        List listOfIntegers = listOfListOfNumber.stream()
-                .flatMap( list -> list.stream())
-                .collect(Collectors.toList());
-        
-        System.out.println("list of numbers generated by flatMap : " 
-                                      + listOfIntegers);
-                
-
-    }
-
-}
-```
-```
-Output
-list of String : [avocados, beans, salad, oats, broccoli]
-list of ints generate by map(): [8, 5, 5, 4, 8]
-list of list : [[2, 4], [3, 9], [4, 16]]
-list of numbers generated by flatMap : [2, 4, 3, 9, 4, 16]
-```
-You can see that in the first example, the function used by the map() method returns a single value, the length of the string passed to it, while in the case of flatMap() the method returns a stream, which is basically your multiple values.
-</details>
-<details>
-<summary><b>How to use forEach() method in Java 8</b></summary>
-Now you know a little bit about the forEach() method and Java 8, it's time to see some code examples and explore more of the forEach() method in JDK 8.
-
-### 1. Iterating over all elements of List using forEach()
-You can loop over all elements using the Iterable.forEach() method as shown below:
-```java
-List<String> alphabets 
-     = new ArrayList<>(Arrays.asList("aa", "bbb", "cat", "dog"));
-alphabets.forEach(s -> System.out.println(s));
-```
-This code will print every element of the list called alphabets. You can even replace lambda expression with method reference because we are passing the lambda parameter as it is to the
-System.out.println() method as shown below:
-```java
- alphabets.forEach(System.out::println);
-```
-Now, let's see if you want to add a comma between two elements then you can do so by using lambda parameters as shown in the following example
-```java
-alphabets.forEach(s -> System.out.print(s + ","));
-```
-Btw, now you cannot use method reference now because we are doing something with lambda parameters. Let's see another example of the forEach() method for doing filtering of elements. If you want to learn more about loops in Java, The Complete Java MasterClass is the most comprehensive course for Java programmers.
-
-### 2. filter and forEach() Example
-   
-One of the main features of Stream API is its capability to filter elements based upon some conditions. We have already seen a glimpse of the powerful feature of Stream API in my earlier post, how to use Stream API in Java 8, here we will see it again but in the context of the forEach() method.
-
-let's now only print elements that start with "a", following code will do that for you, startWith() is a method of String class, which return true if String is starting with String "a" or it will return false. Once the list is filtered then forEach() method will print all elements starting with  String "a", as shown below:
-
-```java
-alphabets.stream()
-         .filter(s -> s.startsWith("a"))
-         .forEach(System.out::println);
-```
-This is cool, right? You can read the code like cake, it's much easier than using Iterator or any other way to loop over List in Java.
-
-Now, let's filter out only which has a length greater than 2, for this purpose we can use the length() function of String class:
-```java
-alphabets.stream()
-         .filter(s -> s.length() > 2)
-         .forEach(System.out::println);
-```
-Apart from forEach, this is also a good example of using the filter method in Java 8 for filtering or selecting a subset of elements from Stream. You can read more about that in the Collections to Streams in Java 8 Using the Lambda Expressions course on Pluralsight, which provides an in-depth explanation of new Java 8 features.
-
-### 3. forEach() and map() Example
-   
-So far you have both basic and advanced examples of using the forEach() method, first with simply iterating over each element and then along with using the filter() method, Let's see one more example of the forEach() method along with the map() function, which is another key functionality of Stream API.
-
-The map() method of Java 8 allows you to transform one type to another like in our first example we are using a map() to transform a list of String to a list of Integer where each element represents the length of String. Now, let's print the length of each string using the map() function:
-```java
-alphabets.stream()
-         .mapToInt(s -> s.length())
-         .forEach(System.out::println);
-```
-That was fun, isn't it? how about the calculating sum of the length of all strings? you can do so by using fold operations like sum() as shown in the following example:
-```java
-alphabets.stream()
-         .mapToInt(s -> s.length())
-         .sum();
-```
-These were some of the common but very useful examples of Java 8's forEach() method, a new way to loop over List in Java. If you are feeling nostalgist then don't forget to the journey of for loop in Java, a recap of for loop from JDK 1 to JDK 8
-
-If you want to learn more about functional programming in Java 8 and using a map, flatmap methods then I suggest you go through Learn Java Functional Programming with Lambdas & Streams course on Udemy. It's a nice course and packed with good examples to learn key Java 8 features.
-
-Program to use forEach() function in Java 8
-
-```java
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-/**
- * Java Program to show How to use forEach() statement in Java8.
- * You can loop over a list, set or any collection using this
- * method. You can even do filtering and transformation and 
- * can run the loop in parallel.
- *
- * @author WINDOWS 8
- */
-public class Java8Demo {
-
-    public static void main(String args[]) {
-
-       List<String> alphabets = new ArrayList<>(
-                                 Arrays.asList("aa", "bbb", "cac", "dog"));
-       
-       // looping over all elements using Iterable.forEach() method
-       alphabets.forEach(s -> System.out.println(s));
-       
-       // You can even replace lambda expression with method reference
-       // because we are passing the lambda parameter as it is to the
-       // method
-       alphabets.forEach(System.out::println);
-       
-       // you can even do something with lambda parameter e.g. adding a comma
-       alphabets.forEach(s -> System.out.print(s + ","));
-       
-       
-       // There is one more forEach() method on Stream class, which operates
-       // on stream and allows you to use various stream methods e.g. filter()
-       // map() etc
-       
-       alphabets.stream().forEach(System.out::println);
-       
-       // let's now only print elmements which startswith "a"
-       alphabets.stream()
-               .filter(s -> s.startsWith("a"))
-               .forEach(System.out::println);
-       
-       // let's filter out only which has length greater than 2
-       alphabets.stream()
-               .filter(s -> s.length() > 2)
-               .forEach(System.out::println);
-
-       
-       // now, let's print length of each string using map()
-       alphabets.stream()
-               .mapToInt(s -> s.length())
-               .forEach(System.out::println);
-       
-       // how about calculating sum of length of all string
-       alphabets.stream()
-               .mapToInt(s -> s.length())
-               .sum();
-
-    }
-
-}
-```
-
-### Important things to remember:
-- 1) The forEach() is a terminal operation, which means once calling the forEach() method on stream, you cannot call another method. It will result in a runtime exception.
-
-- 2) When you call forEach() on a parallel stream, the order of iteration is not guaranteed, but you can ensure that ordering by calling the forEachOrdered() method.
-
-- 3) There is two forEach() method in Java 8, one defined inside Iterable, and the other inside java.util.stream.Stream class. If the purpose of forEach() is just iteration then you can directly call it like list.forEach() or set.forEach() but if you want to perform some operations like filter or map then it better first get the stream and then perform that operation and finally call forEach() method.
-
-- 4) Use of forEach() results in readable and cleaner code.
-
-
-### Now, one task for you, how do you break from forEach()? Does the forEach() method allow you to break in between?
-
-In Java, the `forEach` method in the `Stream` API does not allow you to break out of the iteration early like you can with a traditional `for` loop or an `enhanced for` loop. The `forEach` method is designed for performing operations on each element of the stream and does not provide a built-in mechanism to stop iteration prematurely.
-
-However, you can achieve similar behavior by using the following approaches:
-
-### 1. **Using a `for` Loop:**
-If you need to break out of the loop based on a condition, using a traditional `for` loop or an enhanced `for` loop (`for-each`) is the most straightforward approach.
-
-**Example:**
-```java
-import java.util.Arrays;
-import java.util.List;
-
-public class BreakInForLoop {
-    public static void main(String[] args) {
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
-
-        for (Integer number : numbers) {
-            if (number == 3) {
-                break; // Break out of the loop
-            }
-            System.out.println(number);
-        }
-    }
-}
-```
-
-### 2. **Using `Stream` with Short-Circuiting Operations:**
-While `forEach` does not support breaking, you can use other stream operations that allow short-circuiting. For instance, you can use `takeWhile` to process elements up to a certain condition.
-
-**Example:**
-```java
-import java.util.Arrays;
-import java.util.List;
-
-public class ShortCircuitStream {
-    public static void main(String[] args) {
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
-
-        numbers.stream()
-               .takeWhile(number -> number != 3)
-               .forEach(System.out::println);
-    }
-}
-```
-In this example, `takeWhile` will stop processing as soon as the condition is false, thus achieving a similar effect to breaking out of the loop.
-
-### 3. **Using a `boolean` Flag with `forEach`:**
-If you are using `forEach` and need to conditionally stop processing, you can use a `boolean` flag to skip further processing within the lambda expression.
-
-**Example:**
-```java
-import java.util.Arrays;
-import java.util.List;
-
-public class ForEachWithFlag {
-    public static void main(String[] args) {
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
-        final boolean[] shouldContinue = {true};
-
-        numbers.forEach(number -> {
-            if (!shouldContinue[0]) return;
-            if (number == 3) {
-                shouldContinue[0] = false; // Set flag to stop further processing
-            }
-            System.out.println(number);
-        });
-    }
-}
-```
-In this example, a boolean array `shouldContinue` is used as a flag to determine whether to continue processing elements.
-
-### Summary:
-- **`forEach` Method**: Does not support breaking or stopping iteration early.
-- **Traditional Loops**: Use `for` or enhanced `for` loops for breaking out early.
-- **Stream API**: Use short-circuiting operations like `takeWhile` for similar effects.
-- **Flag Approach**: Use a boolean flag within the `forEach` method to conditionally skip further processing.
-
-Each method has its use cases, so you should choose the one that best fits your requirements.
-
-</details>
-<details>
-<summary><b>How to use Stream.filter method in Java 8? Example Tutorial</b></summary>
-
-In the last couple of Java 8 tutorials, you have learned how to use map(), flatMap(), and other stream methods to get an understanding of how Java 8 Stream and Lambda expressions make it easy to perform the bulk data operation on Collection classes like List or Set. In this Java 8 tutorial, I am going to share how to use the filter() method in Java 8, another key method of the Stream class.  This is the one method you will always be used because it forms the key part of the Stream pipeline. If you have seen some Java 8 code, you would have already seen this method a couple of times.
-
-The filter() method as its name suggests is used to perform filtering based upon some boolean conditions.  The condition is applied to each element of Stream and those who pass the condition moves to the next stage and those who don't get filtered out.
-
-For example,  if you have a stream of integral numbers that contains both even and odd numbers then by using the filter method, you can create another stream of even numbers or odd numbers by filtering out others.
-
-Though the filter() method is a little bit counter-intuitive, I mean, in order to create a stream of even numbers you call filter( i -> i % 2 == 0) which means you do filter(isEven()) but, you are actually filtering out odd numbers to create a new stream of even numbers, but that's how it works.
-
-I think select() would have been a positive and proper name for this operation, but, we don't have any control over that can't change that now.
-
-The key benefit of using the filter() method is lazy evaluation i.e. no data comparison is performed unless you call a terminal operation on stream like findFirst() or forEach().
-
-The filter() method just sets up some pointers when you first call them on stream and only performs real filtering when you call the terminal method. You can join a good Java course like The Complete Java MasterClass to learn more about Stream and lazy evaluation in Java 8. It is also one of the most up-to-date courses, recently updated for Java 11.
-
-### How Stream.filter method works in Java 8
-In order to learn how to use the filter() method in Java 8, it's important that you also know how it works, at least at a high level. Let's see an example of a filter() method to understand the lazy evaluation it does.
-
-Suppose we have a list of integer numbers and we want to find the first number which is divisible by both 2 and 3, let' see how to solve this problem in Java 8.
-```java
-List<Integer> listOfNumbers = Arrays.asList(1, 2, 3, 4, 5, 6, 12, 18);
-Integer lcm = listOfNumbers.stream()
-                           .filter(i -> i % 2 == 0)
-                           .filter(i -> i % 3 == 0)
-                           .findFirst().get();        
-```
-This code is returning the first number which is divisible by both 2 and 3. Now, let's see how this code will execute. When you call the filter() method nothing happens until you call the findFirst().
-
-At this time, Java knows that it just needs to find the first element which satisfies the criterion imposed by the two chained filter() methods.
-
-The findFirst() asks the filter() method prior to it in the chain of any number, the filter doesn't have any record so it asks the first filter() method, which in turn then scans the list and returns a number that is divisible by 2.
-
-At this time, the second filter method checks if this number is divisible by 3, if yes then it returns that number to findFirst() otherwise it asks for another number from the first filter() method.
-
-This process continues until a number is found which satisfies both filter() methods. Once that number is found it is presented to the findFirst() method. The job of findFirst() is to return that number.
-
-This is an example of lazy evaluation because nothing happens until the call to findFirst() is a method, this also presents an opportunity to stop as soon as you find the first number which satisfies your criterion.
-
-
-There is no need to process the entire list again and again, as it happens in the case of iterative eager evaluation.  You can read more about Stream Processing and Lazy Evaluation on Pluralsight's From Collections to Streams in Java 8 Using the Lambda Expressions course by Jose Paumard, a Java Champion and expert Java Programmer.
-
-</details>
-<details>
-<summary><b>Java 8 filter + Stream Example</b></summary>
-
-### Java 8 filter Example
-Here are a couple of more examples of the Stream.filter() method in Java 8. I have created a list of String containing Android versions like  Lollipop, KitKat, etc.
-
-The first example just uses one filter() method to print Strings whose length is greater than 10. The second example prints String which contains the letter "e" like Gingerbread.
-
-The Third examples combine these two filter methods to create a chain of filter methods to print a String whose length is greater than 5 and starts with a letter "G".
-
-By the way, for testing purposes, you can also create a stream of integers numbers by using Stream.of() static factory methods as shown in the following example:
-
-### How to use filter method in Java 8 with example
-
-You can see that the input stream contains numbers from 1 to 5 but the output stream just contains odd numbers. This means even numbers were filtered out because they didn't satisfy the boolean condition specified by Predicate.
-
-I mean for even number x%2 == 0 and we are checking for x%2 !=0 so they didn't pass the condition and hence not progress to the output stream. If you need more examples, I suggest you check out the Java Streams API Developer Guide by Nelson Djalo, one of the hands-on courses on learning Stream examples live.
-
-### How to use filter() method in Java 8
-
-Here is a sample Java program to demonstrate how to use the filter() method of Stream class to filter elements from a List or Stream, based upon some conditions, specified by the Predicate functional interface of Java 8.
-```java
-package test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-/**
- * Java 8 filter example. You can use filter() method to perform lazy filtering
- * in Java.
- */
-public class Java8FilterExample {
-
-    public static void main(String[] args) {
-
-        List<String> versions = new ArrayList<>();
-        versions.add("Lollipop");
-        versions.add("KitKat");
-        versions.add("Jelly Bean");
-        versions.add("Ice Cream Sandwidth");
-        versions.add("Honeycomb");
-        versions.add("Gingerbread");
-
-        // Using one filter() 
-        // print all versions whose length is greater than 10 character
-        System.out.println("All versions whose length greater than 10");
-        versions.stream()
-                .filter(s -> s.length() > 10)
-                .forEach(System.out::println);
-
-        System.out.println("first element which has letter 'e' ");
-        String first = versions.stream()
-                .filter(s -> s.contains("e"))
-                .findFirst().get();
-        System.out.println(first);
-        
-
-        // Using multiple filter
-        System.out.println("Element whose length is > 5 and startswith G");
-        versions.stream()
-                .filter(s -> s.length() > 8)
-                .filter(s -> s.startsWith("G"))
-                .forEach(System.out::println);
-        
-
-        // another example of filter() method in Java 8
-        List<Integer> listOfNumbers = Arrays.asList(1, 2, 3, 4, 5, 6, 12, 18);
-        Integer lcm = listOfNumbers.stream()
-                .filter(i -> i % 2 == 0)
-                .filter(i -> i % 3 == 0)
-                .findFirst().get();
-        System.out.println("first number divisible by 2 and 3 in the list is : "
-                                  + lcm);
-
-    }
-
-}
-```
-```
-Output
-All versions whose length greater than 10
-Ice Cream Sandwidth
-Gingerbread
-first element which has letter 'e' 
-Jelly Bean
-Element whose length is > 5 and starts with G
-Gingerbread
-a first number divisible by 2 and 3 in the list is : 6
-```
-
-That's all in this Java 8 filter() example. It's one of the most useful methods of Stream class and you will find yourself using this method time and again. The best part of this method is that it improves performance by doing the lazy evaluation.
-
-The filter() method just sets up a couple of pointers and no data comparison is performed until a terminal method like forEach() or findFirst() is called.
-
-</details>
-<details>
-<summary><b>How to debug Java 8 Stream Pipeline - peek() method</b></summary>
-
-The peek() method of the Stream class can be very useful to debug and understand streams in Java 8. You can use the peek() method to see the elements as they flow from one step to another like when you use the filter() method for filtering, you can actually see how filtering is working like lazy evaluation as well as which elements are filtered.
-
-The peek() method returns a stream consisting of the elements of this stream and performs the action requested by the client. The peek() method expects a Consumer functional interface to perform a non-interfering action on the elements of this stream, usually printing them using the forEach() method.
-
-Btw, the sole reason for using peek() is debugging the Stream pipeline, even the API itself says that peek() is only there for debugging, but it does help to understand the lazy evaluation technique Stream uses to improve performance.
-
-Lazy evaluation means nothing is evaluated in the Stream until a terminal method like forEach(), collect(), or reduce() is called and processing stops as soon as the result is obtained, which means not all the elements of Stream is processed always.
-
-It all depends upon what kind of result you want from Stream. For example, if you call the findFirst() method then as soon as it finds the first element fulling the criterion, processing stops. If you want to understand lazy evaluation in-depth and other Stream features then I highly recommend you check out these Java collections and Stream courses from Udemy and Pluralsight. 
-
-### Java 8 Stream peek() method Example
-
-In order to understand the peek() method better, let's see some code in action. How about using the filter and map methods in a chained pipeline?
-
-This is a very common code in Java 8 and will help you to learn how stream pipeline processing works in Java 8? What happens in each step? What is the output or data in the stream after each step etc?
-
-Consider the following example, which calls the peek() method after each step in a Stream pipeline involving filter() and map()  methods:
-
-```java
-List<String> result = Stream.of("EURO/INR", "USD/AUD", "USD/GBP", "USD/EURO")
-        .filter(e -> e.length() > 7)
-        .peek(e -> System.out.println("Filtered value: " + e))
-        .map(String::toLowerCase)
-        .peek(e -> System.out.println("Mapped value: " + e))
-        .collect(Collectors.toList());
-```
-In this example, we have a Stream of String and then we are filtering all Strings whose length is greater than 7 and then we are converting them to lowercase using the map() function.
-
-Now, what do you think, how will this program execute? top to bottom or bottom to top?
-
-Many of you will think that after the first filter() execution you will get a Stream containing two elements "EURO/INR" and "USD/EURO" and peek() will print those two elements.
-
-Well, that's not the case, since Streams are executed lazily, nothing will happen until the collect() method will execute, which is the terminal method.
-
-This is proved by the following output from running the above code into Eclipse IDE or command prompt, it will print the following lines:
-```
-Filtered value: EURO/INR
-Mapped value: euro/inr
-Filtered value: USD/EURO
-Mapped value: usd/euro
-```
-The key point to note here is that values are filtered and mapped one by one, not together. It means the code is executed backward when the collect() method calls the Collectors.toList() to get the result in a List, it asks map() function which in turn asks the filter() method.
-
-Since filter() is lazy it returns the first element whose length is greater than 7 and sits back until map() asks again.
-
-You can see that peek() method clearly prints the value of the stream in the pipeline after each call to filter() method. You can further join From Collections to Streams in Java 8 Using the Lambda Expressions course on Pluralsight to learn more about different types of operation with Streamlike intermediate and terminal operation.
-
-### How to debug Java 8 Stream Pipeline - peek() method Example Tutorial
-
-### How to use peek() method in Java 8
-
-As I said, the Stream.peek() method is very useful for debugging and understating the stream-related code in Java. Here is a couple of more example of using peek() to understand how bulk data operations are processed by Stream utility.
-
-```java
-package test;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
-/**
- * Java 8 peek() method example
- */
-public class Test {
-
-    public static void main(String[] args) {
-
-        List<String> versions = new ArrayList<>();
-        versions.add("Lollipop");
-        versions.add("KitKat");
-        versions.add("Jelly Bean");
-        versions.add("Ice Cream Sandwidch");
-        versions.add("Honeycomb");
-        versions.add("Gingerbread");
-
-        // filtering all vaersion which are longer than 7 characters
-        versions.stream()
-                .filter(s -> s.length() > 7)
-                .peek(e -> System.out.println("After the first filter: " + e))
-                .filter(s -> s.startsWith("H"))
-                .peek(e -> System.out.println("After the second filter: " + e))
-                .collect(Collectors.toSet());
-
-    }
-
-}
-```
-```
-Output
-After the first filter: Lollipop
-After the first filter: Jelly Bean
-After the first filter: Ice Cream Sandwich
-After the first filter: Honeycomb
-After the second filter: Honeycomb
-After the first filter: Gingerbread
-```
-By looking at this output, can you explain how the code would have been executed? Well, it seems that when to collect() ask the second filter() method, it further asks the first filter() and you can see that the first element Lollipop passed the first filter but couldn't pass the second one because it doesn't start with letter "H".
-
-So, the second filter() again asks the first() filter for an element, it returns Jelly Bean, Ice Cream Sandwich, and HoneyComb one by one. Since HoneyComb made past the second filter it is collected by Collector and again the same process happens but aborted after GingerBread because all elements in Stream are already processed.
-
-This clearly explains the lazy execution behavior of Stream as opposed to eager iterative implementation and the peek() method definitely helps you to understand this better, but if you want to learn Stream in-depth, I suggest you further check these Java Functional Programming and Stream API courses. 
-
-
-### Java 8 Stream peek() example for debugging
-
-### Important points
-1) The peek() method of Stream class is an intermediate method, hence you can call other stream methods after this.
-
-2) It returns a new Stream, which is basically the stream it got.
-
-3) It accepts an object of functional interface Consumer to perform non-interfering action e.g. printing values.
-
-4) For parallel stream pipelines, the action may be called at whatever time and whatever thread the element is made available by the upstream operation.
-
-Btw, peek() is not the only way to figure out what goes inside a Stream pipeline, you can also use your IDEs to do the heavy work. For example, If you are using IntelliIDEA from JetBrains, you can also use their Java Stream Debugger Plugin to easily debug Java 8 code using map, filter, and collect in IDE itself, like shown in the following GIF diagram:
-
-### How to debug Java 8 code with map and filter
-
-That's all about how to use the peek() method in Java 8. You can use the peek() method for debugging. It allows you to see the elements as they flow past a certain point in the pipeline. By using this you can check whether your filter() method is working properly or not. You can see exactly which elements are got filtered by using peek() in Java 8.
-
-</details>
-<details>
-<summary><b>Examples of Stream.collect() method in Java 8</b></summary>
-
-Hello guys, you may know that Java 8 brought Stream API which supports a lot of functional programming operations like filter, map, flatMap, reduce, and collect. In this article, you will learn about the collect() method. The collect() method of Stream class can be used to accumulate elements of any Stream into a Collection. In Java 8, you will often write code that converts a Collection like a List or Set to Stream and then applies some logic using functional programming methods like the filter, map, flatMap and then converts the result back to the Collection like a List, Set, Map, or ConcurrentMap in Java.
-
- In this last part, the collect() method of Stream helps. It allows you to accumulate the result into a choice for containers you want like a list, set, or map.
-
-Programmers often confuse that the collect() method belongs to the Collector class but that's not true. It is defined in Stream class and that's why you can call it on Stream after doing any filtering or mapping. It accepts a Collector to accumulate elements of Stream into a specified Collection.
-
-The Collector class provides different methods like toList(), toSet(), toMap(), and toConcurrentMap() to collect the result of Stream into List, Set, Map, and ConcurrentMap in Java.
-
-It also provides a special toCollection() method which can be used to collect Stream elements into a specified Collection like ArrayList, Vector, LinkedList, or HashSet.
-
-It's also a terminal operation which means after calling this method on Stream, you cannot call any other method on Stream.
-
-Btw, if you are new to Java or Java 8 world then I suggest you first join a comprehensive course like The Complete Java MasterClass instead of learning in bits and pieces. The course provides a more structured learning material that will teach you all Java fundamentals in a quick time. Once you understand them you can explore the topic you like by following blog posts and articles.
-
-### Java 8 Stream.collect() Examples
-In this article, we'll see a couple of examples of Stream's collect() method to collect the result of stream processing into a List, Set, and Map in Java. In other words, you can also say we'll convert a given Stream into List, Set, and Map in Java
-
-### 1. Stream to List using collect()
-This is the first example of using the Stream.collect() method where we will collect the result of the stream pipeline in a List. You can collect the result of a Stream processing pipeline in a list by using the Collectors.toList() method. Just pass the Collectors.toList() to collect() method as shown below:
-```java
-List<String> listOfStringStartsWithJ
- = listOfString
-     .stream()
-     .filter( s -> s.startsWith("J"))
-     .collect(Collectors.toList());
-```
-The list returned by the collect method will have all the String which starts with "J" in the same order they appear in the original list because both Stream and List keep elements in order. This is an important detail which you should know because you often need to process and collect elements in order.
-
-If you want to learn more about ordered and unordered collections I suggest you join Java Fundamentals: Collections course by Richard Warburton on Pluralsight. It's a specialized course on the Java Collection framework which is very important for any Java developer.
-
-## 3 Examples of Collect() method of Stream in Java 8
-
-### 2. Stream to Set using Collector.toSet() method
-This is the second example of the collect() method of Stream class where we will collect the result of the Stream pipeline into a Set. You can use Collectors.toSet() method along with collect() to accumulate elements of a Stream into a Set. 
-
-
-Since Set doesn't provide ordering and doesn't allow duplicate, any duplicate from Stream will be discarded and the order of elements will be lost.
-
-Here is an example to convert Stream to Set using collect() and Collectors in Java 8:
-
-### Java 8 - Stream.collect() Example
-
-The set of String in this example contains all the String which starts with the letter C like C and C++. The order will be lost and any duplicate will be removed. 
-
-
-Though, if you are new to functional programming in Java, I highly recommend you check out the  Learn Java Functional Programming with Lambdas and Stream course by Ranga Karnam on Udemy. It's a hands-on course to learn all stream and lambda concepts. 
-
-### 3. Stream to Map using toMap()
-You can create a Map from elements of Stream using collect() and Collectors.toMap() method. Since a Map like HashMap stores two objects i.e. key and value and Stream contains just one element, you need to provide the logic to extract the key and value objects from the Stream element.
-
-For example, if you have a Stream of String then you can create a Map where the key is String itself and the value is their length, as shown in the following example:
-
-```java
-Map<String, Integer> stringToLength 
-   = listOfString
-        .stream()
-        .collect(
-            Collectors.toMap(Function.identity(), String::length));
-```
-The Function.identity() used here denotes that the same object is used as a key. Though you need to be a little bit careful since Map doesn't allow duplicate keys if your Stream contains duplicate elements then this conversion will fail.
-
-In that case, you need to use another overloaded toMap() method also accepts an argument to resolve conflict in case of duplicate keys.  Also, toMap() doesn't provide any guarantee on what kind of Map is returned. This is another important detail you should remember.
-
-If you want to learn more about dealing with Collections and Stream I suggest you take a look at another Pluralsight gem, From Collections to Streams in Java 8 Using Lambda Expressions course.
-
-### How to use Collect() method of Stream in Java 8
-
-### 4. Stream to Collection using Collectors.toCollection()
-You can also collect or accumulate the result of Stream processing into a Collection of your choices like ArrayList, HashSet, or LinkedList. 
-
-There is also a toCollection() method in the Collectors class that allows you to convert Stream to any collection. In the following example, we will learn how to collect Stream elements into an ArrayList.
-
-```java
-ArrayList<String> stringWithLengthGreaterThanTwo 
-  = listOfString
-      .stream()
-      .filter( s -> s.length() > 2)
-      .collect(Collectors.toCollection(ArrayList::new));
-```
-Since ArrayList is a list, it provides an ordering guarantee, hence all the elements in the ArrayList will be in the same order they appear in the original List and Stream.
-
-If you find Javadoc boring then you can also join this best Java course, one of the most comprehensive Java courses on Udemy.
-
-
-### Java Program to Use Stream.collect() method
-
-Here is our complete Java program to demonstrate the use of the collect() method of Stream class to convert Stream into different Collection classes in Java, like List, Set, Map, and Collection itself.
-
-```java
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-
-public class Code {
-
-  public static void main(String[] args) {
-
-    List<String> listOfString = Arrays.asList("Java", "C", "C++", "Go",
-        "JavaScript", "Python", "Scala");
-    System.out.println("input list of String: " + listOfString);
-
-    // Example 1 - converting Stream to List using collect() method
-    List<String> listOfStringStartsWithJ
-                              = listOfString.stream()
-                                            .filter(s -> s.startsWith("J"))
-                                            .collect(Collectors.toList());
-
-    System.out.println("list of String starts with letter J: "
-        + listOfStringStartsWithJ);
-
-    // Example 2 - converting Stream to Set
-    Set<String> setOfStringStartsWithC 
-                      = listOfString.stream()
-                                    .filter(s -> s.startsWith("C"))
-                                    .collect(Collectors.toSet());
-
-    System.out.println("set of String starts with letter C: "
-        + setOfStringStartsWithC);
-
-    // Example 3 - converting Stream to Map
-    Map<String, Integer> stringToLength 
-                          = listOfString.stream()
-                                         .collect(Collectors
-                                                .toMap(Function.identity(),
-                                                          String::length));
-    System.out.println("map of string and their length: " + stringToLength);
-
-    // Example - Converting Stream to Collection e.g. ArrayList
-    ArrayList<String> stringWithLengthGreaterThanTwo
-                        = listOfString.stream()
-                                      .filter(s -> s.length() > 2)
-                                      .collect(Collectors.
-                                         toCollection(ArrayList::new));
-    System.out.println("collection of String with length greather than 2: "
-        + stringWithLengthGreaterThanTwo);
-
-  }
-}
-```
-```
-Output
-input list of String: 
-[Java, C, C++, Go, JavaScript, Python, Scala]
-list of String starts with letter J: 
-[Java, JavaScript]
-set of String starts with letter C: 
-[C++, C]
-map of string and their length: 
-{Java=4, C++=3, C=1, Scala=5, JavaScript=10, Go=2, Python=6}
-collection of String with length greather than 2: 
-[Java, C++, JavaScript, Python, Scala]
-```
-
-That's all about how to use the collect() method of Stream class in Java 8. Along with collect(), you can use the Collectors method to convert Stream to List, Set, Map, or any other Collection of your choice. Just explore the Collectors Javadoc to learn more about those methods.
-
-</details>
-<details>
-<summary><b>How to implement Comparator and Comparable in Java with Lambda Expression & method reference? Example</b></summary>
-
-
-Hello guys, After Java 8 it has become a lot easier to work with Comparator and Comparable classes in Java. You can implement a Comparator using lambda expression because it is a SAM type interface. It has just one abstract method compare() which means you can pass a lambda expression where a Comparator is expected. Many Java programmers often ask me, what is the best way to learn lambda expression of Java 8?  And, my answer is, of course by using it on your day to the day programming task. Since implementing equals(), hashcode(), compareTo(), and compare() methods are some of the most common tasks of a Java developer, it makes sense to learn how to use the lambda expression to implement Comparable and Comparator in Java.
-
-
-Though, some of you might have a doubt that, can we use lambda expression with Comparator? because it's an old interface and may not implement functional interface annotated with @FunctionalInterface annotation?
-
-The answer to that question is Yes, you can use a lambda expression to implement Comparator and Comparable interface in Java, and not just these two interfaces but to implement any interface, which has only one abstract method because those are known as SAM (Single Abstract Method) Type and lambda expression in Java supports that.
-
-That's why lambda expression in Java 8 is also known as SAM type, where SAM stands for Single Abstract Method. Though, you should also remember that from Java 8 interface can have non-abstract methods as well as default and static methods.
-
-This was one of the very intelligent decisions made by Java designers, which makes the lambdas even more useful. Because of this, you can use lambda expressions with Runnable, Callable, ActionListener, and several other existing interfaces from JDK API which has just one abstract method.
-
-You should also check out these Java Functional Programming courses to learn more about why lambda expression was introduced in Java and the benefits of using lambdas in Java code, particularly on the Java Collection framework.
-
-
-
-
-
-
-### The Comparator is a Functional Interface in Java 8
-By the way, you don't need to  worry in the case of Comparator, because it has been made to implement the @FunctionalInterface as shown below:
-
-```java
-@FunctionalInterfaces
-public interface Comparator<T> {
- ....
-}
-```
-This code snippet is from JDK 1.8, if you are using Netbeans you can open this class by typing Ctrl+O and if you are using Eclipse you open this class by using the Open type shortcut Ctrl+Shift+T. See here for more useful Eclipse shortcuts for Java Programmers.
-
-Even the Runnable interface is also annotated with @FunctionalInterface as seen below:
-
-
-```java
-@FunctionalInterface
-public interface Runnable {
-   .......
-}
-```
-but yes ActionListener is not annotated with @FunctionalInterface, but you can still use it in lambda expressions because it just got one abstract method called actionPerformed()
-```java
-public interface ActionListener extends EventListener {
-
-    /**
-     * Invoked when an action occurs.
-     */
-    public void actionPerformed(ActionEvent e);
-
-}
-```
-
-Earlier we have seen some hands-on examples of Java 8 Streams, here we will learn how to use lambda expression by implementing the Comparator interface in Java. This will make creating a custom Comparator very easy and reduce lots of boilerplate code.
-
-By the way, the From Collections to Streams in Java 8 Using the Lambda Expression course only covers lambda expression and streams, it doesn't cover all other Java 8 features e.g. new Date and Time API, new JavaScript engine, and other small enhancements like Base64 encoder-decoder and performance improvements.
-
-For other Java 8 changes, I suggest you check out these Java 8 tutorials and courses from Udemy and Pluralsight. It is a short and concise course but covers all major Java 8 features.
-
-
-
-.
-
-
-### How to Implement Comparator using Lambda Expression
-As I said before using lambdas to implement a Comparator is a good way to learn how lambda expression works in Java. Since lambda expression in Java is SAM type (Single Abstract Method) you can use it with any interface which got just one method like Comparator, Comparable, Runnable, Callable, ActionListener, and so on.
-
-Earlier we used to use the Anonymous class to implement these one method interfaces, mostly when we want to pass them to a method or just want to use them locally like creating a thread for some temporary task or handling the event.
-
-
-
-Now we can use a lambda expression to implement these methods, In these cases, lambdas work exactly like an anonymous class but without the heavy dose of boilerplate code required before as shown in the following diagram:
-
-
-### How to implement Comparator in Java 8 using lambdas
-
-Anyway, here is our Java program to implement Comparator using the lambda expression in Java 8:
-
-```java
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-/**
- * How to sort Objects in Java 8, by implementing Comparator using lambda
- * expression.
- *
- * @author WINDOWS 8
- *
- */
-public class ComparatorUsingLambdas{
-
-    public static void main(String args[]) {
-
-        // list of training courses, our target is to sort these courses
-        // based upon their price or title
-        List<TrainingCourses> onlineCourses = new ArrayList<>();
-        onlineCourses.add(new TrainingCourses("Java", new BigDecimal("200")));
-        onlineCourses.add(new TrainingCourses("Scala", new BigDecimal("300")));
-        onlineCourses.add(new TrainingCourses("Spring", new BigDecimal("250")));
-        onlineCourses.add(new TrainingCourses("NoSQL", new BigDecimal("310")));
-
-
-        // Creating Comparator to compare Price of training courses
-        final Comparator<TrainingCourses> PRICE_COMPARATOR 
-         = new Comparator<TrainingCourses>() {
-            @Override
-            public int compare(TrainingCourses t1, TrainingCourses t2) {
-                return t1.price().compareTo(t2.price());
-            }
-        };
-
-
-        // Comparator to compare title of courses
-        final Comparator<TrainingCourses> TITLE_COMPARATOR 
-         = new Comparator<TrainingCourses>() {
-            @Override
-            public int compare(TrainingCourses c1, TrainingCourses c2) {
-                return c1.title().compareTo(c2.title());
-            }
-        };
-
-
-        // sorting objects using Comparator by price
-        System.out.println("List of training courses, before sorting");
-        System.out.println(onlineCourses);
-        Collections.sort(onlineCourses, PRICE_COMPARATOR);
-       
-        System.out.println("After sorting by price, increasing order");
-        System.out.println(onlineCourses);
-        System.out.println("Sorting list by title ");      
-       Collections.sort(onlineCourses, TITLE_COMPARATOR);
-        System.out.println(onlineCourses);
-
-
-        // Now let's see how less code you need to write if you use
-        // lambda expression from Java 8, in place of anonymous class
-        // we don't need an extra line to declare comparator, we can
-        // provide them in place to sort() method.
-       
- 
-        System.out.println("Sorting objects in decreasing order of price, using lambdas");
-        Collections.sort(onlineCourses, (c1, c2) -> c2.price().compareTo(c1.price()));
-        System.out.println(onlineCourses);
-       
-        System.out.println("Sorting list in decreasing order of title, using lambdas");
-        Collections.sort(onlineCourses, (c1, c2) -> c2.title().compareTo(c1.title()));
-        System.out.println(onlineCourses);
-    }
-}
-
-class TrainingCourses {
-    private final String title;
-    private final BigDecimal price;
-
-    public TrainingCourses(String title, BigDecimal price) {
-        super();
-        this.title = title;
-        this.price = price;
-    }
-
-    public String title() {
-        return title;
-    }
-
-    public BigDecimal price() {
-        return price;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%s : %s", title, price);
-    }
-}
-```
-```
-Output:
-List of training courses, before sorting
-[Java : 200, Scala : 300, Spring : 250, NoSQL : 310]
-After sorting by price, increasing order
-[Java : 200, Spring : 250, Scala : 300, NoSQL : 310]
-Sorting list by title
-[Java : 200, NoSQL : 310, Scala : 300, Spring : 250]
-Sorting objects in decreasing order of price, using lambdas
-[NoSQL : 310, Scala : 300, Spring : 250, Java : 200]
-Sorting list in decreasing order of title, using lambdas
-[Spring : 250, Scala : 300, NoSQL : 310, Java : 200]
-```
-
-In this example, we have an object called the TrainingCourse, which represents a typical training course from institutes. For simplicity, it just got two attributes title and price, where the title is String and price is BigDecimal because float and double are not good for exact calculations.
-
-Now we have a list of training courses and our task is to sort based on their price or based upon their title. Ideally, TrainingCourse class should implement the Comparable interface and sort training courses by their title, i.e. their natural order.
-
-Anyway, we are not doing that here to focus purely on Comparator.
-
-To complete these tasks we need to create two custom Comparator implementations, one to sort TrainingCourse by title and the other to sort it by price.
-
-To show the stark difference in the number of lines of code you need to do this prior to Java 8 and in JDK 1.8, I have implemented that two Comparator first using Anonymous class and later using the lambda expression.
-
-You can see that by using lambdas implementing Comparator just take one line and you can even do that on method invocation, without sacrificing readability.
-
-This is the main reason, why you should use the lambda expression to implement Comparator, Runnable, Callable, or ActionListener post-Java 8, they make your code more readable and terse.
-
-For a complete Java 8 learning, I recommend The Complete Java MasterClass course on Udemy. It is also the most up-to-date course to learn Java.
-
-### Implement Comparator using Method References in Java 8
-
-By the way, you can even do better by leveraging new methods added on the Comparator interface in Java 8 and by using method references as shown below:
-
-### Java 8 Comparator example
-
-You can see that by using new methods in Comparator like comparing()  and method references, you can implement a Comparator in just one line after Java 8 version. I strongly recommend this style of code in the current Java word.
-
-That's all on how to implement a Comparator using Java 8 lambda expression. You can see it take very little code to create a custom Comparator using lambdas than an anonymous class. From Java 8 there is no point using anonymous class anymore, in fact, use lambdas wherever you used to use Anonymous class. 
-
-Make sure you implement SAM interfaces using lambdas like Runnable, Callable, ActionListener, etc.
-
-How to sort HashMap by values in Java 8 [using Lambdas and Stream] - Example Tutorial
-
-In the past, I have shown you how to sort a HashMap by values in Java, but that was using traditional techniques of the pre-Java 8 world. Now the time has changed and Java has evolved into a programming language that can also do functional programming. How can you, a Java Programmer take advantage of that fact to do your day-to-day task better like how do you sort a Map by values in Java using lambda expressions and Stream API. That's what you are going to learn in this article. It will serve two purposes, first, it will tell you a new way to sort a Map by values in Java, and, second and more important it will introduce you to essential Java 8 features like Lambda Expression and Streams, which every Java Programmer should learn.
-
-
-By the way, it's not just the lambda expression and stream which makes coding fun in Java 8, but also all the new API methods added into an existing interface like Comparator, Map.Entry makes day-to-day coding much easier.
-
-This evaluation of existing interfaces was possible by introducing the non-abstract method on interfaces like default methods and static methods.
-
-Because of this path-breaking feature, it's possible to add new methods into the existing Java interface and Java API designers have taken advantage to add much-needed methods on popular existing interfaces.
-
-One of the best examples of this is java.util.Comparator interface which has now got comparing() and thenComparing() methods to chain multiple comparators, making it easier to compare an object by multiple fields, which was very tedious and requires a lot of nesting prior to Java 8.
-
-The Map.Entry class, which is a nested static class of java.util.Map interface is also not behind, it has got two additional methods comparingByKey() and comparingByValue() which can be used to sort a Map by key and values. They can be used along with the sorted() method of Stream to sort a HashMap by values in Java.
-
-Btw, if you are new to the Java world then I suggest you start learning from Java 8 itself, no need to learn the old techniques of doing a common task like sorting a list or map, working with date and time, etc and if you need some help, you can also look at comprehensive online Java courses like The Complete Java MasterClass, which will not only teach you all this but much more. 
-
-
-
-
-### How to Sort a Map by values in Increasing order in Java
-You can sort a Map like a HashMap, LinkedHashMap, or TreeMap in Java 8 by using the sorted() method of java.util.stream.Stream class. This means accepts a Comparator, which can be used for sorting. If you want to sort by values then you can simply use the comparingByValue() method of the Map.Entry class. 
-
-This method is newly added in Java 8 to make it easier for sorting.
-```java
-ItemToPrice.entrySet()
-.stream()
-.sorted(Map.Entry.<String, Integer>comparingByValue())
-.forEach(System.out::println);
-```
-Btw, if you need a Map instead of just printing the value into the console, you can collect the result of the sorted stream using the collect() method of Stream and Collectors class of Java 8 as shown below:
-```java
-// now, let's collect the sorted entries in Map
-Map<String, Integer> sortedByPrice = ItemToPrice.entrySet()
-.stream()
-.sorted(Map.Entry.<String, Integer>comparingByValue())
-.collect(Collectors.toMap(e -> e.getKey(),e -> e.getValue()));
-```
-The Map returned by the previous statement was not sorted because the order was lost while collecting results in Map you need to use the LinkedHashMap to preserve the order
-```java
-Map<String, Integer> sortedByValue = ItemToPrice.entrySet()
-.stream()
-.sorted(Map.Entry.<String, Integer>comparingByValue())
-.collect(toMap(Map.Entry::getKey,
-               Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-```
-This is the right way to sort a Map by values in Java 8 because now the ordering will not be lost as Collector is using LinkedHashMap to store entries. This is also a good example of using constructor references in Java 8. You can read more about that in the Collections to Streams in Java 8 Using the Lambda Expressions course on Pluralsight, which provides an in-depth explanation of new Java 8 features.
-
-### How to sort HashMap by values in Java 8
-
-
-
-
-
-### Sorting a Map by values on decreasing Order in Java
-In order to sort a Map by values in decreasing order, we just need to pass a Comparator which sort it in the reverse order. You can use the reversed() method of java.util.Comparator purpose to reverse order of a Comparator. 
-
-
-This method is also newly added in the Comparator class in JDK 8.
-
-```java
-Map<String, Integer> sortedByValueDesc = ItemToPrice.entrySet()
-.stream()
-.sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
-.collect(toMap(Map.Entry::getKey, 
-               Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-```
-The key point here is the use of the reversed() method, the rest of the code is the same as the previous example. In the first step, you get the entry set from the Map, then you get the stream, then you sorted elements of the stream using the sorted() method, which needs a comparator.
-
-You supply a Comparator which compares by values and then reversed it so that entries will be ordered in the decreasing order. 
-
-
-Finally, you collected all elements into a Map and you asked Collector to use the LinkedHashMap by using constructor reference, which is similar to method reference in Java 8 but instead of using method name, it uses Class::new, that's it. If you are interested, you can learn about it in any good Java 8 book like Java 8 in Action by Raul Gabriela Ulma on Manning publication. 
-
-### Sort HashMap by values in Java 8 using Lambdas and Stream
-
-
-
-
-### Important points about HashMap and Map in Java
-Here are some of the important points to remember while sorting a Map by values in Java 8. These are very important for correctly sorting any HashMap or Hashtable as well:
-Use LinkedHashMap for collecting the result to keep the sorting intact.
-
-Use static import for better readability e.g. static import Map.Entry nested class.
-
-Use new comparingByKey() and comparingByValue() method from Map.Entry they were added in Java 8 to make sorting by key and value easier in Java.
- 
-Use reversed() method to sort the Map in descending order
-
-Use forEach() to print the Map
-
-Use Collectors to collect the result into a Map but always use LinkedHashMap because it maintains the insertion order. 
-You can learn more about lambda expression and method reference used in our example in a good Java 8 course like The Complete Java MasterClass on Udemy.
-
-### How to Sort Map by values in Java 8 using Lambdas and Stream - Example Tutorial
-
-
-
-
-### Java Program to Sort an HashMap by Values in JDK 8
-Here is our complete Java program to sort a HashMap by values in Java 8 using a lambda expression, method reference, and new methods introduced in JDK 8 like Map.Entry.comparingByValue() method, which makes it easier to sort the Map by values.
-```java
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package test;
-
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.stream.Collectors;
-import static java.util.stream.Collectors.*;
-
-/**
- *
- * @author Javin Paul
- */
-public class SortingMapByValueInJava8 {
-
-  /**
-   * @param args
-   * the command line arguments
-   */
-  public static void main(String[] args) {
-
-    // Creating a Map with electoric items and prices
-    Map<String, Integer> ItemToPrice = new HashMap<>();
-    ItemToPrice.put("Sony Braiva", 1000);
-    ItemToPrice.put("Apple iPhone 6S", 1200);
-    ItemToPrice.put("HP Laptop", 700);
-    ItemToPrice.put("Acer HD Monitor", 139);
-    ItemToPrice.put("Samsung Galaxy", 800);
-
-    System.out.println("unsorted Map: " + ItemToPrice);
-
-    // sorting Map by values in ascending order, price here
-    ItemToPrice.entrySet().stream()
-        .sorted(Map.Entry.<String, Integer> comparingByValue())
-        .forEach(System.out::println);
-
-    // now, let's collect the sorted entries in Map
-    Map<String, Integer> sortedByPrice = ItemToPrice.entrySet().stream()
-        .sorted(Map.Entry.<String, Integer> comparingByValue())
-        .collect(Collectors.toMap(e -> e.getKey(), e -> e.getValue()));
-
-    System.out.println("Map incorrectly sorted by value in ascending order: "
-        + sortedByPrice);
-
-    // the Map returned by the previous statement was not sorted
-    // because ordering was lost while collecting result in Map
-    // you need to use the LinkedHashMap to preserve the order
-
-    Map<String, Integer> sortedByValue = ItemToPrice
-        .entrySet()
-        .stream()
-        .sorted(Map.Entry.<String, Integer> comparingByValue())
-        .collect(
-            toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1,
-                LinkedHashMap::new));
-
-    System.out.println("Map sorted by value in increasing order: "
-        + sortedByValue);
-
-    // sorting a Map by values in descending order
-    // just reverse the comparator sorting by using reversed() method
-    Map<String, Integer> sortedByValueDesc = ItemToPrice
-        .entrySet()
-        .stream()
-        .sorted(Map.Entry.<String, Integer> comparingByValue().reversed())
-        .collect(
-            toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1,
-                LinkedHashMap::new));
-
-    System.out.println("Map sorted by value in descending order: "
-        + sortedByValueDesc);
-  }
-
-}
-```
-```
-Output
-unsorted Map: {Samsung Galaxy=800, HP Laptop=700, Sony Braiva=1000,
-               Acer HD Monitor=139, Apple iPhone 6S=1200}
-Acer HD Monitor=139
-HP Laptop=700
-Samsung Galaxy=800
-Sony Braiva=1000
-Apple iPhone 6S=1200
-Map incorrectly sorted by value in ascending order: 
-{Samsung Galaxy=800, HP Laptop=700, Sony Braiva=1000, 
-Acer HD Monitor=139, Apple iPhone 6S=1200}
-Map sorted by value in increasing order: 
-{Acer HD Monitor=139, HP Laptop=700, Samsung Galaxy=800, 
-Sony Braiva=1000, Apple iPhone 6S=1200}
-Map sorted by value in descending order: {Apple iPhone 6S=1200,
- Sony Braiva=1000, Samsung Galaxy=800, HP Laptop=700, Acer HD Monitor=139}
-```
-
-You can see that the map is sorted now by values, which are integers. In this first example, we have printed all entries in sorted order and that's why Acer HD Monitor comes first because it is least expensive, while Apple iPhone comes last because it is most expensive.
-
-In the second example, even though we sorted in the same way as before, the end result is not what you have expected because we failed to collect the result into a Map which keeps them in the order they were i.e. we should have used LinkedHashMap, which keeps entries in the order they were inserted.
-
-In the third and fourth examples, we rectified our mistake and collected the result of the sorted stream into a LinkedHashMap, hence we have entries in sorted order. In the last example, sort entries in descending order hence, Apple comes first and Acer comes last.
-
-Here is a one-liner in Java 8 to sort a HashMap by values:
-
-
-### How to Sort Map by values in Java 8 using Lambdas and Stream
-
-
-That's all about how to sort a Map by values in Java 8. you can use this technique to sort any Map implementations like HashMap, Hashtable, ConcurrentHashMap, TreeMap, etc. If you don't need to print the values or perform any operation, but you just need a sorted Map then make sure you use the collect() method to store sorted entries into another Map. 
-
-Also, when you use the Collector to collect elements from sorted Stream, make sure you use LinkedHashMap to collect the result, otherwise ordering will be lost.
-
-</details>
-<details>
-<summary><b>Java 8 StringJoiner Example - How to join multiple Strings with delimiter in Java?</b></summary>
-   
-While everyone was looking at the lambda expression and Stream API, JDK quietly sneaked some of the exciting methods on its API. There are a lot of hidden gems on JDK 8 and I have uncovered many of them already in this blog and today we'll talk about one of such gems which you can use in your day-to-day programming activities like joining much String together. The Java 8 has added a new class called StringJoiner to join Strings. The java.util.StringJoiner can be used to join any number of arbitrary String, a list of String, or an array of String in Java. You can choose any delimiter to join String like comma, pipe, colon, or semi-colon. This class also allows you to specify a prefix and suffix while joining two or more String in Java.
-
-In order to join Strings, you first create an instance of StringJoiner class. While creating the instance, you provide the delimiter, a String or character, which will be used between Strings while joining them like you can pass comma as a delimiter to create a comma-separated String or pipe to create a pipe-delimited String.
-
-In this article, you will see some examples of StringJoiner to learn how to join String in Java 8.
-
-Some of the readers may be curious why do you need a new StringJoiner class if you already have StringBuffer and StringBuilder classes to concatenate String, which is nothing but joining.
-
-Well, you can certainly use the StringBuffer and StringBuilder class to join String in Java and that's what Java developers do prior to Java 8
-
-But, StringJoiner provides a much cleaner and capable interface to join Strings. You don't need to write logic to start adding comma only after the first element and not to add after the last element, which Java programmers used to do while joining String in Java 6 or JDK 7.
-
-Though StringJoiner is just one of the hidden gems of the Java SE 8 release, there are many more day-to-day useful features that are hidden behind lambda expressions and streams like  CompletableFuture. You can further see these Java Functional Programming and Stream Courses to learn more about useful features like Lambda expression and Stream in a quick time.
-
-### How to join String by a comma in Java 8 - Example
-Let's see our first example, which will join String by a comma to create a CSV String in Java 8 using the StringJoiner class. In this example, we join arbitrary String like Java, C++, Python, and Ruby to form a comma-separated String.
-```java
-// Creating a StringJoiner with delimiter as comma
-StringJoiner joiner = new StringJoiner(",");
-joiner.add("Java");
-joiner.add("C++");
-joiner.add("Python");
-joiner.add("Ruby");
-
-String text = joiner.toString();
-System.out.println("comma separated String: " + text);
-```
-```
-Output
-comma separated String: Java,C++,Python,Ruby
-```
-You can see that StringJoiner has joined all String you have added to it. You don't need to loop through a list of String anymore.
-
-This code may look very similar to the code you may have written using StringBuffer but StringJoiner is very different from StringJoiner.
-
-In the case of StringBuffer or StringBuilder, you need to explicitly call the append(",") to join String by a comma but, here, once you tell StringJoiner about delimiter you are done.
-
-No need to call any function or write special logic, except adding String.
-
-You can further shorten the above code in one line because StringJoiner allows fluent API as shown below:
-```java
-String CSV = new StringJoiner(",").add("Scala")
-                                  .add("Haskell")
-                                  .add("Lisp").toString();
-System.out.println("CSV: " + CSV);
-```
-```
-Output
-CSV: Scala,Haskell,Lisp
-```
-You can see how you can join multiple String in just one line using StringJoiner and fluent API. If you are new to fluent API and interested in writing your own, you should check these Java design pattern courses on  Udemy which talk about a software architecture approach for creating readable, intuitive, and easy-to-understand code.
-
-### Java 8 StringJoiner Example - How to join multiple Strings with delimiter in Java
-
-You can also provide prefix and suffix String to StringJoiner which can be used to enclose String like by giving parenthesis as prefix and suffix you can enclose String as shown in our third example below:
-```java
-String text = new StringJoiner(",", "(", ")")
-                  .add("Car Insurance")
-                  .add("Health Insurance")
-                  .add("Life Insurance").toString();
-System.out.println("Insurance: " + text);
-```
-```         
-Output
-Insurance: (Car Insurance,Health Insurance,Life Insurance)
-```
-You can see in this example, we have enclosed the comma-separated String with an opening and closing braces by supplying them as prefix and suffix.
-
-One of the common use cases of this feature is dynamically generating IP address as shown in our fourth example below:
-
-```java
-String text = new StringJoiner(".", "[", "]")
-                .add("192")
-                .add("168")
-                .add("2")
-                .add("81").toString();
-System.out.println("IP address: " + text);
-```
-```
-Output
-IP address: [192.168.2.81]
-```
-You can see the nice and clean IP address generated by supplying opening and closing brackets as prefix and suffix and dot as a separator.  To be honest, these are just the tip of the iceberg in terms of both StringJoiner and Java 8 features.
-
-I suggest you look at a comprehensive Java course like The Complete Java MasterClass which covers almost everything about Java SE 8. This will allow you to get the full benefit of new API enhancement and Java 8 features in your day-to-day programming.
-
-### how to join String in Java with example
-
-
-
-That's all about how to use StringJoiner in Java 8 to Join multiple Strings. There is another alternative, you can use String.join() as well to join String. It internally uses StringJoiner for joining String but it's more versatile as it provides another overloaded version of String.join() to join elements from a String array or list of String.
-
-</details>
-
-==================================================================================
-
-In this example, we have a Stream of String values which represent numbers, by using the map() function we have converted this Stream to Stream of Integers. How? by applying Integer.valueOf() on each element of Stream. That's how "1" converted to integer 1 and so on. Once the transformation is done, we have collected the result into a List by converting Stream to List using Collectors.
-
-
-To find the second highest salary using Java 8 features such as `ArrayList` and `Map`, you can follow these steps. I'll provide a complete example that demonstrates how to achieve this using Java 8 streams.
-
-### Example Scenario
-Let's say you have a list of employees, where each employee is represented as a `Map` with `name` and `salary` keys. The goal is to find the second highest salary from this list.
-
-### Step-by-Step Solution
-
-1. **Create the Data**: Define a list of maps where each map contains an employee's details.
-
-2. **Extract Salaries**: Use streams to extract the salaries from the maps.
-
-3. **Find Distinct Salaries**: Collect the salaries into a `Set` to ensure there are no duplicates.
-
-4. **Sort and Get the Second Highest Salary**: Convert the set to a list, sort it, and fetch the second highest salary.
-
-Here’s a complete example in Java 8:
-
-```java
-import java.util.*;
-import java.util.stream.Collectors;
-
-public class SecondHighestSalaryExample {
-    public static void main(String[] args) {
-        // Step 1: Create a list of maps representing employees
-        List<Map<String, Object>> employees = new ArrayList<>();
-        
-        employees.add(createEmployee("Alice", 50000));
-        employees.add(createEmployee("Bob", 70000));
-        employees.add(createEmployee("Charlie", 60000));
-        employees.add(createEmployee("David", 70000));
-        employees.add(createEmployee("Eve", 55000));
-        
-        // Step 2: Extract salaries and find the second highest salary
-        Optional<Integer> secondHighestSalary = employees.stream()
-            .map(e -> (Integer) e.get("salary"))  // Extract salaries
-            .distinct()                           // Remove duplicates
-            .sorted(Comparator.reverseOrder())    // Sort in descending order
-            .skip(1)                              // Skip the highest salary
-            .findFirst();                         // Get the second highest salary
-        
-        // Step 3: Output the result
-        if (secondHighestSalary.isPresent()) {
-            System.out.println("The second highest salary is: " + secondHighestSalary.get());
-        } else {
-            System.out.println("There is no second highest salary.");
-        }
-    }
-
-    // Helper method to create an employee map
-    private static Map<String, Object> createEmployee(String name, int salary) {
-        Map<String, Object> employee = new HashMap<>();
-        employee.put("name", name);
-        employee.put("salary", salary);
-        return employee;
-    }
-}
-```
-
-### Explanation
-
-1. **Data Creation**: The `createEmployee` method is used to generate employee maps with a name and salary.
-
-2. **Stream Operations**:
-   - `map(e -> (Integer) e.get("salary"))`: Extracts the salary from each map.
-   - `distinct()`: Removes duplicate salaries.
-   - `sorted(Comparator.reverseOrder())`: Sorts salaries in descending order.
-   - `skip(1)`: Skips the highest salary.
-   - `findFirst()`: Retrieves the next salary, which is the second highest.
-
-3. **Result Handling**: Checks if the result is present and prints it. If no second highest salary is available (e.g., all salaries are the same), it will inform you accordingly.
-
-## Java 8 Lambda Expression + Stream Interview Questions with Answers
-
-Java Streams API is a powerful feature introduced in Java 8 that allows for functional-style operations on sequences of elements. Interview questions related to streams often test your ability to perform complex data manipulations using this API.
-
-### 1. What is lambda expression of Java 8? (answer)
-As it's name suggests its an expression which allows you to write more succinct code in Java 8. For example (a, b) -> a + b is a lambda expression (look for that arrow ->) which is equal to following code:
-```java
-public int value(int a, int b){
-   return a + b;
-}
-```
-It's also called anonymous function because you are essentially writing the code you write in function but without name. 
-
-### 2. Can you pass lambda expression to a method? When? (answer)
-Yes, you can pass a lambda expression to a method provided it is expecting a functional interface. For example, if a method is accepting a Runnable, Comparable or Comparator then you can pass a lambda expression to it because all these are functional interface in Java 8. 
-
-### 3. What is functional interface in Java 8? (answer)
-A functional interface in Java 8 is an interface with single abstract method. For example, Comparator which has just one abstract method called compare() or Runnable which has just one abstract method called run(). There are many more general purpose functional interface are introduced in JDK on java.util.function package. They are also annotated with @FunctionalInterface but that's optional.
-
-### 4. What is map operation in Java 8? (answer)
-The map operation is used to transform one type to another type but applying a function. For example, if you have list of integer number but you want a List of String then you can use map operation to convert that list of integer into list of String by applying toString() function on each element. It came from functional programming paradigm but now Java 8 also has this. 
-
-### 5. What is method reference? (answer)
-A method reference is shortcut of lambda expression. It further cutdown the boilerplate and make your code more readable. If you have a method which already does what you are doing in lambda expression then you can use method reference in place of lambda expression. For example, if you have a list of integer and your are just printing its values like below:
-```java
-list.forEach(i -> System.out.println(i));
-```
-then you can replace this lambda expression with method reference because System.out.println() already does this i.e. take an argument and prints it.
-
-here is the equivalent code using method reference:
-```java
-list.forEach(System.out::println);
-```
-Remember, double colon operator (::) is used for method reference in Java 8. 
-
-### 6. When can you replace lambda expression with method reference? (answer)
-As explained in previous question, you can replace lambda expression with method reference if you already have an equivalent method which is doing the job of your lambda expression. 
-
-### 7. Can you local variables inside lambda expressions in Java 8? (answer)
-Yes, you can use local variable inside lambda expression but only which are effectively final variables. This rule is same as the local variable used inside Anonymous class. If you remember, we can only use final local variables inside anonymous class. 
-
-### 8. What is effectively final variable in Java 8? (answer)
-This question is generally asked as the follow-up of previous question. An effectively final variable is a variable whose value cannot be changed once created. It's similar to final variable but without final modifier. 
-
-### 9. Can you name some common functional interface of JDK 8? (answer)
-Even though you can name Comparator, Comparable, Runnable, Callable, or EventListener as functional interface, it's better to name new functional interfaces from java.util.function pacakge like Predicate, Consumer, Supplier, or BinaryFunction. 
-
-### 10. What is type inference in lambda expression? (answer)
-Lambda expression supports improved type inference that's why you don't need to define types on both side of lambda operator (->). For example, in following lambda expression 
-```java
-(int a, int b) -> (return a+ b);
-```
-compiler will infer the return value will be an int. This is one of the simplest example, compiler is much more intelligent now to infer type s in more complex situations like below:
-```java
-List<String> carOwners = 
-cars.stream()
-.map(car -> car.getRegistration())
-.map(registration -> RTORecords.getOwner(registration))
-.map(owner -> owner.getName())
-.map(name -> name.toUpperCase())
-.collect(toList());
-```
-In this case, we have not specified that car is object of Car, registration is a String, owner is a Person and name is a String type, instead compiler has inferred it all based upon the information it has e.g. List of String is the result. 
-
-
-### 11. What is flatmap operation in Java? (answer)
-This is another functional programming operation which is now available in Java. It's close cousin of map function, which means it not only transforms but also flatten the list. For example, if you have list of list of Integers but you just need list of String then you can use flatmap to do that. You can see this Java Flatmap tutorial for a live example. 
-
-### 12. What is difference between map and flatmap in Java? (answer)
-As the name suggests, map function just transform one type to another like you can use map to transfer list of integer to list of String or vice-versa but flatmap not only transform but also flatten the list. This means if you list of list of employeeIds then you can create a big list of Employee object by transforming and flattening all those list. See the detailed answer for more detailed discussion and real world examples.
-
-### 13. What is difference between lambda expression and anonymous class in Java 8? (answer)
-Even though both lambda expression and anonymous class server the same purpose of passing code to a method there is a key difference between them from Java perspective. 
-
-An anonymous class is a class while lambda expression is more like anonymous function. You can also pass the Lambda expression to any method which accept a functional interface, I mean those interface which just have one single abstract method but you can pass anonymous class to any method which accept any class, there is no restriction on that. 
-
-Also, Anonymous class can implement more than one abstract method unlike Lambda expression which can only implement one single abstract method considering they can only be used in place where a Functional interface is expected. 
-
-On Implementation also, anonymous class generates a class file but lambda expression doesn't. You can further read Java 8 in Action to learn more about implementation of lambda expression in Java. 
-
-### 14. Can you write more than one line of code in lambda expression? (answer)
-Yes, you can write more than online of code in lambda expression using curly braces, similar to how you define static initializer block. 
-
-Here is an example of lambda expression which is longer than one line:
-```java
-(String first, String second) -> { 
-if(first.equals(second)){ 
-   return true; 
- }else{ 
-   return false; 
- } 
-};
-```
-One important thing to note in this case is the return statement, which is mandatory here, unlike one liner lambda where you can just omit them most of the time. 
-
-### 15. What is the benefit of lambda expression of Java 8? (answer)
-The main benefit of lambda expression in Java 8 that now it's easier to pass a code block to a method. Earlier, the only way to do this was wrapping the code inside an Anonymous class, which requires a lot of boilerplate code.
-
-Now, you can achieve the same effect in just a couple of line using lambda expression. This is in my opinion most important Java 8 interview question and if candidate can explain the benefit clearly, he understand Java 8 better than others. 
-
-### 16. Is it mandatory for a lambda expression to have parameters? (answer)
-No, it's not mandatory for a lambda expression to have parameters, you can define a lambda expression without parameters as shown below:
-```java
-() -> System.out.println("lambdas without parameter");
-```
-You can pass this code to any method which accepts a functional interface. 
-
-This example uses Java 8 features effectively to handle collections and perform operations in a functional style.
-
-## How to Convert a List to Map in Java 8 - Example Tutorial
-
-One of the common tasks in Java programming is to convert a list to a map and I have written about this in the past and today we'll see how Java 8 makes this task easier. Btw, be it Java 7 or Java 8, you need to keep something in mind while converting a list to a map because they are two different data structures and have completely different properties. For example, the List interface in Java allows duplicate elements but keys in a Map must be unique, the value can be duplicated but a duplicate key may cause a problem in Java 8. This means a List with duplicates cannot be directly converted into Map without handling the duplicate values properly. 
-
-Similarly, another concern is the order of elements. A list is an ordered collection but the map doesn't guarantee any order unless you decide to use LinkedHashMap, which keeps insertion order, or TreeMap which keeps mapping in the sorted order of keys. This is one of the important details which many Java beginners forget and then spend hours chasing subtle bugs.
-
-If your program has any dependency on the order of elements in the list they will not work as expected if you use a map. So, you should be mindful of these general details while converting a list to a map in Java. This is true irrespective of the Java version.
-
-Btw, if you are new to the Java world, I suggest you first go through a comprehensive course on Java-like The Complete Java Masterclass on Udemy. It not only provides organized and structure learning but also you will learn more in less time.  It's also one of the most up-to-date courses, recently updated for Java 11 features.
-
-Anyway, let's see the task at hand. Assume you have a list of courses and you want to create a map where keys should be the title of the course and value should be the course object itself. How will you do that?
-
-
-
-### How to convert List<V> into Map<K, V> in Java? Example
-It's easy in Java, all you need to do is go through the List, extract a key from each object and add both key and value into the map, but how will you do that in Java 8 style like by using lambda expression and streams?
-
-### How to Convert a List<V> to Map<K,V> in Java 8 - Example Tutorial
-
-
-
-We'll see that but let's first write the JDK 7 version to convert a List<V> into Map<K, V>:
-
-```java
-private Map<String, Course> toMap(List<Course> listOfCourses) {
-    final Map<String, Course> courses = new HashMap<>();
-    for (final Course current : listOfCourses) {
-      hashMap.put(current.getTitle(), current);
-    }
-    return courses;
-  }
-```
-This code is very simple and easy to read, let's now see the Java 8 version to find out whether Java 8 really makes your life easy when it comes to writing day to day code:
-```java
-Map<String, Course > result = listOfCourses
-                                 .stream()
-                                 .collect(
-                                 Collectors.toMap(Course::getTitle,
-                                                 Function.identity()));
-```
-Wow, it just took one line to convert a list of objects into a map, which had taken one function in JDK 7. So, it looks Java 8 really makes the developer's life easy.
-
-Anyway, let's try to understand what's going on here. Well, you have a listOfCourses, which is a List and then you called the stream() method which returns a Stream associated with that list. After that, you have called the collect() method which is used to accumulate elements from Stream.
-
-Since we are not doing any filtering there is no call to filter(), the collect() method then uses a Collector which can combine results in a map. All it needs is one method to extract the key, which is Course::getTitle, and one method to extract value which is Function.identity() i.e. the object itself.
-
-We have also used a method reference to shorten the key extractor. You can further see What's New in Java 8: Lambdas to learn more about how to convert lambda expression to a method reference.
-
-### How to convert List<V> into Map<K,V> in Java 8
-
-Btw, there is a catch here. The ordering of elements has been lost because Map doesn't guarantee any order. If you want to keep Courses in the same order they appeared in the List, we need to use a Map that provides ordering guarantees e.g. LinkedHashMap which keeps elements in the order they are inserted.
-
-We also need to tell this to Collector so that it will collect elements inside a LinkedHashMap rather than a general Map. Let's re-write the code to achieve that:
-
-```java
- Map<String, Course > result = listOfCourses
-        .stream()
-        .collect(
-        Collectors.toMap(Course::getTitle, 
-                         Function.identity(), 
-                         LinkedHashMap::new));
-```
-This looks good now. The order of elements in both List and Map are the same now, but there is still one more thing you need to take care of to keep this code full proof and pass the test of time.
-
-If you remember, List allows duplicates but if you try to insert a duplicate key in the Map it overrides the values, that would have been a nightmare in this case, but thankfully Java 8 protects you. Instead of silently overwriting a value in such condition, it throws an exception as shown below when it encountered a duplicate element in the source list (see Modern Java in Action )
-
-Though, you can resolve this error by just telling Collector how to resolve collision e.g. what to do when it encounters a duplicate key. It can do nothing and keep the original mapping or it can override and update the value. You can instruct the collector whatever you want by providing an extra parameter to the Collectors.toMap() method as shown in the following code:
-
-```java
-    Map<String, Course > result = listOfCourses
-        .stream()
-        .collect(
-        Collectors.toMap(Course::getTitle, 
-                         Function.identity(),
-                         (e1, e2) -> e2, 
-                         LinkedHashMap::new));
-```
-Here in case of a duplicate, we are using the second element as a key to generated LinkedHashMap. You can also choose the first object or just concatenate the first and second as per your need.
-
-
-That's all about how to convert a list of objects List<V> to a map of keys and values e.g. Map<K, V>. It's super easy in Java 8. All you need to know is how to use the collect() and Collector class of Stream API to do this task. 
-
-Though you should be mindful of the essential difference between List and Map data structure like one is ordered collection while the other is not. Transferring values from List to Map means you will lose the order if you don't preserve them like by using a LinkedHashMap.
-
-### Arrays Interview Questions
+  ### Arrays Interview Questions
 
 Java 8 introduced several new features and improvements that can be useful in interview scenarios. When it comes to arrays, interview questions often explore your understanding of how Java 8 features interact with arrays, as well as your knowledge of core Java array operations.
 
@@ -23039,6 +20439,2608 @@ public class KeyboardRow {
 
 These solutions cover a wide range of LeetCode problems. If you need more details on any specific problem or want additional problems solved, feel free to ask!
 Sure! Let's dive into two key management scenarios using Java 8 Streams: Employee Management and Student Management. For each scenario, I'll provide common tasks and demonstrate how to perform them using Java Streams.
+</details>
+<details>
+<summary><b>5. Spring Framework</b></summary>
+ 
+## Spring Framework
+- [Introduction](#introduction)
+- [Lifecycles](#class)
+
+## Spring Modules
+- [Modules](#polymorphism)
+
+## Spring Scopes 
+- [Scopes](#encapsulation)
+
+## Spring Dependecies Injections
+- [Dependecies Injections (DI) & Inversion Of Control (Ioc)](#inheritance)
+- [Types of Dependecies Injections](#inheritance)
+
+## Spring AOP
+- [Abstraction](#abstraction)
+- [Composition](#composition)
+ 
+## Spring Trsansactions
+- [Association](#association)
+- [Aggregation](#aggregation)
+  
+## Exercises & FAQ's
+- [Spring Framework Annotaions](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+
+## FAQ's
+- [Spring Framework Annotaions](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>6. Spring Boot Framework</b></summary>
+
+## Spring Boot Framework
+- [Introduction](#introduction)
+- [Lifecycles](#class)
+
+## Spring Modules
+- [Modules](#polymorphism)
+
+## Spring Scopes 
+- [Scopes](#encapsulation)
+
+## Spring Dependecies Injections
+- [Dependecies Injections (DI) & Inversion Of Control (Ioc)](#inheritance)
+- [Types of Dependecies Injections](#inheritance)
+
+## Spring AOP
+- [Abstraction](#abstraction)
+- [Composition](#composition)
+ 
+## Spring Trsansactions
+- [Association](#association)
+- [Aggregation](#aggregation)
+  
+## Exercises & FAQ's
+- [Spring Boot Framework Annotaions](#java-programming-questions-and-answers)
+- [Spring Boot Framework Questions and Answers](#java-programming-questions-and-answers)
+
+## FAQ's
+- [Spring Boot Framework Annotaions](#java-programming-questions-and-answers)
+- [Spring Boot Framework Questions and Answers](#java-programming-questions-and-answers)
+  
+</details>
+<details>
+<summary><b>7. Microservices</b></summary>
+
+<details>
+<summary><b>7. Microservices Design Patterns and Principles</b></summary>
+
+### **Microservices Design Patterns and Principles:**
+
+The essential Microservice design principle and patterns like Event Sourcing, Circuit Breaker, SAGA, CQRS, Strangler, Database per Microservices, Backend for Frontend (BFF), Service Discovery, and API Gateway and principles like Scalability, Flexibility, Resiliency, etc. When you developing an enterprise application, it is good to move with micro-services rather than move with a monolithic architecture. 
+
+While there are cases where you would like to go with monolithic architecture like for low latency applications, but in most cases where you want to run your Java application in the cloud, Microservice architecture offers a better solution.
+
+So let's have a quick look into what is microservices and it's use cases and design patterns for micro-services.
+
+### What is Microservice Architecture?
+The microservice architecture is structured on the business domain and it's a collection of small autonomous services. In a microservice architecture, all the components are self-contained and wrap up around a single business capability.
+
+Why do we need to consider the microservice architecture instead of using monolithic architecture? Below mentioned four main concepts that described the importance of microservice architecture over monolithic architecture.
+
+- 1. Visibility is high - MSA provides better visibility to your services.
+- 2. Improves resilience - Improves the resilience of our service network
+- 3. Production time reduced - Reduce the delivery time from idea to final product.
+- 4. Reduced cost - Reduce the overall cost of designing, implementing, and maintaining IT services.
+
+If you are a complete beginner and want to learn more about Microservice architecture then I highly recommend you to go through these Microservice architecture courses to start with, in particular Grokking Microservices Design Patterns on DesignGuru.io, one of the best course to learn about Microservices patterns
+
+![Setting the Scheme](images/microservices/microservices1.jpg)
+
+### 10 Essential Microservice Design Patterns and Principles
+Now that you know what is Microservice architecture and why you need to consider Microservice architecture to build applications that can stand the test of time and are scalable enough to handle real-world traffic, let's now go through the fundamental principle of Microservices and design pattern which you can use to solve common problem associate with microservice architecture. 
+
+Let's look at the principles in which the microservice architecture has been built.
+
+1. Scalability
+2. Flexibility
+3. Independent and autonomous
+4. Decentralized governance
+5. Resiliency
+6. Failure isolation.
+7. Continuous delivery through the DevOps
+
+while adhering to the above principles, there may have some other pitfalls that developers might befall and to avoid this, we can use the design patterns in a microservice architecture. 
+
+10 main design patterns which are mentioned below.
+
+1. [Database per Microservice](#database-per-microservice)
+2. [Event Sourcing](#event-sourcing)
+3. [CQRS](#cqrs)
+4. [Saga](#saga)
+5. [BFF](#bff)
+6. [API Gateway](#api-gateway)
+7. [Strangler](#strangler)
+8. [Circuit Breaker](#circuit-breaker)
+9. [Externalized Configuration](#externalized-configuration)
+10. [Consumer-Driven Contract Tracing](#consumer-driven-contract-tracing)
+
+So first start with the Database per Microservice design pattern.
+
+### Top 10 Microservices Design Patterns and Principles
+
+## Database per Microservice
+
+### 1. Database per Microservice Pattern
+Database design is rapidly evolving, and there are numerous hurdles to overcome while developing a microservices-based solution. Database architecture is one of the most important aspects of microservices. 
+
+What is the best way to store data and where should it be stored?
+
+There should are two main options for organizing the databases when using the microservice architecture. 
+
+  - Database per service
+  - Shared database
+
+### 1.1 Database per service.
+
+The concept is straightforward. There is a data store for each microservice (whole schema or a table). Other services are unable to access data repositories that they do not control. A solution like this has a lot of advantages.
+
+Individual data storage, on the other hand, is easy to scale. Furthermore, the microservice encapsulates the domain's data. As a result, understanding the service and its data as a whole is much easier. It's especially crucial for new development team members. 
+
+It will take them less time and effort to properly comprehend the area for which they are responsible. The main drawback of this database service is that there is a need for a failure protection mechanism in case the communication fails. 
+
+![Setting the Scheme](images/microservices/ppp.PNG)
+
+### 1.2 Shared Database
+The use of a shared database is an anti-pattern. It is, however, questionable. The issue is that when microservices use a shared database, they lose their key features of scalability, robustness, and independence. As a result, Microservices rarely employ a shared database.
+
+When a common database appears to be the best solution for a microservices project, we should reconsider if microservices are truly necessary. Perhaps the monolith is the better option. Let's have a look at how a shared database works.
+
+Using a shared database with microservices isn't a frequent scenario. A temporary state could be created while moving a monolith to microservices. Transaction management is the fundamental advantage of a shared database versus a per-service database. There's no need to spread transactions out across services.
+
+
+![Setting the Scheme](images/microservices/qqqqq.PNG)
+
+
+## Event Sourcing
+
+### 2. Event Sourcing Pattern
+The event sourcing is responsible for giving a new ordered sequence of events. The application state can be reconstructed using querying the data and in order to do this, we need to reimage every change to the state of the application. 
+
+Event Sourcing is based on the idea that any change in an entity's state should be captured by the system. 
+
+The persistence of a business item is accomplished by storing a series of state-changing events. A new event is added to the sequence of events every time an object's state changes. It's essentially atomic because it's one action. 
+
+**By replaying the occurrences of an entity, its current state can be reconstructed.**
+
+An event store is used to keep track of all of your events. The event store serves as a message broker as well as a database of events. It gives services the ability to subscribe to events via an API. 
+
+The event store sends all interested subscribers information about each event that is saved in the database. In an event-driven microservices architecture, the event store is the foundation.
+
+This pattern can be used in the following scenarios,
+It's important to keep the existing data storage.
+There should be no changes to the existing data layer codebase.
+Transactions are critical to the application's success.
+So as from the above discussion, it is clearly indicated that the event sourcing addresses a challenge of implementing an event-driven architecture. Microservices with shared databases can't easily scale. The database will also be a single point of failure. Changes to the database could have an influence on a number of services.
+
+![Setting the Scheme](images/microservices/BpTt6.png)
+
+## CQRS
+
+### 3. Command Query Segmentation (CQRS)  Pattern
+In the above, we have discussed what is event sourcing. In this topic, we are going to discuss what is CQRS? We can divide the topic into two parts with commands and queries.
+
+ Commands - Change the state of the object or entity.
+ Queries -  Return the state of the entity and will not change anything.
+
+In traditional data management systems, there are some issues,
+
+   1. Risk of data contention
+   2. Managing performance and security is complex as objects are exposed to both reading and writing applications.
+ 
+So in order to solve these problems, the CQRS pattern comes to the big picture. The CQRS is responsible for either change the state of the entity or return the result. 
+
+### benefits of using the CQRS are discussed below.
+   1. The complexity of the system is reduced as the query models and commands are separated.
+   2. Can provide multiple views for query purposes.
+   3. Can optimize the read side of the system separately from the write side. 
+
+The write side of the model handles the event's persistence and acting as a source of information to the read side. The system's read model generates materialized views of the data, which are often highly denormalized views.
+
+![Setting the Scheme](images/microservices/cqsr_pattern-e1560327720529.png)
+
+## SAGA
+
+### 4. SAGA
+SAGA is one of the best solutions to keep consistency with data in distributed architecture without having the ACID principles. SAGA is responsible for committing multiple commentary transactions by giving rollback opportunities.
+
+There are two ways to achieve the saga's
+
+- 1. Choreography
+- 2. Orchestration.
+In this choreography saga, there is no central orchestration. Each service in the Saga carries out its transaction and publishes events. The other services respond to those occurrences and carry out their tasks. In addition, depending on the scenario, they may or may not publish additional events.
+
+In the Orchestration saga, each service participating in the saga performs their transactions and publish events. The other services respond to those events and complete their tasks.
+
+- Advantage of using SAGA 
+1. Can be used to maintain the data consistency across multiple services without tight coupling.
+
+- The disadvantage of using SAGA
+1. Complexity of the SAGA design pattern is high from the programmer's point of view and developers are not well accustomed to writing sagas as traditional transactions.
+
+## Backend For Frontend (BFF)
+
+### 5. Backend For Frontend (BFF)
+
+This pattern is used to identify how the data is fetched between the server and clients. Ideally, the frontend team will be responsible for managing the BFF.
+
+A single BFF is responsible for handling the single UI and it will help us to keep the frontend simple and see a unified view data through the backend.
+
+### Why BFF needs in our microservice application?
+The goal of this architecture is to decouple the front-end apps from the backend architecture.
+As a scenario, think about you have an application that consists of the mobile app, web app and needs to communicate with the backend services in a microservices architecture. 
+
+This can be done successfully but if you want to make a change to one of the frontend services, you need to deploy a new version instead of stick to updating the one service.
+
+So here comes the microservice architecture and this is able to understand what our apps need and how to handle the services.
+
+This is a big improvement in microservice architecture as this allows to isolate the backend of the application from the frontend. One other advantage that we can get from this BFF is that we can reuse the code as this allows all clients to use the code from the backend. 
+
+Between the client and other external APIs, services, and so on, BFF functions similarly to a proxy server. If the request must pass through another component, the latency will undoubtedly increase.
+
+![Setting the Scheme](images/microservices/1_2BaGJecjJNBk0gGCUQJO2wdfdf.jpg)
+
+## API Gateway
+
+### 6. API Gateway
+This microservice architecture pattern is really good for large applications with multiple client apps and it is responsible for giving a single entry point for a certain group of microservices. 
+
+API gateway sits between the client apps and the microservices and it serves as a reverse proxy, forwarding client requests to services. Authentication, SSL termination, and caching are some of the other cross-cutting services it can provide.
+
+Why do we consider the API Gateway architecture instead of using direct client-to-microservice communication? We will discuss this with the following examples,
+   
+1. Security issues - All microservices must be exposed to the "external world" without a gateway, increasing the attack surface compared to hiding internal microservices that aren't directly accessed by client apps.
+ 
+2. Cross-cutting concerns - Authorization and SSL must be handled by each publicly published microservice. Those problems might be addressed in a single tier in many cases, reducing the number of internal microservices.
+
+3. Coupling - Client apps are tied to internal microservices without the API Gateway pattern. Client apps must understand how microservices decompose the application's various sections.
+
+Last but not least, the microservices API gateway must be capable of handling partial failures. The failure of a single unresponsive microservice should not result in the failure of the entire request.
+
+A microservices API gateway can deal with partial failures in a variety of ways, including:
+Use data from a previous request that has been cached.
+For time-sensitive data that is the request's major focus, return an error code.
+Provide an empty value
+Rely on hardware top 10 value.
+
+![Setting the Scheme](images/microservices/api_gateway_nginx.png)
+
+API Gateway
+
+## Strangler
+
+### 7. Strangler
+The strangler design pattern is a popular design pattern to incrementally transform your monolithic application to microservices by replacing old functionality with a new service.  Once the new component is ready, the old component is strangled and a new one is put to use.
+
+The facade interface, which serves as the primary interface between the legacy system and the other apps and systems that call it, is one of the most important components of the strangler pattern.
+
+External apps and systems will be able to identify the code associated with a certain function, while the underlying historical system code will be obscured by the facade interface. The strangler design addresses this by requiring developers to provide a façade interface that allows them to expose individual services and functions when they break them free from the monolith.
+
+You need to understand the quality and reliability of your system, whether you're working with legacy code, starting the process of "strangling" your old system, or running a newly containerized application. When anything goes wrong, you need to know how the system got there and why it went down that road.
+
+
+![Setting the Scheme](images/microservices/55555.jpg)
+
+Moving from Monolithic to microservice architecture stages.
+
+## Circuit Breaker Pattern
+
+### 8. Circuit Breaker Pattern
+The circuit breaker is the solution for the failure of remote calls or the hang without a response until some timeout limit is reached. You can run out of critical resources if you having many callers with an unresponsive supplier and this will lead to failure across the multiple systems in the applications.
+
+So here comes the circuit breaker pattern which is wrapping up a protected function call in a circuit breaker object which monitors for failure. 
+
+When the number of failures reaches a specific level, the circuit breaker trips, and all subsequent calls to the circuit breaker result in an error or a different service or default message, rather than the protected call being made at all.
+
+Different states in the circuit break pattern
+Closed - When everything works well according to the normal way, the circuit breaker remains in this closed state.
+
+Open -  When the number of failures in the system exceeds the maximum threshold, this will lead to open up the open state. This will give the error for calls without executing the function.
+
+Open -Half - After having run the system several times, the circuit breaker will go on to the half-open state in order to check the underlying problems are still exist. 
+
+Here, we will have an example code that is built using the Netflix hystrix.
+```java
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@RestController
+@SpringBootApplication
+public class StudentApplication {
+
+    @RequestMapping(value = "/student")
+    public String studentMethod(){
+        return "Calling the studentMethod";
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(StudentApplication.class, args);
+    }
+}
+```
+So the client application code will call the studentMethod() and if the calling API, /student is not given any response back in time, then there is an alternative method calling the fallback. It is mentioned in the below code.
+```java
+import java.net.URI;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
+@Service
+public class StudentService {
+
+    private final RestTemplate restTemplate;
+
+    public StudentService(RestTemplate rest) {
+        this.restTemplate = rest;
+    }
+
+    @HystrixCommand(fallbackMethod = "reliable")
+    public String studentMethodCalling() {
+        URI uri = URI.create("http://localhost:8000/student");
+        return this.restTemplate.getForObject(uri, String.class);
+    }
+
+    public String reliable() {
+        return "This is calling if the studentMethod is falling to respond on time";
+    }
+
+}
+```
+So you can use the circuit breaker pattern to improve the fault tolerance and resilience of the microservice architecture and also prevent the cascading of failure to other microservices.
+
+
+
+## Externalized Configuration
+
+### 9. Externalized Configuration
+Often services need to be run in different environments. Environment-specific configuration is required, such as secret keys, database credentials, and so on. Changing the service for each environment has a number of drawbacks. So how we can enable a service to run in multiple environments without modification?
+
+Here comes the Externalized configuration pattern as this enables the externalization of all application configurations including the database credentials and network location. 
+
+For example, the Spring Boot framework enables externalized configuration, which allows you to read configuration from many sources and potentially change previously specified configuration settings based on the reading order. 
+
+FastAPI, thankfully, has built-in support for externalized configuration.
+
+![Setting the Scheme](images/microservices/external-configuration-store-overview.png)
+
+Open up the ConfigServerApplication class and activate the discovery client and the configuration server by using the following annotation.
+```java
+@SpringBootApplication
+@EnableConfigServer
+@EnableDiscoveryClient
+public class ConfigServerApplication {
+
+}
+```
+Remove the application.properties file and create a new application.yml file with the following content.
+```yaml
+server.port: 8001
+
+spring:
+  application.name: config-server
+  cloud.config.server.git.uri: 
+   https://github.com/alejandro-du/vaadin-microservices-demo-config.git
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7001/eureka/
+    registryFetchIntervalSeconds: 1
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+
+```
+
+This sets the port (8001) and name (config-server) of the application, as well as the URI 
+Spring Cloud Config should use to read the configuration from. On GitHub, we have a Git 
+repository. The configuration files for all of the example application's microservices can 
+be found in this repository. The admin-applicationmicroservic uses the admin-application.yml 
+file, for example.
+
+## Consumer-Driven Contract Tracing
+
+### 10. Consumer-Driven Contract Tracing
+When a team is constructing multiple related services at the same time as part of a modernization effort, and your team knows the “domain language” of the bounded context but not the individual properties of each aggregate and event payload, the consumer driven contracts approach may be effective. 
+It ensures that Microservices can interact with each other correctly by focusing on contracts or agreements between clients and service providers.  
+In short, Consumer Driven Contract Tracing is an effective strategy for independent Microservice development and finding integration issues earlier. 
+
+![Setting the Scheme](images/microservices/1_s-ujrGQyZszBcSdY3PCybw.png)
+
+This microservice pattern is useful in legacy application which contains a large data model and existing service surface area. This design patterns will address the following issues,
+1. How can you add to an API without breaking downstream clients. 
+2. How to find out who is using their service.
+3. How to make short release cycles with the continuous delivery.
+
+In an event driven architecture, many microservices expose two kinds of API's, 
+ 1. RESTful API over HTTP 
+ 2. HTTP and a message-based API The RESTful API allows for synchronous integration with these services as well as extensive querying capabilities for services that have received events from a service. 
+In summary, a consumer-driven approach is sometimes used when breaking down a monolithic legacy
+application.
+
+</details>
+
+### **Questions & Answers:**
+
+<details>
+<summary style="color:blue;"><b>1. Can you explain the core principles of microservices architecture and how it differs from a monolithic architecture?</b></summary>
+
+**Answer:**
+Microservices architecture breaks down an application into small, independent services that are loosely coupled and can be developed, deployed, and scaled independently. Each service typically handles a specific business function and communicates with other services via APIs.
+
+**Key Differences from Monolithic Architecture:**
+- **Modularity:** Microservices are modular and can be developed and deployed independently, whereas monolithic applications are tightly coupled, making them harder to manage and scale.
+- **Scalability:** Microservices allow individual components to be scaled independently based on their needs, while in a monolithic architecture, scaling requires scaling the entire application.
+- **Development Speed:** Microservices enable teams to work on different services simultaneously, potentially speeding up development, while monolithic applications often require coordination across the whole codebase.
+- **Technology Diversity:** Different microservices can use different technologies and languages, whereas monolithic applications are usually built with a single technology stack.
+
+
+Certainly! Understanding the core principles of microservices architecture and how it differs from a monolithic architecture is crucial for building scalable and maintainable systems. Let’s break down these concepts and explore them with a real-time example.
+
+### Core Principles of Microservices Architecture
+
+1. **Single Responsibility Principle:**
+   - Each microservice is designed to perform a specific function or domain within the system. It focuses on a single responsibility, which makes it easier to understand, develop, test, and deploy.
+
+2. **Autonomy:**
+   - Microservices operate independently of one another. They can be developed, deployed, and scaled individually, which allows teams to work on different services simultaneously without affecting others.
+
+3. **Decentralized Data Management:**
+   - Each microservice manages its own data. This means that services are responsible for their own databases or storage mechanisms, leading to a more decentralized approach to data management.
+
+4. **Inter-Service Communication:**
+   - Microservices communicate with each other through APIs (usually HTTP/REST or gRPC) or messaging queues. This communication should be loosely coupled, meaning changes in one service should not drastically impact others.
+
+5. **Technology Agnosticism:**
+   - Microservices can be implemented using different technologies, languages, or frameworks as long as they adhere to the communication protocols and standards. This allows teams to choose the best tools for their specific needs.
+
+6. **Resilience and Fault Tolerance:**
+   - The architecture is designed to handle failures gracefully. If one microservice fails, it does not bring down the entire system. Mechanisms like circuit breakers, retries, and failover strategies are used to maintain system stability.
+
+7. **Scalability:**
+   - Microservices can be scaled independently based on demand. If a particular service experiences high load, it can be scaled without scaling the entire application.
+
+8. **Continuous Deployment:**
+   - Microservices support continuous integration and continuous deployment (CI/CD) practices, enabling frequent and reliable releases of new features or fixes.
+
+### Differences from Monolithic Architecture
+
+**1. **Structure:**
+   - **Monolithic Architecture:** All components of the application are tightly integrated and run as a single unit. Typically, a monolithic application is built as a single executable or deployment package.
+   - **Microservices Architecture:** The application is divided into multiple small, independent services. Each service is developed, deployed, and scaled separately.
+
+**2. **Development:**
+   - **Monolithic Architecture:** Development is often done in a single codebase, which can become complex and difficult to manage as the application grows.
+   - **Microservices Architecture:** Each microservice has its own codebase and repository, making it easier to manage and deploy changes independently.
+
+**3. **Deployment:**
+   - **Monolithic Architecture:** The entire application must be deployed at once. Any change requires redeploying the entire system.
+   - **Microservices Architecture:** Individual services can be deployed independently. This allows for more frequent and smaller updates.
+
+**4. **Scaling:**
+   - **Monolithic Architecture:** Scaling requires scaling the entire application, even if only a specific part of it needs more resources.
+   - **Microservices Architecture:** Services can be scaled independently based on their specific needs, optimizing resource utilization.
+
+**5. **Fault Isolation:**
+   - **Monolithic Architecture:** A failure in one part of the application can potentially bring down the entire system.
+   - **Microservices Architecture:** Failures are isolated to individual services. Other services can continue to function even if one service fails.
+
+**6. **Technology Stack:**
+   - **Monolithic Architecture:** The entire application typically uses a single technology stack.
+   - **Microservices Architecture:** Different services can use different technologies and frameworks, chosen based on their specific requirements.
+
+### Real-Time Example: E-Commerce Platform
+
+**Monolithic Architecture Example:**
+
+In a traditional monolithic e-commerce application, the system might have a single codebase handling user authentication, product management, order processing, payment, and inventory management. This monolithic application is deployed as one unit, and scaling requires replicating the entire application. If a bug occurs in the payment module, it could potentially affect the entire application.
+
+**Microservices Architecture Example:**
+
+In a microservices-based e-commerce platform, the system is broken down into multiple services:
+
+1. **User Service:** Manages user authentication and profile information.
+2. **Product Service:** Handles product listings, details, and catalog management.
+3. **Order Service:** Manages order creation, processing, and status.
+4. **Payment Service:** Handles payment processing and transactions.
+5. **Inventory Service:** Manages stock levels and inventory.
+
+Each service communicates via APIs or messaging queues. If the payment service experiences high load, it can be scaled independently of other services. If a bug is found in the order service, only that service needs to be updated or redeployed, without affecting the rest of the system. Additionally, different services can use different technology stacks suited to their specific needs.
+
+### Summary
+
+- **Microservices Architecture:** Breaks down the application into smaller, independent services that can be developed, deployed, and scaled independently. It supports resilience, scalability, and technology diversity but requires careful management of inter-service communication and data consistency.
+  
+- **Monolithic Architecture:** Uses a single codebase and deployment unit, making it simpler to develop and deploy initially but harder to scale, update, and manage as the application grows.
+
+By adopting microservices, organizations can improve their ability to innovate quickly, handle complex applications more effectively, and maintain higher levels of system availability and performance.
+
+---
+</details>
+<details>
+<summary><b>2. Describe your experience with creating a streaming data pipeline using Kafka. What are the key considerations when designing such a pipeline?</b></summary>
+
+**Answer:**
+In my experience with Kafka, I've implemented streaming data pipelines that handle real-time data ingestion, processing, and delivery. The key considerations for designing a Kafka-based streaming data pipeline include:
+
+- **Topic Design:** Properly design topics based on data types and consumer needs to ensure efficient data processing and retrieval.
+- **Partitioning:** Use partitioning to enable parallel processing and ensure high throughput. The number of partitions should be based on the volume of data and the need for parallelism.
+- **Replication:** Configure replication to ensure fault tolerance and high availability. Ensure that replication factors are set to meet the desired level of durability.
+- **Consumer Groups:** Use consumer groups to distribute the workload and achieve horizontal scaling. Ensure proper handling of offsets to avoid data loss or duplication.
+- **Data Schema:** Implement a consistent schema for data to ensure compatibility and ease of processing across different services.
+- **Error Handling:** Design mechanisms for handling errors and retries to ensure reliability and robustness of the pipeline.
+
+
+Creating a streaming data pipeline using Apache Kafka involves several key steps and considerations to ensure it meets the needs of your application. Below, I'll describe my experience and highlight the key considerations when designing a Kafka-based streaming data pipeline.
+
+### Experience with Creating a Streaming Data Pipeline Using Kafka
+
+**1. **Understanding Requirements:**
+   - **Problem Definition:** Determine the problem you are solving with streaming data, such as real-time analytics, monitoring, or event-driven architecture.
+   - **Data Sources:** Identify and assess the sources of streaming data (e.g., logs, sensors, transactions).
+
+**2. **Designing the Pipeline:**
+   - **Kafka Topics:** Define Kafka topics based on the logical data boundaries. For example, separate topics for different types of events or logs.
+   - **Data Producers:** Implement producers that push data into Kafka topics. These could be applications, data ingestion services, or other data sources.
+   - **Data Consumers:** Develop consumers that read from Kafka topics and process the data. This might involve analytics, transformation, or further distribution.
+
+**3. **Implementing Producers:**
+   - **Producer Configuration:** Configure producers with proper settings for batching, retries, and acknowledgments to balance performance and reliability.
+   - **Serialization:** Choose appropriate serialization formats (e.g., JSON, Avro, Protobuf) and implement serialization logic.
+
+**4. **Implementing Consumers:**
+   - **Consumer Configuration:** Configure consumers for appropriate settings related to offset management, auto-commit, and concurrency.
+   - **Deserialization:** Implement deserialization logic to convert messages from Kafka into application-specific formats.
+
+**5. **Processing Streams:**
+   - **Stream Processing Frameworks:** Use frameworks like Kafka Streams or Apache Flink for complex transformations and aggregations.
+   - **Stateless vs. Stateful Processing:** Determine whether processing needs to maintain state (e.g., maintaining a count of events) or can be stateless.
+
+**6. **Monitoring and Management:**
+   - **Monitoring Tools:** Use tools like Confluent Control Center, Prometheus, and Grafana to monitor Kafka metrics, consumer lag, and throughput.
+   - **Error Handling:** Implement robust error handling and alerting mechanisms to handle issues like message reprocessing, failed transformations, or system downtime.
+
+**7. **Scaling and Optimization:**
+   - **Partitioning:** Design topics with an appropriate number of partitions to handle the volume of data and ensure load balancing.
+   - **Replication:** Configure replication to ensure data durability and high availability.
+   - **Resource Allocation:** Allocate adequate resources for Kafka brokers, Zookeeper nodes, and other components to handle expected workloads.
+
+**8. **Security and Compliance:**
+   - **Authentication and Authorization:** Implement security measures such as SASL/SSL for authentication and access control lists (ACLs) for authorization.
+   - **Data Encryption:** Ensure data is encrypted both in transit and at rest to meet compliance requirements.
+
+### Key Considerations When Designing a Kafka-based Streaming Data Pipeline
+
+1. **Data Volume and Velocity:**
+   - **Throughput Requirements:** Estimate the volume of data and message rate to design appropriate Kafka cluster capacity and configurations.
+   - **Latency:** Ensure the pipeline meets latency requirements for real-time or near-real-time processing.
+
+2. **Fault Tolerance and Reliability:**
+   - **Replication Factor:** Configure an appropriate replication factor to ensure data is replicated across multiple brokers for fault tolerance.
+   - **Consumer Offsets:** Implement reliable offset management to ensure no data is lost or processed multiple times.
+
+3. **Scalability:**
+   - **Partitioning Strategy:** Design topics with a sufficient number of partitions to distribute load and improve parallelism.
+   - **Dynamic Scaling:** Consider how the pipeline can scale dynamically in response to changing data volumes.
+
+4. **Schema Evolution:**
+   - **Data Formats:** Use schema registry tools to manage and evolve data schemas over time, ensuring backward and forward compatibility.
+   - **Versioning:** Implement versioning strategies for schema changes to avoid data processing issues.
+
+5. **Performance Optimization:**
+   - **Batching and Compression:** Use batching and compression techniques to optimize network and storage usage.
+   - **Consumer Tuning:** Fine-tune consumer configurations such as fetch sizes, number of threads, and commit intervals.
+
+6. **Operational Management:**
+   - **Monitoring:** Set up comprehensive monitoring and alerting to track Kafka performance metrics and operational health.
+   - **Logging:** Ensure detailed logging for both producers and consumers to facilitate debugging and performance tuning.
+
+7. **Security:**
+   - **Access Controls:** Implement strict access controls and encryption to secure data in transit and at rest.
+   - **Audit Logs:** Maintain audit logs for tracking access and changes to Kafka topics and configurations.
+
+### Example Scenario
+
+Suppose you are building a streaming data pipeline for a real-time fraud detection system in a financial application:
+
+1. **Data Sources:** Transaction data from multiple financial systems.
+2. **Topics:** Separate Kafka topics for transaction events, fraud alerts, and transaction metadata.
+3. **Producers:** Financial systems send transaction data to Kafka topics.
+4. **Consumers:** A fraud detection service processes transactions to detect anomalies and generates alerts.
+5. **Processing:** Use Kafka Streams to apply real-time fraud detection algorithms and enrich transaction data.
+6. **Monitoring:** Use Prometheus and Grafana to monitor Kafka metrics and system health.
+7. **Scaling:** Configure topics with multiple partitions and scale Kafka brokers as needed.
+
+By carefully designing and managing each component of the Kafka-based streaming data pipeline, you can build a robust, scalable, and efficient system to handle real-time data processing needs.
+
+---
+
+</details>
+<details>
+<summary><b>3. How do you implement and manage CI/CD pipelines in your projects? What tools and practices do you use?</b></summary>
+   
+**Answer:**
+In my projects, I implement CI/CD pipelines to automate the build, test, and deployment processes. The tools and practices I use include:
+
+- **CI/CD Tools:** Jenkins, GitLab CI, or GitHub Actions for orchestrating the CI/CD processes.
+- **Version Control Integration:** Integrate with version control systems (e.g., Git) to trigger builds on code commits.
+- **Automated Testing:** Incorporate unit, integration, and end-to-end tests to ensure code quality before deployment.
+- **Build Automation:** Use build tools like Maven or Gradle to automate the build process.
+- **Deployment Automation:** Deploy applications using tools like Docker, Kubernetes, or cloud-native solutions such as AWS CodeDeploy.
+- **Configuration Management:** Use configuration management tools like Ansible or Terraform for environment setup and management.
+- **Monitoring and Alerts:** Implement monitoring and alerting to track the health of deployments and quickly address issues.
+
+---
+
+</details>
+<details>
+<summary><b>4. Explain the key concepts of Spring Boot and how it facilitates microservices development.</b></summary>
+   
+**Answer:**
+Spring Boot simplifies the development of Spring-based applications by providing:
+
+- **Auto-Configuration:** Automatically configures Spring application context based on the dependencies in the classpath, reducing boilerplate configuration.
+- **Standalone Applications:** Allows creating standalone applications that can be run independently with an embedded server (e.g., Tomcat, Jetty).
+- **Production-Ready Features:** Provides features such as health checks, metrics, and application monitoring out-of-the-box.
+- **Spring Initializr:** A web-based tool to generate Spring Boot projects with pre-configured dependencies.
+- **Microservices Support:** Facilitates the development of microservices with support for building RESTful APIs, integrating with databases, and configuring service discovery and load balancing (e.g., via Spring Cloud).
+
+---
+
+</details>
+<details>
+<summary><b>5. Can you discuss your approach to handling multi-threading and concurrency issues in Java applications?</b></summary>
+   
+**Answer:**
+Handling multi-threading and concurrency in Java involves understanding and using various concurrency utilities provided by the Java standard library. My approach includes:
+
+- **Using Concurrent Collections:** Utilize thread-safe collections like `ConcurrentHashMap` and `CopyOnWriteArrayList` to manage shared data.
+- **Executor Framework:** Use `ExecutorService` to manage and control thread pools and task execution, avoiding manual thread management.
+- **Synchronization:** Apply synchronization techniques (e.g., `synchronized` blocks or methods) to protect shared resources and avoid race conditions.
+- **Locks and Conditions:** Use `ReentrantLock` and `Condition` objects for more fine-grained control over thread synchronization compared to synchronized blocks.
+- **Avoiding Deadlocks:** Be cautious of potential deadlocks by ensuring proper ordering of lock acquisitions and avoiding nested locks.
+- **Atomic Operations:** Use `AtomicInteger`, `AtomicLong`, and other atomic classes to perform lock-free thread-safe operations on single variables.
+
+Avoiding deadlocks is crucial in concurrent programming to ensure that your application remains responsive and performs well. Deadlocks occur when two or more threads are each waiting for resources held by the other threads, causing all of them to be stuck indefinitely. Here are strategies and techniques to help avoid deadlocks:
+
+### 1. **Avoid Nested Locks**
+
+**Problem:** Nested locks (locking a resource while holding another lock) can easily lead to deadlocks if not managed carefully.
+
+**Solution:** Try to avoid acquiring multiple locks simultaneously. If you must use multiple locks, ensure that all threads acquire them in the same global order. This ordering can prevent cyclic dependencies.
+
+**Example:**
+
+```java
+public class DeadlockAvoidance {
+    private final Object lock1 = new Object();
+    private final Object lock2 = new Object();
+
+    public void method1() {
+        synchronized (lock1) {
+            // Critical section for lock1
+            synchronized (lock2) {
+                // Critical section for lock2
+            }
+        }
+    }
+
+    public void method2() {
+        synchronized (lock1) {
+            // Critical section for lock1
+            synchronized (lock2) {
+                // Critical section for lock2
+            }
+        }
+    }
+}
+```
+
+### 2. **Use Try-Lock with Timeout**
+
+**Problem:** Traditional locking mechanisms don't have a timeout, which means threads can be blocked indefinitely.
+
+**Solution:** Use a `tryLock` with a timeout (available in `java.util.concurrent.locks.Lock`) to attempt to acquire the lock within a given time frame. If the lock cannot be acquired in time, the thread can perform other tasks or retry.
+
+**Example:**
+
+```java
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.TimeUnit;
+
+public class TryLockExample {
+    private final Lock lock1 = new ReentrantLock();
+    private final Lock lock2 = new ReentrantLock();
+
+    public void method() {
+        try {
+            if (lock1.tryLock(1000, TimeUnit.MILLISECONDS)) {
+                try {
+                    if (lock2.tryLock(1000, TimeUnit.MILLISECONDS)) {
+                        try {
+                            // Critical section
+                        } finally {
+                            lock2.unlock();
+                        }
+                    }
+                } finally {
+                    lock1.unlock();
+                }
+            }
+        } catch (InterruptedException e) {
+            // Handle interruption
+        }
+    }
+}
+```
+
+### 3. **Use Lock Ordering**
+
+**Problem:** Deadlocks can occur when locks are acquired in different orders.
+
+**Solution:** Always acquire locks in a consistent order. Define a global ordering for locks and ensure that every thread acquires them in this order.
+
+**Example:**
+
+```java
+public class LockOrdering {
+    private final Object lock1 = new Object();
+    private final Object lock2 = new Object();
+
+    private void acquireLocks() {
+        synchronized (lock1) {
+            synchronized (lock2) {
+                // Critical section
+            }
+        }
+    }
+
+    private void method1() {
+        acquireLocks();
+    }
+
+    private void method2() {
+        acquireLocks();
+    }
+}
+```
+
+### 4. **Use Higher-Level Concurrency Utilities**
+
+**Problem:** Low-level locking mechanisms are more prone to deadlock issues.
+
+**Solution:** Use higher-level concurrency utilities from `java.util.concurrent` package like `ExecutorService`, `Semaphore`, `CountDownLatch`, or `CyclicBarrier` that manage synchronization for you and can help avoid deadlocks.
+
+**Example:**
+
+```java
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class ConcurrencyUtilities {
+    private final ExecutorService executor = Executors.newFixedThreadPool(2);
+
+    public void executeTasks() {
+        executor.submit(() -> {
+            // Task 1
+        });
+        executor.submit(() -> {
+            // Task 2
+        });
+    }
+}
+```
+
+### 5. **Use Immutable Objects**
+
+**Problem:** Mutable objects can be shared and modified by multiple threads, increasing the risk of deadlocks.
+
+**Solution:** Use immutable objects where possible. Immutable objects are inherently thread-safe and don't require synchronization.
+
+**Example:**
+
+```java
+public final class ImmutableClass {
+    private final int value;
+
+    public ImmutableClass(int value) {
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }
+}
+```
+
+### 6. **Detect Deadlocks**
+
+**Problem:** If deadlocks occur, it is essential to detect them to understand and resolve the issue.
+
+**Solution:** Use tools and techniques to detect deadlocks. For Java, you can use JVisualVM, JConsole, or other profiling tools to detect deadlocks. The JVM also provides options to detect and log deadlocks.
+
+**Example:**
+
+To detect deadlocks programmatically:
+
+```java
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadMXBean;
+import java.lang.management.ThreadInfo;
+
+public class DeadlockDetector {
+    public static void main(String[] args) {
+        ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
+        long[] deadlockedThreads = threadMXBean.findDeadlockedThreads();
+
+        if (deadlockedThreads != null) {
+            ThreadInfo[] threadInfos = threadMXBean.getThreadInfo(deadlockedThreads);
+            for (ThreadInfo threadInfo : threadInfos) {
+                System.out.println("Deadlocked Thread: " + threadInfo.getThreadName());
+            }
+        } else {
+            System.out.println("No deadlocked threads detected.");
+        }
+    }
+}
+```
+
+### Summary
+
+1. **Avoid Nested Locks**: Minimize the use of nested locks and ensure locks are acquired in a consistent global order.
+2. **Use Try-Lock with Timeout**: Apply `tryLock` with a timeout to avoid indefinite blocking.
+3. **Use Lock Ordering**: Always acquire locks in a predetermined order.
+4. **Use Higher-Level Concurrency Utilities**: Leverage utilities like `ExecutorService` to manage synchronization.
+5. **Use Immutable Objects**: Prefer immutable objects to reduce the need for synchronization.
+6. **Detect Deadlocks**: Use tools and JVM features to detect and analyze deadlocks.
+
+Applying these strategies can help you design and implement concurrent systems that are less prone to deadlocks and more robust overall.
+
+---
+
+</details>
+<details>
+<summary><b>6. What are some best practices for designing RESTful APIs, and how do you ensure that they are both effective and efficient?</b></summary>
+   
+**Answer:**
+Best practices for designing RESTful APIs include:
+
+- **Resource-Oriented Design:** Focus on resources (e.g., `/users`, `/orders`) and use HTTP methods (GET, POST, PUT, DELETE) to represent actions on these resources.
+- **Statelessness:** Ensure that each API request contains all necessary information for processing, and avoid maintaining server-side state between requests.
+- **Use of HTTP Status Codes:** Return appropriate HTTP status codes to indicate the result of the request (e.g., 200 OK, 201 Created, 404 Not Found).
+- **Versioning:** Include versioning in the API (e.g., `/api/v1/resources`) to handle changes and backward compatibility.
+- **Pagination and Filtering:** Implement pagination and filtering for endpoints that return large datasets to improve performance and usability.
+- **Documentation:** Provide clear and comprehensive API documentation (e.g., using Swagger/OpenAPI) to help consumers understand and use the API effectively.
+- **Security:** Implement security measures such as authentication (OAuth, JWT) and authorization to protect sensitive data and operations.
+
+---
+
+</details>
+<details>
+<summary><b>7. How do you approach performance tuning in a Java application? What tools and techniques do you use?</b></summary>
+   
+**Answer:**
+Performance tuning in Java involves identifying and resolving performance bottlenecks. My approach includes:
+
+- **Profiling:** Use profiling tools (e.g., VisualVM, JProfiler) to identify performance issues and hotspots in the code.
+- **Heap Dump Analysis:** Analyze heap dumps to detect memory leaks and inefficient memory usage using tools like Eclipse MAT.
+- **Monitoring:** Implement application monitoring and logging (e.g., using ELK stack) to track performance metrics and identify anomalies.
+- **Code Optimization:** Refactor code to improve efficiency, reduce complexity, and optimize algorithms and data structures.
+- **Concurrency Optimization:** Tune thread pool sizes and use concurrent data structures to improve multi-threading performance.
+- **Caching:** Implement caching strategies (e.g., using Ehcache, Redis) to reduce redundant computations and database access.
+
+---
+
+</details>
+<details>
+<summary><b>8. Describe your experience with Agile development and Scrum. How do you ensure successful implementation in a team?</b></summary>
+
+**Answer:**
+My experience with Agile and Scrum includes:
+
+- **Sprint Planning:** Participate in sprint planning meetings to define and prioritize user stories and tasks for the upcoming sprint.
+- **Daily Stand-ups:** Facilitate or attend daily stand-ups to track progress, address roadblocks, and ensure team alignment.
+- **Retrospectives:** Conduct retrospectives at the end of each sprint to review performance, discuss what went well, and identify areas for improvement.
+- **Backlog Management:** Maintain and refine the product backlog to ensure that it reflects current priorities and project needs.
+- **Collaboration:** Foster a collaborative environment where team members can share knowledge, work together, and address challenges proactively.
+
+---
+
+</details>
+<details>
+<summary><b>9. Can you provide an example of a challenging problem you solved in a distributed system?</b></summary>
+
+**Answer:**
+One challenging problem I encountered was managing data consistency in a distributed microservices architecture. We had multiple services that needed to update shared data while ensuring eventual consistency.
+
+**Solution:**
+- **Event Sourcing:** Implemented an event sourcing pattern where changes to the system state were stored as a sequence of events, allowing us to reconstruct the state if needed.
+- **CQRS:** Used Command Query Responsibility Segregation (CQRS) to separate read and write operations, improving performance and consistency.
+- **Distributed Transactions:** Implemented the Saga pattern to manage distributed transactions across microservices, ensuring that each service could participate in a long-running transaction with compensating actions for rollback.
+- **Monitoring and Alerts:** Set up monitoring and alerts to detect and respond to inconsistencies or failures in real-time.
+
+---
+</details>
+
+
+These questions and answers should help prepare for an interview for a Lead Java Engineer position, covering core technical skills and practical experience relevant to the role.
+</details>
+<details>
+<summary><b>8. Hibernate</b></summary>
+
+ ## Hibernate
+- [Java Programming Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>9. Kafka</b></summary>
+
+## Kafka
+- [K Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>10. Docker</b></summary>
+
+## Docker
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>11. Kubernetes</b></summary>
+
+## Kubernetes
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>12. Caching</b></summary>
+
+## Caching
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>13. SQL & NO SQL Database</b></summary>
+
+## SQL
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+
+## NO SQL
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>14. Mongo DB</b></summary>
+
+## Mongo DB
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>15. Angular</b></summary>
+
+## Angular
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+<details>
+<summary><b>16. React JS</b></summary>
+
+## React JS
+- [Spring Framework](#java-programming-questions-and-answers)
+- [Spring Framework Questions and Answers](#java-programming-questions-and-answers)
+</details>
+
+-------
+
+
+
+<details>
+<summary><b>java8</b></summary>
+Java 8 features
+
+Differences between Java 8 Map() Vs flatMap() :
+
+map() | flatMap() | 
+--- | --- |  
+It processes stream of values. | It processes stream of stream of values. 
+It does only mapping. | It performs mapping as well as flattening.
+It’s mapper function produces single value for each input value. | It’s mapper function produces multiple values for each input value. 
+It is a One-To-One mapping. | It is a One-To-Many mapping. 
+Data Transformation : From Stream<T> to Stream<R> | Data Transformation : From Stream<Stream<T> to Stream<R> 
+Use this method when the mapper function is producing a single value for each input value. | Use this method when the mapper function is producing multiple values for each input value. 
+
+
+
+<details>
+<summary><b>How Stream.map() works in Java 8? Example</b></summary>
+The Stream.map() function performs map functional operation i.e. it takes a Stream and transforms it to another Stream. It applies a function on each element of Stream and stores return value into new Stream. 
+
+This way you can transform a Stream of String into a Stream of Integer where Integer could be the length of String if you supply the length() function. This is a very powerful function that is very helpful while dealing with collection in Java.
+
+Here is an example of Stream.map() in Java 8:
+
+```java
+List listOfIntegers = Stream.of("1", "2", "3", "4")
+               .map(Integer::valueOf)
+               .collect(Collectors.toList());
+```
+
+### How Stream.flatMap() works in Java 8 - Example
+The Stream.flatMap() function, as the name suggests, is the combination of a map and a flat operation. This means you first apply the map function and then flattens the result. The key difference is the function used by map operation returns a Stream of values or a list of values rather than a single value, that's why we need flattening. When you flat a Stream of Stream, it gets converted into Stream of values.
+
+To understand what flattening a stream consists in, consider a structure like [ [1,2,3],[4,5,6],[7,8,9] ] which has "two levels". It's basically a big List containing three more List.  Flattening this means transforming it in a "one level" structure e.g. [ 1,2,3,4,5,6,7,8,9 ] i.e. just one list.
+
+In short,
+Before flattening - Stream of List of Integer
+After flattening - Stream of Integer
+
+Here is a code example to understand the flatMap() function better:
+```java
+List evens = Arrays.asList(2, 4, 6);
+List odds = Arrays.asList(3, 5, 7);
+List primes = Arrays.asList(2, 3, 5, 7, 11);
+       
+List numbers = Stream.of(evens, odds, primes)
+               .flatMap(list -> list.stream())
+               .collect(Collectors.toList());
+       
+System.out.println("flattend list: " + numbers);
+```
+```
+Output:
+flattend list: [2, 4, 6, 3, 5, 7, 2, 3, 5, 7, 11]
+```
+You can see that we have three lists that are merged into one by using a flatMap() function. For mapping, you can see we have used a list.stream() function which returns multiple values instead of a single value. Finally, we have collected the flattened stream into a list. If you want, you can print the final list using the forEach() method.
+
+
+### Stream.map() vs Stream.flatMap() in Java 8
+
+In short, here are the key difference between map() vs flatMap() in Java 8:
+The function you pass to the map() operation returns a single value.
+The function you pass to flatMap() operation returns a Stream of value.
+flatMap() is a combination of map and flat operation. 
+map() is used for transformation only, but flatMap() is used for both transformation and flattening. 
+
+Now let's see a sample Java program to understand the difference between flatMap() and map() better.
+
+### Java Program to show the difference between map vs flatMap
+Here is our sample Java program to demonstrate the real difference between the map() and the flatMap() function of the Stream class in Java 8. As I told you before, map() is used to transform one Stream into another by applying a function on each element, and flatMap() does both transformations as well as flattening.
+
+The flatMap() function can take a Stream of List and return a Stream of values combined from all those lists. In the example below, we have collected the result in a List but you can also print them using the forEach() method of Java 8.
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * Java Program to demonstrate difference between map()
+ * vs flatMap() function in Java 8. Both are defined
+ * in Stream class. 
+ *
+ * @author WINDOWS 8
+ */
+public class Java8Demo {
+
+    public static void main(String args[]) {
+
+        // foods which helps in weight loss
+        List<String> loseWeight = new ArrayList<>();
+        loseWeight.add("avocados");
+        loseWeight.add("beans");
+        loseWeight.add("salad");
+        loseWeight.add("oats");
+        loseWeight.add("broccoli");
+                
+        System.out.println("list of String : " + loseWeight);
+        
+        // let's use map() method to convert list of weight
+        // lose food, which are String to list of ints
+        // which are length of each food String
+        
+        List listOfInts = loseWeight.stream()
+                .map(s -> s.length())
+                .collect(Collectors.toList());
+        
+        System.out.println("list of ints generate by map(): " + listOfInts);
+
+        
+        // flatMap() example, let's first creat a list of list
+        List<List> listOfListOfNumber = new ArrayList<>();
+        listOfListOfNumber.add(Arrays.asList(2, 4));
+        listOfListOfNumber.add(Arrays.asList(3, 9));
+        listOfListOfNumber.add(Arrays.asList(4, 16));
+        
+        System.out.println("list of list : " + listOfListOfNumber);
+        
+        // let's use flatMap() to flatten this list into
+        // list of integers i.e. 2,4,3,9,4,16
+        
+        List listOfIntegers = listOfListOfNumber.stream()
+                .flatMap( list -> list.stream())
+                .collect(Collectors.toList());
+        
+        System.out.println("list of numbers generated by flatMap : " 
+                                      + listOfIntegers);
+                
+
+    }
+
+}
+```
+```
+Output
+list of String : [avocados, beans, salad, oats, broccoli]
+list of ints generate by map(): [8, 5, 5, 4, 8]
+list of list : [[2, 4], [3, 9], [4, 16]]
+list of numbers generated by flatMap : [2, 4, 3, 9, 4, 16]
+```
+You can see that in the first example, the function used by the map() method returns a single value, the length of the string passed to it, while in the case of flatMap() the method returns a stream, which is basically your multiple values.
+</details>
+<details>
+<summary><b>How to use forEach() method in Java 8</b></summary>
+Now you know a little bit about the forEach() method and Java 8, it's time to see some code examples and explore more of the forEach() method in JDK 8.
+
+### 1. Iterating over all elements of List using forEach()
+You can loop over all elements using the Iterable.forEach() method as shown below:
+```java
+List<String> alphabets 
+     = new ArrayList<>(Arrays.asList("aa", "bbb", "cat", "dog"));
+alphabets.forEach(s -> System.out.println(s));
+```
+This code will print every element of the list called alphabets. You can even replace lambda expression with method reference because we are passing the lambda parameter as it is to the
+System.out.println() method as shown below:
+```java
+ alphabets.forEach(System.out::println);
+```
+Now, let's see if you want to add a comma between two elements then you can do so by using lambda parameters as shown in the following example
+```java
+alphabets.forEach(s -> System.out.print(s + ","));
+```
+Btw, now you cannot use method reference now because we are doing something with lambda parameters. Let's see another example of the forEach() method for doing filtering of elements. If you want to learn more about loops in Java, The Complete Java MasterClass is the most comprehensive course for Java programmers.
+
+### 2. filter and forEach() Example
+   
+One of the main features of Stream API is its capability to filter elements based upon some conditions. We have already seen a glimpse of the powerful feature of Stream API in my earlier post, how to use Stream API in Java 8, here we will see it again but in the context of the forEach() method.
+
+let's now only print elements that start with "a", following code will do that for you, startWith() is a method of String class, which return true if String is starting with String "a" or it will return false. Once the list is filtered then forEach() method will print all elements starting with  String "a", as shown below:
+
+```java
+alphabets.stream()
+         .filter(s -> s.startsWith("a"))
+         .forEach(System.out::println);
+```
+This is cool, right? You can read the code like cake, it's much easier than using Iterator or any other way to loop over List in Java.
+
+Now, let's filter out only which has a length greater than 2, for this purpose we can use the length() function of String class:
+```java
+alphabets.stream()
+         .filter(s -> s.length() > 2)
+         .forEach(System.out::println);
+```
+Apart from forEach, this is also a good example of using the filter method in Java 8 for filtering or selecting a subset of elements from Stream. You can read more about that in the Collections to Streams in Java 8 Using the Lambda Expressions course on Pluralsight, which provides an in-depth explanation of new Java 8 features.
+
+### 3. forEach() and map() Example
+   
+So far you have both basic and advanced examples of using the forEach() method, first with simply iterating over each element and then along with using the filter() method, Let's see one more example of the forEach() method along with the map() function, which is another key functionality of Stream API.
+
+The map() method of Java 8 allows you to transform one type to another like in our first example we are using a map() to transform a list of String to a list of Integer where each element represents the length of String. Now, let's print the length of each string using the map() function:
+```java
+alphabets.stream()
+         .mapToInt(s -> s.length())
+         .forEach(System.out::println);
+```
+That was fun, isn't it? how about the calculating sum of the length of all strings? you can do so by using fold operations like sum() as shown in the following example:
+```java
+alphabets.stream()
+         .mapToInt(s -> s.length())
+         .sum();
+```
+These were some of the common but very useful examples of Java 8's forEach() method, a new way to loop over List in Java. If you are feeling nostalgist then don't forget to the journey of for loop in Java, a recap of for loop from JDK 1 to JDK 8
+
+If you want to learn more about functional programming in Java 8 and using a map, flatmap methods then I suggest you go through Learn Java Functional Programming with Lambdas & Streams course on Udemy. It's a nice course and packed with good examples to learn key Java 8 features.
+
+Program to use forEach() function in Java 8
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Java Program to show How to use forEach() statement in Java8.
+ * You can loop over a list, set or any collection using this
+ * method. You can even do filtering and transformation and 
+ * can run the loop in parallel.
+ *
+ * @author WINDOWS 8
+ */
+public class Java8Demo {
+
+    public static void main(String args[]) {
+
+       List<String> alphabets = new ArrayList<>(
+                                 Arrays.asList("aa", "bbb", "cac", "dog"));
+       
+       // looping over all elements using Iterable.forEach() method
+       alphabets.forEach(s -> System.out.println(s));
+       
+       // You can even replace lambda expression with method reference
+       // because we are passing the lambda parameter as it is to the
+       // method
+       alphabets.forEach(System.out::println);
+       
+       // you can even do something with lambda parameter e.g. adding a comma
+       alphabets.forEach(s -> System.out.print(s + ","));
+       
+       
+       // There is one more forEach() method on Stream class, which operates
+       // on stream and allows you to use various stream methods e.g. filter()
+       // map() etc
+       
+       alphabets.stream().forEach(System.out::println);
+       
+       // let's now only print elmements which startswith "a"
+       alphabets.stream()
+               .filter(s -> s.startsWith("a"))
+               .forEach(System.out::println);
+       
+       // let's filter out only which has length greater than 2
+       alphabets.stream()
+               .filter(s -> s.length() > 2)
+               .forEach(System.out::println);
+
+       
+       // now, let's print length of each string using map()
+       alphabets.stream()
+               .mapToInt(s -> s.length())
+               .forEach(System.out::println);
+       
+       // how about calculating sum of length of all string
+       alphabets.stream()
+               .mapToInt(s -> s.length())
+               .sum();
+
+    }
+
+}
+```
+
+### Important things to remember:
+- 1) The forEach() is a terminal operation, which means once calling the forEach() method on stream, you cannot call another method. It will result in a runtime exception.
+
+- 2) When you call forEach() on a parallel stream, the order of iteration is not guaranteed, but you can ensure that ordering by calling the forEachOrdered() method.
+
+- 3) There is two forEach() method in Java 8, one defined inside Iterable, and the other inside java.util.stream.Stream class. If the purpose of forEach() is just iteration then you can directly call it like list.forEach() or set.forEach() but if you want to perform some operations like filter or map then it better first get the stream and then perform that operation and finally call forEach() method.
+
+- 4) Use of forEach() results in readable and cleaner code.
+
+
+### Now, one task for you, how do you break from forEach()? Does the forEach() method allow you to break in between?
+
+In Java, the `forEach` method in the `Stream` API does not allow you to break out of the iteration early like you can with a traditional `for` loop or an `enhanced for` loop. The `forEach` method is designed for performing operations on each element of the stream and does not provide a built-in mechanism to stop iteration prematurely.
+
+However, you can achieve similar behavior by using the following approaches:
+
+### 1. **Using a `for` Loop:**
+If you need to break out of the loop based on a condition, using a traditional `for` loop or an enhanced `for` loop (`for-each`) is the most straightforward approach.
+
+**Example:**
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class BreakInForLoop {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        for (Integer number : numbers) {
+            if (number == 3) {
+                break; // Break out of the loop
+            }
+            System.out.println(number);
+        }
+    }
+}
+```
+
+### 2. **Using `Stream` with Short-Circuiting Operations:**
+While `forEach` does not support breaking, you can use other stream operations that allow short-circuiting. For instance, you can use `takeWhile` to process elements up to a certain condition.
+
+**Example:**
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class ShortCircuitStream {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        numbers.stream()
+               .takeWhile(number -> number != 3)
+               .forEach(System.out::println);
+    }
+}
+```
+In this example, `takeWhile` will stop processing as soon as the condition is false, thus achieving a similar effect to breaking out of the loop.
+
+### 3. **Using a `boolean` Flag with `forEach`:**
+If you are using `forEach` and need to conditionally stop processing, you can use a `boolean` flag to skip further processing within the lambda expression.
+
+**Example:**
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class ForEachWithFlag {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        final boolean[] shouldContinue = {true};
+
+        numbers.forEach(number -> {
+            if (!shouldContinue[0]) return;
+            if (number == 3) {
+                shouldContinue[0] = false; // Set flag to stop further processing
+            }
+            System.out.println(number);
+        });
+    }
+}
+```
+In this example, a boolean array `shouldContinue` is used as a flag to determine whether to continue processing elements.
+
+### Summary:
+- **`forEach` Method**: Does not support breaking or stopping iteration early.
+- **Traditional Loops**: Use `for` or enhanced `for` loops for breaking out early.
+- **Stream API**: Use short-circuiting operations like `takeWhile` for similar effects.
+- **Flag Approach**: Use a boolean flag within the `forEach` method to conditionally skip further processing.
+
+Each method has its use cases, so you should choose the one that best fits your requirements.
+
+</details>
+<details>
+<summary><b>How to use Stream.filter method in Java 8? Example Tutorial</b></summary>
+
+In the last couple of Java 8 tutorials, you have learned how to use map(), flatMap(), and other stream methods to get an understanding of how Java 8 Stream and Lambda expressions make it easy to perform the bulk data operation on Collection classes like List or Set. In this Java 8 tutorial, I am going to share how to use the filter() method in Java 8, another key method of the Stream class.  This is the one method you will always be used because it forms the key part of the Stream pipeline. If you have seen some Java 8 code, you would have already seen this method a couple of times.
+
+The filter() method as its name suggests is used to perform filtering based upon some boolean conditions.  The condition is applied to each element of Stream and those who pass the condition moves to the next stage and those who don't get filtered out.
+
+For example,  if you have a stream of integral numbers that contains both even and odd numbers then by using the filter method, you can create another stream of even numbers or odd numbers by filtering out others.
+
+Though the filter() method is a little bit counter-intuitive, I mean, in order to create a stream of even numbers you call filter( i -> i % 2 == 0) which means you do filter(isEven()) but, you are actually filtering out odd numbers to create a new stream of even numbers, but that's how it works.
+
+I think select() would have been a positive and proper name for this operation, but, we don't have any control over that can't change that now.
+
+The key benefit of using the filter() method is lazy evaluation i.e. no data comparison is performed unless you call a terminal operation on stream like findFirst() or forEach().
+
+The filter() method just sets up some pointers when you first call them on stream and only performs real filtering when you call the terminal method. You can join a good Java course like The Complete Java MasterClass to learn more about Stream and lazy evaluation in Java 8. It is also one of the most up-to-date courses, recently updated for Java 11.
+
+### How Stream.filter method works in Java 8
+In order to learn how to use the filter() method in Java 8, it's important that you also know how it works, at least at a high level. Let's see an example of a filter() method to understand the lazy evaluation it does.
+
+Suppose we have a list of integer numbers and we want to find the first number which is divisible by both 2 and 3, let' see how to solve this problem in Java 8.
+```java
+List<Integer> listOfNumbers = Arrays.asList(1, 2, 3, 4, 5, 6, 12, 18);
+Integer lcm = listOfNumbers.stream()
+                           .filter(i -> i % 2 == 0)
+                           .filter(i -> i % 3 == 0)
+                           .findFirst().get();        
+```
+This code is returning the first number which is divisible by both 2 and 3. Now, let's see how this code will execute. When you call the filter() method nothing happens until you call the findFirst().
+
+At this time, Java knows that it just needs to find the first element which satisfies the criterion imposed by the two chained filter() methods.
+
+The findFirst() asks the filter() method prior to it in the chain of any number, the filter doesn't have any record so it asks the first filter() method, which in turn then scans the list and returns a number that is divisible by 2.
+
+At this time, the second filter method checks if this number is divisible by 3, if yes then it returns that number to findFirst() otherwise it asks for another number from the first filter() method.
+
+This process continues until a number is found which satisfies both filter() methods. Once that number is found it is presented to the findFirst() method. The job of findFirst() is to return that number.
+
+This is an example of lazy evaluation because nothing happens until the call to findFirst() is a method, this also presents an opportunity to stop as soon as you find the first number which satisfies your criterion.
+
+
+There is no need to process the entire list again and again, as it happens in the case of iterative eager evaluation.  You can read more about Stream Processing and Lazy Evaluation on Pluralsight's From Collections to Streams in Java 8 Using the Lambda Expressions course by Jose Paumard, a Java Champion and expert Java Programmer.
+
+</details>
+<details>
+<summary><b>Java 8 filter + Stream Example</b></summary>
+
+### Java 8 filter Example
+Here are a couple of more examples of the Stream.filter() method in Java 8. I have created a list of String containing Android versions like  Lollipop, KitKat, etc.
+
+The first example just uses one filter() method to print Strings whose length is greater than 10. The second example prints String which contains the letter "e" like Gingerbread.
+
+The Third examples combine these two filter methods to create a chain of filter methods to print a String whose length is greater than 5 and starts with a letter "G".
+
+By the way, for testing purposes, you can also create a stream of integers numbers by using Stream.of() static factory methods as shown in the following example:
+
+### How to use filter method in Java 8 with example
+
+You can see that the input stream contains numbers from 1 to 5 but the output stream just contains odd numbers. This means even numbers were filtered out because they didn't satisfy the boolean condition specified by Predicate.
+
+I mean for even number x%2 == 0 and we are checking for x%2 !=0 so they didn't pass the condition and hence not progress to the output stream. If you need more examples, I suggest you check out the Java Streams API Developer Guide by Nelson Djalo, one of the hands-on courses on learning Stream examples live.
+
+### How to use filter() method in Java 8
+
+Here is a sample Java program to demonstrate how to use the filter() method of Stream class to filter elements from a List or Stream, based upon some conditions, specified by the Predicate functional interface of Java 8.
+```java
+package test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Java 8 filter example. You can use filter() method to perform lazy filtering
+ * in Java.
+ */
+public class Java8FilterExample {
+
+    public static void main(String[] args) {
+
+        List<String> versions = new ArrayList<>();
+        versions.add("Lollipop");
+        versions.add("KitKat");
+        versions.add("Jelly Bean");
+        versions.add("Ice Cream Sandwidth");
+        versions.add("Honeycomb");
+        versions.add("Gingerbread");
+
+        // Using one filter() 
+        // print all versions whose length is greater than 10 character
+        System.out.println("All versions whose length greater than 10");
+        versions.stream()
+                .filter(s -> s.length() > 10)
+                .forEach(System.out::println);
+
+        System.out.println("first element which has letter 'e' ");
+        String first = versions.stream()
+                .filter(s -> s.contains("e"))
+                .findFirst().get();
+        System.out.println(first);
+        
+
+        // Using multiple filter
+        System.out.println("Element whose length is > 5 and startswith G");
+        versions.stream()
+                .filter(s -> s.length() > 8)
+                .filter(s -> s.startsWith("G"))
+                .forEach(System.out::println);
+        
+
+        // another example of filter() method in Java 8
+        List<Integer> listOfNumbers = Arrays.asList(1, 2, 3, 4, 5, 6, 12, 18);
+        Integer lcm = listOfNumbers.stream()
+                .filter(i -> i % 2 == 0)
+                .filter(i -> i % 3 == 0)
+                .findFirst().get();
+        System.out.println("first number divisible by 2 and 3 in the list is : "
+                                  + lcm);
+
+    }
+
+}
+```
+```
+Output
+All versions whose length greater than 10
+Ice Cream Sandwidth
+Gingerbread
+first element which has letter 'e' 
+Jelly Bean
+Element whose length is > 5 and starts with G
+Gingerbread
+a first number divisible by 2 and 3 in the list is : 6
+```
+
+That's all in this Java 8 filter() example. It's one of the most useful methods of Stream class and you will find yourself using this method time and again. The best part of this method is that it improves performance by doing the lazy evaluation.
+
+The filter() method just sets up a couple of pointers and no data comparison is performed until a terminal method like forEach() or findFirst() is called.
+
+</details>
+<details>
+<summary><b>How to debug Java 8 Stream Pipeline - peek() method</b></summary>
+
+The peek() method of the Stream class can be very useful to debug and understand streams in Java 8. You can use the peek() method to see the elements as they flow from one step to another like when you use the filter() method for filtering, you can actually see how filtering is working like lazy evaluation as well as which elements are filtered.
+
+The peek() method returns a stream consisting of the elements of this stream and performs the action requested by the client. The peek() method expects a Consumer functional interface to perform a non-interfering action on the elements of this stream, usually printing them using the forEach() method.
+
+Btw, the sole reason for using peek() is debugging the Stream pipeline, even the API itself says that peek() is only there for debugging, but it does help to understand the lazy evaluation technique Stream uses to improve performance.
+
+Lazy evaluation means nothing is evaluated in the Stream until a terminal method like forEach(), collect(), or reduce() is called and processing stops as soon as the result is obtained, which means not all the elements of Stream is processed always.
+
+It all depends upon what kind of result you want from Stream. For example, if you call the findFirst() method then as soon as it finds the first element fulling the criterion, processing stops. If you want to understand lazy evaluation in-depth and other Stream features then I highly recommend you check out these Java collections and Stream courses from Udemy and Pluralsight. 
+
+### Java 8 Stream peek() method Example
+
+In order to understand the peek() method better, let's see some code in action. How about using the filter and map methods in a chained pipeline?
+
+This is a very common code in Java 8 and will help you to learn how stream pipeline processing works in Java 8? What happens in each step? What is the output or data in the stream after each step etc?
+
+Consider the following example, which calls the peek() method after each step in a Stream pipeline involving filter() and map()  methods:
+
+```java
+List<String> result = Stream.of("EURO/INR", "USD/AUD", "USD/GBP", "USD/EURO")
+        .filter(e -> e.length() > 7)
+        .peek(e -> System.out.println("Filtered value: " + e))
+        .map(String::toLowerCase)
+        .peek(e -> System.out.println("Mapped value: " + e))
+        .collect(Collectors.toList());
+```
+In this example, we have a Stream of String and then we are filtering all Strings whose length is greater than 7 and then we are converting them to lowercase using the map() function.
+
+Now, what do you think, how will this program execute? top to bottom or bottom to top?
+
+Many of you will think that after the first filter() execution you will get a Stream containing two elements "EURO/INR" and "USD/EURO" and peek() will print those two elements.
+
+Well, that's not the case, since Streams are executed lazily, nothing will happen until the collect() method will execute, which is the terminal method.
+
+This is proved by the following output from running the above code into Eclipse IDE or command prompt, it will print the following lines:
+```
+Filtered value: EURO/INR
+Mapped value: euro/inr
+Filtered value: USD/EURO
+Mapped value: usd/euro
+```
+The key point to note here is that values are filtered and mapped one by one, not together. It means the code is executed backward when the collect() method calls the Collectors.toList() to get the result in a List, it asks map() function which in turn asks the filter() method.
+
+Since filter() is lazy it returns the first element whose length is greater than 7 and sits back until map() asks again.
+
+You can see that peek() method clearly prints the value of the stream in the pipeline after each call to filter() method. You can further join From Collections to Streams in Java 8 Using the Lambda Expressions course on Pluralsight to learn more about different types of operation with Streamlike intermediate and terminal operation.
+
+### How to debug Java 8 Stream Pipeline - peek() method Example Tutorial
+
+### How to use peek() method in Java 8
+
+As I said, the Stream.peek() method is very useful for debugging and understating the stream-related code in Java. Here is a couple of more example of using peek() to understand how bulk data operations are processed by Stream utility.
+
+```java
+package test;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * Java 8 peek() method example
+ */
+public class Test {
+
+    public static void main(String[] args) {
+
+        List<String> versions = new ArrayList<>();
+        versions.add("Lollipop");
+        versions.add("KitKat");
+        versions.add("Jelly Bean");
+        versions.add("Ice Cream Sandwidch");
+        versions.add("Honeycomb");
+        versions.add("Gingerbread");
+
+        // filtering all vaersion which are longer than 7 characters
+        versions.stream()
+                .filter(s -> s.length() > 7)
+                .peek(e -> System.out.println("After the first filter: " + e))
+                .filter(s -> s.startsWith("H"))
+                .peek(e -> System.out.println("After the second filter: " + e))
+                .collect(Collectors.toSet());
+
+    }
+
+}
+```
+```
+Output
+After the first filter: Lollipop
+After the first filter: Jelly Bean
+After the first filter: Ice Cream Sandwich
+After the first filter: Honeycomb
+After the second filter: Honeycomb
+After the first filter: Gingerbread
+```
+By looking at this output, can you explain how the code would have been executed? Well, it seems that when to collect() ask the second filter() method, it further asks the first filter() and you can see that the first element Lollipop passed the first filter but couldn't pass the second one because it doesn't start with letter "H".
+
+So, the second filter() again asks the first() filter for an element, it returns Jelly Bean, Ice Cream Sandwich, and HoneyComb one by one. Since HoneyComb made past the second filter it is collected by Collector and again the same process happens but aborted after GingerBread because all elements in Stream are already processed.
+
+This clearly explains the lazy execution behavior of Stream as opposed to eager iterative implementation and the peek() method definitely helps you to understand this better, but if you want to learn Stream in-depth, I suggest you further check these Java Functional Programming and Stream API courses. 
+
+
+### Java 8 Stream peek() example for debugging
+
+### Important points
+1) The peek() method of Stream class is an intermediate method, hence you can call other stream methods after this.
+
+2) It returns a new Stream, which is basically the stream it got.
+
+3) It accepts an object of functional interface Consumer to perform non-interfering action e.g. printing values.
+
+4) For parallel stream pipelines, the action may be called at whatever time and whatever thread the element is made available by the upstream operation.
+
+Btw, peek() is not the only way to figure out what goes inside a Stream pipeline, you can also use your IDEs to do the heavy work. For example, If you are using IntelliIDEA from JetBrains, you can also use their Java Stream Debugger Plugin to easily debug Java 8 code using map, filter, and collect in IDE itself, like shown in the following GIF diagram:
+
+### How to debug Java 8 code with map and filter
+
+That's all about how to use the peek() method in Java 8. You can use the peek() method for debugging. It allows you to see the elements as they flow past a certain point in the pipeline. By using this you can check whether your filter() method is working properly or not. You can see exactly which elements are got filtered by using peek() in Java 8.
+
+</details>
+<details>
+<summary><b>Examples of Stream.collect() method in Java 8</b></summary>
+
+Hello guys, you may know that Java 8 brought Stream API which supports a lot of functional programming operations like filter, map, flatMap, reduce, and collect. In this article, you will learn about the collect() method. The collect() method of Stream class can be used to accumulate elements of any Stream into a Collection. In Java 8, you will often write code that converts a Collection like a List or Set to Stream and then applies some logic using functional programming methods like the filter, map, flatMap and then converts the result back to the Collection like a List, Set, Map, or ConcurrentMap in Java.
+
+ In this last part, the collect() method of Stream helps. It allows you to accumulate the result into a choice for containers you want like a list, set, or map.
+
+Programmers often confuse that the collect() method belongs to the Collector class but that's not true. It is defined in Stream class and that's why you can call it on Stream after doing any filtering or mapping. It accepts a Collector to accumulate elements of Stream into a specified Collection.
+
+The Collector class provides different methods like toList(), toSet(), toMap(), and toConcurrentMap() to collect the result of Stream into List, Set, Map, and ConcurrentMap in Java.
+
+It also provides a special toCollection() method which can be used to collect Stream elements into a specified Collection like ArrayList, Vector, LinkedList, or HashSet.
+
+It's also a terminal operation which means after calling this method on Stream, you cannot call any other method on Stream.
+
+Btw, if you are new to Java or Java 8 world then I suggest you first join a comprehensive course like The Complete Java MasterClass instead of learning in bits and pieces. The course provides a more structured learning material that will teach you all Java fundamentals in a quick time. Once you understand them you can explore the topic you like by following blog posts and articles.
+
+### Java 8 Stream.collect() Examples
+In this article, we'll see a couple of examples of Stream's collect() method to collect the result of stream processing into a List, Set, and Map in Java. In other words, you can also say we'll convert a given Stream into List, Set, and Map in Java
+
+### 1. Stream to List using collect()
+This is the first example of using the Stream.collect() method where we will collect the result of the stream pipeline in a List. You can collect the result of a Stream processing pipeline in a list by using the Collectors.toList() method. Just pass the Collectors.toList() to collect() method as shown below:
+```java
+List<String> listOfStringStartsWithJ
+ = listOfString
+     .stream()
+     .filter( s -> s.startsWith("J"))
+     .collect(Collectors.toList());
+```
+The list returned by the collect method will have all the String which starts with "J" in the same order they appear in the original list because both Stream and List keep elements in order. This is an important detail which you should know because you often need to process and collect elements in order.
+
+If you want to learn more about ordered and unordered collections I suggest you join Java Fundamentals: Collections course by Richard Warburton on Pluralsight. It's a specialized course on the Java Collection framework which is very important for any Java developer.
+
+## 3 Examples of Collect() method of Stream in Java 8
+
+### 2. Stream to Set using Collector.toSet() method
+This is the second example of the collect() method of Stream class where we will collect the result of the Stream pipeline into a Set. You can use Collectors.toSet() method along with collect() to accumulate elements of a Stream into a Set. 
+
+
+Since Set doesn't provide ordering and doesn't allow duplicate, any duplicate from Stream will be discarded and the order of elements will be lost.
+
+Here is an example to convert Stream to Set using collect() and Collectors in Java 8:
+
+### Java 8 - Stream.collect() Example
+
+The set of String in this example contains all the String which starts with the letter C like C and C++. The order will be lost and any duplicate will be removed. 
+
+
+Though, if you are new to functional programming in Java, I highly recommend you check out the  Learn Java Functional Programming with Lambdas and Stream course by Ranga Karnam on Udemy. It's a hands-on course to learn all stream and lambda concepts. 
+
+### 3. Stream to Map using toMap()
+You can create a Map from elements of Stream using collect() and Collectors.toMap() method. Since a Map like HashMap stores two objects i.e. key and value and Stream contains just one element, you need to provide the logic to extract the key and value objects from the Stream element.
+
+For example, if you have a Stream of String then you can create a Map where the key is String itself and the value is their length, as shown in the following example:
+
+```java
+Map<String, Integer> stringToLength 
+   = listOfString
+        .stream()
+        .collect(
+            Collectors.toMap(Function.identity(), String::length));
+```
+The Function.identity() used here denotes that the same object is used as a key. Though you need to be a little bit careful since Map doesn't allow duplicate keys if your Stream contains duplicate elements then this conversion will fail.
+
+In that case, you need to use another overloaded toMap() method also accepts an argument to resolve conflict in case of duplicate keys.  Also, toMap() doesn't provide any guarantee on what kind of Map is returned. This is another important detail you should remember.
+
+If you want to learn more about dealing with Collections and Stream I suggest you take a look at another Pluralsight gem, From Collections to Streams in Java 8 Using Lambda Expressions course.
+
+### How to use Collect() method of Stream in Java 8
+
+### 4. Stream to Collection using Collectors.toCollection()
+You can also collect or accumulate the result of Stream processing into a Collection of your choices like ArrayList, HashSet, or LinkedList. 
+
+There is also a toCollection() method in the Collectors class that allows you to convert Stream to any collection. In the following example, we will learn how to collect Stream elements into an ArrayList.
+
+```java
+ArrayList<String> stringWithLengthGreaterThanTwo 
+  = listOfString
+      .stream()
+      .filter( s -> s.length() > 2)
+      .collect(Collectors.toCollection(ArrayList::new));
+```
+Since ArrayList is a list, it provides an ordering guarantee, hence all the elements in the ArrayList will be in the same order they appear in the original List and Stream.
+
+If you find Javadoc boring then you can also join this best Java course, one of the most comprehensive Java courses on Udemy.
+
+
+### Java Program to Use Stream.collect() method
+
+Here is our complete Java program to demonstrate the use of the collect() method of Stream class to convert Stream into different Collection classes in Java, like List, Set, Map, and Collection itself.
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class Code {
+
+  public static void main(String[] args) {
+
+    List<String> listOfString = Arrays.asList("Java", "C", "C++", "Go",
+        "JavaScript", "Python", "Scala");
+    System.out.println("input list of String: " + listOfString);
+
+    // Example 1 - converting Stream to List using collect() method
+    List<String> listOfStringStartsWithJ
+                              = listOfString.stream()
+                                            .filter(s -> s.startsWith("J"))
+                                            .collect(Collectors.toList());
+
+    System.out.println("list of String starts with letter J: "
+        + listOfStringStartsWithJ);
+
+    // Example 2 - converting Stream to Set
+    Set<String> setOfStringStartsWithC 
+                      = listOfString.stream()
+                                    .filter(s -> s.startsWith("C"))
+                                    .collect(Collectors.toSet());
+
+    System.out.println("set of String starts with letter C: "
+        + setOfStringStartsWithC);
+
+    // Example 3 - converting Stream to Map
+    Map<String, Integer> stringToLength 
+                          = listOfString.stream()
+                                         .collect(Collectors
+                                                .toMap(Function.identity(),
+                                                          String::length));
+    System.out.println("map of string and their length: " + stringToLength);
+
+    // Example - Converting Stream to Collection e.g. ArrayList
+    ArrayList<String> stringWithLengthGreaterThanTwo
+                        = listOfString.stream()
+                                      .filter(s -> s.length() > 2)
+                                      .collect(Collectors.
+                                         toCollection(ArrayList::new));
+    System.out.println("collection of String with length greather than 2: "
+        + stringWithLengthGreaterThanTwo);
+
+  }
+}
+```
+```
+Output
+input list of String: 
+[Java, C, C++, Go, JavaScript, Python, Scala]
+list of String starts with letter J: 
+[Java, JavaScript]
+set of String starts with letter C: 
+[C++, C]
+map of string and their length: 
+{Java=4, C++=3, C=1, Scala=5, JavaScript=10, Go=2, Python=6}
+collection of String with length greather than 2: 
+[Java, C++, JavaScript, Python, Scala]
+```
+
+That's all about how to use the collect() method of Stream class in Java 8. Along with collect(), you can use the Collectors method to convert Stream to List, Set, Map, or any other Collection of your choice. Just explore the Collectors Javadoc to learn more about those methods.
+
+</details>
+<details>
+<summary><b>How to implement Comparator and Comparable in Java with Lambda Expression & method reference? Example</b></summary>
+
+
+Hello guys, After Java 8 it has become a lot easier to work with Comparator and Comparable classes in Java. You can implement a Comparator using lambda expression because it is a SAM type interface. It has just one abstract method compare() which means you can pass a lambda expression where a Comparator is expected. Many Java programmers often ask me, what is the best way to learn lambda expression of Java 8?  And, my answer is, of course by using it on your day to the day programming task. Since implementing equals(), hashcode(), compareTo(), and compare() methods are some of the most common tasks of a Java developer, it makes sense to learn how to use the lambda expression to implement Comparable and Comparator in Java.
+
+
+Though, some of you might have a doubt that, can we use lambda expression with Comparator? because it's an old interface and may not implement functional interface annotated with @FunctionalInterface annotation?
+
+The answer to that question is Yes, you can use a lambda expression to implement Comparator and Comparable interface in Java, and not just these two interfaces but to implement any interface, which has only one abstract method because those are known as SAM (Single Abstract Method) Type and lambda expression in Java supports that.
+
+That's why lambda expression in Java 8 is also known as SAM type, where SAM stands for Single Abstract Method. Though, you should also remember that from Java 8 interface can have non-abstract methods as well as default and static methods.
+
+This was one of the very intelligent decisions made by Java designers, which makes the lambdas even more useful. Because of this, you can use lambda expressions with Runnable, Callable, ActionListener, and several other existing interfaces from JDK API which has just one abstract method.
+
+You should also check out these Java Functional Programming courses to learn more about why lambda expression was introduced in Java and the benefits of using lambdas in Java code, particularly on the Java Collection framework.
+
+
+
+
+
+
+### The Comparator is a Functional Interface in Java 8
+By the way, you don't need to  worry in the case of Comparator, because it has been made to implement the @FunctionalInterface as shown below:
+
+```java
+@FunctionalInterfaces
+public interface Comparator<T> {
+ ....
+}
+```
+This code snippet is from JDK 1.8, if you are using Netbeans you can open this class by typing Ctrl+O and if you are using Eclipse you open this class by using the Open type shortcut Ctrl+Shift+T. See here for more useful Eclipse shortcuts for Java Programmers.
+
+Even the Runnable interface is also annotated with @FunctionalInterface as seen below:
+
+
+```java
+@FunctionalInterface
+public interface Runnable {
+   .......
+}
+```
+but yes ActionListener is not annotated with @FunctionalInterface, but you can still use it in lambda expressions because it just got one abstract method called actionPerformed()
+```java
+public interface ActionListener extends EventListener {
+
+    /**
+     * Invoked when an action occurs.
+     */
+    public void actionPerformed(ActionEvent e);
+
+}
+```
+
+Earlier we have seen some hands-on examples of Java 8 Streams, here we will learn how to use lambda expression by implementing the Comparator interface in Java. This will make creating a custom Comparator very easy and reduce lots of boilerplate code.
+
+By the way, the From Collections to Streams in Java 8 Using the Lambda Expression course only covers lambda expression and streams, it doesn't cover all other Java 8 features e.g. new Date and Time API, new JavaScript engine, and other small enhancements like Base64 encoder-decoder and performance improvements.
+
+For other Java 8 changes, I suggest you check out these Java 8 tutorials and courses from Udemy and Pluralsight. It is a short and concise course but covers all major Java 8 features.
+
+
+
+.
+
+
+### How to Implement Comparator using Lambda Expression
+As I said before using lambdas to implement a Comparator is a good way to learn how lambda expression works in Java. Since lambda expression in Java is SAM type (Single Abstract Method) you can use it with any interface which got just one method like Comparator, Comparable, Runnable, Callable, ActionListener, and so on.
+
+Earlier we used to use the Anonymous class to implement these one method interfaces, mostly when we want to pass them to a method or just want to use them locally like creating a thread for some temporary task or handling the event.
+
+
+
+Now we can use a lambda expression to implement these methods, In these cases, lambdas work exactly like an anonymous class but without the heavy dose of boilerplate code required before as shown in the following diagram:
+
+
+### How to implement Comparator in Java 8 using lambdas
+
+Anyway, here is our Java program to implement Comparator using the lambda expression in Java 8:
+
+```java
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+/**
+ * How to sort Objects in Java 8, by implementing Comparator using lambda
+ * expression.
+ *
+ * @author WINDOWS 8
+ *
+ */
+public class ComparatorUsingLambdas{
+
+    public static void main(String args[]) {
+
+        // list of training courses, our target is to sort these courses
+        // based upon their price or title
+        List<TrainingCourses> onlineCourses = new ArrayList<>();
+        onlineCourses.add(new TrainingCourses("Java", new BigDecimal("200")));
+        onlineCourses.add(new TrainingCourses("Scala", new BigDecimal("300")));
+        onlineCourses.add(new TrainingCourses("Spring", new BigDecimal("250")));
+        onlineCourses.add(new TrainingCourses("NoSQL", new BigDecimal("310")));
+
+
+        // Creating Comparator to compare Price of training courses
+        final Comparator<TrainingCourses> PRICE_COMPARATOR 
+         = new Comparator<TrainingCourses>() {
+            @Override
+            public int compare(TrainingCourses t1, TrainingCourses t2) {
+                return t1.price().compareTo(t2.price());
+            }
+        };
+
+
+        // Comparator to compare title of courses
+        final Comparator<TrainingCourses> TITLE_COMPARATOR 
+         = new Comparator<TrainingCourses>() {
+            @Override
+            public int compare(TrainingCourses c1, TrainingCourses c2) {
+                return c1.title().compareTo(c2.title());
+            }
+        };
+
+
+        // sorting objects using Comparator by price
+        System.out.println("List of training courses, before sorting");
+        System.out.println(onlineCourses);
+        Collections.sort(onlineCourses, PRICE_COMPARATOR);
+       
+        System.out.println("After sorting by price, increasing order");
+        System.out.println(onlineCourses);
+        System.out.println("Sorting list by title ");      
+       Collections.sort(onlineCourses, TITLE_COMPARATOR);
+        System.out.println(onlineCourses);
+
+
+        // Now let's see how less code you need to write if you use
+        // lambda expression from Java 8, in place of anonymous class
+        // we don't need an extra line to declare comparator, we can
+        // provide them in place to sort() method.
+       
+ 
+        System.out.println("Sorting objects in decreasing order of price, using lambdas");
+        Collections.sort(onlineCourses, (c1, c2) -> c2.price().compareTo(c1.price()));
+        System.out.println(onlineCourses);
+       
+        System.out.println("Sorting list in decreasing order of title, using lambdas");
+        Collections.sort(onlineCourses, (c1, c2) -> c2.title().compareTo(c1.title()));
+        System.out.println(onlineCourses);
+    }
+}
+
+class TrainingCourses {
+    private final String title;
+    private final BigDecimal price;
+
+    public TrainingCourses(String title, BigDecimal price) {
+        super();
+        this.title = title;
+        this.price = price;
+    }
+
+    public String title() {
+        return title;
+    }
+
+    public BigDecimal price() {
+        return price;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s : %s", title, price);
+    }
+}
+```
+```
+Output:
+List of training courses, before sorting
+[Java : 200, Scala : 300, Spring : 250, NoSQL : 310]
+After sorting by price, increasing order
+[Java : 200, Spring : 250, Scala : 300, NoSQL : 310]
+Sorting list by title
+[Java : 200, NoSQL : 310, Scala : 300, Spring : 250]
+Sorting objects in decreasing order of price, using lambdas
+[NoSQL : 310, Scala : 300, Spring : 250, Java : 200]
+Sorting list in decreasing order of title, using lambdas
+[Spring : 250, Scala : 300, NoSQL : 310, Java : 200]
+```
+
+In this example, we have an object called the TrainingCourse, which represents a typical training course from institutes. For simplicity, it just got two attributes title and price, where the title is String and price is BigDecimal because float and double are not good for exact calculations.
+
+Now we have a list of training courses and our task is to sort based on their price or based upon their title. Ideally, TrainingCourse class should implement the Comparable interface and sort training courses by their title, i.e. their natural order.
+
+Anyway, we are not doing that here to focus purely on Comparator.
+
+To complete these tasks we need to create two custom Comparator implementations, one to sort TrainingCourse by title and the other to sort it by price.
+
+To show the stark difference in the number of lines of code you need to do this prior to Java 8 and in JDK 1.8, I have implemented that two Comparator first using Anonymous class and later using the lambda expression.
+
+You can see that by using lambdas implementing Comparator just take one line and you can even do that on method invocation, without sacrificing readability.
+
+This is the main reason, why you should use the lambda expression to implement Comparator, Runnable, Callable, or ActionListener post-Java 8, they make your code more readable and terse.
+
+For a complete Java 8 learning, I recommend The Complete Java MasterClass course on Udemy. It is also the most up-to-date course to learn Java.
+
+### Implement Comparator using Method References in Java 8
+
+By the way, you can even do better by leveraging new methods added on the Comparator interface in Java 8 and by using method references as shown below:
+
+### Java 8 Comparator example
+
+You can see that by using new methods in Comparator like comparing()  and method references, you can implement a Comparator in just one line after Java 8 version. I strongly recommend this style of code in the current Java word.
+
+That's all on how to implement a Comparator using Java 8 lambda expression. You can see it take very little code to create a custom Comparator using lambdas than an anonymous class. From Java 8 there is no point using anonymous class anymore, in fact, use lambdas wherever you used to use Anonymous class. 
+
+Make sure you implement SAM interfaces using lambdas like Runnable, Callable, ActionListener, etc.
+
+How to sort HashMap by values in Java 8 [using Lambdas and Stream] - Example Tutorial
+
+In the past, I have shown you how to sort a HashMap by values in Java, but that was using traditional techniques of the pre-Java 8 world. Now the time has changed and Java has evolved into a programming language that can also do functional programming. How can you, a Java Programmer take advantage of that fact to do your day-to-day task better like how do you sort a Map by values in Java using lambda expressions and Stream API. That's what you are going to learn in this article. It will serve two purposes, first, it will tell you a new way to sort a Map by values in Java, and, second and more important it will introduce you to essential Java 8 features like Lambda Expression and Streams, which every Java Programmer should learn.
+
+
+By the way, it's not just the lambda expression and stream which makes coding fun in Java 8, but also all the new API methods added into an existing interface like Comparator, Map.Entry makes day-to-day coding much easier.
+
+This evaluation of existing interfaces was possible by introducing the non-abstract method on interfaces like default methods and static methods.
+
+Because of this path-breaking feature, it's possible to add new methods into the existing Java interface and Java API designers have taken advantage to add much-needed methods on popular existing interfaces.
+
+One of the best examples of this is java.util.Comparator interface which has now got comparing() and thenComparing() methods to chain multiple comparators, making it easier to compare an object by multiple fields, which was very tedious and requires a lot of nesting prior to Java 8.
+
+The Map.Entry class, which is a nested static class of java.util.Map interface is also not behind, it has got two additional methods comparingByKey() and comparingByValue() which can be used to sort a Map by key and values. They can be used along with the sorted() method of Stream to sort a HashMap by values in Java.
+
+Btw, if you are new to the Java world then I suggest you start learning from Java 8 itself, no need to learn the old techniques of doing a common task like sorting a list or map, working with date and time, etc and if you need some help, you can also look at comprehensive online Java courses like The Complete Java MasterClass, which will not only teach you all this but much more. 
+
+
+
+
+### How to Sort a Map by values in Increasing order in Java
+You can sort a Map like a HashMap, LinkedHashMap, or TreeMap in Java 8 by using the sorted() method of java.util.stream.Stream class. This means accepts a Comparator, which can be used for sorting. If you want to sort by values then you can simply use the comparingByValue() method of the Map.Entry class. 
+
+This method is newly added in Java 8 to make it easier for sorting.
+```java
+ItemToPrice.entrySet()
+.stream()
+.sorted(Map.Entry.<String, Integer>comparingByValue())
+.forEach(System.out::println);
+```
+Btw, if you need a Map instead of just printing the value into the console, you can collect the result of the sorted stream using the collect() method of Stream and Collectors class of Java 8 as shown below:
+```java
+// now, let's collect the sorted entries in Map
+Map<String, Integer> sortedByPrice = ItemToPrice.entrySet()
+.stream()
+.sorted(Map.Entry.<String, Integer>comparingByValue())
+.collect(Collectors.toMap(e -> e.getKey(),e -> e.getValue()));
+```
+The Map returned by the previous statement was not sorted because the order was lost while collecting results in Map you need to use the LinkedHashMap to preserve the order
+```java
+Map<String, Integer> sortedByValue = ItemToPrice.entrySet()
+.stream()
+.sorted(Map.Entry.<String, Integer>comparingByValue())
+.collect(toMap(Map.Entry::getKey,
+               Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+```
+This is the right way to sort a Map by values in Java 8 because now the ordering will not be lost as Collector is using LinkedHashMap to store entries. This is also a good example of using constructor references in Java 8. You can read more about that in the Collections to Streams in Java 8 Using the Lambda Expressions course on Pluralsight, which provides an in-depth explanation of new Java 8 features.
+
+### How to sort HashMap by values in Java 8
+
+
+
+
+
+### Sorting a Map by values on decreasing Order in Java
+In order to sort a Map by values in decreasing order, we just need to pass a Comparator which sort it in the reverse order. You can use the reversed() method of java.util.Comparator purpose to reverse order of a Comparator. 
+
+
+This method is also newly added in the Comparator class in JDK 8.
+
+```java
+Map<String, Integer> sortedByValueDesc = ItemToPrice.entrySet()
+.stream()
+.sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+.collect(toMap(Map.Entry::getKey, 
+               Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+```
+The key point here is the use of the reversed() method, the rest of the code is the same as the previous example. In the first step, you get the entry set from the Map, then you get the stream, then you sorted elements of the stream using the sorted() method, which needs a comparator.
+
+You supply a Comparator which compares by values and then reversed it so that entries will be ordered in the decreasing order. 
+
+
+Finally, you collected all elements into a Map and you asked Collector to use the LinkedHashMap by using constructor reference, which is similar to method reference in Java 8 but instead of using method name, it uses Class::new, that's it. If you are interested, you can learn about it in any good Java 8 book like Java 8 in Action by Raul Gabriela Ulma on Manning publication. 
+
+### Sort HashMap by values in Java 8 using Lambdas and Stream
+
+
+
+
+### Important points about HashMap and Map in Java
+Here are some of the important points to remember while sorting a Map by values in Java 8. These are very important for correctly sorting any HashMap or Hashtable as well:
+Use LinkedHashMap for collecting the result to keep the sorting intact.
+
+Use static import for better readability e.g. static import Map.Entry nested class.
+
+Use new comparingByKey() and comparingByValue() method from Map.Entry they were added in Java 8 to make sorting by key and value easier in Java.
+ 
+Use reversed() method to sort the Map in descending order
+
+Use forEach() to print the Map
+
+Use Collectors to collect the result into a Map but always use LinkedHashMap because it maintains the insertion order. 
+You can learn more about lambda expression and method reference used in our example in a good Java 8 course like The Complete Java MasterClass on Udemy.
+
+### How to Sort Map by values in Java 8 using Lambdas and Stream - Example Tutorial
+
+
+
+
+### Java Program to Sort an HashMap by Values in JDK 8
+Here is our complete Java program to sort a HashMap by values in Java 8 using a lambda expression, method reference, and new methods introduced in JDK 8 like Map.Entry.comparingByValue() method, which makes it easier to sort the Map by values.
+```java
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package test;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
+import static java.util.stream.Collectors.*;
+
+/**
+ *
+ * @author Javin Paul
+ */
+public class SortingMapByValueInJava8 {
+
+  /**
+   * @param args
+   * the command line arguments
+   */
+  public static void main(String[] args) {
+
+    // Creating a Map with electoric items and prices
+    Map<String, Integer> ItemToPrice = new HashMap<>();
+    ItemToPrice.put("Sony Braiva", 1000);
+    ItemToPrice.put("Apple iPhone 6S", 1200);
+    ItemToPrice.put("HP Laptop", 700);
+    ItemToPrice.put("Acer HD Monitor", 139);
+    ItemToPrice.put("Samsung Galaxy", 800);
+
+    System.out.println("unsorted Map: " + ItemToPrice);
+
+    // sorting Map by values in ascending order, price here
+    ItemToPrice.entrySet().stream()
+        .sorted(Map.Entry.<String, Integer> comparingByValue())
+        .forEach(System.out::println);
+
+    // now, let's collect the sorted entries in Map
+    Map<String, Integer> sortedByPrice = ItemToPrice.entrySet().stream()
+        .sorted(Map.Entry.<String, Integer> comparingByValue())
+        .collect(Collectors.toMap(e -> e.getKey(), e -> e.getValue()));
+
+    System.out.println("Map incorrectly sorted by value in ascending order: "
+        + sortedByPrice);
+
+    // the Map returned by the previous statement was not sorted
+    // because ordering was lost while collecting result in Map
+    // you need to use the LinkedHashMap to preserve the order
+
+    Map<String, Integer> sortedByValue = ItemToPrice
+        .entrySet()
+        .stream()
+        .sorted(Map.Entry.<String, Integer> comparingByValue())
+        .collect(
+            toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1,
+                LinkedHashMap::new));
+
+    System.out.println("Map sorted by value in increasing order: "
+        + sortedByValue);
+
+    // sorting a Map by values in descending order
+    // just reverse the comparator sorting by using reversed() method
+    Map<String, Integer> sortedByValueDesc = ItemToPrice
+        .entrySet()
+        .stream()
+        .sorted(Map.Entry.<String, Integer> comparingByValue().reversed())
+        .collect(
+            toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1,
+                LinkedHashMap::new));
+
+    System.out.println("Map sorted by value in descending order: "
+        + sortedByValueDesc);
+  }
+
+}
+```
+```
+Output
+unsorted Map: {Samsung Galaxy=800, HP Laptop=700, Sony Braiva=1000,
+               Acer HD Monitor=139, Apple iPhone 6S=1200}
+Acer HD Monitor=139
+HP Laptop=700
+Samsung Galaxy=800
+Sony Braiva=1000
+Apple iPhone 6S=1200
+Map incorrectly sorted by value in ascending order: 
+{Samsung Galaxy=800, HP Laptop=700, Sony Braiva=1000, 
+Acer HD Monitor=139, Apple iPhone 6S=1200}
+Map sorted by value in increasing order: 
+{Acer HD Monitor=139, HP Laptop=700, Samsung Galaxy=800, 
+Sony Braiva=1000, Apple iPhone 6S=1200}
+Map sorted by value in descending order: {Apple iPhone 6S=1200,
+ Sony Braiva=1000, Samsung Galaxy=800, HP Laptop=700, Acer HD Monitor=139}
+```
+
+You can see that the map is sorted now by values, which are integers. In this first example, we have printed all entries in sorted order and that's why Acer HD Monitor comes first because it is least expensive, while Apple iPhone comes last because it is most expensive.
+
+In the second example, even though we sorted in the same way as before, the end result is not what you have expected because we failed to collect the result into a Map which keeps them in the order they were i.e. we should have used LinkedHashMap, which keeps entries in the order they were inserted.
+
+In the third and fourth examples, we rectified our mistake and collected the result of the sorted stream into a LinkedHashMap, hence we have entries in sorted order. In the last example, sort entries in descending order hence, Apple comes first and Acer comes last.
+
+Here is a one-liner in Java 8 to sort a HashMap by values:
+
+
+### How to Sort Map by values in Java 8 using Lambdas and Stream
+
+
+That's all about how to sort a Map by values in Java 8. you can use this technique to sort any Map implementations like HashMap, Hashtable, ConcurrentHashMap, TreeMap, etc. If you don't need to print the values or perform any operation, but you just need a sorted Map then make sure you use the collect() method to store sorted entries into another Map. 
+
+Also, when you use the Collector to collect elements from sorted Stream, make sure you use LinkedHashMap to collect the result, otherwise ordering will be lost.
+
+</details>
+<details>
+<summary><b>Java 8 StringJoiner Example - How to join multiple Strings with delimiter in Java?</b></summary>
+   
+While everyone was looking at the lambda expression and Stream API, JDK quietly sneaked some of the exciting methods on its API. There are a lot of hidden gems on JDK 8 and I have uncovered many of them already in this blog and today we'll talk about one of such gems which you can use in your day-to-day programming activities like joining much String together. The Java 8 has added a new class called StringJoiner to join Strings. The java.util.StringJoiner can be used to join any number of arbitrary String, a list of String, or an array of String in Java. You can choose any delimiter to join String like comma, pipe, colon, or semi-colon. This class also allows you to specify a prefix and suffix while joining two or more String in Java.
+
+In order to join Strings, you first create an instance of StringJoiner class. While creating the instance, you provide the delimiter, a String or character, which will be used between Strings while joining them like you can pass comma as a delimiter to create a comma-separated String or pipe to create a pipe-delimited String.
+
+In this article, you will see some examples of StringJoiner to learn how to join String in Java 8.
+
+Some of the readers may be curious why do you need a new StringJoiner class if you already have StringBuffer and StringBuilder classes to concatenate String, which is nothing but joining.
+
+Well, you can certainly use the StringBuffer and StringBuilder class to join String in Java and that's what Java developers do prior to Java 8
+
+But, StringJoiner provides a much cleaner and capable interface to join Strings. You don't need to write logic to start adding comma only after the first element and not to add after the last element, which Java programmers used to do while joining String in Java 6 or JDK 7.
+
+Though StringJoiner is just one of the hidden gems of the Java SE 8 release, there are many more day-to-day useful features that are hidden behind lambda expressions and streams like  CompletableFuture. You can further see these Java Functional Programming and Stream Courses to learn more about useful features like Lambda expression and Stream in a quick time.
+
+### How to join String by a comma in Java 8 - Example
+Let's see our first example, which will join String by a comma to create a CSV String in Java 8 using the StringJoiner class. In this example, we join arbitrary String like Java, C++, Python, and Ruby to form a comma-separated String.
+```java
+// Creating a StringJoiner with delimiter as comma
+StringJoiner joiner = new StringJoiner(",");
+joiner.add("Java");
+joiner.add("C++");
+joiner.add("Python");
+joiner.add("Ruby");
+
+String text = joiner.toString();
+System.out.println("comma separated String: " + text);
+```
+```
+Output
+comma separated String: Java,C++,Python,Ruby
+```
+You can see that StringJoiner has joined all String you have added to it. You don't need to loop through a list of String anymore.
+
+This code may look very similar to the code you may have written using StringBuffer but StringJoiner is very different from StringJoiner.
+
+In the case of StringBuffer or StringBuilder, you need to explicitly call the append(",") to join String by a comma but, here, once you tell StringJoiner about delimiter you are done.
+
+No need to call any function or write special logic, except adding String.
+
+You can further shorten the above code in one line because StringJoiner allows fluent API as shown below:
+```java
+String CSV = new StringJoiner(",").add("Scala")
+                                  .add("Haskell")
+                                  .add("Lisp").toString();
+System.out.println("CSV: " + CSV);
+```
+```
+Output
+CSV: Scala,Haskell,Lisp
+```
+You can see how you can join multiple String in just one line using StringJoiner and fluent API. If you are new to fluent API and interested in writing your own, you should check these Java design pattern courses on  Udemy which talk about a software architecture approach for creating readable, intuitive, and easy-to-understand code.
+
+### Java 8 StringJoiner Example - How to join multiple Strings with delimiter in Java
+
+You can also provide prefix and suffix String to StringJoiner which can be used to enclose String like by giving parenthesis as prefix and suffix you can enclose String as shown in our third example below:
+```java
+String text = new StringJoiner(",", "(", ")")
+                  .add("Car Insurance")
+                  .add("Health Insurance")
+                  .add("Life Insurance").toString();
+System.out.println("Insurance: " + text);
+```
+```         
+Output
+Insurance: (Car Insurance,Health Insurance,Life Insurance)
+```
+You can see in this example, we have enclosed the comma-separated String with an opening and closing braces by supplying them as prefix and suffix.
+
+One of the common use cases of this feature is dynamically generating IP address as shown in our fourth example below:
+
+```java
+String text = new StringJoiner(".", "[", "]")
+                .add("192")
+                .add("168")
+                .add("2")
+                .add("81").toString();
+System.out.println("IP address: " + text);
+```
+```
+Output
+IP address: [192.168.2.81]
+```
+You can see the nice and clean IP address generated by supplying opening and closing brackets as prefix and suffix and dot as a separator.  To be honest, these are just the tip of the iceberg in terms of both StringJoiner and Java 8 features.
+
+I suggest you look at a comprehensive Java course like The Complete Java MasterClass which covers almost everything about Java SE 8. This will allow you to get the full benefit of new API enhancement and Java 8 features in your day-to-day programming.
+
+### how to join String in Java with example
+
+
+
+That's all about how to use StringJoiner in Java 8 to Join multiple Strings. There is another alternative, you can use String.join() as well to join String. It internally uses StringJoiner for joining String but it's more versatile as it provides another overloaded version of String.join() to join elements from a String array or list of String.
+
+</details>
+
+==================================================================================
+
+In this example, we have a Stream of String values which represent numbers, by using the map() function we have converted this Stream to Stream of Integers. How? by applying Integer.valueOf() on each element of Stream. That's how "1" converted to integer 1 and so on. Once the transformation is done, we have collected the result into a List by converting Stream to List using Collectors.
+
+
+To find the second highest salary using Java 8 features such as `ArrayList` and `Map`, you can follow these steps. I'll provide a complete example that demonstrates how to achieve this using Java 8 streams.
+
+### Example Scenario
+Let's say you have a list of employees, where each employee is represented as a `Map` with `name` and `salary` keys. The goal is to find the second highest salary from this list.
+
+### Step-by-Step Solution
+
+1. **Create the Data**: Define a list of maps where each map contains an employee's details.
+
+2. **Extract Salaries**: Use streams to extract the salaries from the maps.
+
+3. **Find Distinct Salaries**: Collect the salaries into a `Set` to ensure there are no duplicates.
+
+4. **Sort and Get the Second Highest Salary**: Convert the set to a list, sort it, and fetch the second highest salary.
+
+Here’s a complete example in Java 8:
+
+```java
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class SecondHighestSalaryExample {
+    public static void main(String[] args) {
+        // Step 1: Create a list of maps representing employees
+        List<Map<String, Object>> employees = new ArrayList<>();
+        
+        employees.add(createEmployee("Alice", 50000));
+        employees.add(createEmployee("Bob", 70000));
+        employees.add(createEmployee("Charlie", 60000));
+        employees.add(createEmployee("David", 70000));
+        employees.add(createEmployee("Eve", 55000));
+        
+        // Step 2: Extract salaries and find the second highest salary
+        Optional<Integer> secondHighestSalary = employees.stream()
+            .map(e -> (Integer) e.get("salary"))  // Extract salaries
+            .distinct()                           // Remove duplicates
+            .sorted(Comparator.reverseOrder())    // Sort in descending order
+            .skip(1)                              // Skip the highest salary
+            .findFirst();                         // Get the second highest salary
+        
+        // Step 3: Output the result
+        if (secondHighestSalary.isPresent()) {
+            System.out.println("The second highest salary is: " + secondHighestSalary.get());
+        } else {
+            System.out.println("There is no second highest salary.");
+        }
+    }
+
+    // Helper method to create an employee map
+    private static Map<String, Object> createEmployee(String name, int salary) {
+        Map<String, Object> employee = new HashMap<>();
+        employee.put("name", name);
+        employee.put("salary", salary);
+        return employee;
+    }
+}
+```
+
+### Explanation
+
+1. **Data Creation**: The `createEmployee` method is used to generate employee maps with a name and salary.
+
+2. **Stream Operations**:
+   - `map(e -> (Integer) e.get("salary"))`: Extracts the salary from each map.
+   - `distinct()`: Removes duplicate salaries.
+   - `sorted(Comparator.reverseOrder())`: Sorts salaries in descending order.
+   - `skip(1)`: Skips the highest salary.
+   - `findFirst()`: Retrieves the next salary, which is the second highest.
+
+3. **Result Handling**: Checks if the result is present and prints it. If no second highest salary is available (e.g., all salaries are the same), it will inform you accordingly.
+
+## Java 8 Lambda Expression + Stream Interview Questions with Answers
+
+Java Streams API is a powerful feature introduced in Java 8 that allows for functional-style operations on sequences of elements. Interview questions related to streams often test your ability to perform complex data manipulations using this API.
+
+### 1. What is lambda expression of Java 8? (answer)
+As it's name suggests its an expression which allows you to write more succinct code in Java 8. For example (a, b) -> a + b is a lambda expression (look for that arrow ->) which is equal to following code:
+```java
+public int value(int a, int b){
+   return a + b;
+}
+```
+It's also called anonymous function because you are essentially writing the code you write in function but without name. 
+
+### 2. Can you pass lambda expression to a method? When? (answer)
+Yes, you can pass a lambda expression to a method provided it is expecting a functional interface. For example, if a method is accepting a Runnable, Comparable or Comparator then you can pass a lambda expression to it because all these are functional interface in Java 8. 
+
+### 3. What is functional interface in Java 8? (answer)
+A functional interface in Java 8 is an interface with single abstract method. For example, Comparator which has just one abstract method called compare() or Runnable which has just one abstract method called run(). There are many more general purpose functional interface are introduced in JDK on java.util.function package. They are also annotated with @FunctionalInterface but that's optional.
+
+### 4. What is map operation in Java 8? (answer)
+The map operation is used to transform one type to another type but applying a function. For example, if you have list of integer number but you want a List of String then you can use map operation to convert that list of integer into list of String by applying toString() function on each element. It came from functional programming paradigm but now Java 8 also has this. 
+
+### 5. What is method reference? (answer)
+A method reference is shortcut of lambda expression. It further cutdown the boilerplate and make your code more readable. If you have a method which already does what you are doing in lambda expression then you can use method reference in place of lambda expression. For example, if you have a list of integer and your are just printing its values like below:
+```java
+list.forEach(i -> System.out.println(i));
+```
+then you can replace this lambda expression with method reference because System.out.println() already does this i.e. take an argument and prints it.
+
+here is the equivalent code using method reference:
+```java
+list.forEach(System.out::println);
+```
+Remember, double colon operator (::) is used for method reference in Java 8. 
+
+### 6. When can you replace lambda expression with method reference? (answer)
+As explained in previous question, you can replace lambda expression with method reference if you already have an equivalent method which is doing the job of your lambda expression. 
+
+### 7. Can you local variables inside lambda expressions in Java 8? (answer)
+Yes, you can use local variable inside lambda expression but only which are effectively final variables. This rule is same as the local variable used inside Anonymous class. If you remember, we can only use final local variables inside anonymous class. 
+
+### 8. What is effectively final variable in Java 8? (answer)
+This question is generally asked as the follow-up of previous question. An effectively final variable is a variable whose value cannot be changed once created. It's similar to final variable but without final modifier. 
+
+### 9. Can you name some common functional interface of JDK 8? (answer)
+Even though you can name Comparator, Comparable, Runnable, Callable, or EventListener as functional interface, it's better to name new functional interfaces from java.util.function pacakge like Predicate, Consumer, Supplier, or BinaryFunction. 
+
+### 10. What is type inference in lambda expression? (answer)
+Lambda expression supports improved type inference that's why you don't need to define types on both side of lambda operator (->). For example, in following lambda expression 
+```java
+(int a, int b) -> (return a+ b);
+```
+compiler will infer the return value will be an int. This is one of the simplest example, compiler is much more intelligent now to infer type s in more complex situations like below:
+```java
+List<String> carOwners = 
+cars.stream()
+.map(car -> car.getRegistration())
+.map(registration -> RTORecords.getOwner(registration))
+.map(owner -> owner.getName())
+.map(name -> name.toUpperCase())
+.collect(toList());
+```
+In this case, we have not specified that car is object of Car, registration is a String, owner is a Person and name is a String type, instead compiler has inferred it all based upon the information it has e.g. List of String is the result. 
+
+
+### 11. What is flatmap operation in Java? (answer)
+This is another functional programming operation which is now available in Java. It's close cousin of map function, which means it not only transforms but also flatten the list. For example, if you have list of list of Integers but you just need list of String then you can use flatmap to do that. You can see this Java Flatmap tutorial for a live example. 
+
+### 12. What is difference between map and flatmap in Java? (answer)
+As the name suggests, map function just transform one type to another like you can use map to transfer list of integer to list of String or vice-versa but flatmap not only transform but also flatten the list. This means if you list of list of employeeIds then you can create a big list of Employee object by transforming and flattening all those list. See the detailed answer for more detailed discussion and real world examples.
+
+### 13. What is difference between lambda expression and anonymous class in Java 8? (answer)
+Even though both lambda expression and anonymous class server the same purpose of passing code to a method there is a key difference between them from Java perspective. 
+
+An anonymous class is a class while lambda expression is more like anonymous function. You can also pass the Lambda expression to any method which accept a functional interface, I mean those interface which just have one single abstract method but you can pass anonymous class to any method which accept any class, there is no restriction on that. 
+
+Also, Anonymous class can implement more than one abstract method unlike Lambda expression which can only implement one single abstract method considering they can only be used in place where a Functional interface is expected. 
+
+On Implementation also, anonymous class generates a class file but lambda expression doesn't. You can further read Java 8 in Action to learn more about implementation of lambda expression in Java. 
+
+### 14. Can you write more than one line of code in lambda expression? (answer)
+Yes, you can write more than online of code in lambda expression using curly braces, similar to how you define static initializer block. 
+
+Here is an example of lambda expression which is longer than one line:
+```java
+(String first, String second) -> { 
+if(first.equals(second)){ 
+   return true; 
+ }else{ 
+   return false; 
+ } 
+};
+```
+One important thing to note in this case is the return statement, which is mandatory here, unlike one liner lambda where you can just omit them most of the time. 
+
+### 15. What is the benefit of lambda expression of Java 8? (answer)
+The main benefit of lambda expression in Java 8 that now it's easier to pass a code block to a method. Earlier, the only way to do this was wrapping the code inside an Anonymous class, which requires a lot of boilerplate code.
+
+Now, you can achieve the same effect in just a couple of line using lambda expression. This is in my opinion most important Java 8 interview question and if candidate can explain the benefit clearly, he understand Java 8 better than others. 
+
+### 16. Is it mandatory for a lambda expression to have parameters? (answer)
+No, it's not mandatory for a lambda expression to have parameters, you can define a lambda expression without parameters as shown below:
+```java
+() -> System.out.println("lambdas without parameter");
+```
+You can pass this code to any method which accepts a functional interface. 
+
+This example uses Java 8 features effectively to handle collections and perform operations in a functional style.
+
+## How to Convert a List to Map in Java 8 - Example Tutorial
+
+One of the common tasks in Java programming is to convert a list to a map and I have written about this in the past and today we'll see how Java 8 makes this task easier. Btw, be it Java 7 or Java 8, you need to keep something in mind while converting a list to a map because they are two different data structures and have completely different properties. For example, the List interface in Java allows duplicate elements but keys in a Map must be unique, the value can be duplicated but a duplicate key may cause a problem in Java 8. This means a List with duplicates cannot be directly converted into Map without handling the duplicate values properly. 
+
+Similarly, another concern is the order of elements. A list is an ordered collection but the map doesn't guarantee any order unless you decide to use LinkedHashMap, which keeps insertion order, or TreeMap which keeps mapping in the sorted order of keys. This is one of the important details which many Java beginners forget and then spend hours chasing subtle bugs.
+
+If your program has any dependency on the order of elements in the list they will not work as expected if you use a map. So, you should be mindful of these general details while converting a list to a map in Java. This is true irrespective of the Java version.
+
+Btw, if you are new to the Java world, I suggest you first go through a comprehensive course on Java-like The Complete Java Masterclass on Udemy. It not only provides organized and structure learning but also you will learn more in less time.  It's also one of the most up-to-date courses, recently updated for Java 11 features.
+
+Anyway, let's see the task at hand. Assume you have a list of courses and you want to create a map where keys should be the title of the course and value should be the course object itself. How will you do that?
+
+
+
+### How to convert List<V> into Map<K, V> in Java? Example
+It's easy in Java, all you need to do is go through the List, extract a key from each object and add both key and value into the map, but how will you do that in Java 8 style like by using lambda expression and streams?
+
+### How to Convert a List<V> to Map<K,V> in Java 8 - Example Tutorial
+
+
+
+We'll see that but let's first write the JDK 7 version to convert a List<V> into Map<K, V>:
+
+```java
+private Map<String, Course> toMap(List<Course> listOfCourses) {
+    final Map<String, Course> courses = new HashMap<>();
+    for (final Course current : listOfCourses) {
+      hashMap.put(current.getTitle(), current);
+    }
+    return courses;
+  }
+```
+This code is very simple and easy to read, let's now see the Java 8 version to find out whether Java 8 really makes your life easy when it comes to writing day to day code:
+```java
+Map<String, Course > result = listOfCourses
+                                 .stream()
+                                 .collect(
+                                 Collectors.toMap(Course::getTitle,
+                                                 Function.identity()));
+```
+Wow, it just took one line to convert a list of objects into a map, which had taken one function in JDK 7. So, it looks Java 8 really makes the developer's life easy.
+
+Anyway, let's try to understand what's going on here. Well, you have a listOfCourses, which is a List and then you called the stream() method which returns a Stream associated with that list. After that, you have called the collect() method which is used to accumulate elements from Stream.
+
+Since we are not doing any filtering there is no call to filter(), the collect() method then uses a Collector which can combine results in a map. All it needs is one method to extract the key, which is Course::getTitle, and one method to extract value which is Function.identity() i.e. the object itself.
+
+We have also used a method reference to shorten the key extractor. You can further see What's New in Java 8: Lambdas to learn more about how to convert lambda expression to a method reference.
+
+### How to convert List<V> into Map<K,V> in Java 8
+
+Btw, there is a catch here. The ordering of elements has been lost because Map doesn't guarantee any order. If you want to keep Courses in the same order they appeared in the List, we need to use a Map that provides ordering guarantees e.g. LinkedHashMap which keeps elements in the order they are inserted.
+
+We also need to tell this to Collector so that it will collect elements inside a LinkedHashMap rather than a general Map. Let's re-write the code to achieve that:
+
+```java
+ Map<String, Course > result = listOfCourses
+        .stream()
+        .collect(
+        Collectors.toMap(Course::getTitle, 
+                         Function.identity(), 
+                         LinkedHashMap::new));
+```
+This looks good now. The order of elements in both List and Map are the same now, but there is still one more thing you need to take care of to keep this code full proof and pass the test of time.
+
+If you remember, List allows duplicates but if you try to insert a duplicate key in the Map it overrides the values, that would have been a nightmare in this case, but thankfully Java 8 protects you. Instead of silently overwriting a value in such condition, it throws an exception as shown below when it encountered a duplicate element in the source list (see Modern Java in Action )
+
+Though, you can resolve this error by just telling Collector how to resolve collision e.g. what to do when it encounters a duplicate key. It can do nothing and keep the original mapping or it can override and update the value. You can instruct the collector whatever you want by providing an extra parameter to the Collectors.toMap() method as shown in the following code:
+
+```java
+    Map<String, Course > result = listOfCourses
+        .stream()
+        .collect(
+        Collectors.toMap(Course::getTitle, 
+                         Function.identity(),
+                         (e1, e2) -> e2, 
+                         LinkedHashMap::new));
+```
+Here in case of a duplicate, we are using the second element as a key to generated LinkedHashMap. You can also choose the first object or just concatenate the first and second as per your need.
+
+
+That's all about how to convert a list of objects List<V> to a map of keys and values e.g. Map<K, V>. It's super easy in Java 8. All you need to know is how to use the collect() and Collector class of Stream API to do this task. 
+
+Though you should be mindful of the essential difference between List and Map data structure like one is ordered collection while the other is not. Transferring values from List to Map means you will lose the order if you don't preserve them like by using a LinkedHashMap.
+
+
 
 ### Employee Management
 
