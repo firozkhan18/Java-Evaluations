@@ -624,7 +624,7 @@ Table of Contents
 
 - [1. Static Variable](#1-static-variable)
 - [2. Static Method](#2-static-method)
-- [3. Static Import Statement](#3-static-import)
+- [3. Static Import Statement](#3-static-import-statement)
 - [4. Static Block](#4-static-block)
 - [5. Static Class](#5-static-class)
 - [6. Summary](#6-summary)
