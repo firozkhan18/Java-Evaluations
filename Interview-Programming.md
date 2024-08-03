@@ -1,7 +1,7 @@
 # Table of Contents
 
 <details>
-<summary><b>Java Concepts</b></summary>
+<summary><b>Core Java Concepts</b></summary>
 
 ## OOP
 - [Object](#object)
@@ -32,7 +32,38 @@
   - [abstract](#abstract)
   - [instanceOf](#instanceof)
 </details>
+<details>
+<summary><b>Java Design Patterns</b></summary>
 
+## Creational Design Patterns
+- [Object](#object)
+- [Class](#class)
+- [Polymorphism](#polymorphism)
+- [Encapsulation](#encapsulation)
+- [Inheritance](#inheritance)
+- [Abstraction](#abstraction)
+- [Composition](#composition)
+- [Association](#association)
+- [Aggregation](#aggregation)
+
+## Structural Design Patterns
+- [new](#new)
+- [this](#this)
+- [super](#super)
+- [import](#import)
+- [extends](#extends)
+
+## Bahavioural Design Patterns
+- [Access Modifiers](#access-modifiers)
+- [Non-Access Modifiers](#non-access-modifiers)
+  - [Static](#static)
+  - [Final](#final)
+  - [transient](#transient)
+  - [volatile](#volatile)
+  - [synchronized](#synchronized)
+  - [abstract](#abstract)
+  - [instanceOf](#instanceof)
+</details>
 <details>
 <summary><b>Java 8 Features</b></summary>
 
