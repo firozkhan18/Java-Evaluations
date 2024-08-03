@@ -93,19 +93,19 @@ classDiagram
     <<class>>
   }
 
-  Collection <|-- List
   Collection <|-- Set
+  Collection <|-- List 
   Collection <|-- Queue
   Collection <|-- Map
+
+  Set <|-- HashSet
+  Set <|-- LinkedHashSet
+  Set <|-- TreeSet
 
   List <|-- ArrayList
   List <|-- LinkedList
   List <|-- Vector
   List <|-- Stack
-
-  Set <|-- HashSet
-  Set <|-- LinkedHashSet
-  Set <|-- TreeSet
 
   Queue <|-- PriorityQueue
   Queue <|-- Deque
