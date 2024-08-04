@@ -26,7 +26,7 @@ graph TD
     
     J --> I
     K --> I
-``
+```
 
 # Table of Contents
 
