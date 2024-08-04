@@ -1,4 +1,4 @@
-```mermaid
+
 flowchart TD
     A[Start] --> B[Initialize StringBuilder and List]
     B --> C[Open BufferedReader with FileReader]
@@ -15,7 +15,7 @@ flowchart TD
     
     J --> I
     K --> I
-```
+
 
 flowchart TD
     A[Start] --> B[Initialize StringBuilder and List]
