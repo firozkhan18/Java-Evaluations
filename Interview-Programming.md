@@ -24116,6 +24116,77 @@ public class ReadFileLinesToArray {
 ```
 
 **Explanation**: This program reads lines from a file into a `List<String>`, converts the list to an array, and then prints the lines. `BufferedReader` reads lines one by one, and we use `ArrayList` to collect them. Finally, we convert the list to an array.
+
+To create a flowchart using the Mermaid syntax for the given Java program, you can use Mermaid's flowchart diagram syntax to visually represent the program's logic and flow. Here’s how you can structure the Mermaid flowchart for the provided Java program:
+
+### Java Program
+
+```java
+public static void main(String a[]) {
+    StringBuilder sb = new StringBuilder();
+    String strLine = "";
+    List<String> list = new ArrayList<String>();
+    try {
+        BufferedReader br = new BufferedReader(new FileReader("D:\\FirozKhan_Softwares\\fir.txt"));
+        while (strLine != null) {
+            strLine = br.readLine();
+            sb.append(strLine);
+            sb.append(System.lineSeparator());
+            if (strLine == null)
+                break;
+            list.add(strLine);
+        }
+        System.out.println(Arrays.toString(list.toArray()));
+        br.close();
+    } catch (FileNotFoundException e) {
+        System.err.println("File not found");
+    } catch (IOException e) {
+        System.err.println("Unable to read the file.");
+    }
+}
+```
+
+### Mermaid Flowchart
+
+Here’s the Mermaid syntax for the flowchart that represents the logic of the above Java program:
+
+```mermaid
+flowchart TD
+    A[Start] --> B[Initialize StringBuilder and List]
+    B --> C[Open BufferedReader with FileReader]
+    C --> D{Read Line}
+    D -->|Line is not null| E[Append Line to StringBuilder]
+    E --> F[Add Line to List]
+    F --> D
+    D -->|Line is null| G[Print List]
+    G --> H[Close BufferedReader]
+    H --> I[End]
+
+    C -->|FileNotFoundException| J[Print "File not found"]
+    C -->|IOException| K[Print "Unable to read the file."]
+    
+    J --> I
+    K --> I
+```
+
+### Explanation of the Flowchart
+
+1. **Start**: Represents the beginning of the program.
+2. **Initialize StringBuilder and List**: The `StringBuilder` and `List<String>` are initialized.
+3. **Open BufferedReader with FileReader**: The `BufferedReader` is opened to read from the specified file.
+4. **Read Line**: Read a line from the file.
+   - **Line is not null**: If the line is not null, append it to `StringBuilder` and add it to the list.
+   - **Line is null**: If the line is null, move to the next step.
+5. **Print List**: Convert the list to an array and print it.
+6. **Close BufferedReader**: Close the `BufferedReader` after reading all lines.
+7. **End**: Represents the end of the program.
+
+### Error Handling
+
+- **FileNotFoundException**: If the file is not found, print "File not found".
+- **IOException**: If an IO error occurs while reading the file, print "Unable to read the file".
+
+You can visualize this flowchart using Mermaid live editor or any other Mermaid-compatible tool. Simply copy the Mermaid code and paste it into a Mermaid live editor to view the diagram.
 </details>
 
 <details>
