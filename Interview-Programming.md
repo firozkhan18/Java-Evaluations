@@ -23691,6 +23691,111 @@ public class ReadFileLineByLine {
 ```
 
 **Explanation**: `BufferedReader` reads the file line by line with `readLine()`.
+
+Both pieces of code provided are examples of reading from a file in Java, but they use different methods and classes. Here’s a detailed comparison of the two approaches:
+
+### Code 1: Using `BufferedReader`
+
+```java
+BufferedReader br = null;
+String strLine = "";
+try {
+    br = new BufferedReader(new FileReader("/home/students/test.txt"));
+    while ((strLine = br.readLine()) != null) {
+        System.out.println(strLine);
+    }
+    br.close();
+} catch (FileNotFoundException e) {
+    System.err.println("File not found");
+} catch (IOException e) {
+    System.err.println("Unable to read the file.");
+}
+```
+
+### Code 2: Using `FileInputStream`
+
+```java
+String file_name = "/home/students/test.txt";
+InputStream fins = null;
+try {
+    fins = new FileInputStream(file_name);
+    byte file_content[] = new byte[2 * 1024];
+    int read_count = 0;
+    while ((read_count = fins.read(file_content)) > 0) {
+        System.out.println(new String(file_content, 0, read_count - 1));
+    }
+} catch (FileNotFoundException e) {
+    e.printStackTrace();
+} catch (IOException e) {
+    e.printStackTrace();
+} finally {
+    try {
+        if (fins != null) fins.close();
+    } catch (Exception ex) {
+        // Handle potential IOException from close() method
+    }
+}
+```
+
+### Key Differences
+
+1. **Reading Mechanism:**
+
+   - **Code 1 (`BufferedReader`):**
+     - **`BufferedReader`** reads text line by line using the `readLine()` method.
+     - **Approach**: More suitable for reading text files where lines are meaningful.
+     - **Efficiency**: Reads lines of text and handles character encoding internally.
+
+   - **Code 2 (`FileInputStream`):**
+     - **`FileInputStream`** reads raw bytes from the file.
+     - **Approach**: Suitable for binary data or when you need to process data byte by byte.
+     - **Efficiency**: Handles bytes and may require manual handling of character encoding and byte-to-string conversion.
+
+2. **Handling of File Content:**
+
+   - **Code 1 (`BufferedReader`):**
+     - Reads the file line by line.
+     - Outputs each line directly as a string, maintaining line breaks.
+
+   - **Code 2 (`FileInputStream`):**
+     - Reads chunks of bytes into a buffer.
+     - Converts the bytes to a string but uses `read_count - 1`, which might lead to truncation of the last byte. Ideally, this should be `new String(file_content, 0, read_count)`.
+
+3. **Error Handling:**
+
+   - **Code 1 (`BufferedReader`):**
+     - Catches `FileNotFoundException` and `IOException` with user-friendly error messages.
+     - **FileNotFoundException**: Printed as `"File not found"`.
+     - **IOException**: Printed as `"Unable to read the file."`.
+
+   - **Code 2 (`FileInputStream`):**
+     - Catches `FileNotFoundException` and `IOException`, printing stack traces for debugging.
+     - **FileNotFoundException** and **IOException**: Printed using `e.printStackTrace()`, which may be less user-friendly but provides detailed debugging information.
+
+4. **Resource Management:**
+
+   - **Code 1 (`BufferedReader`):**
+     - Explicitly closes the `BufferedReader` within the `try` block.
+     - Handles potential `IOException` during closing implicitly.
+
+   - **Code 2 (`FileInputStream`):**
+     - Closes the `FileInputStream` in the `finally` block to ensure it gets closed even if an exception occurs.
+     - **Resource Closing**: Uses a nested `try` block to handle potential exceptions during closing.
+
+5. **Output Formatting:**
+
+   - **Code 1 (`BufferedReader`):**
+     - Directly prints each line read from the file.
+
+   - **Code 2 (`FileInputStream`):**
+     - Converts bytes to a `String` and prints them. May not handle line breaks correctly and might have issues with encoding or truncation due to `read_count - 1`.
+
+### Summary
+
+- **BufferedReader** is generally preferred for reading text files line by line and handling character encoding automatically.
+- **FileInputStream** is more suited for reading binary data or processing data in chunks, and it requires manual handling of character encoding and byte-to-string conversion.
+
+In most cases, `BufferedReader` is more convenient for text file reading due to its ability to handle lines and characters directly.
 </details>
 
 <details>
