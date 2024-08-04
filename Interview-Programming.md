@@ -23427,6 +23427,86 @@ public class ReadConsoleInput {
 ```
 
 **Explanation**: We use `Scanner` to read input from the console.
+
+The provided code snippet demonstrates how to read input from the console in Java using `BufferedReader`. Here’s a detailed explanation of each part of the code:
+
+```java
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+//Write a Java program to read input from the Java console.
+public class Exercise8 {
+	public static void main(String[] args) throws IOException {
+		BufferedReader R = new BufferedReader(new InputStreamReader(System.in));
+		System.out.print("Input your name: ");
+		String name = R.readLine();
+		System.out.println("Your name is: " + name);
+	}
+}
+```
+### Code Breakdown
+
+```java
+BufferedReader R = new BufferedReader(new InputStreamReader(System.in));
+System.out.print("Input your name: ");
+String name = R.readLine();
+System.out.println("Your name is: " + name);
+```
+
+### Detailed Explanation
+
+1. **Creating a `BufferedReader` Object:**
+
+    ```java
+    BufferedReader R = new BufferedReader(new InputStreamReader(System.in));
+    ```
+
+    - `System.in` is an `InputStream` that represents the standard input stream (typically the keyboard).
+    - `InputStreamReader` is a bridge from byte streams to character streams. It reads bytes from the `InputStream` (in this case, `System.in`) and decodes them into characters.
+    - `BufferedReader` provides buffering for efficient reading of characters, arrays, and lines. It reads text from the `InputStreamReader` and offers methods to read text line-by-line.
+
+    **Explanation of Constructor:**
+    - `new InputStreamReader(System.in)` creates an `InputStreamReader` that reads bytes from the standard input and converts them into characters.
+    - `new BufferedReader(...)` wraps this `InputStreamReader` with a `BufferedReader` to read text more efficiently.
+
+2. **Prompting the User for Input:**
+
+    ```java
+    System.out.print("Input your name: ");
+    ```
+
+    - This line prints the prompt message "Input your name: " to the console without adding a new line. This tells the user to enter their name.
+
+3. **Reading the User Input:**
+
+    ```java
+    String name = R.readLine();
+    ```
+
+    - `R.readLine()` reads a line of text from the console input. It waits for the user to type a line and press Enter.
+    - The entered text is returned as a `String` and assigned to the variable `name`.
+
+    **Behavior:**
+    - `readLine()` blocks the execution until the user inputs a line and presses Enter.
+    - The method reads the entire line of input (excluding the newline character) and returns it as a `String`.
+
+4. **Displaying the User Input:**
+
+    ```java
+    System.out.println("Your name is: " + name);
+    ```
+
+    - This line prints the message "Your name is: " followed by the value stored in `name` to the console.
+    - `System.out.println()` adds a newline character after printing the message, so the cursor moves to the next line after displaying the output.
+
+### Summary
+
+- **BufferedReader** is used for reading text from an input stream efficiently.
+- **InputStreamReader** bridges the byte stream (`System.in`) to a character stream.
+- **`readLine()`** method of `BufferedReader` reads an entire line of text entered by the user.
+- **`System.out.print`** and **`System.out.println`** are used for prompting the user and displaying the result.
+
+This code snippet is a simple example of how to interact with the user via the console in Java, allowing for input and output operations.
 </details>
 
 <details>
