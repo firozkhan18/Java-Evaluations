@@ -24382,6 +24382,169 @@ public class FileAnalyzer {
     }
 }
 ```
+To create a Java program that reads a file, counts the number of lines each word appears in, and prints words that appear in more than 50% of the lines, you can follow these steps:
+
+1. **Read the File**: Read the file line by line.
+2. **Track Words and Line Counts**: Use a `Map` to count occurrences of each word across different lines.
+3. **Calculate Threshold**: Determine the threshold as 50% of the total lines.
+4. **Print Words Above Threshold**: Print the words that appear in more than 50% of the lines.
+
+Here’s a complete Java program to achieve this:
+
+```java
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+public class WordFrequencyAnalyzer {
+
+    public static void main(String[] args) {
+        // Path to the file
+        String fileName = "path/to/your/file.txt"; // Adjust path if needed
+
+        // Use a map to count the number of lines each word appears in
+        Map<String, Integer> wordLineCount = new HashMap<>();
+        // Use a set to keep track of the words in each line
+        Set<String> currentLineWords = new HashSet<>();
+        int totalLines = 0;
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                totalLines++;
+                currentLineWords.clear();
+                // Split line into words
+                String[] words = line.split("\\s+");
+                for (String word : words) {
+                    if (!word.trim().isEmpty()) {
+                        currentLineWords.add(word.toLowerCase()); // Normalize to lowercase
+                    }
+                }
+                // Update wordLineCount map
+                for (String word : currentLineWords) {
+                    wordLineCount.put(word, wordLineCount.getOrDefault(word, 0) + 1);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Determine the threshold for words to appear in more than 50% of the lines
+        double threshold = totalLines * 0.5;
+        System.out.println("Total lines: " + totalLines);
+        System.out.println("Threshold: " + threshold);
+        System.out.println("Words appearing in more than 50% of the lines:");
+        for (Map.Entry<String, Integer> entry : wordLineCount.entrySet()) {
+            if (entry.getValue() > threshold) {
+                System.out.println(entry.getKey());
+            }
+        }
+    }
+}
+```
+
+### Key Components of the Program:
+
+1. **File Reading**: The `BufferedReader` reads the file line by line.
+2. **Tracking Words**: 
+   - `currentLineWords` keeps track of words in the current line to ensure each word is only counted once per line.
+   - `wordLineCount` is a `Map` where keys are words and values are the count of lines the word appears in.
+3. **Normalization**: Words are converted to lowercase to ensure case-insensitivity.
+4. **Threshold Calculation**: The threshold is calculated as 50% of the total number of lines.
+5. **Printing Results**: The program prints words that appear in more than the calculated threshold number of lines.
+
+### Usage
+
+1. **Adjust File Path**: Replace `"path/to/your/file.txt"` with the actual path to your file.
+2. **Run the Program**: Execute the program to see the results. It will print the words that appear in more than 50% of the lines in the specified file.
+
+This approach ensures you get a comprehensive overview of which words are prevalent in the majority of lines within a text file.
+To convert the provided Java program to use lambda expressions and the Stream API, we need to adjust the code to utilize these modern Java features for more concise and functional-style programming. 
+
+The core tasks are:
+1. Reading lines from a file.
+2. Processing each line to count word occurrences.
+3. Calculating and filtering based on the threshold.
+
+Here's how you can convert the program to use lambda expressions and streams:
+
+```java
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class WordFrequencyAnalyzer {
+
+    public static void main(String[] args) {
+        // Path to the file
+        String fileName = "path/to/your/file.txt"; // Adjust path if needed
+
+        // Use a map to count the number of lines each word appears in
+        Map<String, Integer> wordLineCount = new HashMap<>();
+        int[] totalLines = {0}; // Use an array to allow modification in lambda
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            // Process each line of the file
+            reader.lines()
+                .peek(line -> totalLines[0]++) // Increment totalLines count for each line
+                .map(line -> line.split("\\s+")) // Split line into words
+                .map(words -> Stream.of(words)
+                    .map(String::trim)
+                    .filter(word -> !word.isEmpty())
+                    .map(String::toLowerCase) // Normalize to lowercase
+                    .collect(Collectors.toSet())) // Collect words in the current line to a Set
+                .forEach(currentLineWords -> currentLineWords.forEach(word ->
+                    wordLineCount.merge(word, 1, Integer::sum))); // Update wordLineCount map
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Determine the threshold for words to appear in more than 50% of the lines
+        double threshold = totalLines[0] * 0.5;
+        System.out.println("Total lines: " + totalLines[0]);
+        System.out.println("Threshold: " + threshold);
+        System.out.println("Words appearing in more than 50% of the lines:");
+        
+        // Print words that appear in more than the calculated threshold number of lines
+        wordLineCount.entrySet().stream()
+            .filter(entry -> entry.getValue() > threshold)
+            .map(Map.Entry::getKey)
+            .forEach(System.out::println);
+    }
+}
+```
+
+### Key Changes and Lambda Expressions:
+
+1. **Reading Lines**:
+   - `reader.lines()` returns a `Stream<String>` of lines from the file, allowing for stream processing.
+
+2. **Counting Lines**:
+   - `peek(line -> totalLines[0]++)` is used to count the total number of lines. `peek` is used for intermediate operations that don't modify the stream's elements but perform an action (in this case, counting lines).
+
+3. **Processing Words**:
+   - `.map(line -> line.split("\\s+"))` splits each line into words.
+   - `.map(words -> Stream.of(words) ... .collect(Collectors.toSet()))` processes each line to collect words into a `Set` to ensure uniqueness within a line.
+
+4. **Updating Word Count**:
+   - `wordLineCount.merge(word, 1, Integer::sum)` increments the word count in the map. `merge` is a convenient method to handle this type of aggregation.
+
+5. **Filtering and Printing**:
+   - `wordLineCount.entrySet().stream().filter(entry -> entry.getValue() > threshold)` filters the words that meet the threshold criteria.
+   - `.map(Map.Entry::getKey).forEach(System.out::println)` prints each word that meets the criteria.
+
+This approach leverages the power of Java Streams and lambda expressions to write more concise and readable code, focusing on functional programming concepts.
+
 To create a flowchart for the provided Java program, we need to outline the program’s logic step by step. The program reads a file, counts the number of lines each word appears in, and then prints words that appear in more than 50% of the lines.
 
 Here's a breakdown of the flowchart components:
