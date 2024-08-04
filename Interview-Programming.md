@@ -43,16 +43,13 @@
 <details>
 <summary><b>1.4. Methods</b></summary>
 
-
-
-
-
-
 Certainly! Here are the Java methods for each of the described tasks:
 
-1. Write a Java method to find the smallest number among three numbers.
+<details>
+<summary><b>1. Write a Java method to find the smallest number among three numbers.</b></summary>
 
 ### 1. Find the Smallest Number Among Three Numbers
+
 ```java
 public static double findSmallest(double a, double b, double c) {
     return Math.min(a, Math.min(b, c));
@@ -74,9 +71,11 @@ Expected Output:
 
 The smallest value is 25.0
 ```
+</details>
+<details>
+<summary><b>2. Write a Java method to compute the average of three numbers.</b></summary>
+	
 ### 2. Compute the Average of Three Numbers
-
-2. Write a Java method to compute the average of three numbers.
 
 ```java
 public static double computeAverage(double a, double b, double c) {
@@ -99,10 +98,11 @@ Expected Output:
 
 The average value is 45.0
 ```
-
+</details>
+<details>
+<summary><b>3. Write a Java method to display the middle character of a string.</b></summary>
+	
 ### 3. Display the Middle Character of a String
-
-3. Write a Java method to display the middle character of a string.
 
 Note: a) If the length of the string is odd there will be two middle characters.
 b) If the length of the string is even there will be one middle character.
@@ -130,10 +130,11 @@ Expected Output:
                                                                           
 The middle character in the string: 5
 ```
-
+</details>
+<details>
+<summary><b>4. Write a Java method to count all vowels in a string.</b></summary>
+	
 ### 4. Count All Vowels in a String
-
-4. Write a Java method to count all vowels in a string.
 
 ```java
 public static long countVowels(String str) {
@@ -155,10 +156,11 @@ Expected Output:
 
 Number of  Vowels in the string: 4
 ```
-
+</details>
+<details>
+<summary><b>5. Write a Java method to count all the words in a string.</b></summary>
+	
 ### 5. Count All Words in a String
-
-5. Write a Java method to count all the words in a string.
 
 ```java
 public static int countWords(String str) {
@@ -177,10 +179,11 @@ Expected Output:
 
 Number of words in the string: 9
 ```
-
+</details>
+<details>
+<summary><b>6. Write a Java method to compute the sum of digits in an integer.</b></summary>
+	
 ### 6. Compute the Sum of Digits in an Integer
-
-6. Write a Java method to compute the sum of digits in an integer.
 
 ```java
 public static int sumOfDigits(int number) {
@@ -204,11 +207,13 @@ Expected Output:
 
 The sum is 7 
 ```
+</details>
+<details>
+<summary><b>7. Write a Java method to display the first 50 pentagonal numbers.</b></summary>
+	
 ### 7. Display the First 50 Pentagonal Numbers
 
-7. Write a Java method to display the first 50 pentagonal numbers.
 Note: A pentagonal number is a figurate number that extends the concept of triangular and square numbers to the pentagon, but, unlike the first two, the patterns involved in the construction of pentagonal numbers are not rotationally symmetrical.
-
 
 ```java
 public static void displayPentagonalNumbers(int count) {
@@ -235,9 +240,11 @@ Expected Output:
 2501  2625  2752  2882  3015  3151  3290  3432  3577  3725 
 ```
 
+</details>
+<details>
+<summary><b>8. Write a Java method to compute the future investment value at a given interest rate for a specified number of years.</b></summary>
+	
 ### 8. Compute the Future Investment Value
-
-8. Write a Java method to compute the future investment value at a given interest rate for a specified number of years.
 
 ```java
 public static void computeFutureValue(double investmentAmount, double annualInterestRate, int years) {
@@ -272,10 +279,12 @@ Years    FutureValue
 4            1489.35                                     
 5            1645.31
 ```
+</details>
+<details>
+<summary><b>9. Write a Java method to print characters between two characters (i.e. A to P).
+Note: Prints 20 characters per line</b></summary>
+	
 ### 9. Print Characters Between Two Characters (A to P)
-
-9. Write a Java method to print characters between two characters (i.e. A to P).
-Note: Prints 20 characters per line
 
 ```java
 public static void printCharacters(char start, char end) {
@@ -300,9 +309,11 @@ P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c
 d e f g h i j k l m n o p q r s t u v w                  
 x y z
 ```
+</details>
+<details>
+<summary><b>10. Write a Java method to check whether a year (integer) entered by the user is a leap year or not.</b></summary>
+	
 ### 10. Check Whether a Year is a Leap Year
-
-10. Write a Java method to check whether a year (integer) entered by the user is a leap year or not.
 
 ```java
 public static boolean isLeapYear(int year) {
@@ -320,10 +331,12 @@ Expected Output:
 Input a year: 2017                                                                        
 false
 ```
-
+</details>
+<details>
+<summary><b>11. Write a Java method to check whether a string is a valid password.</b></summary>
+	
 ### 11. Check Whether a String is a Valid Password
 
-11. Write a Java method to check whether a string is a valid password.
 Password rules:
 A password must have at least ten characters.
 A password consists of only letters and digits.
@@ -348,9 +361,11 @@ Expected Output:
 Input a password (You are agreeing to the above Terms and Conditions.): abcd1234           
 Password is valid: abcd1234
 ```
+</details>
+<details>
+<summary><b>12. Write a Java method (takes n as input) to display an n-by-n matrix.</b></summary>
+	
 ### 12. Display an n-by-n Matrix
-
-12. Write a Java method (takes n as input) to display an n-by-n matrix.
 
 ```java
 public static void displayMatrix(int n) {
@@ -384,9 +399,11 @@ Input a number: 10
 0 0 1 0 0 0 0 1 1 0                                                        
 1 1 1 0 0 1 1 1 1 0
 ```
+</details>
+<details>
+<summary><b>13. Write Java methods to calculate triangle area.</b></summary>
+	
 ### 13. Calculate the Area of a Triangle
-
-13. Write Java methods to calculate triangle area.
 
 ```java
 public static double calculateTriangleArea(double a, double b, double c) {
@@ -409,9 +426,11 @@ Input Side-2: 15
 Input Side-3: 20                                                                              
 The area of the triangle is 72.6184377413890
 ```
+</details>
+<details>
+<summary><b>14. Write a Java method to create a pentagon's area.</b></summary>
+	
 ### 14. Calculate the Area of a Pentagon
-
-14. Write a Java method to create a pentagon's area.
 
 ```java
 public static double calculatePentagonArea(double side) {
@@ -423,16 +442,18 @@ public static void main(String[] args) {
     System.out.println("The area of the pentagon is " + calculatePentagonArea(side));
 }
 ```
-
+```
 Expected Output:
 
 Input the number of sides: 5                             
 Input the side: 6                                        
 The area of the pentagon is 61.93718642120281
-
+````
+</details>
+<details>
+<summary><b>15. Write a Java method to display the current date and time.</b></summary>
+	
 ### 15. Display the Current Date and Time
-
-15. Write a Java method to display the current date and time.
 
 ```java
 import java.text.SimpleDateFormat;
@@ -453,9 +474,11 @@ Expected Output:
 
 Current date and time: Wednesday January 25, 2017 7:47:43
 ```
+</details>
+<details>
+<summary><b>16. Write a Java method to find all twin prime numbers less than 100.</b></summary>
+	
 ### 16. Find All Twin Prime Numbers Less Than 100
-
-16. Write a Java method to find all twin prime numbers less than 100.
 
 ```java
 public static boolean isPrime(int number) {
@@ -492,10 +515,12 @@ Expected Output:
 (59, 61)                                                 
 (71, 73) 
 ```
+</details>
+<details>
+<summary><b>17. Write a Java method to count the number of digits in an integer with the value 2. The integer may be assumed to be non-negative.</b></summary>
+	
 ### 17. Count the Number of Digits in an Integer
-
-17. Write a Java method to count the number of digits in an integer with the value 2. The integer may be assumed to be non-negative.
-
+	
 ```java
 public static int countDigitOccurrences(int number, int digit) {
     int count = 0;
@@ -520,6 +545,9 @@ Expected Output:
 Input a number:  12541
 1
 ```
+</details>
+<details>
+<summary><b>1.4. Methods</b></summary>
 ### 18. Check Whether Three Integers are Consecutive
 
 18. Write a Java method that accepts three integers and checks whether they are consecutive or not. Returns true or false.
@@ -548,10 +576,11 @@ Input the second number:  16
 Input the third number:  17
 Check whether the three said numbers are consecutive or not!true
 ```
-
+</details>
+<details>
+<summary><b>19. Write a Java method that accepts three integers and returns true if one is the middle point between the other two integers, otherwise false.</b></summary>
+	
 ### 19. Check if One Integer is the Midpoint Between Two Others
-
-19. Write a Java method that accepts three integers and returns true if one is the middle point between the other two integers, otherwise false.
 
 ```java
 public static boolean isMidpoint(int a, int b, int c) {
@@ -574,10 +603,11 @@ Input the third number:  6
 Check whether the three said numbers has a midpoint!
 true
 ```
-
+</details>
+<details>
+<summary><b>20. Write a Java method for extracting the first digit from a positive or negative integer.</b></summary>
+	
 ### 20. Extract the First Digit from an Integer
-
-20. Write a Java method for extracting the first digit from a positive or negative integer.
 
 ```java
 public static int extractFirstDigit(int number) {
@@ -600,7 +630,9 @@ Input an integer(positive/negative): 1234
 Extract the first digit from the said integer:
 1
 ```
-
+</details>
+<details>
+<summary><b>1.4. Methods</b></summary>
 ### 21. Display Factors of 3 in an Integer
 
 21. Write a Java method to display the factors of 3 in a given integer.
@@ -631,9 +663,11 @@ Input an integer(positive/negative): 81
 Factors of 3 of the said integer:
 81 = 3 * 3 * 3 * 3 * 1
 ```
+</details>
+<details>
+<summary><b>22. Write a Java method to check whether every digit of a given integer is even. Return true if every digit is odd otherwise false.</b></summary>
+	
 ### 22. Check Whether Every Digit of a Given Integer is Even
-
-22. Write a Java method to check whether every digit of a given integer is even. Return true if every digit is odd otherwise false.
 
 ```java
 public static boolean areAllDigitsEven(int number) {
@@ -660,10 +694,11 @@ Input an integer: 8642
 Check whether every digit of the said integer is even or not!
 true
 ```
+</details>
+<details>
+<summary><b>23. Write a Java method that checks whether all the characters in a given string are vowels (a, e,i,o,u) or not. Return true if each character in the string is a vowel, otherwise return false.</b></summary>
+	
 ### 23. Check Whether All Characters in a String are Vowels
-
-23. Write a Java method that checks whether all the characters in a given string are vowels (a, e,i,o,u) or not. Return true if each character in the string is a vowel, otherwise return false.
-
 
 ```java
 public static boolean areAllCharactersVowels(String str) {
@@ -682,6 +717,7 @@ Input a string:  AIEEE
 Check all the characters of the said string are vowels or not!
 true
 ```
+</details>
 These methods cover a range of common tasks and should provide a good foundation for various programming problems.
 </details> 
 <details>
