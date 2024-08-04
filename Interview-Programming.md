@@ -1,10 +1,3 @@
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;)->op
-```
 
 ```mermaid
 graph LR
@@ -13,6 +6,14 @@ A[Hard edge] -->B(Round edge)
     C -->|One| D[Result one]
     C -->|Two| E[Result two]
 ```
+```mermaid
+graph TD
+A[Hard edge] -->B(Round edge)
+    B --> C{Decision}
+    C -->|One| D[Result one]
+    C -->|Two| E[Result two]
+```
+
 flowchart TD
     A[Start] --> B[Initialize StringBuilder and List]
     B --> C[Open BufferedReader with FileReader]
