@@ -23559,6 +23559,112 @@ public class ReadFileToByteArray {
 ```
 
 **Explanation**: `Files.readAllBytes()` reads the file content into a byte array.
+
+The provided code snippet reads the contents of a file and prints it to the console. It uses `FileInputStream` to read the file data as bytes and then converts these bytes into a `String` for display. Here's a detailed explanation of each part of the code:
+
+### Code Breakdown
+
+```java
+String file_name = "D:\\FirozKhan_Softwares\\q.txt";
+InputStream fins = null;
+try {
+    fins = new FileInputStream(file_name);
+    byte file_content[] = new byte[2 * 1024];
+    int read_count = 0;
+    while ((read_count = fins.read(file_content)) > 0) {
+        System.out.println(new String(file_content, 0, read_count - 1));
+    }
+} catch (FileNotFoundException e) {
+    e.printStackTrace();
+} catch (IOException e) {
+    e.printStackTrace();
+} finally {
+    try {
+        if (fins != null)
+            fins.close();
+    } catch (Exception ex) {
+        // Handle potential IOException from close() method
+    }
+}
+```
+
+### Detailed Explanation
+
+1. **File Path Declaration:**
+
+    ```java
+    String file_name = "D:\\FirozKhan_Softwares\\q.txt";
+    ```
+
+    - This line sets the path of the file to be read. It uses a double backslash (`\\`) to escape the backslash character in the file path string.
+
+2. **Initialize `InputStream`:**
+
+    ```java
+    InputStream fins = null;
+    ```
+
+    - This initializes the `InputStream` reference to `null`. It will later be assigned an instance of `FileInputStream` used for reading the file.
+
+3. **Try Block:**
+
+    ```java
+    try {
+        fins = new FileInputStream(file_name);
+        byte file_content[] = new byte[2 * 1024];
+        int read_count = 0;
+        while ((read_count = fins.read(file_content)) > 0) {
+            System.out.println(new String(file_content, 0, read_count - 1));
+        }
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    ```
+
+    - **`FileInputStream(file_name)`**: Opens the file for reading as a byte stream.
+    - **`byte file_content[] = new byte[2 * 1024]`**: Creates a buffer array to hold bytes read from the file. The size is 2 KB.
+    - **`int read_count = 0`**: Variable to store the number of bytes read into the buffer.
+    - **`while ((read_count = fins.read(file_content)) > 0)`**: Reads bytes from the file into `file_content`. The `read` method returns the number of bytes read or `-1` if the end of the file is reached. The loop continues as long as bytes are read.
+    - **`System.out.println(new String(file_content, 0, read_count - 1))`**: Converts the bytes read into a `String` and prints it. The `new String(file_content, 0, read_count - 1)` creates a `String` from the buffer starting at index 0 to `read_count - 1`. Note: `read_count - 1` might cause truncation; typically, you should use `read_count` to include all bytes read.
+
+4. **Catch Blocks:**
+
+    ```java
+    catch (FileNotFoundException e) {
+        e.printStackTrace();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    ```
+
+    - **`FileNotFoundException`**: Catches an exception if the file specified by `file_name` does not exist.
+    - **`IOException`**: Catches general I/O exceptions that might occur during file reading.
+
+5. **Finally Block:**
+
+    ```java
+    finally {
+        try {
+            if (fins != null)
+                fins.close();
+        } catch (Exception ex) {
+            // Handle potential IOException from close() method
+        }
+    }
+    ```
+
+    - **`fins.close()`**: Closes the `FileInputStream` to release system resources. It is enclosed in a `try` block to handle potential `IOException` that might be thrown when closing the stream.
+    - **`if (fins != null)`**: Checks if the `fins` object is not `null` before closing it. This ensures that the `close` method is only called if the stream was successfully opened.
+
+### Summary
+
+- **File Reading:** The `FileInputStream` reads bytes from a file into a buffer.
+- **Buffer Size:** The buffer size is set to 2 KB, but only the actual number of bytes read are processed.
+- **String Conversion:** Converts bytes to a `String` and prints it, but there might be an issue with `read_count - 1` causing potential truncation.
+- **Exception Handling:** Catches and prints stack traces for file not found and I/O exceptions.
+- **Resource Management:** Closes the stream in the `finally` block to ensure resources are released properly.
 </details>
 
 <details>
