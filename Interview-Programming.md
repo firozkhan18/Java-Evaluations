@@ -21,8 +21,8 @@ graph TD
     G --> H[Close BufferedReader]
     H --> I[End]
 
-    D -->|FileNotFoundException| J[Print "File not found"]
-    D -->|IOException| K[Print "Unable to read the file."]
+    C -->|FileNotFoundException| J[Print File not found]
+    C -->|IOException| K[Print Unable to read the file]
     
     J --> I
     K --> I
