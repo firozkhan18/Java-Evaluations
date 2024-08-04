@@ -8,19 +8,6 @@ A[Hard edge] -->B(Round edge)
     C -->|Two| E[Result two]
 ```
 
-```mermaid
-graph TD
-  A[Start] --> B(Initialize StringBuilder and List)
-    B --> C[Open BufferedReader with FileReader]
-    C --> D{Read Line}
-    D -->|Line is not null| E[Append Line to StringBuilder]
-    E --> F[Add Line to List]
-    F --> D
-    D -->|Line is null| G[Print List]
-    G --> H[Close BufferedReader]
-    H --> I[End]
-    C -->|FileNotFoundException| J[Print "File not found"]
-```
 
 ```mermaid
 graph TD
@@ -34,8 +21,8 @@ graph TD
     G --> H[Close BufferedReader]
     H --> I[End]
 
-    C -->|FileNotFoundException| J[Print "File not found"]
-    C -->|IOException| K[Print "Unable to read the file."]
+    D -->|FileNotFoundException| J[Print "File not found"]
+    D -->|IOException| K[Print "Unable to read the file."]
     
     J --> I
     K --> I
