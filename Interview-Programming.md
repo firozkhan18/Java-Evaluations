@@ -22916,6 +22916,477 @@ public class StudentManagement {
 }
 ```
 </details>
+<details>
+<summary><b>5. Java File IO</b></summary>
+ 
+Sure! Here are Java solutions for each of the listed IO questions, with explanations:
+
+### 1. List All File/Directory Names in a Given Directory
+
+```java
+import java.io.File;
+
+public class ListFilesInDirectory {
+    public static void main(String[] args) {
+        File dir = new File("path/to/your/directory");
+
+        if (dir.isDirectory()) {
+            String[] files = dir.list();
+            if (files != null) {
+                for (String fileName : files) {
+                    System.out.println(fileName);
+                }
+            } else {
+                System.out.println("Empty directory or error occurred.");
+            }
+        } else {
+            System.out.println("Not a directory.");
+        }
+    }
+}
+```
+
+**Explanation**: We create a `File` object for the directory. We check if it's a directory using `isDirectory()`, then list all files and directories using `list()`, and print their names.
+
+### 2. Get Specific Files with Extensions from a Specified Folder
+
+```java
+import java.io.File;
+import java.io.FilenameFilter;
+
+public class ListFilesWithExtension {
+    public static void main(String[] args) {
+        File dir = new File("path/to/your/directory");
+        String extension = ".txt";  // Change to desired extension
+
+        FilenameFilter filter = (file, name) -> name.endsWith(extension);
+        File[] files = dir.listFiles(filter);
+
+        if (files != null) {
+            for (File file : files) {
+                System.out.println(file.getName());
+            }
+        } else {
+            System.out.println("Empty directory or error occurred.");
+        }
+    }
+}
+```
+
+**Explanation**: We use a `FilenameFilter` to filter files based on their extension. `listFiles(FilenameFilter)` returns only the files that match the filter.
+
+### 3. Check if a File or Directory Exists
+
+```java
+import java.io.File;
+
+public class CheckExistence {
+    public static void main(String[] args) {
+        File file = new File("path/to/your/fileOrDirectory");
+
+        if (file.exists()) {
+            System.out.println("File or directory exists.");
+        } else {
+            System.out.println("File or directory does not exist.");
+        }
+    }
+}
+```
+
+**Explanation**: `exists()` method of `File` class checks if the file or directory exists.
+
+### 4. Check Read and Write Permissions
+
+```java
+import java.io.File;
+
+public class CheckPermissions {
+    public static void main(String[] args) {
+        File file = new File("path/to/your/fileOrDirectory");
+
+        if (file.exists()) {
+            System.out.println("Readable: " + file.canRead());
+            System.out.println("Writable: " + file.canWrite());
+        } else {
+            System.out.println("File or directory does not exist.");
+        }
+    }
+}
+```
+
+**Explanation**: `canRead()` and `canWrite()` methods of `File` class check the read and write permissions.
+
+### 5. Check if Pathname is a Directory or a File
+
+```java
+import java.io.File;
+
+public class CheckIfDirectoryOrFile {
+    public static void main(String[] args) {
+        File file = new File("path/to/your/fileOrDirectory");
+
+        if (file.isDirectory()) {
+            System.out.println("It's a directory.");
+        } else if (file.isFile()) {
+            System.out.println("It's a file.");
+        } else {
+            System.out.println("Path does not exist.");
+        }
+    }
+}
+```
+
+**Explanation**: `isDirectory()` and `isFile()` methods check the type of the path.
+
+### 6. Compare Two Files Lexicographically
+
+```java
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+public class CompareFilesLexicographically {
+    public static void main(String[] args) throws IOException {
+        Path file1 = Path.of("path/to/first/file");
+        Path file2 = Path.of("path/to/second/file");
+
+        byte[] content1 = Files.readAllBytes(file1);
+        byte[] content2 = Files.readAllBytes(file2);
+
+        int comparison = new String(content1).compareTo(new String(content2));
+        
+        if (comparison < 0) {
+            System.out.println("File1 is less than File2");
+        } else if (comparison > 0) {
+            System.out.println("File1 is greater than File2");
+        } else {
+            System.out.println("File1 is equal to File2");
+        }
+    }
+}
+```
+
+**Explanation**: We read the files into byte arrays and convert them to strings for lexicographical comparison using `compareTo()`.
+
+### 7. Determine the Last Modified Date of a File
+
+```java
+import java.io.File;
+
+public class LastModifiedDate {
+    public static void main(String[] args) {
+        File file = new File("path/to/your/file");
+
+        if (file.exists()) {
+            long lastModified = file.lastModified();
+            System.out.println("Last Modified: " + new java.util.Date(lastModified));
+        } else {
+            System.out.println("File does not exist.");
+        }
+    }
+}
+```
+
+**Explanation**: `lastModified()` returns the last modified timestamp in milliseconds, which is then converted to a `Date` object.
+
+### 8. Read Input from the Java Console
+
+```java
+import java.util.Scanner;
+
+public class ReadConsoleInput {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter some input: ");
+        String input = scanner.nextLine();
+        System.out.println("You entered: " + input);
+        scanner.close();
+    }
+}
+```
+
+**Explanation**: We use `Scanner` to read input from the console.
+
+### 9. Get File Size in Bytes, KB, MB
+
+```java
+import java.io.File;
+
+public class FileSize {
+    public static void main(String[] args) {
+        File file = new File("path/to/your/file");
+
+        if (file.exists()) {
+            long sizeInBytes = file.length();
+            long sizeInKB = sizeInBytes / 1024;
+            long sizeInMB = sizeInKB / 1024;
+
+            System.out.println("Size in bytes: " + sizeInBytes);
+            System.out.println("Size in KB: " + sizeInKB);
+            System.out.println("Size in MB: " + sizeInMB);
+        } else {
+            System.out.println("File does not exist.");
+        }
+    }
+}
+```
+
+**Explanation**: `length()` gives the size in bytes. We convert it to KB and MB by dividing by 1024.
+
+### 10. Read File Content into a Byte Array
+
+```java
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+public class ReadFileToByteArray {
+    public static void main(String[] args) throws IOException {
+        Path filePath = Path.of("path/to/your/file");
+        byte[] fileBytes = Files.readAllBytes(filePath);
+        
+        System.out.println("File content as byte array: " + java.util.Arrays.toString(fileBytes));
+    }
+}
+```
+
+**Explanation**: `Files.readAllBytes()` reads the file content into a byte array.
+
+### 11. Read File Content Line by Line
+
+```java
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ReadFileLineByLine {
+    public static void main(String[] args) {
+        try (BufferedReader br = new BufferedReader(new FileReader("path/to/your/file"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+**Explanation**: `BufferedReader` reads the file line by line with `readLine()`.
+
+### 12. Read a Plain Text File
+
+```java
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.io.IOException;
+
+public class ReadPlainTextFile {
+    public static void main(String[] args) {
+        Path filePath = Paths.get("path/to/your/file");
+        try {
+            String content = Files.readString(filePath);
+            System.out.println(content);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+**Explanation**: `Files.readString()` reads the entire content of a file into a string.
+
+### 13. Read File Line by Line and Store in a Variable
+
+```java
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ReadFileLinesToVariable {
+    public static void main(String[] args) {
+        List<String> lines = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("path/to/your/file"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                lines.add(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        // Print stored lines
+        for (String line : lines) {
+            System.out.println(line);
+        }
+    }
+}
+```
+
+**Explanation**: Lines are read and stored in a `List<String>` for further processing.
+
+### 14. Store Text File Content Line by Line in an Array
+
+```java
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ReadFileLinesToArray {
+    public static void main(String[] args) {
+        String filePath = "path/to/your/file";
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            // Read all lines into an ArrayList
+            java.util.List<String> linesList = new java.util.ArrayList<>();
+            String line;
+            while ((line = br.readLine()) != null) {
+                linesList.add(line);
+            }
+
+            // Convert ArrayList to array
+            String[] linesArray = new String[linesList.size()];
+            linesArray = linesList.toArray(linesArray);
+
+            // Print the lines stored in the array
+            for (String l : linesArray) {
+                System.out.println(l);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+**Explanation**: This program reads lines from a file into a `List<String>`, converts the list to an array, and then prints the lines. `BufferedReader` reads lines one by one, and we use `ArrayList` to collect them. Finally, we convert the list to an array.
+
+### 15. Write and Read a Plain Text File
+
+```java
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+
+public class WriteAndReadFile {
+    public static void main(String[] args) {
+        String filePath = "path/to/your/file";
+
+        // Writing to the file
+        try (FileWriter writer = new FileWriter(filePath)) {
+            writer.write("Hello, World!\n");
+            writer.write("This is a test file.\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Reading from the file
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+**Explanation**: This program first writes some text to a file using `FileWriter`. Then, it reads the content back using `BufferedReader` and prints it to the console.
+
+### 16. Append Text to an Existing File
+
+```java
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class AppendToFile {
+    public static void main(String[] args) {
+        String filePath = "path/to/your/file";
+        String textToAppend = "This is the appended text.\n";
+
+        try (FileWriter writer = new FileWriter(filePath, true)) { // 'true' for append mode
+            writer.write(textToAppend);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+**Explanation**: To append text, `FileWriter` is instantiated with `true` as the second argument, enabling append mode. Text is then added to the end of the file.
+
+### 17. Read the First 3 Lines of a File
+
+```java
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ReadFirstThreeLines {
+    public static void main(String[] args) {
+        String filePath = "path/to/your/file";
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            for (int i = 0; i < 3; i++) {
+                String line = reader.readLine();
+                if (line != null) {
+                    System.out.println(line);
+                } else {
+                    break; // Exit loop if there are less than 3 lines
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+**Explanation**: This program reads the file line by line up to a maximum of 3 lines. If there are fewer lines, it will stop early.
+
+### 18. Find the Longest Word in a Text File
+
+```java
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class FindLongestWord {
+    public static void main(String[] args) {
+        String filePath = "path/to/your/file";
+        String longestWord = "";
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] words = line.split("\\s+");
+                for (String word : words) {
+                    if (word.length() > longestWord.length()) {
+                        longestWord = word;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Longest word: " + longestWord);
+    }
+}
+```
+
+**Explanation**: This program reads the file line by line, splits each line into words using whitespace as the delimiter, and keeps track of the longest word encountered. The longest word is printed at the end.
+
+</details>
 </details>
 <details>
 <summary><b>5. Spring Framework</b></summary>
