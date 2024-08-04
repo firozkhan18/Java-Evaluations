@@ -24833,6 +24833,77 @@ public class WordFrequencyAnalyzer {
 ```
 
 Each version of the program uses different Java features and approaches to handle file reading and word counting. Choose the one that best fits your needs or the Java version you are using.
+
+In the context of file I/O and text processing, **"threshold"** often refers to a predefined limit or value used to filter or decide which items meet certain criteria based on their frequency or occurrence. In the specific example of counting word occurrences in a file, a threshold helps determine which words appear frequently enough to be considered significant.
+
+### Understanding Threshold in Word Frequency Analysis
+
+Here's how the concept of a threshold is applied to count and calculate word occurrences:
+
+#### **1. **Defining the Threshold**
+
+In the given example, the threshold is used to identify words that appear in more than 50% of the lines in a text file.
+
+- **Total Lines (`totalLines`)**: This is the total number of lines read from the file.
+- **Threshold Calculation**: The threshold value is calculated as a percentage of the total number of lines. In this case, it’s 50%, which means any word appearing in more than half of the lines will be considered significant.
+
+**Formula for Threshold Calculation:**
+
+```java
+double threshold = totalLines * 0.5;
+```
+
+- If there are 100 lines in the file, the threshold would be `100 * 0.5 = 50`. Therefore, words appearing in more than 50 lines will be printed.
+
+#### **2. **Counting Word Occurrences**
+
+- **Word Frequency Counting**: As you read through each line of the file, you count how many different lines each word appears in. This is stored in a map where the key is the word and the value is the count of lines in which that word appears.
+
+**Example Code Snippet:**
+
+```java
+Map<String, Integer> wordLineCount = new HashMap<>();
+Set<String> currentLineWords = new HashSet<>();
+...
+while ((line = reader.readLine()) != null) {
+    totalLines++;
+    currentLineWords.clear();
+    String[] words = line.split("\\s+");
+    for (String word : words) {
+        if (!word.trim().isEmpty()) {
+            currentLineWords.add(word.toLowerCase());
+        }
+    }
+    for (String word : currentLineWords) {
+        wordLineCount.put(word, wordLineCount.getOrDefault(word, 0) + 1);
+    }
+}
+```
+
+- **Update Map**: For each unique word in the current line, increment its count in the `wordLineCount` map.
+
+#### **3. **Applying the Threshold**
+
+After processing the entire file and populating the `wordLineCount` map, you apply the threshold to filter out words that appear in more lines than the threshold.
+
+**Example Code Snippet:**
+
+```java
+wordLineCount.entrySet().stream()
+    .filter(entry -> entry.getValue() > threshold)
+    .map(Map.Entry::getKey)
+    .forEach(System.out::println);
+```
+
+- **Filter Words**: Use a stream to filter entries in the map where the count (number of lines) is greater than the threshold.
+- **Print Results**: Output the words that meet the threshold criterion.
+
+### Summary
+
+- **Threshold**: It’s a cutoff value used to filter or make decisions. In this case, it's a percentage of lines in which a word must appear to be considered frequent.
+- **Counting & Calculation**: Words are counted based on their occurrence across lines, and the threshold determines which words meet the frequency criterion.
+
+By using thresholds, you can effectively manage and analyze large amounts of data by focusing on items that meet specific criteria, making it easier to handle and interpret results from file I/O operations.
 </details>	
 <details>
 <summary><b>Ways of Reading Files</b></summary>
