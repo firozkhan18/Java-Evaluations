@@ -22917,10 +22917,12 @@ public class StudentManagement {
 ```
 </details>
 <details>
-<summary><b>5. Java File IO</b></summary>
+<summary><b>4.9 Java File IO</b></summary>
  
 Sure! Here are Java solutions for each of the listed IO questions, with explanations:
 
+<details>
+<summary><b>4.9.1. List All File/Directory Names in a Given Directory</b></summary>
 ### 1. List All File/Directory Names in a Given Directory
 
 ```java
@@ -22947,7 +22949,9 @@ public class ListFilesInDirectory {
 ```
 
 **Explanation**: We create a `File` object for the directory. We check if it's a directory using `isDirectory()`, then list all files and directories using `list()`, and print their names.
-
+</details>
+<details>
+<summary><b>4.9.2. Get Specific Files with Extensions from a Specified Folder</b></summary>
 ### 2. Get Specific Files with Extensions from a Specified Folder
 
 ```java
@@ -22974,7 +22978,9 @@ public class ListFilesWithExtension {
 ```
 
 **Explanation**: We use a `FilenameFilter` to filter files based on their extension. `listFiles(FilenameFilter)` returns only the files that match the filter.
-
+</details>
+<details>
+<summary><b>4.9.3. Check if a File or Directory Exists</b></summary>
 ### 3. Check if a File or Directory Exists
 
 ```java
@@ -22994,7 +23000,9 @@ public class CheckExistence {
 ```
 
 **Explanation**: `exists()` method of `File` class checks if the file or directory exists.
-
+</details>
+<details>
+<summary><b>4.9.4. Check Read and Write Permissions</b></summary>
 ### 4. Check Read and Write Permissions
 
 ```java
@@ -23015,7 +23023,9 @@ public class CheckPermissions {
 ```
 
 **Explanation**: `canRead()` and `canWrite()` methods of `File` class check the read and write permissions.
-
+</details>
+<details>
+<summary><b>4.9.5. Check if Pathname is a Directory or a File</b></summary>
 ### 5. Check if Pathname is a Directory or a File
 
 ```java
@@ -23037,7 +23047,9 @@ public class CheckIfDirectoryOrFile {
 ```
 
 **Explanation**: `isDirectory()` and `isFile()` methods check the type of the path.
-
+</details>
+<details>
+<summary><b>4.9.6. Compare Two Files Lexicographically</b></summary>
 ### 6. Compare Two Files Lexicographically
 
 ```java
@@ -23068,7 +23080,9 @@ public class CompareFilesLexicographically {
 ```
 
 **Explanation**: We read the files into byte arrays and convert them to strings for lexicographical comparison using `compareTo()`.
-
+</details>
+<details>
+<summary><b>4.9.7. Determine the Last Modified Date of a File</b></summary>
 ### 7. Determine the Last Modified Date of a File
 
 ```java
@@ -23089,7 +23103,9 @@ public class LastModifiedDate {
 ```
 
 **Explanation**: `lastModified()` returns the last modified timestamp in milliseconds, which is then converted to a `Date` object.
-
+</details>
+<details>
+<summary><b>4.9.8. Read Input from the Java Console</b></summary>
 ### 8. Read Input from the Java Console
 
 ```java
@@ -23107,7 +23123,9 @@ public class ReadConsoleInput {
 ```
 
 **Explanation**: We use `Scanner` to read input from the console.
-
+</details>
+<details>
+<summary><b>4.9.9. Get File Size in Bytes, KB, MB</b></summary>
 ### 9. Get File Size in Bytes, KB, MB
 
 ```java
@@ -23133,7 +23151,9 @@ public class FileSize {
 ```
 
 **Explanation**: `length()` gives the size in bytes. We convert it to KB and MB by dividing by 1024.
-
+</details>
+<details>
+<summary><b>4.9.10. Read File Content into a Byte Array</b></summary>
 ### 10. Read File Content into a Byte Array
 
 ```java
@@ -23153,7 +23173,9 @@ public class ReadFileToByteArray {
 ```
 
 **Explanation**: `Files.readAllBytes()` reads the file content into a byte array.
-
+</details>
+<details>
+<summary><b>4.9.11. Read File Content Line by Line</b></summary>
 ### 11. Read File Content Line by Line
 
 ```java
@@ -23176,7 +23198,9 @@ public class ReadFileLineByLine {
 ```
 
 **Explanation**: `BufferedReader` reads the file line by line with `readLine()`.
-
+</details>
+<details>
+<summary><b>4.9.12. Read a Plain Text File</b></summary>
 ### 12. Read a Plain Text File
 
 ```java
@@ -23199,7 +23223,8 @@ public class ReadPlainTextFile {
 ```
 
 **Explanation**: `Files.readString()` reads the entire content of a file into a string.
-
+<details>
+<summary><b>4.9.13. Read File Line by Line and Store in a Variable</b></summary>
 ### 13. Read File Line by Line and Store in a Variable
 
 ```java
@@ -23230,7 +23255,9 @@ public class ReadFileLinesToVariable {
 ```
 
 **Explanation**: Lines are read and stored in a `List<String>` for further processing.
-
+</details>
+<details>
+<summary><b>4.9.14. Store Text File Content Line by Line in an Array</b></summary>
 ### 14. Store Text File Content Line by Line in an Array
 
 ```java
@@ -23265,7 +23292,9 @@ public class ReadFileLinesToArray {
 ```
 
 **Explanation**: This program reads lines from a file into a `List<String>`, converts the list to an array, and then prints the lines. `BufferedReader` reads lines one by one, and we use `ArrayList` to collect them. Finally, we convert the list to an array.
-
+</details>
+<details>
+<summary><b>4.9.15. Write and Read a Plain Text File</b></summary>
 ### 15. Write and Read a Plain Text File
 
 ```java
@@ -23301,7 +23330,9 @@ public class WriteAndReadFile {
 ```
 
 **Explanation**: This program first writes some text to a file using `FileWriter`. Then, it reads the content back using `BufferedReader` and prints it to the console.
-
+</details>
+<details>
+<summary><b>4.9.16. Append Text to an Existing File</b></summary>
 ### 16. Append Text to an Existing File
 
 ```java
@@ -23323,7 +23354,9 @@ public class AppendToFile {
 ```
 
 **Explanation**: To append text, `FileWriter` is instantiated with `true` as the second argument, enabling append mode. Text is then added to the end of the file.
-
+</details>
+<details>
+<summary><b>4.9.17. Read the First 3 Lines of a File</b></summary>
 ### 17. Read the First 3 Lines of a File
 
 ```java
@@ -23352,7 +23385,9 @@ public class ReadFirstThreeLines {
 ```
 
 **Explanation**: This program reads the file line by line up to a maximum of 3 lines. If there are fewer lines, it will stop early.
-
+</details>
+<details>
+<summary><b>4.9.18. Find the Longest Word in a Text File</b></summary>
 ### 18. Find the Longest Word in a Text File
 
 ```java
@@ -23385,7 +23420,7 @@ public class FindLongestWord {
 ```
 
 **Explanation**: This program reads the file line by line, splits each line into words using whitespace as the delimiter, and keeps track of the longest word encountered. The longest word is printed at the end.
-
+</details>
 </details>
 </details>
 <details>
