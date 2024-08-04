@@ -89,6 +89,227 @@
 
 Java 8 features
 
+<details>
+<summary>👇<b>3.1 What Is Lambda</b></summary>
+</details>
+<details>
+<summary>👇<b>3.1 how to convert anonymous inner classes (anonymous functions) to lambda expressions in Java</b></summary>
+
+ Sure! Here are examples showing how to convert anonymous inner classes (anonymous functions) to lambda expressions in Java. Each example covers a different use case.
+
+### 1. **Runnable Interface**
+
+**Anonymous Inner Class:**
+```java
+public class RunnableExample {
+    public static void main(String[] args) {
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Running in a thread");
+            }
+        };
+        
+        new Thread(runnable).start();
+    }
+}
+```
+
+**Lambda Expression:**
+```java
+public class RunnableLambdaExample {
+    public static void main(String[] args) {
+        Runnable runnable = () -> System.out.println("Running in a thread");
+        
+        new Thread(runnable).start();
+    }
+}
+```
+
+**Explanation:** The `Runnable` interface has a single method `run()`, making it a functional interface. The lambda expression `() -> System.out.println("Running in a thread")` replaces the anonymous inner class.
+
+### 2. **ActionListener Interface**
+
+**Anonymous Inner Class:**
+```java
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import java.awt.event.ActionListener;
+
+public class ActionListenerExample {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("ActionListener Example");
+        JButton button = new JButton("Click Me");
+
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                System.out.println("Button clicked");
+            }
+        });
+
+        frame.add(button);
+        frame.setSize(200, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+}
+```
+
+**Lambda Expression:**
+```java
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class ActionListenerLambdaExample {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("ActionListener Example");
+        JButton button = new JButton("Click Me");
+
+        button.addActionListener(e -> System.out.println("Button clicked"));
+
+        frame.add(button);
+        frame.setSize(200, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+}
+```
+
+**Explanation:** The `ActionListener` interface has a single method `actionPerformed()`, making it a functional interface. The lambda expression `e -> System.out.println("Button clicked")` replaces the anonymous inner class.
+
+### 3. **Comparator Interface**
+
+**Anonymous Inner Class:**
+```java
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class ComparatorExample {
+    public static void main(String[] args) {
+        String[] names = {"Alice", "Bob", "Charlie"};
+
+        Arrays.sort(names, new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                return s1.compareTo(s2);
+            }
+        });
+
+        System.out.println(Arrays.toString(names));
+    }
+}
+```
+
+**Lambda Expression:**
+```java
+import java.util.Arrays;
+
+public class ComparatorLambdaExample {
+    public static void main(String[] args) {
+        String[] names = {"Alice", "Bob", "Charlie"};
+
+        Arrays.sort(names, (s1, s2) -> s1.compareTo(s2));
+
+        System.out.println(Arrays.toString(names));
+    }
+}
+```
+
+**Explanation:** The `Comparator` interface has a single method `compare()`, making it a functional interface. The lambda expression `(s1, s2) -> s1.compareTo(s2)` replaces the anonymous inner class.
+
+### 4. **FileFilter Interface**
+
+**Anonymous Inner Class:**
+```java
+import java.io.File;
+import java.io.FileFilter;
+
+public class FileFilterExample {
+    public static void main(String[] args) {
+        File dir = new File("path/to/directory");
+        
+        File[] txtFiles = dir.listFiles(new FileFilter() {
+            @Override
+            public boolean accept(File file) {
+                return file.isFile() && file.getName().toLowerCase().endsWith(".txt");
+            }
+        });
+
+        if (txtFiles != null) {
+            for (File file : txtFiles) {
+                System.out.println(file.getName());
+            }
+        }
+    }
+}
+```
+
+**Lambda Expression:**
+```java
+import java.io.File;
+
+public class FileFilterLambdaExample {
+    public static void main(String[] args) {
+        File dir = new File("path/to/directory");
+
+        File[] txtFiles = dir.listFiles(file -> file.isFile() && file.getName().toLowerCase().endsWith(".txt"));
+
+        if (txtFiles != null) {
+            for (File file : txtFiles) {
+                System.out.println(file.getName());
+            }
+        }
+    }
+}
+```
+
+**Explanation:** The `FileFilter` interface has a single method `accept()`, making it a functional interface. The lambda expression `file -> file.isFile() && file.getName().toLowerCase().endsWith(".txt")` replaces the anonymous inner class.
+
+### 5. **Thread Using Callable**
+
+**Anonymous Inner Class:**
+```java
+import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
+
+public class CallableExample {
+    public static void main(String[] args) throws Exception {
+        Callable<Integer> callable = new Callable<Integer>() {
+            @Override
+            public Integer call() {
+                return 123;
+            }
+        };
+        
+        FutureTask<Integer> futureTask = new FutureTask<>(callable);
+        new Thread(futureTask).start();
+        System.out.println("Result: " + futureTask.get());
+    }
+}
+```
+
+**Lambda Expression:**
+```java
+import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
+
+public class CallableLambdaExample {
+    public static void main(String[] args) throws Exception {
+        Callable<Integer> callable = () -> 123;
+        
+        FutureTask<Integer> futureTask = new FutureTask<>(callable);
+        new Thread(futureTask).start();
+        System.out.println("Result: " + futureTask.get());
+    }
+}
+```
+
+**Explanation:** The `Callable` interface has a single method `call()`, making it a functional interface. The lambda expression `() -> 123` replaces the anonymous inner class.
+
+These examples illustrate how lambda expressions simplify and streamline code that uses functional interfaces, making the code more concise and readable.
+</details>
+
 Differences between Java 8 Map() Vs flatMap() :
 
 map() | flatMap() | 
