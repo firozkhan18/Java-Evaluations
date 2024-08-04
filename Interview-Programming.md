@@ -24321,8 +24321,67 @@ public class FindLongestWord {
 **Explanation**: This program reads the file line by line, splits each line into words using whitespace as the delimiter, and keeps track of the longest word encountered. The longest word is printed at the end.
 </details>
 <details>
-<summary><b>4.9.19 The program reads a file, counts the number of lines each word appears in, and then prints words that appear in more than 50% of the lines.</b></summary>
+<summary><b>4.9.19 Reads a file, counts the number of lines each word appears in, and then prints words that appear in more than 50% of the lines.</b></summary>
+	
+```java
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
+public class FileAnalyzer {
+
+    public static void main(String[] args) {
+        // Path relative to the classpath
+        String fileName = "/fi.txt"; // Adjust path if needed
+
+        // Use a map to count the number of lines each word appears in
+        Map<String, Integer> wordLineCount = new HashMap<>();
+        // Use a set to keep track of the words in each line
+        Set<String> currentLineWords = new HashSet<>();
+        int totalLines = 0;
+
+        try (InputStream inputStream = FileAnalyzer.class.getResourceAsStream(fileName);
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                totalLines++;
+                currentLineWords.clear();
+                // Split line into words
+                String[] words = line.split("\\s+");
+                for (String word : words) {
+                    if (!word.trim().isEmpty()) {
+                        currentLineWords.add(word.toLowerCase()); // Normalize to lowercase
+                    }
+                }
+                // Update wordLineCount map
+                for (String word : currentLineWords) {
+                    wordLineCount.put(word, wordLineCount.getOrDefault(word, 0) + 1);
+                }
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Determine the threshold for words to appear in more than 50% of the lines
+        double threshold = totalLines * 0.5;
+        System.out.println("Total lines: " + totalLines);
+        System.out.println("threshold: " + threshold);
+        System.out.println("Words appearing in more than 50% of the lines:");
+        for (Map.Entry<String, Integer> entry : wordLineCount.entrySet()) {
+            if (entry.getValue() > threshold) {
+                System.out.println(entry.getKey());
+            }
+        }
+    }
+}
+```
 To create a flowchart for the provided Java program, we need to outline the program’s logic step by step. The program reads a file, counts the number of lines each word appears in, and then prints words that appear in more than 50% of the lines.
 
 Here's a breakdown of the flowchart components:
