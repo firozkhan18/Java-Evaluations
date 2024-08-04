@@ -24617,6 +24617,222 @@ flowchart TD
    - **IOException**: Handles file reading errors and prints an error message.
 
 You can use the Mermaid Live Editor or other Mermaid-compatible tools to visualize this flowchart by copying and pasting the provided code.
+
+### Other Approaches:
+
+To create the program in different ways, let's explore various methods to achieve the same result, focusing on different aspects of the problem:
+
+### 1. **Using Java Streams with `Files.lines`**
+
+Instead of `BufferedReader`, you can use `Files.lines` which is a more modern way to handle files in Java 8 and later.
+
+```java
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class WordFrequencyAnalyzer {
+
+    public static void main(String[] args) {
+        // Path to the file
+        String fileName = "path/to/your/file.txt"; // Adjust path if needed
+
+        // Use a map to count the number of lines each word appears in
+        Map<String, Integer> wordLineCount = new HashMap<>();
+        final int[] totalLines = {0}; // Use an array to allow modification in lambda
+
+        try (Stream<String> lines = Files.lines(Paths.get(fileName))) {
+            lines.peek(line -> totalLines[0]++) // Increment totalLines count for each line
+                 .map(line -> line.split("\\s+"))
+                 .map(words -> Stream.of(words)
+                     .map(String::trim)
+                     .filter(word -> !word.isEmpty())
+                     .map(String::toLowerCase)
+                     .collect(Collectors.toSet())) // Collect words in the current line to a Set
+                 .forEach(currentLineWords -> currentLineWords.forEach(word ->
+                     wordLineCount.merge(word, 1, Integer::sum))); // Update wordLineCount map
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        double threshold = totalLines[0] * 0.5;
+        System.out.println("Total lines: " + totalLines[0]);
+        System.out.println("Threshold: " + threshold);
+        System.out.println("Words appearing in more than 50% of the lines:");
+        wordLineCount.entrySet().stream()
+                     .filter(entry -> entry.getValue() > threshold)
+                     .map(Map.Entry::getKey)
+                     .forEach(System.out::println);
+    }
+}
+```
+
+### 2. **Using Traditional For Loop**
+
+If you prefer not to use streams, you can achieve the same functionality with traditional loops.
+
+```java
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+public class WordFrequencyAnalyzer {
+
+    public static void main(String[] args) {
+        // Path to the file
+        String fileName = "path/to/your/file.txt"; // Adjust path if needed
+
+        // Use a map to count the number of lines each word appears in
+        Map<String, Integer> wordLineCount = new HashMap<>();
+        Set<String> currentLineWords = new HashSet<>();
+        int totalLines = 0;
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                totalLines++;
+                currentLineWords.clear();
+                String[] words = line.split("\\s+");
+                for (String word : words) {
+                    if (!word.trim().isEmpty()) {
+                        currentLineWords.add(word.toLowerCase());
+                    }
+                }
+                for (String word : currentLineWords) {
+                    wordLineCount.put(word, wordLineCount.getOrDefault(word, 0) + 1);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        double threshold = totalLines * 0.5;
+        System.out.println("Total lines: " + totalLines);
+        System.out.println("Threshold: " + threshold);
+        System.out.println("Words appearing in more than 50% of the lines:");
+        for (Map.Entry<String, Integer> entry : wordLineCount.entrySet()) {
+            if (entry.getValue() > threshold) {
+                System.out.println(entry.getKey());
+            }
+        }
+    }
+}
+```
+
+### 3. **Using Java 9+ `Files.readString`**
+
+If you’re using Java 11 or newer, `Files.readString` can be used for simpler file reading.
+
+```java
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class WordFrequencyAnalyzer {
+
+    public static void main(String[] args) {
+        // Path to the file
+        String fileName = "path/to/your/file.txt"; // Adjust path if needed
+
+        // Use a map to count the number of lines each word appears in
+        Map<String, Integer> wordLineCount = new HashMap<>();
+        final int[] totalLines = {0}; // Use an array to allow modification in lambda
+
+        try {
+            String content = Files.readString(Paths.get(fileName));
+            content.lines()
+                   .peek(line -> totalLines[0]++) // Increment totalLines count for each line
+                   .map(line -> line.split("\\s+"))
+                   .map(words -> Stream.of(words)
+                       .map(String::trim)
+                       .filter(word -> !word.isEmpty())
+                       .map(String::toLowerCase)
+                       .collect(Collectors.toSet())) // Collect words in the current line to a Set
+                   .forEach(currentLineWords -> currentLineWords.forEach(word ->
+                       wordLineCount.merge(word, 1, Integer::sum))); // Update wordLineCount map
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        double threshold = totalLines[0] * 0.5;
+        System.out.println("Total lines: " + totalLines[0]);
+        System.out.println("Threshold: " + threshold);
+        System.out.println("Words appearing in more than 50% of the lines:");
+        wordLineCount.entrySet().stream()
+                     .filter(entry -> entry.getValue() > threshold)
+                     .map(Map.Entry::getKey)
+                     .forEach(System.out::println);
+    }
+}
+```
+
+### 4. **Using Java 8 `Files.lines` with Custom Collector**
+
+A custom collector can be used for more control over processing.
+
+```java
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class WordFrequencyAnalyzer {
+
+    public static void main(String[] args) {
+        // Path to the file
+        String fileName = "path/to/your/file.txt"; // Adjust path if needed
+
+        // Use a map to count the number of lines each word appears in
+        Map<String, Integer> wordLineCount = new HashMap<>();
+        int[] totalLines = {0}; // Use an array to allow modification in lambda
+
+        try (Stream<String> lines = Files.lines(Paths.get(fileName))) {
+            lines.forEach(line -> {
+                totalLines[0]++;
+                Set<String> currentLineWords = Stream.of(line.split("\\s+"))
+                    .map(String::trim)
+                    .filter(word -> !word.isEmpty())
+                    .map(String::toLowerCase)
+                    .collect(Collectors.toSet());
+                
+                currentLineWords.forEach(word ->
+                    wordLineCount.merge(word, 1, Integer::sum)); // Update wordLineCount map
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        double threshold = totalLines[0] * 0.5;
+        System.out.println("Total lines: " + totalLines[0]);
+        System.out.println("Threshold: " + threshold);
+        System.out.println("Words appearing in more than 50% of the lines:");
+        wordLineCount.entrySet().stream()
+                     .filter(entry -> entry.getValue() > threshold)
+                     .map(Map.Entry::getKey)
+                     .forEach(System.out::println);
+    }
+}
+```
+
+Each version of the program uses different Java features and approaches to handle file reading and word counting. Choose the one that best fits your needs or the Java version you are using.
 </details>	
 <details>
 <summary><b>Ways of Reading Files</b></summary>
