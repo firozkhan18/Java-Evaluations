@@ -1,11 +1,5 @@
 
-```mermaid
-graph LR
-A[Hard edge] -->B(Round edge)
-    B --> C{Decision}
-    C -->|One| D[Result one]
-    C -->|Two| E[Result two]
-```
+
 ```mermaid
 graph TD
 A[Hard edge] -->B(Round edge)
@@ -13,9 +7,19 @@ A[Hard edge] -->B(Round edge)
     C -->|One| D[Result one]
     C -->|Two| E[Result two]
 ```
+
 ```mermaid
 graph TD
-    A[Start] --> B[Initialize StringBuilder and List]
+  A[Start] --> B(Initialize StringBuilder and List)
+    B --> C[Open BufferedReader with FileReader]
+    C --> D{Read Line}
+    D -->|Line is not null| E[Append Line to StringBuilder]
+    E --> F[Add Line to List]
+```
+
+```mermaid
+graph TD
+    A[Start] --> B(Initialize StringBuilder and List)
     B --> C[Open BufferedReader with FileReader]
     C --> D{Read Line}
     D -->|Line is not null| E[Append Line to StringBuilder]
