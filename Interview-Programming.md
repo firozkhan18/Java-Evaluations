@@ -23796,6 +23796,104 @@ try {
 - **FileInputStream** is more suited for reading binary data or processing data in chunks, and it requires manual handling of character encoding and byte-to-string conversion.
 
 In most cases, `BufferedReader` is more convenient for text file reading due to its ability to handle lines and characters directly.
+
+Both provided code snippets are examples of reading from a file in Java using `BufferedReader`, but they have different implementations and purposes. Here’s a detailed comparison of the two:
+
+### Code 1: Basic Line-by-Line Reading
+
+```java
+BufferedReader br = null;
+String strLine = "";
+try {
+    br = new BufferedReader(new FileReader("/home/students/test.txt"));
+    while ((strLine = br.readLine()) != null) {
+        System.out.println(strLine);
+    }
+    br.close();
+} catch (FileNotFoundException e) {
+    System.err.println("File not found");
+} catch (IOException e) {
+    System.err.println("Unable to read the file.");
+}
+```
+
+### Code 2: Reading and Accumulating Content
+
+```java
+StringBuilder sb = new StringBuilder();
+String strLine = "";
+try {
+    BufferedReader br = new BufferedReader(new FileReader("D:\\FirozKhan_Softwares\\q.txt"));
+    while (strLine != null) {
+        sb.append(strLine);
+        sb.append(System.lineSeparator());
+        strLine = br.readLine();
+        System.out.println(strLine);
+    }
+    br.close();
+} catch (FileNotFoundException e) {
+    System.err.println("File not found");
+} catch (IOException e) {
+    System.err.println("Unable to read the file.");
+}
+```
+
+### Key Differences
+
+1. **Purpose and Output Handling:**
+
+   - **Code 1:**
+     - **Purpose:** Simply reads the file line by line and prints each line immediately.
+     - **Output:** Directly prints each line to the console. No content is accumulated or processed further.
+     - **Use Case:** Suitable for scenarios where you need to display file content line by line without additional processing.
+
+   - **Code 2:**
+     - **Purpose:** Reads the file line by line, accumulates all lines into a `StringBuilder`, and prints each line. 
+     - **Output:** Prints each line to the console and also accumulates the lines in a `StringBuilder` object (`sb`).
+     - **Use Case:** Suitable for scenarios where you need to process or manipulate the entire content of the file as a single string after reading.
+
+2. **Accumulating Content:**
+
+   - **Code 1:**
+     - Does not accumulate the content of the file. It only processes and prints each line individually.
+
+   - **Code 2:**
+     - Uses `StringBuilder` to accumulate the entire content of the file. Each line is appended to `sb` with a line separator.
+     - **`StringBuilder`** is used for efficient string concatenation.
+
+3. **Loop Condition and Line Processing:**
+
+   - **Code 1:**
+     - The loop continues as long as `br.readLine()` does not return `null`. Each line is read and immediately printed.
+     - **Loop Condition:** `while ((strLine = br.readLine()) != null)`
+
+   - **Code 2:**
+     - The loop condition `while (strLine != null)` checks if `strLine` is `null`. The line is read and appended to `sb` before reading the next line.
+     - **Order of Operations:** The `strLine` is appended to `sb` and printed after the line is read.
+
+4. **Handling Line Separators:**
+
+   - **Code 1:**
+     - Does not explicitly handle line separators. The lines are printed as-is, which will include the newline characters inherent in the file.
+
+   - **Code 2:**
+     - Manually appends `System.lineSeparator()` to `sb` to ensure that lines are separated appropriately when accumulated.
+
+5. **Resource Management:**
+
+   - **Code 1:**
+     - `BufferedReader` is closed in the `try` block after reading all lines.
+
+   - **Code 2:**
+     - `BufferedReader` is also closed in the `try` block after reading all lines. The `finally` block is not used, which is acceptable in this context since the `BufferedReader` is closed at the end of the `try` block.
+
+### Summary
+
+- **Code 1** is suitable for simple line-by-line reading and printing of a file’s content. It is straightforward and does not involve additional processing of the file content.
+  
+- **Code 2** accumulates the content of the file into a `StringBuilder` and prints each line. This approach is useful if you need to perform additional operations on the entire file content after reading it, such as further processing or manipulation. 
+
+- Both codes handle exceptions similarly but have different output handling and content accumulation strategies.
 </details>
 
 <details>
