@@ -40,6 +40,49 @@
   - [abstract](#abstract)
   - [instanceOf](#instanceof)
   </details>
+<details>
+<summary><b>1.4. Java String</b></summary>
+In Java, the expression `strLine != null` is used to check if the `strLine` variable is not `null`. The output or result of this expression depends on the initial value assigned to `strLine`. Let’s examine the outcomes for both cases:
+
+### Case 1: `String strLine = "";`
+
+```java
+String strLine = "";
+System.out.println(strLine != null);
+```
+
+- **Explanation:**
+  - `strLine` is initialized to an empty string (`""`), which is a valid `String` object, but it contains no characters.
+  - When evaluating `strLine != null`, the result will be `true` because `strLine` is not `null`; it is an empty string.
+
+- **Output:**
+  ```plaintext
+  true
+  ```
+
+### Case 2: `String strLine = null;`
+
+```java
+String strLine = null;
+System.out.println(strLine != null);
+```
+
+- **Explanation:**
+  - `strLine` is explicitly set to `null`, meaning it does not reference any `String` object.
+  - When evaluating `strLine != null`, the result will be `false` because `strLine` is indeed `null`.
+
+- **Output:**
+  ```plaintext
+  false
+  ```
+
+### Summary
+
+- **`strLine != null`** evaluates to `true` when `strLine` is a non-null reference to a `String` object, regardless of whether it is an empty string or contains characters.
+- **`strLine != null`** evaluates to `false` when `strLine` is `null`, meaning it does not reference any `String` object.
+
+This distinction is important for checking whether a `String` variable has been initialized or whether it holds a valid reference to a `String` object.
+</details>
 </details>
 <details>
 <summary><b>2. Java Design Patterns</b></summary>
