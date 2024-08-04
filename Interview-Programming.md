@@ -17,6 +17,24 @@ flowchart TD
     K --> I
 ```
 
+flowchart TD
+    A[Start] --> B[Initialize StringBuilder and List]
+    B --> C[Open BufferedReader with FileReader]
+    C --> D{Read Line}
+    D -->|Line is not null| E[Append Line to StringBuilder]
+    E --> F[Add Line to List]
+    F --> D
+    D -->|Line is null| G[Print List]
+    G --> H[Close BufferedReader]
+    H --> I[End]
+
+    C -->|FileNotFoundException| J[Print File Not Found]
+    C -->|IOException| K[Print Unable to Read File]
+    
+    J --> I
+    K --> I
+
+
 # Table of Contents
 
 <details>
