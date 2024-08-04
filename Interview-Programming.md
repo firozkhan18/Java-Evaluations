@@ -24320,7 +24320,82 @@ public class FindLongestWord {
 
 **Explanation**: This program reads the file line by line, splits each line into words using whitespace as the delimiter, and keeps track of the longest word encountered. The longest word is printed at the end.
 </details>
+<details>
+<summary><b>4.9.19 The program reads a file, counts the number of lines each word appears in, and then prints words that appear in more than 50% of the lines.</b></summary>
 
+To create a flowchart for the provided Java program, we need to outline the program’s logic step by step. The program reads a file, counts the number of lines each word appears in, and then prints words that appear in more than 50% of the lines.
+
+Here's a breakdown of the flowchart components:
+
+1. **Start**: Program initialization.
+2. **Initialize Variables**: Initialize `wordLineCount`, `currentLineWords`, and `totalLines`.
+3. **Open File**: Use `FileAnalyzer.class.getResourceAsStream(fileName)` to open the file.
+4. **Read Line**: Read lines from the file in a loop.
+   - **Line is Not Null**: Process the line if it’s not null.
+     - **Clear Current Line Words**: Reset `currentLineWords`.
+     - **Split Line into Words**: Split the line into words using space as the delimiter.
+     - **Normalize and Add Words**: Add each word to `currentLineWords` in lowercase.
+     - **Update Word Count**: Update the `wordLineCount` map with the count of each word.
+     - **Increment Total Lines**: Increase the `totalLines` count.
+   - **End of File**: Exit the loop if the end of the file is reached.
+5. **Close File**: Close the file after reading.
+6. **Calculate Threshold**: Compute the threshold as 50% of `totalLines`.
+7. **Print Results**:
+   - **Print Total Lines**: Output the total number of lines.
+   - **Print Threshold**: Output the computed threshold.
+   - **Print Words Above Threshold**: Output words that appear in more than the computed threshold number of lines.
+8. **End**: End of the program.
+
+Here’s the Mermaid syntax for a flowchart that represents this program’s logic:
+
+```mermaid
+flowchart TD
+    A[Start] --> B[Initialize Variables]
+    B --> C[Open File]
+    C --> D{Read Line}
+    D -->|Line is not null| E[Clear Current Line Words]
+    E --> F[Split Line into Words]
+    F --> G[Normalize and Add Words]
+    G --> H[Update Word Count]
+    H --> I[Increment Total Lines]
+    I --> D
+    D -->|End of File| J[Close File]
+    J --> K[Calculate Threshold]
+    K --> L[Print Total Lines]
+    L --> M[Print Threshold]
+    M --> N{Print Words Above Threshold}
+    N --> O[End]
+
+    J -->|IOException| P[Print Error Message]
+    P --> O
+```
+
+### Explanation of Flowchart Components
+
+1. **Start**: Represents the beginning of the program.
+2. **Initialize Variables**: Set up the `wordLineCount` map, `currentLineWords` set, and `totalLines` counter.
+3. **Open File**: Open the file using `FileAnalyzer.class.getResourceAsStream(fileName)`.
+4. **Read Line**: Loop to read each line from the file.
+   - **Line is Not Null**: Proceed if the line is not null.
+     - **Clear Current Line Words**: Prepare for the next line by clearing previous words.
+     - **Split Line into Words**: Split the line into an array of words.
+     - **Normalize and Add Words**: Convert words to lowercase and add to the set.
+     - **Update Word Count**: Update the word counts in the map.
+     - **Increment Total Lines**: Increase the line counter.
+   - **End of File**: End the loop when no more lines are left.
+5. **Close File**: Close the file stream.
+6. **Calculate Threshold**: Compute the threshold (50% of total lines).
+7. **Print Results**:
+   - **Print Total Lines**: Output the total number of lines read.
+   - **Print Threshold**: Output the computed threshold.
+   - **Print Words Above Threshold**: List words appearing in more than 50% of the lines.
+8. **End**: End of the program.
+
+**Error Handling**:
+   - **IOException**: Handles file reading errors and prints an error message.
+
+You can use the Mermaid Live Editor or other Mermaid-compatible tools to visualize this flowchart by copying and pasting the provided code.
+</details>	
 <details>
 <summary><b>Ways of Reading Files</b></summary>
 Java provides several ways to read and write files, each suitable for different scenarios. Here’s an overview of the primary methods:
