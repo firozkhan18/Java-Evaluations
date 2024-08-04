@@ -266,6 +266,7 @@ public class FileFilterLambdaExample {
 
 **Explanation:** The `FileFilter` interface has a single method `accept()`, making it a functional interface. The lambda expression `file -> file.isFile() && file.getName().toLowerCase().endsWith(".txt")` replaces the anonymous inner class.
 
+
 ### 5. **Thread Using Callable**
 
 **Anonymous Inner Class:**
@@ -308,6 +309,81 @@ public class CallableLambdaExample {
 **Explanation:** The `Callable` interface has a single method `call()`, making it a functional interface. The lambda expression `() -> 123` replaces the anonymous inner class.
 
 These examples illustrate how lambda expressions simplify and streamline code that uses functional interfaces, making the code more concise and readable.
+
+To use a `Stream` for processing files directly without creating an intermediate `String[]` array, you need to use `Files.list` or `Files.walk` from the `java.nio.file` package, which can directly create streams from directory contents. However, since `File.list` returns an array, if you want to stick with the `File` class and avoid creating an intermediate array, you would typically need to use a different approach.
+
+Here's how you can achieve this using `java.nio.file` APIs with `Files` to avoid creating an intermediate array:
+
+### Using `Files.list` for Directory Stream
+
+If you want to work with files and directories using `Stream` directly without creating an array, you should use the `java.nio.file` package. Here’s how you can list files with a `.txt` extension using `Files.list`:
+
+```java
+import java.io.IOException;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.util.stream.Stream;
+
+public class FileStreamExample {
+    public static void main(String[] args) {
+        Path dir = Paths.get("D:\\FirozKhan_Softwares");
+
+        try (Stream<Path> stream = Files.list(dir)) {
+            stream
+                .filter(path -> path.toString().toLowerCase().endsWith(".txt"))
+                .forEach(System.out::println);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+**Explanation:**
+- `Files.list(dir)` returns a `Stream<Path>` for the files in the specified directory.
+- `.filter(path -> path.toString().toLowerCase().endsWith(".txt"))` filters the stream to include only `.txt` files.
+- `.forEach(System.out::println)` prints each file path.
+
+### Using `Files.walk` for Recursive Directory Traversal
+
+If you need to search for files recursively within subdirectories, use `Files.walk`:
+
+```java
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.stream.Stream;
+
+public class FileStreamWalkExample {
+    public static void main(String[] args) {
+        Path dir = Paths.get("D:\\FirozKhan_Softwares");
+
+        try (Stream<Path> stream = Files.walk(dir)) {
+            stream
+                .filter(path -> Files.isRegularFile(path) && path.toString().toLowerCase().endsWith(".txt"))
+                .forEach(System.out::println);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+**Explanation:**
+- `Files.walk(dir)` returns a `Stream<Path>` for the files and directories starting from the specified directory, including subdirectories.
+- `.filter(path -> Files.isRegularFile(path) && path.toString().toLowerCase().endsWith(".txt"))` filters out regular files with `.txt` extension.
+- `.forEach(System.out::println)` prints each matching file path.
+
+### Summary
+
+- **`Files.list(Path dir)`**: For listing files in a directory (non-recursive).
+- **`Files.walk(Path dir)`**: For listing files and directories recursively.
+
+These methods allow you to work directly with `Stream<Path>` objects, avoiding the need to create an intermediate array of filenames.
 </details>
 
 Differences between Java 8 Map() Vs flatMap() :
