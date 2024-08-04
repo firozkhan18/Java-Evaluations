@@ -41,6 +41,645 @@
   - [instanceOf](#instanceof)
   </details>
 <details>
+<summary><b>1.4. Methods</b></summary>
+
+
+
+
+
+
+Certainly! Here are the Java methods for each of the described tasks:
+
+1. Write a Java method to find the smallest number among three numbers.
+
+### 1. Find the Smallest Number Among Three Numbers
+```java
+public static double findSmallest(double a, double b, double c) {
+    return Math.min(a, Math.min(b, c));
+}
+
+public static void main(String[] args) {
+    double num1 = 25;
+    double num2 = 37;
+    double num3 = 29;
+    System.out.println("The smallest value is " + findSmallest(num1, num2, num3));
+}
+```
+
+Test Data:
+Input the first number: 25
+Input the Second number: 37
+Input the third number: 29
+Expected Output:
+
+The smallest value is 25.0
+
+### 2. Compute the Average of Three Numbers
+
+2. Write a Java method to compute the average of three numbers.
+
+```java
+public static double computeAverage(double a, double b, double c) {
+    return (a + b + c) / 3.0;
+}
+
+public static void main(String[] args) {
+    double num1 = 25;
+    double num2 = 45;
+    double num3 = 65;
+    System.out.println("The average value is " + computeAverage(num1, num2, num3));
+}
+```
+
+Test Data:
+Input the first number: 25
+Input the second number: 45
+Input the third number: 65
+Expected Output:
+
+The average value is 45.0
+
+
+### 3. Display the Middle Character of a String
+
+3. Write a Java method to display the middle character of a string.
+
+Note: a) If the length of the string is odd there will be two middle characters.
+b) If the length of the string is even there will be one middle character.
+
+```java
+public static String findMiddleCharacter(String str) {
+    int length = str.length();
+    if (length % 2 == 0) {
+        return String.valueOf(str.charAt(length / 2 - 1));
+    } else {
+        return str.substring(length / 2, length / 2 + 2);
+    }
+}
+
+public static void main(String[] args) {
+    String input = "350";
+    System.out.println("The middle character in the string: " + findMiddleCharacter(input));
+}
+```
+
+Test Data:
+Input a string: 350
+Expected Output:
+
+                                                                          
+The middle character in the string: 5
+
+
+### 4. Count All Vowels in a String
+
+4. Write a Java method to count all vowels in a string.
+
+```java
+public static long countVowels(String str) {
+    return str.chars()
+              .mapToObj(c -> (char)c)
+              .filter(c -> "AEIOUaeiou".indexOf(c) != -1)
+              .count();
+}
+
+public static void main(String[] args) {
+    String input = "w3resource";
+    System.out.println("Number of vowels in the string: " + countVowels(input));
+}
+```
+Test Data:
+Input the string: w3resource
+Expected Output:
+
+Number of  Vowels in the string: 4
+
+
+### 5. Count All Words in a String
+
+5. Write a Java method to count all the words in a string.
+
+```java
+public static int countWords(String str) {
+    return str.split("\\s+").length;
+}
+
+public static void main(String[] args) {
+    String input = "The quick brown fox jumps over the lazy dog.";
+    System.out.println("Number of words in the string: " + countWords(input));
+}
+```
+Test Data:
+Input the string: The quick brown fox jumps over the lazy dog.
+Expected Output:
+
+Number of words in the string: 9
+
+
+### 6. Compute the Sum of Digits in an Integer
+
+6. Write a Java method to compute the sum of digits in an integer.
+
+```java
+public static int sumOfDigits(int number) {
+    int sum = 0;
+    while (number != 0) {
+        sum += number % 10;
+        number /= 10;
+    }
+    return sum;
+}
+
+public static void main(String[] args) {
+    int input = 25;
+    System.out.println("The sum is " + sumOfDigits(input));
+}
+```
+Test Data:
+Input an integer: 25
+Expected Output:
+
+The sum is 7 
+
+### 7. Display the First 50 Pentagonal Numbers
+
+7. Write a Java method to display the first 50 pentagonal numbers.
+Note: A pentagonal number is a figurate number that extends the concept of triangular and square numbers to the pentagon, but, unlike the first two, the patterns involved in the construction of pentagonal numbers are not rotationally symmetrical.
+
+
+```java
+public static void displayPentagonalNumbers(int count) {
+    for (int i = 1; i <= count; i++) {
+        int pentagonal = i * (3 * i - 1) / 2;
+        System.out.printf("%d ", pentagonal);
+        if (i % 10 == 0) {
+            System.out.println();
+        }
+    }
+}
+
+public static void main(String[] args) {
+    displayPentagonalNumbers(50);
+}
+```
+
+Expected Output:
+
+1     5     12    22    35    51    70    92    117   145
+176   210   247   287   330   376   425   477   532   590
+651   715   782   852   925   1001  1080  1162  1247  1335
+1426  1520  1617  1717  1820  1926  2035  2147  2262  2380
+2501  2625  2752  2882  3015  3151  3290  3432  3577  3725 
+
+### 8. Compute the Future Investment Value
+
+8. Write a Java method to compute the future investment value at a given interest rate for a specified number of years.
+
+```java
+public static void computeFutureValue(double investmentAmount, double annualInterestRate, int years) {
+    double monthlyInterestRate = annualInterestRate / 1200;
+    System.out.printf("%-10s%-20s%n", "Years", "FutureValue");
+    for (int year = 1; year <= years; year++) {
+        double futureValue = investmentAmount * Math.pow(1 + monthlyInterestRate, year * 12);
+        System.out.printf("%-10d%-20.2f%n", year, futureValue);
+    }
+}
+
+public static void main(String[] args) {
+    double investmentAmount = 1000;
+    double annualInterestRate = 10;
+    int years = 5;
+    computeFutureValue(investmentAmount, annualInterestRate, years);
+}
+```
+
+Sample data (Monthly compounded) and Output:
+
+Input the investment amount: 1000
+Input the rate of interest: 10
+Input number of years: 5
+
+Expected Output:
+
+Years    FutureValue                                     
+1            1104.71                                     
+2            1220.39                                     
+3            1348.18                                     
+4            1489.35                                     
+5            1645.31
+
+### 9. Print Characters Between Two Characters (A to P)
+
+9. Write a Java method to print characters between two characters (i.e. A to P).
+Note: Prints 20 characters per line
+
+```java
+public static void printCharacters(char start, char end) {
+    for (char ch = start; ch <= end; ch++) {
+        System.out.print(ch + " ");
+        if ((ch - start + 1) % 20 == 0) {
+            System.out.println();
+        }
+    }
+}
+
+public static void main(String[] args) {
+    printCharacters(' ', 'z');
+}
+```
+
+Expected Output:
+
+( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ;                  
+< = > ? @ A B C D E F G H I J K L M N O                  
+P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c                  
+d e f g h i j k l m n o p q r s t u v w                  
+x y z
+
+### 10. Check Whether a Year is a Leap Year
+
+10. Write a Java method to check whether a year (integer) entered by the user is a leap year or not.
+
+```java
+public static boolean isLeapYear(int year) {
+    return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+}
+
+public static void main(String[] args) {
+    int year = 2017;
+    System.out.println(year + " is a leap year: " + isLeapYear(year));
+}
+```
+Expected Output:
+
+Input a year: 2017                                                                        
+false
+
+
+### 11. Check Whether a String is a Valid Password
+
+11. Write a Java method to check whether a string is a valid password.
+Password rules:
+A password must have at least ten characters.
+A password consists of only letters and digits.
+A password must contain at least two digits.
+
+```java
+public static boolean isValidPassword(String password) {
+    return password.length() >= 10 && password.matches("[a-zA-Z0-9]*") && password.chars().anyMatch(Character::isDigit);
+}
+
+public static void main(String[] args) {
+    String password = "abcd1234";
+    System.out.println("Password is valid: " + isValidPassword(password));
+}
+```
+
+Expected Output:
+
+1. A password must have at least eight characters.                                             
+2. A password consists of only letters and digits.                                         
+3. A password must contain at least two digits                                        
+Input a password (You are agreeing to the above Terms and Conditions.): abcd1234           
+Password is valid: abcd1234
+
+### 12. Display an n-by-n Matrix
+
+12. Write a Java method (takes n as input) to display an n-by-n matrix.
+
+```java
+public static void displayMatrix(int n) {
+    int[][] matrix = new int[n][n];
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            matrix[i][j] = (i + j) % 2;
+            System.out.print(matrix[i][j] + " ");
+        }
+        System.out.println();
+    }
+}
+
+public static void main(String[] args) {
+    int n = 10;
+    displayMatrix(n);
+}
+```
+
+Expected Output:
+
+Input a number: 10                                                                         
+1 0 0 1 1 0 0 0 1 1                                                                       
+0 0 1 0 1 0 1 0 0 0                                                                        
+0 1 0 1 0 0 0 0 0 1                                                                       
+1 1 1 0 0 0 0 1 1 1                                                                        
+1 1 0 1 1 1 0 1 0 0                                                                      
+1 0 0 0 1 1 0 0 0 0                                                                       
+0 0 1 0 0 0 0 1 1 1                                                                      
+1 1 0 1 0 1 0 0 1 0                                                                       
+0 0 1 0 0 0 0 1 1 0                                                        
+1 1 1 0 0 1 1 1 1 0
+
+### 13. Calculate the Area of a Triangle
+
+13. Write Java methods to calculate triangle area.
+
+```java
+public static double calculateTriangleArea(double a, double b, double c) {
+    double s = (a + b + c) / 2;
+    return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+}
+
+public static void main(String[] args) {
+    double side1 = 10;
+    double side2 = 15;
+    double side3 = 20;
+    System.out.println("The area of the triangle is " + calculateTriangleArea(side1, side2, side3));
+}
+```
+
+Expected Output:
+
+Input Side-1: 10                                                                               
+Input Side-2: 15                                                                               
+Input Side-3: 20                                                                              
+The area of the triangle is 72.6184377413890
+
+### 14. Calculate the Area of a Pentagon
+
+14. Write a Java method to create a pentagon's area.
+
+```java
+public static double calculatePentagonArea(double side) {
+    return (5 * side * side) / (4 * Math.tan(Math.PI / 5));
+}
+
+public static void main(String[] args) {
+    double side = 6;
+    System.out.println("The area of the pentagon is " + calculatePentagonArea(side));
+}
+```
+
+Expected Output:
+
+Input the number of sides: 5                             
+Input the side: 6                                        
+The area of the pentagon is 61.93718642120281
+
+### 15. Display the Current Date and Time
+
+15. Write a Java method to display the current date and time.
+
+```java
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public static void displayCurrentDateTime() {
+    SimpleDateFormat formatter = new SimpleDateFormat("EEEE MMMM dd, yyyy HH:mm:ss");
+    String dateTime = formatter.format(new Date());
+    System.out.println("Current date and time: " + dateTime);
+}
+
+public static void main(String[] args) {
+    displayCurrentDateTime();
+}
+```
+
+Expected Output:
+
+Current date and time: Wednesday January 25, 2017 7:47:43
+
+### 16. Find All Twin Prime Numbers Less Than 100
+
+16. Write a Java method to find all twin prime numbers less than 100.
+
+```java
+public static boolean isPrime(int number) {
+    if (number <= 1) return false;
+    if (number <= 3) return true;
+    if (number % 2 == 0 || number % 3 == 0) return false;
+    for (int i = 5; i * i <= number; i += 6) {
+        if (number % i == 0 || number % (i + 2) == 0) return false;
+    }
+    return true;
+}
+
+public static void findTwinPrimes(int limit) {
+    for (int i = 2; i <= limit - 2; i++) {
+        if (isPrime(i) && isPrime(i + 2)) {
+            System.out.println("(" + i + ", " + (i + 2) + ")");
+        }
+    }
+}
+
+public static void main(String[] args) {
+    findTwinPrimes(100);
+}
+```
+
+Expected Output:
+
+(3, 5)                                                   
+(5, 7)                                                   
+(11, 13)                                                 
+(17, 19)                                                 
+(29, 31)                                                 
+(41, 43)                                                 
+(59, 61)                                                 
+(71, 73) 
+
+### 17. Count the Number of Digits in an Integer
+
+17. Write a Java method to count the number of digits in an integer with the value 2. The integer may be assumed to be non-negative.
+
+```java
+public static int countDigitOccurrences(int number, int digit) {
+    int count = 0;
+    while (number != 0) {
+        if (number % 10 == digit) {
+            count++;
+        }
+        number /= 10;
+    }
+    return count;
+}
+
+public static void main(String[] args) {
+    int number = 12541;
+    int digit = 2;
+    System.out.println("Number of occurrences of digit " + digit + " is " + countDigitOccurrences(number, digit));
+}
+```
+
+Expected Output:
+
+Input a number:  12541
+1
+
+### 18. Check Whether Three Integers are Consecutive
+
+18. Write a Java method that accepts three integers and checks whether they are consecutive or not. Returns true or false.
+
+```java
+public static boolean areConsecutive(int a, int b, int c) {
+    int[] numbers = {a, b, c};
+    Arrays.sort(numbers);
+
+
+    return numbers[1] - numbers[0] == 1 && numbers[2] - numbers[1] == 1;
+}
+
+public static void main(String[] args) {
+    int num1 = 15;
+    int num2 = 16;
+    int num3 = 17;
+    System.out.println("The numbers are consecutive: " + areConsecutive(num1, num2, num3));
+}
+```
+
+Expected Output:
+
+Input the first number:  15
+Input the second number:  16
+Input the third number:  17
+Check whether the three said numbers are consecutive or not!true
+
+
+### 19. Check if One Integer is the Midpoint Between Two Others
+
+19. Write a Java method that accepts three integers and returns true if one is the middle point between the other two integers, otherwise false.
+
+```java
+public static boolean isMidpoint(int a, int b, int c) {
+    return (a + c) / 2 == b || (b + c) / 2 == a || (a + b) / 2 == c;
+}
+
+public static void main(String[] args) {
+    int num1 = 2;
+    int num2 = 4;
+    int num3 = 6;
+    System.out.println("One number is the midpoint: " + isMidpoint(num1, num2, num3));
+}
+```
+
+Expected Output:
+
+Input the first number:  2
+Input the second number:  4
+Input the third number:  6
+Check whether the three said numbers has a midpoint!
+true
+
+
+### 20. Extract the First Digit from an Integer
+
+20. Write a Java method for extracting the first digit from a positive or negative integer.
+
+```java
+public static int extractFirstDigit(int number) {
+    number = Math.abs(number); // Handle negative numbers
+    while (number >= 10) {
+        number /= 10;
+    }
+    return number;
+}
+
+public static void main(String[] args) {
+    int number = 1234;
+    System.out.println("The first digit is: " + extractFirstDigit(number));
+}
+```
+
+Expected Output:
+
+Input an integer(positive/negative): 1234
+Extract the first digit from the said integer:
+1
+
+
+### 21. Display Factors of 3 in an Integer
+
+21. Write a Java method to display the factors of 3 in a given integer.
+
+```java
+public static void displayFactorsOf3(int number) {
+    StringBuilder factors = new StringBuilder();
+    int originalNumber = number;
+    while (number % 3 == 0) {
+        factors.append("3 * ");
+        number /= 3;
+    }
+    factors.append(number).append(" = ").append(originalNumber);
+    System.out.println("Factors of 3 of the said integer:");
+    System.out.println(factors);
+}
+
+public static void main(String[] args) {
+    int number = 81;
+    displayFactorsOf3(number);
+}
+```
+
+Expected Output:
+
+Input an integer(positive/negative): 81
+
+Factors of 3 of the said integer:
+81 = 3 * 3 * 3 * 3 * 1
+
+### 22. Check Whether Every Digit of a Given Integer is Even
+
+22. Write a Java method to check whether every digit of a given integer is even. Return true if every digit is odd otherwise false.
+
+```java
+public static boolean areAllDigitsEven(int number) {
+    number = Math.abs(number); // Handle negative numbers
+    while (number > 0) {
+        int digit = number % 10;
+        if (digit % 2 != 0) {
+            return false;
+        }
+        number /= 10;
+    }
+    return true;
+}
+
+public static void main(String[] args) {
+    int number = 8642;
+    System.out.println("All digits are even: " + areAllDigitsEven(number));
+}
+```
+
+Expected Output:
+
+Input an integer: 8642
+Check whether every digit of the said integer is even or not!
+true
+
+### 23. Check Whether All Characters in a String are Vowels
+
+23. Write a Java method that checks whether all the characters in a given string are vowels (a, e,i,o,u) or not. Return true if each character in the string is a vowel, otherwise return false.
+
+
+```java
+public static boolean areAllCharactersVowels(String str) {
+    return str.chars().allMatch(c -> "AEIOUaeiou".indexOf(c) != -1);
+}
+
+public static void main(String[] args) {
+    String input = "AIEEE";
+    System.out.println("All characters are vowels: " + areAllCharactersVowels(input));
+}
+```
+
+Expected Output:
+
+Input a string:  AIEEE
+Check all the characters of the said string are vowels or not!
+true
+
+These methods cover a range of common tasks and should provide a good foundation for various programming problems.
+</details> 
+<details>
 <summary><b>1.4. Java String</b></summary>
 In Java, the expression `strLine != null` is used to check if the `strLine` variable is not `null`. The output or result of this expression depends on the initial value assigned to `strLine`. Let’s examine the outcomes for both cases:
 
