@@ -1,3 +1,22 @@
+```mermaid
+flowchart TD
+    A[Start] --> B[Initialize StringBuilder and List]
+    B --> C[Open BufferedReader with FileReader]
+    C --> D{Read Line}
+    D -->|Line is not null| E[Append Line to StringBuilder]
+    E --> F[Add Line to List]
+    F --> D
+    D -->|Line is null| G[Print List]
+    G --> H[Close BufferedReader]
+    H --> I[End]
+
+    C -->|FileNotFoundException| J[Print "File not found"]
+    C -->|IOException| K[Print "Unable to read the file."]
+    
+    J --> I
+    K --> I
+```
+
 # Table of Contents
 
 <details>
@@ -24150,24 +24169,7 @@ public static void main(String a[]) {
 
 Here’s the Mermaid syntax for the flowchart that represents the logic of the above Java program:
 
-```mermaid
-flowchart TD
-    A[Start] --> B[Initialize StringBuilder and List]
-    B --> C[Open BufferedReader with FileReader]
-    C --> D{Read Line}
-    D -->|Line is not null| E[Append Line to StringBuilder]
-    E --> F[Add Line to List]
-    F --> D
-    D -->|Line is null| G[Print List]
-    G --> H[Close BufferedReader]
-    H --> I[End]
-
-    C -->|FileNotFoundException| J[Print "File not found"]
-    C -->|IOException| K[Print "Unable to read the file."]
-    
-    J --> I
-    K --> I
-```
+mermaid
 
 ### Explanation of the Flowchart
 
