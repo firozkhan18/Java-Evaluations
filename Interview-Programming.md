@@ -23937,6 +23937,87 @@ try {
 - **Code 2** accumulates the content of the file into a `StringBuilder` and prints each line. This approach is useful if you need to perform additional operations on the entire file content after reading it, such as further processing or manipulation. 
 
 - Both codes handle exceptions similarly but have different output handling and content accumulation strategies.
+
+### Flowchart
+
++-------------------+
+|       Start       |
++-------------------+
+          |
+          v
++-------------------+
+| Initialize        |
+| Variables          |
++-------------------+
+          |
+          v
++-------------------+
+| Open File         |
++-------------------+
+          |
+  +-------+-------+
+  |               |
+  v               |
++-------------------+
+| Success?          |
++-------------------+
+  |               |
+  | No            |
+  v               |
++-------------------+
+| FileNotFoundException |
+| Print "File not found" |
++-------------------+
+  |
+  v
++-------------------+
+| End               |
++-------------------+
+  |
+  v
++-------------------+
+| Read Line         |
++-------------------+
+          |
+  +-------+-------+
+  |               |
+  v               |
++-------------------+
+| Line is not null? |
++-------------------+
+  |               |
+  | No            |
+  v               |
++-------------------+
+| End of File      |
++-------------------+
+  |
+  v
++-------------------+
+| Process Line      |
+| Print Line        |
++-------------------+
+          |
+          v
++-------------------+
+| Read Next Line    |
++-------------------+
+          |
+          v
++-------------------+
+| Exception Handling|
++-------------------+
+          |
+          v
++-------------------+
+| Close File        |
++-------------------+
+          |
+          v
++-------------------+
+|        End        |
++-------------------+
+
 </details>
 
 <details>
