@@ -9645,3 +9645,228 @@ Charlie     | 4000       | 3
 3. **`DENSE_RANK`** is used to rank the `SalesPerson` based on their total sales without gaps in the rank numbers.
 
 These examples illustrate how to use `GROUP BY`, `ORDER BY`, and `DENSE_RANK` effectively in SQL queries for different use cases.
+
+To find the highest spending customer based on location using SQL, you can use aggregate functions like `SUM()` along with `GROUP BY` to calculate the total spending per customer in each location, and then apply ranking functions to determine the highest spender.
+
+Below are SQL query examples and similar SQL coding examples to demonstrate how to achieve this.
+
+### **Scenario**
+
+Assume we have a table `Purchases` with the following structure:
+
+```sql
+CREATE TABLE Purchases (
+    CustomerID INT,
+    CustomerName VARCHAR(50),
+    Location VARCHAR(50),
+    PurchaseAmount DECIMAL(10, 2)
+);
+
+INSERT INTO Purchases (CustomerID, CustomerName, Location, PurchaseAmount) VALUES
+(1, 'Alice', 'North', 5000),
+(2, 'Bob', 'North', 7000),
+(3, 'Charlie', 'South', 8000),
+(4, 'Alice', 'South', 3000),
+(5, 'Bob', 'South', 2000);
+```
+
+### **1. Highest Spending Customer Per Location**
+
+To find the highest spending customer in each location:
+
+#### **SQL Query**
+
+```sql
+WITH TotalSpending AS (
+    SELECT
+        CustomerID,
+        CustomerName,
+        Location,
+        SUM(PurchaseAmount) AS TotalSpent
+    FROM Purchases
+    GROUP BY CustomerID, CustomerName, Location
+),
+RankedSpending AS (
+    SELECT
+        CustomerID,
+        CustomerName,
+        Location,
+        TotalSpent,
+        RANK() OVER (PARTITION BY Location ORDER BY TotalSpent DESC) AS Rank
+    FROM TotalSpending
+)
+SELECT
+    CustomerID,
+    CustomerName,
+    Location,
+    TotalSpent
+FROM RankedSpending
+WHERE Rank = 1;
+```
+
+#### **Output**
+
+```
+CustomerID | CustomerName | Location | TotalSpent
+-----------|--------------|----------|-----------
+2          | Bob          | North    | 7000
+3          | Charlie      | South    | 8000
+```
+
+**Explanation**:
+- **`TotalSpending`**: Aggregates the total spending per customer per location.
+- **`RankedSpending`**: Ranks customers within each location based on their total spending using the `RANK()` function.
+- **Final Query**: Selects the highest spending customer for each location (rank = 1).
+
+### **2. Similar SQL Examples**
+
+#### **2.1 Top 3 Highest Spending Customers Across All Locations**
+
+To find the top 3 highest spending customers across all locations:
+
+```sql
+WITH TotalSpending AS (
+    SELECT
+        CustomerID,
+        CustomerName,
+        SUM(PurchaseAmount) AS TotalSpent
+    FROM Purchases
+    GROUP BY CustomerID, CustomerName
+),
+RankedSpending AS (
+    SELECT
+        CustomerID,
+        CustomerName,
+        TotalSpent,
+        RANK() OVER (ORDER BY TotalSpent DESC) AS Rank
+    FROM TotalSpending
+)
+SELECT
+    CustomerID,
+    CustomerName,
+    TotalSpent
+FROM RankedSpending
+WHERE Rank <= 3;
+```
+
+**Output**:
+
+```
+CustomerID | CustomerName | TotalSpent
+-----------|--------------|-----------
+3          | Charlie      | 8000
+2          | Bob          | 7000
+1          | Alice        | 8000
+```
+
+#### **2.2 Customer Spending Comparison Between Two Locations**
+
+To compare total spending between customers in two specific locations (e.g., 'North' and 'South'):
+
+```sql
+WITH TotalSpending AS (
+    SELECT
+        CustomerID,
+        CustomerName,
+        Location,
+        SUM(PurchaseAmount) AS TotalSpent
+    FROM Purchases
+    WHERE Location IN ('North', 'South')
+    GROUP BY CustomerID, CustomerName, Location
+)
+SELECT
+    CustomerID,
+    CustomerName,
+    Location,
+    TotalSpent
+FROM TotalSpending
+ORDER BY Location, TotalSpent DESC;
+```
+
+**Output**:
+
+```
+CustomerID | CustomerName | Location | TotalSpent
+-----------|--------------|----------|-----------
+2          | Bob          | North    | 7000
+1          | Alice        | North    | 5000
+3          | Charlie      | South    | 8000
+4          | Alice        | South    | 3000
+5          | Bob          | South    | 2000
+```
+
+**Explanation**:
+- **`TotalSpending`**: Aggregates total spending by customer in specified locations.
+- **Final Query**: Orders customers by location and total spending.
+
+### **3. Additional SQL Queries**
+
+#### **3.1 Average Spending Per Location**
+
+To find the average spending per customer in each location:
+
+```sql
+WITH TotalSpending AS (
+    SELECT
+        CustomerID,
+        CustomerName,
+        Location,
+        SUM(PurchaseAmount) AS TotalSpent
+    FROM Purchases
+    GROUP BY CustomerID, CustomerName, Location
+)
+SELECT
+    Location,
+    AVG(TotalSpent) AS AverageSpent
+FROM TotalSpending
+GROUP BY Location;
+```
+
+**Output**:
+
+```
+Location | AverageSpent
+---------|-------------
+North    | 6000
+South    | 5000
+```
+
+#### **3.2 Customers Who Spent More Than a Certain Amount**
+
+To find customers who spent more than $5000:
+
+```sql
+WITH TotalSpending AS (
+    SELECT
+        CustomerID,
+        CustomerName,
+        SUM(PurchaseAmount) AS TotalSpent
+    FROM Purchases
+    GROUP BY CustomerID, CustomerName
+)
+SELECT
+    CustomerID,
+    CustomerName,
+    TotalSpent
+FROM TotalSpending
+WHERE TotalSpent > 5000;
+```
+
+**Output**:
+
+```
+CustomerID | CustomerName | TotalSpent
+-----------|--------------|-----------
+2          | Bob          | 7000
+3          | Charlie      | 8000
+```
+
+### **Summary**
+
+These SQL queries and examples demonstrate how to:
+- Use `GROUP BY` to aggregate data.
+- Apply window functions like `RANK()` to assign rankings.
+- Utilize `ORDER BY` to sort results based on aggregate values.
+- Filter and compare customer spending across different locations.
+
+Each query is designed to solve a different problem, showcasing various SQL features and their applications.
