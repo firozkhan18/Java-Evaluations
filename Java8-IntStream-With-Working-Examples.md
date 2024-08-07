@@ -576,54 +576,52 @@ All Intermediate operations are lazy, so they’re not executed until a result o
 
 Traversal of the Stream does not begin until the terminal operation of the pipeline is executed.
 
-Stream Intermediate Operations:
+### Stream Intermediate Operations:
 Here is the list of all Stream intermediate operations:
-filter()
-map()
-flatMap()
-distinct()
-sorted()
-peek()
-limit()
-skip()
+- filter()
+- map()
+- flatMap()
+- distinct()
+- sorted()
+- peek()
+- limit()
+- skip()
 
 
 
 
 We will see example programs on each operation in the further article.
 
-2. filter() 
+### 2. filter() 
 Returns a stream consisting of the elements of this stream that match the given predicate.
 Syntax:
-Copy All Code
+```
 Stream filter​(Predicate predicate)
-
+```
 Example:
-Copy All Code
+```
 Stream intStream = Stream.of(1, 2, 3, 4, 5);
 Stream subStream = intStream.filter(value -> value > 3);
 long count = subStream.count();
 System.out.println(count);
-
+```
 Output:
-Copy All Code
 2
 
 This program takes Predicate functional interface as lambda and checks for the number is greater than 3.
 
-3. map()
+### 3. map()
 
 Returns a stream consisting of the results of applying the given function to the elements of this stream.
 
 Syntax: 
-
-Copy All Code
- Stream map​(Function mapper)
-
+```
+Stream map​(Function mapper)
+```
 
 Example:
 
-Copy All Code
+```
 // map() Operation
 Stream strStream = Stream.of("Welcome", "To", "java", "blog");
 Stream subStream2 = strStream.map(string -> {
@@ -633,46 +631,43 @@ Stream subStream2 = strStream.map(string -> {
 });
 List welomeList = subStream2.collect(Collectors.toList());
 System.out.println(welomeList);
-
+```
 
 Here, map function takes an argument type of Function. The function is a functional interface and has a method apply(). This method takes a value and returns another value.
 Output:
-Copy All Code
+
 [Welcome, To, Java-W3schools, blog]
 
 In this example, replacing the word "java" with "Java-W3schools".
 
 map() wrpper types are also comes under intermediate operations category.
-mapToDouble(), mapToLong(), mapToInt()
+> mapToDouble(), mapToLong(), mapToInt()
 
-4. flatMap()
+### 4. flatMap()
 
 This flatmap works best for a list of collections. We will show the example with two lists and how to convert them into a single stream using flatmap() method.
 syntax:
-Copy All Code
+```
 <R> Stream<R> flatMap(Function<? super T,? extends Stream<? extends R>> mapper)
-
+```
 Example:
 
 Example program to count the number of unique fruit names from two lists.
 
-Copy All Code
+```
 Stream flatStream = stream.flatMap(list -> list.stream());
 //flatStream.forEach(str -> System.out.println(str));
 long distinctFruites = flatStream.distinct().count();
 System.out.println(distinctFruites);
-
+```
 Output:
-
-Copy All Code
 6
 
-And also see the most common problem with solution when working with Stream "stream has already been operated upon or closed". After uncomming line flatStream.forEach(str -> System.out.println(str)); this program will exception java.lang.IllegalStateException.
-
+And also see the most common problem with solution when working with Stream "stream has already been operated upon or closed". After uncomming line `flatStream.forEach(str -> System.out.println(str));` this program will exception java.lang.IllegalStateException.
 
 Similar flatMap() methods for wrapper types such as flatMapToInt(), flatMapToLong(), flatMapToDouble().
 
-5. distinct()
+### 5. distinct()
 
 Returns a stream consisting of the distinct elements (according to Object.equals(Object)) of this stream.
 
@@ -682,22 +677,19 @@ Copy All Code
 Stream distinct()
 
 Example:
-
-Copy All Code
+```
 // distinct() Operation
 Stream fruitsStream = Stream.of("Apple", "Jack Fruit", "Water Melon", "Apple");
 Stream distinctStream = fruitsStream.distinct();
 distinctStream.forEach(name -> System.out.println(name));
-
+```
 Output:
-
-Copy All Code
 Apple
 Jack Fruit
 Water Melon
 
 
-6. sorted()
+### 6. sorted()
 
 Returns a stream consisting of the elements of this stream, sorted according to the natural order.
 If the elements of this stream are not Comparable, a java.lang.ClassCastException may be thrown when the terminal operation is executed.
@@ -705,24 +697,23 @@ If the elements of this stream are not Comparable, a java.lang.ClassCastExceptio
 
 Note: For ordered streams, the sort is stable. For unordered streams, no stability guarantees are made.
 Syntax:
-Copy All Code
+```
 Stream sorted()
+```
 Example:
-
-Copy All Code
+```
 // sort() Operation
 Stream vegStream = Stream.of("tomoto", "Green Chilli", "Pototo", "Beet root");
 Stream sortedStream = vegStream.sorted();
 sortedStream.forEach(name -> System.out.println(name));
-
+```
 Output:
-Copy All Code
 Beet root
 Green Chilli
 Pototo
 tomoto
 
-7. peek()
+### 7. peek()
 
 Returns a stream consisting of the elements of this stream, additionally performing the provided action on each element as elements are consumed from the resulting stream.
 
@@ -735,115 +726,113 @@ Copy All Code
 Stream peek​(Consumer action)
 
 Example:
-
-Copy All Code
+```
 // peek() Operation
 Stream.of("one", "two", "three", "four").filter(e -> e.length() > 3)
   .peek(e -> System.out.println("Filtered value: " + e)).map(String::toUpperCase)
   .peek(e -> System.out.println("Mapped value: " + e)).collect(Collectors.toList());
-
+```
 For each time filter condition satisfies, immediately peek() method will be invoked. See the output, you'll understand better.
 
 Output:
-Copy All Code
+
 Filtered value: three
 Mapped value: THREE
 Filtered value: four
 Mapped value: FOUR
 
-8. limit()
+### 8. limit()
 
 Returns a stream with the limited size given. It will truncate the remaining elements from the stream.
 
 Note: limit() is suitable for sequential streams and cannot give good performance results for parallel streams.
 
 Syntax:
-Copy All Code
+```
 Stream limit​(long maxSize)
-
+```
 Example:
 Program to limit the stream to first two elements.
 
-Copy All Code
+```
 Stream.of("one", "two", "three", "four").limit(2).forEach(item -> System.out.println(item));
-
+```
 Output:
-Copy All Code
 one
 two
 
-9. skip()
+### 9. skip()
 
 This method skips the given n elements and returns a Stream. This is the most useful when want to perform any operations on last n records or lines from a List or Stream.
 
 Syntax:
-Copy All Code
+```
 Stream skip​(long n)
-
+```
 Example:
 program to skip the first 2 elements and print remaining elements.
-Copy All Code
+```
 Stream.of("one", "two", "three", "four", "five").skip(2).forEach(item -> System.out.println(item));
-
+```
 Output:
-
-Copy All Code
 three
 four
 five
 
-
- We'll learn What are Terminal Operations in Java 8. List all Java 8 Stream Terminal Operations with Examples.
+We'll learn What are Terminal Operations in Java 8. List all Java 8 Stream Terminal Operations with Examples.
 Java-8 Stream terminal operations produce a non-stream, result such as primitive value, a collection or no value at all.
-Terminal operations are typically preceded by intermediate operations that return another Stream which allows operations to be connected in a form of a query. OR
+Terminal operations are typically preceded by intermediate operations that return another Stream which allows operations to be connected in a form of a query. 
+
+OR 
+
 Terminal operations can be performed on Java Stream directly.
-
-
 
 Whereas Stream Intermediate operations produce a stream as a result.
 
 
 
 
-2. List Terminal Operations
+### 2. List Terminal Operations
 
 Here is the list of all Stream terminal operations:
 
-toArray()
-collect()
-count()
-reduce()
-forEach()
-forEachOrdered()
-min()
-max()
-anyMatch()
-allMatch()
-noneMatch()
-findAny()
-findFirst()
+- toArray()
+- collect()
+- count()
+- reduce()
+- forEach()
+- forEachOrdered()
+- min()
+- max()
+- anyMatch()
+- allMatch()
+- noneMatch()
+- findAny()
+- findFirst()
 In further this article, we will be showing example programs on each operations.
 
-3. Stream toArray() Method Example
+### 3. Stream toArray() Method Example
 
 Returns an array containing the elements of this stream, using the provided generator function to allocate the returned array, as well as any additional arrays that might be required for a partitioned execution or for resizing.
 
 This will convert a stream into Object[] array or into a specified array to the IntFunction.
 
 Syntax:
-
+```
 Object[] toArray()
 <A> A[] toArray(IntFunction<A[]> generator)
+```
 Example:
-
+```
 Stream<Integer> stream = Stream.of(1, 2, 3, 4, 5);
 
 Object[] objArray = stream.toArray();
 System.out.println("objArray length " + objArray.length);
+```
  Output:
 
 objArray length 5
-4. Stream collect() Method Example
+### 4. Stream collect() Method Example
 
 collect() method is the one most used in stream pipeline at the end. This method is used to collect the output of the Stream into List or Set or to perform groupingby and partioningby operations on the stream.
 We have covered all possible operations on collect() method in the previous article.
@@ -851,73 +840,78 @@ We have covered all possible operations on collect() method in the previous arti
 Java 8 Stream Collectors API working examples.
 
 Syntax:
-
-
+```
 <R,​A> R collect​(Collector<? super T,​A,​R> collector)
+```
 Example:
 
 Stream<Integer> streamCOllect = Stream.of(1, 2, 3, 4, 5);
-
+```
 List<Integer> intList = streamCOllect.collect(Collectors.toList());
 Set<Integer> intSet = streamCOllect.collect(Collectors.toSet());
 Long count = streamCOllect.collect(Collectors.counting());
+```
 Output:
 
 We will get the count or size 5 for all statements.
 
-6. Stream count() Method Example
+### 6. Stream count() Method Example
 
 This method count of elements in this stream.
 
 Syntax:
-
+```
 long count()
+```
 Simply returns the long value for the stream.
 
 Example:
-
+```
 // Stream count() Method Example
 Stream<Integer> streamCount = Stream.of(1, 2, 3, 4, 5);
 long count = streamCount.count();
 System.out.println("count :: " + count);
+```
 Output:
 
 count :: 5
 This is a special case of a reduction and is equivalent to:
-
+```
 return mapToLong(e -> 1L).sum();
-7. Stream reduce() Example
+```
+### 7. Stream reduce() Example
 
 Wherever we need to perform the one operation multiple times and finally it produces one result such as min, max, avg, sum. In these scenarios reduce() method is very useful.
 
 Syntax:
-
+```
 Optional<T> reduce(BinaryOperator<T> accumulator)
+```
 Example:
 
 To find the sum of the first 5 integers from the stream.
-
-
+```
 // Stream count() Method Example
 Stream<Integer> streamReduce = Stream.of(1, 2, 3, 4, 5);
 Optional<Integer> sum = streamReduce.reduce((value1, value2) -> value1 + value2);
 System.out.println("sum of first 5 numbers using reduce opration : " + sum.get());
+```
 Output:
 
 
 sum of first 5 numbers using reduce opration : 15  
-7. Stream forEach() Example
+### 7. Stream forEach() Example
 
 This is very useful while debugging to print the values of the stream. This is used to perform one action on each value of stream and finally returns nothing.
 
 Syntax:
-
+```
 void forEach(Consumer<? super T> action)
+```
 This takes Consumer Functional Interface as an argument.
 
 Example:
-
-
+```
 // Stream forEach() Method Example
 Stream<Integer> streamForEach = Stream.of(1, 2, 3, 4, 5);
 // Printing the values
@@ -927,6 +921,7 @@ streamForEach.forEach(value -> System.out.println(value));
 List<Integer> numList = new ArrayList<>();
 streamForEach.forEach(value -> numList.add(value));
 System.out.println("numList : " + numList);
+```
 Output:
 3
 5
@@ -938,17 +933,17 @@ numList : [3, 5, 1, 4, 2]
 Note: This works for both sequential and parellel streams.
 
 
-8. Stream forEachOrdered() Example
+### 8. Stream forEachOrdered() Example
 
 This method works similarly to the forEach() but it executes the order they appear in the stream. This ignores the parallel() method invocation.
 
 Syntax:
-
-
+```
 void forEachOrdered(Consumer<? super T> action)
+```
 Example:
 
-
+```
 // Stream streamForEachOrdered() Method Example
 Stream<Integer> streamForEachOrdered = Stream.of(1, 2, 3, 4, 5).parallel();
 // Printing the values
@@ -958,7 +953,9 @@ streamForEachOrdered.forEachOrdered(value -> System.out.println(value));
 Stream<Integer> streamForEachOrderedList = Stream.of(1, 2, 3, 4, 5).parallel();
 List<Integer> numList1 = new ArrayList<>();
 streamForEachOrderedList.forEachOrdered(value -> numList1.add(value));
-System.out.println("numList1 : " + numList1);Output:
+System.out.println("numList1 : " + numList1);
+```
+Output:
 1
 2
 3
@@ -967,83 +964,103 @@ System.out.println("numList1 : " + numList1);Output:
 numList1 : [1, 2, 3, 4, 5]
 Compare the output with forEach() method output and see the order.
 
-9. Stream min() Example
+### 9. Stream min() Example
 
 min() method returns the minimum element of this stream according to the provided Comparator. This does first sorting and takes the first element from the sorted array.
 
 Syntax:
+```
 Optional<T> min(Comparator<? super T> comparator)
+```
 Example:
+```
 // Stream min() Method Example
 Stream<Integer> streamMin = Stream.of(1, 2, 3, 4, 5).parallel();
 Optional<Integer> min = streamMin.min((v1, v2) -> v1.compareTo(v2));
 System.out.println("Min value : " + min.get());
+```
 Output:
 Min value : 1
-10. Stream max() Example
+### 10. Stream max() Example
 
 This method returns the maximum element of this stream according to the provided Comparator. This internally does sorting first and get the last element from it. If the stream is having large data set then better not to use this.
 
 Syntax:
+```
 Optional<T> max(Comparator<? super T> comparator)
+```
 Example:
+```
 // Stream max() Method Example
 Stream<Integer> streamMax = Stream.of(1, 2, 3, 4, 5).parallel();
 Optional<Integer> max = streamMax.max((v1, v2) -> v1.compareTo(v2));
 System.out.println("Max value : " + max.get());
+```
 Output:
 
 Max value : 5
-11. Stream anyMatch() Example
+### 11. Stream anyMatch() Example
 
 This method checks the predicate condition. If any value in the stream matches to the given predicate then it returns true else false.
 
 Predicate is a functional interface that holds the condition.
-
+```
 Predicate p = value -> value > 0;
+```
 Syntax:
+```
 boolean anyMatch(Predicate<? super T> predicate)
+```
 Example:
+```
 // Stream anymatch() Method Example
 Stream<Integer> streamAnymatch = Stream.of(1, 2, 3, 4, 5).parallel();
 Predicate<Integer> anymatch = value -> value > 4;
 boolean isAnymatch = streamAnymatch.anyMatch(anymatch);
 System.out.println("anymatch value : " + isAnymatch);
-
+```
 Output:
 anymatch value : true
 If the stream is empty then returns false and predicate condition is not evaluated.
 
-12. Stream allMatch() Example
+### 12. Stream allMatch() Example
 
 This method also takes a predicate as an argument. Predicate holds a condition. If all values of stream match to the given predicate then it returns true else false.
 
 
 Syntax:
+```
 boolean allMatch(Predicate<? super T> predicate)
+```
 Example:
+```
 // Stream allmatch() Method Example 
 Stream<Integer> streamAllmatch = Stream.of(1, 2, 3, 4, 5).parallel();
 Predicate<Integer> allmatch = value -> value > 2;
 boolean isAllmatch = streamAllmatch.allMatch(allmatch);
 System.out.println("allmatch value : " + isAllmatch);
+```
 Output:
 allmatch value : false
 If the stream is empty then returns true and predicate condition is not evaluated.
 
 
-13. Stream noneMatch() Example
+### 13. Stream noneMatch() Example
 
 This takes a predicate as an argument. If all of the stream elements do not match the predicate condition then it returns true else false.
 
 Syntax:
+```
 boolean noneMatch(Predicate<? super T> predicate)
+```
 Example:
+```
 // Stream noneMatch() Method Example
 Stream<Integer> streamNoneMatch = Stream.of(1, 2, 3, 4, 5).parallel();
 Predicate<Integer> nonematch = value -> value > 7;
 boolean isNoneMatch = streamNoneMatch.noneMatch(nonematch);
 System.out.println("noneMatch method returned value : " + isNoneMatch);
+```
 Output:
 noneMatch method returned value : true
 
@@ -1057,37 +1074,45 @@ This will be getting the value randomly from the stream. That's why the method i
 The value will be returned as an Optional object. If the stream is empty then it returns empty Optional object.
 
 Syntax:
+```
 Optional<T> findAny()
+```
 Example:
+```
 // Stream findAny() Method Example
 Stream<Integer> streamFindAny = Stream.of(1, 2, 3, 4, 5).parallel();
 Predicate<Integer> findAny = value -> value % 2 == 1;
 Optional<Integer> findAnyOpt = streamFindAny.filter(findAny).findAny();
 System.out.println("Find any odd number : " + findAnyOpt.get());
+```
 Output:
 Find any odd number : 5
 Here 5 is picked up by findAny() method. If we run multiple times then it will return 1 or 3.
 
-15. Stream findFirst() Example
+### 15. Stream findFirst() Example
 
 This method get the first value always from stream. The value is returned as an instance of Optional. If the stream is empty them returns empty Optional object.
 
 Syntax:
+```
 Optional<T> findFirst()
+```
 Example:
+```
 // Stream findFirst() Method Example
 Stream<Integer> streamFindFirst = Stream.of(1, 2, 3, 4, 5).parallel();
 Predicate<Integer> findFirst = value -> value % 2 == 0;
 Optional<Integer> findFirstOpt = streamFindFirst.filter(findFirst).findFirst();
 System.out.println("Find first odd number : " + findFirstOpt.get());
+```
 Output:
 Find first odd number : 2
 If we call findFirst() multiple times and it will return always value 2.
 
-16. Full Examples Program
+### 16. Full Examples Program
 
 All the examples are shown in the single java program with output.
-
+```java
 package com.java.w3schools.blog.java8.streams;
 
 import java.util.ArrayList;
@@ -1193,7 +1218,9 @@ public class StreamTerminalOperations {
 
  }
 
-}Output:
+}
+````
+Output:
 objArray length 5
 count :: 5
 sum of first 5 numbers using reduce opration : 15
@@ -1216,7 +1243,7 @@ Find first odd number : 2
 We'll learn what are the ways to create a read only collection List, Set, or Map in java 8 and older versions. In other ways, It is called as Imuutale or unmodifiable collection.
 
 Usually, Whatever the objects that we create using a new keyword will create mutable collections objects as below.
-
+```java
 List<String> list = new ArrayList<String>();
 Next, On list instance, you can call add() or remove() methods of List interface.
 
@@ -1228,6 +1255,7 @@ list.remove("two");
 list.add("three");
 
 System.out.println("List values : "+list);
+```
 Output:
 
 
@@ -1237,7 +1265,7 @@ You can observe that previously added value "two" is removed from the list and a
 Our main core concept of this article is to make the existing list as read only after adding the needed values.
 
 
-2. Collections.unmodifiableCollection() Method
+### 2. Collections.unmodifiableCollection() Method
 
 The Collections utility class is added with several methods to make the collection as Read Only. All of these are static methods so directly can be accessed with the Collections class.
 
@@ -1245,10 +1273,11 @@ Collections.unmodifiableCollection() method returns an unmodifiable view of the 
 
 Syntax:
 
-
+```
 public static <T> Collection<T> unmodifiableCollection(Collection<? extends T> c)
+```
 Collections.unmodifiableCollection() Example:
-
+```java
 
 package com.javaprogramto.readonly;
 
@@ -1287,7 +1316,7 @@ public class ReadOnlyCollectionExample {
 
     }
 }
-
+```
 Output:
 
 
@@ -1298,14 +1327,15 @@ Now try to add the new value to the readOnlyList. Then, it will produce the runt
 readOnlyList.add("new value");
 Error:
 
-
+```
 Exception in thread "main" java.lang.UnsupportedOperationException
 at java.util.Collections$UnmodifiableCollection.add(Collections.java:1055)
 at ReadOnlyCollectionExample.main(ReadOnlyCollectionExample.java:25)
-3. Collections.unmodifiableList() - To make List as read only
+```
+### 3. Collections.unmodifiableList() - To make List as read only
 
 Returns an unmodifiable view of the specified list. Input argument must be a List interface implementation.
-
+```java
 package com.javaprogramto.readonly;
 
 import java.util.ArrayList;
@@ -1347,15 +1377,18 @@ public class ReadOnlyCollectionunmodifiableListExample {
         }
 
     }
-}Output:
+}
+```
+Output:
 List values : [one, three]
 Read only collection : [one, three]
 readOnlyList is a Read only collectionsNote: Making List as read only can be done in another way using Arrays.asList() method but Arrays class a utility method to only for List and not for Set, Map implementations.
 
 
-4. Collections.unmodifiableSet() - To make Set as read only
+### 4. Collections.unmodifiableSet() - To make Set as read only
 
 Collections.unmodifiableSet() returns a unmodifiable view for the given set. Input arguemnt must be Set interface implementation and either HashSet or LikedHashSet.
+```java
 package com.javaprogramto.readonly;
 
 import java.util.Collections;
@@ -1396,14 +1429,15 @@ public class ReadOnlyCollectionunmodifiableSetExample {
        
     }
 }
+```
 Output:
 Set values : [one, three]
 Read only collection : [one, three]
 readOnlySet is a Read only collections
-5. Collections.unmodifiableMap() - To make Map as read only
+### 5. Collections.unmodifiableMap() - To make Map as read only
 
 Collections.unmodifiableMap() returns a unmodifiable view for the given Map. Input arguments must be Set interface implementation and either HashMap or LikedHashMap or TreeMap.
-
+```java
 package com.javaprogramto.readonly;
 
 import java.util.Collections;
@@ -1442,11 +1476,13 @@ public class ReadOnlyCollectionunmodifiableMapExample {
 
         }
     }
-}Output:
+}
+```
+Output:
 Set map : {200=two, 300=three}
 Read only map : {200=two, 300=three}
 readOnlyMap is a Read only collections
-6. Java 9 Read Only List
+### 6. Java 9 Read Only List
 
 In java 9, It is very easy to do converting an Array into a List as read-only
 
@@ -1454,7 +1490,7 @@ List interface is added with static method List.of() which takes the varargs.
 String[] stringArray = {"1", "2"};
 
 List<String> stringList = List.of(stringArray);
-7. Java 10 Read Only List
+### 7. Java 10 Read Only List
 
 In java 10 api, List is added with copyOf() and Collectors added with toUnmodifiableList() method.
 List.copyOf(list);
@@ -1473,8 +1509,8 @@ Read article on Java 8 Lamda Expression Rules
 
 In this article, We will see the example programs on sorting using Comparator, File names validation, Retrieving only hidden files and filtering list objects based on conditions.
 
-2. Sorting - Lambda Expression
-2.1 Before Java 8
+## 2. Sorting - Lambda Expression
+### 2.1 Before Java 8
 
 See the below code which is implemented in older versions of Java. Here trying to sort the Employee's based on the id column.
 
@@ -1486,7 +1522,7 @@ Collections.sort(emplyeesList, new Comparator() {
 
 
 Here, written code in 5 lines in which includes Comparator implementation.
-2.2 In Java 8
+### 2.2 In Java 8
 See the below code in Java 8. All the code is in single line and not seeing comparing logic.
 
 emplyeesList.sort(Comparator.comparing(Employee::getId));
@@ -1497,8 +1533,8 @@ https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html
 
 Note: Function<T, R> also a Functional Interface. This has a method apply(T t) which will be called from Comparator.comparing() method.
 
-3. File Name Validation with Lambda Expression
-3.1 Before Java 8
+## 3. File Name Validation with Lambda Expression
+### 3.1 Before Java 8
 
 See the code in java old version. Here the core logic is file.getName().endsWith(".xml"); The remaining code is just syntax.
 
@@ -1507,15 +1543,15 @@ File[] hiddenFiles = new File("directory_name").listFiles(new FileFilter() {
   return file.getName().endsWith(".xml");
  }
 });
-3.2 In Java 8
+### 3.2 In Java 8
 The above code is simplified to single line which reduces the errors.
 
 File[] hiddenFiles = new File("directory_name").listFiles( file -> file.getName().endsWith(".xml"));
 Note: Java 8, just focus on the business logic and takes its syntax internally. Developer need not to worry about it.
 
 
-4. Retrieving only Hidden files - Lambda Expression
-4.1 Before java 8
+## 4. Retrieving only Hidden files - Lambda Expression
+### 4.1 Before java 8
 
 File has a method to check the method is hidden or not using isHidden() method.
 
@@ -1524,7 +1560,7 @@ File[] hiddenFiles = new File("directory_name").listFiles(new FileFilter() {
   return file.isHidden();
  }
 });
-4.2 In Java 8
+### 4.2 In Java 8
 Just using the new Method Reference concept as part of new Java 8.
 
 File[] hiddenFiles = new File("directory_name").listFiles(File::isHidden);
@@ -1542,7 +1578,7 @@ Lambda Sorting Example
 Invalid Lambda Expressions
 We have already shown few examples on Java 8 Examples Programs Before and After Lambda & Streams. Go through this article before continuing further on this tutorial. If you have basic understanding of lambda's then you are good to continue.
 
-2. Definition
+## 2. Definition
 
 Lambda Expression can be explained as an anonymous function without having a name and passing this anonymous function to another method as an argument.
 
@@ -1554,7 +1590,7 @@ This can be passed as an argument to a method or store in a variable.
 
 If you do not understand at this point, please do not worry. You will definitely understand after reading this complete tutorial.
 
-3. Comparing to Older Java versions
+### 3. Comparing to Older Java versions
 
 Many developers have a doubt why this concept is introduced in Java 8, not in prior versions of java. And also what is the importance of Lambda?
 
@@ -1567,7 +1603,7 @@ Lambdas technically don’t let you do anything that you couldn’t do prior to 
 
 Now code will become more readable and flexible.
 
-4. Lambda Syntax
+### 4. Lambda Syntax
 Now, We'll take a look at the Lambda syntax.
 
 (lambda parameters) -> (lambda body);
@@ -1588,20 +1624,20 @@ We will learn more about Lambda rules in this further tutorial. For now, take a 
 Interface interf = (int number) -> (System.out.println("Given number "+number));
 In the above example program, We are passing a number as an argument to lambda and printing the same value. On the left side, assigned Lambda to a functional interface that is perfectly legal. You will learn more about later in this article.
 
-5. Lambda Valid Examples
+## 5. Lambda Valid Examples
 We will see valid lambda examples. See more examples on java.util.Stream package.
 
 
-5.1 Getting String length
+### 5.1 Getting String length
 (String str) -> str.length();
 Here this takes one parameter of type string. This also returns a value that is int type. But, we can not see the returned type because not declared anywhere in the declaration. It is applied internally based on the lambda body. If lambda has only one statement and that hold value that becomes as a return type.
 
-5.2 Employee Rating check
+### 5.2 Employee Rating check
 
 (Employee emp) -> emp.getGrade().equals("A");
 Takes one parameter of type Employee and returns boolean. Lambda Body checks grade equal to the "A" then returns true or false.
 
-5.3 Concatenate two strings and print output
+### 5.3 Concatenate two strings and print output
 
 (String str1, String str2) -> {
                                String output = str1.concat(str2);
@@ -1609,46 +1645,46 @@ Takes one parameter of type Employee and returns boolean. Lambda Body checks gra
          }
 Takes two String parameters and returns nothing. That means the return type is void. The body has two statements that concatenate and prints the output string.
 
-6. Lambda Rules
+## 6. Lambda Rules
 As of have seen a few examples but you still may have some queries. Now we will see all the rules here that make clear for us.
 
-6.1 Parameters are optional. It can be zero or more.
+### 6.1 Parameters are optional. It can be zero or more.
 
  () -> {System.out.println("Hello World");};
  (int a) -> {System.out.println("value "+a);};
-6.2 If no parameters are available then we need to use empty parenthesis ().
+### 6.2 If no parameters are available then we need to use empty parenthesis ().
 
 () -> {System.out.println("Hello World");};
-6.3 If we have multiple parameters then need to separate them with a comma(,)
+### 6.3 If we have multiple parameters then need to separate them with a comma(,)
 
 (int a, int b) -> System.out.println("sum "+(a+b));
-6.4 if the body has the only statement then curly braces are optional.
+### 6.4 if the body has the only statement then curly braces are optional.
 
  (int a) -> System.out.println("value "+a);
-6.5 if the body has more than one statement then curly braces are mandatory.
+### 6.5 if the body has more than one statement then curly braces are mandatory.
 
  () -> {
    System.out.println("Hello World");};
    System.out.println("value "+a);
     };
-6.6 parameter type(s) is optional. No need to declare manually because compile can expect based on the context. We will discuss more in the next post.
+### 6.6 parameter type(s) is optional. No need to declare manually because compile can expect based on the context. We will discuss more in the next post.
 
  (a) -> System.out.println("value "+a);
  (a, b) -> System.out.println("sum "+(a+b));
-6.7 If only one parameter is available then parenthesis is optional.
+### 6.7 If only one parameter is available then parenthesis is optional.
 
 (int a) -> {System.out.println("value "+a);};
 The above can be rewritten as a -> {System.out.println("value "+a);};
 
-6.8 We can assign a lambda to Functional Interface.
+### 6.8 We can assign a lambda to Functional Interface.
 
 SummatiobInterface sumInt = (int a, int b) -> a+b;
 
-7. Where to Use Lambda
+## 7. Where to Use Lambda
 You may have a question that where should we use Lambda Expression. For this, the Answer is "usage on any interface which has only one abstract method". In other words, on any Functional Interface.
 
 Examples java API interfaces are Comparator, Runnable, Callable. All these interfaces are available in before java 8.
-
+```java
 public interface Comparator {
  int compare(T o1, T o2);
 }
@@ -1660,44 +1696,44 @@ public interface Runnable {
 public interface Callable {
  V call() throws Exception;
 }
-
+```
 Many functional interfaces are introduced in Java 8 also. Predicate and Supplier are well known to developers.
 
-7.1 Predicate:
+### 7.1 Predicate:
 Evaluates this predicate on the given argument. This takes type t as input and returns boolean.
-
+```java
 @FunctionalInterface
 public interface Predicate {
  boolean test (T t);
 }
-
+```
 Predicate Example
-
+```
 Predicate p = (emp) -> emp.isCompleted5years();
-
-7.2 Supplier:
+```
+### 7.2 Supplier:
 Represents a supplier of results. This can hold any value.
-
+```java
 @FunctionalInterface
 public interface Supplier {
 
     T get();
 }
-
+```
 Supplier Example
-
+```
 Supplier supplier = () -> "Java-W3schools";
 String str = supplier.get();
-
+```
 The Supplier is getting string type and we can get the value by calling get() method of Supplier.
 
 List of all functional interfaces in Java 12APIi
 
-8. Lambda Sorting Example
+## 8. Lambda Sorting Example
 Taking Employee class with id, salary, and designation fields. Now we want to sort the employees on salary.
 
 Creating Employee class with constructor, setter and getter methods. And also overridden toString() method to print all the fields of Employee.
-
+```java
 package com.java.w3schools.blog.streams.sorting;
 
 public class Employee {
@@ -1741,6 +1777,7 @@ public class Employee {
   return "Employee [id=" + id + ", salary=" + salary + ", designation=" + designation + "]";
  }
 }
+```
 Creating an Employee's array.
 
 Employee[] employees = { new Employee(100, 10000L, "Software Engineer"), new Employee(101, 5000L, "Junior SE"),
@@ -1749,11 +1786,11 @@ Converting Employee array into List<Employee>.
 
 List empList = Arrays.asList(employees);
 
-8.1 Sorting Traditional Approach
+### 8.1 Sorting Traditional Approach
 First, we will write a program using traditional comparator object creation using an anonymous inner class.
 
 Calling sort() method of List and passing an anonymous object for Comparator.
-
+```java
 System.out.println("empList Before sorting : "+empList);
 empList.sort(new Comparator() {
  @Override
@@ -1764,22 +1801,22 @@ empList.sort(new Comparator() {
 });
 
 System.out.println("empList after sorting : "+empList);
-
+```
 Output:
 
 empList Before sorting : [Employee [id=100, salary=10000, designation=Software Engineer], Employee [id=101, salary=5000, designation=Junior SE], Employee [id=105, salary=6000, designation=Junior SE], Employee [id=110, salary=2500, designation=Intern]]
 empList after sorting : [Employee [id=110, salary=2500, designation=Intern], Employee [id=101, salary=5000, designation=Junior SE], Employee [id=105, salary=6000, designation=Junior SE], Employee [id=100, salary=10000, designation=Software Engineer]]
-8.2 Sorting with Lambda
+### 8.2 Sorting with Lambda
 The above sorting code has lots of boiler plate code which is not required to write every time you sort.
 
 See the below code with lambda which reduces the code and makes it clear to focus on sorting logic.
-
+```java
 List lambdaEmpList = Arrays.asList(employees);
 
 System.out.println("lambdaEmpList Before sorting : " + lambdaEmpList);
 lambdaEmpList.sort((Employee o1, Employee o2) -> o1.getSalary().compareTo(o2.getSalary()));
 System.out.println("lambdaEmpList after sorting : " + lambdaEmpList);
-
+```
 Output will be the same as the traditional approach but the coding effort is reduced.
 
 sort() method takes two Employee parameters and compares the salary fields.
@@ -1789,7 +1826,7 @@ The same can be rewritten as below and works without any issues.
 lambdaEmpList.sort((o1, o2) -> o1.getSalary().compareTo(o2.getSalary()));
 Just removed the lambda parameters type because the compiler can infer the type from the underlying list. Here the list lambdaEmpList holds the Employee objects. So, the compiler can imply the type of Employee to o1 and o2.
 
-9. Invalid Lambda Expressions
+## 9. Invalid Lambda Expressions
 We've seen till now all valid lambda expressions. Now we'll see the invalid and what cases will get compile time errors.
 
 Creating a interface with only one Abstract Method.
@@ -1805,15 +1842,15 @@ Here will get a compile time error.
 Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
  Syntax error on token "return", delete this token
 Here, this lambda is returning String. This problem can be solved in two ways.
-9.1 return with curly braces
+### 9.1 return with curly braces
 if we write a statement with return "some value" statement then it must be enclosing in curly braces.
 
 LambdaInt lambdaInt =  (Integer value) -> { return value.toString();};
-9.2 remove return keyword
+### 9.2 remove return keyword
 If the lambda body has only one statement and that is a value then no need to use the return keyword. And also no need of curly braces. Now, We can rewrite as below.
 
 LambdaInt lambdaInt = (Integer value) -> value.toString();
-9.3 Another Illegal Lambda
+### 9.3 Another Illegal Lambda
 See the below Lambda which also give a compile error.
 
 LambdaInt lambdaInt2 = (Integer value) -> {"String Value of ";};
@@ -1832,7 +1869,7 @@ LambdaInt lambdaInt2 = (Integer value) -> {return "String Value of ";};
 Or remove the curly braces and semicolon.
 
 LambdaInt lambdaInt2 = (Integer value) -> "String Value of ";
-10. Conclusion
+## 10. Conclusion
 In this article, We've seen What is Lambda Expression and how it is added to Java 8.
 
 As well discussed all the following areas of Lambda's.
