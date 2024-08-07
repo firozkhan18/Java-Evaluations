@@ -9425,3 +9425,223 @@ Maps store key-value pairs, where each key is associated with a single value.
 - **Iterating**: Using for-each loops, `Iterator`, `ListIterator`, or stream API.
 
 Understanding the Java Collections Framework and Maps allows developers to choose the right data structures for their applications, optimizing performance and efficiency.
+
+In Java, the `final` keyword can be applied to variables, methods, and classes to restrict their modification in different ways. Understanding how `final` works with variables and objects is crucial for proper usage. Let’s break down what happens with `final` variables and why an object referenced by a `final` variable can still be modified.
+
+### **1. Final Variables**
+
+#### **1.1 Final Primitive Variables**
+
+When you declare a primitive variable as `final`, it means that once assigned a value, it cannot be changed. For example:
+
+```java
+final int x = 10;
+x = 20; // This will cause a compilation error.
+```
+
+#### **1.2 Final Reference Variables**
+
+When you declare a reference variable as `final`, it means that the reference (or address) stored in the variable cannot be changed after it has been assigned. However, the object to which the reference points can still be modified if its class allows it. 
+
+**Example**:
+```java
+final Employee emp = new Employee(101);
+emp = new Employee(102); // This will cause a compilation error.
+```
+
+In the above example, attempting to reassign `emp` to point to a different `Employee` object will result in a compilation error. This is because the reference variable `emp` is `final`, so its reference cannot be changed to point to a different `Employee` object.
+
+### **2. Modifying the Object**
+
+While you cannot change the reference of a `final` variable, you can still modify the object it references if the object’s class allows it. The `final` keyword only applies to the reference, not to the internal state of the object.
+
+**Example**:
+
+```java
+class Employee {
+    private int id;
+
+    public Employee(int id) {
+        this.id = id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+}
+
+public class FinalExample {
+    public static void main(String[] args) {
+        final Employee emp = new Employee(101);
+        System.out.println("Initial ID: " + emp.getId());
+
+        // Modifying the object’s internal state
+        emp.setId(102);
+        System.out.println("Modified ID: " + emp.getId());
+
+        // Attempting to reassign the reference will cause a compilation error
+        // emp = new Employee(103); // Uncommenting this line will cause a compilation error
+    }
+}
+```
+
+**Explanation**:
+- **Reference Modification**: The line `emp = new Employee(103);` is commented out because it would cause a compilation error. The `final` keyword prevents reassignment of the reference `emp` to a new `Employee` object.
+- **Object Modification**: The method `emp.setId(102);` successfully changes the internal state of the `Employee` object from `101` to `102`. This is because the `final` keyword does not restrict modifications to the object’s internal state, only the reference itself.
+
+### **3. Summary**
+
+- **Final Variable**: For primitive types, a `final` variable cannot be reassigned. For reference types, a `final` variable cannot be reassigned to a different object, but the object itself can still be modified if it provides methods to do so.
+- **Object State vs. Reference**: The `final` keyword affects the reference, not the state of the object. As long as the object's class allows state changes, those changes are permitted.
+
+In summary, `final` ensures immutability of the reference but not the object itself. The reference to an object marked as `final` cannot be changed to refer to another object, but the content or state of the object itself can be modified if the class does not restrict it.
+
+Certainly! Here's a detailed explanation of `GROUP BY`, `ORDER BY`, and `DENSE_RANK` in SQL, along with example queries and answers that demonstrate their usage.
+
+### **1. GROUP BY Clause**
+
+The `GROUP BY` clause is used in conjunction with aggregate functions to group rows that have the same values in specified columns into summary rows.
+
+#### **Example Scenario**
+
+Suppose we have a table named `Sales` with the following structure and data:
+
+```sql
+CREATE TABLE Sales (
+    SalesPerson VARCHAR(50),
+    Region VARCHAR(50),
+    SalesAmount DECIMAL(10, 2)
+);
+
+INSERT INTO Sales (SalesPerson, Region, SalesAmount) VALUES
+('Alice', 'North', 5000),
+('Bob', 'North', 3000),
+('Charlie', 'South', 4000),
+('Alice', 'South', 2000),
+('Bob', 'South', 6000);
+```
+
+#### **SQL Query**
+
+Find the total `SalesAmount` for each `Region`:
+
+```sql
+SELECT Region, SUM(SalesAmount) AS TotalSales
+FROM Sales
+GROUP BY Region;
+```
+
+#### **Output**
+
+```
+Region | TotalSales
+-------|------------
+North  | 8000
+South  | 12000
+```
+
+### **2. ORDER BY Clause**
+
+The `ORDER BY` clause is used to sort the result set of a query by one or more columns. Sorting can be done in ascending (`ASC`) or descending (`DESC`) order.
+
+#### **Example Scenario**
+
+Using the same `Sales` table, let’s order the sales by `SalesAmount` in descending order.
+
+#### **SQL Query**
+
+```sql
+SELECT SalesPerson, SalesAmount
+FROM Sales
+ORDER BY SalesAmount DESC;
+```
+
+#### **Output**
+
+```
+SalesPerson | SalesAmount
+------------|------------
+Bob         | 6000
+Bob         | 3000
+Charlie     | 4000
+Alice       | 5000
+Alice       | 2000
+```
+
+### **3. DENSE_RANK Function**
+
+The `DENSE_RANK` function is a window function that assigns ranks to rows within a partition of a result set. It assigns ranks without gaps. If two rows have the same value, they receive the same rank, and the next rank is incremented by one.
+
+#### **Example Scenario**
+
+Let’s rank the `SalesPerson` by `SalesAmount` within each `Region`.
+
+#### **SQL Query**
+
+```sql
+SELECT 
+    SalesPerson,
+    Region,
+    SalesAmount,
+    DENSE_RANK() OVER (PARTITION BY Region ORDER BY SalesAmount DESC) AS SalesRank
+FROM Sales;
+```
+
+#### **Output**
+
+```
+SalesPerson | Region | SalesAmount | SalesRank
+------------|--------|-------------|----------
+Bob         | South  | 6000        | 1
+Charlie     | South  | 4000        | 2
+Alice       | South  | 2000        | 3
+Alice       | North  | 5000        | 1
+Bob         | North  | 3000        | 2
+```
+
+### **Combined Example**
+
+To demonstrate `GROUP BY`, `ORDER BY`, and `DENSE_RANK` together, consider the following scenario where we want to:
+
+1. Calculate the total sales for each `SalesPerson`.
+2. Rank the `SalesPerson` by total sales.
+
+#### **SQL Query**
+
+```sql
+WITH TotalSales AS (
+    SELECT
+        SalesPerson,
+        SUM(SalesAmount) AS TotalSales
+    FROM Sales
+    GROUP BY SalesPerson
+)
+SELECT
+    SalesPerson,
+    TotalSales,
+    DENSE_RANK() OVER (ORDER BY TotalSales DESC) AS SalesRank
+FROM TotalSales
+ORDER BY SalesRank;
+```
+
+#### **Output**
+
+```
+SalesPerson | TotalSales | SalesRank
+------------|------------|----------
+Bob         | 9000       | 1
+Alice       | 7000       | 2
+Charlie     | 4000       | 3
+```
+
+### **Explanation**
+
+1. **`GROUP BY`** is used to aggregate sales amounts by `SalesPerson`.
+2. **`ORDER BY`** is used to sort the final result by the `SalesRank`.
+3. **`DENSE_RANK`** is used to rank the `SalesPerson` based on their total sales without gaps in the rank numbers.
+
+These examples illustrate how to use `GROUP BY`, `ORDER BY`, and `DENSE_RANK` effectively in SQL queries for different use cases.
